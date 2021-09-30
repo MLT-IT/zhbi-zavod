@@ -1,5 +1,5 @@
 {if 'popular_ids' | option}
-    <section class="product-slider">
+    <section class="product-slider sect-popular">
         <div class="wrapper">
             <div class="title-1">{$title ?: "Популярные товары"}</div>
             <div class="swiper-container fadeInUp">

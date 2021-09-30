@@ -2,9 +2,9 @@
 
 {block "page"}
     {include "file:sections/main/banner.tpl"}
+    {include "file:sections/popular/popular.tpl"}
     {include "file:sections/main/catalog.tpl"}
     {include "file:sections/main/promo.tpl"}
-    {include "file:sections/popular/popular.tpl"}
     {include "file:sections/main/stocks.tpl"}
     {include "file:sections/advantages.tpl"}
     <div class="wrapper">
