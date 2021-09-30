@@ -1,0 +1,197 @@
+.sect-cart
+    margin-bottom: 85px
+    padding-left: 16px
+
+    @media screen and (max-width: 520px)
+        padding-left: 10px
+        padding-right: 10px
+        margin-bottom: 91px
+
+    &__footer
+        padding: 18px 127px 18px 50px
+        color: #3C3C3B
+        position: relative
+        background: #F6F6F6
+
+        @media screen and (max-width: 520px)
+            padding-left: 7px
+
+        &::after
+            display: block
+            position: absolute
+            bottom: -10px
+            left: 0
+            width: 100%
+            content: ""
+            height: 10px
+            background: url(/assets/template/img/svg-sprite/triangle.svg) repeat-x
+
+    &__footer-content
+        display: table
+        margin-left: auto
+
+        @media screen and (max-width: 520px)
+            margin-left: 0
+
+    &__total-count-wrap
+        font-weight: bold
+        font-size: 14px
+        line-height: 120%
+        text-transform: uppercase
+
+    &__delivery
+        margin-top: 18px
+        font-size: 14px
+
+    &__title, &__inner
+        align-self: flex-start
+
+    &__cost
+        font-weight: bold
+        font-size: 24px
+        line-height: 120%
+
+        span
+            font: inherit
+
+    &__btn-print
+        display: inline-block
+        font-size: 14px
+        line-height: 120%
+        color: #3C3C3B
+        border-bottom: 1px dashed #b1b2b3
+        padding-bottom: 4px
+        margin-bottom: 22px
+
+        // Скрыли, потому что пока что нет дизайна печати
+        display: none
+
+        &:hover
+            padding-bottom: 5px
+            border-bottom: 0
+
+        &::before
+            margin-bottom: -3px
+            display: inline-block
+            content: ""
+            width: 13px
+            height: 15px
+            background-image: url(/assets/template/img/svg-sprite/icon-print.svg)
+            margin-right: 8px
+
+    &__inner
+        width: 100%
+
+    &__title
+        margin-top: 41px
+        margin-bottom: 34px
+
+        @media screen and (max-width: 520px)
+            margin: 21px auto 0
+            font-size: 24px
+            line-height: 120%
+
+    &__btn-clear-wrap
+        position: absolute
+        right: calc(7.5em + 30px)
+        margin-top: 65px
+
+        @media screen and (max-width: 1023px)
+            right: calc(1rem + 30px)
+
+        @media screen and (max-width: 520px)
+            position: static
+            right: auto
+            margin-top: 25px
+            margin-bottom: 25px
+
+    &__btn-clear
+        font-size: 14px
+        line-height: 120%
+        color: #3c3c3b
+        border-bottom: 1px dashed #b1b2b3
+        display: inline-block
+        padding: 0 0 2px 0
+        margin-left: -30px
+
+        &:hover
+            padding-bottom: 3px
+            border-bottom: 0
+
+            .sect-cart__btn-clear-cross
+                background: #252424
+
+    &__btn-clear-cross
+        background: #3C3C3B
+        border-radius: 100px
+        width: 20px
+        height: 20px
+        display: inline-block
+        position: absolute
+        margin-left: 10px
+
+        &::before, &::after
+            position: absolute
+            left: 9.5px
+            top: 5.5px
+            content: ""
+            height: 10px
+            width: 1px
+            background-color: #fff
+
+        &::before
+            transform: rotate(45deg)
+
+        &::after
+            transform: rotate(-45deg)
+
+    &__btn-back
+        border: 1px solid #3C3C3B
+
+        @media screen and (max-width: 520px)
+            margin-top: 16px
+            order: 1
+
+    &__btn-cost
+        margin-left: auto
+
+        @media screen and (max-width: 520px)
+            margin-left: 0
+
+    &__btn-back, &__btn-cost
+        width: 300px
+        font-size: 14px
+        line-height: 120%
+        color: #3C3C3B
+        padding: 0
+
+    &__bot-btns-wrap
+        margin-top: 43px
+        display: flex
+
+        @media screen and (max-width: 520px)
+            margin-top: 41px
+            flex-direction: column
+            align-items: center
+
+    &__empty
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-bottom: 101px
+
+        .sect-cart__btn-back
+            border: 0
+
+    &__empty-text
+        font-weight: bold
+        font-size: 24px
+        line-height: 120%
+        text-align: center
+        color: #3C3C3B
+        margin-bottom: 28px
+
+        @media screen and (max-width: 520px)
+            margin-top: 51px
+            margin-bottom: 0
+            font-size: 18px

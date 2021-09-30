@@ -1,0 +1,29 @@
+<div class="popup" id="callback">
+    <form method="POST" action class="popup__form form">
+        <h2 class="title-2 form__title">Оставьте свои контакты ниже</h2>
+        <div class="form__text">мы Вам перезвоним в течение 15 минут</div>
+        <div class="form__inputs">
+            <label>
+                <input type="text" placeholder="Укажите Ваше имя" name="NAME">
+                <div class="form__error"></div>
+            </label>
+            <label>
+                <input type="tel" placeholder="+7 (989) 999-99-99" name="PHONE">
+                <div class="form__error"></div>
+            </label>
+        </div>
+        <button type="submit" class="form__button yellow-btn">Перезвоните мне</button>
+        <label class="form__checkbox">
+            <input id="callback-policy" type="checkbox" name="callback-policy" checked>
+            <span>
+                <span>
+                     Нажимая кнопку «Перезвоните мне», Вы потверждаете, что ознакомились с
+                    <a data-fancybox data-type="ajax"
+                       data-src="/confidential.html"
+                       href="javascript:;">Условиями обработки персональных данных </a>
+                    и принимаете их
+                </span>
+            </span>
+        </label>
+    </form>
+</div>

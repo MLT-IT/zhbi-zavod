@@ -1,0 +1,1 @@
+<title>{$_modx->resource.longtitle ?: $_modx->resource.pagetitle}</title>
