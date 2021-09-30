@@ -1,11 +1,17 @@
 .header
+    padding-top: 20px
+
     &__logo-wrap
-        width: 139px
-        height: 33px
+        width: 161px
+        height: 40px
+        margin-right: 34px
+        flex-shrink: 0
 
     &__logo
+        display: block
         width: 100%
         height: auto
+        margin-right: 54px
 
     &__catalog
         border: 2px solid #4F70AD
@@ -17,13 +23,232 @@
         padding-left: 24px
         padding-right: 19px
 
+        &:hover, &.opened
+            .burger span:first-child
+                animation: top .7s ease forwards
+            .burger span:nth-child(2)
+                animation: scaled .7s ease forwards
+            .burger span:nth-child(3)
+                animation: bottom .7s ease forwards
+
         .burger
             span
                 background-color: #4F70AD
+                width: 100%
 
                 &:nth-last-of-type(1)
                     width: 10px
 
+                    @at-root .header__catalog:hover,  .header__catalog.opened
+                        .burger span:nth-last-of-type(1)
+                            width: 100%
+
+    &__catalog-text
+        font-weight: bold
+        font-size: 14px
+        line-height: 100%
+        color: #4F70AD
+        margin-left: 15px
+
+    &__search-wrap
+        flex-basis: 504px
+        height: 40px
+        display: flex
+        flex-shrink: 0
+
+    &__search
+        flex-basis: 464px
+        flex-shrink: 0
+        height: 40px
+        top: 80px
+        background: #F0F0F0
+        border-top-left-radius: 4px
+        border-bottom-left-radius: 4px
+        padding-top: 4px
+        padding-left: 16px
+
+    &__search-btn
+        width: 40px
+        height: 40px
+        background-color: #4F70AD
+        padding: 0
+        border-top-right-radius: 4px
+        border-bottom-right-radius: 4px
+        position: relative
+        transition: .3s
+
+        &:hover
+            background-color: #466295
+
+        &::before, &::after
+            display: block
+            content: ""
+            position: absolute
+
+        &::before
+            border: 2px solid #fff
+            width: 12.5px
+            height: 12.5px
+            border-radius: 100px
+            top: 10px
+            left: 10px
+
+        &::after
+            width: 7px
+            height: 2px
+            background: #fff
+            left: 22px
+            top: 26px
+            transform: rotate(45deg)
+
+    &__line
+        display: flex
+        align-items: center
+        width: 100%
+        margin-bottom: 25px
+
+    &__about-text
+        color: #B9B9B9
+        font-weight: 500
+        font-size: 16px
+
+    &__about-city
+        font-size: 14px
+        padding-left: 24px
+        position: relative
+
+        &::before
+            content: ""
+            width: 6px
+            height: 6px
+            display: block
+            border: solid #FFB400
+            border-width: 0 3px 3px 0
+            transform: rotate(45deg)
+            position: absolute
+            left: 3px
+            top: 1px
+            border-radius: 1px
+
+    &__contacts
+        margin-right: 48px
+
+    &__phone
+        font-weight: 500
+        font-size: 14px
+        line-height: 100%
+        color: #323232
+        margin-bottom: 5px
+
+    &__contacts-city
+        font-weight: 500
+        font-size: 14px
+
+    &__contacts-time
+        text-align: left
+        font-weight: 500
+        font-size: 14px
+        color: #B9B9B9
+
+    &__callback
+        color: #FFB400
+        font-weight: 500
+        font-size: 14px
+        line-height: 100%
+        text-decoration-line: underline
+        position: relative
+        padding-left: 19px
+
+        &:hover
+            text-decoration: none
+
+        svg
+            position: absolute
+            left: 0
+            width: 14.5px
+            height: 14.5px
+            fill: #FFB400
+            stroke: #FFB400
+            stroke-width: .3
+
+    &__callback-wrap
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    &__cart-button
+        background: transparent
+        width: 24px
+        height: auto
+        margin-right: 0
+
+        .icon-cart-2
+            width: 20px
+            height: 20px
+            fill: #000
+            transition: .3s
+
+    &__cart-value
+        background-color: #FFB400
+
+    &__cart
+        align-items: center
+        margin-right: 30px
+
+        &:hover
+            .header__cart-button
+                background: transparent
+
+    &__cart, &__fav
+        &:hover
+            .header__cart-text, .header__fav-text
+                color: #FFB400
+
+            .icon-cart-2
+                fill: #FFB400
+
+            .icon-heart
+               stroke: #FFB400
+
+    &__cart-text
+        font-size: 14px
+
+    &__cart, &__fav
+        align-items: center
+        display: flex
+
+    &__cart-text, &__fav-text
+        margin-left: 8px
+        transition: .3s
+
+    &__fav
+        font-weight: bold
+        font-size: 14px
+        height: 20px
+
+        .icon-heart
+            fill: transparent
+            stroke: #000
+            stroke-width: 2px
+            width: 18px
+            height: 16px
+            transition: .3s
+
+    &__nav-item
+
+        &:nth-last-of-type(n+2)
+            margin-right: 24px
+
+        a
+            font-weight: 400
+
+    &__nav
+        margin-top: 0
+        padding-bottom: 29px
+        border-bottom: 0
+        margin-bottom: 0
+
 
 .burger
-    width: 15px
+    min-width: 15px
+

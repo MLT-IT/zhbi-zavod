@@ -34,9 +34,9 @@ window.$      = $;
             return this.each(function () {
                 let $this = $(this);
 
-                // -------------------------------------
+                // -----------
                 // Установка переменных и data-значений
-                // -------------------------------------
+                // -----------
                 let events = 'change input keydown keyup mousedown mouseup select contextmenu drop';
                 let events_array = events.split(' ')
                 for (let i = 0; i < events_array.length; i++) {
@@ -48,9 +48,9 @@ window.$      = $;
                 $this.data(pluginName).init = true;
                 $this.data(pluginName).events = events;
 
-                // -------------------------------------
+                // -----------
                 // Функционал плагина
-                // -------------------------------------
+                // -----------
                 $this[0].oldValue = $this[0].value;
                 $this[0].oldSelectionStart = $this[0].selectionStart;
                 $this[0].oldSelectionEnd = $this[0].selectionEnd;
@@ -144,5 +144,13 @@ window.$      = $;
             });
         });
     }
+
+    // -------------------------------
+    // Меню
+    // -------------------------------
+    $('.header__catalog').on('click', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('opened');
+    });
 })(jQuery);
 
