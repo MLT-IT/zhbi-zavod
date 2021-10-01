@@ -44,12 +44,14 @@
 
             {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
 
+            {*
             <a class="header__fav" href="#">
                 <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                     <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
                 </svg>
                 <span class="header__fav-text">Избранное</span>
             </a>
+            *}
         </div>
 
         <nav class="header__nav">
