@@ -1,0 +1,42 @@
+.sect-pop
+    margin-top: 0
+
+    &__title
+        align-self: flex-start
+        margin-bottom: 24px
+
+    &__swiper-buttons
+        width: 96px
+        height: 40px
+        position: absolute
+        display: flex
+        right: 0
+
+        .swiper-button-prev, .swiper-button-next
+            width: 40px
+            height: 40px
+            display: flex
+            align-items: center
+            justify-content: center
+            border: solid #ffb400
+            border-radius: 4px
+            position: static
+            margin-top: 0
+
+            &::after
+                @extend %css-arrow
+                width: 12px
+                height: 12px
+
+        .swiper-button-prev
+            margin-right: 16px
+
+            &::after
+                transform: rotate(130deg)
+                margin-left: 5px
+
+
+        .swiper-button-next
+            &::after
+                transform: rotate(310deg)
+                margin-right: 5px

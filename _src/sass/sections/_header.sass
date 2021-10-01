@@ -118,17 +118,10 @@
         position: relative
 
         &::before
-            content: ""
-            width: 6px
-            height: 6px
-            display: block
-            border: solid #FFB400
-            border-width: 0 3px 3px 0
+            @extend %css-arrow
             transform: rotate(45deg)
-            position: absolute
             left: 3px
             top: 1px
-            border-radius: 1px
 
     &__contacts
         margin-right: 48px
