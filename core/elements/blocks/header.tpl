@@ -56,12 +56,12 @@
 
         <nav class="header__nav">
             <ul class="header__nav-list">
-                <li class="header__nav-item"><a href="{'4' | url}">Каталог</a></li>
                 <li class="header__nav-item"><a href="{'3' | url}">Доставка и оплата</a></li>
-                {*
                 <li class="header__nav-item"><a href="#">Гарантии</a></li>
                 <li class="header__nav-item sale"><a href="#">Скидки</a></li>
                 <li class="header__nav-item"><a href="#">Акции</a></li>
+                <li class="header__nav-item"><a href="#">О компании</a></li>
+                {*
                 <li class="header__nav-item openable"><a href="#">О компании</a>
                     <ul class="header__nav-sublist">
                         <li><a href="#">Вопрос-ответ</a></li>
@@ -70,6 +70,7 @@
                 </li>
                 *}
                 <li class="header__nav-item"><a href="{'2' | url}">Контакты</a></li>
+                <li class="header__nav-item header__nav-item_special"><a href="#">Акции</a>
             </ul>
         </nav>
     </div>

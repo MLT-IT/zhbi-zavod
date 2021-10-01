@@ -114,14 +114,14 @@
 
     &__about-city
         font-size: 14px
-        padding-left: 24px
         position: relative
+        //padding-left: 24px
 
-        &::before
-            @extend %css-arrow
-            transform: rotate(45deg)
-            left: 3px
-            top: 1px
+        //&::before
+        //    @extend %css-arrow
+        //    transform: rotate(45deg)
+        //    left: 3px
+        //    top: 1px
 
     &__contacts
         margin-right: 48px
@@ -158,11 +158,11 @@
         svg
             position: absolute
             left: 0
-            width: 14.5px
-            height: 14.5px
-            fill: #FFB400
-            stroke: #FFB400
-            stroke-width: .3
+            width: 17.5px
+            height: 17.5px
+            fill: transparent
+            stroke: #ffb400
+            stroke-width: 1.5
 
     &__callback-wrap
         display: flex
@@ -183,6 +183,11 @@
 
     &__cart-value
         background-color: #FFB400
+        width: 13px
+        height: 13px
+        top: -4px
+        right: 1px
+        font-size: 10px
 
     &__cart
         align-items: center
@@ -228,6 +233,15 @@
             transition: .3s
 
     &__nav-item
+        &_special
+            a
+                text-decoration-line: underline
+                color: #FFB400
+
+            &:hover
+                a
+                    text-decoration: none
+
         &:nth-last-of-type(n+2)
             margin-right: 24px
 
@@ -239,6 +253,7 @@
         padding-bottom: 29px
         border-bottom: 0
         margin-bottom: 0
+
 
 
 .burger
