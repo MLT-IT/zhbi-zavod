@@ -181,7 +181,18 @@
             fill: #000
             transition: .3s
 
-    &__cart-value
+    &__fav-value
+        border-radius: 100px
+        color: #fff
+        text-align: center
+        font-weight: 400
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        left: 8px
+
+    &__cart-value, &__fav-value
         background-color: #FFB400
         width: 13px
         height: 13px
@@ -223,6 +234,7 @@
         font-weight: bold
         font-size: 14px
         height: 20px
+        position: relative
 
         .icon-heart
             fill: transparent
