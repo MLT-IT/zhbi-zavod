@@ -82,5 +82,9 @@
                 <li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>
             </ul>
         </nav>
+
+        <div class="header__down-btns">
+            {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
+        </div>
     </div>
 </header>
