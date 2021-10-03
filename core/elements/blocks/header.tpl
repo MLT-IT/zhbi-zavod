@@ -46,17 +46,22 @@
                 <button class="header__search-btn"></button>
             </form>
 
-            {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
+            <div class="header__btns-wrap">
+                {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
 
-            {*
-            <a class="header__fav" href="#">
-                <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
-                </svg>
-                <span class="header__fav-value">5</span>
-                <span class="header__fav-text">Избранное</span>
-            </a>
-            *}
+                <a class="header__fav" href="#">
+                    <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
+                    </svg>
+                    <span class="header__fav-value">5</span>
+                    <span class="header__fav-text">Избранное</span>
+                </a>
+
+                <a class="header__cat" href="{$id | url}">
+                    <span class="header__cat-icon"></span>
+                    <span class="header__cat-text">Каталог</span>
+                </a>
+            </div>
         </div>
         <nav class="header__nav">
             <p class="header__nav-header">Каталог</p>
@@ -82,9 +87,5 @@
                 <li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>
             </ul>
         </nav>
-
-        <div class="header__down-btns">
-            {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
-        </div>
     </div>
 </header>

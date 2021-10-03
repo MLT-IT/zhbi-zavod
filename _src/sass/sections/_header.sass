@@ -52,8 +52,10 @@
         margin-right: 34px
         flex-shrink: 0
 
-        @media screen and (max-width: 480px)
+        @media screen and (max-width: 900px)
             margin-right: 0
+
+        @media screen and (max-width: 480px)
             width: 108px
             height: 26px
 
@@ -180,7 +182,7 @@
         @media screen and (max-width: 768px)
             display: none
 
-    &__callback-wrap, &__contacts, &__catalog, &__cart
+    &__callback-wrap, &__contacts, &__catalog
         @media screen and (max-width: 768px)
             display: none
 
@@ -254,6 +256,10 @@
         position: absolute
         left: 8px
 
+        @media screen and (max-width: 768px)
+            right: 18px
+            left: auto
+
     &__cart-value, &__fav-value
         background-color: #FFB400
         width: 13px
@@ -265,38 +271,103 @@
     &__cart
         align-items: center
         margin-right: 30px
+        margin-left: 0
+
+        @media screen and (max-width: 900px)
+            margin-right: 15px
+
+        @media screen and (max-width: 768px)
+            order: 3
 
         &:hover
-            .header__cart-button
-                background: transparent
-
-    &__cart, &__fav
-        &:hover
-            .header__cart-text, .header__fav-text
+            .header__cart-text
                 color: #FFB400
 
             .icon-cart-2
                 fill: #FFB400
 
-            .icon-heart
-               stroke: #FFB400
-
-    &__cart-text
-        font-size: 14px
+            .header__cart-button
+                background: transparent
 
     &__cart, &__fav
         align-items: center
         display: flex
 
-    &__cart-text, &__fav-text
+    &__cart, &__fav, &__cat
+        @media screen and (max-width: 768px)
+            flex-direction: column
+            align-items: center
+            height: 36px
+
+    &__cat-icon
+        position: relative
+        width: 16.5px
+        height: 16.5px
+
+        &::before, &::after
+            display: block
+            content: ""
+            position: absolute
+
+        &::before
+            border: 2px solid #323232
+            width: 10px
+            height: 10px
+            border-radius: 100px
+            transition: .3s
+            top: 0
+            left: 0
+
+        &::after
+            border-top: 2px solid #323232
+            transform: rotate(45deg)
+            width: 6px
+            transition: .3s
+            top: 13px
+            left: 10px
+
+    &__cat
+        display: none
+        align-items: center
+        order: 1
+        margin-right: 40px
+
+        @media screen and (max-width: 768px)
+            display: flex
+
+        &:hover
+            .header__cat-text
+                color: #FFB400
+
+            .header__cat-icon
+                &::after, &::before
+                    border-color: #FFB400
+
+    &__cart-text, &__fav-text, &__cat-text
         margin-left: 8px
         transition: .3s
-
-    &__fav
         font-weight: bold
         font-size: 14px
-        height: 20px
+
+        @media screen and (max-width: 768px)
+            font-size: 12px
+            font-weight: 500
+            margin-left: 0
+            margin-top: auto
+
+    &__fav
         position: relative
+
+        @media screen and (max-width: 768px)
+            order: 2
+            margin-right: 40px
+
+        &:hover
+            .header__fav-text
+                color: #FFB400
+
+            .icon-heart
+                stroke: #FFB400
 
         .icon-heart
             fill: transparent
@@ -390,19 +461,21 @@
         @media screen and (max-width: 768px)
             display: block
 
-    &__down
-        background: #FFFFFF
-        box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+    &__btns-wrap
+        display: flex
+        margin-left: 30px
 
-    &__down-btns
-        display: none
-        background-color: #fff
-        bottom: 0
-        height: 56px
-        position: fixed
-        box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
-        width: 100%
-        left: 0
+        @media screen and (max-width: 900px)
+            margin-left: 12px
 
         @media screen and (max-width: 768px)
-            display: block
+            align-items: center
+            justify-content: center
+            margin-left: 0
+            background-color: #fff
+            bottom: 0
+            height: 56px
+            position: fixed
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+            width: 100%
+            left: 0
