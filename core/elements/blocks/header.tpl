@@ -1,3 +1,7 @@
+<div class="header-sticky"></div>
+<div class="mobile-sticky-header"></div>
+<div class="mobile-header"></div>
+
 <header class="header">
     <div class="header__wrapper wrapper">
         <a href="#" class="header__burger burger">
