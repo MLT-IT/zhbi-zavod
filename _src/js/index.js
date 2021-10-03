@@ -152,5 +152,12 @@ window.$      = $;
         e.preventDefault();
         $(this).toggleClass('opened');
     });
+
+    $('.header__burger').on('click', function(e) {
+        e.preventDefault();
+        let $this = $(this);
+        $this.toggleClass('opened');
+        $this.closest('.header__wrapper').find('.header__nav').toggleClass('opened');
+    });
 })(jQuery);
 

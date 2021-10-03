@@ -1,6 +1,11 @@
 <header class="header">
-    <div class="wrapper is-wide">
-        <div class="header__line">
+    <div class="header__wrapper wrapper">
+        <a href="#" class="header__burger burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <div class="header__line header__line_type_about">
             <div class="header__about">
                 <div class="header__about-text">Комплексная поставка строительных материалов</div>
                 <a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>
@@ -19,8 +24,7 @@
                 </a>
             </div>
         </div>
-
-        <div class="header__line">
+        <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
                 <img class="header__logo" src="/assets/template/img/logo.svg">
             </a>
@@ -38,7 +42,7 @@
                 </ul>
             </a>
             <form class="header__search-wrap">
-                <input class="header__search" placeholder="Поиск по сайту">
+                <input class="header__search" placeholder="Поиск по сайту" name="search">
                 <button class="header__search-btn"></button>
             </form>
 
@@ -54,14 +58,18 @@
             </a>
             *}
         </div>
-
         <nav class="header__nav">
+            <p class="header__nav-header">Каталог</p>
+            <form class="header__search-wrap" name="search">
+                <input class="header__search" placeholder="Поиск по сайту">
+                <button class="header__search-btn"></button>
+            </form>
             <ul class="header__nav-list">
-                <li class="header__nav-item"><a href="{'3' | url}">Доставка и оплата</a></li>
-                <li class="header__nav-item"><a href="#">Гарантии</a></li>
-                <li class="header__nav-item sale"><a href="#">Скидки</a></li>
-                <li class="header__nav-item"><a href="#">Акции</a></li>
-                <li class="header__nav-item"><a href="#">О компании</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="{'3' | url}">Доставка и оплата</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#">Гарантии</a></li>
+                <li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#">Акции</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="#">О компании</a></li>
                 {*
                 <li class="header__nav-item openable"><a href="#">О компании</a>
                     <ul class="header__nav-sublist">
@@ -70,8 +78,8 @@
                     </ul>
                 </li>
                 *}
-                <li class="header__nav-item"><a href="{'2' | url}">Контакты</a></li>
-                <li class="header__nav-item header__nav-item_special"><a href="#">Акции</a>
+                <li class="header__nav-item"><a class="header__nav-link" href="{'2' | url}">Контакты</a></li>
+                <li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>
             </ul>
         </nav>
     </div>

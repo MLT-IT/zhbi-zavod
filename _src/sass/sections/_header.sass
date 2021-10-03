@@ -1,11 +1,59 @@
 .header
     padding-top: 20px
+    display: block
+
+    &__burger, &__line
+        @media screen and (max-width: 768px)
+            z-index: 20
+
+    &::before
+        width: 100%
+        position: absolute
+        bottom: 0
+        background-color: #fff
+        left: 0
+        box-shadow: 0px 4px 40px rgba(25, 41, 63, 0.08)
+        height: 100%
+        z-index: 10
+
+        @media screen and (max-width: 768px)
+            content: ""
+
+    @media screen and (max-width: 768px)
+        padding-bottom: 20px
+        position: fixed
+        top: 0
+        z-index: 100
+        height: 80px
+
+    &__about
+        @media screen and (max-width: 768px)
+            margin-right: 0
+
+    &__burger
+        display: none
+        margin-right: 16.5px
+
+        @at-root .header__burger.burger span
+            background-color: #323232
+
+        @media screen and (max-width: 768px)
+            display: block
+
+    &__wrapper
+        @media screen and (max-width: 768px)
+            flex-direction: row
 
     &__logo-wrap
         width: 161px
         height: 40px
         margin-right: 34px
         flex-shrink: 0
+
+        @media screen and (max-width: 480px)
+            margin-right: 0
+            width: 108px
+            height: 26px
 
     &__logo
         display: block
@@ -23,26 +71,6 @@
         padding-left: 24px
         padding-right: 19px
 
-        &:hover, &.opened
-            .burger span:first-child
-                animation: top .7s ease forwards
-            .burger span:nth-child(2)
-                animation: scaled .7s ease forwards
-            .burger span:nth-child(3)
-                animation: bottom .7s ease forwards
-
-        .burger
-            span
-                background-color: #4F70AD
-                width: 100%
-
-                &:nth-last-of-type(1)
-                    width: 10px
-
-                    @at-root .header__catalog:hover,  .header__catalog.opened
-                        .burger span:nth-last-of-type(1)
-                            width: 100%
-
     &__catalog-text
         font-weight: bold
         font-size: 14px
@@ -54,11 +82,9 @@
         flex-basis: 504px
         height: 40px
         display: flex
-        flex-shrink: 0
 
     &__search
         flex-basis: 464px
-        flex-shrink: 0
         height: 40px
         top: 80px
         background: #F0F0F0
@@ -68,7 +94,6 @@
         padding-left: 16px
 
     &__search-btn
-        width: 40px
         height: 40px
         background-color: #4F70AD
         padding: 0
@@ -76,6 +101,8 @@
         border-bottom-right-radius: 4px
         position: relative
         transition: .3s
+        flex-basis: 40px
+        flex-shrink: 0
 
         &:hover
             background-color: #466295
@@ -107,14 +134,39 @@
         width: 100%
         margin-bottom: 25px
 
+        & > .header__search-wrap
+            @media screen and (max-width: 768px)
+                display: none
+
+        @media screen and (max-width: 768px)
+            margin-bottom: 0
+
+        &_type
+            &_elems
+                @media screen and (max-width: 768px)
+                    order: 1
+
+            &_about
+                @media screen and (max-width: 768px)
+                    order: 2
+
     &__about-text
         color: #B9B9B9
         font-weight: 500
         font-size: 16px
 
+        @media screen and (max-width: 768px)
+            margin-bottom: 0
+
+        @media screen and (max-width: 480px)
+            font-size: 10px
+            line-height: 12px
+
     &__about-city
         font-size: 14px
         position: relative
+
+        // Закомментировал, т.к. нету городов пока что
         //padding-left: 24px
 
         //&::before
@@ -122,6 +174,13 @@
         //    transform: rotate(45deg)
         //    left: 3px
         //    top: 1px
+
+        @media screen and (max-width: 768px)
+            display: none
+
+    &__callback-wrap, &__contacts, &__catalog, &__cart
+        @media screen and (max-width: 768px)
+            display: none
 
     &__contacts
         margin-right: 48px
@@ -132,6 +191,7 @@
         line-height: 100%
         color: #323232
         margin-bottom: 5px
+        white-space: nowrap
 
     &__contacts-city
         font-weight: 500
@@ -244,7 +304,17 @@
             height: 16px
             transition: .3s
 
+    &__nav-link
+        @media screen and (max-width: 768px)
+            padding-top: 16px
+            padding-bottom: 16px
+            width: 100%
+            padding-left: 24px
+
     &__nav-item
+        @media screen and (max-width: 768px)
+            width: 100%
+
         &_special
             a
                 text-decoration-line: underline
@@ -255,10 +325,18 @@
                     text-decoration: none
 
         &:nth-last-of-type(n+2)
-            margin-right: 24px
+            @media screen and (min-width: 769px)
+                margin-right: 24px
+
+        &:nth-last-of-type(n)
+            @media screen and (max-width: 768px)
+                margin-right: 0
 
         a
             font-weight: 400
+
+        &::after
+            display: none
 
     &__nav
         margin-top: 0
@@ -266,8 +344,42 @@
         border-bottom: 0
         margin-bottom: 0
 
+        .header__search-wrap
+            @media screen and (min-width: 769px)
+                display: none
 
+        &.opened
+            @media screen and (max-width: 768px)
+                transform: translateX(0)
 
-.burger
-    min-width: 15px
+        @media screen and (max-width: 768px)
+            transition: .3s
+            transform: translateX(-100%)
+            overflow-y: auto
+            display: block
+            width: 320px
+            height: calc(100vh - 60px)
+            position: absolute
+            top: 60px
+            left: 0
+            padding: 22px 16px
+            background: #fff
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
 
+    &__nav-list
+        @media screen and (max-width: 768px)
+            display: flex
+            flex-direction: column
+            left: 0
+            width: 100%
+
+    &__nav-header
+        display: none
+        font-weight: bold
+        font-size: 16px
+        line-height: 100%
+        color: #323232
+        margin-bottom: 12px
+
+        @media screen and (max-width: 768px)
+            display: block

@@ -1,0 +1,29 @@
+.header
+    .burger
+        min-width: 15px
+
+        span
+            background-color: #4F70AD
+            width: 100%
+
+            &:nth-last-of-type(1)
+                width: 10px
+
+                @at-root .header__catalog.opened
+                    .burger
+                        & span:nth-child(1)
+                            animation: top .7s ease forwards
+                        & span:nth-child(2)
+                            animation: scaled .7s ease forwards
+                        & span:nth-child(3)
+                            animation: bottom .7s ease forwards
+                            width: 100%
+
+                @at-root .header__burger.opened
+                    & span:nth-child(1)
+                        animation: top .7s ease forwards
+                    & span:nth-child(2)
+                        animation: scaled .7s ease forwards
+                    & span:nth-child(3)
+                        animation: bottom .7s ease forwards
+                        width: 100%

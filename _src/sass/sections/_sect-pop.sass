@@ -10,7 +10,13 @@
         height: 40px
         position: absolute
         display: flex
-        right: 0
+        right: 15px
+
+        @media screen and (max-width: 580px)
+            position: static
+            right: auto
+            margin-bottom: 28px
+            align-self: flex-start
 
         .swiper-button-prev, .swiper-button-next
             width: 40px
@@ -18,15 +24,23 @@
             display: flex
             align-items: center
             justify-content: center
-            border: solid #ffb400
+            border: 1.5px solid #ffb400
             border-radius: 4px
             position: static
             margin-top: 0
+            transition: .3s
+
+            &:hover
+                background: #ffb400
+
+                &::after
+                    border-color: #fff
 
             &::after
                 @extend %css-arrow
-                width: 12px
-                height: 12px
+                width: 7px
+                height: 7px
+                transition: .3s
 
         .swiper-button-prev
             margin-right: 16px
@@ -34,7 +48,6 @@
             &::after
                 transform: rotate(130deg)
                 margin-left: 5px
-
 
         .swiper-button-next
             &::after

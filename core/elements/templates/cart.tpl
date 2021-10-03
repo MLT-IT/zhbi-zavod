@@ -8,7 +8,7 @@
 {/block}
 
 {block "page"}
-    <div class="wrapper is-wide sect-cart">
+    <div class="wrapper sect-cart">
         {'!msCart' | snippet : ['tpl' => '@FILE: sections/sect-cart.tpl']}
 {*        {'!msOrder' | snippet : ['tpl' => '@FILE: chunks/msOrder.tpl']}*}
 {*        {'!msGetOrder' | snippet : ['tpl' => '@FILE: chunks/msGetOrder.tpl']}*}

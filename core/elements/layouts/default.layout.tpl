@@ -15,8 +15,6 @@
 
 {block 'body'}
     {block "header-mobile"}
-        {include "file:blocks/mobile-header.tpl"}
-        {include "file:blocks/mobile-sticky-header.tpl"}
     {/block}
     <div class="wrap">
         {block "header"}

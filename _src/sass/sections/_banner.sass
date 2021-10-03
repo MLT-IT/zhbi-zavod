@@ -11,14 +11,33 @@
         padding-left: 148px
         position: relative
 
+        @media screen and (max-width: 1020px)
+            padding-left: 20px
+
+        @media screen and (max-width: 768px)
+            background: #4F70AD
+            padding-left: 0
+
+        @media screen and (max-width: 480px)
+            height: 260px
+
     &__slide-text-lg
         font-size: 64px
+
+        @media screen and (max-width: 480px)
+            font-size: 40px
 
     &__slide-text-md
         font-size: 48px
 
+        @media screen and (max-width: 480px)
+            font-size: 30px
+
     &__slide-text-sm
         font-size: 32px
+
+        @media screen and (max-width: 480px)
+            font-size: 24px
 
     &__slide-text-lg, &__slide-text-md, &__slide-text-sm
         line-height: 100%
@@ -29,10 +48,26 @@
         background: transparent
         position: static
         padding: 0
-        max-width: none
+        max-width: 364px
+
+        @media screen and (max-width: 768px)
+            position: relative
+            max-width: none
 
     &__slide-img-wrap
         position: absolute
-        width: 572px
-        height: 408px
-        right: 108px
+        width: 421px
+        left: 538px
+
+        img
+            height: auto
+
+        @media screen and (max-width: 1020px)
+            left: auto
+            right: 28px
+
+        @media screen and (max-width: 880px)
+            width: calc(100% - 450px)
+
+        @media screen and (max-width: 768px)
+            display: none
