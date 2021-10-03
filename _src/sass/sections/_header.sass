@@ -1,10 +1,16 @@
 .header
-    padding-top: 20px
     display: block
 
     &__burger, &__line
         @media screen and (max-width: 768px)
             z-index: 20
+
+    &__wrapper
+        padding-top: 20px
+
+        @media screen and (max-width: 768px)
+            flex-direction: row
+            padding-bottom: 20px
 
     &::before
         width: 100%
@@ -20,11 +26,12 @@
             content: ""
 
     @media screen and (max-width: 768px)
-        padding-bottom: 20px
         position: fixed
         top: 0
         z-index: 100
-        height: 80px
+
+    @media screen and (max-width: 480px)
+        height: 64px
 
     &__about
         @media screen and (max-width: 768px)
@@ -39,10 +46,6 @@
 
         @media screen and (max-width: 768px)
             display: block
-
-    &__wrapper
-        @media screen and (max-width: 768px)
-            flex-direction: row
 
     &__logo-wrap
         width: 161px
@@ -358,13 +361,17 @@
             overflow-y: auto
             display: block
             width: 320px
-            height: calc(100vh - 60px)
+            height: calc(100vh - 80px)
             position: absolute
-            top: 60px
+            top: 80px
             left: 0
-            padding: 22px 16px
+            padding: 22px 15px 6px 16px
             background: #fff
             box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+
+        @media screen and (max-width: 480px)
+            top: 64px
+            height: calc(100vh - 64px)
 
     &__nav-list
         @media screen and (max-width: 768px)
