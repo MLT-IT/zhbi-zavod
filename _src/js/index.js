@@ -148,10 +148,10 @@ window.$      = $;
     // -------------------------------
     // Меню
     // -------------------------------
-    $('.header__catalog').on('click', function(e) {
-        e.preventDefault();
-        $(this).toggleClass('opened');
-    });
+    // $('.header__catalog').on('click', function(e) {
+    //     e.preventDefault();
+    //     $(this).toggleClass('opened');
+    // });
 
     $('.header__burger').on('click', function(e) {
         e.preventDefault();
