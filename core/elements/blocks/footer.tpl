@@ -2,11 +2,9 @@
     <div class="wrapper">
         <div class="footer__left">
             <a class="footer__logo" href="/">
-                <svg class="svg logo-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#logo-full"></use>
-                </svg>
+                <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.svg">
             </a>
-            <div class="footer__about">© 2003-{'' | date : "Y"}, ООО&nbsp;«СК&nbsp;"Монолит"», официальный сайт</div>
+            <div class="footer__about">© 2010-{'' | date : "Y"}</div>
         </div>
         <nav class="footer__nav">
             <div class="footer__nav-block">
