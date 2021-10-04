@@ -29,11 +29,13 @@
             </div>
         </nav>
         <div class="footer__right">
+            {*
             <div class="footer__social"><span>Мы в соц. сетях</span>
                 <div class="footer__social-list">
                     {include "file:elements/social-list.tpl"}
                 </div>
             </div>
+            *}
             <div class="footer__payment"><span>Принимаем к оплате:</span>
                 <div class="footer__payment-list">
                     <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="">
@@ -42,6 +44,6 @@
                     <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="">
                     <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="">
                 </div>
-            </div><a class="footer__policy" data-fancybox data-type="ajax" data-src="/confidential.html" href="javascript:;">Политика конфиденциальности</a> </div>
+            </div><a class="footer__policy" data-fancybox data-type="ajax" data-src="/confidential/" href="javascript:;">Политика конфиденциальности</a> </div>
     </div>
 </footer>

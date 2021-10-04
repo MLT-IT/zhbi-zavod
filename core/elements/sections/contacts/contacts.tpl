@@ -15,7 +15,7 @@
                     <div class="contacts__item-value">Пн-пт с 08:00 - 21:00</div>
                 </li>
                 <li class="contacts__item fadeInUp">
-                    <div class="contacts__item-key"><span>E-mail для заявок</span></div><a class="contacts__item-value" href="mailto:{'email' | option}">{'email' | option}</a>
+                    <div class="contacts__item-key"><span>E-mail для заявок</span></div><a class="contacts__item-value" href="mailto:{'mail' | option}">{'mail' | option}</a>
                 </li>
                 <li class="contacts__item fadeInUp">
                     <div class="contacts__item-key"><span>Адрес</span></div>
@@ -23,12 +23,15 @@
                 </li>
             </ul>
             <div class="contacts__left-bottom">
+                {*
                 <div class="contacts__social">
                     <div class="contacts__social-title">Мы в соц. сетях</div>
                     <div class="contacts__social-list">
                         {include "file:elements/social-list.tpl"}
                     </div>
-                </div><a class="contacts__callback yellow-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
+                </div>
+                *}
+                <a class="contacts__callback yellow-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
             </div>
         </div>
         <div class="contacts__map">

@@ -5,9 +5,11 @@
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#logo-full"></use>
             </svg>
         </a>
+        {*
         <div class="sidebar__social">
             {include "file:elements/social-list.tpl"}
         </div>
+        *}
     </div>
     <div class="sidebar__products">
         <a class="sidebar__products-item" href="{'5' | url}">
@@ -40,7 +42,7 @@
         </a>
     </div>
     <div class="sidebar__info">
-        <span>ООО «СК «Монолит»</span><a href="mailto:{'email' | option}">{'email' | option}</a><span>
+        <span>ООО «СК «Монолит»</span><a href="mailto:{'mail' | option}">{'mail' | option}</a><span>
            Город работы:<a class="sidebar__info-city" href="#city" data-fancybox="">
                 <svg class="svg icon-place" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">

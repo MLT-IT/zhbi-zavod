@@ -19,7 +19,7 @@
                 <span>
                      Нажимая кнопку «Перезвоните мне», Вы потверждаете, что ознакомились с
                     <a data-fancybox data-type="ajax"
-                       data-src="/confidential.html"
+                       data-src="/confidential/"
                        href="javascript:;">Условиями обработки персональных данных </a>
                     и принимаете их
                 </span>
