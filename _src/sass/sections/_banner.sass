@@ -1,25 +1,27 @@
 .banner
     margin-bottom: 48px
 
+    @media screen and (max-width: 480px)
+        margin-bottom: 28px
+
     &__slide
-        background: url(/assets/template/img/banner.svg)
-        border-radius: 20px
+        border-radius: 24px
         overflow: hidden
         background-size: cover
-        height: 420px
+        //height: 420px
         justify-content: flex-start
-        padding-left: 148px
+        //padding-left: 148px
         position: relative
+        height: auto
 
-        @media screen and (max-width: 1020px)
-            padding-left: 20px
-
-        @media screen and (max-width: 768px)
-            background: #4F70AD
-            padding-left: 0
-
-        @media screen and (max-width: 480px)
-            height: 260px
+        //@media screen and (max-width: 1020px)
+        //    padding-left: 20px
+        //
+        //@media screen and (max-width: 768px)
+        //    padding-left: 0
+        //
+        //@media screen and (max-width: 480px)
+        //    height: 260px
 
     &__slide-text-lg
         font-size: 64px

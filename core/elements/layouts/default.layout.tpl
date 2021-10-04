@@ -16,12 +16,13 @@
         {set $site_context = 'knauf'}
     {else}
         {set $site_context = $_modx->context.key}
+        {$_modx->setPlaceholder}
     {/if}
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/favicons/{$site_context}/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/template/favicons/{$site_context}/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/template/favicons/{$site_context}/favicon-16x16.png">
-    <link rel="manifest" href="/assets/template/favicons/{$site_context}/site.webmanifest">
-    <link rel="mask-icon" href="/assets/template/favicons/{$site_context}/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/img/favicons/{$site_context}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/template/img/favicons/{$site_context}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/template/img/favicons/{$site_context}/favicon-16x16.png">
+    <link rel="manifest" href="/assets/template/img/favicons/{$site_context}/site.webmanifest">
+    <link rel="mask-icon" href="/assets/template/img/favicons/{$site_context}/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     {* <<< favicon *}
