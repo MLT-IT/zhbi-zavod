@@ -17,7 +17,7 @@
                 <li class="contacts__item fadeInUp">
                     <div class="contacts__item-key"><span>E-mail для заявок</span></div><a class="contacts__item-value" href="mailto:{'mail_1' | option}">{'mail_1' | option}</a>
                 </li>
-                <li class="contacts__item fadeInUp">
+                <li class="contacts__item contacts__item_content_address fadeInUp">
                     <div class="contacts__item-key"><span>Адрес</span></div>
                     <div class="contacts__item-value">{'address' | option}</div>
                 </li>
