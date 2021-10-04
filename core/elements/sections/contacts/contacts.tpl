@@ -15,7 +15,7 @@
                     <div class="contacts__item-value">Пн-пт с 08:00 - 21:00</div>
                 </li>
                 <li class="contacts__item fadeInUp">
-                    <div class="contacts__item-key"><span>E-mail для заявок</span></div><a class="contacts__item-value" href="mailto:{'mail' | option}">{'mail' | option}</a>
+                    <div class="contacts__item-key"><span>E-mail для заявок</span></div><a class="contacts__item-value" href="mailto:{'mail_1' | option}">{'mail_1' | option}</a>
                 </li>
                 <li class="contacts__item fadeInUp">
                     <div class="contacts__item-key"><span>Адрес</span></div>

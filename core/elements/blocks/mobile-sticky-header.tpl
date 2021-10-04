@@ -87,6 +87,6 @@
                 </svg>
             </a>
         </div>
-        <div class="mobilemenu__info"><span>ООО «СК «Монолит»</span><a href="mailto:{'mail' | option}">{'mail' | option}</a></div>
+        <div class="mobilemenu__info"><span>ООО «СК «Монолит»</span><a href="mailto:{'mail_1' | option}">{'mail_1' | option}</a></div>
     </div>
 </div>

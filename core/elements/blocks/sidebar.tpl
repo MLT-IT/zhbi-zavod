@@ -42,7 +42,7 @@
         </a>
     </div>
     <div class="sidebar__info">
-        <span>ООО «СК «Монолит»</span><a href="mailto:{'mail' | option}">{'mail' | option}</a><span>
+        <span>ООО «СК «Монолит»</span><a href="mailto:{'mail_1' | option}">{'mail_1' | option}</a><span>
            Город работы:<a class="sidebar__info-city" href="#city" data-fancybox="">
                 <svg class="svg icon-place" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
