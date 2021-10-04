@@ -24,14 +24,46 @@
             display: flex
             align-items: center
             justify-content: center
-            border: 1.5px solid #ffb400
+            border: 1.5px solid
             border-radius: 4px
             position: static
             margin-top: 0
             transition: .3s
 
+            @at-root .knauf &
+                border-color:  #ffb400
+            @at-root .rockwool &
+                border-color: #AA000F
+            @at-root .tn &
+                border-color: #ED1C24
+            @at-root .penoplex &
+                border-color: #F36F21
+            @at-root .isover &
+                border-color: #FFDD00
+                background-color: #FFDD00
+            @at-root .paroc &
+                border-color: #CE1126
+            @at-root .ursa &
+                border-color: #232F61
+
             &:hover
                 background: #ffb400
+
+                @at-root .knauf &
+                    background:  #ffb400
+                @at-root .rockwool &
+                    background: #AA000F
+                @at-root .tn &
+                    background: #ED1C24
+                @at-root .penoplex &
+                    background: #F36F21
+                @at-root .isover &
+                    background: #80C31C
+                    border-color: #80C31C
+                @at-root .paroc &
+                    background: #CE1126
+                @at-root .ursa &
+                    background: #232F61
 
                 &::after
                     border-color: #fff

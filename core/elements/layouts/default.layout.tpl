@@ -12,11 +12,10 @@
     {include 'file:elements/metrika.tpl'}
 
     {* >>> favicon *}
-    {if $_modx->context.key === 'web'}
+    {if $_modx->context.key == 'web'}
         {set $site_context = 'knauf'}
     {else}
         {set $site_context = $_modx->context.key}
-        {$_modx->setPlaceholder}
     {/if}
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/img/favicons/{$site_context}/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/template/img/favicons/{$site_context}/favicon-32x32.png">

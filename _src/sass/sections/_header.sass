@@ -59,7 +59,7 @@
         margin-right: 54px
 
     &__catalog
-        border: 2px solid #4F70AD
+        border: 2px solid
         border-radius: 4px
         background: transparent
         width: 128px
@@ -67,6 +67,21 @@
         justify-content: flex-start
         padding-left: 24px
         padding-right: 19px
+
+        @at-root .knauf &
+            border-color: #4F70AD
+        @at-root .rockwool &
+            border-color: #AA000F
+        @at-root .tn &
+            border-color: #ED1C24
+        @at-root .penoplex &
+            background-color: #F36F21
+        @at-root .isover &
+            background-color: #FFDD00
+        @at-root .paroc &
+            background-color: #CE1126
+        @at-root .ursa &
+            background-color: #EA4740
 
     &__catalog-text
         font-weight: bold
