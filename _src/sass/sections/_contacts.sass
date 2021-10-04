@@ -3,5 +3,16 @@
         &_content
             &_address
                 .contacts__item-value
+                    white-space: nowrap
                     flex-grow: 0
                     flex-shrink: 1
+
+                    @media screen and (max-width: 950px)
+                        flex-grow: 0
+                        flex-shrink: 1
+                        white-space: normal
+
+                    @media screen and (max-width: 768px)
+                        flex-grow: 1
+                        flex-shrink: 0
+                        text-align: center

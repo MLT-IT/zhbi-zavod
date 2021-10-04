@@ -25,7 +25,54 @@
     margin-top: 0
 
 // ------------------------------
-// Наследование
+// Переменные
+// ------------------------------
+// Цвета
+$knauf_color_1: #4f70ad
+$rockwool_color_1: #AA000F
+$tn_color_1: #ED1C24
+$penoplex_color_1: #F36F21
+$isover_color_1: #FFDD00
+$paroc_color_1: #CE1126
+$ursa_color_1: #EA4740
+
+// ------------------------------
+// Миксины
+// ------------------------------
+@mixin set_colors_1($property)
+    @at-root .knauf &
+        #{$property}: $knauf_color_1
+    @at-root .rockwool &
+        #{$property}: $rockwool_color_1
+    @at-root .tn &
+        #{$property}: $tn_color_1
+    @at-root .penoplex &
+        #{$property}: $penoplex_color_1
+    @at-root .isover &
+        #{$property}: $isover_color_1
+    @at-root .paroc &
+        #{$property}: $paroc_color_1
+    @at-root .ursa &
+        #{$property}: $ursa_color_1
+
+@mixin set_colors_2($property)
+    @at-root .knauf &
+        #{$property}: $knauf_color_1
+    @at-root .rockwool &
+        #{$property}: $rockwool_color_1
+    @at-root .tn &
+        #{$property}: $tn_color_1
+    @at-root .penoplex &
+        #{$property}: #FFF
+    @at-root .isover &
+        #{$property}: #323232
+    @at-root .paroc &
+        #{$property}: #FFF
+    @at-root .ursa &
+        #{$property}: #FFF
+
+// ------------------------------
+// Классы для наследования
 // ------------------------------
 %css-arrow
     content: ""
@@ -40,14 +87,14 @@
     @at-root .knauf &
         border-color:  #ffb400
     @at-root .rockwool &
-        border-color: #AA000F
+        border-color: $rockwool_color_1
     @at-root .tn &
-        border-color: #ED1C24
+        border-color: $tn_color_1
     @at-root .penoplex &
-        border-color: #F36F21
+        border-color: $penoplex_color_1
     @at-root .isover &
         border-color: #323232
     @at-root .paroc &
-        border-color: #CE1126
+        border-color: $paroc_color_1
     @at-root .ursa &
         border-color: #232F61

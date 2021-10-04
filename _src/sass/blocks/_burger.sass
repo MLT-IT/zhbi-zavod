@@ -1,9 +1,11 @@
+// .header здесь, чтобы переопределить стили, которые в минифицированном файле
 .header
     .burger
         min-width: 15px
 
         span
-            background-color: #4F70AD
+            +set_colors_1(background-color)
+
             width: 100%
 
             &:nth-last-of-type(1)
