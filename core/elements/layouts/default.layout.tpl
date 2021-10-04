@@ -9,7 +9,6 @@
     {/block}
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css">
-    <link rel="icon" href="{$_modx->config['template_path']}favicon.png">
     {include 'file:elements/metrika.tpl'}
 {/block}
 
