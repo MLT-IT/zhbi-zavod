@@ -103,24 +103,9 @@
         flex-basis: 40px
         flex-shrink: 0
 
-        @at-root .knauf &
-            background-color: $knauf_color_1
-        @at-root .rockwool &
-            background-color: $rockwool_color_1
-        @at-root .tn &
-            background-color: $tn_color_1
-        @at-root .penoplex &
-            background-color: $penoplex_color_1
-        @at-root .isover &
-            background-color: $isover_color_1
-        @at-root .paroc &
-            background-color: $paroc_color_1
-        @at-root .ursa &
-            background-color: $ursa_color_1
+        +set_colors_1(background-color)
 
         &:hover
-
-
             @at-root .knauf &
                 background-color: darken($knauf_color_1, 10%)
             @at-root .rockwool &
@@ -238,20 +223,7 @@
         position: relative
         padding-left: 19px
 
-        @at-root .knauf &
-            color: #FFB400
-        @at-root .rockwool &
-            color: #D20014
-        @at-root .tn &
-            color: #D20014
-        @at-root .penoplex &
-            color: $penoplex_color_1
-        @at-root .isover &
-            color: $isover_color_1
-        @at-root .paroc &
-            color: $paroc_color_1
-        @at-root .ursa &
-            color: $ursa_color_1
+        +set_colors_1(color)
 
         &:hover
             text-decoration: none
@@ -298,12 +270,13 @@
             left: auto
 
     &__cart-value, &__fav-value
-        background-color: #FFB400
         width: 13px
         height: 13px
         top: -4px
         right: 1px
         font-size: 10px
+
+        +set_colors_1(background-color)
 
     &__cart
         align-items: center
@@ -319,10 +292,10 @@
 
         &:hover
             .header__cart-text
-                color: #FFB400
+                +set_colors_1(color)
 
             .icon-cart-2
-                fill: #FFB400
+                +set_colors_1(fill)
 
             .header__cart-button
                 background: transparent
@@ -375,11 +348,11 @@
 
         &:hover
             .header__cat-text
-                color: #FFB400
+                +set_colors_1(color)
 
             .header__cat-icon
                 &::after, &::before
-                    border-color: #FFB400
+                    +set_colors_1(border-color)
 
     &__cart-text, &__fav-text, &__cat-text
         margin-left: 8px
@@ -430,7 +403,8 @@
         &_special
             a
                 text-decoration-line: underline
-                color: #FFB400
+
+                +set_colors_1(color)
 
             &:hover
                 a
@@ -449,6 +423,10 @@
 
         &::after
             display: none
+
+        &:hover
+            & > a
+                +set_colors_1(color)
 
     &__nav
         margin-top: 0
