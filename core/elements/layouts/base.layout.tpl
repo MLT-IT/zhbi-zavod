@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {/block}
 </head>
-<body id="body">
+<body id="body" class="{$site_context}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
 </body>

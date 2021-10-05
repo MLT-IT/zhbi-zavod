@@ -107,19 +107,19 @@
 
         &:hover
             @at-root .knauf &
-                background-color: darken($knauf_color_1, 10%)
+                background-color: darken(#4f70ad, 10%)
             @at-root .rockwool &
-                background-color: darken($rockwool_color_1, 10%)
+                background-color: darken(#AA000F, 10%)
             @at-root .tn &
-                background-color: darken($tn_color_1, 10%)
+                background-color: darken(#ED1C24, 10%)
             @at-root .penoplex &
-                background-color: darken($penoplex_color_1, 10%)
+                background-color: darken(#F36F21, 10%)
             @at-root .isover &
-                background-color: darken($isover_color_1, 10%)
+                background-color: darken(#FFDD00, 10%)
             @at-root .paroc &
-                background-color: darken($paroc_color_1, 10%)
+                background-color: darken(#CE1126, 10%)
             @at-root .ursa &
-                background-color: darken($ursa_color_1, 10%)
+                background-color: darken(#EA4740, 10%)
 
         &::before, &::after
             display: block
@@ -201,7 +201,6 @@
         font-weight: 500
         font-size: 14px
         line-height: 100%
-        color: #323232
         margin-bottom: 5px
         white-space: nowrap
 
@@ -223,7 +222,7 @@
         position: relative
         padding-left: 19px
 
-        +set_colors_1(color)
+        +set_colors_3(color)
 
         &:hover
             text-decoration: none
@@ -251,7 +250,7 @@
         .icon-cart-2
             width: 20px
             height: 20px
-            fill: #000
+            fill: currentColor
             transition: .3s
 
     &__fav-value
@@ -397,14 +396,17 @@
             padding-left: 24px
 
     &__nav-item
+        &:hover
+            & > a
+                +set_colors_1(color)
+
         @media screen and (max-width: 768px)
             width: 100%
 
         &_special
             a
                 text-decoration-line: underline
-
-                +set_colors_1(color)
+                +set_colors_3(color)
 
             &:hover
                 a
@@ -423,10 +425,6 @@
 
         &::after
             display: none
-
-        &:hover
-            & > a
-                +set_colors_1(color)
 
     &__nav
         margin-top: 0

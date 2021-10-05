@@ -30,7 +30,7 @@
 {block 'body'}
     {block "header-mobile"}
     {/block}
-    <div class="wrap {$site_context}">
+    <div class="wrap">
         {block "header"}
             {include "file:blocks/header.tpl"}
         {/block}

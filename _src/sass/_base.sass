@@ -1,3 +1,104 @@
+// ------------------------------
+// Миксины
+// ------------------------------
+@mixin set_colors_1($property)
+    @at-root .knauf &
+        #{$property}: #4f70ad
+    @at-root .rockwool &
+        #{$property}: #AA000F
+    @at-root .tn &
+        #{$property}: #ED1C24
+    @at-root .penoplex &
+        #{$property}: #F36F21
+    @at-root .isover &
+        #{$property}: #FFDD00
+    @at-root .paroc &
+        #{$property}: #CE1126
+    @at-root .ursa &
+        #{$property}: #EA4740
+
+@mixin set_colors_2($property)
+    @at-root .knauf &
+        #{$property}: #4f70ad
+    @at-root .rockwool &
+        #{$property}: #AA000F
+    @at-root .tn &
+        #{$property}: #ED1C24
+    @at-root .penoplex &
+        #{$property}: #FFF
+    @at-root .isover &
+        #{$property}: #323232
+    @at-root .paroc &
+        #{$property}: #FFF
+    @at-root .ursa &
+        #{$property}: #FFF
+
+@mixin set_colors_3($property)
+    @at-root .knauf &
+        #{$property}: #FFB400
+    @at-root .rockwool &
+        #{$property}: #D20014
+    @at-root .tn &
+        #{$property}: #ED1C24
+    @at-root .penoplex &
+        #{$property}: #F36F21
+    @at-root .isover &
+        #{$property}: #80C31C
+    @at-root .paroc &
+        #{$property}: #CE1126
+    @at-root .ursa &
+        #{$property}: #EA4740
+
+// ------------------------------
+// Классы для наследования
+// ------------------------------
+%css-arrow
+    content: ""
+    width: 6px
+    height: 6px
+    display: block
+    border: solid
+    border-width: 0 3px 3px 0
+    position: absolute
+    border-radius: 1px
+
+    @at-root .knauf &
+        border-color:  #ffb400
+    @at-root .rockwool &
+        border-color: #AA000F
+    @at-root .tn &
+        border-color: #ED1C24
+    @at-root .penoplex &
+        border-color: #F36F21
+    @at-root .isover &
+        border-color: #323232
+    @at-root .paroc &
+        border-color: #CE1126
+    @at-root .ursa &
+        border-color: #232F61
+
+// ------------------------------
+// Базовые стили
+// ------------------------------
+a, h1, h2, h3, h4, ol, ul, p, span, input, textarea
+    @at-root .knauf &, .knauf
+        color: #323232
+    @at-root .rockwool &, .rockwool
+        color: #323232
+    @at-root .tn &, .tn
+        color: #666666
+    @at-root .penoplex &, .penoplex
+        color: #323232
+    @at-root .isover &, .isover
+        color: #323232
+    @at-root .paroc &, .paroc
+        color: #323232
+    @at-root .ursa &, .ursa
+        color: #232F61
+
+a:hover
+    +set_colors_1(color)
+
 .wrap
     width: 100%
 
@@ -24,77 +125,21 @@
 .breadcrumbs
     margin-top: 0
 
-// ------------------------------
-// Переменные
-// ------------------------------
-// Цвета
-$knauf_color_1: #4f70ad
-$rockwool_color_1: #AA000F
-$tn_color_1: #ED1C24
-$penoplex_color_1: #F36F21
-$isover_color_1: #FFDD00
-$paroc_color_1: #CE1126
-$ursa_color_1: #EA4740
+a.white-btn
+    &:hover
+        color: #fff
 
-// ------------------------------
-// Миксины
-// ------------------------------
-@mixin set_colors_1($property)
-    @at-root .knauf &
-        #{$property}: $knauf_color_1
-    @at-root .rockwool &
-        #{$property}: $rockwool_color_1
-    @at-root .tn &
-        #{$property}: $tn_color_1
-    @at-root .penoplex &
-        #{$property}: $penoplex_color_1
-    @at-root .isover &
-        #{$property}: $isover_color_1
-    @at-root .paroc &
-        #{$property}: $paroc_color_1
-    @at-root .ursa &
-        #{$property}: $ursa_color_1
+.wrap
+    .promo__top-card, .yellow-btn
+        &:hover
+            // Чтобы не применился общий цвет для наведения
+            color: currentColor
 
-@mixin set_colors_2($property)
-    @at-root .knauf &
-        #{$property}: $knauf_color_1
-    @at-root .rockwool &
-        #{$property}: $rockwool_color_1
-    @at-root .tn &
-        #{$property}: $tn_color_1
-    @at-root .penoplex &
-        #{$property}: #FFF
-    @at-root .isover &
-        #{$property}: #323232
-    @at-root .paroc &
-        #{$property}: #FFF
-    @at-root .ursa &
-        #{$property}: #FFF
+.stocks
+    .stocks__banner-text-span
+        color: #ffbe00
 
-// ------------------------------
-// Классы для наследования
-// ------------------------------
-%css-arrow
-    content: ""
-    width: 6px
-    height: 6px
-    display: block
-    border: solid
-    border-width: 0 3px 3px 0
-    position: absolute
-    border-radius: 1px
-
-    @at-root .knauf &
-        border-color:  #ffb400
-    @at-root .rockwool &
-        border-color: $rockwool_color_1
-    @at-root .tn &
-        border-color: $tn_color_1
-    @at-root .penoplex &
-        border-color: $penoplex_color_1
-    @at-root .isover &
-        border-color: #323232
-    @at-root .paroc &
-        border-color: $paroc_color_1
-    @at-root .ursa &
-        border-color: #232F61
+    .stocks__link
+        &:hover
+            // Чтобы не применился общий цвет для наведения
+            color: #fff
