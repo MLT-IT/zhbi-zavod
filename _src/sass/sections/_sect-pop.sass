@@ -39,7 +39,7 @@
             @at-root .penoplex &
                 border-color: #F36F21
             @at-root .isover &
-                border-color: #FFDD00
+                border-color: transparent
                 background-color: #FFDD00
             @at-root .paroc &
                 border-color: #CE1126
@@ -47,26 +47,34 @@
                 border-color: #232F61
 
             &:hover
-                background: #ffb400
-
                 @at-root .knauf &
                     background:  #ffb400
+                    &::after
+                        border-color: #fff
                 @at-root .rockwool &
                     background: #AA000F
+                    &::after
+                        border-color: #fff
                 @at-root .tn &
                     background: #ED1C24
+                    &::after
+                        border-color: #fff
                 @at-root .penoplex &
                     background: #F36F21
+                    &::after
+                        border-color: #fff
                 @at-root .isover &
-                    background: #80C31C
-                    border-color: #80C31C
+                    background-color: darken(#FFDD00, 10%)
+                    &::after
+                        border-color: #323232
                 @at-root .paroc &
                     background: #CE1126
+                    &::after
+                        border-color: #fff
                 @at-root .ursa &
                     background: #232F61
-
-                &::after
-                    border-color: #fff
+                    &::after
+                        border-color: #fff
 
             &::after
                 @extend %css-arrow

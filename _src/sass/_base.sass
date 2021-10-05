@@ -17,22 +17,6 @@
     @at-root .ursa &
         #{$property}: #EA4740
 
-@mixin set_colors_2($property)
-    @at-root .knauf &
-        #{$property}: #4f70ad
-    @at-root .rockwool &
-        #{$property}: #AA000F
-    @at-root .tn &
-        #{$property}: #ED1C24
-    @at-root .penoplex &
-        #{$property}: #FFF
-    @at-root .isover &
-        #{$property}: #323232
-    @at-root .paroc &
-        #{$property}: #FFF
-    @at-root .ursa &
-        #{$property}: #FFF
-
 @mixin set_colors_3($property)
     @at-root .knauf &
         #{$property}: #FFB400
@@ -80,7 +64,7 @@
 // ------------------------------
 // Базовые стили
 // ------------------------------
-a, h1, h2, h3, h4, ol, ul, p, span, input, textarea
+a, input, textarea
     @at-root .knauf &, .knauf
         color: #323232
     @at-root .rockwool &, .rockwool
@@ -118,6 +102,9 @@ a:hover
     height: auto
     display: block
 
+// ------------------------------
+// Переопределение стилей в main.css (минифицированном файле)
+// ------------------------------
 .scroll-top
     @media screen and (max-width: 768px)
         bottom: 68px
@@ -125,6 +112,8 @@ a:hover
 .breadcrumbs
     margin-top: 0
 
+.payment__item-top:hover, .catalog-page__card-content:hover
+            +set_colors_3(border-color)
 
 // ------------------------------
 // Переопределение базовых стилей
@@ -147,7 +136,20 @@ a.white-btn
 .header
     &__callback
         &:hover
-            +set_colors_3(color)
+            @at-root .knauf &
+                color: #FFB400
+            @at-root .rockwool &
+                color: #D20014
+            @at-root .tn &
+                color: #ED1C24
+            @at-root .penoplex &
+                color: #F36F21
+            @at-root .isover &
+                color: #FFDD00
+            @at-root .paroc &
+                color: #CE1126
+            @at-root .ursa &
+                color: #EA4740
 
 .stocks
     .stocks__banner-text-span

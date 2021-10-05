@@ -68,7 +68,27 @@
         padding-left: 24px
         padding-right: 19px
 
-        +set_colors_1(border-color)
+        @at-root .knauf &
+            background: #FFFFFF
+            border-color: #4F70AD
+        @at-root .rockwool &
+            background: #FFFFFF
+            border-color: #AA000F
+        @at-root .tn &
+            background: #FFFFFF
+            border-color: #ED1C24
+        @at-root .penoplex &
+            background: #F36F21
+            border-color: transparent
+        @at-root .isover &
+            background: #FFDD00
+            border-color: transparent
+        @at-root .paroc &
+            background: #CE1126
+            border-color: transparent
+        @at-root .ursa &
+            background: #EA4740
+            border-color: transparent
 
     &__catalog-text
         font-weight: bold
@@ -76,7 +96,20 @@
         line-height: 100%
         margin-left: 15px
 
-        +set_colors_2(color)
+        @at-root .knauf &
+            color: #4f70ad
+        @at-root .rockwool &
+            color: #AA000F
+        @at-root .tn &
+            color: #ED1C24
+        @at-root .penoplex &
+            color: #FFF
+        @at-root .isover &
+            color: #323232
+        @at-root .paroc &
+            color: #FFF
+        @at-root .ursa &
+            color: #FFF
 
     &__search-wrap
         flex-basis: 504px
@@ -177,6 +210,7 @@
     &__about-city
         font-size: 14px
         position: relative
+        transition: .3s
 
         // Закомментировал, т.к. нету городов пока что
         //padding-left: 24px
@@ -203,6 +237,7 @@
         line-height: 100%
         margin-bottom: 5px
         white-space: nowrap
+        transition: .3s
 
     &__contacts-city
         font-weight: 500
@@ -221,8 +256,22 @@
         text-decoration-line: underline
         position: relative
         padding-left: 19px
+        transition: .3s
 
-        +set_colors_3(color)
+        @at-root .knauf &
+            color: #FFB400
+        @at-root .rockwool &
+            color: #D20014
+        @at-root .tn &
+            color: #ED1C24
+        @at-root .penoplex &
+            color: #F36F21
+        @at-root .isover &
+            color: #FFDD00
+        @at-root .paroc &
+            color: #CE1126
+        @at-root .ursa &
+            color: #EA4740
 
         &:hover
             text-decoration: none

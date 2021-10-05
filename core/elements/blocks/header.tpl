@@ -30,7 +30,7 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
+                <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
             </a>
             <a href="/catalog/" class="header__catalog">
                 <div class="burger">
