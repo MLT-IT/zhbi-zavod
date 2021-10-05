@@ -3,11 +3,11 @@
         <div class="promo__top">
             <a class="promo__top-card fadeInUp" href="#">
                 <div class="promo__top-card-img"><img src="{$_modx->config['template_path']}img/promo-garant.png" alt=""></div>
-                <div class="promo__top-card-text"> Узнайте о наших <span>гарантиях</span></div>
+                <div class="promo__top-card-text">Узнайте о наших <span class="promo__top-card-text-span">гарантиях</span></div>
             </a>
             <a class="promo__top-card fadeInUp" href="#">
                 <div class="promo__top-card-img"><img src="{$_modx->config['template_path']}img/promo-kamaz.png" alt=""></div>
-                <div class="promo__top-card-text"> Узнайте об <span>условиях доставки</span></div>
+                <div class="promo__top-card-text">Узнайте об <span class="promo__top-card-text-span">условиях доставки</span></div>
             </a>
         </div>
 {*        <div class="promo__bottom fadeInUp swiper-container">*}

@@ -125,6 +125,10 @@ a:hover
 .breadcrumbs
     margin-top: 0
 
+
+// ------------------------------
+// Переопределение базовых стилей
+// ------------------------------
 a.white-btn
     &:hover
         color: #fff
@@ -132,8 +136,18 @@ a.white-btn
 .wrap
     .promo__top-card, .yellow-btn
         &:hover
-            // Чтобы не применился общий цвет для наведения
             color: currentColor
+
+    .yellow-btn, .promo__top-card-text, .white-btn, .catalog__card-title-span, .promo__top-card-text-span
+        color: #3c3c3b
+
+    .header__nav-item_special:hover > .header__nav-link
+        +set_colors_3(color)
+
+.header
+    &__callback
+        &:hover
+            +set_colors_3(color)
 
 .stocks
     .stocks__banner-text-span
@@ -141,5 +155,4 @@ a.white-btn
 
     .stocks__link
         &:hover
-            // Чтобы не применился общий цвет для наведения
             color: #fff
