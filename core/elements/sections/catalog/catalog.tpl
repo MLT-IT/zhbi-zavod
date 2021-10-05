@@ -1,67 +1,67 @@
 {var $items = [
     [
         'title' => 'Нерудные материалы',
-        'url' => '5' | url,
+        'url' => '/catalog/nerudnye-materialy/',
         'image' => 'img/catalog/catalog8.png',
         'children' => [
             [
                 'title' => 'Песок',
-                'url' => '433' | url,
+                'url' => '/catalog/pesok-stroitelnyj/',
             ],
             [
                 'title' => 'Щебень',
-                'url' => '9' | url,
+                'url' => '/catalog/sheben/',
             ],
             [
                 'title' => 'Керамзит',
-                'url' => '501' | url,
+                'url' => '/catalog/keramzit/',
             ]
         ]
     ],
     [
         'title' => 'Бетон товарный',
-        'url' => '10' | url,
+        'url' => '/catalog/beton/',
         'image' => 'img/catalog/catalog9.png',
         'children' => [
             [
             'title' => 'Бетон товарный',
-            'url' => '74' | url,
+            'url' => '/catalog/beton-tovarnyj/',
             ],
             [
                 'title' => 'Керамзитобетон',
-                'url' => '46' | url,
+                'url' => '/catalog/keramzitobeton/',
             ],
             [
                 'title' => 'Фибробетон',
-                'url' => '75' | url,
+                'url' => '/catalog/fibrobeton/',
             ]
         ]
     ],
     [
         'title' => 'ЖБИ изделия',
-        'url' => '11' | url,
+        'url' => '/catalog/zhbi/',
         'image' => 'img/catalog/catalog10.png',
         'children' => [
             [
                 'title' => 'Дорожные плиты',
-                'url' => '512' | url,
+                'url' => '/catalog/plity-dorozhnye/',
             ]
         ]
     ],
     [
         'title' => 'Металлопрокат',
-        'url' => '12' | url,
+        'url' => '/catalog/metalloprokat/',
         'image' => 'img/catalog/catalog11.png',
         'children' => [
             [
                 'title' => 'Арматура',
-                'url' => '566' | url,
+                'url' => '/catalog/armatura/',
             ]
         ]
     ],
     [
         'title' => 'Стеновые материалы',
-        'url' => '13' | url,
+        'url' => '/catalog/stenovye-materialy/',
         'image' => 'img/catalog/catalog12.png',
         'children' => [
             [
@@ -72,7 +72,7 @@
     ],
     [
         'title' => 'Кровельные материалы',
-        'url' => '14' | url,
+        'url' => '/catalog/krovelnye-materialy/',
         'image' => 'img/catalog/catalog7.png',
         'children' => [
             [
@@ -83,7 +83,7 @@
     ],
     [
         'title' => 'Утеплитель',
-        'url' => '15' | url,
+        'url' => '/catalog/uteplitel/',
         'image' => 'img/catalog/catalog13.png',
         'children' => [
             [

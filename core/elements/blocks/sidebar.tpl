@@ -12,31 +12,31 @@
         *}
     </div>
     <div class="sidebar__products">
-        <a class="sidebar__products-item" href="{'5' | url}">
+        <a class="sidebar__products-item" href="/catalog/nerudnye-materialy/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-1.png" alt="">
             <span>Нерудные материалы</span>
         </a>
-        <a class="sidebar__products-item" href="{'10' | url}">
+        <a class="sidebar__products-item" href="/catalog/beton/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-2.png" alt="">
             <span>Бетон товарный</span>
         </a>
-        <a class="sidebar__products-item" href="{'11' | url}">
+        <a class="sidebar__products-item" href="/catalog/zhbi/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-3.png" alt="">
             <span>ЖБИ изделия </span>
         </a>
-        <a class="sidebar__products-item" href="{'12' | url}">
+        <a class="sidebar__products-item" href="/catalog/metalloprokat/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-4.png" alt="">
             <span>Металлопрокат</span>
         </a>
-        <a class="sidebar__products-item" href="{'13' | url}">
+        <a class="sidebar__products-item" href="/catalog/stenovye-materialy/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-5.png" alt="">
             <span>Стеновые материалы</span>
         </a>
-        <a class="sidebar__products-item" href="{'14' | url}">
+        <a class="sidebar__products-item" href="/catalog/krovelnye-materialy/">
             <img src="{$_modx->config['template_path']}img/sidebar/products-6.png" alt="">
             <span>Кровельные материалы</span>
         </a>
-        <a class="sidebar__products-item" href="{'15' | url}">
+        <a class="sidebar__products-item" href="/catalog/uteplitel">
             <img src="{$_modx->config['template_path']}img/sidebar/products-7.png" alt="">
             <span>Утеплитель</span>
         </a>

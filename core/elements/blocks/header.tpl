@@ -74,8 +74,8 @@
                 <button class="header__search-btn"></button>
             </form>
             <ul class="header__nav-list">
-                <li class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata">Доставка и оплата</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="/garantii">Гарантии</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></li>
                 <li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>
                 <li class="header__nav-item"><a class="header__nav-link" href="#">Акции</a></li>
                 <li class="header__nav-item"><a class="header__nav-link" href="#">О компании</a></li>
@@ -87,7 +87,7 @@
                     </ul>
                 </li>
                 *}
-                <li class="header__nav-item"><a class="header__nav-link" href="/contacts">Контакты</a></li>
+                <li class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></li>
                 <li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>
             </ul>
         </nav>
