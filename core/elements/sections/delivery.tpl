@@ -3,8 +3,7 @@
         <div class="wrapper{$classToWrapper}">
             <h2 class="title-1">География работы</h2>
             <div class="map__container fadeInUp">
-    {*            <iframe src="//yandex.ru/map-widget/v1/?um=constructor%3A7b962d475832f8eeb3502be6df583bbdf63046c41237e6229a6e429c17422f99&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>*}
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abbc537928a1c518013122135ec7411a0ad13bb72fec1b8404cd82e92876a5779&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abfd296294102bdce3e6b7d6aa53834630ca08e070f70374c9375fe45b57664ba&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
             </div>
         </div>
     </div>
