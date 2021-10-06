@@ -32,7 +32,7 @@
             <a href="/" class="header__logo-wrap">
                 <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
             </a>
-            <a href="/catalog/" class="header__catalog">
+            <a href="#" class="header__catalog">
                 <div class="burger">
                     <span></span>
                     <span></span>
@@ -75,10 +75,10 @@
             </form>
             <ul class="header__nav-list">
                 <li class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></li>
-                <li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="#">Акции</a></li>
-                <li class="header__nav-item"><a class="header__nav-link" href="#">О компании</a></li>
+                {*<li class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></li>*}
+                {*<li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>*}
+                {*<li class="header__nav-item"><a class="header__nav-link" href="#">Акции</a></li>*}
+                {*<li class="header__nav-item"><a class="header__nav-link" href="#">О компании</a></li>*}
                 {*
                 <li class="header__nav-item openable"><a href="#">О компании</a>
                     <ul class="header__nav-sublist">
@@ -88,7 +88,7 @@
                 </li>
                 *}
                 <li class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></li>
-                <li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>
+                {*<li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>*}
             </ul>
         </nav>
     </div>

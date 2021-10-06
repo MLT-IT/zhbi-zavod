@@ -8,7 +8,7 @@
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
     </div>
     {include "file:sections/category/listing.tpl"}
-    {include "file:sections/faq.tpl"}
+    {*{include "file:sections/faq.tpl"}*}
     {include "file:sections/advantages.tpl"}
     <div class="wrapper">
         <div class="content-block">

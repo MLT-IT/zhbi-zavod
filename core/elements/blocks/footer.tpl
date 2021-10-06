@@ -10,19 +10,19 @@
             <div class="footer__nav-block">
                 <div class="footer__nav-block-title">Покупателям</div>
                 <ul class="footer__nav-list">
-                    <li class="footer__nav-item"><a href="/catalog/">Каталог товаров</a></li>
+                    {*<li class="footer__nav-item"><a href="/catalog/">Каталог товаров</a></li>*}
                     <li class="footer__nav-item"><a href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-{*                    <li class="footer__nav-item"><a href="#">Гарантии</a></li>*}
-                    <li class="footer__nav-item"><a href="#">Скидки</a></li>
-{*                    <li class="footer__nav-item"><a href="#">Акции</a></li>*}
+                    <li class="footer__nav-item"><a href="/garantii/">Гарантии</a></li>
+                    {*<li class="footer__nav-item"><a href="#">Скидки</a></li>*}
+                    {*<li class="footer__nav-item"><a href="#">Акции</a></li>*}
                 </ul>
             </div>
             <div class="footer__nav-block">
                 <div class="footer__nav-block-title">О компании</div>
                 <ul class="footer__nav-list">
-{*                    <li class="footer__nav-item"><a href="#">О нас</a></li>*}
-                    <li class="footer__nav-item"><a href="#">Отзывы</a></li>
-{*                    <li class="footer__nav-item"><a href="#">Вопрос-ответ</a></li>*}
+                    {*<li class="footer__nav-item"><a href="#">О нас</a></li>*}
+                    {*<li class="footer__nav-item"><a href="#">Отзывы</a></li>*}
+                    {*<li class="footer__nav-item"><a href="#">Вопрос-ответ</a></li>*}
                     <li class="footer__nav-item"><a href="#">Карта сайта</a></li>
                     <li class="footer__nav-item"><a href="/contacts/">Контакты</a></li>
                 </ul>

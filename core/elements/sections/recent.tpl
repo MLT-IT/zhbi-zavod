@@ -1,6 +1,6 @@
 {set $recentlyViewed = '@FILE snippets/getRecentlyViewed.php' | snippet}
 {if count($recentlyViewed)}
-    <section class="product-slider">
+    <section class="product-slider sect-recent">
         <div class="wrapper">
             <span class="title-1">Вы недавно смотрели</span>
             <div class="swiper-container fadeInUp">
