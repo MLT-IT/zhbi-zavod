@@ -1,1 +1,1 @@
-{include 'faq'}
+{include "faq"}
