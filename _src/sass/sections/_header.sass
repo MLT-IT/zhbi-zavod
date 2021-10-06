@@ -352,7 +352,7 @@
         align-items: center
         display: flex
 
-    &__cart, &__fav, &__cat
+    &__cart, &__fav, &__cat, &__mobile-phone
         @media screen and (max-width: 768px)
             flex-direction: column
             align-items: center
@@ -385,11 +385,28 @@
             top: 13px
             left: 10px
 
+    &__cat, &__mobile-phone
+        margin-right: 40px
+
+    &__mobile-phone
+        display: none
+
+        @media screen and (max-width: 768px)
+            display: flex
+
+        &:hover
+            .icon-phone
+                +set_colors_1(fill)
+
+        .icon-phone
+            width: 20px
+            height: 20px
+            transition: .3s
+            fill: currentColor
+
     &__cat
         display: none
-        align-items: center
         order: 1
-        margin-right: 40px
 
         @media screen and (max-width: 768px)
             display: flex
@@ -402,7 +419,7 @@
                 &::after, &::before
                     +set_colors_1(border-color)
 
-    &__cart-text, &__fav-text, &__cat-text
+    &__cart-text, &__fav-text, &__cat-text, &__mobile-phone-text
         margin-left: 8px
         transition: .3s
         font-weight: bold
@@ -416,7 +433,6 @@
 
     &__fav
         position: relative
-        display: none
 
         @media screen and (max-width: 768px)
             order: 2
@@ -505,6 +521,12 @@
                 transform: translateX(0)
 
     &__nav-list
+        &.mobile
+            display: none
+
+            @media screen and (max-width: 768px)
+                display: block
+
         @media screen and (max-width: 768px)
             display: flex
             flex-direction: column
@@ -544,7 +566,6 @@
     &__burger, &__logo-wrap, &__about-text
         @media screen and (max-width: 768px)
             z-index: 100
-
 
 .header-sticky,
 .mobile-sticky-header,
