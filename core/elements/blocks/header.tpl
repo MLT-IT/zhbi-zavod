@@ -74,6 +74,15 @@
                 <button class="header__search-btn"></button>
             </form>
             <ul class="header__nav-list">
+
+                {'!pdoResources' | snippet : [
+                'tpl' => '@FILE chunks/menuItem.tpl',
+                'depth' => 0,
+                'limit' => 0,
+                'includeTVs' => 'mainImage',
+                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']
+                ]}
+
                 <li class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
                 {*<li class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></li>*}
                 {*<li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>*}
