@@ -4,7 +4,11 @@
         </svg></a>
     <div class="mobile-sticky-header__about">Комплексная поставка строительных материалов</div>
     <div class="mobile-sticky-header__burger">
-        <div class="burger js-burger"><span></span><span></span><span></span></div>
+        <div class="burger js-burger">
+            <span class="burger__stick"></span>
+            <span class="burger__stick"></span>
+            <span class="burger__stick"></span>
+        </div>
     </div>
 
     {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCartMobile.tpl']}

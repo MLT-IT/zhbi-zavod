@@ -34,9 +34,9 @@
             </a>
             <a href="#" class="header__catalog">
                 <div class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span class="burger__stick"></span>
+                    <span class="burger__stick"></span>
+                    <span class="burger__stick"></span>
                 </div>
                 <span class="header__catalog-text">Каталог</span>
                 <ul class="header__catalog-list">
