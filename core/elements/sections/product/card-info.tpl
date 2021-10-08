@@ -3,7 +3,13 @@
         <img src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt=""></div>
     <div class="product-card__info">
         <div class="product-card__price">
-            <p>Арт. {$_modx->resource['article']}</p><span>{$_modx->resource['price']} руб.</span> </div>
+            <p>Арт. {$_modx->resource['article']}</p>
+            <span>
+                {$_modx->resource['price']} руб.
+                {set $edizm = $_modx->resource.edizm}
+                {$edizm[0] ? '/ ' ~ $edizm[0] : ''}
+            </span>
+        </div>
         <form method="post" class="ms2_form product-card__info-left">
             <input type="hidden" name="id" value="{$_modx->resource['id']}">
             <input type="hidden" name="options" value="[]">
