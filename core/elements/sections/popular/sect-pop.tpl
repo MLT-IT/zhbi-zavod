@@ -13,6 +13,7 @@
                         'resources' => 'popular_ids' | option,
                         'tplWrapper' => '@INLINE {{+output}}',
                         'tpl' => '@FILE sections/popular/pop-item.tpl',
+                        'limit' => 0,
                         'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
                     ]}
                 </div>
