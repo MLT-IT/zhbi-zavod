@@ -19,7 +19,6 @@
                 'parents' => 0,
                 'depth' => 1000,
                 'limit' => 0,
-                'tplCategoryFolder' => '@INLINE {$wrapper}',
                 'tplOuter' => '@INLINE <ul>{$wrapper}</ul>',
                 'tplInner' => '@INLINE {$wrapper}',
                 'tpl' => '@FILE chunks/sitemapItem.tpl',

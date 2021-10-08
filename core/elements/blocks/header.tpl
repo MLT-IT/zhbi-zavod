@@ -32,19 +32,32 @@
             <a href="/" class="header__logo-wrap">
                 <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
             </a>
-            <a href="#" class="header__catalog">
+
+            <div class="header__catalog">
                 <div class="burger">
                     <span class="burger__stick"></span>
                     <span class="burger__stick"></span>
                     <span class="burger__stick"></span>
                 </div>
                 <span class="header__catalog-text">Каталог</span>
-                <ul class="header__catalog-list">
-                    {*
-                    <li class="header__catalog-item"><a href="#">Металлопрокат</a></li>
-                    *}
-                </ul>
-            </a>
+                <div class="header__catalog-menu">
+                    <div class="header__catalog-menu-inner">
+                        <div class="header__catalog-column">
+                            {'pdoMenu' | snippet : [
+                            'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
+                            'depth' => 1000,
+                            'limit' => 0,
+                            'tplOuter' => '@INLINE <ul class="header__catalog-list">{$wrapper}</ul>',
+                            'tplInner' => '@INLINE {$wrapper}',
+                            'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
+                            'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
+                            'where' => '{"template:=":"5"}',
+                            ]}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <form class="header__search-wrap">
                 <input class="header__search" placeholder="Поиск по сайту" name="search">
                 <button class="header__search-btn"></button>
