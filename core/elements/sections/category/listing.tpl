@@ -8,10 +8,12 @@
                 'tpls' => "@FILE sections/category/listing-products-item.tpl",
                 'tplOuter' => '@FILE sections/category/listing-outer.tpl',
                 'tplFilter.outer.default' => '@FILE sections/category/filter/tpl.filter.outer.tpl',
+                'tplFilter.row.price'=>'tpl.mFilter2.filter.number',
                 'tplFilter.outer.price' => 'tpl.mFilter2.filter.slider',
                 'values_delimeter' => "|-|",
                 'ajaxMode' => 'button',
-                'showEmptyFilters' => 0
+                'showEmptyFilters' => 0,
+                'aliases' => 'ms|price==price'
             ]}
         </div>
     </div>
