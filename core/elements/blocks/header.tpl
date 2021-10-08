@@ -5,9 +5,9 @@
 <header class="header">
     <div class="header__wrapper wrapper">
         <a href="#" class="header__burger burger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="burger__stick"></span>
+            <span class="burger__stick"></span>
+            <span class="burger__stick"></span>
         </a>
         <div class="header__line header__line_type_about">
             <div class="header__about">
