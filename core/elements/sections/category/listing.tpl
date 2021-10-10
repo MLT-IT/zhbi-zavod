@@ -9,7 +9,7 @@
                 'tplOuter' => '@FILE sections/category/listing-outer.tpl',
                 'tplFilter.outer.default' => '@FILE sections/category/filter/tpl.filter.outer.tpl',
                 'tplFilter.row.price'=>'tpl.mFilter2.filter.number',
-                'tplFilter.outer.price' => 'tpl.mFilter2.filter.slider',
+                'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
                 'values_delimeter' => "|-|",
                 'ajaxMode' => 'button',
                 'showEmptyFilters' => 0,

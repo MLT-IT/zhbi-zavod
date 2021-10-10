@@ -3,7 +3,7 @@
         <img class="pop-item__img" src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
     <a class="pop-item__title" href="{$uri}">{$menutitle}</a>
-    <p class="pop-item__price">{$price ? $price~" ₽" : ""}</p>
+    <p class="pop-item__price">{$price ? $price~" руб / упаковка" : ""}</p>
     <form method="post" class="ms2_form">
         <input type="hidden" name="id" value="{$id}">
         <input type="hidden" name="count" value="1">

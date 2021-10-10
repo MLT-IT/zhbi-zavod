@@ -37,7 +37,7 @@
         <div class="listing__products-item-art">Арт. {$article}</div>
     </div>
     <div class="listing__products-item-right">
-        <div class="listing__products-item-price">{$price} руб.</div>
+        <div class="listing__products-item-price">{$price} руб / упаковка</div>
         <button type="submit" name="ms2_action" value="cart/add" class="listing__products-item-button yellow-btn">В корзину</button>
     </div>
 </form>
