@@ -8,7 +8,7 @@
                 'tpls' => "@FILE sections/category/listing-products-item.tpl",
                 'tplOuter' => '@FILE sections/category/listing-outer.tpl',
                 'tplFilter.outer.default' => '@FILE sections/category/filter/tpl.filter.outer.tpl',
-                'tplFilter.row.price'=>'tpl.mFilter2.filter.number',
+                'tplFilter.row.price'=>'@FILE chunks/filterNumberInner.tpl',
                 'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
                 'values_delimeter' => "|-|",
                 'ajaxMode' => 'button',
