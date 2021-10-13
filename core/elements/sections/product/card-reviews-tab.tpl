@@ -20,7 +20,7 @@
             </svg>
         </div>
     </div>
-    <a class="reviews__button" href="#review" data-fancybox="">
+    <a class="reviews__button" href="#reviews" data-fancybox="">
         <span><svg class="svg icon-pen" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                               <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-pen"></use>
@@ -49,7 +49,6 @@
         </div>
     </a>
     <div class="reviews__list">
-
         {foreach $reviews as $idx => $row}
             {set $classValue = ''}
             {switch $row.value}

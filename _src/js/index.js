@@ -148,16 +148,31 @@ window.$      = $;
     // -------------------------------
     // Меню
     // -------------------------------
+    // На ПК
     // $('.header__catalog').on('click', function(e) {
     //     e.preventDefault();
     //     $(this).toggleClass('opened');
     // });
 
+    // На телефонах
     $('.header__burger').on('click', function(e) {
         e.preventDefault();
         let $this = $(this);
         $this.toggleClass('opened');
         $this.closest('.header__wrapper').find('.header__nav').toggleClass('opened');
     });
+
+    // -------------------------------
+    // Звездочки во всплывашке для рейтинга
+    // -------------------------------
+    $('.popup-reviews__stars svg').on('click', function(e) {
+        e.preventDefault();
+
+        $('.popup-reviews__stars svg').removeClass('active');
+
+        let $this = $(this);
+        $this.addClass('active');
+    });
+
 })(jQuery);
 

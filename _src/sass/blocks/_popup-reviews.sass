@@ -1,0 +1,48 @@
+.popup-reviews
+    &__subtitle
+        display: flex
+        margin-top: 22px
+        align-self: flex-start
+        margin-bottom: 24px
+
+    &__subtitle-text
+        margin-right: 19px
+        align-self: flex-start
+        margin-top: 4px
+
+        @media screen and (max-width: 500px)
+            margin-top: 2px
+            margin-right: 14px
+
+    &__stars
+        display: flex
+        flex-direction: row-reverse
+
+        svg
+            fill: #b1b2b3
+            width: 21.85px
+            height: 21.85px
+            cursor: pointer
+
+            @media screen and (max-width: 500px)
+                width: 18px
+                height: 18px
+
+            &:hover, &.active
+                &, ~ svg
+                    fill: #ffbe00
+
+            &:nth-last-of-type(n+2)
+                margin-left: 7.94px
+
+                @media screen and (max-width: 500px)
+                    margin-left: 5px
+
+    &__form
+        padding: 34px 58px 68px
+
+        @media screen and (max-width: 500px)
+            padding: 35px 30px
+
+    &__title
+        font-weight: 700
