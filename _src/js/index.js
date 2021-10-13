@@ -174,5 +174,18 @@ window.$      = $;
         $this.addClass('active');
     });
 
+    // -------------------------------
+    // Щелчок по якорю "Отзывы"
+    // -------------------------------
+    $('.product-card__reviews-quantity').on('click', function(e) {
+        e.preventDefault();
+
+        $('.product-card__tabs-button_type_reviews').trigger('click');
+
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".product-card__tabs").offset().top
+        }, 300);
+    });
+
 })(jQuery);
 
