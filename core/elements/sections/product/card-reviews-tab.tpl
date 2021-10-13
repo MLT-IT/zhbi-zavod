@@ -49,89 +49,51 @@
         </div>
     </a>
     <div class="reviews__list">
-{*        <div class="reviews__item">*}
-{*            <div class="product-card__reviews-stars two">*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*            </div>*}
-{*            <div class="reviews__item-content">*}
-{*                <div class="reviews__item-user">*}
-{*                    <div class="reviews__item-user-name">Ярослав</div>*}
-{*                    <div class="reviews__item-user-date">(30 августа)</div>*}
-{*                </div>*}
-{*                <div class="reviews__item-text">*}
-{*                    <p>Планка для столешницы соединительная 2.8 см цвет матовый хром и другие товары в данной категории доступны в каталоге интернет-магазина Леруа Мерлен в Москве по низким ценам. Ознакомьтесь с подробными характеристиками и описанием, а также отзывами о данном товаре, чтобы сделать правильный выбор и заказать товар онлайн.</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="reviews__item">*}
-{*            <div class="product-card__reviews-stars two">*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*            </div>*}
-{*            <div class="reviews__item-content">*}
-{*                <div class="reviews__item-user">*}
-{*                    <div class="reviews__item-user-name">Ярослав</div>*}
-{*                    <div class="reviews__item-user-date">(30 августа)</div>*}
-{*                </div>*}
-{*                <div class="reviews__item-text">*}
-{*                    <p>Планка для столешницы соединительная 2.8 см цвет матовый хром и другие товары в данной категории доступны в каталоге интернет-магазина Леруа Мерлен в Москве по низким ценам. Ознакомьтесь с подробными характеристиками и описанием, а также отзывами о данном товаре, чтобы сделать правильный выбор и заказать товар онлайн.</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-{*        <div class="reviews__item">*}
-{*            <div class="product-card__reviews-stars two">*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*                <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">*}
-{*                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>*}
-{*                </svg>*}
-{*            </div>*}
-{*            <div class="reviews__item-content">*}
-{*                <div class="reviews__item-user">*}
-{*                    <div class="reviews__item-user-name">Ярослав</div>*}
-{*                    <div class="reviews__item-user-date">(30 августа)</div>*}
-{*                </div>*}
-{*                <div class="reviews__item-text">*}
-{*                    <p>Планка для столешницы соединительная 2.8 см цвет матовый хром и другие товары в данной категории доступны в каталоге интернет-магазина Леруа Мерлен в Москве по низким ценам. Ознакомьтесь с подробными характеристиками и описанием, а также отзывами о данном товаре, чтобы сделать правильный выбор и заказать товар онлайн.</p>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
+
+        {foreach $reviews as $idx => $row}
+            {set $classValue = ''}
+            {switch $row.value}
+                {case 1}
+                    {set $classValue = 'one'}
+                {case 2}
+                    {set $classValue = 'two'}
+                {case 3}
+                    {set $classValue = 'three'}
+                {case 4}
+                    {set $classValue = 'four'}
+                {case 5}
+                    {set $classValue = 'five'}
+            {/switch}
+
+            <div class="reviews__item">
+                <div class="product-card__reviews-stars{$classValue ? ' ' ~ $classValue : ''}">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
+                    </svg>
+                </div>
+                <div class="reviews__item-content">
+                    <div class="reviews__item-user">
+                        <div class="reviews__item-user-name">{$row.author}</div>
+                        <div class="reviews__item-user-date">({$row.date})</div>
+                    </div>
+                    <div class="reviews__item-text">
+                        {$row.text}
+                    </div>
+                </div>
+            </div>
+        {/foreach}
     </div>
+
 </div>
