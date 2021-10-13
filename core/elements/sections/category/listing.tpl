@@ -8,12 +8,16 @@
                 'tpls' => "@FILE sections/category/listing-products-item.tpl",
                 'tplOuter' => '@FILE sections/category/listing-outer.tpl',
                 'tplFilter.outer.default' => '@FILE sections/category/filter/tpl.filter.outer.tpl',
-                'tplFilter.row.price'=>'@FILE chunks/filterNumberInner.tpl',
-                'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
                 'values_delimeter' => "|-|",
                 'ajaxMode' => 'button',
                 'showEmptyFilters' => 0,
-                'aliases' => 'ms|price==price'
+
+                'tplFilter.row.price' => '@FILE chunks/filterNumberInner.tpl',
+                'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
+                'tplFilter.row.price2' => '@FILE chunks/filterNumberInner.tpl',
+                'tplFilter.outer.price2' => '@FILE chunks/filterNumber.tpl',
+
+                'aliases' => 'ms|price==price,msoption|price2==price2'
             ]}
         </div>
     </div>
