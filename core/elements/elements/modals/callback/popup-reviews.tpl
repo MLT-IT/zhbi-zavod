@@ -6,7 +6,7 @@
             <span class="popup-reviews__subtitle-text">
                 Оцените товар
             </span>
-            <div class="popup-reviews__stars">
+            <div class="popup-reviews__stars fancy">
                 <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                     <use xlink:href="/assets/template/img/svg-sprite.svg#icon-star"></use>
                 </svg>
