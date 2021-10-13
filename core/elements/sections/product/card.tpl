@@ -1,3 +1,5 @@
+{set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
+
 <div class="product-card__content">
     {include "file:sections/product/card-info.tpl"}
     <div class="product-card__about">
