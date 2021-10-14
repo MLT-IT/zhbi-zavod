@@ -51,7 +51,27 @@
         <div class="sect-search__content ajax-content">
             {if $_modx->getPlaceholder('mSearchAmount') > 0}
                 <p class="sect-search__search-info">
-                    Найдено {$_modx->getPlaceholder('mSearchAmount')} результатов по фразе "{$.get.query}".
+                    {set $amount = $_modx->getPlaceholder('mSearchAmount')}
+
+                    {'@FILE snippets/formOfWord.php' | snippet : [
+                            'n' => $amount,
+                            'f1' => 'Найден',
+                            'f2' => 'Найдено',
+                            'f5' => 'Найдено'
+                        ]
+                    }
+
+                    {$amount}
+
+                    {'@FILE snippets/formOfWord.php' | snippet : [
+                            'n' => $amount,
+                            'f1' => 'результат',
+                            'f2' => 'результата',
+                            'f5' => 'результатов'
+                        ]
+                    }
+
+                    по фразе "{$.get.query}".
                 </p>
             {/if}
             <div class="sect-search__results ajax-content__items-wrap">
