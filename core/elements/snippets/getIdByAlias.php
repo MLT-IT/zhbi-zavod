@@ -4,13 +4,27 @@ if (empty($alias)) {
     return;
 }
 
-$obj = $modx->getObject('modResource', [
-    'alias' => $alias,
-    'context_key' => $modx->resource->context_key
-]);
+$result = [];
 
-if (empty($obj)) {
-    return;
+$alias = explode(',', $alias);
+
+foreach ($alias as $al) {
+    $al = trim($al);
+    $obj = $modx->getObject('modResource', [
+        'alias' => $al,
+        'context_key' => $modx->resource->context_key
+    ]);
+
+    if (empty($obj)) {
+        continue;
+    }
+
+    $val = '';
+    if (!empty($addMinus) && $addMinus) {
+        $val = '-';
+    }
+
+    $result[] = $val . $obj->id;
 }
 
-return $obj->id;
+return implode(',', $result);

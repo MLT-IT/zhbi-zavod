@@ -11,12 +11,19 @@
     <div class="wrapper sect-search">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
+        {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
+            'alias' => 'catalog'
+        ]}
+
         {'!pdoPage' | snippet : [
         'element' => 'mSearch2',
         'tpl' => '@FILE chunks/mSearchRow.tpl',
 
         'pageVarKey' => 'page',
         'pageNavVar' => 'page.nav',
+
+        'parents' => $parents,
+        'depth' => '100',
 
         'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
         'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
