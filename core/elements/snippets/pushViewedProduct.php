@@ -22,6 +22,6 @@ $_SESSION['RECENT_VIEWED'][] = [
     'id' => $id,
     'name' => $modx->resource->menutitle ?: $modx->resource->pagetitle,
     'url' => $modx->makeUrl($modx->resource->id),
-    'image' => $modx->resource->get('image'),
+    'thumb' => $modx->resource->get('thumb'),
     'price' => $price
 ];
