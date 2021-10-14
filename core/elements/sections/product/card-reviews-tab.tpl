@@ -2,7 +2,7 @@
     <div class="reviews__top" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
 
         <span>Средняя оценка</span>
-        <div itemprop="ratingValue" class="reviews__top-value">4.9</div>
+        <span itemprop="ratingValue" class="reviews__top-value">4.9</span>
         <meta itemprop="ratingCount" content="122">
         <meta itemprop="worstRating" content="1.0">
         <meta itemprop="bestRating" content="5.0">
