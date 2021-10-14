@@ -31,16 +31,23 @@
         'tplPageNextEmpty' => '@INLINE ',
 
         'toPlaceholder' => 'mSearchResults',
-        'totalVar' => 'mSearchAmount'
+        'totalVar' => 'mSearchAmount',
+
+        'ajaxElemWrapper' => '.ajax-content',
+        'ajaxElemRows' => '.ajax-content__items-wrap',
+        'ajaxElemLink' => '.spag__item',
+        'ajaxElemPagination' => '.sect-search__pagination',
+        'ajax' => '1',
+        'ajaxMode' => 'default',
         ]}
 
-        <div class="sect-search__content">
+        <div class="sect-search__content ajax-content">
             {if $_modx->getPlaceholder('mSearchAmount') > 0}
                 <p class="sect-search__search-info">
                     Найдено {$_modx->getPlaceholder('mSearchAmount')} результатов по фразе "{$.get.query}".
                 </p>
             {/if}
-            <div class="sect-search__results">
+            <div class="sect-search__results ajax-content__items-wrap">
                 {$_modx->getPlaceholder('mSearchResults')}
             </div>
             {if $_modx->getPlaceholder('pageCount') > 0}
