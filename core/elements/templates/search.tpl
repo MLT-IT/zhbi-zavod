@@ -1,0 +1,54 @@
+{extends "file:layouts/default.layout.tpl"}
+
+{block 'title'}
+    {include "file:elements/product/meta-title.tpl"}
+{/block}
+{block 'description'}
+    {include "file:elements/product/meta-description.tpl"}
+{/block}
+
+{block "page"}
+    <div class="wrapper sect-search">
+        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
+
+        {'!pdoPage' | snippet : [
+        'element' => 'mSearch2',
+        'tpl' => '@FILE chunks/mSearchRow.tpl',
+
+        'pageVarKey' => 'page',
+        'pageNavVar' => 'page.nav',
+
+        'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
+        'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
+        'tplPageActive' => '@INLINE <span class="active spag__item spag__item_type_num">{$pageNo}</span>',
+        'tplPageFirst' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge"><<</a>',
+        'tplPageLast' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge">>></a>',
+        'tplPagePrev' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step"><</a>',
+        'tplPageNext' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step">></a>',
+        'tplPageFirstEmpty' => '@INLINE ',
+        'tplPageLastEmpty' => '@INLINE ',
+        'tplPagePrevEmpty' => '@INLINE ',
+        'tplPageNextEmpty' => '@INLINE ',
+
+        'toPlaceholder' => 'mSearchResults',
+        'totalVar' => 'mSearchAmount'
+        ]}
+
+        <div class="sect-search__content">
+            {if $_modx->getPlaceholder('mSearchAmount') > 0}
+                <p class="sect-search__search-info">
+                    Найдено {$_modx->getPlaceholder('mSearchAmount')} результатов по фразе "{$.get.query}".
+                </p>
+            {/if}
+            <div class="sect-search__results">
+                {$_modx->getPlaceholder('mSearchResults')}
+            </div>
+            {if $_modx->getPlaceholder('pageCount') > 0}
+                <div class="sect-search__pagination spag">
+                    {$_modx->getPlaceholder('page.nav')}
+                </div>
+            {/if}
+        </div>
+
+    </div>
+{/block}

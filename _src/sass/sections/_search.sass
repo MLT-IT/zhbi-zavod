@@ -1,0 +1,51 @@
+.spag
+    &__item
+        font-size: 16px
+        +set_colors_2(color)
+
+        &.active
+            +set_colors_1(color)
+
+        &:nth-last-child(n+2)
+            margin-right: 8px
+
+.sect-search
+    &__content
+        padding-bottom: 40px
+
+    &__search-info
+        font-size: 16px
+        margin-bottom: 40px
+
+.search-row
+    padding-bottom: 20px
+    margin-bottom: 20px
+    position: relative
+
+    &::after
+        display: block
+        position: absolute
+        bottom: 0
+        max-width: 200px
+        width: 100%
+        height: 1px
+        background-color: #b1b2b3
+
+    &:nth-last-of-type(n+2)
+        &::after
+            content: ""
+
+    &__title
+        text-transform: uppercase
+
+    &__intro
+        margin-top: 20px
+
+    &__title, &__idx
+        font-size: 16px
+
+    &__link
+        +set_colors_1(color)
+
+        &:hover
+            text-decoration: underline

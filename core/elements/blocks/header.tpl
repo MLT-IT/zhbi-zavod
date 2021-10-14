@@ -58,9 +58,9 @@
                 </div>
             </div>
 
-            <form class="header__search-wrap">
-                <input class="header__search" placeholder="Поиск по сайту" name="search">
-                <button class="header__search-btn"></button>
+            <form action="/search/" class="header__search-wrap">
+                <input class="header__search" placeholder="Поиск по сайту" name="query">
+                <button type="submit" class="header__search-btn"></button>
             </form>
 
             <div class="header__btns-wrap">
