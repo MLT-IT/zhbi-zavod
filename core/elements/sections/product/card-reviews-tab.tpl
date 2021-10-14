@@ -1,7 +1,12 @@
 <div class="reviews">
-    <div class="reviews__top">
+    <div class="reviews__top" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+
         <span>Средняя оценка</span>
-        <div class="reviews__top-value">4.9</div>
+        <div itemprop="ratingValue" class="reviews__top-value">4.9</div>
+        <meta itemprop="ratingCount" content="122">
+        <meta itemprop="worstRating" content="1.0">
+        <meta itemprop="bestRating" content="5.0">
+
         <div class="product-card__reviews-stars five">
             <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
@@ -19,12 +24,22 @@
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
             </svg>
         </div>
+
+        <div itemprop="itemReviewed" itemscope="" itemtype="http://schema.org/Organization">
+            <meta itemprop="name" content="{$_modx->config.http_host}"><span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+				<meta itemprop="addressLocality" content="{$_modx->config.address}"></span>
+            <meta itemprop="telephone" content="{$_modx->config.phone}">
+        </div>
+
     </div>
     <a class="reviews__button" href="#reviews" data-fancybox="">
-        <span><svg class="svg icon-pen" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                              <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-pen"></use>
-                            </svg>Оставьте свой отзыв</span>
+        <span>
+            <svg class="svg icon-pen" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-pen"></use>
+            </svg>
+            Оставьте свой отзыв
+        </span>
         <div class="reviews__button-stars">
             <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                  version="1.1">
