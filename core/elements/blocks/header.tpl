@@ -93,9 +93,10 @@
         </div>
         <nav class="header__nav">
             <p class="header__nav-header">Каталог</p>
-            <form class="header__search-wrap" name="search">
-                <input class="header__search" placeholder="Поиск по сайту">
-                <button class="header__search-btn"></button>
+
+            <form action="/search/" class="header__search-wrap">
+                <input class="header__search" placeholder="Поиск по сайту" name="query">
+                <button type="submit" class="header__search-btn"></button>
             </form>
 
             <ul class="header__nav-list mobile">
