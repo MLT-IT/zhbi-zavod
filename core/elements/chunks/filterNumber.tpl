@@ -4,9 +4,9 @@
         <div class="listing__filter-block-arrow"></div>
     </div>
     <fieldset class="filter-number__inner listing__filter-block-content" id="mse2_{$table ~ $delimeter ~ $filter}">
-        <div class="mse2_number_slider filter-number__slider"></div>
         <div class="mse2_number_inputs filter-number__row">
             {$rows}
         </div>
+        <div class="mse2_number_slider filter-number__slider"></div>
     </fieldset>
 </div>
