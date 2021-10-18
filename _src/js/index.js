@@ -3,7 +3,6 @@ import '../sass/styles.sass'
 window.jQuery = $;
 window.$      = $;
 
-
 (function ($) {
     let pageCart = $('.sect-cart').length;
 
@@ -185,6 +184,11 @@ window.$      = $;
         $([document.documentElement, document.body]).animate({
             scrollTop: $(".product-card__tabs").offset().top
         }, 300);
+    });
+
+    $('.listing__filter-button').on('click', function(e) {
+        let $headerBtnsWrap = $('.header__btns-wrap');
+        $headerBtnsWrap.toggleClass('closed');
     });
 
 })(jQuery);

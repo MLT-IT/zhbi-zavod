@@ -590,6 +590,10 @@
     &__btns-wrap
         display: flex
         margin-left: 30px
+        transition: transform .15s
+
+        &.closed
+            transform: translateY(100%)
 
         @media screen and (max-width: 900px)
             margin-left: 12px
