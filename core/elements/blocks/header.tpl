@@ -43,16 +43,25 @@
                 <div class="header__catalog-menu">
                     <div class="header__catalog-menu-inner">
                         <div class="header__catalog-column">
-                            {'pdoMenu' | snippet : [
-                            'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
-                            'depth' => 1000,
-                            'limit' => 0,
-                            'tplOuter' => '@INLINE <ul class="header__catalog-list">{$wrapper}</ul>',
-                            'tplInner' => '@INLINE {$wrapper}',
-                            'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
-                            'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
-                            'where' => '{"template:=":"5"}',
-                            ]}
+                            <ul class="header__catalog-list">
+                                {'pdoMenu' | snippet : [
+                                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
+                                'depth' => 1000,
+                                'limit' => 0,
+                                'tplOuter' => '@INLINE {$wrapper}',
+                                'tplInner' => '@INLINE {$wrapper}',
+                                'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
+                                'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
+                                'where' => '{"template:=":"5"}',
+                                ]}
+
+                                {if $site_context === 'isover'}
+                                    {set $menutitle = 8861 | resource : 'menutitle'}
+                                    {set $pagetitle = 8861 | resource : 'pagetitle'}
+                                    {set $uri = 8861 | resource : 'uri' ~ '/'}
+                                    {include "file:chunks/catalogCategoryItem.tpl" menutitle=$menutitle pagetitle=$pagetitle uri=$uri}
+                                {/if}
+                            </ul>
                         </div>
                     </div>
                 </div>
