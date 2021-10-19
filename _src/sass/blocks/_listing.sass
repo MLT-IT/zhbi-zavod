@@ -6,3 +6,16 @@
         @media screen and (max-width: 768px)
             top: 66px
             height: calc(100vh - 66px)
+
+    &__sort-item
+        border-bottom: 1px dashed transparent
+        transition: border-bottom-color, color .3s
+
+        &.active, &:hover
+            @at-root  #mse2_sort &
+                +set_colors_1(color)
+                border-bottom-color: currentColor
+
+        &.active
+            @at-root  #mse2_sort &
+                cursor: pointer
