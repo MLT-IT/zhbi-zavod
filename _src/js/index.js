@@ -212,7 +212,7 @@ window.$      = $;
                 break;
             // По популярности по убыванию
             case 3:
-                $elem = $('.listing__sort-item[data-sort="ms_product|menuindex"]');
+                $elem = $('.listing__sort-item[data-sort="tv|HitsPage"]');
                 dataDir = 'desc';
                 break
             // По алфавиту по убыванию

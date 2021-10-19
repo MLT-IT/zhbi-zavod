@@ -18,7 +18,9 @@
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
 
-            'sort' => 'ms|price:desc'
+            'sort' => 'ms|price:desc',
+
+            'includeTVs' => 'HitsPage'
             ]}
         </div>
     </div>

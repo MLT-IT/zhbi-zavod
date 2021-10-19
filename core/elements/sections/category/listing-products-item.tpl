@@ -1,4 +1,4 @@
-<form class="listing__products-item ms2_form" method="post">
+<form class="listing__products-item ms2_form" method="post" data-views="{$_pls['HitsPage']}">
     <input type="hidden" name="id" value="{$id}">
     <input type="hidden" name="count" value="1">
     <input type="hidden" name="options" value="[]">
