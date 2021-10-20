@@ -1,3 +1,6 @@
+{set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
+{$itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
+
 <form class="listing__products-item ms2_form" method="post" data-views="{$_pls['HitsPage']}">
     <input type="hidden" name="id" value="{$id}">
     <input type="hidden" name="count" value="1">
@@ -5,9 +8,7 @@
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
-            {* TODO: изображение товара *}
-{*            <img src="{$_modx->config['template_path']}img/beton/beton1.png" alt="">*}
-            <img  class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="">
+            <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="">
         </a>
         <div class="listing__products-item-title">
             <a href="{$uri}">{$pagetitle}</a>
@@ -38,6 +39,10 @@
     </div>
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">{$price} руб / упаковка</div>
-        <button type="submit" name="ms2_action" value="cart/add" class="listing__products-item-button yellow-btn">В корзину</button>
+        <button type="submit" name="ms2_action" value="cart/add" {if $itemInCart == true}style="display: none;"{/if} class="listing__products-item-button yellow-btn">В корзину</button>
+        <a href="#" data-key="{$productKey}" {if $itemInCart == false}style="display: none;"{/if} class="listing__products-item-remove">
+            <span class="listing__products-item-remove-available"></span>
+            <span class="listing__products-item-remove-close"></span>
+        </a>
     </div>
 </form>

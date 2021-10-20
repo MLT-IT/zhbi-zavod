@@ -17,9 +17,7 @@
             'tplFilter.outer.price2' => '@FILE chunks/filterNumber.tpl',
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
-
             'sort' => 'ms|price:desc',
-
             'includeTVs' => 'HitsPage'
             ]}
         </div>

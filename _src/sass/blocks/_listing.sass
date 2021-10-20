@@ -19,3 +19,51 @@
         &.active
             @at-root  #mse2_sort &
                 cursor: pointer
+
+    &__products-item-remove
+        $block: &
+
+        width: 180px
+        height: 50px
+        border: 1px solid #3C3C3B
+        border-radius: 5px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        &-available
+            display: block
+            transform: rotate(45deg)
+            height: 20px
+            width: 12px
+            border-bottom: 2px solid #52BC6A
+            border-right: 2px solid #52BC6A
+            border-radius: 1px
+            margin-bottom: 6px
+
+        &-close
+            display: none
+            position: relative
+            width: 20px
+            height: 20px
+
+            &:before, &:after
+                position: absolute
+                content: ' '
+                height: 20px
+                width: 2px
+                background-color: #E80000
+                left: 10px
+
+            &:before
+                transform: rotate(45deg)
+
+            &:after
+                transform: rotate(-45deg)
+
+        &:hover
+            #{$block}-available
+                display: none
+
+            #{$block}-close
+                display: block
