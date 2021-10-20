@@ -11,7 +11,7 @@
     <div class="wrapper">
 {include "file:blocks/breadcrumbs.tpl"}
 </div>
-    <div class="wrapper">
+    <div class="wrapper" data-views="{'!HitsPage' | snippet : ['saveTv' => 'true']}">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
         {include "file:sections/product/card.tpl"}
     </div>
