@@ -1,5 +1,5 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
-{$itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
+{set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
 <form class="listing__products-item ms2_form" method="post" data-views="{$_pls['HitsPage']}">
     <input type="hidden" name="id" value="{$id}">
