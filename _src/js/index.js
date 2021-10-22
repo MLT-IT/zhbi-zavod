@@ -1,9 +1,12 @@
 import '../sass/styles.sass'
+import mailChange from './modules/mailchanger';
 
 window.jQuery = $;
 window.$      = $;
 
 $(function ($) {
+    mailChange();
+
     let pageCart = $('.sect-cart').length;
 
     // -------------------------------
