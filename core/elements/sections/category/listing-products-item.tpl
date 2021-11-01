@@ -41,7 +41,6 @@
         <div class="listing__products-item-price">{$price} руб / упаковка</div>
 
         <button type="submit" name="ms2_action" value="cart/add" {if $itemInCart > 0}style="display: none;"{/if} class="listing__products-item-button yellow-btn product-item__to-cart">В корзину</button>
-
         <div {if $itemInCart == 0}style="display: none;"{/if} class="product-item__products-item-controls">
             <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>
             <div class="custom-counter product-item__custom-counter">

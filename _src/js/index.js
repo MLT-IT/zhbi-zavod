@@ -278,6 +278,9 @@ $(function ($) {
         }
 
         let key = $productItem.attr('data-key');
+        if (!key.length) {
+            return;
+        }
 
         let sendingData;
         let val = $this.val();
@@ -301,6 +304,8 @@ $(function ($) {
             data: sendingData,
             success: function (data) {
                 if (data.success) {
+                    handleMiniCart(data.data.total_count);
+
                     if (sendingData.action === 'cart/remove') {
                         $productItem.find('.product-item__products-item-controls').hide();
                         $productItem.find('.product-item__to-cart').show();
@@ -333,8 +338,6 @@ $(function ($) {
 
             $item.find('.listing__products-item-button').hide();
             $item.find('.product-item__products-item-controls').show();
-
-            console.log(response);
         }
     }
 
