@@ -3,7 +3,7 @@
         <div class="delivery__banner fadeInUp">
             <div class="delivery__banner-content">
                 <div class="delivery__banner-text">Доставим Ваш заказ на следующий день</div>
-                <a class="delivery__banner-btn yellow-btn" href="#">ЗАКАЗАТЬ доставку</a>
+                <a data-fancybox="" href="#callback" class="delivery__banner-btn yellow-btn">ЗАКАЗАТЬ доставку</a>
             </div>
         </div>
         <div class="delivery__info">
