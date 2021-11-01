@@ -2,12 +2,34 @@ import '../sass/styles.sass'
 import mailChange from './modules/mailchanger';
 
 window.jQuery = $;
-window.$      = $;
+window.$ = $;
 
 $(function ($) {
-    mailChange();
+    // -------------------------------
+    // Мини-корзина
+    // -------------------------------
+    function handleMiniCart(value) {
+        let $cartValueElem = $('.header__cart-value');
+        let cartValue;
 
-    let pageCart = $('.sect-cart').length;
+        if (typeof value !== 'undefined') {
+            cartValue = value;
+            $cartValueElem.text(cartValue);
+        } else {
+            cartValue = parseInt($cartValueElem.text());
+        }
+
+        if (cartValue > 0) {
+            $cartValueElem.removeClass('hidden');
+        }
+    }
+
+    handleMiniCart();
+
+    // -------------------------------
+    // Подмена Email'а
+    // -------------------------------
+    mailChange();
 
     // -------------------------------
     // Фильтрация ввода
@@ -133,8 +155,9 @@ $(function ($) {
         $this.closest('.cart-table__form').find('.btn-sm').click();
     });
 
+    let pageCart = $('.sect-cart').length;
     if (pageCart) {
-        $counterInput.each(function() {
+        $counterInput.each(function () {
             $(this).on('change', function () {
                 let $this = $(this);
                 let $product = $this.closest('.cart-table__table-row_type_product');
@@ -157,7 +180,7 @@ $(function ($) {
     // });
 
     // На телефонах
-    $('.header__burger').on('click', function(e) {
+    $('.header__burger').on('click', function (e) {
         e.preventDefault();
         let $this = $(this);
         $this.toggleClass('opened');
@@ -167,7 +190,7 @@ $(function ($) {
     // -------------------------------
     // Звездочки во всплывашке для рейтинга
     // -------------------------------
-    $('.popup-reviews__stars svg').on('click', function(e) {
+    $('.popup-reviews__stars svg').on('click', function (e) {
         e.preventDefault();
 
         $('.popup-reviews__stars svg').removeClass('active');
@@ -179,7 +202,7 @@ $(function ($) {
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
-    $('.product-card__reviews-quantity').on('click', function(e) {
+    $('.product-card__reviews-quantity').on('click', function (e) {
         e.preventDefault();
 
         $('.product-card__tabs-button_type_reviews').trigger('click');
@@ -189,7 +212,7 @@ $(function ($) {
         }, 300);
     });
 
-    $('.listing__filter-button').on('click', function(e) {
+    $('.listing__filter-button').on('click', function (e) {
         let $headerBtnsWrap = $('.header__btns-wrap');
         $headerBtnsWrap.toggleClass('closed');
     });
@@ -197,7 +220,7 @@ $(function ($) {
     // -------------------------------
     // Сортировка на мобильных экранах
     // -------------------------------
-    $('.listing__sort-select-elem').on('change', function(e) {
+    $('.listing__sort-select-elem').on('change', function (e) {
         let val = $(this).val();
         let $elem;
         let dataDir;
@@ -243,7 +266,7 @@ $(function ($) {
     // -------------------------------
     // Удаление товара из корзины
     // -------------------------------
-    $(document).on('click', '.listing__products-item-remove', function(e) {
+    $(document).on('click', '.listing__products-item-remove', function (e) {
         e.preventDefault();
 
         let $this = $(this);
@@ -272,14 +295,36 @@ $(function ($) {
     // -------------------------------
     // Добавление товара в корзину
     // -------------------------------
-    miniShop2.Callbacks.Cart.add.response.success = function(response) {
+    miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
-            console.log()
+            // Работа с кнопкой
             let $item = this.sendData.$form;
             $item.find('.listing__products-item-button').hide();
             $item.find('.listing__products-item-remove').show();
+
+            // Работа с мини-корзиной
+            handleMiniCart(response.data.total_count);
         }
     }
 
+    // -------------------------------
+    // Удаление товара из корзины
+    // -------------------------------
+    miniShop2.Callbacks.Cart.remove.response.success = function (response) {
+        if (response.success) {
+            // Работа с мини-корзиной
+            handleMiniCart(response.data.total_count);
+        }
+    }
+
+    // -------------------------------
+    // Изменение товара в корзине
+    // -------------------------------
+    miniShop2.Callbacks.Cart.change.response.success = function (response) {
+        if (response.success) {
+            // Работа с мини-корзиной
+            handleMiniCart(response.data.total_count);
+        }
+    }
 });
 
