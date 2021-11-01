@@ -1,7 +1,7 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<form class="listing__products-item ms2_form" method="post" data-views="{$_pls['HitsPage']}">
+<form data-key="{$productKey}" class="product-item listing__products-item ms2_form" method="post" data-views="{$_pls['HitsPage']}">
     <input type="hidden" name="id" value="{$id}">
     <input type="hidden" name="count" value="1">
     <input type="hidden" name="options" value="[]">
@@ -39,10 +39,16 @@
     </div>
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">{$price} руб / упаковка</div>
-        <button type="submit" name="ms2_action" value="cart/add" {if $itemInCart == true}style="display: none;"{/if} class="listing__products-item-button yellow-btn">В корзину</button>
-        <a href="#" data-key="{$productKey}" {if $itemInCart == false}style="display: none;"{/if} class="listing__products-item-remove">
-            <span class="listing__products-item-remove-available"></span>
-            <span class="listing__products-item-remove-close"></span>
-        </a>
+
+        <button type="submit" name="ms2_action" value="cart/add" {if $itemInCart > 0}style="display: none;"{/if} class="listing__products-item-button yellow-btn product-item__to-cart">В корзину</button>
+
+        <div {if $itemInCart == 0}style="display: none;"{/if} class="product-item__products-item-controls">
+            <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>
+            <div class="custom-counter product-item__custom-counter">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                <input name="counter-count" class="custom-counter__amount" value="{$itemInCart}">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+            </div>
+        </div>
     </div>
 </form>

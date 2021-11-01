@@ -132,7 +132,7 @@ $(function ($) {
     let $counterInput = $('.custom-counter__amount');
 
     $counterInput.inputFilter(function (value) {
-        return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) > 0);
+        return /^(0|[1-9][0-9]{0,})$/.test(value);
     });
 
     $('.custom-counter__btn').on('click', function (e) {
@@ -155,6 +155,7 @@ $(function ($) {
         $this.closest('.cart-table__form').find('.btn-sm').click();
     });
 
+    // TODO: этот код лучше перенести в change от Minishop2. И на monolit78 также.
     let pageCart = $('.sect-cart').length;
     if (pageCart) {
         $counterInput.each(function () {
@@ -264,28 +265,47 @@ $(function ($) {
     });
 
     // -------------------------------
-    // Удаление товара из корзины
+    // Обработчик счетчика на карточках товара
     // -------------------------------
-    $(document).on('click', '.listing__products-item-remove', function (e) {
+    $(document).on('change', '.custom-counter__amount', function (e) {
         e.preventDefault();
 
         let $this = $(this);
-        let $toCartBtn = $this.closest('.listing__products-item').find('.listing__products-item-button');
+        let $productItem = $this.closest('.product-item');
 
-        let key = $(this).attr('data-key');
+        if (!$productItem.length) {
+            return;
+        }
+
+        let key = $productItem.attr('data-key');
+
+        let sendingData;
+        let val = $this.val();
+        if (val <= 0) {
+            sendingData = {
+                action: 'cart/remove'
+            }
+        } else {
+            sendingData = {
+                action: 'cart/change',
+                count: val
+            }
+        }
+
+        sendingData.key = key;
 
         $.ajax({
             method: "POST",
             dataType: "json",
             url: window.location.origin + '/assets/components/minishop2/action.php',
-            data: {
-                'ms2_action': 'cart/remove',
-                'key': key
-            },
+            data: sendingData,
             success: function (data) {
                 if (data.success) {
-                    $this.hide();
-                    $toCartBtn.show();
+                    if (sendingData.action === 'cart/remove') {
+                        $productItem.find('.product-item__products-item-controls').hide();
+                        $productItem.find('.product-item__to-cart').show();
+                    }
+
                     miniShop2.Message.success(data.message);
                 }
             }
@@ -293,23 +313,32 @@ $(function ($) {
     });
 
     // -------------------------------
-    // Добавление товара в корзину
+    // Обработчики Minishop2
     // -------------------------------
+    // Добавление товара в корзину
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
-            // Работа с кнопкой
-            let $item = this.sendData.$form;
-            $item.find('.listing__products-item-button').hide();
-            $item.find('.listing__products-item-remove').show();
-
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count);
+
+            // Работа с кнопкой
+            let $item = this.sendData.$form;
+
+            let val = parseInt($item.find('.custom-counter__amount').val());
+            if (isNaN(val)) {
+                val = 0;
+            }
+            val++;
+            $item.find('.custom-counter__amount').val(val);
+
+            $item.find('.listing__products-item-button').hide();
+            $item.find('.product-item__products-item-controls').show();
+
+            console.log(response);
         }
     }
 
-    // -------------------------------
     // Удаление товара из корзины
-    // -------------------------------
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
@@ -317,9 +346,7 @@ $(function ($) {
         }
     }
 
-    // -------------------------------
     // Изменение товара в корзине
-    // -------------------------------
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной

@@ -1,0 +1,42 @@
+.product-item
+    &__btn-in-cart
+        display: flex
+        flex-direction: column
+        align-items: center
+        border-radius: 6px
+        padding: 9px 24px
+        white-space: nowrap
+        margin-right: 4px
+
+        +set_colors_1(background-color)
+        &:hover
+            @at-root .knauf &
+                background-color: darken(#4f70ad, 10%)
+            @at-root .rockwool &
+                background-color: darken(#AA000F, 10%)
+            @at-root .tn &
+                background-color: darken(#ED1C24, 10%)
+            @at-root .penoplex &
+                background-color: darken(#F36F21, 10%)
+            @at-root .isover &
+                background-color: darken(#FFDD00, 10%)
+            @at-root .paroc &
+                background-color: darken(#CE1126, 10%)
+            @at-root .ursa &
+                background-color: darken(#EA4740, 10%)
+
+    &__btn-in-cart-top-text
+        font-weight: bold
+
+    &__custom-counter
+        display: flex
+        height: 50px
+
+    &__products-item-controls
+        display: flex
+
+        .product-item__btn-in-cart
+            color: #fff
+
+            &:hover
+                color: #fff
