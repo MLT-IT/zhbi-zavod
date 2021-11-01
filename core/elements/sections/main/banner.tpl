@@ -12,6 +12,11 @@
                 <img src="/assets/template/img/banner-img.png" class="banner__slide-img">
             </div>
             *}
+            <a data-fancybox="" href="#callback" class="banner__slide-link delivery__banner-btn yellow-btn">
+                <svg viewBox="0 0 160 18">
+                    <text x="0" y="15">ЗАКАЗАТЬ ДОСТАВКУ</text>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
