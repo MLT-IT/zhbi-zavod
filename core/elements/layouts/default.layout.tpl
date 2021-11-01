@@ -37,6 +37,11 @@
 {/block}
 
 {block 'body'}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={$_modx->config.gtm_id}"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     {block "header-mobile"}
     {/block}
     <div class="wrap">
@@ -60,9 +65,4 @@
     <script src="{$_modx->config['template_path']}js/scripts.js"></script>
     <script src="{$_modx->config['template_path']}js/vendors.js"></script>
     <script src="{$_modx->config['template_path']}js/base.js"></script>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={$_modx->config.gtm_id}"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 {/block}
