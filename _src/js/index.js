@@ -327,7 +327,7 @@ $(function ($) {
             handleMiniCart(response.data.total_count);
 
             // Работа с кнопкой
-            let $item = this.sendData.$form;
+            let $item = this.sendData.$form.closest('.product-item');
 
             let val = parseInt($item.find('.custom-counter__amount').val());
             if (isNaN(val)) {
