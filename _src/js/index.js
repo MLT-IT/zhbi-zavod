@@ -285,6 +285,7 @@ $(function ($) {
         let sendingData;
         let val = $this.val();
         if (val <= 0) {
+            // TODO: можно это убрать. change 0 и так работает, как remove
             sendingData = {
                 action: 'cart/remove'
             }
