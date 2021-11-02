@@ -284,6 +284,7 @@ $(function ($) {
 
         let sendingData;
         let val = $this.val();
+
         if (val <= 0) {
             // TODO: можно это убрать. change 0 и так работает, как remove
             sendingData = {
@@ -329,6 +330,9 @@ $(function ($) {
 
             // Работа с кнопкой
             let $item = this.sendData.$form.closest('.product-item');
+            if (!$item.length) {
+                return;
+            }
 
             let val = parseInt($item.find('.custom-counter__amount').val());
             if (isNaN(val)) {
@@ -337,7 +341,7 @@ $(function ($) {
             val++;
             $item.find('.custom-counter__amount').val(val);
 
-            $item.find('.listing__products-item-button').hide();
+            $item.find('.product-item__to-cart').hide();
             $item.find('.product-item__products-item-controls').show();
         }
     }
