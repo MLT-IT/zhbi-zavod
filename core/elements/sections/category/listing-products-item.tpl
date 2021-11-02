@@ -43,11 +43,10 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">{$price} руб / упаковка</div>
 
-        <form class="ms2_form product-item__form" method="post">
+        <form class="ms2_form product-item__form listing__products-item-form" method="post">
             <input type="hidden" name="id" value="{$id}">
             <input type="hidden" name="count" value="1">
             <input type="hidden" name="options" value="[]">
-
             <button type="submit" name="ms2_action" value="cart/add" {if $itemInCart > 0}style="display: none;"{/if}
                     class="listing__products-item-button yellow-btn product-item__to-cart">В корзину
             </button>

@@ -5736,8 +5736,8 @@ p, span {
 
 .product-card__info-left {
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
+    flex-direction: column;
 }
 
 .product-card__info-left .yellow-btn {
