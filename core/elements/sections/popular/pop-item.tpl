@@ -9,7 +9,7 @@
     <p class="pop-item__price">{$price ? $price~" руб / упаковка" : ""}</p>
 
     <div class="pop-item__btns-wrap">
-        <form method="post" class="ms2_form">
+        <form method="post" class="ms2_form product-item__form">
             <input type="hidden" name="id" value="{$id}">
             <input type="hidden" name="count" value="1">
             <input type="hidden" name="options" value="[]">

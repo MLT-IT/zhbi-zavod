@@ -5735,10 +5735,9 @@ p, span {
 }
 
 .product-card__info-left {
-    width: 100%;
-    display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 14px
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .product-card__info-left .yellow-btn {

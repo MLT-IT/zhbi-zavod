@@ -21,6 +21,8 @@ $(function ($) {
 
         if (cartValue > 0) {
             $cartValueElem.removeClass('hidden');
+        } else {
+            $cartValueElem.addClass('hidden');
         }
     }
 
@@ -310,7 +312,7 @@ $(function ($) {
 
                     if (sendingData.action === 'cart/remove') {
                         $productItem.find('.product-item__products-item-controls').hide();
-                        $productItem.find('.product-item__to-cart').show();
+                        $productItem.find('.product-item__form').show();
                     }
 
                     miniShop2.Message.success(data.message);
@@ -341,7 +343,7 @@ $(function ($) {
             val++;
             $item.find('.custom-counter__amount').val(val);
 
-            $item.find('.product-item__to-cart').hide();
+            $item.find('.product-item__form').hide();
             $item.find('.product-item__products-item-controls').show();
         }
     }
