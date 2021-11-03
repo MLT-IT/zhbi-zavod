@@ -14,7 +14,7 @@
             </span>
             {set $upakovka = 'getPackage' | snippet}
             {if $upakovka | length > 0}
-                <div>В упаковке: {$upakovka}</div>
+                <div class="product-card__package">В упаковке: {$upakovka}</div>
             {/if}
         </div>
         <div class="product-card__info-left">
