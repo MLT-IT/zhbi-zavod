@@ -12,6 +12,10 @@
                 {set $edizm = $_modx->resource.edizm}
                 {$edizm[0] ? '/ ' ~ $edizm[0] : ''}
             </span>
+            {set $upakovka = 'getPackage' | snippet}
+            {if $upakovka | length > 0}
+                <div>В упаковке: {$upakovka}</div>
+            {/if}
         </div>
         <div class="product-card__info-left">
             <form method="post" class="ms2_form product-item__form product-card__form" {if $itemInCart > 0}style="display: none;"{/if} >
