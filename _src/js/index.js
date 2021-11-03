@@ -363,5 +363,41 @@ $(function ($) {
             handleMiniCart(response.data.total_count);
         }
     }
+
+    // -------------------------------
+    // Конфликтующие фильтры
+    // -------------------------------
+    // Переключение конфликтующих фильтров: Длина, Ширина, Толщина и Размеры
+    $('.listing__filter-block-content input[type="checkbox"]').on('change', function () {
+        let $block = $(this).closest('.listing__filter-block');
+        let $conflictingFilters;
+        let dontDoAnything = false;
+
+        switch (true) {
+            case $block.hasClass('filter_type_razmer'):
+                $conflictingFilters = $('.filter_type_thickness, .filter_type_width, .filter_type_length');
+                break;
+
+            case ($block.hasClass('filter_type_thickness') ||
+                $block.hasClass('filter_type_width') ||
+                $block.hasClass('filter_type_length')
+            ):
+                $conflictingFilters = $('.filter_type_razmer');
+                break;
+
+            default:
+                dontDoAnything = true
+                break;
+        }
+
+        if (dontDoAnything === false) {
+            if ($block.find('input[type="checkbox"]:checked').length) {
+                $conflictingFilters.css('display', 'none');
+            } else {
+                $conflictingFilters.css('display', '');
+            }
+        }
+    });
+
 });
 
