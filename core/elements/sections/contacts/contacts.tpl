@@ -4,7 +4,7 @@
             <h1 class="title-1 contacts__title">Контакты</h1>
             <ul class="contacts__list">
                 <li class="contacts__item fadeInUp">
-                    <div class="contacts__item-key"><span>Отдел продаж</span></div><a class="contacts__item-value" href="tel:{'phone' | option}">{'phone' | option}</a>
+                    <div class="contacts__item-key"><span>Отдел продаж</span></div><a class="contacts__item-value" href="tel:{$_pls['+phone']}">{$_pls['+phone']}</a>
                 </li>
                 <li class="contacts__item fadeInUp">
                     <div class="contacts__item-key"><span>Приём заявок</span></div>

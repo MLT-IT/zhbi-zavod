@@ -2,7 +2,7 @@
     <div class="mobile-header__phone">
         <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
             <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>
-        </svg><a href="tel:{'phone' | option}">{'phone' | option}</a>
+        </svg><a href="tel:{$_pls['+phone']}">{$_pls['+phone']}</a>
     </div>
     <div class="mobile-header__city">
         <svg class="svg icon-place" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
