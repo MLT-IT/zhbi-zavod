@@ -7,7 +7,7 @@
     {if $certs | count > 0}
         <ul class="certs-block">
             {foreach $certs as $ct}
-                <li class="certs-block__item"><a href="/assets/template/{$ct.file}">{$ct.name}</a></li>
+                <li class="certs-block__item"><a href="/assets/template/img/import/{$ct.file}">{$ct.name}</a></li>
             {/foreach}
         </ul>
     {/if}

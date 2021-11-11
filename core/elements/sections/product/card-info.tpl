@@ -9,8 +9,11 @@
             <p>Арт. {$_modx->resource['article']}</p>
             <span>
                 {$_modx->resource['price']} руб
+                {*
                 {set $edizm = $_modx->resource.edizm}
                 {$edizm[0] ? '/ ' ~ $edizm[0] : ''}
+                *}
+                / упаковка
             </span>
             {set $upakovka = 'getPackage' | snippet}
             {if $upakovka | length > 0}
