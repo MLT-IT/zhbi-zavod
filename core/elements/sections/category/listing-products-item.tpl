@@ -41,7 +41,10 @@
         <div class="listing__products-item-art">Арт. {$article}</div>
     </div>
     <div class="listing__products-item-right">
-        <div class="listing__products-item-price">{$price} руб / упаковка</div>
+        <div class="listing__products-item-price">
+            {$price} руб
+            <div class="listing__products-item-measure">Цена за упаковку</div>
+        </div>
 
         <form class="ms2_form product-item__form listing__products-item-form" method="post">
             <input type="hidden" name="id" value="{$id}">
