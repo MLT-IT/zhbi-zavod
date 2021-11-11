@@ -4,7 +4,7 @@
             <h1 class="title-1 contacts__title">Контакты</h1>
 
             {* >>> meta *}
-            <meta itemprop="name" content="Комплексная поставка строительных материалов {$_modx->config.http_host | replace : '.ru' : '' | replace : 'www-' : ''}">
+            <meta itemprop="name" content="Комплексная поставка строительных материалов {$brand}">
             <meta itemprop="priceRange" content="От 250 RUB">
             <meta itemprop="image" content="/assets/template/img/favicons/{$site_context}/favicon.ico">
             <time itemprop="openingHours" datetime="Mo-Su 08:00−21:00">
