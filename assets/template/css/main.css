@@ -7229,17 +7229,12 @@ p, span {
 }
 
 .listing__products-item-title a {
-    text-transform: uppercase;
     padding-bottom: 2px;
     font-weight: 700;
     font-size: 14px;
     transition: border-bottom-color .3s;
     border-bottom: 1px dashed rgba(60, 60, 59, .5);
     line-height: 1.4em
-}
-
-.listing__products-item-title a:hover {
-    border-bottom-color: transparent
 }
 
 .listing__products-item-rate {
@@ -8581,5 +8576,3 @@ p, span {
         opacity: 0
     }
 }
-
-/*# sourceMappingURL=main.css.map */
