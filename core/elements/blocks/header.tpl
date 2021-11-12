@@ -34,6 +34,7 @@
             </a>
 
             <div class="header__catalog">
+                <a class="header__catalog-link" href="/catalog/"></a>
                 <div class="burger">
                     <span class="burger__stick"></span>
                     <span class="burger__stick"></span>

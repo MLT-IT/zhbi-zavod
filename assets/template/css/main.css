@@ -4588,7 +4588,7 @@ p, span {
     opacity: 0;
     height: auto;
     max-height: 0;
-    overflow: hidden
+    overflow: auto
 }
 
 .listing__filter-list {

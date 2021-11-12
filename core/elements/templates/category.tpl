@@ -4,9 +4,11 @@
     <div class="wrapper">
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
-    <div class="wrapper">
-        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
+
+    <div class="wrapper category-header">
+        <h1 class="title-1 category-header__title">{$_modx->resource.pagetitle}</h1>
     </div>
+
     {include "file:sections/category/listing.tpl"}
     {*{include "file:sections/faq.tpl"}*}
     {include "file:sections/advantages.tpl"}
