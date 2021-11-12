@@ -12,9 +12,20 @@
                 <img src="/assets/template/img/banner-img.png" class="banner__slide-img">
             </div>
             *}
+            {*
             <a data-fancybox="" href="#callback" class="banner__slide-link delivery__banner-btn yellow-btn">
-                <svg viewBox="0 0 160 18">
-                    <text x="0" y="15">ЗАКАЗАТЬ ДОСТАВКУ</text>
+                <svg viewBox="0 0 180 50">
+                    <text x="16" y="14">Оставить заявку и</text>
+                    <text x="4" y="30">получить скидку 30%</text>
+                    <text x="40" y="46">на доставку</text>
+                </svg>
+            </a>
+            *}
+
+            <a data-fancybox="" href="#callback" class="banner__slide-link delivery__banner-btn yellow-btn">
+                <svg viewBox="0 0 235 50">
+                    <text x="0" y="21">Оставить заявку и получить</text>
+                    <text x="16" y="40">скидку 30% на доставку</text>
                 </svg>
             </a>
         </div>
