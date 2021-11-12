@@ -1,7 +1,9 @@
 .header
     display: block
+    border-top: 22px solid #f3f5f5
 
     @media screen and (max-width: 768px)
+        border-top: 0
         position: fixed
         top: 0
         z-index: 50
@@ -15,10 +17,13 @@
         top: 0
 
     &__wrapper
-        padding-top: 20px
+        padding-top: 30px
+        margin-top: -20px
 
         @media screen and (max-width: 768px)
             flex-direction: row
+            padding-top: 20px
+            margin-top: 0
             padding-bottom: 20px
 
         &::before
@@ -250,7 +255,7 @@
     &__about-text
         color: #B9B9B9
         font-weight: 500
-        font-size: 16px
+        font-size: 14px
 
         @media screen and (max-width: 768px)
             font-size: 10px
@@ -576,6 +581,10 @@
 
             @media screen and (max-width: 768px)
                 display: block
+
+        @media screen and (min-width: 769px)
+            position: absolute
+            top: 0
 
         @media screen and (max-width: 768px)
             display: flex
