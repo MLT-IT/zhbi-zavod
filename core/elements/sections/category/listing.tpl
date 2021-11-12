@@ -2,7 +2,7 @@
     <div class="wrapper">
         {*        <h1 class="title-1">Продажа газобетонных блоков H+H в самом лучшем городе СПБ</h1>*}
         <div class="listing__content" id="mse2_mfilter">
-            {'!mFilter2' | snippet : [
+            {set $params = [
             'element' => 'msProducts',
             'filters' => $_modx->resource.listFilters ?: "",
             'tpls' => "@FILE sections/category/listing-products-item.tpl",
@@ -20,6 +20,12 @@
             'sort' => 'ms|price:desc',
             'includeTVs' => 'HitsPage'
             ]}
+
+            {if $_modx->resource.template == 4}
+                {set $params['parents'] = '0'}
+            {/if}
+
+            {'!mFilter2' | snippet : $params}
         </div>
     </div>
 </section>

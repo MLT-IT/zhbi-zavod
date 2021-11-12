@@ -2,8 +2,8 @@
 
 {block "page"}
     <div class="wrapper">
-{include "file:blocks/breadcrumbs.tpl"}
-</div>
+        {include "file:blocks/breadcrumbs.tpl"}
+    </div>
     <div class="wrapper">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
     </div>
