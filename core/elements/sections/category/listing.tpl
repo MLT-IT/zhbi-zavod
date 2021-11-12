@@ -18,7 +18,9 @@
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
             'sort' => 'ms|price:desc',
-            'includeTVs' => 'HitsPage'
+            'includeTVs' => 'HitsPage',
+
+            'context' => $_modx->resource.context_key
             ]}
 
             {if $_modx->resource.template == 4}
