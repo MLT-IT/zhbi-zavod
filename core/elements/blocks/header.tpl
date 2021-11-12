@@ -11,7 +11,7 @@
         </a>
         <div class="header__line header__line_type_about">
             <div class="header__about">
-                <div class="header__about-text">Комплексная поставка строительных материалов</div>
+                <div class="header__about-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
                 <a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>
             </div>
             <div class="header__contacts">
