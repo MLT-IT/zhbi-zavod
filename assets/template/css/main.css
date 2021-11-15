@@ -5605,7 +5605,7 @@ p, span {
 
 .product-slider {
     width: 100%;
-    margin: 80px 0
+    margin-bottom: 60px;
 }
 
 .product-slider .swiper-container {
@@ -6111,7 +6111,7 @@ p, span {
 }
 
 .clients {
-    margin-bottom: 60px
+    margin-bottom: 44px
 }
 
 .clients .swiper-buttons {
@@ -6331,7 +6331,7 @@ p, span {
 }
 
 .delivery {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .delivery .wrapper {
@@ -6411,7 +6411,7 @@ p, span {
 }
 
 .payment {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .payment__title {
@@ -7088,7 +7088,7 @@ p, span {
 
 .listing {
     width: 100%;
-    margin-bottom: 60px
+    margin-bottom: 40px
 }
 
 .listing__content {

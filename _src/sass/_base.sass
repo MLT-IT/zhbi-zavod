@@ -121,15 +121,13 @@ a:hover
 .payment__item-top:hover, .catalog-page__card-content:hover, .questions__item-top:hover
     +set_colors_3(border-color)
 
-.sect-recent
-    margin-top: 0
-
 .sect-inner__content
     align-self: flex-start
-    padding-bottom: 60px
+    margin-bottom: 60px
 
     p, ul, ol, li
-        margin-bottom: 10px
+        &:nth-last-of-type(n+2)
+            margin-bottom: 10px
 
     ul
         list-style-type: disc
@@ -138,9 +136,6 @@ a:hover
     ol
         list-style-type: decimal
         padding-left: 15px
-
-    li
-        margin-bottom: 10px
 
 .form
     &__error
@@ -164,6 +159,9 @@ a:hover
 .listing__products-item-right, .product-item__to-cart
     max-width: 271px
     width: 100%
+
+.btn_more
+    margin-bottom: 20px
 
 // ------------------------------
 // Переопределение базовых стилей (базовые стили написаны в самом верху этого файла)
