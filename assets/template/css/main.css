@@ -5917,7 +5917,6 @@ p, span {
 .product-card__tabs-page {
     margin-bottom: 0;
     display: none;
-    animation: fadeIn .6s
 }
 
 .product-card__tabs-page.active {

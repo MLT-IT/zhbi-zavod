@@ -2,7 +2,7 @@
     <div class="wrapper">
         <h2 class="title-1 payment__title">Способы оплаты</h2>
         <div class="payment__list" data-dropdown="">
-            <div class="payment__item fadeInUp">
+            <div class="payment__item">
                 <div class="payment__item-top">
                     <svg class="svg icon-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-card"></use>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="payment__item fadeInUp payment__item_not-clickable">
+            <div class="payment__item payment__item_not-clickable">
                 <div class="payment__item-top">
                     <svg class="svg icon-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-money"></use>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="payment__item-content"></div>
             </div>
-            <div class="payment__item fadeInUp payment__item_not-clickable">
+            <div class="payment__item payment__item_not-clickable">
                 <div class="payment__item-top">
                     <svg width="30" height="30" class="svg icon-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-bank"></use>
@@ -47,7 +47,7 @@
                 <div class="payment__item-content"></div>
             </div>
             {*
-                <div class="payment__item fadeInUp">
+                <div class="payment__item">
                 <div class="payment__item-top">
                     <svg class="svg icon-money" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-money"></use>

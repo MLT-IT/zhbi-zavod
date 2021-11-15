@@ -3,7 +3,7 @@
     <section class="product-slider sect-recent">
         <div class="wrapper">
             <span class="title-1">Вы недавно смотрели</span>
-            <div class="swiper-container fadeInUp">
+            <div class="swiper-container">
                 <div class="swiper-buttons">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>

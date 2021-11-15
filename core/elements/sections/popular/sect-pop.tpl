@@ -5,7 +5,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-        <div class="swiper-container fadeInUp">
+        <div class="swiper-container">
             <div class="swiper-wrapper">
                 {'!msProducts' | snippet : [
                     'parents' => 0,

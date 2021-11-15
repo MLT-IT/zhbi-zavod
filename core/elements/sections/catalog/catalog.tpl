@@ -98,7 +98,7 @@
         {* <h1 class="title-1">Каталог всея товаров в Санкт-Петербурге и&nbsp;Ленинградской области и ещё 3 слова</h1> *}
         <div class="catalog-page__cards">
             {foreach $items as $item}
-                <div class="catalog-page__card fadeInUp">
+                <div class="catalog-page__card">
                     <div class="catalog-page__card-content">
                         <div class="catalog-page__card-img-container">
                             <img class="catalog-page__card-img"
