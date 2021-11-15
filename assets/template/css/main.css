@@ -5950,7 +5950,7 @@ p, span {
     border-radius: 2px;
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .stocks__banner-content {
@@ -5970,6 +5970,29 @@ p, span {
 .stocks__banner-text {
     color: #fff;
     font-size: 20px
+}
+
+.delivery__banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border: .3px solid hsla(0, 0%, 100%, .2);
+    border-radius: 1px;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    top: 20px;
+    left: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .delivery__banner::before {
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        top: 10px;
+        left: 10px;
+    }
 }
 
 .stocks__banner-text span {
@@ -6324,23 +6347,45 @@ p, span {
     background: url(../img/delivery-banner.png) no-repeat 100%, linear-gradient(68.19deg, #15796d 12.07%, #52bc6a 104.57%);
     background-size: auto;
     border: .3px solid #3c3c3b;
-    margin-bottom: 35px
+    margin-bottom: 35px;
+    min-height: 328px;
+    position: relative;
 }
 
 .delivery__banner-content {
-    border: .3px solid hsla(0, 0%, 100%, .2);
-    border-radius: 1px;
-    padding: 70px 60px
+    padding: 15px 20px;
+    position: relative;
+}
+
+.delivery__banner .delivery__banner-btn {
+    position: static;
+    margin-left: 33px;
+    margin-top: 26px;
+    max-width: 252px;
+    width: 100%;
 }
 
 .delivery__banner-text {
     max-width: 550px;
     color: #fff;
-    margin-bottom: 25px;
     font-weight: 700;
     font-size: 50px;
     line-height: 120%;
-    text-shadow: 0 0 3px #000
+    text-shadow: 0 0 3px #000;
+    margin-left: 33px;
+    margin-top: 11px;
+}
+
+@media screen and (max-width: 768px) {
+    .delivery__banner .delivery__banner-btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .delivery__banner-text {
+        margin-top: 0;
+        margin-left: 0;
+    }
 }
 
 .delivery__info {
