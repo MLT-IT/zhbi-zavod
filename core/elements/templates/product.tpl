@@ -18,11 +18,6 @@
     {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также"}
     {include "file:sections/recent.tpl"}
     {include "file:sections/advantages.tpl"}
-{*    <div class="wrapper">*}
-{*        <div class="content-block">*}
-{*            {$_modx->resource.content}*}
-{*        </div>*}
-{*    </div>*}
     {include "file:sections/partners.tpl"}
     {include "file:sections/delivery.tpl"}
 {/block}

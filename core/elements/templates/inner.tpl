@@ -13,8 +13,12 @@
     </div>
     <div class="wrapper sect-inner">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
-        <div class="sect-inner__content">
-            {$_modx->resource.content}
-        </div>
+
+        {if $_modx->resource.content | length > 0}
+            <div class="sect-inner__content">
+                {$_modx->resource.content}
+            </div>
+        {/if}
+
     </div>
 {/block}
