@@ -14,11 +14,15 @@
 
     {include "file:sections/catalog/catalog.tpl"}
     {include "file:sections/advantages.tpl"}
-    <div class="wrapper">
-        <div class="content-block">
-            {$_modx->resource.content}
+
+    {if $_modx->resource.content | length > 0}
+        <div class="wrapper">
+            <div class="content-block">
+                {$_modx->resource.content}
+            </div>
         </div>
-    </div>
+    {/if}
+
     {include "file:sections/partners.tpl"}
     {include "file:sections/delivery.tpl"}
 {/block}

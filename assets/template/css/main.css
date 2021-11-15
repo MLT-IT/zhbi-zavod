@@ -4048,7 +4048,7 @@ p, span {
 
 .content-block {
     width: 100%;
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .content-block > a {
@@ -4062,6 +4062,10 @@ p, span {
 
 .content-block > b, .content-block > strong, .content-block p {
     margin-bottom: 20px
+}
+
+.content-block > *:nth-last-child(1) {
+    margin-bottom: 0;
 }
 
 .content-block p > a {
@@ -5352,7 +5356,7 @@ p, span {
 }
 
 .catalog {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .catalog__cards {
@@ -5461,7 +5465,7 @@ p, span {
 }
 
 .promo {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .promo .swiper-container {
@@ -5483,7 +5487,6 @@ p, span {
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px
 }
 
 .promo__top-card {
@@ -5939,7 +5942,7 @@ p, span {
 
 .stocks {
     width: 100%;
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .stocks__banner {
@@ -6058,7 +6061,7 @@ p, span {
 }
 
 .advantages {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .advantages__cards {
@@ -6108,7 +6111,7 @@ p, span {
 }
 
 .clients {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .clients .swiper-buttons {
@@ -6118,8 +6121,7 @@ p, span {
 
 .clients__list {
     width: 100%;
-    padding-bottom: 10px;
-    margin: 36px 0
+    margin: 36px 0 0
 }
 
 .clients__list-img {
@@ -6142,10 +6144,6 @@ p, span {
 
 .clients__list-img img:hover {
     filter: grayscale(0)
-}
-
-.map {
-    margin-bottom: 60px
 }
 
 .map__container {
@@ -6223,7 +6221,7 @@ p, span {
 }
 
 .contacts {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .contacts .wrapper {
@@ -6989,7 +6987,7 @@ p, span {
 }
 
 .questions {
-    margin-bottom: 80px
+    margin-bottom: 60px
 }
 
 .questions__title {

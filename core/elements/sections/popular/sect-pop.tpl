@@ -1,4 +1,4 @@
-<section class="product-slider sect-pop{if $class?} {$class}{/if}">
+<section class="product-slider sect-pop">
     <div class="wrapper sect-pop__wrapper">
         <div class="sect-pop__title title-1">{$title ?: "Популярные товары"}</div>
         <div class="swiper-buttons sect-pop__swiper-buttons">
