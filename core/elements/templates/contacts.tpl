@@ -4,7 +4,7 @@
     <div class="wrapper">
 {include "file:blocks/breadcrumbs.tpl"}
 </div>
-    {include "file:sections/contacts/contacts.tpl"}
+    {insert "file:sections/contacts/contacts.tpl"}
 {*    {include "file:sections/contacts/requisites.tpl"}*}
     <div class="wrapper">
         {* <h1 class="title-1"></h1> *}

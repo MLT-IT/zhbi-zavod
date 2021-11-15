@@ -47,7 +47,7 @@
     {/block}
     <div class="wrap">
         {block "header"}
-            {include "file:blocks/header.tpl"}
+            {insert "file:blocks/header.tpl"}
         {/block}
         {block "page"}{/block}
         {block "footer"}
