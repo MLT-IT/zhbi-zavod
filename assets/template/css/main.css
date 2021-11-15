@@ -3451,6 +3451,7 @@ button.swiper-pagination-bullet {
     right: 28px
 }
 
+/*
 @font-face {
     font-family: Helvetica;
     src: url(../fonts/HelveticaRegular/HelveticaRegular.eot);
@@ -3482,6 +3483,7 @@ button.swiper-pagination-bullet {
     font-style: normal;
     font-weight: 900
 }
+*/
 
 .compensate-for-scrollbar {
     width: calc(100% - 17px)
@@ -3492,7 +3494,7 @@ body, html {
 }
 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: Lato, sans-serif;
     padding: 0;
     margin: 0;
     font-size: .875rem;
@@ -3548,7 +3550,7 @@ body.mobile-opened:after {
 }
 
 button, input, select, textarea {
-    font-family: Helvetica, sans-serif
+    font-family: Lato, sans-serif
 }
 
 a, h1, h2, h3, h4, ol, ul {
@@ -4184,7 +4186,6 @@ p, span {
 }
 
 .breadcrumbs__item {
-    font-weight: 300;
     font-size: 12px;
     line-height: 120%;
     color: #b1b2b3
@@ -4196,7 +4197,6 @@ p, span {
 }
 
 .breadcrumbs__item a {
-    font-weight: 300;
     font-size: 12px;
     line-height: 120%;
     color: #b1b2b3;
@@ -4310,7 +4310,7 @@ p, span {
 }
 
 .form__title {
-    font-family: Helvetica, serif;
+    font-family: Lato, serif;
     text-align: center;
     margin-bottom: 7px
 }
@@ -5447,7 +5447,7 @@ p, span {
 .banner__slide-title {
     text-align: left;
     margin-bottom: 5px;
-    font-family: Helvetica, sans-serif
+    font-family: Lato, sans-serif
 }
 
 .banner__slide-text {
@@ -5582,7 +5582,7 @@ p, span {
 .promo__bottom-title {
     text-align: left;
     margin-bottom: 5px;
-    font-family: Helvetica, sans-serif
+    font-family: Lato, sans-serif
 }
 
 .promo__bottom-text {
