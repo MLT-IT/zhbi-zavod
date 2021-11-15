@@ -7,6 +7,7 @@
     {block 'description'}
         {include "file:elements/meta-description.tpl"}
     {/block}
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css">
     {include 'file:elements/metrika.tpl'}
