@@ -14,7 +14,6 @@
     {set $renderVideo = 1}
 {/if}
 
-
 <div class="product-card__tabs" id="card-tabs">
     <div class="product-card__tabs-buttons" data-tabs="product-card__tabs-pages">
         <div class="product-card__tabs-button active" data-tab-page="0">Описание</div>
@@ -33,30 +32,40 @@
     <div class="product-card__tabs-pages">
         <div class="product-card__tabs-page active">
             <div class="product-card__mobile-tabs-button">Описание</div>
-            {include 'file:sections/product/card-content-tab.tpl'}
+            <div class="product-card__content-wrap">
+                {include 'file:sections/product/card-content-tab.tpl'}
+            </div>
         </div>
-        <div class="product-card__tabs-page content-block">
+        <div class="product-card__tabs-page">
             <div class="product-card__mobile-tabs-button">Характеристики</div>
-            {include 'file:sections/product/card-specs-tab.tpl'}
+            <div class="product-card__content-wrap">
+                {include 'file:sections/product/card-specs-tab.tpl'}
+            </div>
         </div>
 
         {if $renderCerts == 1}
             <div class="product-card__tabs-page">
                 <div class="product-card__mobile-tabs-button">Сертификаты</div>
-                {include 'file:sections/product/card-certs-tab.tpl' value=$certs}
+                <div class="product-card__content-wrap">
+                    {include 'file:sections/product/card-certs-tab.tpl' value=$certs}
+                </div>
             </div>
         {/if}
 
         {if $renderVideo == 1}
             <div class="product-card__tabs-page">
                 <div class="product-card__mobile-tabs-button">Видео</div>
-                {include 'file:sections/product/card-video-tab.tpl' value=$video}
+                <div class="product-card__content-wrap">
+                    {include 'file:sections/product/card-video-tab.tpl' value=$video}
+                </div>
             </div>
         {/if}
 
         <div class="product-card__tabs-page">
             <div class="product-card__mobile-tabs-button">Отзывы</div>
-            {include 'file:sections/product/card-reviews-tab.tpl'}
+            <div class="product-card__content-wrap">
+                {include 'file:sections/product/card-reviews-tab.tpl'}
+            </div>
         </div>
     </div>
 </div>

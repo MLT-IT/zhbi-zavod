@@ -399,5 +399,21 @@ $(function ($) {
         }
     });
 
+    // -------------------------------
+    // Вкладки на мобилках
+    // -------------------------------
+    $('.product-card__mobile-tabs-button').on('click', function (e) {
+        e.preventDefault();
+        let $this = $(this);
+        let $tabsPage = $this.closest('.product-card__tabs-page');
+
+        $('.product-card__tabs-page.active').removeClass('active');
+        $this.closest('.product-card__tabs-page').addClass('active');
+
+        let index = $tabsPage.index();
+        $('.product-card__tabs-button.active').removeClass('active');
+        $('.product-card__tabs-button:nth-child("' + index + '")]').addClass('active');
+    });
+
 });
 

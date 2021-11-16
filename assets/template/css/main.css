@@ -5848,20 +5848,6 @@ p, span {
 
 .product-card__tabs-pages {
     width: 100%;
-    margin-top: 15px
-}
-
-.product-card__tabs-page {
-    margin-bottom: 0;
-    display: none;
-}
-
-.product-card__tabs-page.active {
-    display: block
-}
-
-.product-card__specs-list {
-    margin: 24px 0
 }
 
 .product-card__specs-list-item-name {

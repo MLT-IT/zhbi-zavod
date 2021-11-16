@@ -3,9 +3,11 @@
 
     &__specs-list-item
         display: flex
-        margin: 12px 0
         max-width: 500px
         overflow: hidden
+
+        &:nth-last-child(n+2)
+            margin-bottom: 12px
 
         &::before
             width: 0
@@ -48,8 +50,39 @@
         @media screen and (max-width: 768px)
             display: none
 
+    &__content-wrap
+        display: none
+        padding-top: 20px
+
+        @media screen and (max-width: 768px)
+            padding-bottom: 20px
+
+    &__tabs-page
+        &.active
+            .product-card__content-wrap
+                display: block
+
+            .product-card__mobile-tabs-button
+                background-color: #fff
+                color: #ffbe00
+
     .product-card__mobile-tabs-button
+        cursor: pointer
+        line-height: 1
+        overflow: hidden
+        position: relative
+        align-items: center
+        justify-content: center
+        text-align: center
+        font-weight: 700
+        padding: 15px 20px
+        transition: color .3s, background-color .3s
+        background: #f6f6f6
+        border: 1px solid #eaeaea
+        box-sizing: border-box
+        border-radius: 2px
+
         display: none
 
         @media screen and (max-width: 768px)
-            display: block
+            display: flex
