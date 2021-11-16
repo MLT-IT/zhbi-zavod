@@ -3,7 +3,7 @@
         <img src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
     <a class="product-slider__slide-title" href="{$uri}">{$menutitle}</a>
-    <div class="product-slider__slide-price"><span>{$price ? $price~" ₽" : ""}</span>
+    <div class="product-slider__slide-price"><span>{$price ? $price~" руб" : ""}</span>
         <div class="product-slider__slide-price-availability">В наличии</div>
     </div>
     <form method="post" class="ms2_form">

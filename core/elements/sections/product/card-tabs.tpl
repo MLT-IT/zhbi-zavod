@@ -32,25 +32,30 @@
     </div>
     <div class="product-card__tabs-pages">
         <div class="product-card__tabs-page active">
+            <div class="product-card__mobile-tabs-button">Описание</div>
             {include 'file:sections/product/card-content-tab.tpl'}
         </div>
         <div class="product-card__tabs-page content-block">
+            <div class="product-card__mobile-tabs-button">Характеристики</div>
             {include 'file:sections/product/card-specs-tab.tpl'}
         </div>
 
         {if $renderCerts == 1}
             <div class="product-card__tabs-page">
+                <div class="product-card__mobile-tabs-button">Сертификаты</div>
                 {include 'file:sections/product/card-certs-tab.tpl' value=$certs}
             </div>
         {/if}
 
         {if $renderVideo == 1}
             <div class="product-card__tabs-page">
+                <div class="product-card__mobile-tabs-button">Видео</div>
                 {include 'file:sections/product/card-video-tab.tpl' value=$video}
             </div>
         {/if}
 
         <div class="product-card__tabs-page">
+            <div class="product-card__mobile-tabs-button">Отзывы</div>
             {include 'file:sections/product/card-reviews-tab.tpl'}
         </div>
     </div>

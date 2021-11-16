@@ -1,5 +1,5 @@
 .product-card
-    margin: 12px 0
+    margin-bottom: 60px
 
     &__specs-list-item
         display: flex
@@ -43,3 +43,13 @@
         @media screen and (max-width: 1200px)
             margin-top: 22px
             margin-bottom: 0
+
+    &__tabs-buttons
+        @media screen and (max-width: 768px)
+            display: none
+
+    .product-card__mobile-tabs-button
+        display: none
+
+        @media screen and (max-width: 768px)
+            display: block

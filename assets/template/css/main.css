@@ -8268,7 +8268,7 @@ p, span {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .content-block .table-container table td, .content-block .table-container table th {
         padding: 10px 15px
     }
