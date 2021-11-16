@@ -4,6 +4,9 @@
     'tplWrapper' => "@FILE sections/category/listing-tags-wrapper.tpl",
     'templates' => 5,
     'includeTVs' => 'mainImage',
+    'sortby' => 'menuindex',
+    'sortdir' => 'ASC',
+    'limit' => 20
 ]}
 
 {if $_modx->resource.template == 4}
