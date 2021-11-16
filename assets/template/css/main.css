@@ -5539,6 +5539,10 @@ p, span {
     margin-bottom: 60px;
 }
 
+.product-slider__title-wrap {
+    margin-bottom: 15px;
+}
+
 .product-slider .swiper-container {
     width: 100%
 }
@@ -5587,7 +5591,6 @@ p, span {
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 1px dashed;
-    margin-bottom: 15px;
     transition: border-color .3s
 }
 

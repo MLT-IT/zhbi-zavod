@@ -2,7 +2,9 @@
     <a class="product-slider__slide-img" href="{$uri}">
         <img src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
-    <a class="product-slider__slide-title" href="{$uri}">{$menutitle}</a>
+    <div class="product-slider__title-wrap">
+        <a class="product-slider__slide-title" href="{$uri}">{$menutitle}</a>
+    </div>
     <div class="product-slider__slide-price"><span>{$price ? $price~" руб" : ""}</span>
         <div class="product-slider__slide-price-availability">В наличии</div>
     </div>
