@@ -6,7 +6,7 @@
     'includeTVs' => 'mainImage',
     'sortby' => 'menuindex',
     'sortdir' => 'ASC',
-    'limit' => 20
+    'limit' => 0
 ]}
 
 {if $_modx->resource.template == 4}
