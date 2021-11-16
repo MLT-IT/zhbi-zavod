@@ -67,8 +67,20 @@
     </div>
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
-            {$price} руб
-            <div class="listing__products-item-measure">Цена за упаковку</div>
+            {if $price}
+                {$price} руб
+            {/if}
+
+            {if $price and $unit[0]}
+                <div class="listing__products-item-measure">
+                    Цена за
+                    {if $unit[0] == 'упаковка'}
+                        упаковку
+                    {else}
+                        {$unit[0]}
+                    {/if}
+                </div>
+            {/if}
         </div>
 
         <form class="ms2_form product-item__form listing__products-item-form" method="post">

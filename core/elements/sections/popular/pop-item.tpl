@@ -6,8 +6,12 @@
         <img class="pop-item__img" src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
     <a class="pop-item__title" href="{$uri}">{$menutitle}</a>
-    <p class="pop-item__price">{$price ? $price~" руб / упаковка" : ""}</p>
-
+    <p class="pop-item__price">
+        {if $price}
+            {$price} руб
+            {$unit[0] ? '/ ' ~ $unit[0] : ''}
+        {/if}
+    </p>
     <div class="pop-item__btns-wrap">
         <form method="post" class="ms2_form product-item__form">
             <input type="hidden" name="id" value="{$id}">

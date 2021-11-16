@@ -7,14 +7,15 @@
     <div class="product-card__info">
         <div class="product-card__price">
             <p>Арт. {$_modx->resource['article']}</p>
-            <span>
-                {$_modx->resource['price']} руб
-                {*
-                {set $edizm = $_modx->resource.edizm}
-                {$edizm[0] ? '/ ' ~ $edizm[0] : ''}
-                *}
-                / упаковка
-            </span>
+
+            {if $price}
+                <span>
+                    {$_modx->resource['price']} руб
+                    {set $unit = $_modx->resource.unit}
+                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                </span>
+            {/if}
+
             {set $upakovka = 'getPackage' | snippet}
             {if $upakovka | length > 0}
                 <div class="product-card__package">В упаковке: {$upakovka}</div>
