@@ -4046,81 +4046,6 @@ p, span {
     visibility: visible
 }
 
-.content-block {
-    width: 100%;
-    margin-bottom: 60px
-}
-
-.content-block > a {
-    border-bottom: 1px dashed;
-    transition: border-bottom .3s
-}
-
-.content-block > a:hover {
-    border-bottom-color: transparent
-}
-
-.content-block > b, .content-block > strong, .content-block p {
-    margin-bottom: 20px
-}
-
-.content-block > *:nth-last-child(1) {
-    margin-bottom: 0;
-}
-
-.content-block p > a {
-    border-bottom: 1px dashed;
-    transition: border-bottom .3s
-}
-
-.content-block p > a:hover {
-    border-bottom-color: transparent
-}
-
-.content-block .title-1 {
-    margin-left: auto;
-    margin-right: auto
-}
-
-.content-block ul {
-    margin-bottom: 25px;
-    font-size: 14px;
-    line-height: 26px
-}
-
-.content-block ul > li:before {
-    content: "-";
-    margin-right: 3px
-}
-
-.content-block ul > li ul li:before {
-    margin-left: 20px;
-    content: "-";
-    margin-right: 3px
-}
-
-.content-block ol {
-    list-style: decimal;
-    padding-left: 20px;
-    margin-bottom: 25px;
-    font-size: 14px;
-    line-height: 26px
-}
-
-.content-block__more {
-    display: block;
-    width: -webkit-max-content;
-    width: max-content;
-    text-align: center;
-    margin: 10px auto;
-    border-bottom: 1px dashed;
-    transition: border-bottom .3s
-}
-
-.content-block__more:hover {
-    border-bottom-color: transparent
-}
-
 .content-block .table-container {
     width: 100%;
     margin-bottom: 40px
@@ -8344,11 +8269,6 @@ p, span {
 }
 
 @media (max-width: 767px) {
-    .content-block ol, .content-block ul {
-        font-size: 14px;
-        line-height: 24px
-    }
-
     .content-block .table-container table td, .content-block .table-container table th {
         padding: 10px 15px
     }
