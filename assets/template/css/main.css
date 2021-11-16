@@ -5936,12 +5936,6 @@ p, span {
     margin: 24px 0
 }
 
-.product-card__specs-list-item {
-    display: grid;
-    grid-template:1fr/250px minmax(75px, 125px);
-    margin: 12px 0
-}
-
 .product-card__specs-list-item-name {
     font-weight: 700
 }

@@ -1,4 +1,28 @@
 .product-card
+    margin: 12px 0
+
+    &__specs-list-item
+        display: flex
+        margin: 12px 0
+        max-width: 500px
+        overflow: hidden
+
+        &::before
+            width: 0
+            font-size: 14px
+            content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+            white-space: nowrap
+
+    &__specs-list-item-value
+        margin-left: auto
+        padding-left: 4px
+
+    &__specs-list-item-name
+        padding-right: 4px
+
+    &__specs-list-item-name, &__specs-list-item-value
+        background-color: #fff
+
     &__form
         width: 100%
 
