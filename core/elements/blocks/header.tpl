@@ -11,6 +11,7 @@
         </a>
         <div class="header__line header__line_type_about">
             <div class="header__about">
+                <a class="header__about-phone" href="tel:{$_pls['+phone']}">{$_pls['+phone']}</a>
                 <div class="header__about-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
@@ -102,13 +103,13 @@
             </div>
         </div>
         <nav class="header__nav">
-            <p class="header__nav-header">Каталог</p>
+            <div class="header__nav-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
 
+            <p class="header__nav-header">Каталог</p>
             <form action="/search/" class="header__search-wrap">
                 <input class="header__search" placeholder="Поиск по сайту" name="query">
                 <button type="submit" class="header__search-btn"></button>
             </form>
-
             <ul class="header__nav-list mobile">
                 {'!pdoResources' | snippet : [
                 'tpl' => '@FILE chunks/menuItem.tpl',
