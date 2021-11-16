@@ -1,14 +1,16 @@
 .product-item
     &__btn-in-cart
         display: flex
-        flex-direction: column
+        justify-content: center
         align-items: center
         border-radius: 6px
         padding: 9px 24px
         white-space: nowrap
-        margin-right: 4px
+        margin-left: 4px
+        width: 116px
 
         +set_colors_1(background-color)
+
         &:hover
             @at-root .knauf &
                 background-color: darken(#4f70ad, 10%)
@@ -34,7 +36,6 @@
 
     &__products-item-controls
         display: flex
-        align-items: flex-start
 
         .product-item__btn-in-cart
             color: #fff

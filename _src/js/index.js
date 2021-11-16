@@ -134,7 +134,7 @@ $(function ($) {
     let $counterInput = $('.custom-counter__amount');
 
     $counterInput.inputFilter(function (value) {
-        return /^(0|[1-9][0-9]{0,})$/.test(value);
+        return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) > 0);
     });
 
     $('.custom-counter__btn').on('click', function (e) {
@@ -267,61 +267,6 @@ $(function ($) {
     });
 
     // -------------------------------
-    // Обработчик счетчика на карточках товара
-    // -------------------------------
-    $(document).on('change', '.custom-counter__amount', function (e) {
-        e.preventDefault();
-
-        let $this = $(this);
-        let $productItem = $this.closest('.product-item');
-
-        if (!$productItem.length) {
-            return;
-        }
-
-        let key = $productItem.attr('data-key');
-        if (!key.length) {
-            return;
-        }
-
-        let sendingData;
-        let val = $this.val();
-
-        if (val <= 0) {
-            // TODO: можно это убрать. change 0 и так работает, как remove
-            sendingData = {
-                action: 'cart/remove'
-            }
-        } else {
-            sendingData = {
-                action: 'cart/change',
-                count: val
-            }
-        }
-
-        sendingData.key = key;
-
-        $.ajax({
-            method: "POST",
-            dataType: "json",
-            url: window.location.origin + '/assets/components/minishop2/action.php',
-            data: sendingData,
-            success: function (data) {
-                if (data.success) {
-                    handleMiniCart(data.data.total_count);
-
-                    if (sendingData.action === 'cart/remove') {
-                        $productItem.find('.product-item__products-item-controls').hide();
-                        $productItem.find('.product-item__form').show();
-                    }
-
-                    miniShop2.Message.success(data.message);
-                }
-            }
-        });
-    });
-
-    // -------------------------------
     // Обработчики Minishop2
     // -------------------------------
     // Добавление товара в корзину
@@ -329,22 +274,6 @@ $(function ($) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count);
-
-            // Работа с кнопкой
-            let $item = this.sendData.$form.closest('.product-item');
-            if (!$item.length) {
-                return;
-            }
-
-            let val = parseInt($item.find('.custom-counter__amount').val());
-            if (isNaN(val)) {
-                val = 0;
-            }
-            val++;
-            $item.find('.custom-counter__amount').val(val);
-
-            $item.find('.product-item__form').hide();
-            $item.find('.product-item__products-item-controls').show();
         }
     }
 
