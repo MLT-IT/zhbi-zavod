@@ -16,18 +16,18 @@
 
 <div class="product-card__tabs" id="card-tabs">
     <div class="product-card__tabs-buttons" data-tabs="product-card__tabs-pages">
-        <div class="product-card__tabs-button active" data-tab-page="0">Описание</div>
-        <div class="product-card__tabs-button" data-tab-page="1">Характеристики</div>
+        <div class="product-card__tabs-button active">Описание</div>
+        <div class="product-card__tabs-button">Характеристики</div>
 
         {if $renderCerts == 1}
-            <div class="product-card__tabs-button" data-tab-page="2">Сертификаты</div>
+            <div class="product-card__tabs-button">Сертификаты</div>
         {/if}
 
         {if $renderVideo == 1}
-            <div class="product-card__tabs-button" data-tab-page="3">Видео</div>
+            <div class="product-card__tabs-button">Видео</div>
         {/if}
 
-        <div class="product-card__tabs-button product-card__tabs-button_type_reviews" data-tab-page="4">Отзывы</div>
+        <div class="product-card__tabs-button product-card__tabs-button_type_reviews">Отзывы</div>
     </div>
     <div class="product-card__tabs-pages">
         <div class="product-card__tabs-page active">

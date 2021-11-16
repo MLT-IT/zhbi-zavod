@@ -402,6 +402,12 @@ $(function ($) {
     // -------------------------------
     // Вкладки на мобилках
     // -------------------------------
+    // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилов, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
+    $('.product-card__tabs-button').each(function(i, e) {
+        $(this).attr('data-tab-page', i);
+    });
+
+    // Обработчик
     $('.product-card__mobile-tabs-button').on('click', function (e) {
         e.preventDefault();
         let $this = $(this);
@@ -410,10 +416,9 @@ $(function ($) {
         $('.product-card__tabs-page.active').removeClass('active');
         $this.closest('.product-card__tabs-page').addClass('active');
 
-        let index = $tabsPage.index();
+        let index = $tabsPage.index() + 1;
         $('.product-card__tabs-button.active').removeClass('active');
-        $('.product-card__tabs-button:nth-child("' + index + '")]').addClass('active');
+        $('.product-card__tabs-button:nth-child(' + index + ')').addClass('active');
     });
-
 });
 
