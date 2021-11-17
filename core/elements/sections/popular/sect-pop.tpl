@@ -7,12 +7,18 @@
         </div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                {if $resources is empty}
+                    {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
+                    {set $resources = $_modx->config['popular_ids']}
+                {/if}
+
                 {'!msProducts' | snippet : [
                     'parents' => 0,
-                    'resources' => $_modx->config['popular_ids'],
+                    'depth' => 50,
+                    'limit' => 42,
+                    'resources' => $resources,
                     'tplWrapper' => '@INLINE {{+output}}',
                     'tpl' => '@FILE sections/popular/pop-item.tpl',
-                    'limit' => 0,
                     'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
                 ]}
             </div>

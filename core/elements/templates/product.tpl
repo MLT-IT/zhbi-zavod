@@ -15,7 +15,22 @@
         <h1 class="title-1 product-card__title-1" itemprop="name">{$_modx->resource.pagetitle}</h1>
         {include "file:sections/product/card.tpl"}
     </div>
-    {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также"}
+
+    {* В MODX проблематично получить товары с незаполненными опциями. Поэтому проверяем, заполнена ли опция *}
+    {if $_modx->resource.item_thickness is empty}
+        {$resources = ''}
+    {else}
+        {set $resources = '!msProducts' | snippet : [
+            'parents' => 0,
+            'depth' => 50,
+            'limit' => 42,
+            'returnIds' => 1,
+            'innerJoin' => '{"Options":{"class":"msProductOption"}}',
+            'where' => '{"Options.key":"item_thickness", "Options.value:=":"'~$_modx->resource['item_thickness'].0~'", "context_key:=": "'~$_modx->resource.context_key~'"}'
+        ]}
+    {/if}
+
+    {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также" resources=$resources}
     {include "file:sections/recent.tpl"}
     {include "file:sections/advantages.tpl"}
     {include "file:sections/partners.tpl"}
