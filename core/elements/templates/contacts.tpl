@@ -5,7 +5,7 @@
 {include "file:blocks/breadcrumbs.tpl"}
 </div>
     {insert "file:sections/contacts/contacts.tpl"}
-{*    {include "file:sections/contacts/requisites.tpl"}*}
+    {* {include "file:sections/contacts/requisites.tpl"} *}
 
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
@@ -15,6 +15,7 @@
         </div>
     {/if}
 
+    {include "file:sections/faq.tpl"}
     {include "file:sections/partners.tpl"}
     {include "file:sections/delivery.tpl"}
 {/block}

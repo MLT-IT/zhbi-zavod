@@ -10,7 +10,7 @@
     </div>
 
     {include "file:sections/category/listing.tpl"}
-    {*{include "file:sections/faq.tpl"}*}
+    {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
 
     {if $_modx->resource.content | length > 0}
