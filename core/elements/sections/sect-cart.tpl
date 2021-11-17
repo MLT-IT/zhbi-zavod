@@ -49,18 +49,19 @@
                                     <div class="cart-table__img-wrap">{$image}</div>
                                 {/if}
                             <div class="cart-table__title-wrap">
-                                {if $product.id?}
-                                    <a class="cart-table__title" href="{$product.id | url}">{$product.pagetitle}</a>
-                                {else}
-                                    <span class="cart-table__title">{$product.pagetitle}</span>
-                                {/if}
+                                <div class="cart-table__title-inner">
+                                    {if $product.id?}
+                                        <a class="cart-table__title" href="{$product.id | url}">{$product.pagetitle}</a>
+                                    {else}
+                                        <span class="cart-table__title">{$product.pagetitle}</span>
+                                    {/if}
+                                </div>
                                 <span class="cart-table__article">Арт. {$product.article}</span>
                             </div>
                         </td>
                         <td class="cart-table__table-cell price cart-table__table-cell_content_num">
                             <span class="cart-table__price-value">{$product.price}</span>
-                            <span class="cart-table__currency cart-table__currency_screen_pc">руб.</span>
-                            <span class="cart-table__currency cart-table__currency_screen_mobile">&#8381;</span>
+                            <span class="cart-table__currency cart-table__currency">руб</span>
                         </td>
                         <td class="count cart-table__table-cell">
                             <form method="post" class="cart-table__form ms2_form" role="form">
@@ -77,8 +78,7 @@
                             <span class="cart-table__sum-value">
                                 {$product.cost}
                             </span>
-                            <span class="cart-table__currency cart-table__currency_screen_pc">руб.</span>
-                            <span class="cart-table__currency cart-table__currency_screen_mobile">&#8381;</span>
+                            <span class="cart-table__currency cart-table__currency">руб</span>
                         </td>
                         <td class="remove cart-table__table-cell">
                             <form method="post" class="ms2_form text-md-right">
@@ -99,8 +99,7 @@
                     <p class="sect-cart__total-count-wrap">Всего <span class="sect-cart__total-count ms2_total_count">{$total.count}</span> товара на сумму:</p>
                     <p class=" sect-cart__cost">
                         <span class="ms2_total_cost">{$total.cost}</span>
-                        <span class="cart-table__currency cart-table__currency_screen_pc">руб.</span>
-                        <span class="cart-table__currency cart-table__currency_screen_mobile">&#8381;</span>
+                        <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
                     <p class="sect-cart__delivery">Без учёта стоимости доставки</p>
                 </div>
