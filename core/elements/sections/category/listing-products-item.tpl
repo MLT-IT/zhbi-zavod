@@ -1,8 +1,9 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="product-item listing__products-item" data-views="{$_pls['HitsPage']}" itemscope="" itemtype="https://schema.org/Product">
+<div data-key="{$productKey}" class="product-item listing__products-item" data-views="{$_pls['HitsPage']}" {*itemscope="" itemtype="https://schema.org/Product"*}>
 
+    {*
     <div style="display: none;">
         <meta itemprop="name" content="{$pagetitle}">
         <meta itemprop="description" content="Товар">
@@ -20,12 +21,13 @@
         <div itemprop="review" itemscope="" itemtype="https://schema.org/Review">
             <meta itemprop="author" content="Аноним">
             <div itemprop="reviewRating" itemscope="" itemtype="https://schema.org/Rating">
-                <meta itemprop="worstRating" content="4.6">
+                <meta itemprop="worstRating" content="4.5">
                 <meta itemprop="ratingValue" content="5">
                 <meta itemprop="bestRating" content="5">
             </div>
         </div>
     </div>
+    *}
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
