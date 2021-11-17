@@ -8,27 +8,31 @@
         <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
 
-    <div class="product-card__info">
-        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <link itemprop="availability" href="http://schema.org/InStock">
-            <div class="product-card__price">
-                <p>Арт. {$_modx->resource['article']}</p>
+    <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+        <meta itemprop="bestRating" content="5">
+        <meta itemprop="ratingValue" content="5">
+        <meta itemprop="ratingCount" content="82">
+    </div>
 
-                {if $price}
-                    <span>
-                        <span itemprop="price">{$_modx->resource['price']}</span>
-                        <meta itemprop="priceCurrency" content="RUB">
-                        руб
-                        {set $unit = $_modx->resource.unit}
-                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
-                    </span>
-                {/if}
+    <div class="product-card__info" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <link itemprop="availability" href="http://schema.org/InStock">
+        <div class="product-card__price">
+            <p>Арт. {$_modx->resource['article']}</p>
 
-                {set $upakovka = 'getPackage' | snippet}
-                {if $upakovka | length > 0}
-                    <div class="product-card__package">В упаковке: {$upakovka}</div>
-                {/if}
-            </div>
+            {if $price}
+                <span>
+                    <span itemprop="price">{$_modx->resource['price']}</span>
+                    <meta itemprop="priceCurrency" content="RUB">
+                    руб
+                    {set $unit = $_modx->resource.unit}
+                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                </span>
+            {/if}
+
+            {set $upakovka = 'getPackage' | snippet}
+            {if $upakovka | length > 0}
+                <div class="product-card__package">В упаковке: {$upakovka}</div>
+            {/if}
         </div>
         <div class="product-card__info-left">
             <form method="post" class="ms2_form product-item__form product-card__form">
@@ -68,10 +72,7 @@
                 В наличии
             </div>
             <div class="product-card__reviews">
-                <div class="product-card__reviews-stars five" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                    <meta itemprop="bestRating" content="5">
-                    <meta itemprop="ratingValue" content="5">
-                    <meta itemprop="ratingCount" content="82">
+                <div class="product-card__reviews-stars five">
                     <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
@@ -93,7 +94,6 @@
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
                 </div>
-
                 {set $countReviews = count($reviews)}
                 <a class="product-card__reviews-quantity" href="#">{$countReviews}
                     {'@FILE snippets/formOfWord.php' | snippet : [
@@ -103,7 +103,6 @@
                         'f5' => 'отзывов'
                     ]}
                 </a>
-
             </div>
         </div>
     </div>

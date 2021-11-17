@@ -12,7 +12,7 @@
 {include "file:blocks/breadcrumbs.tpl"}
 </div>
     <div class="wrapper product-card" data-views="{'!HitsPage' | snippet : ['saveTv' => 'true']}" itemscope itemtype="http://schema.org/Product">
-        <h1 class="title-1" itemprop="name">{$_modx->resource.pagetitle}</h1>
+        <h1 class="title-1 product-card__title-1" itemprop="name">{$_modx->resource.pagetitle}</h1>
         {include "file:sections/product/card.tpl"}
     </div>
     {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также"}
