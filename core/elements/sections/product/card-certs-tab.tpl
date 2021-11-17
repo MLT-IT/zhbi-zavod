@@ -19,7 +19,7 @@
                 <a class="certs-block__pdf-preview" data-fancybox title="{$ct.name}" href="/assets/template/img/import/{$ct.file}"></a>
             {else}
                 <a class="certs-block__cert-preview" data-fancybox title="{$ct.name}" href="/assets/template/img/import/{$ct.file}">
-                    <img src="{$previewSrc}" alt="{$ct.name}">
+                    <img class="certs-block__cert-img" src="{$previewSrc}" alt="{$ct.name}">
                 </a>
             {/if}
         </li>
