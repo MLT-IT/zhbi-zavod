@@ -2,8 +2,10 @@
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
 <div class="product-card__top product-item" data-key="{$productKey}">
-    <div class="product-card__img">
-        <img src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt=""></div>
+    <a href="{$image}" data-fancybox class="product-card__img">
+        <img src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="">
+    </a>
+
     <div class="product-card__info">
         <div class="product-card__price">
             <p>Арт. {$_modx->resource['article']}</p>
