@@ -8,7 +8,7 @@
 {/if}
 
 {if $content}
-    <div class="content-block">
+    <div class="content-block" itemprop="description">
         {$content}
     </div>
 {/if}

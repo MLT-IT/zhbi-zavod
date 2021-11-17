@@ -1,11 +1,14 @@
 <div class="reviews">
-    <div class="reviews__top" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+    <div class="reviews__top" {*itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"*}>
 
         <span>Средняя оценка</span>
+
+        {*
         <span itemprop="ratingValue" class="reviews__top-value">4.9</span>
         <meta itemprop="ratingCount" content="122">
         <meta itemprop="worstRating" content="1.0">
         <meta itemprop="bestRating" content="5.0">
+        *}
 
         <div class="product-card__reviews-stars five">
             <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -25,11 +28,13 @@
             </svg>
         </div>
 
+        {*
         <div itemprop="itemReviewed" itemscope="" itemtype="http://schema.org/Organization">
             <meta itemprop="name" content="{$_modx->config.http_host}"><span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
 				<meta itemprop="addressLocality" content="{$_modx->config.address}"></span>
             <meta itemprop="telephone" content="{$_modx->config.phone}">
         </div>
+        *}
 
     </div>
     <a class="reviews__button" href="#reviews" data-fancybox="">

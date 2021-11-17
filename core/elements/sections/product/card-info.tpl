@@ -2,26 +2,33 @@
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
 <div class="product-card__top product-item" data-key="{$productKey}">
+    <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
+
     <a href="{$image}" data-fancybox class="product-card__img">
-        <img src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="">
+        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="">
     </a>
 
     <div class="product-card__info">
-        <div class="product-card__price">
-            <p>Арт. {$_modx->resource['article']}</p>
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <link itemprop="availability" href="http://schema.org/InStock">
+            <div class="product-card__price">
+                <p>Арт. {$_modx->resource['article']}</p>
 
-            {if $price}
-                <span>
-                    {$_modx->resource['price']} руб
-                    {set $unit = $_modx->resource.unit}
-                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
-                </span>
-            {/if}
+                {if $price}
+                    <span>
+                        <span itemprop="price">{$_modx->resource['price']}</span>
+                        <meta itemprop="priceCurrency" content="RUB">
+                        руб
+                        {set $unit = $_modx->resource.unit}
+                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                    </span>
+                {/if}
 
-            {set $upakovka = 'getPackage' | snippet}
-            {if $upakovka | length > 0}
-                <div class="product-card__package">В упаковке: {$upakovka}</div>
-            {/if}
+                {set $upakovka = 'getPackage' | snippet}
+                {if $upakovka | length > 0}
+                    <div class="product-card__package">В упаковке: {$upakovka}</div>
+                {/if}
+            </div>
         </div>
         <div class="product-card__info-left">
             <form method="post" class="ms2_form product-item__form product-card__form">
@@ -35,7 +42,9 @@
                         <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                     </div>
 
-                    <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+                    <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В
+                        корзину
+                    </button>
                 </div>
             </form>
 
@@ -45,29 +54,42 @@
         <div class="product-card__info-right">
             <div class="product-card__delivery"><b>Доставка в Санкт-Петербург и Лен. область</b>
                 <a href="/dostavka-i-oplata/">
-                    <svg class="svg icon-delivery" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <svg class="svg icon-delivery" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-delivery"></use>
-                    </svg>Узнать стоимость с доставкой</a>
+                    </svg>
+                    Узнать стоимость с доставкой</a>
             </div>
             <div class="product-card__availability">
-                <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                     <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
-                </svg>В наличии </div>
+                </svg>
+                В наличии
+            </div>
             <div class="product-card__reviews">
-                <div class="product-card__reviews-stars five">
-                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                <div class="product-card__reviews-stars five" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="ratingValue" content="5">
+                    <meta itemprop="ratingCount" content="82">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
-                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
-                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
-                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
-                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
                     </svg>
                 </div>
@@ -79,8 +101,7 @@
                         'f1' => 'отзыв',
                         'f2' => 'отзыва',
                         'f5' => 'отзывов'
-                        ]
-                    }
+                    ]}
                 </a>
 
             </div>
