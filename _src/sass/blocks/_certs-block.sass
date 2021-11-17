@@ -1,0 +1,35 @@
+.certs-block
+    display: flex
+    flex-wrap: wrap
+    margin-left: -10px
+
+    &__item
+        margin-bottom: 20px
+        margin-left: 10px
+        margin-right: 10px
+
+    &__cert-preview
+        display: inline-block
+
+    &__pdf-preview
+        display: flex
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        width: 100px
+        height: 141px
+        border: 1px solid #bbc2ce
+        background: #f9fafb
+        position: relative
+
+        &::before, &::after
+            color: #323232
+
+        &::before
+            content: "PDF"
+            top: 20px
+            margin-top: -10px
+
+        &::after
+            content: "посмотреть"
+            top: 40px
