@@ -5,7 +5,7 @@
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
-        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="">
+        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
     </a>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">

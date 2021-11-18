@@ -3,7 +3,7 @@
 
 <div class="pop-item swiper-slide product-item" data-key="{$productKey}">
     <a class="pop-item__img-wrap" href="{$uri}">
-        <img class="pop-item__img" src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
+        <img class="pop-item__img" src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
     </a>
     <a class="pop-item__title" href="{$uri}">{$menutitle}</a>
     <p class="pop-item__price">

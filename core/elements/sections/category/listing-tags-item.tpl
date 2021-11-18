@@ -8,7 +8,7 @@
         {else}
             {set $src = 'assets/images/no_image_small.jpg'}
         {/if}
-        <img src="{$src}" alt="">
+        <img src="{$src}" alt="{$menutitle}">
     </div>
     <div class="listing__tags-item-title">{$menutitle}</div>
 </a>

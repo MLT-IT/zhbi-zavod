@@ -1,6 +1,6 @@
 <div class="swiper-slide product-slider__slide">
     <a class="product-slider__slide-img" href="{$uri}">
-        <img src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="">
+        <img src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$menutitle}">
     </a>
     <div class="product-slider__title-wrap">
         <a class="product-slider__slide-title" href="{$uri}">{$menutitle}</a>
