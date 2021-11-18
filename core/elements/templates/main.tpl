@@ -6,9 +6,9 @@
     <div class="wrapper">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
-        {if $_modx->resource.content | length > 0}
+        {if $_modx->resource.introtext | length > 0}
             <div class="content-block">
-                {$_modx->resource.content}
+                {$_modx->resource.introtext}
             </div>
         {/if}
     </div>
@@ -20,6 +20,15 @@
     {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
+
+    {if $_modx->resource.content | length > 0}
+        <div class="wrapper">
+            <div class="content-block">
+                {$_modx->resource.content}
+            </div>
+        </div>
+    {/if}
+
     {include "file:sections/partners.tpl"}
     {include "file:sections/delivery.tpl"}
 {/block}
