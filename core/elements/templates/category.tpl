@@ -10,6 +10,7 @@
     </div>
 
     {include "file:sections/category/listing.tpl"}
+    {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
 

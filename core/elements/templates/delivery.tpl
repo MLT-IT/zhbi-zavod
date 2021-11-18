@@ -9,6 +9,7 @@
     </div>
     {include "file:sections/delivery/banner.tpl"}
     {include "file:sections/payment.tpl"}
+    {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
 
