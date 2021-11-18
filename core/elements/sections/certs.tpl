@@ -18,16 +18,16 @@
                         {if ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
                             {set $previewSrc = 'phpthumbon' | snippet : [
                             'input' => '/assets/template/img/import/' ~ $ct.file,
-                            'options' => '&w=100&far=1'
+                            'options' => '&w=200&far=1'
                             ]}
                         {/if}
                     {/if}
 
                     {if $previewSrc == ''}
-                        <a class="certs-block__pdf-preview" data-fancybox title="{$ct.name}"
+                        <a class="certs-block__pdf-preview cursor-zoom" data-fancybox title="{$ct.name}"
                            href="/assets/template/img/import/{$ct.file}"></a>
                     {else}
-                        <a class="certs-block__cert-preview" data-fancybox title="{$ct.name}"
+                        <a class="certs-block__cert-preview cursor-zoom" data-fancybox title="{$ct.name}"
                            href="/assets/template/img/import/{$ct.file}">
                             <img class="certs-block__cert-img" src="{$previewSrc}" alt="{$ct.name}">
                         </a>
