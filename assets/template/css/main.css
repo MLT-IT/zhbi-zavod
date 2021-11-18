@@ -4863,11 +4863,12 @@ p, span {
     width: 55px;
     height: 40px;
     transition: border-color .3s;
-    border: 1px solid transparent
+    border: 1px solid transparent;
+    text-align: center;
 }
 
 .listing__tags-item-img img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover
 }
@@ -7152,11 +7153,12 @@ p, span {
     max-width: 170px;
     grid-row: span 3;
     grid-column: span 2;
-    order: 0
+    order: 0;
+    text-align: center;
 }
 
 .listing__products-item-photo img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover
 }
