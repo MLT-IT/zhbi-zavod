@@ -1,0 +1,55 @@
+{extends "file:layouts/default.layout.tpl"}
+
+{block 'title'}
+    {include "file:elements/product/meta-title.tpl"}
+{/block}
+{block 'description'}
+    {include "file:elements/product/meta-description.tpl"}
+{/block}
+
+{block "page"}
+    <div class="wrapper">
+        {include "file:blocks/breadcrumbs.tpl"}
+    </div>
+    <div class="wrapper sect-inner">
+        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
+
+        {if $_modx->resource.content | length > 0}
+            <div class="sect-inner__content content-block">
+                {$_modx->resource.content}
+            </div>
+        {/if}
+
+        {set $value = 'getAllCerts' | snippet}
+        {if $value | count}
+            <ul class="certs-block">
+                {foreach $value as $ct}
+                    <li class="certs-block__item">
+                        {set $previewSrc = ''}
+                        {set $splitted = $ct.file | split: '.'}
+                        {set $count = $splitted | count}
+                        {if $count > 1}
+                            {set $lastElem = $splitted[$count - 1]}
+
+                            {if ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
+                                {set $previewSrc = 'phpthumbon' | snippet : [
+                                'input' => '/assets/template/img/import/' ~ $ct.file,
+                                'options' => '&w=100&far=1'
+                                ]}
+                            {/if}
+                        {/if}
+
+                        {if $previewSrc == ''}
+                            <a class="certs-block__pdf-preview" data-fancybox title="{$ct.name}" href="/assets/template/img/import/{$ct.file}"></a>
+                        {else}
+                            <a class="certs-block__cert-preview" data-fancybox title="{$ct.name}" href="/assets/template/img/import/{$ct.file}">
+                                <img class="certs-block__cert-img" src="{$previewSrc}" alt="{$ct.name}">
+                            </a>
+                        {/if}
+                    </li>
+                {/foreach}
+            </ul>
+        {/if}
+
+    </div>
+{/block}

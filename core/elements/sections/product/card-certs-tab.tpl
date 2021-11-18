@@ -1,4 +1,4 @@
-<ul class="certs-block" data-id="{$_modx->resource.id}">
+<ul class="certs-block">
     {foreach $value as $ct}
         <li class="certs-block__item">
             {set $previewSrc = ''}
