@@ -32,7 +32,6 @@
 
     {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также" resources=$resources}
     {include "file:sections/recent.tpl"}
-    {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
     {include "file:sections/partners.tpl"}
