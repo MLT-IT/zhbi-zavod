@@ -5,11 +5,12 @@
         <div class="form__inputs">
             <label>
                 <input type="text" placeholder="Укажите Ваше имя" name="NAME">
-                <div class="form__error"></div>
+                <span class="error_NAME">[[!+fi.error.NAME]]</span>
             </label>
+
             <label>
                 <input type="tel" placeholder="+7 (989) 999-99-99" name="PHONE">
-                <div class="form__error"></div>
+                <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
             </label>
         </div>
         <button type="submit" class="form__button yellow-btn">Перезвоните мне</button>
