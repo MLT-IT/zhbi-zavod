@@ -15,15 +15,23 @@
                     {if $count > 1}
                         {set $lastElem = $splitted[$count - 1]}
 
-                        {if ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
+                        {if $lastElem == 'pdf'}
+                            {set $previewSrc = 'pdfToJpg' | snippet : [
+                                'src' => '/assets/template/img/import/' ~ $ct.file,
+                            ]}
+                        {elseif ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
+                            {set $previewSrc = '/assets/template/img/import/' ~ $ct.file}
+                        {/if}
+
+                        {if $previewSrc ?}
                             {set $previewSrc = 'phpthumbon' | snippet : [
-                            'input' => '/assets/template/img/import/' ~ $ct.file,
+                            'input' => $previewSrc,
                             'options' => '&w=200&far=1'
                             ]}
                         {/if}
                     {/if}
 
-                    {if $previewSrc == ''}
+                    {if $previewSrc is empty}
                         <a class="certs-block__pdf-preview cursor-zoom" data-fancybox title="{$ct.name}"
                            href="/assets/template/img/import/{$ct.file}"></a>
                     {else}
