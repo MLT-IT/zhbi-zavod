@@ -15,6 +15,7 @@
             'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
             'tplFilter.row.price2' => '@FILE chunks/filterNumberInner.tpl',
             'tplFilter.outer.price2' => '@FILE chunks/filterNumber.tpl',
+            'tplFilter.row.default' => '@FILE chunks/filterCheckbox.tpl',
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
             'sort' => 'ms|price:desc',

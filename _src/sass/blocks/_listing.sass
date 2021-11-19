@@ -1,4 +1,198 @@
 .listing
+    &__filter-button
+        @at-root .knauf &
+            background-image: url(/assets/template/img/catalog/icons/knauf.png)
+        @at-root .rockwool &
+            background-image: url(/assets/template/img/catalog/icons/rockwool.png)
+        @at-root .tn &
+            background-image: url(/assets/template/img/catalog/icons/tn.png)
+        @at-root .penoplex &
+            background-image: url(/assets/template/img/catalog/icons/penoplex.png)
+        @at-root .isover &
+            background-image: url(/assets/template/img/catalog/icons/isover.png)
+        @at-root .paroc &
+            background-image: url(/assets/template/img/catalog/icons/paroc.png)
+        @at-root .ursa &
+            background-image: url(/assets/template/img/catalog/icons/ursa.png)
+
+    &__filter
+        width: 260px
+        transition: right .3s
+        background: #fff
+        margin-right: 10px
+        position: relative
+        max-height: none
+        z-index: 35
+        margin-bottom: 20px
+
+        @media screen and (max-width: 768px)
+            top: 66px
+            height: calc(100vh - 66px)
+
+        &.active
+            right: 0
+
+        @media screen and (max-width: 1200px)
+            height: 100%
+            overflow-y: scroll
+            box-shadow: 0 0 5px #eaeaea
+            z-index: 20
+            position: fixed
+            right: -260px
+            margin-right: 0
+            top: 0
+            max-height: 100vh
+
+        @media screen and (max-width: 768px)
+            top: 66px
+            max-height: calc(100vh - 66px)
+
+    &__filter-block
+        display: flex
+        flex-direction: column
+        border-radius: 8px
+        width: 100%
+        border: 1px solid #EAEAEA
+        transition: .3s
+
+        @media screen and (max-width: 1200px)
+            border-radius: 0
+
+        &:nth-last-of-type(n+2)
+            @media screen and (min-width: 1201px)
+                margin-bottom: 16px
+
+        &.active
+            @media screen and (max-width: 1200px)
+                padding-bottom: 16px
+
+            .listing__filter-block-content
+                max-height: 600px
+                opacity: 1
+                padding-bottom: 16px
+
+                @media screen and (max-width: 1200px)
+                    padding-bottom: 0
+
+
+            .listing__filter-block-arrow
+                transform: rotate(315deg)
+                top: 19.5px
+
+            .listing__filter-block-header
+                padding-bottom: 24px
+
+    &__filter-clear
+        align-self: flex-end
+        border-bottom: 1px dashed #ffbe00
+        color: #ffbe00
+        margin-bottom: 15px
+        transition: border-bottom-color .3s
+
+        &:hover
+            border-bottom-color: transparent
+
+    &__filter-button
+        width: 45px
+        height: 90px
+        position: fixed
+        z-index: 20
+        top: 50%
+        transform: translateY(-50%)
+        right: 0
+        background: url(/assets/template/img/filter-button.png) no-repeat 50%
+        opacity: 0
+        visibility: hidden
+        transition: opacity .3s, visibility .3s, right .3s
+
+        &.active
+            visibility: visible
+            opacity: 1
+
+        &.opened
+            right: 259px
+
+        @media screen and (min-width: 1200px)
+            display: none
+
+    &__filter-block-header
+        position: relative
+        width: 100%
+        display: flex
+        align-items: flex-start
+        cursor: pointer
+        padding: 16px
+        transition: .3s
+
+    &__filter-block-title
+        font-weight: 700
+        font-size: 16px
+        user-select: none
+        padding-left: 28px
+
+    &__filter-block-arrow
+        position: absolute
+        margin-left: 5px
+        flex-shrink: 0
+        border-left: 2px solid #DAD9D9
+        border-bottom: 2px solid #DAD9D9
+        transform: rotate(225deg)
+        transition: .3s
+        width: 9px
+        height: 9px
+        top: 22px
+        left: 13px
+
+    &__filter-block-content
+        padding-left: 16px
+        padding-right: 16px
+        transition: .3s
+        opacity: 0
+        height: auto
+        max-height: 0
+        overflow: auto
+
+    &__filter-list
+        margin: 0 0 30px
+        display: flex
+        flex-direction: column
+        width: 100%
+
+        & + .listing__filter-block
+            border-top: 1px solid #eaeaea !important
+
+    &__filter-list-item
+        cursor: pointer
+        width: 100%
+        height: 35px
+        display: flex
+        align-items: center
+        padding-left: 20px
+        position: relative
+        font-weight: 700
+        border-bottom: 1px solid #eaeaea
+        transition: background-color .3s
+
+        &::before
+            position: absolute
+            top: 0
+            left: 0
+            width: 7px
+            height: 100%
+            content: ""
+            background: transparent
+            transition: background-color .3s
+
+        &.active, &:hover
+            background-color: #eaeaea
+
+        &.active
+            &::before
+                background-color: #ffbe00
+
+
+    // ---------------------------------------------------
+
     &__products-item-title
         a
             color: #1a0dab
@@ -38,15 +232,6 @@
         &.grid
             .listing__products-item-remove
                 width: 100%
-
-    &__filter
-        max-height: none
-        z-index: 35
-        margin-bottom: 20px
-
-        @media screen and (max-width: 768px)
-            top: 66px
-            height: calc(100vh - 66px)
 
     &__sort-item
         border-bottom: 1px dashed transparent
