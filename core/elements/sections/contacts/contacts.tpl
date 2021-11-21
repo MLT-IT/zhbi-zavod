@@ -13,8 +13,8 @@
             <ul class="contacts__list">
                 <li class="contacts__item">
                     <div class="contacts__item-key"><span>Отдел продаж</span></div>
-                    <a class="contacts__item-value" href="tel:{$_pls['+phone']}">
-                        <span itemprop="telephone">{$_pls['+phone']}</span>
+                    <a class="contacts__item-value" href="tel:{'!utm' | snippet : ['val' => 'phone']}">
+                        <span itemprop="telephone">{'!utm' | snippet : ['val' => 'phone']}</span>
                     </a>
                 </li>
                 <li class="contacts__item">
@@ -27,8 +27,8 @@
                 </li>
                 <li class="contacts__item">
                     <div class="contacts__item-key"><span>E-mail для заявок</span></div>
-                    <a class="contacts__item-value" href="mailto:{$_pls['+email']}">
-                        <span itemprop="email">{$_pls['+email']}</span>
+                    <a class="contacts__item-value" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
+                        <span itemprop="email">{'!utm' | snippet : ['val' => 'email']}</span>
                     </a>
                 </li>
                 <li class="contacts__item contacts__item_content_address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
