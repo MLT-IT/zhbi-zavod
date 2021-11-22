@@ -52,6 +52,7 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
-    "jquery-ui-touch-punch": "^0.2.3"
+    "jquery-ui-touch-punch": "^0.2.3",
+    "js-image-zoom": "^0.7.0"
   }
 }

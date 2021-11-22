@@ -1,10 +1,24 @@
 import '../sass/styles.sass'
 import mailChange from './modules/mailchanger';
+import ImageZoom from 'js-image-zoom'
 
 window.jQuery = $;
 window.$ = $;
 
 $(function ($) {
+    // -------------------------------
+    // Приближение при наведении на странице товара
+    // -------------------------------
+    const $productCardImg = $(".product-card__img");
+    if ($productCardImg.length) {
+        new ImageZoom($productCardImg[0], {
+            fillContainer: true,
+            height: 260,
+            zoomWidth: 500,
+            offset: {vertical: 0, horizontal: 10},
+        });
+    }
+
     // -------------------------------
     // Мини-корзина
     // -------------------------------
