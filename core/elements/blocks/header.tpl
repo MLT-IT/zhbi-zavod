@@ -75,6 +75,22 @@
             </form>
 
             <div class="header__btns-wrap">
+                <a class="header__cat" href="/catalog/">
+                    <span class="header__cat-icon">
+                        <span class="header__cat-icon-stick"></span>
+                        <span class="header__cat-icon-stick"></span>
+                        <span class="header__cat-icon-stick"></span>
+                    </span>
+                    <span class="header__cat-text">Каталог</span>
+                </a>
+
+                <a class="header__mobile-phone" href="tel:{'phone' | option | phone}">
+                    <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>
+                    </svg>
+                    <span class="header__mobile-phone-text">Телефон</span>
+                </a>
+
                 {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
 
                 {*
@@ -86,26 +102,12 @@
                     <span class="header__fav-text">Избранное</span>
                 </a>
                 *}
-
-                {*
-                <a class="header__cat" href="{$id | url}">
-                    <span class="header__cat-icon"></span>
-                    <span class="header__cat-text">Каталог</span>
-                </a>
-                *}
-
-                <a class="header__mobile-phone" href="tel:{'phone' | option | phone}">
-                    <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>
-                    </svg>
-                    <span class="header__mobile-phone-text">Телефон</span>
-                </a>
             </div>
         </div>
         <nav class="header__nav">
             <div class="header__nav-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
 
-            <p class="header__nav-header">Каталог</p>
+            <a href="/catalog/" class="header__nav-header">Каталог</a>
             <form action="/search/" class="header__search-wrap">
                 <input class="header__search" placeholder="Поиск по сайту" name="query">
                 <button type="submit" class="header__search-btn"></button>
