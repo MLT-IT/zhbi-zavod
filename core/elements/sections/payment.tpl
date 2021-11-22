@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="payment__item payment__item_not-clickable">
+            <div class="payment__item">
                 <div class="payment__item-top">
                     <svg class="svg icon-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-money"></use>
@@ -33,9 +33,11 @@
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-arrow"></use>
                     </svg>
                 </div>
-                <div class="payment__item-content"></div>
+                <div class="payment__item-content">
+                    <p>Вы можете оплатить наличными по факту приема материала после проверки качества и количества заказанного материала.</p>
+                </div>
             </div>
-            <div class="payment__item payment__item_not-clickable">
+            <div class="payment__item">
                 <div class="payment__item-top">
                     <svg width="30" height="30" class="svg icon-card" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-bank"></use>
@@ -44,7 +46,9 @@
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-arrow"></use>
                     </svg>
                 </div>
-                <div class="payment__item-content"></div>
+                <div class="payment__item-content">
+                    <p>Менеджер отправит Вам счет, Вы проверяете номенклатуру товара, количество. После оплаты осуществляется доставка либо Вы забираете товар со склада самовывоза.</p>
+                </div>
             </div>
             {*
                 <div class="payment__item">
