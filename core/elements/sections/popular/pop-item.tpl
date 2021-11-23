@@ -20,7 +20,7 @@
             <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
             <div class="custom-counter product-item__custom-counter">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                <input name="count" class="custom-counter__amount" value="1">
+                <input name="count" class="custom-counter__amount" value="1" data-min="1">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
             </div>
         </form>

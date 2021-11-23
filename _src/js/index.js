@@ -152,8 +152,22 @@ $(function ($) {
     // -------------------------------
     let $counterInput = $('.custom-counter__amount');
 
-    $counterInput.inputFilter(function (value) {
-        return /^(0|[1-9][0-9]{0,})$/.test(value);
+    $counterInput.each(function() {
+        let filter;
+        const $this = $(this);
+        const minVal = parseInt($this.attr('data-min'));
+
+        if (!isNaN(minVal)) {
+            filter = function (value) {
+                return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) >= minVal);
+            }
+        } else {
+            filter = function (value) {
+                return /^(0|[1-9][0-9]{0,})$/.test(value);
+            }
+        }
+
+        $this.inputFilter(filter);
     });
 
     $('.custom-counter__btn').on('click', function (e) {
@@ -173,10 +187,11 @@ $(function ($) {
         $inputValue.val(val);
 
         $inputValue.trigger('change');
+        // Если мы находимся в корзине, то вызываем change
         $this.closest('.cart-table__form').find('.btn-sm').click();
     });
 
-    // TODO: этот код лучше перенести в change от Minishop2. И на monolit78 также.
+    // TODO: Возможно, этот код лучше перенести в change от Minishop2. И на monolit78 также.
     let pageCart = $('.sect-cart').length;
     if (pageCart) {
         $counterInput.each(function () {
@@ -324,7 +339,8 @@ $(function ($) {
                     if (val <= 0) {
                         $productItem.find('.product-item__controls').hide();
                         $productItem.find('.product-item__form').show();
-                        $productItem.find('.product-item__form .custom-counter__amount').val(1);
+                        // trigger change нужен, чтобы фильтр запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
+                        $productItem.find('.product-item__form .custom-counter__amount').val(1).trigger('change');
                     }
 
                     miniShop2.Message.success(data.message);
@@ -342,18 +358,20 @@ $(function ($) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count);
 
-            // Работа с кнопкой
+            // Если это не внутри карточки, то выходим из функции
             let $item = this.sendData.$form.closest('.product-item');
             if (!$item.length) {
                 return;
             }
 
-            let val = parseInt($item.find('.custom-counter__amount').val());
+            // Устанавливаем значение для поля с количеством
+            let val = parseInt($item.find('.product-item__form .custom-counter__amount').val());
             if (isNaN(val)) {
                 val = 0;
             }
-            $item.find('.custom-counter__amount').val(val);
+            $item.find('.product-item__controls .custom-counter__amount').val(val);
 
+            // Меняем видимость
             $item.find('.product-item__form').hide();
             $item.find('.product-item__controls').show();
         }
