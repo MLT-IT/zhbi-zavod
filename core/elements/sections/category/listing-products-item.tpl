@@ -85,7 +85,7 @@
             {/if}
         </div>
 
-        <form method="post" class="ms2_form listing__products-item-form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
+        <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
             <input type="hidden" name="options" value="[]">
 
@@ -96,7 +96,7 @@
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
             </div>
         </form>
-        <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls listing__controls">
+        <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls">
             <a href="/cart/" class="product-item__btn-in-cart">
                 <span class="product-item__btn-in-cart-top-text">В корзине</span>
                 Перейти
