@@ -1,14 +1,16 @@
 .product-item
-    &__btn-in-cart
+    .product-item__btn-in-cart
         display: flex
         justify-content: center
         align-items: center
         border-radius: 6px
         padding: 9px 24px
         white-space: nowrap
-        margin-left: 4px
+        margin-right: 4px
         width: 116px
-        text-transform: uppercase
+        flex-direction: column
+        font-weight: bold
+        color: #fff
 
         +set_colors_1(background-color)
 
@@ -38,11 +40,8 @@
         .custom-counter__amount
             font-size: 13.3333px
 
-    &__products-item-controls
+    &__controls
         display: flex
 
-        .product-item__btn-in-cart
-            color: #fff
-
-            &:hover
-                color: #fff
+    &__form
+        display: flex

@@ -18,7 +18,7 @@
             'tplFilter.row.default' => '@FILE chunks/filterCheckbox.tpl',
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
-            'sort' => 'ms|price:desc',
+            'sort' => 'tv|HitsPage:desc',
             'includeTVs' => 'HitsPage',
 
             'context' => $_modx->resource.context_key

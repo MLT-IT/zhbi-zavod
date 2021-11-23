@@ -1,5 +1,7 @@
 <section class="banner">
-    <div class="wrapper">
+    {if $dontNeedWrapper != true}
+        <div class="wrapper">
+    {/if}
         <div class="banner__slide">
             <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {*
@@ -29,5 +31,7 @@
                 </svg>
             </a>
         </div>
-    </div>
+    {if $dontNeedWrapper != true}
+        </div>
+    {/if}
 </section>

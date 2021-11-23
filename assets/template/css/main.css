@@ -8125,7 +8125,6 @@ p, span {
 
     .product-card__info-left, .product-card__info-right {
         grid-template-columns:2fr;
-        grid-gap: 10px
     }
 
     .quantity-block input {
@@ -8199,4 +8198,8 @@ p, span {
     .animate__animated[class*=Out] {
         opacity: 0
     }
+}
+
+#mse2_mfilter .btn.btn_more {
+    margin-bottom: 20px
 }

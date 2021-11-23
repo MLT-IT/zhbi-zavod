@@ -5,7 +5,8 @@
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
-        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
+        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
+             alt="{$_modx->resource.pagetitle}">
     </a>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
@@ -35,23 +36,28 @@
             {/if}
         </div>
         <div class="product-card__info-left">
-            <form method="post" class="ms2_form product-item__form product-card__form">
+            <form method="post" class="ms2_form product-item__form product-card__form" {if $itemInCart > 0}style="display: none;"{/if}>
                 <input type="hidden" name="id" value="{$_modx->resource['id']}">
                 <input type="hidden" name="options" value="[]">
 
-                <div class="product-item__products-item-controls">
-                    <div class="custom-counter product-item__custom-counter">
-                        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                        <input name="count" class="custom-counter__amount" value="1">
-                        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-                    </div>
-
-                    <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В
-                        корзину
-                    </button>
+                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+                <div class="custom-counter product-item__custom-counter">
+                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                    <input name="count" class="custom-counter__amount" value="1">
+                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                 </div>
             </form>
-
+            <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls product-card__controls">
+                <a href="/cart/" class="product-item__btn-in-cart">
+                    <span class="product-item__btn-in-cart-top-text">В корзине</span>
+                    Перейти
+                </a>
+                <div class="custom-counter product-item__custom-counter">
+                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                    <input name="count" class="custom-counter__amount" value="{$itemInCart}">
+                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+                </div>
+            </div>
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
         </div>
 
@@ -97,10 +103,10 @@
                 {set $countReviews = count($reviews)}
                 <a class="product-card__reviews-quantity" href="#">{$countReviews}
                     {'@FILE snippets/formOfWord.php' | snippet : [
-                        'n' => $countReviews,
-                        'f1' => 'отзыв',
-                        'f2' => 'отзыва',
-                        'f5' => 'отзывов'
+                    'n' => $countReviews,
+                    'f1' => 'отзыв',
+                    'f2' => 'отзыва',
+                    'f5' => 'отзывов'
                     ]}
                 </a>
             </div>

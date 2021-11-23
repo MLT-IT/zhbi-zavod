@@ -153,7 +153,7 @@ $(function ($) {
     let $counterInput = $('.custom-counter__amount');
 
     $counterInput.inputFilter(function (value) {
-        return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) > 0);
+        return /^(0|[1-9][0-9]{0,})$/.test(value);
     });
 
     $('.custom-counter__btn').on('click', function (e) {
@@ -286,6 +286,54 @@ $(function ($) {
     });
 
     // -------------------------------
+    // Обработчик счетчика на карточках товара
+    // -------------------------------
+    $(document).on('change', '.custom-counter__amount', function (e) {
+        e.preventDefault();
+
+        let $this = $(this);
+        let $productItem = $this.closest('.product-item');
+
+        if (!$productItem.length) {
+            return;
+        }
+
+        let key = $productItem.attr('data-key');
+        if (!key.length) {
+            return;
+        }
+
+        let sendingData;
+        let val = $this.val();
+
+        sendingData = {
+            action: 'cart/change',
+            count: val,
+            key: key
+        }
+
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            url: window.location.origin + '/assets/components/minishop2/action.php',
+            data: sendingData,
+            success: function (data) {
+                if (data.success) {
+                    handleMiniCart(data.data.total_count);
+
+                    if (val <= 0) {
+                        $productItem.find('.product-item__controls').hide();
+                        $productItem.find('.product-item__form').show();
+                        $productItem.find('.product-item__form .custom-counter__amount').val(1);
+                    }
+
+                    miniShop2.Message.success(data.message);
+                }
+            }
+        });
+    });
+
+    // -------------------------------
     // Обработчики Minishop2
     // -------------------------------
     // Добавление товара в корзину
@@ -293,6 +341,21 @@ $(function ($) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count);
+
+            // Работа с кнопкой
+            let $item = this.sendData.$form.closest('.product-item');
+            if (!$item.length) {
+                return;
+            }
+
+            let val = parseInt($item.find('.custom-counter__amount').val());
+            if (isNaN(val)) {
+                val = 0;
+            }
+            $item.find('.custom-counter__amount').val(val);
+
+            $item.find('.product-item__form').hide();
+            $item.find('.product-item__controls').show();
         }
     }
 
@@ -350,7 +413,7 @@ $(function ($) {
     // -------------------------------
     // Вкладки на мобилках
     // -------------------------------
-    // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилов, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
+    // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилок, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
     $('.product-card__tabs-button').each(function(i, e) {
         $(this).attr('data-tab-page', i);
     });
