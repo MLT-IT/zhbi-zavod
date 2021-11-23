@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "jquery-ui-touch-punch": "^0.2.3",
-    "js-image-zoom": "^0.7.0"
+    "js-image-zoom": "^0.7.0",
+    "overlayscrollbars": "^1.13.1"
   }
 }

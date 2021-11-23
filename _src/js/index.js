@@ -1,11 +1,16 @@
-import '../sass/styles.sass'
+import '../sass/styles.sass';
 import mailChange from './modules/mailchanger';
-import ImageZoom from 'js-image-zoom'
+import ImageZoom from 'js-image-zoom';
+import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
+import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 
 window.jQuery = $;
 window.$ = $;
 
 $(function ($) {
+    // Это лучше сделать через Swiper. Пример: https://codesandbox.io/s/o0uzz?file=/index.html:8994-9227 . Но актуальных исходников нет
+    $('.js-custom-scrollbar').overlayScrollbars({});
+
     // -------------------------------
     // Приближение при наведении на странице товара
     // -------------------------------
