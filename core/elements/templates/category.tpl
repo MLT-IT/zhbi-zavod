@@ -10,7 +10,7 @@
     {/if}
 
     {* Отзывы *}
-    {set $reviews = '!getSchemaReview' | snippet}
+    {set $reviews = 'getSchemaReview' | snippet}
 
     {* Минимальные / максимальные значения и общее количество товаров *}
     {'!msGetProductsCount' | snippet}
