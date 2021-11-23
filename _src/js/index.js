@@ -264,7 +264,7 @@ $(function ($) {
 
         switch (parseInt(val)) {
             // По цене по возрастанию
-            case 1:
+            case 3:
                 $elem = $('.listing__sort-item[data-sort="ms|price"]');
                 dataDir = 'asc';
                 break;
@@ -274,7 +274,7 @@ $(function ($) {
                 dataDir = 'desc';
                 break;
             // По популярности по убыванию
-            case 3:
+            case 1:
                 $elem = $('.listing__sort-item[data-sort="tv|HitsPage"]');
                 dataDir = 'desc';
                 break

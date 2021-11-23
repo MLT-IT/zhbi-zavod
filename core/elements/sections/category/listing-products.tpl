@@ -9,9 +9,9 @@
         <div class="listing__sort-select-container"> <span>Сортировать: </span>
             <div class="listing__sort-select">
                 <select class="listing__sort-select-elem" name="sort">
+                    <option value="1">по популярности</option>
                     <option value="2">по цене ↓</option>
-                    <option value="1">по цене ↑</option>
-                    <option value="3">по популярности</option>
+                    <option value="3">по цене ↑</option>
                     <option value="4">по алфавиту</option>
                 </select>
             </div>
