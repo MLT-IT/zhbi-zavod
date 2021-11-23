@@ -13,21 +13,28 @@
         {/if}
     </p>
     <div class="pop-item__btns-wrap">
-        <form method="post" class="ms2_form product-item__form">
+        <form method="post" class="ms2_form listing__products-item-form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
             <input type="hidden" name="options" value="[]">
 
-            <div class="product-item__products-item-controls">
-                <div class="custom-counter product-item__custom-counter">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                    <input name="count" class="custom-counter__amount" value="1">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-                </div>
-
-                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину
-                </button>
+            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+            <div class="custom-counter product-item__custom-counter">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                <input name="count" class="custom-counter__amount" value="1">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
             </div>
         </form>
+        <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls listing__controls">
+            <a href="/cart/" class="product-item__btn-in-cart">
+                <span class="product-item__btn-in-cart-top-text">В корзине</span>
+                Перейти
+            </a>
+            <div class="custom-counter product-item__custom-counter">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                <input name="count" class="custom-counter__amount" value="{$itemInCart}">
+                <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+            </div>
+        </div>
 
         {*
         <a href="#" class="pop-item__to-fav">
