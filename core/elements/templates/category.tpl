@@ -19,7 +19,7 @@
     {* Микроразметка *}
     <script type="application/ld+json">
     {
-        "@context": "Schema.org - Schema.org",
+        "@context": "https://schema.org/",
         "@type": "Product",
         "name": "{$_modx->resource.menutitle}",
         "image": "{$schemaImg}",
