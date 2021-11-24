@@ -8,5 +8,5 @@
     {include "file:sections/certs.tpl"}
     {include "file:sections/advantages.tpl"}
     {include "file:sections/partners.tpl"}
-    {include "file:sections/delivery.tpl"}
+    {include "file:sections/districts-map.tpl"}
 {/block}

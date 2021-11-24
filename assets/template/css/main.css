@@ -4960,7 +4960,6 @@ p, span {
 
 .header__nav-list {
     display: flex;
-    width: 100%;
     align-items: center
 }
 

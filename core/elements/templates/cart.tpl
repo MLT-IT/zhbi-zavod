@@ -14,5 +14,5 @@
 {*        {'!msGetOrder' | snippet : ['tpl' => '@FILE: chunks/msGetOrder.tpl']}*}
 
     </div>
-    {include "file:sections/delivery.tpl" classToWrapper=' is-wide' classToMap=' map_sect-cart'}
+    {include "file:sections/districts-map.tpl" classToWrapper='is-wide' classToMap='map_sect-cart'}
 {/block}

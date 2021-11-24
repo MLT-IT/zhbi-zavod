@@ -68,4 +68,5 @@
     <script src="{$_modx->config['template_path']}js/scripts.js"></script>
     <script src="{$_modx->config['template_path']}js/vendors.js"></script>
     <script src="{$_modx->config['template_path']}js/base.js"></script>
+    <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" async defer></script>
 {/block}

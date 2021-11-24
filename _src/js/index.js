@@ -1,13 +1,29 @@
+// Стили
 import '../sass/styles.sass';
-import mailChange from './modules/mailchanger';
+
+// Библиотеки
 import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
+
+// Модули
+import mailChange from './modules/mailchanger';
+import initDistrictsMap from './modules/districts_map';
+import mapsLazyload from './modules/lazyload_maps'
 
 window.jQuery = $;
 window.$ = $;
 
 $(function ($) {
+    // -------------------------------
+    // Яндекс карты
+    // -------------------------------
+    window.initDistrictsMap = initDistrictsMap;
+    mapsLazyload();
+
+    // -------------------------------
+    // Стилизованный скроллбар
+    // -------------------------------
     // Это лучше сделать через Swiper. Пример: https://codesandbox.io/s/o0uzz?file=/index.html:8994-9227 . Но актуальных исходников нет
     $('.js-custom-scrollbar').overlayScrollbars({});
 
@@ -152,7 +168,7 @@ $(function ($) {
     // -------------------------------
     let $counterInput = $('.custom-counter__amount');
 
-    $counterInput.each(function() {
+    $counterInput.each(function () {
         let filter;
         const $this = $(this);
         const minVal = parseInt($this.attr('data-min'));
@@ -432,7 +448,7 @@ $(function ($) {
     // Вкладки на мобилках
     // -------------------------------
     // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилок, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
-    $('.product-card__tabs-button').each(function(i, e) {
+    $('.product-card__tabs-button').each(function (i, e) {
         $(this).attr('data-tab-page', i);
     });
 
