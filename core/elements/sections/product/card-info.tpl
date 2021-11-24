@@ -40,23 +40,23 @@
                 <input type="hidden" name="id" value="{$_modx->resource['id']}">
                 <input type="hidden" name="options" value="[]">
 
-                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
                 <div class="custom-counter product-item__custom-counter">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
                     <input name="count" class="custom-counter__amount" value="1" data-min="1">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                 </div>
+                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
             </form>
             <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls product-card__controls">
-                <a href="/cart/" class="product-item__btn-in-cart">
-                    <span class="product-item__btn-in-cart-top-text">В корзине</span>
-                    Перейти
-                </a>
                 <div class="custom-counter product-item__custom-counter">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
                     <input name="count" class="custom-counter__amount" value="{$itemInCart}">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                 </div>
+                <a href="/cart/" class="product-item__btn-in-cart">
+                    <span class="product-item__btn-in-cart-top-text">В корзине</span>
+                    Перейти
+                </a>
             </div>
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
         </div>
