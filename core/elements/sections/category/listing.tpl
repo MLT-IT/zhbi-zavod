@@ -21,6 +21,8 @@
             'sort' => 'tv|HitsPage:desc',
             'includeTVs' => 'HitsPage',
 
+            'values_delimeter' => '~',
+
             'context' => $_modx->resource.context_key
             ]}
 
