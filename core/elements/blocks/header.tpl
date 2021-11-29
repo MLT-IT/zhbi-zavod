@@ -118,7 +118,9 @@
                 'depth' => 0,
                 'limit' => 0,
                 'includeTVs' => 'mainImage',
-                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']
+                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
+                'sortby' => 'menuindex',
+                'sortdir' => 'ASC'
                 ]}
             </ul>
 
