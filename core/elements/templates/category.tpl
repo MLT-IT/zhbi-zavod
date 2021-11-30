@@ -18,13 +18,31 @@
 
     {* Микроразметка *}
     <script type="application/ld+json">
+    {if $_modx->resource.menutitle?}
+        {set $name = $_modx->resource.menutitle}
+    {else}
+        {set $name = $_modx->resource.pagetitle}
+    {/if}
     {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": "{$_modx->resource.menutitle}",
+        "name": "{$name}",
         "image": "{$schemaImg}",
         "description": "{$_modx->resource.description}",
         "brand": "{$brand}",
+        {if $reviews ?}
+        "review": {
+            "@type": "Review",
+            "author": "{$reviews['review']['author']}",
+            "datePublished": "{$reviews['review']['date']}",
+            "name": "{$name}",
+            "reviewBody": "{$reviews['review']['text']}",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{$reviews['review']['value']}"
+            }
+        },
+        {/if}
         "offers": {
             "@type": "AggregateOffer",
             "lowPrice": "{$_modx->getPlaceholder('min_price')}",
@@ -33,23 +51,12 @@
             "priceCurrency": "RUB"
         },
         {if $reviews ?}
-            "review": {
-                "@type": "Review",
-                "author": "{$reviews['review']['author']}",
-                "datePublished": "{$reviews['review']['date']}",
-                "name": "{$_modx->resource.menutitle}",
-                "reviewBody": "{$reviews['review']['text']}",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "{$reviews['review']['value']}"
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "{$reviews['ratingValue']}",
-                    "ratingCount": "{$reviews['ratingCount']}",
-                    "reviewCount": "{$reviews['reviewCount']}"
-                }
-            }
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{$reviews['ratingValue']}",
+            "ratingCount": "{$reviews['ratingCount']}",
+            "reviewCount": "{$reviews['reviewCount']}"
+        }
         {/if}
     }
     </script>
