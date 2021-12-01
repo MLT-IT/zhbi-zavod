@@ -24,7 +24,7 @@
             </a>
             *}
 
-            <a data-fancybox="" href="#callback" class="banner__slide-link delivery__banner-btn yellow-btn">
+            <a data-btn-key="banner-main" data-fancybox="" href="#callback" class="banner__slide-link delivery__banner-btn yellow-btn">
                 <svg viewBox="0 0 235 50">
                     <text x="0" y="21">Оставить заявку и получить</text>
                     <text x="16" y="40">скидку 30% на доставку</text>
