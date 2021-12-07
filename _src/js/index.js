@@ -28,8 +28,8 @@ $(function ($) {
             if (total > amount) {
                 remainder = total - amount;
             }
-            if (remainder > 10) {
-                remainder = 10;
+            if (remainder > 42) {
+                remainder = 42;
             }
             $('#mse2_mfilter .btn_more').text('Показать еще ' + remainder);
         }
