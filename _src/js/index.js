@@ -14,7 +14,28 @@ import mapsLazyload from './modules/lazyload_maps'
 window.jQuery = $;
 window.$ = $;
 
+
 $(function ($) {
+    // -------------------------------
+    // Расчет текста для кнопки "Показать еще"
+    // -------------------------------
+    window.getRemainder = function() {
+        let amount = $('#mse2_mfilter .product-item').length;
+        if (mSearch2 && amount) {
+            let total = parseInt(mSearch2.total.text());
+            let remainder = 0;
+
+            if (total > amount) {
+                remainder = total - amount;
+            }
+            if (remainder > 10) {
+                remainder = 10;
+            }
+            $('#mse2_mfilter .btn_more').text('Показать еще ' + remainder);
+        }
+    }
+    window.getRemainder();
+
     // -------------------------------
     // Из какой формы отправили? Это костыль. Надо делать через api fancybox. Но fancybox минифицирован
     // -------------------------------

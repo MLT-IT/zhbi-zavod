@@ -41,4 +41,7 @@
     <div class="mse2_pagination">
         {$pagenav}
     </div>
+    <div class="hidden-data">
+        <span id="mse2_total">{$total ?: 0}</span>
+    </div>
 </div>
