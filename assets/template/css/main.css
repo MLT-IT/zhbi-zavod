@@ -6766,38 +6766,45 @@ p, span {
     grid-gap: 30px 17px
 }
 
-.listing__products-list.grid .listing__products-item {
+.listing__products-list.grid .listing__products-item,
+.swiper-wrapper.sect-pop__slider .listing__products-item {
     display: flex;
     flex-direction: column
 }
 
-.listing__products-list.grid .listing__products-item-left {
+.listing__products-list.grid .listing__products-item-left,
+.swiper-wrapper.sect-pop__slider .listing__products-item-left {
     width: 100%;
     grid-template-columns:1fr 1fr 1fr
 }
 
-.listing__products-list.grid .listing__products-item-right {
+.listing__products-list.grid .listing__products-item-right,
+.swiper-wrapper.sect-pop__slider .listing__products-item-right {
     margin-left: 0;
     margin-top: auto;
     width: 100%;
     align-items: flex-start
 }
 
-.listing__products-list.grid .listing__products-item-button {
+.listing__products-list.grid .listing__products-item-button,
+.swiper-wrapper.sect-pop__slider .listing__products-item-button {
     width: 100%
 }
 
-.listing__products-list.grid .listing__products-item-avail {
+.listing__products-list.grid .listing__products-item-avail,
+.swiper-wrapper.sect-pop__slider .listing__products-item-avail {
     order: 0
 }
 
-.listing__products-list.grid .listing__products-item-rate {
+.listing__products-list.grid .listing__products-item-rate,
+.swiper-wrapper.sect-pop__slider .listing__products-item-rate {
     order: 1;
     margin-right: 0;
     grid-column: span 1
 }
 
-.listing__products-list.grid .listing__products-item-photo {
+.listing__products-list.grid .listing__products-item-photo,
+.swiper-wrapper.sect-pop__slider .listing__products-item-photo {
     width: 100%;
     height: 120px;
     margin: 5px 0 10px;
@@ -6806,13 +6813,15 @@ p, span {
     grid-column: span 3
 }
 
-.listing__products-list.grid .listing__products-item-art {
+.listing__products-list.grid .listing__products-item-art,
+.swiper-wrapper.sect-pop__slider .listing__products-item-art {
     order: 3;
     grid-column: span 3;
     margin-bottom: 10px
 }
 
-.listing__products-list.grid .listing__products-item-title {
+.listing__products-list.grid .listing__products-item-title,
+.swiper-wrapper.sect-pop__slider .listing__products-item-title {
     margin-bottom: 20px;
     order: 4;
     grid-column: span 3
@@ -6897,7 +6906,8 @@ p, span {
 .listing__products-item-photo img {
     width: auto;
     height: 100%;
-    object-fit: cover
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .listing__products-item-avail {

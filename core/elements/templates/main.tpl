@@ -13,7 +13,7 @@
         {/if}
     </div>
 
-    {include "file:sections/popular/sect-pop.tpl"}
+    {include "file:sections/popular/sect-pop-main.tpl"}
     {include "file:sections/main/catalog.tpl"}
     {include "file:sections/main/promo.tpl"}
     {include "file:sections/main/stocks.tpl"}
