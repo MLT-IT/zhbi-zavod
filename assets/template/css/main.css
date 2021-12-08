@@ -5027,7 +5027,7 @@ p, span {
 .catalog__cards {
     width: 100%;
     display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px 50px;
     margin-bottom: 70px
 }
