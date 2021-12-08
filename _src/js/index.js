@@ -19,7 +19,7 @@ $(function ($) {
     // -------------------------------
     // Расчет текста для кнопки "Показать еще"
     // -------------------------------
-    window.getRemainder = function() {
+    window.getRemainder = function () {
         let amount = $('#mse2_mfilter .product-item').length;
         if (typeof mSearch2 !== 'undefined' && mSearch2 && amount) {
             let total = parseInt(mSearch2.total.text());
@@ -37,7 +37,7 @@ $(function ($) {
     window.getRemainder();
 
     // -------------------------------
-    // Из какой формы отправили? Это костыль. Надо делать через api fancybox. Но fancybox минифицирован
+    // Из какой формы отправили? Это костыль. Данные будут неверными, если отправлять не из всплывашек. Но на сайте нет форм без всплывашек. По-хорошему надо делать через api fancybox. Но fancybox минифицирован
     // -------------------------------
     window.currentPopupKey = '';
     $('[href]').on('click', function () {
@@ -206,62 +206,66 @@ $(function ($) {
     // -------------------------------
     // Стилизованный счетчик
     // -------------------------------
-    let $counterInput = $('.custom-counter__amount');
+    window.initStyledCounter = function initStyledCounter() {
+        let $counterInput = $('.custom-counter__amount');
 
-    $counterInput.each(function () {
-        let filter;
-        const $this = $(this);
-        const minVal = parseInt($this.attr('data-min'));
-
-        if (!isNaN(minVal)) {
-            filter = function (value) {
-                return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) >= minVal);
-            }
-        } else {
-            filter = function (value) {
-                return /^(0|[1-9][0-9]{0,})$/.test(value);
-            }
-        }
-
-        $this.inputFilter(filter);
-    });
-
-    $('.custom-counter__btn').on('click', function (e) {
-        e.preventDefault();
-        let $this = $(this);
-        let $inputValue = $this.closest('.custom-counter').find('.custom-counter__amount');
-
-        let val = parseInt($inputValue.val());
-        switch (true) {
-            case $this.hasClass('custom-counter__btn_dir_less'):
-                val--;
-                break;
-            case $this.hasClass('custom-counter__btn_dir_more'):
-                val++;
-                break;
-        }
-        $inputValue.val(val);
-
-        $inputValue.trigger('change');
-        // Если мы находимся в корзине, то вызываем change
-        $this.closest('.cart-table__form').find('.btn-sm').click();
-    });
-
-    // TODO: Возможно, этот код лучше перенести в change от Minishop2. И на monolit78 также.
-    let pageCart = $('.sect-cart').length;
-    if (pageCart) {
         $counterInput.each(function () {
-            $(this).on('change', function () {
-                let $this = $(this);
-                let $product = $this.closest('.cart-table__table-row_type_product');
-                let price = $product.find('.cart-table__price-value').text();
-                price = parseFloat(price.replace(/\s/, ''));
-                let count = parseInt($product.find('.custom-counter__amount').val());
-                let cost = (price * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                $product.find('.cart-table__sum-value').text(cost);
-            });
+            let filter;
+            const $this = $(this);
+            const minVal = parseInt($this.attr('data-min'));
+
+            if (!isNaN(minVal)) {
+                filter = function (value) {
+                    return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) >= minVal);
+                }
+            } else {
+                filter = function (value) {
+                    return /^(0|[1-9][0-9]{0,})$/.test(value);
+                }
+            }
+
+            $this.inputFilter(filter);
         });
+
+        $('.custom-counter__btn').on('click', function (e) {
+            e.preventDefault();
+            let $this = $(this);
+            let $inputValue = $this.closest('.custom-counter').find('.custom-counter__amount');
+
+            let val = parseInt($inputValue.val());
+            switch (true) {
+                case $this.hasClass('custom-counter__btn_dir_less'):
+                    val--;
+                    break;
+                case $this.hasClass('custom-counter__btn_dir_more'):
+                    val++;
+                    break;
+            }
+            $inputValue.val(val);
+
+            $inputValue.trigger('change');
+            // Если мы находимся в корзине, то вызываем change
+            $this.closest('.cart-table__form').find('.btn-sm').click();
+        });
+
+        // TODO: Возможно, этот код лучше перенести в change от Minishop2. И на monolit78 также.
+        let pageCart = $('.sect-cart').length;
+        if (pageCart) {
+            $counterInput.each(function () {
+                $(this).on('change', function () {
+                    let $this = $(this);
+                    let $product = $this.closest('.cart-table__table-row_type_product');
+                    let price = $product.find('.cart-table__price-value').text();
+                    price = parseFloat(price.replace(/\s/, ''));
+                    let count = parseInt($product.find('.custom-counter__amount').val());
+                    let cost = (price * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                    $product.find('.cart-table__sum-value').text(cost);
+                });
+            });
+        }
     }
+    window.initStyledCounter();
+
 
     // -------------------------------
     // Меню
