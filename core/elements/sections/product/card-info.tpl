@@ -63,7 +63,7 @@
 
         <div class="product-card__info-right">
             <div class="product-card__delivery"><b>Доставка в Санкт-Петербург и Лен. область</b>
-                <a href="/dostavka-i-oplata/">
+                <a data-fancybox href="#cost-delivery">
                     <svg class="svg icon-delivery" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-delivery"></use>
