@@ -1,6 +1,6 @@
 <section class="clients">
     <div class="wrapper">
-        <h2 class="title-1">С нами работают</h2>
+        <h2 class="title-2">С нами работают</h2>
         <div class="clients__list swiper-container">
             <div class="swiper-buttons">
                 <div class="swiper-button-prev"></div>

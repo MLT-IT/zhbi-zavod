@@ -3700,22 +3700,20 @@ p, span {
 
 .title-1 {
     text-align: center;
-    font-weight: 700;
-    font-size: 36px;
     line-height: 120%;
     margin-bottom: 20px;
+    font-size: 24px;
     max-width: 800px
 }
 
 .title-2 {
-    font-size: 24px;
+    font-size: 23px;
     line-height: 130%;
-    font-weight: 900
+    margin-bottom: 20px;
 }
 
 .title-3 {
     font-size: 1.25rem;
-    font-weight: 700
 }
 
 .fadeInUp {
@@ -6640,10 +6638,6 @@ p, span {
     margin-bottom: 60px
 }
 
-.questions__title {
-    text-align: left
-}
-
 .questions__list {
     width: 100%;
     display: flex;
@@ -8107,10 +8101,6 @@ p, span {
 }
 
 @media screen and (max-width: 450px) {
-    .title-1 {
-        font-size: 24px
-    }
-
     .fancybox-content {
         padding: 44px 10px
     }

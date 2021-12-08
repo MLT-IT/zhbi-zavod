@@ -1,6 +1,6 @@
 <section class="product-slider sect-pop">
     <div class="wrapper sect-pop__wrapper">
-        <div class="sect-pop__title title-1">{$title ?: "Популярные товары"}</div>
+        <h2 class="sect-pop__title title-2">{$title ?: "Популярные товары"}</h2>
         <div class="swiper-buttons sect-pop__swiper-buttons">
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>

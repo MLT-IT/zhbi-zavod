@@ -1,6 +1,6 @@
 <section class="catalog">
     <div class="wrapper">
-        <h2 class="title-1">Наш ассортимент</h2>
+        <h2 class="title-2">Наш ассортимент</h2>
         <div class="catalog__cards">
             {'!pdoResources' | snippet : [
                 'tpl' => '@FILE chunks/catalogCard.tpl',

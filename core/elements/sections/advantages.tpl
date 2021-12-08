@@ -1,6 +1,6 @@
 <section class="advantages">
     <div class="wrapper">
-        <div class="title-1">Преимущества компании</div>
+        <div class="title-2">Преимущества компании</div>
         <div class="advantages__cards">
             <div class="advantages__card">
                 <div class="advantages__card-img">

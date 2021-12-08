@@ -2,7 +2,7 @@
 {if count($recentlyViewed)}
     <section class="product-slider sect-recent">
         <div class="wrapper">
-            <span class="title-1">Вы недавно смотрели</span>
+            <span class="title-2">Вы недавно смотрели</span>
             <div class="swiper-container">
                 <div class="swiper-buttons">
                     <div class="swiper-button-prev"></div>

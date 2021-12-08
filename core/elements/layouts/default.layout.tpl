@@ -47,6 +47,7 @@
 
     {block "header-mobile"}
     {/block}
+
     <div class="wrap">
         {block "header"}
             {insert "file:blocks/header.tpl"}

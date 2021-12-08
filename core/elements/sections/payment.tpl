@@ -1,6 +1,6 @@
 <section class="payment">
     <div class="wrapper">
-        <h2 class="title-1 payment__title">Способы оплаты</h2>
+        <h2 class="title-2 payment__title">Способы оплаты</h2>
         <div class="payment__list" data-dropdown="">
             <div class="payment__item">
                 <div class="payment__item-top">
