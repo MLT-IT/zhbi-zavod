@@ -1,5 +1,14 @@
 {var $key = $table ~ $delimeter ~ $filter}
 
+{if $_modx->getPlaceholder('filter_iterator') ?}
+    {$_modx->setPlaceholder('filter_iterator', $_modx->getPlaceholder('filter_iterator') + 1)}
+    {if $_modx->getPlaceholder('filter_iterator') > 4}
+        {set $dontActive = true}
+    {/if}
+{else}
+    {$_modx->setPlaceholder('filter_iterator', 1)}
+{/if}
+
 {switch $key}
     {case 'msoption|razmer'}
         {set $keyClass = 'razmer'}
@@ -13,7 +22,7 @@
         {set $keyClass = 'length'}
 {/switch}
 
-<div class="listing__filter-block active{if $keyClass?} filter_type_{$keyClass}{/if}" id="mse2_{$key}">
+<div class="listing__filter-block{if $keyClass?} filter_type_{$keyClass}{/if}{if !$dontActive?} active{/if}" id="mse2_{$key}">
     <div class="listing__filter-block-header">
         <div class="listing__filter-block-title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}</div>
         <div class="listing__filter-block-arrow"></div>
