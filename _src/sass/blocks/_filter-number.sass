@@ -81,6 +81,16 @@
 
     &__input-wrap
         position: relative
+        border: 1px solid #EAEAEA
+        margin: 1px
+        border-radius: 8px
+        transition: border-color .3s
+        background: #F8F8F8
+
+        &:hover
+            margin: 0
+            border-width: 2px
+            +set_colors_1(border-color)
 
         &::before
             display: block
@@ -97,6 +107,9 @@
         &:nth-of-type(1)
             margin-right: 16px
 
+            &:hover
+                margin-right: 15px
+
             &::before
                 content: "от"
 
@@ -105,17 +118,16 @@
                 content: "до"
 
     &__input
+        background: transparent
         display: flex
         align-items: center
         padding-left: 32px
         padding-right: 20px
-        background: #F8F8F8
-        border: 1px solid #EAEAEA
         box-sizing: border-box
-        border-radius: 8px
         width: 106px
         height: 48px
         color: #3C3C3B
         font-weight: bold
         font-size: 14px
         padding-bottom: 3px
+        border-radius: 8px
