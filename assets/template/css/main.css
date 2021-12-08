@@ -6647,7 +6647,10 @@ p, span {
 .questions__list {
     width: 100%;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    max-width: 925px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .questions__item {
