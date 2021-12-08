@@ -5,6 +5,7 @@
 <h1 class="title-1 sect-cart__title">{$_modx->resource.pagetitle}</h1>
 {if $hasProducts}
     <form method="post" class="sect-cart__btn-clear-wrap">
+        <input type="hidden" name="ctx" value="{$_modx->resource.context_key}">
         <button type="submit" name="ms2_action" value="cart/clean" class="sect-cart__btn-clear">
             Удалить все товары
             <span class="sect-cart__btn-clear-cross"></span>
