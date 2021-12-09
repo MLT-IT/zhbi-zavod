@@ -72,6 +72,7 @@
     </div>
 
     {include "file:sections/category/listing.tpl"}
+    {include "file:sections/districts-map.tpl"}
     {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
@@ -85,5 +86,4 @@
     {/if}
 
     {include "file:sections/partners.tpl"}
-    {include "file:sections/districts-map.tpl"}
 {/block}
