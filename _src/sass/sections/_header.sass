@@ -410,7 +410,6 @@
 
     &__cart
         align-items: center
-        margin-right: 30px
         margin-left: 0
 
         @media screen and (max-width: 900px)
@@ -624,14 +623,14 @@
 
     &__btns-wrap
         display: flex
-        margin-left: 30px
+        margin-left: auto
         transition: transform .15s
+
+        @media screen and (max-width: 990px)
+            margin-left: 12px
 
         &.closed
             transform: translateY(100%)
-
-        @media screen and (max-width: 900px)
-            margin-left: 12px
 
         @media screen and (max-width: 768px)
             align-items: center
