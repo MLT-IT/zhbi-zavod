@@ -28,7 +28,7 @@
             ]}
 
             {if $_modx->resource.template == 4}
-                {set $params['parents'] = '0'}
+                {set $params['parents'] = '-9125,-10594,-10998'}
             {/if}
 
             {'!mFilter2' | snippet : $params}
