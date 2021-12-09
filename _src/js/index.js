@@ -378,13 +378,15 @@ $(function ($) {
             return;
         }
 
+        let ctx = $('body').attr('data-ctx');
         let sendingData;
         let val = $this.val();
 
         sendingData = {
             action: 'cart/change',
             count: val,
-            key: key
+            key: key,
+            ctx: ctx
         }
 
         $.ajax({

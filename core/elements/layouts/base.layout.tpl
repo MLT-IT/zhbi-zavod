@@ -30,7 +30,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {/block}
 </head>
-<body id="body" class="{$site_context}">
+<body id="body" class="{$site_context}" data-ctx="{$_modx->resource.context_key}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
 </body>
