@@ -31,12 +31,15 @@
         {$results}
     </div>
 
-    {if $_modx->context.key == 'web'}
-        {set $site_context = 'knauf'}
-    {else}
-        {set $site_context = $_modx->context.key}
-    {/if}
-    {include "file:sections/catalog/catalog-banner.tpl"}
+    {'!AjaxForm' | snippet : [
+        'hooks' => 'create_bitrix_lead',
+        'snippet' => 'FormIt',
+        'form' => '@FILE sections/catalog/catalog-banner.tpl',
+        'customValidators' => 'checkPhone',
+        'validate' => 'PHONE:required:checkPhone',
+        'validationErrorMessage' => 'В форме содержатся ошибки!',
+        'successMessage' => 'Сообщение успешно отправлено',
+    ]}
 
     <div class="mse2_pagination">
         {$pagenav}

@@ -5,8 +5,8 @@
         <p class="catalog-banner__text">Оставьте заявку и получите бесплатную консультацию по подбору утеплителя
             под Ваши требования</p>
         <form class="catalog-banner__form" method="post">
-            <input type="text" class="catalog-banner__input" placeholder="Ваше имя">
-            <input type="text" class="catalog-banner__input" placeholder="Телефон">
+            <input type="text" class="catalog-banner__input" name="NAME" placeholder="Ваше имя">
+            <input type="text" class="catalog-banner__input" name="PHONE" placeholder="Телефон">
 
             <label for="catalog-banner__privacy" class="catalog-banner__privacy-wrap">
                 <span class="custom-checkbox catalog-banner__checkbox">
