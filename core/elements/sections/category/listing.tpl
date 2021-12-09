@@ -9,7 +9,7 @@
             'tplOuter' => '@FILE sections/category/listing-outer.tpl',
             'tplFilter.outer.default' => '@FILE sections/category/filter/tpl.filter.outer.tpl',
             'ajaxMode' => 'button',
-            'showEmptyFilters' => 0,
+            'showEmptyFilters' => 1,
             'limit' => 42,
 
             'tplFilter.row.price' => '@FILE chunks/filterNumberInner.tpl',

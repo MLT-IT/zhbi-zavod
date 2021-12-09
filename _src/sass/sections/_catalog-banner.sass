@@ -1,0 +1,127 @@
+.catalog-banner
+    width: 100%
+    position: relative
+    border-radius: 16px
+    overflow: hidden
+    color: #FFFFFF
+    max-width: 850px
+    margin-left: auto
+    margin-right: auto
+
+    &__img
+        display: block
+        position: absolute
+        width: 100%
+        height: 100%
+        background-size: cover
+        top: 0
+
+    &__content
+        width: 100%
+        padding: 24px 83px 48px
+        position: relative
+        z-index: 1
+
+        @media screen and (max-width: 800px)
+            padding-left: 25px
+            padding-right: 25px
+
+    &__header
+        font-weight: 900
+        font-size: 32px
+        line-height: 100%
+        text-align: center
+
+    &__special-text
+        font-weight: bold
+        font-size: 20px
+        line-height: 100%
+        text-align: center
+        display: inline-block
+        padding: 4px
+        border-radius: 8px
+        @include set_colors_1(background)
+
+    &__subheader
+        font-weight: bold
+        font-size: 20px
+        line-height: 100%
+        text-align: center
+        padding-bottom: 12px
+        padding-top: 12px
+
+    &__input
+        background: #FFFFFF
+        border-radius: 8px
+        padding: 12px
+        width: 183.5px
+        height: 48px
+
+        @media screen and (max-width: 480px)
+            width: 100%
+
+            &:nth-of-type(1)
+                margin-bottom: 10px
+
+
+        &:nth-of-type(1)
+            @media screen and (min-width: 479px)
+                margin-right: auto
+
+    &__privacy-wrap
+        margin-top: 12px
+        padding-bottom: 12px
+
+    &__form
+        max-width: 375px
+        display: flex
+        flex-wrap: wrap
+        margin-left: auto
+        margin-top: 36px
+
+        @media screen and (max-width: 800px)
+            margin-right: auto
+
+    &__text
+        font-weight: 600
+        font-size: 14px
+        line-height: 120%
+        text-align: center
+        max-width: 536px
+        margin-left: auto
+        margin-right: auto
+
+    &__privacy-text
+        font-size: 14px
+        line-height: 100%
+        margin-left: 9px
+
+    &__privacy-wrap
+        display: flex
+        align-items: center
+        width: 100%
+
+    &__btn-submit
+        color: #fff
+        width: 100%
+        height: 40px
+        border-radius: 4px
+        font-weight: bold
+        font-size: 14px
+        +set_colors_1(background-color)
+
+        &:hover
+            @at-root .knauf &
+                background-color: darken(#4f70ad, 10%)
+            @at-root .rockwool &
+                background-color: darken(#AA000F, 10%)
+            @at-root .tn &
+                background-color: darken(#ED1C24, 10%)
+            @at-root .penoplex &
+                background-color: darken(#F36F21, 10%)
+            @at-root .isover &
+                background-color: darken(#FFDD00, 10%)
+            @at-root .paroc &
+                background-color: darken(#CE1126, 10%)
+            @at-root .ursa &
+                background-color: darken(#EA4740, 10%)

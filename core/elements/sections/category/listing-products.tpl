@@ -36,7 +36,7 @@
     {else}
         {set $site_context = $_modx->context.key}
     {/if}
-    {include "file:sections/main/banner.tpl" dontNeedWrapper=true}
+    {include "file:sections/catalog/catalog-banner.tpl"}
 
     <div class="mse2_pagination">
         {$pagenav}
