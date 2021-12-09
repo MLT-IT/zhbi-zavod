@@ -1,7 +1,7 @@
 <div class="popup" id="cost-delivery">
     <form method="POST" action class="popup__form form">
         <h2 class="title-2 form__title">Оставьте свои контакты ниже</h2>
-        <div class="form__text">чтобы получите скидку 30% на доставку, и мы перезвоним вам в течение 15 минут.</div>
+        <div class="form__text">и получите скидку 30% на доставку.<br>Мы перезвоним Вам в течение 15 минут.</div>
         <div class="form__inputs">
             <label>
                 <input type="text" placeholder="Укажите Ваше имя" name="NAME">
