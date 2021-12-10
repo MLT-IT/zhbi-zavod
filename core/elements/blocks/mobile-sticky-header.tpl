@@ -67,7 +67,7 @@
 {*            <li><a href="#">Бетон товарный</a></li>*}
 {*            <li><a href="#">Бетон товарный</a></li>*}
 {*        </ul>*}
-        <a class="yellow-btn" href="#callback" data-fancybox="">Заказать звонок</a>
+        <a class="custom-btn" href="#callback" data-fancybox="">Заказать звонок</a>
         <div class="mobilemenu__address"><b>{'address' | option}</b><span>Часы работы: с 8:00 до 21:00</span></div>
         <div class="mobilemenu__social">
             <a href="#">

@@ -13,7 +13,7 @@
                 <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
             </label>
         </div>
-        <button type="submit" class="form__button yellow-btn">Перезвоните мне</button>
+        <button type="submit" class="form__button custom-btn">Перезвоните мне</button>
         <label class="form__checkbox">
             <input id="callback-policy" type="checkbox" name="callback-policy" checked>
             <span>

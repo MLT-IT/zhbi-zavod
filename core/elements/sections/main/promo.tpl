@@ -19,7 +19,7 @@
 {*                <div class="swiper-slide"><img src="{$_modx->config['template_path']}img/promo-sale.png" alt="">*}
 {*                    <div class="promo__bottom-content">*}
 {*                        <div class="promo__bottom-title title-1">Покупай дешевле!</div>*}
-{*                        <div class="promo__bottom-text">Скидки на следующие категории товаров</div><a class="yellow-btn" href="#">Перейти к распродаже товаров</a> </div>*}
+{*                        <div class="promo__bottom-text">Скидки на следующие категории товаров</div><a class="custom-btn" href="#">Перейти к распродаже товаров</a> </div>*}
 {*                </div>*}
 {*            </div>*}
 {*        </div>*}

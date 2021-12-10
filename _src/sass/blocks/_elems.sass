@@ -1,0 +1,47 @@
+.custom-btn, .yellow-btn
+    border-radius: 5px
+    text-transform: uppercase
+    display: flex
+    align-items: center
+    justify-content: center
+    width: max-content
+    font-weight: 700
+    height: 50px
+    padding: 0 50px
+    cursor: pointer
+
+.yellow-btn
+    background: #ffbe00
+    box-shadow: 0 2px 4px #d5a000
+    transition: background-color .3s, box-shadow .3s
+
+    &:hover
+        background-color: #ebaf00
+        box-shadow: none
+
+
+.custom-btn
+    transition: background-color .3s
+    color: #fff
+
+    @at-root a.custom-btn
+        color: #fff
+        &:hover
+            color: #fff
+
+    +set_colors_1(background-color)
+    &:hover
+        @at-root .knauf &
+            background-color: darken(#4f70ad, 10%)
+        @at-root .rockwool &
+            background-color: darken(#AA000F, 10%)
+        @at-root .tn &
+            background-color: darken(#ED1C24, 10%)
+        @at-root .penoplex &
+            background-color: darken(#F36F21, 10%)
+        @at-root .isover &
+            background-color: darken(#FFDD00, 10%)
+        @at-root .paroc &
+            background-color: darken(#CE1126, 10%)
+        @at-root .ursa &
+            background-color: darken(#EA4740, 10%)

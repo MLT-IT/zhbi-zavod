@@ -40,7 +40,7 @@
             </label>
         </div>
 
-        <button type="submit" class="form__button yellow-btn">Отправить</button>
+        <button type="submit" class="form__button custom-btn">Отправить</button>
         <label class="form__checkbox">
             <input id="callback-policy" type="checkbox" name="callback-policy" checked>
             <span>

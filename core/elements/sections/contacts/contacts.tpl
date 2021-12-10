@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 *}
-                <a class="contacts__callback yellow-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
+                <a class="contacts__callback custom-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
             </div>
         </div>
         <div class="contacts__map">

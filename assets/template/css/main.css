@@ -3642,28 +3642,6 @@ a:active, a:focus, input:active, input:focus, select:active, select:focus, texta
     outline: none
 }
 
-.yellow-btn {
-    background: #ffbe00;
-    box-shadow: 0 2px 4px #d5a000;
-    border-radius: 5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: -webkit-max-content;
-    width: max-content;
-    font-weight: 700;
-    height: 50px;
-    padding: 0 50px;
-    cursor: pointer;
-    transition: background-color .3s, box-shadow .3s
-}
-
-.yellow-btn:hover {
-    background-color: #ebaf00;
-    box-shadow: none
-}
-
 .white-btn {
     cursor: pointer;
     background: #fff;
