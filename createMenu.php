@@ -1,5 +1,4 @@
 <?php
-
 $context = $modx->resource->get('context_key');
 $primenenieResult = [];
 $thicknessResult = [];
@@ -179,7 +178,19 @@ if (!empty($primenenieResult)) {
     $result['Применение'][] = $primenenieResult;
 }
 if (!empty($thicknessResult)) {
-    $result['Толщина, мм'][] = $thicknessResult;
+    $key = 'Толщина, мм';
+    $count = count($thicknessResult);
+
+    switch (true) {
+        case $count < 10:
+            $result[$key][] = $thicknessResult;
+            break;
+        case $count >= 10:
+            $amount = ceil($count / 2);
+            $result[$key][] = array_slice($thicknessResult, 0, $amount);
+            $result[$key][] = array_slice($thicknessResult, $amount, $count - 1);
+            break;
+    }
 }
 
 return $result;
