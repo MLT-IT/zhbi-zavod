@@ -185,10 +185,17 @@ if (!empty($thicknessResult)) {
         case $count < 10:
             $result[$key][] = $thicknessResult;
             break;
-        case $count >= 10:
+        case $count >= 10 && $count <= 15:
             $amount = ceil($count / 2);
             $result[$key][] = array_slice($thicknessResult, 0, $amount);
             $result[$key][] = array_slice($thicknessResult, $amount, $count - 1);
+            break;
+        case $count > 15:
+            $amount = ceil($count / 3);
+            $twiceAmount = $amount + $amount;
+            $result[$key][] = array_slice($thicknessResult, 0, $amount);
+            $result[$key][] = array_slice($thicknessResult, $amount, $amount);
+            $result[$key][] = array_slice($thicknessResult, $twiceAmount, $count - 1);
             break;
     }
 }
