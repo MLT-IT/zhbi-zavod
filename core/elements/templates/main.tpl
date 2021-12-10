@@ -1,8 +1,6 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block "page"}
-    {include "file:sections/main/banner.tpl"}
-
     <div class="wrapper">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
