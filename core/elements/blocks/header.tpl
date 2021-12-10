@@ -42,11 +42,10 @@
                     <span class="burger__stick"></span>
                 </div>
                 <span class="header__catalog-text">Каталог</span>
-                <div class="header__catalog-menu">
-                    <div class="header__catalog-menu-inner">
-                        {if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'tn']}
-
-                            {set $menu = 'createMenu' | snippet}
+                    {if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'tn']}
+                        <div class="header__catalog-menu header__catalog-menu_width_full">
+                            <div class="header__catalog-menu-inner">
+                                {set $menu = 'createMenu' | snippet}
                                 {foreach $menu as $key => $menuTypes}
                                     <div class="header__catalog-menu-type">
                                         <p class="header__column-header">{$key}</p>
@@ -63,32 +62,35 @@
                                         </div>
                                     </div>
                                 {/foreach}
-
-                        {else}
-                            <div class="header__catalog-column">
-                                <ul class="header__catalog-list">
-                                    {'pdoMenu' | snippet : [
-                                    'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
-                                    'depth' => 1000,
-                                    'limit' => 0,
-                                    'tplOuter' => '@INLINE {$wrapper}',
-                                    'tplInner' => '@INLINE {$wrapper}',
-                                    'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
-                                    'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
-                                    'where' => '{"template:=":"5"}',
-                                    ]}
-
-                                    {if $site_context === 'isover'}
-                                        {set $menutitle = 8861 | resource : 'menutitle'}
-                                        {set $pagetitle = 8861 | resource : 'pagetitle'}
-                                        {set $uri = 8861 | resource : 'uri' ~ '/'}
-                                        {include "file:chunks/catalogCategoryItem.tpl" menutitle=$menutitle pagetitle=$pagetitle uri=$uri}
-                                    {/if}
-                                </ul>
                             </div>
-                        {/if}
-                    </div>
-                </div>
+                        </div>
+                    {else}
+                        <div class="header__catalog-menu">
+                            <div class="header__catalog-menu-inner">
+                                    <div class="header__catalog-column">
+                                        <ul class="header__catalog-list">
+                                            {'pdoMenu' | snippet : [
+                                            'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
+                                            'depth' => 1000,
+                                            'limit' => 0,
+                                            'tplOuter' => '@INLINE {$wrapper}',
+                                            'tplInner' => '@INLINE {$wrapper}',
+                                            'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
+                                            'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
+                                            'where' => '{"template:=":"5"}',
+                                            ]}
+
+                                            {if $site_context === 'isover'}
+                                                {set $menutitle = 8861 | resource : 'menutitle'}
+                                                {set $pagetitle = 8861 | resource : 'pagetitle'}
+                                                {set $uri = 8861 | resource : 'uri' ~ '/'}
+                                                {include "file:chunks/catalogCategoryItem.tpl" menutitle=$menutitle pagetitle=$pagetitle uri=$uri}
+                                            {/if}
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    {/if}
             </div>
 
             <form action="/search/" class="header__search-wrap">
