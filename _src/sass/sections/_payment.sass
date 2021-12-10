@@ -1,5 +1,14 @@
 .payment
+    &__list
+        max-width: 925px
+
     &__item
+        &.active
+            .icon-arrow
+                transform: rotate(180deg)
+                +set_colors_1(fill)
+                +set_colors_1(stroke)
+
         &_not-clickable
             .payment__item-top
                 cursor: default

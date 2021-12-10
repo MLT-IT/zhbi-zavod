@@ -6049,12 +6049,6 @@ p, span {
     padding: 0 45px 30px
 }
 
-.payment__item.active .icon-arrow {
-    transform: rotate(180deg);
-    fill: #ffbe00;
-    stroke: #ffbe00
-}
-
 .payment__item:not(:last-of-type) {
     margin-bottom: 20px
 }
