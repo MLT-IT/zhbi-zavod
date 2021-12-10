@@ -9,9 +9,14 @@
         z-index: 50
         height: 64px
 
+    &__column, &__catalog-menu-type
+        &:nth-last-of-type(n+2)
+            margin-right: 31px
+
     &__column-header
         font-weight: bold
-        margin-bottom: 16px
+        height: 34px
+        padding-bottom: 16px
         white-space: nowrap
 
     &__column-item
@@ -24,6 +29,9 @@
         height: calc(100% + 4px)
         left: -2px
         top: -2px
+
+    &__columns-wrap
+        display: flex
 
     &__wrapper
         padding-top: 30px

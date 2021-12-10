@@ -47,16 +47,22 @@
                         {if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'tn']}
 
                             {set $menu = 'createMenu' | snippet}
-                            {foreach $menu as $key => $items}
-                                <div class="header__catalog-column">
-                                    <p class="header__column-header">{$key}</p>
-                                    <div class="header__column-items-wrap">
-                                        {foreach $items as $item}
-                                            {$item}
-                                        {/foreach}
+                                {foreach $menu as $key => $menuTypes}
+                                    <div class="header__catalog-menu-type">
+                                        <p class="header__column-header">{$key}</p>
+                                        <div class="header__columns-wrap">
+                                            {foreach $menuTypes as $items}
+                                                <div class="header__column">
+                                                    <div class="header__column-items-wrap">
+                                                        {foreach $items as $item}
+                                                            {$item}
+                                                        {/foreach}
+                                                    </div>
+                                                </div>
+                                            {/foreach}
+                                        </div>
                                     </div>
-                                </div>
-                            {/foreach}
+                                {/foreach}
 
                         {else}
                             <div class="header__catalog-column">
