@@ -18,11 +18,12 @@ if (!empty($catalog)) {
         'depth' => 0,
         'where' => '{"template:=": "5"}',
         'limit' => 0,
-        'sortby' => 'id',
+        'sortby' => 'menuindex',
         'sortdir' => 'ASC',
         'context' => $context,
-        'tpl' => '@INLINE : <a class="header__column-item" href="{$_modx->makeUrl($id, \'\', \'\', \'full\')}">{$menutitle}</a>',
-        'outputSeparator' => '___'
+        'tpl' => '@FILE chunks/menuItemPC.tpl',
+        'outputSeparator' => '___',
+        'includeTVs' => 'menutitleTV',
     ]);
     $categories = explode('___', $categories);
 }
