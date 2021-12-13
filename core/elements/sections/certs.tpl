@@ -4,7 +4,7 @@
 
 {if $certs | count > 0}
     <div class="wrapper sect-serts">
-        <h1 class="title-1">Сертификаты</h1>
+        <h2 class="title-1">Сертификаты</h2>
 
         <ul class="certs-block">
             {foreach $certs as $ct}

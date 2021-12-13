@@ -9,9 +9,9 @@
 
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
-            <div class="content-block">
+            <article class="content-block">
                 {$_modx->resource.content}
-            </div>
+            </article>
         </div>
     {/if}
 

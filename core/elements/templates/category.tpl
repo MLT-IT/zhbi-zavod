@@ -73,17 +73,15 @@
 
     {include "file:sections/category/listing.tpl"}
     {include "file:sections/districts-map.tpl"}
+    {if $_modx->resource.content | length > 0}
+        <div class="wrapper">
+            <article class="content-block">
+                {$_modx->resource.content}
+            </article>
+        </div>
+    {/if}
     {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/advantages.tpl"}
-
-    {if $_modx->resource.content | length > 0}
-        <div class="wrapper">
-            <div class="content-block">
-                {$_modx->resource.content}
-            </div>
-        </div>
-    {/if}
-
     {include "file:sections/partners.tpl"}
 {/block}
