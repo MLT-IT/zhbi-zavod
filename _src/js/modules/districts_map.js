@@ -146,4 +146,34 @@ export default function initDistrictsMap() {
             {balloonContent: 'Склад Красное Село'},
             options
         ))
+        .add(new ymaps.Placemark(
+            [59.882822, 29.101508],
+            {balloonContent: 'Сосновый Бор'},
+            options
+        ))
+        .add(new ymaps.Placemark(
+            [59.460055, 29.498431],
+            {balloonContent: 'Склад Волосово'},
+            options
+        ))
+        .add(new ymaps.Placemark(
+            [59.915849, 32.348457],
+            {balloonContent: 'Склад Волхов'},
+            options
+        ))
+        .add(new ymaps.Placemark(
+            [59.449051, 32.041397],
+            {balloonContent: 'Склад Кириши'},
+            options
+        ))
+        .add(new ymaps.Placemark(
+            [60.728961, 33.593527],
+            {balloonContent: 'Лодейное Поле'},
+            options
+        ))
+        .add(new ymaps.Placemark(
+            [59.669877, 33.499404],
+            {balloonContent: 'Склад Тихвин'},
+            options
+        ))
 }
