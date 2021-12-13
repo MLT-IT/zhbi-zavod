@@ -2,22 +2,30 @@
 $context = $modx->resource->get('context_key');
 $primenenieResult = [];
 $thicknessResult = [];
+$categories = [];
 
 // --------------------------------------
 // Категории
 // --------------------------------------
-$categories = $modx->runSnippet('pdoResources', [
-    'parents' => 0,
-    'depth' => 0,
-    'where' => '{"template:=": "5"}',
-    'limit' => 0,
-    'sortby' => 'id',
-    'sortdir' => 'ASC',
-    'context' => $context,
-    'tpl' => '@INLINE : <a class="header__column-item" href="{$_modx->makeUrl($id, \'\', \'\', \'full\')}">{$menutitle}</a>',
-    'outputSeparator' => '___'
+$catalog = $modx->getObject('modResource', [
+    'alias' => 'catalog',
+    'context_key' => $context
 ]);
-$categories = explode('___', $categories);
+
+if (!empty($catalog)) {
+    $categories = $modx->runSnippet('pdoResources', [
+        'parents' => $catalog->id,
+        'depth' => 0,
+        'where' => '{"template:=": "5"}',
+        'limit' => 0,
+        'sortby' => 'id',
+        'sortdir' => 'ASC',
+        'context' => $context,
+        'tpl' => '@INLINE : <a class="header__column-item" href="{$_modx->makeUrl($id, \'\', \'\', \'full\')}">{$menutitle}</a>',
+        'outputSeparator' => '___'
+    ]);
+    $categories = explode('___', $categories);
+}
 
 // --------------------------------------
 // Товары
