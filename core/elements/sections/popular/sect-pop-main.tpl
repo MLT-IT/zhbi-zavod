@@ -16,8 +16,9 @@
                     'parents' => 0,
                     'depth' => 50,
                     'limit' => 42,
+                    'sortby' => '',
+                    'sortdir' => '',
                     'resources' => $resources,
-                    'tplWrapper' => '@INLINE {{+output}}',
                     'tpl' => '@FILE sections/popular/pop-slide.tpl',
                     'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
                 ]}
