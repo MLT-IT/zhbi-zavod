@@ -4,7 +4,7 @@
         <div class="wrapper">
             <span class="title-2">Вы недавно смотрели</span>
             <div class="swiper-container">
-                <div class="swiper-buttons">
+                <div class="swiper-buttons" style="display: none;">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>

@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="title-1 office__title">Наш офис</div>
         <div class="office__cards swiper-container">
-            <div class="swiper-buttons">
+            <div class="swiper-buttons" style="display: none;">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>

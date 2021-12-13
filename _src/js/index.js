@@ -14,8 +14,20 @@ import mapsLazyload from './modules/lazyload_maps'
 window.jQuery = $;
 window.$ = $;
 
+// TODO: лучше сделать все через модули webpack
 
 $(function ($) {
+    // -------------------------------
+    // Скрыть / показать кнопки слайдера
+    // -------------------------------
+    $('.swiper-buttons').each(function () {
+        let $this = $(this);
+        let $sliders = $(this).parent().find('.swiper-wrapper').find('.swiper-slide');
+        if ($sliders.length > 4) {
+            $this.show();
+        }
+    });
+
     // -------------------------------
     // Расчет текста для кнопки "Показать еще"
     // -------------------------------
