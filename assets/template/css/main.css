@@ -4246,26 +4246,6 @@ p, span {
     margin-bottom: 13px
 }
 
-.form__inputs label span {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px
-}
-
-.form__inputs label.error input, .form__inputs label.error textarea {
-    border-color: #e80000;
-    color: #e80000
-}
-
-.form__inputs textarea {
-    resize: none;
-    padding-top: 8px
-}
-
-.form__inputs input {
-    height: 45px
-}
-
 .form__button {
     width: 100%;
     max-width: 335px;

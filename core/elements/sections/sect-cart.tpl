@@ -107,7 +107,7 @@
             </div>
             <div class="sect-cart__bot-btns-wrap">
                 <a class="sect-cart__btn-back white-btn" href="{'@FILE snippets/getRefererLink.php' | snippet}">Вернуться к покупкам</a>
-                <a data-btn-key="cart" class="sect-cart__btn-cost custom-btn" data-fancybox="" href="#callback">Оформить заказ</a>
+                <a data-btn-key="cart" class="sect-cart__btn-cost custom-btn" data-fancybox="" href="#order">Оформить заказ</a>
             </div>
         </div>
     {/if}
