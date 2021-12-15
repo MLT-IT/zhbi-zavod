@@ -5,9 +5,6 @@
     .popup__form
         max-width: 674px
 
-    .fancybox-close-small
-
-
     &__title-2
         padding-top: 13px
         padding-bottom: 32px
@@ -42,6 +39,16 @@
         color: #4F70AD
         width: 50%
 
+        .pc
+            display: block
+            @media screen and (max-width: 400px)
+                display: none
+
+        .mobile
+            display: none
+            @media screen and (max-width: 400px)
+                display: block
+
         &.active
             color: #4F70AD
             background: #FFFFFF
@@ -52,8 +59,12 @@
         &_width
             &_full
                 width: 100%
+
             &_half
                 width: calc(50% - 6px)
+
+                @media screen and (max-width: 500px)
+                    width: 100%
 
     &__input
         width: 100%
@@ -88,3 +99,6 @@
         margin-top: 20px
         text-transform: none
         margin-left: auto
+
+        @media screen and (max-width: 450px)
+            width: 100%

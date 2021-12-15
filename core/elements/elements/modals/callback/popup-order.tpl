@@ -4,8 +4,16 @@
 
         <div class="js-tabs popup-order__tabs">
             <div class="js-tabs-headers-wrap popup-order__tabs-headers-wrap">
-                <a href="#" class="js-tabs-header popup-order__tabs-header active" data-tab="fiz">Физическое лицо</a>
-                <a href="#" class="js-tabs-header popup-order__tabs-header" data-tab="yur">Юридическое лицо</a>
+                <a href="#" class="js-tabs-header popup-order__tabs-header active" data-tab="fiz">
+                    <span class="popup-order__tabs-header-text pc">Физическое</span>
+                    <span class="popup-order__tabs-header-text mobile">Физ.</span>
+                    &nbsp;лицо
+                </a>
+                <a href="#" class="js-tabs-header popup-order__tabs-header" data-tab="yur">
+                    <span class="popup-order__tabs-header-text pc">Юридическое</span>
+                    <span class="popup-order__tabs-header-text mobile">Юр.</span>
+                    &nbsp;лицо
+                </a>
             </div>
             <div class="js-tabs-contents-wrap popup-order__tab-contents">
                 <div class="js-tabs-content active" data-tab="fiz">
@@ -35,18 +43,18 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Оплата наличными при получении</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="1"
+                                <input class="custom-radio__input" type="radio" name="payment" value="Оплата наличными при получении"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Наличными в офисе</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="2">
+                                <input class="custom-radio__input" type="radio" name="payment" value="Наличными в офисе">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Банковской картой</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="3">
+                                <input class="custom-radio__input" type="radio" name="payment" value="Банковской картой">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                         </div>
@@ -100,7 +108,7 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Безналичная оплата</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="4"
+                                <input class="custom-radio__input" type="radio" name="payment" value="Безналичная оплата"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
