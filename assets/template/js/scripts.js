@@ -1,9 +1,9 @@
 // Я вынес работу с плагинами MODX в отдельный файл, т.к. почему-то браузер не реагирует на событие af_complete, если собирать через webpack.
-$(function() {
+$(function () {
     // -------------------------------
     // Работа с mse2_load
     // -------------------------------
-    $(document).on('mse2_load', function(e, data) {
+    $(document).on('mse2_load', function (e, data) {
         window.getRemainder();
         window.initStyledCounter();
     });
@@ -11,7 +11,7 @@ $(function() {
     // -------------------------------
     // Работа с ajaxForm
     // -------------------------------
-    $(document).on('af_complete', function(event, response) {
+    $(document).on('af_complete', function (event, response) {
         if (response.success === true) {
             // $fancybox.close() не сработает. Даже если в консоль браузера ввести fancybox, то ничего не выведет. Вероятно, это из-за webpack. Поэтому пришлось написать костыль с click.
             $('.fancybox-close-small').trigger('click');
@@ -33,33 +33,37 @@ $(function() {
             if ($form.hasClass('catalog-banner__form')) {
                 delete window.currentPopupKey;
                 console.log('banner-main')
-                ym(86220330,'reachGoal','Otpravka-iz-bannera-na-glavnoj-stranice--30%')
+                ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%')
             }
 
             if (window.currentPopupKey) {
                 switch (window.currentPopupKey) {
                     case 'banner-delivery':
                         console.log('banner-delivery')
-                        ym(86220330,'reachGoal','Otpravka-formy-iz-bannera-na-stranice-dostavka')
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka')
                         break;
                     case 'banner-main':
                         console.log('banner-main')
-                        ym(86220330,'reachGoal','Otpravka-iz-bannera-na-glavnoj-stranice--30%')
+                        ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%')
                         break;
                     case 'header-link':
                         console.log('header-link')
-                        ym(86220330,'reachGoal','Otpravka-formy-iz-zakazat-zvonok');
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
                         break;
                     case 'cart':
                         console.log('cart')
-                        ym(86220330,'reachGoal','Otpravka-zajavki-iz-korziny');
+                        ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
                         break;
                     case 'turnkey':
                         console.log('turnkey')
-                        ym(86220330,'reachGoal','Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch')
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch')
                         break;
                 }
                 window.currentPopupKey = '';
+            }
+
+            if ($form.hasClass('popup-order__form')) {
+                document.location.href = "/";
             }
         }
     });
