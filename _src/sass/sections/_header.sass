@@ -445,13 +445,6 @@
         align-items: center
         margin-left: 0
 
-        @media screen and (max-width: 900px)
-            margin-right: 15px
-
-        @media screen and (max-width: 768px)
-            order: 3
-            margin-right: 0
-
         &:hover
             .header__cart-text
                 +set_colors_1(color)
@@ -680,6 +673,80 @@
     &__burger, &__logo-wrap, &__about-phone
         @media screen and (max-width: 768px)
             z-index: 100
+
+    &__cart-wrap
+        position: relative
+
+        @media screen and (max-width: 900px)
+            margin-right: 15px
+
+        @media screen and (max-width: 768px)
+            order: 3
+            margin-right: 0
+
+        &:hover
+            @media screen and (min-width: 769px)
+                .header__info
+                    z-index: 100
+                    opacity: 1
+
+    &__info
+        z-index: -100
+        opacity: 0
+        position: absolute
+        right: -4px
+        top: 32px
+        transition: .3s
+        background-color: #fff
+        padding: 32px 32px 24px 32px
+        box-shadow: 0 8px 32px rgba(25, 41, 63, 0.12)
+        border-radius: 16px
+        white-space: nowrap
+        cursor: default
+
+        @media screen and (max-width: 768px)
+            display: none
+
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            width: 98px
+            height: 40px
+            top: -16px
+            right: 0
+
+    &__info-line
+        display: block
+        line-height: 100%
+        margin-bottom: 16px
+
+    &__info-text
+        color: #BABABA
+        margin-right: 3px
+
+    &__info-val, &__info-text
+        font-size: 16px
+        font-weight: 900
+
+    &__info-val
+        color: #3C3C3B
+
+    &__info-btn
+        border-radius: 4px
+        font-weight: bold
+        font-size: 14px
+        height: 40px
+        width: 237px
+        padding: 0
+        text-transform: none
+
+    &__info-cost-val
+        font-weight: 900
+        color: #3C3C3B
+
+    .header__info-btn
+        color: #fff
 
 .header-sticky,
 .mobile-sticky-header,

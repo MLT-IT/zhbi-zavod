@@ -18,6 +18,29 @@ window.$ = $;
 
 $(function ($) {
     // -------------------------------
+    // Вспомогательные функции
+    // -------------------------------
+    function formOfWord(n,f1, f2, f5) {
+        n = Math.abs(parseInt(n)) % 100;
+        if (n > 10 && n < 20) {
+            return f5;
+        }
+        n = n % 10;
+        if (n > 1 && n < 5) {
+            return f2;
+        }
+        if (n === 1) {
+            return f1;
+        }
+
+        return f5;
+    }
+
+    function numberWithSpaces(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    // -------------------------------
     // Вкладки
     // -------------------------------
     $('.js-tabs').each(function () {
@@ -72,7 +95,6 @@ $(function ($) {
     $('[href]').on('click', function () {
         let $this = $(this);
         if ($this.attr('href') === 'javascript:;') {
-            console.log('return!')
             return;
         }
 
@@ -112,15 +134,25 @@ $(function ($) {
     // -------------------------------
     // Мини-корзина
     // -------------------------------
-    function handleMiniCart(value) {
-        let $cartValueElem = $('.header__cart-value');
-        let cartValue;
+    function handleMiniCart(count, cost) {
+        const $cartValueElem = $('.header__cart-value');
+        const $cartInfoCountVal = $('.header__info-val_type_count-val');
+        const $cartInfoCountText = $('.header__info-val_type_count-text');
+        const $cartInfoCostVal = $('.header__info-val_type_cost-val');
 
-        if (typeof value !== 'undefined') {
-            cartValue = value;
-            $cartValueElem.text(cartValue);
+        let cartValue;
+        if (typeof count !== 'undefined') {
+            cartValue = count;
+            $cartValueElem.add($cartInfoCountVal).text(cartValue);
+            $cartInfoCountText.text(formOfWord(cartValue, 'товар', 'товара', 'товаров'));
         } else {
             cartValue = parseInt($cartValueElem.text());
+        }
+
+        let cartCost;
+        if (typeof cost !== 'undefined') {
+            cartCost = numberWithSpaces(cost);
+            $cartInfoCostVal.text(cartCost);
         }
 
         if (cartValue > 0) {
@@ -287,7 +319,7 @@ $(function ($) {
                     let price = $product.find('.cart-table__price-value').text();
                     price = parseFloat(price.replace(/\s/, ''));
                     let count = parseInt($product.find('.custom-counter__amount').val());
-                    let cost = (price * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                    let cost = numberWithSpaces(price * count);
                     $product.find('.cart-table__sum-value').text(cost);
                 });
             });
@@ -425,7 +457,7 @@ $(function ($) {
             data: sendingData,
             success: function (data) {
                 if (data.success) {
-                    handleMiniCart(data.data.total_count);
+                    handleMiniCart(data.data.total_count, data.data.total_cost);
 
                     if (val <= 0) {
                         $productItem.find('.product-item__controls').hide();
@@ -447,7 +479,7 @@ $(function ($) {
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count);
+            handleMiniCart(response.data.total_count, response.data.total_cost);
 
             // Если это не внутри карточки, то выходим из функции
             let $item = this.sendData.$form.closest('.product-item');
@@ -472,7 +504,7 @@ $(function ($) {
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count);
+            handleMiniCart(response.data.total_count, response.data.total_cost);
         }
     }
 
@@ -480,7 +512,7 @@ $(function ($) {
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count);
+            handleMiniCart(response.data.total_count, response.data.total_cost);
         }
     }
 
