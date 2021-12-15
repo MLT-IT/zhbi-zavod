@@ -43,18 +43,21 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Оплата наличными при получении</span>
-                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Оплата наличными при получении"
+                                <input class="custom-radio__input" type="radio" name="PAYMENT"
+                                       value="Оплата наличными при получении"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Наличными в офисе</span>
-                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Наличными в офисе">
+                                <input class="custom-radio__input" type="radio" name="PAYMENT"
+                                       value="Наличными в офисе">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Банковской картой</span>
-                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Банковской картой">
+                                <input class="custom-radio__input" type="radio" name="PAYMENT"
+                                       value="Банковской картой">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                         </div>
@@ -77,7 +80,21 @@
                                 <span class="error_COMMENT">[[!+fi.error.COMMENT]]</span>
                             </label>
                         </div>
-                        <button type="submit" class="popup-order__submit custom-btn">Оформить заказ</button>
+
+                        <div class="popup-order__submit-wrap">
+                            <label class="popup-order__privacy-wrap privacy">
+                            <span class="custom-checkbox">
+                                <input class="custom-checkbox__input" type="checkbox" checked="" name="privacy">
+                                <span class="custom-checkbox__checkmark"></span>
+                            </span>
+                                <span class="privacy__text">согласен(на) с <a
+                                            class="privacy__link" data-fancybox="" data-type="ajax"
+                                            data-src="/confidential/"
+                                            href="javascript:;">политикой конфиденциальности</a> сайта</span>
+                            </label>
+
+                            <button type="submit" class="popup-order__submit custom-btn">Оформить заказ</button>
+                        </div>
                     </form>
                 </div>
 
@@ -108,7 +125,8 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Безналичная оплата</span>
-                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Безналичная оплата"
+                                <input class="custom-radio__input" type="radio" name="PAYMENT"
+                                       value="Безналичная оплата"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>

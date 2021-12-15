@@ -93,13 +93,32 @@
         padding-bottom: 12px
 
     &__submit
-        width: 271px
+        flex-basis: 271px
+        flex-shrink: 0
         height: 56px
         border-radius: 8px
-        margin-top: 20px
         margin-left: auto
+        max-width: 100%
+
+        @media screen and (max-width: 640px)
+            margin-top: 20px
+            margin-left: 0
 
         @media screen and (max-width: 450px)
             width: 100%
             padding-left: 40px
             padding-right: 40px
+
+    &__submit-wrap
+        margin-top: 20px
+        display: flex
+        align-items: center
+
+        @media screen and (max-width: 640px)
+            flex-wrap: wrap
+
+    &__privacy-wrap
+        margin-right: 7px
+
+        @media screen and (max-width: 640px)
+            width: auto

@@ -8,12 +8,14 @@
             <input type="text" class="catalog-banner__input" name="NAME" placeholder="Ваше имя">
             <input type="text" class="catalog-banner__input" name="PHONE" placeholder="Телефон">
 
-            <label for="catalog-banner__privacy" class="catalog-banner__privacy-wrap">
-                <span class="custom-checkbox catalog-banner__checkbox">
-                    <input class="custom-checkbox__input" type="checkbox" checked name="privacy" id="catalog-banner__privacy">
+            <label class="catalog-banner__privacy-wrap privacy">
+                <span class="custom-checkbox">
+                    <input class="custom-checkbox__input" type="checkbox" checked="" name="privacy">
                     <span class="custom-checkbox__checkmark"></span>
                 </span>
-                <span class="catalog-banner__privacy-text">согласен(на) с <a class="catalog-banner__privacy-link" data-fancybox="" data-type="ajax" data-src="/confidential/" href="javascript:;">политикой конфиденциальности</a> сайта</span>
+                <span class="privacy__text">согласен(на) с <a
+                            class="privacy__link" data-fancybox="" data-type="ajax"
+                            data-src="/confidential/" href="javascript:;">политикой конфиденциальности</a> сайта</span>
             </label>
 
             <button class="catalog-banner__btn-submit">Отправить</button>
