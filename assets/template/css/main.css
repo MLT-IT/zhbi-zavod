@@ -4458,16 +4458,6 @@ p, span {
     align-items: center
 }
 
-.listing__sort-item:after {
-    margin-top: 5px;
-    margin-left: 5px;
-    content: "";
-    border: 4px solid transparent
-}
-
-.listing__sort-item:after {
-    border-top: 4px solid;
-}
 
 .listing__sort-item[data-dir="asc"]:after {
     border-top: 0;

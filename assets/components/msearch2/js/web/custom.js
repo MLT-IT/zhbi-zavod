@@ -258,9 +258,9 @@ var mSearch2 = {
         }
 
         $(document).on('click', this.options.sort_link, function () {
-            // if ($(this).hasClass(mSearch2.options.active_class) && $(this).data('dir') == '') {
-            //     return false;
-            // }
+            if ($(this).hasClass(mSearch2.options.active_class) && $(this).data('dir') == '') {
+                return false;
+            }
 
             $(mSearch2.options.sort_link).removeClass(mSearch2.options.active_class);
             $(this).addClass(mSearch2.options.active_class);

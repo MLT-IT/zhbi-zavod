@@ -1,33 +1,7 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="product-item listing__products-item" data-views="{$_pls['HitsPage']}" {*itemscope="" itemtype="https://schema.org/Product"*}>
-
-    {*
-    <div style="display: none;">
-        <meta itemprop="name" content="{$pagetitle}">
-        <meta itemprop="description" content="Товар">
-        <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
-        <meta itemprop="url" content="{$_modx->makeUrl($id, '', '', 'full')}">
-        <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" style="display: none;">
-            <meta itemprop="price" content="{$price}">
-            <meta itemprop="priceCurrency" content="RUB">
-            <link itemprop="availability" href="http://schema.org/InStock">
-        </span>
-        <span itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating">
-            <span itemprop="ratingValue">5</span>
-            <span itemprop="reviewCount">21</span>
-        </span>
-        <div itemprop="review" itemscope="" itemtype="https://schema.org/Review">
-            <meta itemprop="author" content="Аноним">
-            <div itemprop="reviewRating" itemscope="" itemtype="https://schema.org/Rating">
-                <meta itemprop="worstRating" content="4.5">
-                <meta itemprop="ratingValue" content="5">
-                <meta itemprop="bestRating" content="5">
-            </div>
-        </div>
-    </div>
-    *}
+<div data-key="{$productKey}" class="product-item listing__products-item" data-priority1="{$_pls['priority1']}" data-priority2="{$_pls['HitsPage']}">
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">

@@ -2,9 +2,9 @@
     {include "file:sections/category/listing-tags.tpl"}
     <div class="listing__sort">
         <div id="mse2_sort" class="listing__sort-list"><span>Сортировать: </span>
-            <a href="#" data-sort="tv|HitsPage" data-dir="{if $.get.sort == ''}desc{/if}" data-default="desc" class="listing__sort-item min{if $.get.sort == ''} active{/if}">по популярности</a>
-            <a href="#" data-sort="ms|price" data-dir="" data-default="desc" class="listing__sort-item min{if $.get.sort == 'ms|price:desc'} active{/if}">по цене</a>
-            <a href="#" data-sort="ms_product|pagetitle" data-dir="" data-default="desc" class="listing__sort-item min{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if}">по алфавиту</a>
+            <a href="#" data-sort="tv|HitsPage" data-dir="" class="listing__sort-item min{if $.get.sort == ''} active{/if}">по популярности</a>
+            <a href="#" data-sort="ms|price" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms|price:desc'} active{/if}">по цене</a>
+            <a href="#" data-sort="ms_product|pagetitle" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if}">по алфавиту</a>
         </div>
         <div class="listing__sort-select-container"> <span>Сортировать: </span>
             <div class="listing__sort-select">
