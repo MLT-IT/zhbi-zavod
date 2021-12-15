@@ -18,6 +18,23 @@ window.$ = $;
 
 $(function ($) {
     // -------------------------------
+    // Вкладки
+    // -------------------------------
+    $('.js-tabs').each(function () {
+        let $this = $(this);
+        let $headers = $this.find('.js-tabs-header');
+        $headers.on('click', function (e) {
+            e.preventDefault();
+            $this.find('.js-tabs-content, .js-tabs-header').removeClass('active');
+
+            let $header = $(this);
+            $header.addClass('active');
+            let tab = $header.attr('data-tab');
+            $this.find('.js-tabs-content[data-tab="' + tab + '"]').addClass('active');
+        });
+    });
+
+    // -------------------------------
     // Скрыть / показать кнопки слайдера
     // -------------------------------
     $('.swiper-buttons').each(function () {
