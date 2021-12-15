@@ -23,7 +23,7 @@
     'form' => '@FILE elements/modals/callback/popup-order.tpl',
     'hooks' => 'create_bitrix_lead',
     'customValidators' => 'checkPhone',
-    'validate' => 'PHONE:required:checkPhone,MAIL:required',
+    'validate' => 'PHONE:required:checkPhone',
     'validationErrorMessage' => 'В форме содержатся ошибки!',
     'successMessage' => 'Сообщение успешно отправлено'
 ]}

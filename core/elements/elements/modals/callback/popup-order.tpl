@@ -18,7 +18,7 @@
             <div class="js-tabs-contents-wrap popup-order__tab-contents">
                 <div class="js-tabs-content active" data-tab="fiz">
                     <form method="POST" action class="popup-order__form">
-                        <input type="hidden" name="customer-type" value="Физическое лицо">
+                        <input type="hidden" name="CUSTOMER-TYPE" value="Физическое лицо">
 
                         <div class="popup-order__inputs">
                             <label class="popup-order__label popup-order__label_width_full">
@@ -43,18 +43,18 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Оплата наличными при получении</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="Оплата наличными при получении"
+                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Оплата наличными при получении"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Наличными в офисе</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="Наличными в офисе">
+                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Наличными в офисе">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Банковской картой</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="Банковской картой">
+                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Банковской картой">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
                         </div>
@@ -83,7 +83,7 @@
 
                 <div class="js-tabs-content" data-tab="yur">
                     <form method="POST" action class="popup-order__form">
-                        <input type="hidden" name="customer-type" value="Юридическое лицо">
+                        <input type="hidden" name="CUSTOMER-TYPE" value="Юридическое лицо">
 
                         <div class="popup-order__inputs">
                             <label class="popup-order__label popup-order__label_width_full">
@@ -108,7 +108,7 @@
                         <div class="popup-order__radios-wrap">
                             <label class="custom-radio">
                                 <span class="custom-radio__label">Безналичная оплата</span>
-                                <input class="custom-radio__input" type="radio" name="payment" value="Безналичная оплата"
+                                <input class="custom-radio__input" type="radio" name="PAYMENT" value="Безналичная оплата"
                                        checked="checked">
                                 <span class="custom-radio__checkmark"></span>
                             </label>
