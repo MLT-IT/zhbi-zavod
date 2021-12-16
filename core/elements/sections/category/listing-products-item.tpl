@@ -46,7 +46,8 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
             {if $price}
-                {$price} руб
+                <span class="product-item__price">{$price}</span>
+                руб
             {/if}
 
             {if $_modx->resource.context_key !== 'rockwool'}
@@ -66,7 +67,7 @@
         {if $_modx->resource.context_key === 'rockwool'}
             <div class="product-item__selprice listing__products-item-selprice">
                 <span class="product-item__selprice-span">Цена за</span>
-                <select class="euv-custom-select custom-select product-item__selprice-select">
+                <select name="unit" class="euv-custom-select custom-select">
                     <option value="1" selected>упаковка</option>
                     {if $ploshad_m2[0]}
                         <option value="2">м2</option>

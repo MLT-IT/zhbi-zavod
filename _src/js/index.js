@@ -26,6 +26,7 @@ $(function ($) {
     // -------------------------------
     // Вспомогательные функции
     // -------------------------------
+    // Склонение по числам
     function formOfWord(n, f1, f2, f5) {
         n = Math.abs(parseInt(n)) % 100;
         if (n > 10 && n < 20) {
@@ -42,35 +43,35 @@ $(function ($) {
         return f5;
     }
 
+    // Разделить тысячные пробелами
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
+    // Рассчет кол-ва
     function getItemCount($productItem, count) {
-        let pkgValues = {
+        // Все единицы измерения
+        let unitValues = {
             '1': 1,
             '2': $productItem.attr('data-m2'),
             '3': $productItem.attr('data-m3')
         };
 
-        for (let key in pkgValues) {
-            pkgValues[key] = parseFloat(pkgValues[key]);
-            if (isNaN(pkgValues[key])) {
-                pkgValues[key] = 0;
+        // Обработка кол-ва единиц измерения
+        for (let key in unitValues) {
+            unitValues[key] = parseFloat(unitValues[key]);
+            if (isNaN(unitValues[key])) {
+                unitValues[key] = 0;
             }
         }
 
-        let pkg;
-        if ($productItem.hasClass('product-card__top')) {
-            // Работа со страницей товара
-            pkg = $productItem.find('select.product-item__selprice').val()
-        } else {
-            // Работа с карточкой товара
-            pkg = $productItem.find('select.product-item__selprice-select').val();
-        }
+        // Активная единица измерения
+        const unit = $productItem.find('*[name="unit"]').val();
 
-        count = Math.ceil(pkgValues[pkg] * count);
+        // Получившееся кол-во
+        count = Math.ceil(unitValues[unit] * count);
 
+        // Результат
         return count;
     }
 
