@@ -28,6 +28,6 @@
             <span class="header__info-val header__info-val_type_cost-val">{$total_cost}</span>
             <span class="header__info-val"> руб</span>
         </span>
-        <a class="header__info-btn custom-btn" data-fancybox href="#order">Оформить заказ</a>
+        <a class="header__info-btn custom-btn" data-fancybox href="#order">Перейти к оформлению</a>
     </div>
 </div>

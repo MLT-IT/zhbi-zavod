@@ -1,7 +1,8 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div class="product-card__top product-item" data-key="{$productKey}">
+<div class="product-card__top product-item" data-m2="{$_modx->resource['ploshad_m2'][0]}"
+     data-m3="{$_modx->resource['obyem_m3'][0]}" data-key="{$productKey}">
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
@@ -17,16 +18,34 @@
 
     <div class="product-card__info" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <link itemprop="availability" href="http://schema.org/InStock">
+
         <div class="product-card__price">
-            <p>Арт. {$_modx->resource['article']}</p>
+            <p class="product-card__article">Арт. {$_modx->resource['article']}</p>
+            <div class="product-card__units-wrap">
+                <span class="product-card__unit-span">Цена за</span>
+                <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
+                {if $_modx->resource['ploshad_m2'][0] ?}
+                    <a class="product-card__unit-link" href="#" data-val="2">квадратный метр</a>
+                {/if}
+                {if $_modx->resource['obyem_m3'][0] ?}
+                    <a class="product-card__unit-link" href="#" data-val="3">кубический метр</a>
+                {/if}
+            </div>
+
+            <input type="hidden" name="unit" value="1">
 
             {if $price}
-                <span>
-                    <span itemprop="price">{$_modx->resource['price']}</span>
+                <span class="product-card__price-wrap">
+                    <span itemprop="price" class="product-item__price"
+                          data-default="{$_modx->resource['price']}">{$_modx->resource['price']}</span>
                     <meta itemprop="priceCurrency" content="RUB">
                     руб
-                    {set $unit = $_modx->resource.unit}
-                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
+
+                    {if $_modx->resource.context_key !== 'rockwool'}
+                        {set $unit = $_modx->resource.unit}
+                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                    {/if}
+
                 </span>
             {/if}
 
@@ -36,7 +55,8 @@
             {/if}
         </div>
         <div class="product-card__info-left">
-            <form method="post" class="ms2_form product-item__form product-card__form" {if $itemInCart > 0}style="display: none;"{/if}>
+            <form method="post" class="ms2_form product-item__form product-card__form"
+                  {if $itemInCart > 0}style="display: none;"{/if}>
                 <input type="hidden" name="id" value="{$_modx->resource['id']}">
                 <input type="hidden" name="options" value="[]">
 
@@ -45,7 +65,8 @@
                     <input name="count" class="custom-counter__amount" value="1" data-min="1">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                 </div>
-                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину
+                </button>
             </form>
             <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls product-card__controls">
                 <div class="custom-counter product-item__custom-counter">

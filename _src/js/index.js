@@ -15,9 +15,22 @@ import mapsLazyload from './modules/lazyload_maps'
 window.jQuery = $;
 window.$ = $;
 
-// TODO: лучше сделать все через модули webpack
+// TODO: разбей на файлы и подключай через webpack
 
 $(function ($) {
+    // -------------------------------
+    // Переключение цен на странице товара
+    // -------------------------------
+    if ($('.product-card').length) {
+        $('.product-card__unit-link').on('click', function(e) {
+            e.preventDefault();
+            let $this = $(this);
+            $('.product-card__unit-link.active').removeClass('active');
+            $this.addClass('active');
+            $('[name="unit"]').val($this.attr('data-val'));
+        });
+    }
+
     // -------------------------------
     // euv-custom-select
     // -------------------------------

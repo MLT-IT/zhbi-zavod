@@ -20,16 +20,6 @@
                         'tpl' => '@FILE sections/popular/popular-item.tpl',
                         'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
                     ]}
-
-                    {* foreach $recentlyViewed as $rv}
-                        {$_modx->getChunk('@FILE sections/popular/popular-item.tpl', [
-                        'uri' => $rv.url,
-                        'thumb' => $rv.thumb,
-                        'menutitle' => $rv.name,
-                        'price' => $rv.price,
-                        'id' => $rv.id
-                        ])}
-                    {/foreach *}
                 </div>
             </div>
         </div>
