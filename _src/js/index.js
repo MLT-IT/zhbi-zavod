@@ -5,6 +5,7 @@ import '../sass/styles.sass';
 import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
+import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
 
 // Модули
 import mailChange from './modules/mailchanger';
@@ -17,6 +18,11 @@ window.$ = $;
 // TODO: лучше сделать все через модули webpack
 
 $(function ($) {
+    // -------------------------------
+    // euv-custom-select
+    // -------------------------------
+    $('.custom-select').euv_custom_select();
+
     // -------------------------------
     // Вспомогательные функции
     // -------------------------------

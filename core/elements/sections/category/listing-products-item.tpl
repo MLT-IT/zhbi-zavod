@@ -1,7 +1,8 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="product-item listing__products-item" data-priority1="{$_pls['priority1']}" data-priority2="{$_pls['HitsPage']}">
+<div data-key="{$productKey}" class="product-item listing__products-item" data-priority1="{$_pls['priority1']}"
+     data-priority2="{$_pls['HitsPage']}">
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -59,6 +60,19 @@
             {/if}
         </div>
 
+{*        {if $_modx->resource.context === 'rockwool'}*}
+            <div class="product-item__selprice listing__products-item-selprice">
+                <span class="product-item__selprice-span">
+                    Цена за
+                </span>
+                <select class="euv-custom-select custom-select product-item__selprice-select">
+                    <option value="1">упаковка</option>
+                    <option value="2">м2</option>
+                    <option value="3">м3</option>
+                </select>
+            </div>
+{*        {/if}*}
+
         <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
             <input type="hidden" name="options" value="[]">
@@ -68,8 +82,10 @@
                 <input name="count" class="custom-counter__amount" value="1" data-min="1">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
             </div>
-            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину
+            </button>
         </form>
+
         <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls">
             <div class="custom-counter product-item__custom-counter">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
