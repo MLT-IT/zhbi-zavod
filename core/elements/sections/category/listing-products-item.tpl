@@ -46,7 +46,7 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
             {if $price}
-                <span class="product-item__price">{$price}</span>
+                <span class="product-item__price" data-default="{$price}">{$price}</span>
                 руб
             {/if}
 
@@ -67,7 +67,7 @@
         {if $_modx->resource.context_key === 'rockwool'}
             <div class="product-item__selprice listing__products-item-selprice">
                 <span class="product-item__selprice-span">Цена за</span>
-                <select name="unit" class="euv-custom-select custom-select">
+                <select name="unit" class="euv-custom-select custom-select product-item__units-select">
                     <option value="1" selected>упаковка</option>
                     {if $ploshad_m2[0]}
                         <option value="2">м2</option>
@@ -77,6 +77,8 @@
                     {/if}
                 </select>
             </div>
+        {else}
+            <input type="hidden" name="unit" value="1">
         {/if}
 
         <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>

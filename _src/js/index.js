@@ -48,8 +48,8 @@ $(function ($) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
-    // Рассчет кол-ва
-    function getItemCount($productItem, count) {
+    // Получить значение активного unit
+    function getActiveUnitValue($productItem) {
         // Все единицы измерения
         let unitValues = {
             '1': 1,
@@ -65,11 +65,17 @@ $(function ($) {
             }
         }
 
-        // Активная единица измерения
         const unit = $productItem.find('*[name="unit"]').val();
 
+        return unitValues[unit];
+    }
+
+    // Рассчет кол-ва при добавлении товара в корзину
+    function getItemCount($productItem, count) {
+        let unitVal = getActiveUnitValue($productItem);
+
         // Получившееся кол-во
-        count = Math.ceil(unitValues[unit] * count);
+        count = Math.ceil(unitVal * count);
 
         // Результат
         return count;
@@ -454,6 +460,27 @@ $(function ($) {
 
         // Возвращаем data-атрибуты
         $elem.attr('data-default', dataDefaultSave);
+    });
+
+    // -------------------------------
+    // Обработчик списка для смены ед. измерения
+    // -------------------------------
+    $(document).on('change', '.product-item__units-select', function (e) {
+        e.preventDefault();
+        let $productItem = $(this).closest('.product-item');
+        let unitValue = getActiveUnitValue($productItem);
+
+        // Изменение цены
+        const $price = $productItem.find('.product-item__price');
+        if ($price.length) {
+            let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
+            if (isNaN(price)) {
+                price = 0;
+            }
+
+            price = numberWithSpaces(Math.ceil(1 / unitValue * price));
+            $price.text(price);
+        }
     });
 
     // -------------------------------
