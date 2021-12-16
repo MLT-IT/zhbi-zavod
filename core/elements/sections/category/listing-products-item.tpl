@@ -46,8 +46,7 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
             {if $price}
-                <span class="product-item__price" data-default="{$price}">{$price}</span>
-                руб
+                <span class="product-item__price" data-default="{$price}">{$price}</span> руб
             {/if}
 
             {if $_modx->resource.context_key !== 'rockwool'}

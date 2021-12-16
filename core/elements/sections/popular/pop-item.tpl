@@ -1,17 +1,37 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div class="pop-item swiper-slide product-item" data-key="{$productKey}">
+<div class="pop-item swiper-slide product-item" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-key="{$productKey}">
     <a class="pop-item__img-wrap" href="{$uri}">
         <img class="pop-item__img" src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
     </a>
     <a class="pop-item__title" href="{$uri}">{$menutitle}</a>
     <p class="pop-item__price">
         {if $price}
-            {$price} руб
-            {$unit[0] ? '/ ' ~ $unit[0] : ''}
+            <span class="product-item__price" data-default="{$price}">{$price}</span> руб
+            {if $_modx->resource.context_key !== 'rockwool'}
+                {$unit[0] ? '/ ' ~ $unit[0] : ''}
+            {/if}
         {/if}
     </p>
+
+    {if $_modx->resource.context_key === 'rockwool'}
+        <div class="product-item__selprice">
+            <span class="product-item__selprice-span">Цена за</span>
+            <select name="unit" class="euv-custom-select custom-select product-item__units-select">
+                <option value="1" selected>упаковка</option>
+                {if $ploshad_m2[0]}
+                    <option value="2">м2</option>
+                {/if}
+                {if $obyem_m3[0]}
+                    <option value="3">м3</option>
+                {/if}
+            </select>
+        </div>
+    {else}
+        <input type="hidden" name="unit" value="1">
+    {/if}
+
     <div class="pop-item__btns-wrap">
         <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
