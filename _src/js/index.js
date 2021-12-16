@@ -26,7 +26,7 @@ $(function ($) {
     // -------------------------------
     // Вспомогательные функции
     // -------------------------------
-    function formOfWord(n,f1, f2, f5) {
+    function formOfWord(n, f1, f2, f5) {
         n = Math.abs(parseInt(n)) % 100;
         if (n > 10 && n < 20) {
             return f5;
@@ -44,6 +44,34 @@ $(function ($) {
 
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    function getItemCount($productItem, count) {
+        let pkgValues = {
+            '1': 1,
+            '2': $productItem.attr('data-m2'),
+            '3': $productItem.attr('data-m3')
+        };
+
+        for (let key in pkgValues) {
+            pkgValues[key] = parseFloat(pkgValues[key]);
+            if (isNaN(pkgValues[key])) {
+                pkgValues[key] = 0;
+            }
+        }
+
+        let pkg;
+        if ($productItem.hasClass('product-card__top')) {
+            // Работа со страницей товара
+            pkg = $productItem.find('select.product-item__selprice').val()
+        } else {
+            // Работа с карточкой товара
+            pkg = $productItem.find('select.product-item__selprice-select').val();
+        }
+
+        count = Math.ceil(pkgValues[pkg] * count);
+
+        return count;
     }
 
     // -------------------------------
@@ -433,6 +461,9 @@ $(function ($) {
     $(document).on('change', '.custom-counter__amount', function (e) {
         e.preventDefault();
 
+        // -------------------------------------------
+        // Установка основных переменных и проверка, выполняться ли дальше скрипту или нет
+        // -------------------------------------------
         let $this = $(this);
         let $productItem = $this.closest('.product-item');
 
@@ -440,18 +471,26 @@ $(function ($) {
             return;
         }
 
-        let key = $productItem.attr('data-key');
+        let key = $productItem.attr('data-key'); // Ключ. Нужно для правильной работы Minishop2
         if (!key.length) {
             return;
         }
 
-        let ctx = $('body').attr('data-ctx');
-        let sendingData;
-        let val = $this.val();
+        let ctx = $('body').attr('data-ctx'); // Нужно для правильной работы Minishop2
+        let sendingData; // Массив с отправляемыми данными
+        let count = $this.val(); // Кол-во товара
 
+        // -------------------------------------------
+        // Рассчет кол-ва
+        // -------------------------------------------
+        count = getItemCount($productItem, count);
+
+        // -------------------------------------------
+        // ajax
+        // -------------------------------------------
         sendingData = {
             action: 'cart/change',
-            count: val,
+            count: count,
             key: key,
             ctx: ctx
         }
@@ -465,7 +504,7 @@ $(function ($) {
                 if (data.success) {
                     handleMiniCart(data.data.total_count, data.data.total_cost);
 
-                    if (val <= 0) {
+                    if (count <= 0) {
                         $productItem.find('.product-item__controls').hide();
                         $productItem.find('.product-item__form').show();
                         // trigger change нужен, чтобы фильтр запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1

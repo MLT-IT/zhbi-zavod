@@ -1,7 +1,8 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="product-item listing__products-item" data-priority1="{$_pls['priority1']}"
+<div data-key="{$productKey}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}"
+     class="product-item listing__products-item" data-priority1="{$_pls['priority1']}"
      data-priority2="{$_pls['HitsPage']}">
 
     <div class="listing__products-item-left">
@@ -48,30 +49,34 @@
                 {$price} руб
             {/if}
 
-            {if $price and $unit[0]}
-                <div class="listing__products-item-measure">
-                    Цена за
-                    {if $unit[0] == 'упаковка'}
-                        упаковку
-                    {else}
-                        {$unit[0]}
-                    {/if}
-                </div>
+            {if $_modx->resource.context_key !== 'rockwool'}
+                {if $price and $unit[0]}
+                    <div class="listing__products-item-measure">
+                        Цена за
+                        {if $unit[0] == 'упаковка'}
+                            упаковку
+                        {else}
+                            {$unit[0]}
+                        {/if}
+                    </div>
+                {/if}
             {/if}
         </div>
 
-{*        {if $_modx->resource.context === 'rockwool'}*}
+        {if $_modx->resource.context_key === 'rockwool'}
             <div class="product-item__selprice listing__products-item-selprice">
-                <span class="product-item__selprice-span">
-                    Цена за
-                </span>
+                <span class="product-item__selprice-span">Цена за</span>
                 <select class="euv-custom-select custom-select product-item__selprice-select">
-                    <option value="1">упаковка</option>
-                    <option value="2">м2</option>
-                    <option value="3">м3</option>
+                    <option value="1" selected>упаковка</option>
+                    {if $ploshad_m2[0]}
+                        <option value="2">м2</option>
+                    {/if}
+                    {if $obyem_m3[0]}
+                        <option value="3">м3</option>
+                    {/if}
                 </select>
             </div>
-{*        {/if}*}
+        {/if}
 
         <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
