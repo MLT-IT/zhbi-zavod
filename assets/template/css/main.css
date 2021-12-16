@@ -5270,9 +5270,13 @@ p, span {
 }
 
 .product-slider__slide-price > span {
-    margin-right: 10px;
     font-size: 24px;
     font-weight: 700
+}
+
+.product-slider__slide-price-currency {
+    margin-right: 10px;
+    margin-left: 3px;
 }
 
 .product-slider__slide-price-availability {
