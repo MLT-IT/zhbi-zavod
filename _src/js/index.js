@@ -75,7 +75,7 @@ $(function ($) {
         let unitVal = getActiveUnitValue($productItem);
 
         // Получившееся кол-во
-        count = Math.ceil(unitVal * count);
+        count = Math.ceil(1 / unitVal * count);
 
         // Результат
         return count;
@@ -468,7 +468,7 @@ $(function ($) {
     $(document).on('change', '.product-item__units-select', function (e) {
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
-        let unitValue = getActiveUnitValue($productItem);
+        let unitVal = getActiveUnitValue($productItem);
 
         // Изменение цены
         const $price = $productItem.find('.product-item__price');
@@ -478,7 +478,7 @@ $(function ($) {
                 price = 0;
             }
 
-            price = numberWithSpaces(Math.ceil(1 / unitValue * price));
+            price = numberWithSpaces(Math.ceil(1 / unitVal * price));
             $price.text(price);
         }
     });
