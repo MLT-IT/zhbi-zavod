@@ -55,19 +55,17 @@
             {/if}
         </div>
         <div class="product-card__info-left">
-            <form method="post" class="ms2_form product-item__form product-card__form"
+            <form method="post" class="product-item__form product-card__form"
                 {if $itemInCart > 0}style="display: none;"{/if}>
                 <input type="hidden" name="id" value="{$_modx->resource['id']}">
                 <input type="hidden" name="options" value="[]">
-                <input type="hidden" name="count" value="1" class="product-item__count">
 
                 <div class="custom-counter product-item__custom-counter">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                    <input name="precount" class="custom-counter__amount product-item__precount" value="1" data-min="1">
+                    <input name="count" class="custom-counter__amount product-item__precount" value="1" data-min="1">
                     <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                 </div>
-                <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину
-                </button>
+                <button type="submit" class="product-item__btn-in-cart">В корзину</button>
             </form>
             <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls product-card__controls">
                 <div class="custom-counter product-item__custom-counter">
