@@ -78,6 +78,9 @@
                     Перейти
                 </a>
             </div>
+
+            {include "file:chunks/productElems.tpl"}
+
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
         </div>
 

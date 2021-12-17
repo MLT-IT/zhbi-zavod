@@ -12,6 +12,9 @@ import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps'
 
+// Файлы
+
+
 window.jQuery = $;
 window.$ = $;
 
@@ -650,6 +653,8 @@ $(function ($) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
+
+            checkCart(response.data.total_cost);
         }
     }
 
@@ -658,6 +663,15 @@ $(function ($) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
+
+            checkCart(response.data.total_cost);
+        }
+    }
+
+    function checkCart(total_count) {
+        // Если товаров в корзине 0. И если мы на странице корзины. То перезагружаем страницу
+        if (total_count === 0 && $('.sect-cart').length) {
+            location.reload();
         }
     }
 
