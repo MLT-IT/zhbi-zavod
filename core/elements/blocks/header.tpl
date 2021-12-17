@@ -35,7 +35,6 @@
             </a>
 
             <div class="header__catalog">
-                <a class="header__catalog-link" href="/catalog/"></a>
                 <div class="burger">
                     <span class="burger__stick"></span>
                     <span class="burger__stick"></span>
@@ -45,6 +44,7 @@
                     {if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'tn']}
                         <div class="header__catalog-menu header__catalog-menu_width_full">
                             <div class="header__catalog-menu-inner">
+                                <a href="/catalog/" class="header__catalog-menu-header">Каталог</a>
                                 {set $menu = 'createMenu' | snippet}
                                 {foreach $menu as $key => $menuTypes}
                                     <div class="header__catalog-menu-type">
