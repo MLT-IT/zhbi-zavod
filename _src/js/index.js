@@ -19,6 +19,17 @@ window.$ = $;
 
 $(function ($) {
     // -------------------------------
+    // Добавление товара в корзину
+    // -------------------------------
+    $('.product-item__precount').on('change', function(e) {
+        let $this = $(this);
+        let $productItem = $this.closest('.product-item');
+        let count = $this.val();
+        count = getItemCount($productItem, count);
+        $productItem.find('.product-item__count').val(count);
+    });
+
+    // -------------------------------
     // Переключение цен на странице товара
     // -------------------------------
     if ($('.product-card').length) {
@@ -85,6 +96,7 @@ $(function ($) {
 
     // Рассчет кол-ва при добавлении товара в корзину
     function getItemCount($productItem, count) {
+        // TODO: надо бы сделать проверку на isNaN
         let unitVal = getActiveUnitValue($productItem);
 
         // Получившееся кол-во
