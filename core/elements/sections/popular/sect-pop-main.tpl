@@ -1,4 +1,4 @@
-<section class="product-slider sect-pop">
+<section class="product-slider product-slider-1 sect-pop">
     <div class="wrapper sect-pop__wrapper">
         <h2 class="sect-pop__title title-2">{$title ?: "Популярные товары"}</h2>
         <div class="swiper-buttons sect-pop__swiper-buttons" style="display: none;">

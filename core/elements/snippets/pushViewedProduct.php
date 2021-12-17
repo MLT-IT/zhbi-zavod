@@ -13,15 +13,9 @@ if ((int) $price <= 0) {
     return;
 }
 
-$id = $modx->resource->id;
-$_SESSION['RECENT_VIEWED'] = array_values(array_filter($_SESSION['RECENT_VIEWED'], function ($elem) use ($id) {
-    return $elem['id'] !== $id;
+$currentId = $modx->resource->id;
+$_SESSION['RECENT_VIEWED'] = array_values(array_filter($_SESSION['RECENT_VIEWED'], function ($id) use ($currentId) {
+    return $id !== $currentId;
 }));
 
-$_SESSION['RECENT_VIEWED'][] = [
-    'id' => $id,
-    'name' => $modx->resource->menutitle ?: $modx->resource->pagetitle,
-    'url' => $modx->makeUrl($modx->resource->id),
-    'thumb' => $modx->resource->get('thumb'),
-    'price' => $price
-];
+$_SESSION['RECENT_VIEWED'][] = $currentId;
