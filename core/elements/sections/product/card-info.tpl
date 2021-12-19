@@ -41,7 +41,7 @@
             {if $price}
                 <span class="product-card__price-wrap">
                     <span itemprop="price" class="product-item__price"
-                          data-default="{$_modx->resource['price']}">{$_modx->resource['price']}</span>
+                          data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
                     <meta itemprop="priceCurrency" content="RUB">
                     руб
 
@@ -49,7 +49,6 @@
                         {set $unit = $_modx->resource.unit}
                         {$unit[0] ? '/ ' ~ $unit[0] : ''}
                     {/if}
-
                 </span>
             {/if}
 

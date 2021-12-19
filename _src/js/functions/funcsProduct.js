@@ -102,11 +102,18 @@ export default function funcsProduct(ImageZoom) {
     });
 
     // -------------------------------
-    // Обработчик списка для смены ед. измерения
+    // Обработчик списка в карточках для смены ед. измерения
     // -------------------------------
     $(document).on('change', '.product-item__units-select', function (e) {
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
+        calcPrice($productItem);
+    });
+
+    // -------------------------------
+    // Функция для смены цены в соответствии с ед. измерения
+    // -------------------------------
+    function calcPrice($productItem) {
         let unitVal = functions.getActiveUnitValue($productItem);
 
         // Изменение цены
@@ -120,7 +127,7 @@ export default function funcsProduct(ImageZoom) {
             price = functions.numberWithSpaces(Math.ceil(1 / unitVal * price));
             $price.text(price);
         }
-    });
+    }
 
     // -------------------------------
     // Обработчики Minishop2
@@ -164,13 +171,16 @@ export default function funcsProduct(ImageZoom) {
     // Работа со страницей товара
     // -------------------------------
     if ($('.product-card').length) {
-        // Переключение цен на странице товара
+        // Переключение ед. измерения на странице товара
         $('.product-card__unit-link').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
             $('.product-card__unit-link.active').removeClass('active');
             $this.addClass('active');
             $('[name="unit"]').val($this.attr('data-val'));
+
+            // Обработчик кнопки на странице товара для смены ед. измерения
+            calcPrice($this.closest('.product-item'));
         });
 
         // Вкладки на мобилках
@@ -179,7 +189,7 @@ export default function funcsProduct(ImageZoom) {
             $(this).attr('data-tab-page', i);
         });
 
-        // Обработчик
+        // Обработчик кнопок для смены вкладок
         $('.product-card__mobile-tabs-button').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
