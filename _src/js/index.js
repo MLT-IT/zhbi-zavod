@@ -238,66 +238,74 @@ $(function ($) {
     });
 
     // -------------------------------
-    // Обработчик счетчика на карточках товара. Вызывается при изменении кол-ва товара с карточки товара и со страницы товара
+    // Обработчик счетчика на товарах
     // -------------------------------
-    // TODO: лучше это переписать. Делать trigger submit скрытой формы minishop2
-    $(document).on('change', '.custom-counter__amount', function (e) {
+    $(document).on('change', '.product-item .custom-counter__amount', function (e) {
         e.preventDefault();
-
-        // -------------------------------------------
-        // Установка основных переменных и проверка, выполняться ли дальше скрипту или нет
-        // -------------------------------------------
+        // Основные переменные
         let $this = $(this);
         let $productItem = $this.closest('.product-item');
 
-        if (!$productItem.length) {
-            return;
-        }
-
-        let key = $productItem.attr('data-key'); // Ключ. Нужно для правильной работы Minishop2
-        if (!key.length) {
-            return;
-        }
-
-        let ctx = $('body').attr('data-ctx'); // Нужно для правильной работы Minishop2
-        let sendingData; // Массив с отправляемыми данными
-        let count = $this.val(); // Кол-во товара
-
-        // -------------------------------------------
-        // Рассчет кол-ва
-        // -------------------------------------------
+        // Кол-во товара
+        let count = $this.val();
         count = functions.getItemCount($productItem, count);
 
-        // -------------------------------------------
-        // ajax
-        // -------------------------------------------
-        sendingData = {
-            action: 'cart/change',
-            count: count,
-            key: key,
-            ctx: ctx
+        // Определение формы
+        let $form;
+        let inCart = false;
+        if ($productItem.hasClass('product-item-in-cart')) {
+            // Товар уже в корзине, нужно изменить кол-во
+            $form = $productItem.find('.product-item__form-change');
+            inCart = true;
+        } else {
+            // Товара нет в корзине
+            $form = $productItem.find('.product-item__form-add');
         }
 
-        $.ajax({
-            method: "POST",
-            dataType: "json",
-            url: window.location.origin + '/assets/components/minishop2/action.php',
-            data: sendingData,
-            success: function (data) {
-                if (data.success) {
-                    handleMiniCart(data.data.total_count, data.data.total_cost);
+        // Установка кол-ва товара
+        $form.find('[name="count"]').val(count);
 
-                    if (count <= 0) {
-                        $productItem.find('.product-item__controls').hide();
-                        $productItem.find('.product-item__form').show();
-                        // trigger change нужен, чтобы фильтр запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                        $productItem.find('.product-item__form .custom-counter__amount').val(1).trigger('change');
-                    }
+        // Если товар в корзине, то...
+        if (inCart) {
+            // Отправка
+            $form.find('[type="submit"]')[0].click();
 
-                    miniShop2.Message.success(data.message);
-                }
+            // Если кол-во равно нулю
+            if (count === 0) {
+                let $elemsAdd = $productItem.find('.product-item__controls_action_add');
+                // trigger input нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
+                $elemsAdd.find('[name="count"]').val(1).trigger('input');
+                // Удаление класса, что товар этой карточки в корзине
+                $productItem.removeClass('product-item-in-cart');
             }
-        });
+        }
+    });
+
+    // -------------------------------
+    // Обработчик кнопки для добавления товара в корзину
+    // -------------------------------
+    $(document).on('click', '.product-item .product-item__btn-in-cart', function (e) {
+        e.preventDefault();
+
+        // Основные переменные
+        let $this = $(this);
+        let $productItem = $this.closest('.product-item');
+        let $formAdd = $productItem.find('.product-item__form-add');
+        let $elemsChange = $productItem.find('.product-item__controls_action_change');
+
+        // Установка кол-ва
+        // В счетчик
+        let count = $productItem.find('.custom-counter__amount').val();
+        $elemsChange.find('.custom-counter__amount').val(count);
+        // В скрытые поля
+        count = functions.getItemCount($productItem, count);
+        $formAdd.find('[name="count"]').val(count);
+        $('.product-item__form-change [name="count"]').val(count);
+
+        // Отправка
+        $formAdd.find('[type="submit"]')[0].click();
+        // Добавление класса, что товар этой карточки в корзине
+        $productItem.addClass('product-item-in-cart');
     });
 
     // -------------------------------
@@ -306,30 +314,15 @@ $(function ($) {
     // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
+            console.log('Добавление товара в корзину');
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
-
-            // Если это не внутри карточки, то выходим из функции
-            let $item = this.sendData.$form.closest('.product-item');
-            if (!$item.length) {
-                return;
-            }
-
-            // Устанавливаем значение для поля с количеством
-            let val = parseInt($item.find('.product-item__form .custom-counter__amount').val());
-            if (isNaN(val)) {
-                val = 0;
-            }
-            $item.find('.product-item__controls .custom-counter__amount').val(val);
-
-            // Меняем видимость
-            $item.find('.product-item__form').hide();
-            $item.find('.product-item__controls').show();
         }
     }
 
     // Удаление товара из корзины. Вызывается при нажатии на крестик на странице корзины
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
+        console.log('Удаление товара из корзины');
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
@@ -340,6 +333,7 @@ $(function ($) {
 
     // Изменение товара в корзине. Вызывается при изменении кол-ва товара на странице корзины
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
+        console.log('Изменение товара в корзине');
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);

@@ -1,3 +1,19 @@
+<div class="product-item__controls product-item__controls_action_add">
+    <div class="custom-counter product-item__custom-counter">
+        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+        <input name="count" class="custom-counter__amount product-item__precount" value="1" data-min="1">
+        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+    </div>
+    <a href="#" type="submit" class="product-item__btn-in-cart">В корзину</a>
+</div>
+<div class="product-item__controls product-item__controls_action_change">
+    <div class="custom-counter product-item__custom-counter">
+        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+        <input name="count" class="custom-counter__amount" value="{$itemInCart}">
+        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+    </div>
+    <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>
+</div>
 <div class="product-item__ms2-elems">
     <form class="product-item__form-add ms2_form" method="post">
         <input name="options" value="[]">

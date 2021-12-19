@@ -2,9 +2,6 @@
     a.product-item__btn-in-cart, button.product-item__btn-in-cart
         color: #fff
 
-    &__form, &__controls
-        width: 100%
-
     &__price
         font: inherit
 
@@ -49,21 +46,6 @@
         .custom-counter__amount
             font-size: 13.3333px
 
-    &__controls
-        display: flex
-
-        .product-item__btn-in-cart
-            background-color: #73b017
-
-            &:hover
-                background-color: #ebaf00
-
-    &__form
-        display: flex
-
-        .product-item__btn-in-cart
-            text-transform: uppercase
-
     &__selprice
         display: flex
         align-items: center
@@ -78,4 +60,33 @@
 
     &__ms2-elems
         display: none
+
+    &__form, &__controls
+        width: 100%
+
+    &__controls
+        display: flex
+
+        &_action
+            &_change
+                .product-item__btn-in-cart
+                    background-color: #73b017
+
+                    &:hover
+                        background-color: #ebaf00
+
+            &_add
+                .product-item__btn-in-cart
+                    text-transform: uppercase
+
+.product-item__controls_action_add
+    display: flex
+.product-item__controls_action_change
+    display: none
+
+.product-item-in-cart
+    .product-item__controls_action_add
+        display: none
+    .product-item__controls_action_change
+        display: flex
 

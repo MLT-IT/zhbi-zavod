@@ -1,10 +1,8 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div class="product-card__top product-item" data-m2="{$_modx->resource['ploshad_m2'][0]}"
+<div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$_modx->resource['ploshad_m2'][0]}"
      data-m3="{$_modx->resource['obyem_m3'][0]}" data-key="{$productKey}">
-    {include "file:chunks/productElems.tpl"}
-
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
@@ -57,29 +55,7 @@
             {/if}
         </div>
         <div class="product-card__info-left">
-            <form method="post" class="product-item__form product-card__form"
-                {if $itemInCart > 0}style="display: none;"{/if}>
-                <input type="hidden" name="id" value="{$_modx->resource['id']}">
-                <input type="hidden" name="options" value="[]">
-
-                <div class="custom-counter product-item__custom-counter">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                    <input name="count" class="custom-counter__amount product-item__precount" value="1" data-min="1">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-                </div>
-                <button type="submit" class="product-item__btn-in-cart">В корзину</button>
-            </form>
-            <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls product-card__controls">
-                <div class="custom-counter product-item__custom-counter">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                    <input name="count" class="custom-counter__amount" value="{$itemInCart}">
-                    <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-                </div>
-                <a href="/cart/" class="product-item__btn-in-cart">
-                    <span class="product-item__btn-in-cart-top-text">В корзине</span>
-                    Перейти
-                </a>
-            </div>
+            {include "file:chunks/productElems.tpl"}
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
         </div>
 

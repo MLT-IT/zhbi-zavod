@@ -8,6 +8,7 @@ export default function funcsProduct() {
     // Добавление товара в корзину
     // -------------------------------
     // TODO: лучше это переписать. Делать trigger submit скрытой формы minishop2
+    /*
     $(document).on('submit', '.product-item__form', function (e) {
         e.preventDefault();
 
@@ -63,6 +64,7 @@ export default function funcsProduct() {
             }
         });
     });
+    */
 
     // -------------------------------
     // Работа со страницей товара
