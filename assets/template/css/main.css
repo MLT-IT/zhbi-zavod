@@ -4393,7 +4393,7 @@ p, span {
 }
 
 .listing__sort, .listing__sort-list {
-    display: flex;
+    display: flex !important;
     align-items: center
 }
 
@@ -7505,7 +7505,7 @@ p, span {
     }
 
     .listing__sort-grid, .listing__sort-list {
-        display: none
+        display: none !important
     }
 
     .catalog__cards {

@@ -20,12 +20,12 @@ export default function funcsCatalog() {
 
         switch (parseInt(val)) {
             // По цене по возрастанию
-            case 3:
+            case 2:
                 $elem = $('.listing__sort-item[data-sort="ms|price"]');
                 dataDir = 'asc';
                 break;
             // По цене по убыванию
-            case 2:
+            case 3:
                 $elem = $('.listing__sort-item[data-sort="ms|price"]');
                 dataDir = 'desc';
                 break;
