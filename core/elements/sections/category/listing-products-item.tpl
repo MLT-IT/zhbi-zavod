@@ -4,6 +4,7 @@
 <div data-key="{$productKey}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}"
      class="product-item listing__products-item" data-priority1="{$_pls['priority1']}"
      data-priority2="{$_pls['HitsPage']}">
+    {include "file:chunks/productElems.tpl"}
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">

@@ -17,13 +17,13 @@ window.$ = $;
 
 // Функции
 import functions from './functions/functions.js';
-import productFuncs from './functions/productFuncs.js';
-import catalogFuncs from './functions/catalogFuncs.js';
+import funcsProduct from './functions/funcsProduct.js';
+import funcsCatalog from './functions/funcsCatalog.js';
 import inputFilter from './functions/inputFilter.js';
 
 $(function ($) {
-    productFuncs();
-    catalogFuncs();
+    funcsProduct();
+    funcsCatalog();
 
     // -------------------------------
     // Вкладки
@@ -122,13 +122,14 @@ $(function ($) {
     mailChange();
 
     // -------------------------------
-    // Стилизованный счетчик
+    // Стилизованный счетчик и стилизованный список
     // -------------------------------
+    // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
         $('.custom-select').euv_custom_select();
 
         let $counterInput = $('.custom-counter__amount');
-
+        // Фильтр для ввода
         $counterInput.each(function () {
             let filter;
             const $this = $(this);
@@ -147,6 +148,7 @@ $(function ($) {
             $this.inputFilter(filter);
         });
 
+        // Кнопки стилизованного счетчкика
         $('.custom-counter__btn').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
@@ -162,15 +164,14 @@ $(function ($) {
                     break;
             }
             $inputValue.val(val);
-
             $inputValue.trigger('change');
-            // Если мы находимся в корзине, то вызываем change
-            $this.closest('.cart-table__form').find('.btn-sm').click();
+
+            // Если мы находимся в корзине, то отправляем форму (кликаем по кнопке для отправки формы)
+            $this.closest('.sect-cart').find('.btn-sm').click();
         });
 
-        // TODO: Возможно, этот код лучше перенести в change от Minishop2. И на monolit78 также.
-        let pageCart = $('.sect-cart').length;
-        if (pageCart) {
+        // Если находимся на странице корзины, то вешаем дополнительный обработчик на change количества, чтобы менялась сумма корзины (она должна перерасчитываться сама, но почему-то этого не происходит)
+        if ($('.sect-cart').length) {
             $counterInput.each(function () {
                 $(this).on('change', function () {
                     let $this = $(this);

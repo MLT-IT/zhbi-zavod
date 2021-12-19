@@ -3,6 +3,8 @@
 
 <div class="product-card__top product-item" data-m2="{$_modx->resource['ploshad_m2'][0]}"
      data-m3="{$_modx->resource['obyem_m3'][0]}" data-key="{$productKey}">
+    {include "file:chunks/productElems.tpl"}
+
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
@@ -78,9 +80,6 @@
                     Перейти
                 </a>
             </div>
-
-            {include "file:chunks/productElems.tpl"}
-
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
         </div>
 
