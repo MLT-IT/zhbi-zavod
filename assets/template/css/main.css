@@ -5318,7 +5318,8 @@ p, span {
 
 .product-card__top {
     display: flex;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    align-items: flex-start;
 }
 
 .product-card__img {

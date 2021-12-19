@@ -1,7 +1,8 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$_modx->resource['ploshad_m2'][0]}"
+<div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}"
+     data-m2="{$_modx->resource['ploshad_m2'][0]}"
      data-m3="{$_modx->resource['obyem_m3'][0]}" data-key="{$productKey}">
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
@@ -21,16 +22,19 @@
 
         <div class="product-card__price">
             <p class="product-card__article">Арт. {$_modx->resource['article']}</p>
-            <div class="product-card__units-wrap">
-                <span class="product-card__unit-span">Цена за</span>
-                <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
-                {if $_modx->resource['ploshad_m2'][0] ?}
-                    <a class="product-card__unit-link" href="#" data-val="2">квадратный метр</a>
-                {/if}
-                {if $_modx->resource['obyem_m3'][0] ?}
-                    <a class="product-card__unit-link" href="#" data-val="3">кубический метр</a>
-                {/if}
-            </div>
+
+            {if $_modx->resource.context_key === 'rockwool'}
+                <div class="product-card__units-wrap">
+                    <span class="product-card__unit-span">Цена за</span>
+                    <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
+                    {if $_modx->resource['ploshad_m2'][0] ?}
+                        <a class="product-card__unit-link" href="#" data-val="2">квадратный метр</a>
+                    {/if}
+                    {if $_modx->resource['obyem_m3'][0] ?}
+                        <a class="product-card__unit-link" href="#" data-val="3">кубический метр</a>
+                    {/if}
+                </div>
+            {/if}
 
             <input type="hidden" name="unit" value="1">
 
