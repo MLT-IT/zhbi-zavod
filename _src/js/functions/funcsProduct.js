@@ -51,7 +51,7 @@ export default function funcsProduct() {
     // -------------------------------
     // Обработчик кнопки для добавления товара в корзину
     // -------------------------------
-    $(document).on('click', '.product-item .product-item__btn-in-cart', function (e) {
+    $(document).on('click', '.product-item .product-item__to-cart', function (e) {
         e.preventDefault();
 
         // Основные переменные
