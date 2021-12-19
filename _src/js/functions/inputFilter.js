@@ -1,5 +1,5 @@
 /*
- * Фильтрация ввода.
+ * jQuery плагин для фильтрация ввода.
  * Взял отсюда и немного улучшил:
  * https://stackoverflow.com/questions/995183/how-to-allow-only-numeric-0-9-in-html-inputbox-using-jquery
  */

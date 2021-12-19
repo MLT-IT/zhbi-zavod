@@ -1,6 +1,9 @@
-// -------------------------------
-// Вспомогательные функции
-// -------------------------------
+/**
+ * Вспомогательные функции.
+ */
+
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, getItemCount}
+
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
     n = Math.abs(parseInt(n)) % 100;

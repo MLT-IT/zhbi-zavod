@@ -15,13 +15,16 @@ import mapsLazyload from './modules/lazyload_maps'
 window.jQuery = $;
 window.$ = $;
 
-// Файлы
-import functions from './files/functions.js';
-import product from './files/product.js';
-import catalog from './files/catalog.js';
-import inputFilter from './files/inputFilter.js';
+// Функции
+import functions from './functions/functions.js';
+import productFuncs from './functions/productFuncs.js';
+import catalogFuncs from './functions/catalogFuncs.js';
+import inputFilter from './functions/inputFilter.js';
 
 $(function ($) {
+    productFuncs();
+    catalogFuncs();
+
     // -------------------------------
     // Вкладки
     // -------------------------------
@@ -93,14 +96,14 @@ $(function ($) {
         if (typeof count !== 'undefined') {
             cartValue = count;
             $cartValueElem.add($cartInfoCountVal).text(cartValue);
-            $cartInfoCountText.text(formOfWord(cartValue, 'товар', 'товара', 'товаров'));
+            $cartInfoCountText.text(functions.formOfWord(cartValue, 'товар', 'товара', 'товаров'));
         } else {
             cartValue = parseInt($cartValueElem.text());
         }
 
         let cartCost;
         if (typeof cost !== 'undefined') {
-            cartCost = numberWithSpaces(cost);
+            cartCost = functions.numberWithSpaces(cost);
             $cartInfoCostVal.text(cartCost);
         }
 
@@ -175,7 +178,7 @@ $(function ($) {
                     let price = $product.find('.cart-table__price-value').text();
                     price = parseFloat(price.replace(/\s/, ''));
                     let count = parseInt($product.find('.custom-counter__amount').val());
-                    let cost = numberWithSpaces(price * count);
+                    let cost = functions.numberWithSpaces(price * count);
                     $product.find('.cart-table__sum-value').text(cost);
                 });
             });
@@ -218,7 +221,7 @@ $(function ($) {
     $(document).on('change', '.product-item__units-select', function (e) {
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
-        let unitVal = getActiveUnitValue($productItem);
+        let unitVal = functions.getActiveUnitValue($productItem);
 
         // Изменение цены
         const $price = $productItem.find('.product-item__price');
@@ -228,7 +231,7 @@ $(function ($) {
                 price = 0;
             }
 
-            price = numberWithSpaces(Math.ceil(1 / unitVal * price));
+            price = functions.numberWithSpaces(Math.ceil(1 / unitVal * price));
             $price.text(price);
         }
     });
@@ -262,7 +265,7 @@ $(function ($) {
         // -------------------------------------------
         // Рассчет кол-ва
         // -------------------------------------------
-        count = getItemCount($productItem, count);
+        count = functions.getItemCount($productItem, count);
 
         // -------------------------------------------
         // ajax
@@ -351,61 +354,5 @@ $(function ($) {
         }
     }
 
-    // -------------------------------
-    // Конфликтующие фильтры
-    // -------------------------------
-    // Переключение конфликтующих фильтров: Длина, Ширина, Толщина и Размеры
-    $('.listing__filter-block-content input[type="checkbox"]').on('change', function () {
-        let $block = $(this).closest('.listing__filter-block');
-        let $conflictingFilters;
-        let dontDoAnything = false;
-
-        switch (true) {
-            case $block.hasClass('filter_type_razmer'):
-                $conflictingFilters = $('.filter_type_thickness, .filter_type_width, .filter_type_length');
-                break;
-
-            case ($block.hasClass('filter_type_thickness') ||
-                $block.hasClass('filter_type_width') ||
-                $block.hasClass('filter_type_length')
-            ):
-                $conflictingFilters = $('.filter_type_razmer');
-                break;
-
-            default:
-                dontDoAnything = true
-                break;
-        }
-
-        if (dontDoAnything === false) {
-            if ($block.find('input[type="checkbox"]:checked').length) {
-                $conflictingFilters.css('display', 'none');
-            } else {
-                $conflictingFilters.css('display', '');
-            }
-        }
-    });
-
-    // -------------------------------
-    // Вкладки на мобилках
-    // -------------------------------
-    // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилок, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
-    $('.product-card__tabs-button').each(function (i, e) {
-        $(this).attr('data-tab-page', i);
-    });
-
-    // Обработчик
-    $('.product-card__mobile-tabs-button').on('click', function (e) {
-        e.preventDefault();
-        let $this = $(this);
-        let $tabsPage = $this.closest('.product-card__tabs-page');
-
-        $('.product-card__tabs-page.active').removeClass('active');
-        $this.closest('.product-card__tabs-page').addClass('active');
-
-        let index = $tabsPage.index() + 1;
-        $('.product-card__tabs-button.active').removeClass('active');
-        $('.product-card__tabs-button:nth-child(' + index + ')').addClass('active');
-    });
 });
 

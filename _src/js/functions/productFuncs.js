@@ -1,4 +1,9 @@
-$(function () {
+import functions from "./functions";
+
+/**
+ * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
+ */
+export default function productFuncs() {
     // -------------------------------
     // Добавление товара в корзину
     // -------------------------------
@@ -23,7 +28,7 @@ $(function () {
         let count = $this.find('.product-item__precount').val(); // Кол-во товара
 
         // Рассчет и установка кол-ва
-        count = getItemCount($productItem, count);
+        count = functions.getItemCount($productItem, count);
         $this.find('.product-item__count').val(count);
         let id = $this.find('[name="id"]').val();
 
@@ -60,9 +65,10 @@ $(function () {
     });
 
     // -------------------------------
-    // Переключение цен на странице товара
+    // Работа со страницей товара
     // -------------------------------
     if ($('.product-card').length) {
+        // Переключение цен на странице товара
         $('.product-card__unit-link').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
@@ -70,5 +76,25 @@ $(function () {
             $this.addClass('active');
             $('[name="unit"]').val($this.attr('data-val'));
         });
+
+        // Вкладки на мобилках
+        // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилок, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
+        $('.product-card__tabs-button').each(function (i, e) {
+            $(this).attr('data-tab-page', i);
+        });
+
+        // Обработчик
+        $('.product-card__mobile-tabs-button').on('click', function (e) {
+            e.preventDefault();
+            let $this = $(this);
+            let $tabsPage = $this.closest('.product-card__tabs-page');
+
+            $('.product-card__tabs-page.active').removeClass('active');
+            $this.closest('.product-card__tabs-page').addClass('active');
+
+            let index = $tabsPage.index() + 1;
+            $('.product-card__tabs-button.active').removeClass('active');
+            $('.product-card__tabs-button:nth-child(' + index + ')').addClass('active');
+        });
     }
-});
+}
