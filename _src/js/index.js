@@ -22,7 +22,7 @@ import funcsCatalog from './functions/funcsCatalog.js';
 import inputFilter from './functions/inputFilter.js';
 
 $(function ($) {
-    funcsProduct();
+    funcsProduct(ImageZoom);
     funcsCatalog();
 
     // -------------------------------
