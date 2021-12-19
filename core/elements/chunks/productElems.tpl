@@ -1,3 +1,7 @@
+{if $prodId is empty}
+    {set $prodId = $_modx->resource['id']}
+{/if}
+
 <div class="product-item__controls product-item__controls_action_add">
     <div class="custom-counter product-item__custom-counter">
         <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
@@ -17,7 +21,7 @@
 <div class="product-item__ms2-elems">
     <form class="product-item__form-add ms2_form" method="post">
         <input name="options" value="[]">
-        <input name="id" value="{$_modx->resource['id']}">
+        <input name="id" value="{$prodId}">
         <input name="count" value="1">
         <input name="ctx" value="{$_modx->resource.context_key}">
         <button type="submit" name="ms2_action" value="cart/add">Добавить</button>

@@ -1,9 +1,7 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="pop-slide swiper-slide product-item listing__products-item" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}">
-    {include "file:chunks/productElems.tpl"}
-
+<div data-key="{$productKey}" class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}">
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
             <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="{$pagetitle}">
@@ -79,27 +77,6 @@
             <input type="hidden" name="unit" value="1">
         {/if}
 
-        <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
-            <input type="hidden" name="id" value="{$id}">
-            <input type="hidden" name="options" value="[]">
-
-            <div class="custom-counter product-item__custom-counter">
-                <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                <input name="count" class="custom-counter__amount" value="1" data-min="1">
-                <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-            </div>
-            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
-        </form>
-        <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls">
-            <div class="custom-counter product-item__custom-counter">
-                <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                <input name="count" class="custom-counter__amount" value="{$itemInCart}">
-                <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
-            </div>
-            <a href="/cart/" class="product-item__btn-in-cart">
-                <span class="product-item__btn-in-cart-top-text">В корзине</span>
-                Перейти
-            </a>
-        </div>
+        {include "file:chunks/productElems.tpl" prodId=$id}
     </div>
 </div>
