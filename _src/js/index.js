@@ -5,6 +5,7 @@ import '../sass/styles.sass';
 import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
+import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
 
 // Модули
 import mailChange from './modules/mailchanger';
@@ -14,32 +15,13 @@ import mapsLazyload from './modules/lazyload_maps'
 window.jQuery = $;
 window.$ = $;
 
-// TODO: лучше сделать все через модули webpack
+// Файлы
+import functions from './files/functions.js';
+import product from './files/product.js';
+import catalog from './files/catalog.js';
+import inputFilter from './files/inputFilter.js';
 
 $(function ($) {
-    // -------------------------------
-    // Вспомогательные функции
-    // -------------------------------
-    function formOfWord(n,f1, f2, f5) {
-        n = Math.abs(parseInt(n)) % 100;
-        if (n > 10 && n < 20) {
-            return f5;
-        }
-        n = n % 10;
-        if (n > 1 && n < 5) {
-            return f2;
-        }
-        if (n === 1) {
-            return f1;
-        }
-
-        return f5;
-    }
-
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
-
     // -------------------------------
     // Вкладки
     // -------------------------------
@@ -67,26 +49,6 @@ $(function ($) {
             $this.show();
         }
     });
-
-    // -------------------------------
-    // Расчет текста для кнопки "Показать еще"
-    // -------------------------------
-    window.getRemainder = function () {
-        let amount = $('#mse2_mfilter .product-item').length;
-        if (typeof mSearch2 !== 'undefined' && mSearch2 && amount) {
-            let total = parseInt(mSearch2.total.text());
-            let remainder = 0;
-
-            if (total > amount) {
-                remainder = total - amount;
-            }
-            if (remainder > 42) {
-                remainder = 42;
-            }
-            $('#mse2_mfilter .btn_more').text('Показать еще ' + remainder);
-        }
-    }
-    window.getRemainder();
 
     // -------------------------------
     // Из какой формы отправили? Это костыль. Данные будут неверными, если отправлять не из всплывашек. Но на сайте нет форм без всплывашек. По-хорошему надо делать через api fancybox. Но fancybox минифицирован
@@ -119,20 +81,7 @@ $(function ($) {
     $('.js-custom-scrollbar').overlayScrollbars({});
 
     // -------------------------------
-    // Приближение при наведении на странице товара
-    // -------------------------------
-    const $productCardImg = $(".product-card__img");
-    if ($productCardImg.length) {
-        new ImageZoom($productCardImg[0], {
-            fillContainer: true,
-            height: 260,
-            zoomWidth: 500,
-            offset: {vertical: 0, horizontal: 10},
-        });
-    }
-
-    // -------------------------------
-    // Мини-корзина
+    // Кнопка корзины
     // -------------------------------
     function handleMiniCart(count, cost) {
         const $cartValueElem = $('.header__cart-value');
@@ -170,104 +119,11 @@ $(function ($) {
     mailChange();
 
     // -------------------------------
-    // Фильтрация ввода
-    // -------------------------------
-    /*
-     * Фильтрация ввода.
-     * Взял отсюда и немного улучшил:
-     * https://stackoverflow.com/questions/995183/how-to-allow-only-numeric-0-9-in-html-inputbox-using-jquery
-     */
-    let methods = {
-        // Отмена плагина
-        destroy: function () {
-            return this.each(function () {
-                let $this = $(this);
-
-                // Убираем обработчики
-                $this.off($this.data(pluginName).events);
-
-                // Удаляем data-значения
-                $this.removeData(pluginName);
-            });
-        },
-
-        // Инициализация
-        init: function (func) {
-            return this.each(function () {
-                let $this = $(this);
-
-                // -----------
-                // Установка переменных и data-значений
-                // -----------
-                let events = 'change input keydown keyup mousedown mouseup select contextmenu drop';
-                let events_array = events.split(' ')
-                for (let i = 0; i < events_array.length; i++) {
-                    events_array[i] += '.' + pluginName;
-                }
-                events = events_array.join(' ');
-
-                $this.data(pluginName, {});
-                $this.data(pluginName).init = true;
-                $this.data(pluginName).events = events;
-
-                // -----------
-                // Функционал плагина
-                // -----------
-                $this[0].oldValue = $this[0].value;
-                $this[0].oldSelectionStart = $this[0].selectionStart;
-                $this[0].oldSelectionEnd = $this[0].selectionEnd;
-
-                $this.on(events, function () {
-                    if (func(this.value)) {
-                        this.oldValue = this.value;
-                        this.oldSelectionStart = this.selectionStart;
-                        this.oldSelectionEnd = this.selectionEnd;
-                    } else if (this.hasOwnProperty("oldValue")) {
-                        this.value = this.oldValue;
-                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-                    }
-                });
-            });
-        }
-    }
-
-    // Логика вызова функций
-    let pluginName = 'inputFilter';
-
-    $.fn.inputFilter = function (method) {
-        if (methods[method]) {
-            // ----------------------------------
-            // Проверка на вызов функции у неициниализированного элемента
-            // ----------------------------------
-            this.each(function () {
-                let $this = $(this);
-                if (!$this.data(pluginName) || $this.data(pluginName).init !== true) {
-                    $.error('Не удалось произвести действие, поскольку для одного из элементов в выборке не инициализирован jQuery.' + pluginName + '.');
-                }
-            });
-
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'function') {
-            // ----------------------------------
-            // Проверка на повторную инициализацию
-            // ----------------------------------
-            this.each(function () {
-                let $this = $(this);
-                if ($this.data(pluginName) && $this.data(pluginName).init === true) {
-                    $this[pluginName]('destroy');
-                }
-            });
-
-            return methods.init.apply(this, arguments);
-        } else {
-            $.error('Функция с именем ' + method + ' не существует для jQuery.' + pluginName + '.');
-        }
-    }
-
-    // -------------------------------
     // Стилизованный счетчик
     // -------------------------------
     window.initStyledCounter = function initStyledCounter() {
+        $('.custom-select').euv_custom_select();
+
         let $counterInput = $('.custom-counter__amount');
 
         $counterInput.each(function () {
@@ -327,7 +183,6 @@ $(function ($) {
     }
     window.initStyledCounter();
 
-
     // -------------------------------
     // Меню
     // -------------------------------
@@ -358,75 +213,36 @@ $(function ($) {
     });
 
     // -------------------------------
-    // Щелчок по якорю "Отзывы"
+    // Обработчик списка для смены ед. измерения
     // -------------------------------
-    $('.product-card__reviews-quantity').on('click', function (e) {
+    $(document).on('change', '.product-item__units-select', function (e) {
         e.preventDefault();
+        let $productItem = $(this).closest('.product-item');
+        let unitVal = getActiveUnitValue($productItem);
 
-        $('.product-card__tabs-button_type_reviews').trigger('click');
+        // Изменение цены
+        const $price = $productItem.find('.product-item__price');
+        if ($price.length) {
+            let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
+            if (isNaN(price)) {
+                price = 0;
+            }
 
-        $([document.documentElement, document.body]).animate({
-            scrollTop: $(".product-card__tabs").offset().top
-        }, 300);
-    });
-
-    $('.listing__filter-button').on('click', function (e) {
-        let $headerBtnsWrap = $('.header__btns-wrap');
-        $headerBtnsWrap.toggleClass('closed');
-    });
-
-    // -------------------------------
-    // Сортировка на мобильных экранах
-    // -------------------------------
-    $('.listing__sort-select-elem').on('change', function (e) {
-        let val = $(this).val();
-        let $elem;
-        let dataDir;
-
-        switch (parseInt(val)) {
-            // По цене по возрастанию
-            case 3:
-                $elem = $('.listing__sort-item[data-sort="ms|price"]');
-                dataDir = 'asc';
-                break;
-            // По цене по убыванию
-            case 2:
-                $elem = $('.listing__sort-item[data-sort="ms|price"]');
-                dataDir = 'desc';
-                break;
-            // По популярности по убыванию
-            case 1:
-                $elem = $('.listing__sort-item[data-sort="tv|HitsPage"]');
-                dataDir = 'desc';
-                break
-            // По алфавиту по убыванию
-            case 4:
-                $elem = $('.listing__sort-item[data-sort="ms_product|pagetitle"]');
-                dataDir = 'asc';
-                break
+            price = numberWithSpaces(Math.ceil(1 / unitVal * price));
+            $price.text(price);
         }
-
-        $('.listing__sort-item.active').removeClass('active');
-
-        // Сохраняем data-атрибуты, потому что дальше они будут меняться (для применения сортировки)
-        // Сохранять надо на случай, если пользователь снова включит большой экран
-        let dataDefaultSave = $elem.attr('data-default');
-
-        $elem.attr('data-dir', '');
-        $elem.attr('data-default', dataDir);
-
-        $elem[0].click();
-
-        // Возвращаем data-атрибуты
-        $elem.attr('data-default', dataDefaultSave);
     });
 
     // -------------------------------
-    // Обработчик счетчика на карточках товара
+    // Обработчик счетчика на карточках товара. Вызывается при изменении кол-ва товара с карточки товара и со страницы товара
     // -------------------------------
+    // TODO: лучше это переписать. Делать trigger submit скрытой формы minishop2
     $(document).on('change', '.custom-counter__amount', function (e) {
         e.preventDefault();
 
+        // -------------------------------------------
+        // Установка основных переменных и проверка, выполняться ли дальше скрипту или нет
+        // -------------------------------------------
         let $this = $(this);
         let $productItem = $this.closest('.product-item');
 
@@ -434,18 +250,26 @@ $(function ($) {
             return;
         }
 
-        let key = $productItem.attr('data-key');
+        let key = $productItem.attr('data-key'); // Ключ. Нужно для правильной работы Minishop2
         if (!key.length) {
             return;
         }
 
-        let ctx = $('body').attr('data-ctx');
-        let sendingData;
-        let val = $this.val();
+        let ctx = $('body').attr('data-ctx'); // Нужно для правильной работы Minishop2
+        let sendingData; // Массив с отправляемыми данными
+        let count = $this.val(); // Кол-во товара
 
+        // -------------------------------------------
+        // Рассчет кол-ва
+        // -------------------------------------------
+        count = getItemCount($productItem, count);
+
+        // -------------------------------------------
+        // ajax
+        // -------------------------------------------
         sendingData = {
             action: 'cart/change',
-            count: val,
+            count: count,
             key: key,
             ctx: ctx
         }
@@ -459,7 +283,7 @@ $(function ($) {
                 if (data.success) {
                     handleMiniCart(data.data.total_count, data.data.total_cost);
 
-                    if (val <= 0) {
+                    if (count <= 0) {
                         $productItem.find('.product-item__controls').hide();
                         $productItem.find('.product-item__form').show();
                         // trigger change нужен, чтобы фильтр запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
@@ -475,7 +299,7 @@ $(function ($) {
     // -------------------------------
     // Обработчики Minishop2
     // -------------------------------
-    // Добавление товара в корзину
+    // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
@@ -500,19 +324,30 @@ $(function ($) {
         }
     }
 
-    // Удаление товара из корзины
+    // Удаление товара из корзины. Вызывается при нажатии на крестик на странице корзины
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
+
+            checkCart(response.data.total_cost);
         }
     }
 
-    // Изменение товара в корзине
+    // Изменение товара в корзине. Вызывается при изменении кол-ва товара на странице корзины
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
+
+            checkCart(response.data.total_cost);
+        }
+    }
+
+    function checkCart(total_count) {
+        // Если товаров в корзине 0. И если мы на странице корзины. То перезагружаем страницу
+        if (total_count === 0 && $('.sect-cart').length) {
+            location.reload();
         }
     }
 

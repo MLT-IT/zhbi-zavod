@@ -1,7 +1,9 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="product-item listing__products-item" data-priority1="{$_pls['priority1']}" data-priority2="{$_pls['HitsPage']}">
+<div data-key="{$productKey}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}"
+     class="product-item listing__products-item" data-priority1="{$_pls['priority1']}"
+     data-priority2="{$_pls['HitsPage']}">
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -44,20 +46,39 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
             {if $price}
-                {$price} руб
+                <span class="product-item__price" data-default="{$price}">{$price}</span> руб
             {/if}
 
-            {if $price and $unit[0]}
-                <div class="listing__products-item-measure">
-                    Цена за
-                    {if $unit[0] == 'упаковка'}
-                        упаковку
-                    {else}
-                        {$unit[0]}
-                    {/if}
-                </div>
+            {if $_modx->resource.context_key !== 'rockwool'}
+                {if $price and $unit[0]}
+                    <div class="listing__products-item-measure">
+                        Цена за
+                        {if $unit[0] == 'упаковка'}
+                            упаковку
+                        {else}
+                            {$unit[0]}
+                        {/if}
+                    </div>
+                {/if}
             {/if}
         </div>
+
+        {if $_modx->resource.context_key === 'rockwool'}
+            <div class="product-item__selprice listing__products-item-selprice">
+                <span class="product-item__selprice-span">Цена за</span>
+                <select name="unit" class="euv-custom-select custom-select product-item__units-select">
+                    <option value="1" selected>упаковка</option>
+                    {if $ploshad_m2[0]}
+                        <option value="2">м2</option>
+                    {/if}
+                    {if $obyem_m3[0]}
+                        <option value="3">м3</option>
+                    {/if}
+                </select>
+            </div>
+        {else}
+            <input type="hidden" name="unit" value="1">
+        {/if}
 
         <form method="post" class="ms2_form product-item__form" {if $itemInCart > 0}style="display: none;"{/if}>
             <input type="hidden" name="id" value="{$id}">
@@ -68,8 +89,10 @@
                 <input name="count" class="custom-counter__amount" value="1" data-min="1">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
             </div>
-            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину</button>
+            <button type="submit" name="ms2_action" value="cart/add" class="product-item__btn-in-cart">В корзину
+            </button>
         </form>
+
         <div{if $itemInCart == 0} style="display: none;"{/if} class="product-item__controls">
             <div class="custom-counter product-item__custom-counter">
                 <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
