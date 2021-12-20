@@ -26,7 +26,8 @@
             'limit' => 42,
             'returnIds' => 1,
             'innerJoin' => '{"Options":{"class":"msProductOption"}}',
-            'where' => '{"Options.key":"item_thickness", "Options.value:=":"'~$_modx->resource['item_thickness'].0~'", "context_key:=": "'~$_modx->resource.context_key~'"}'
+            'where' => '{"Options.key":"item_thickness", "Options.value:=":"'~$_modx->resource['item_thickness'].0~'", "context_key:=": "'~$_modx->resource.context_key~'"}',
+            'resources' => '-' ~ $_modx->resource.id
         ]}
     {/if}
 
