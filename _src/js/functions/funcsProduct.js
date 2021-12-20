@@ -41,7 +41,7 @@ export default function funcsProduct(ImageZoom) {
 
         // Кол-во товара
         let count = $this.val();
-        count = functions.getItemCount($productItem, count);
+        count = getItemCount($productItem, count);
 
         // Определение формы
         let $form;
@@ -91,7 +91,7 @@ export default function funcsProduct(ImageZoom) {
         let count = $productItem.find('.custom-counter__amount').val();
         $elemsChange.find('.custom-counter__amount').val(count);
         // В скрытые поля
-        count = functions.getItemCount($productItem, count);
+        count = getItemCount($productItem, count);
         $formAdd.find('[name="count"]').val(count);
         $('.product-item__form-change [name="count"]').val(count);
 
@@ -113,6 +113,20 @@ export default function funcsProduct(ImageZoom) {
     // -------------------------------
     // Функция для смены цены в соответствии с ед. измерения
     // -------------------------------
+    function getItemCount($productItem, count) {
+        // TODO: надо бы сделать проверку на isNaN
+        let unitVal = functions.getActiveUnitValue($productItem);
+
+        // Получившееся кол-во
+        count = Math.ceil(1 / unitVal * count);
+
+        // Результат
+        return count;
+    }
+
+    // -------------------------------
+    // Функция для смены цены в соответствии с ед. измерения
+    // -------------------------------
     function calcPrice($productItem) {
         let unitVal = functions.getActiveUnitValue($productItem);
 
@@ -124,7 +138,7 @@ export default function funcsProduct(ImageZoom) {
                 price = 0;
             }
 
-            price = functions.numberWithSpaces(Math.ceil(1 / unitVal * price));
+            price = functions.numberWithSpaces(Math.ceil(1 / unitVal) * price);
             $price.text(price);
         }
     }

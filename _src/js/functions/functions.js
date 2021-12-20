@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, getItemCount}
+export default {formOfWord, numberWithSpaces, getActiveUnitValue}
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -46,16 +46,4 @@ function getActiveUnitValue($productItem) {
     const unit = $productItem.find('*[name="unit"]').val();
 
     return unitValues[unit];
-}
-
-// Рассчет кол-ва при добавлении товара в корзину
-function getItemCount($productItem, count) {
-    // TODO: надо бы сделать проверку на isNaN
-    let unitVal = getActiveUnitValue($productItem);
-
-    // Получившееся кол-во
-    count = Math.ceil(1 / unitVal * count);
-
-    // Результат
-    return count;
 }
