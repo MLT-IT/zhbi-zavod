@@ -12,7 +12,15 @@
         <div class="header__line header__line_type_about">
             <div class="header__about">
                 <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
-                <div class="header__about-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
+                <div class="header__about-text">
+                    Поставка
+                    {if $_modx->context.key != 'krovlya'}
+                        утеплителя {$brand}
+                    {else}
+                        кровли
+                    {/if}
+                    по Санкт-Петербургу и Ленинградской области
+                </div>
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
             <div class="header__contacts">
@@ -134,7 +142,15 @@
             </div>
         </div>
         <nav class="header__nav">
-            <div class="header__nav-text">Поставка утеплителя {$brand} по Санкт-Петербургу и Ленинградской области</div>
+            <div class="header__nav-text">
+                Поставка
+                {if $_modx->context.key != 'krovlya'}
+                    утеплителя {$brand}
+                {else}
+                    кровли
+                {/if}
+                по Санкт-Петербургу и Ленинградской области
+            </div>
 
             <a href="/catalog/" class="header__nav-header">Каталог</a>
             <form action="/search/" class="header__search-wrap">
