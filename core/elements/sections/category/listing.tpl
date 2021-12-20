@@ -19,7 +19,7 @@
             'tplFilter.row.default' => '@FILE chunks/filterCheckbox.tpl',
 
             'aliases' => 'ms|price==price,msoption|price2==price2',
-            'sort' => 'tv|priority1,tv|HitsPage:asc',
+            'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
             'includeTVs' => 'priority1,HitsPage',
 
             'values_delimeter' => '~',
