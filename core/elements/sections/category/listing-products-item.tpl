@@ -5,7 +5,6 @@
   data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности.
 *}
 
-
 <div data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}"
      class="product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-priority1="{$_pls['priority1']}"
      data-priority2="{$_pls['HitsPage']}">
@@ -54,7 +53,7 @@
                 <span class="product-item__price" data-default="{$price}">{$price}</span> руб
             {/if}
 
-            {if $_modx->resource.context_key !== 'rockwool'}
+            {if $_modx->resource.context_key != 'rockwool'}
                 {if $price and $unit[0]}
                     <div class="listing__products-item-measure">
                         Цена за

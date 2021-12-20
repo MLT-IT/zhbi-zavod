@@ -83,16 +83,35 @@
         @media screen and (max-width: 768px)
             display: block
 
-    &__logo-wrap
-        width: 161px
-        height: 40px
-        margin-right: 34px
+    &__logo-wrap, &__logo-text-wrap
         flex-shrink: 0
 
         @media screen and (max-width: 768px)
             margin-right: 0
             width: 108px
+
+    &__logo-wrap
+        height: 40px
+        width: 161px
+        margin-right: 34px
+
+        @media screen and (max-width: 768px)
             height: 26px
+
+    &__logo-text-wrap
+        width: 176px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-weight: 800
+        margin-right: 19px
+
+    &__logo-text
+        color: #aa000f
+        white-space: nowrap
+
+        @media screen and (max-width: 768px)
+            white-space: normal
 
     &__logo
         display: block
@@ -684,7 +703,7 @@
             width: 100%
             left: 0
 
-    &__burger, &__logo-wrap, &__about-phone
+    &__burger, &__logo-wrap, &__logo-text-wrap, &__about-phone
         @media screen and (max-width: 768px)
             z-index: 100
 

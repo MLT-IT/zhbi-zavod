@@ -18,6 +18,11 @@
     {else}
         {set $site_context = $_modx->context.key}
     {/if}
+
+    {if $_modx->context.key == 'krovlya'}
+        {set $site_context = 'rockwool'}
+    {/if}
+
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/img/favicons/{$site_context}/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/template/img/favicons/{$site_context}/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/template/img/favicons/{$site_context}/favicon-16x16.png">

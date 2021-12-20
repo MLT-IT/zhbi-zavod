@@ -46,7 +46,7 @@
                 <span class="product-item__price" data-default="{$price}">{$price}</span> руб
             {/if}
 
-            {if $_modx->resource.context_key !== 'rockwool'}
+            {if $_modx->resource.context_key != 'rockwool'}
                 {if $price and $unit[0]}
                     <div class="listing__products-item-measure">
                         Цена за

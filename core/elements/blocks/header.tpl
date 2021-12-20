@@ -30,10 +30,15 @@
             </div>
         </div>
         <div class="header__line header__line_type_elems">
-            <a href="/" class="header__logo-wrap">
-                <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
-            </a>
-
+            {if $_modx->context.key != 'krovlya'}
+                <a href="/" class="header__logo-wrap">
+                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
+                </a>
+            {else}
+                <a href="/" class="header__logo-text-wrap">
+                    <span class="header__logo-text">Кровельная компания №1</span>
+                </a>
+            {/if}
             <div class="header__catalog">
                 <div class="burger">
                     <span class="burger__stick"></span>

@@ -2,7 +2,12 @@
     <div class="catalog-banner__content">
         <p class="catalog-banner__header">Не знаете, что вам подходит?</p>
         <p class="catalog-banner__subheader">Правильная консультация <span class="catalog-banner__special-text">сэкономит Вам до 40%</span> бюджета!</p>
-        <p class="catalog-banner__text">Оставьте заявку и получите бесплатную консультацию по подбору утеплителя
+        <p class="catalog-banner__text">Оставьте заявку и получите бесплатную консультацию по подбору
+            {if $_modx->context.key != 'krovlya'}
+                утеплителя
+            {else}
+                кровли
+            {/if}
             под Ваши требования</p>
         <form class="catalog-banner__form" method="post">
             <input type="text" class="catalog-banner__input" name="NAME" placeholder="Ваше имя">
@@ -37,6 +42,8 @@
             {set $imgname = 'paroc.jpg'}
         {case 'ursa'}
             {set $imgname = 'ursa.jpg'}
+        {case 'krovlya'}
+            {set $imgname = 'krovlyasp.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

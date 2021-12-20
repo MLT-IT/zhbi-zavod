@@ -45,7 +45,7 @@
                     <meta itemprop="priceCurrency" content="RUB">
                     руб
 
-                    {if $_modx->resource.context_key !== 'rockwool'}
+                    {if $_modx->resource.context_key != 'rockwool'}
                         {set $unit = $_modx->resource.unit}
                         {$unit[0] ? '/ ' ~ $unit[0] : ''}
                     {/if}
