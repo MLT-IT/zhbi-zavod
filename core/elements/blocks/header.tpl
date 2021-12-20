@@ -54,7 +54,6 @@
                     <span class="burger__stick"></span>
                 </div>
                 <span class="header__catalog-text">Каталог</span>
-                    {if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'tn']}
                         <div class="header__catalog-menu header__catalog-menu_width_full">
                             <div class="header__catalog-menu-inner">
                                 <a href="/catalog/" class="header__catalog-menu-header">Каталог</a>
@@ -77,7 +76,8 @@
                                 {/foreach}
                             </div>
                         </div>
-                    {else}
+
+                        {* СТАРОЕ МЕНЮ
                         <div class="header__catalog-menu">
                             <div class="header__catalog-menu-inner">
                                     <div class="header__catalog-column">
@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                         </div>
-                    {/if}
+                        *}
             </div>
 
             <form action="/search/" class="header__search-wrap">

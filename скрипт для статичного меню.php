@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * Скрипт выполняется в console. Выводит ссылки.
+ */
+
+// ---------------------------------------------
+// Толщина
+// ---------------------------------------------
 $thicknessResult = [];
 $result = '';
 
@@ -30,6 +38,45 @@ sort($thicknessResult);
 
 foreach ($thicknessResult as $item) {
     $result .= '<a class="header__column-item" href="https://www-penoplex.ru/catalog/?msoption|item_thickness=' . urlencode($item) . '">' . $item . '</a><br>';
+}
+
+echo $result;
+
+
+// ---------------------------------------------
+// Применение
+// ---------------------------------------------
+$primenenieResult = [];
+$result = '';
+
+$itemsIds = $modx->runSnippet('pdoResources', [
+    'parents' => '-9125,-10594,-10998',
+    'depth' => 1000,
+    'where' => '{"template:=": "6"}',
+    'limit' => 0,
+    'sortby' => 'id',
+    'sortdir' => 'ASC',
+    'context' => 'paroc',
+    'returnIds' => 1
+]);
+$itemsIds = explode(',', $itemsIds);
+
+
+foreach ($itemsIds as $id) {
+    $item = $modx->getObject('modResource', $id);
+
+    $primenenieArray = $item->get('primenenie');
+    if (!empty($primenenieArray) && is_array($primenenieArray)) {
+        foreach ($primenenieArray as $primenenie) {
+            $primenenieResult[$primenenie] = $primenenie;
+        }
+    }
+}
+
+sort($primenenieResult);
+
+foreach ($primenenieResult as $item) {
+    $result .= '<a class="header__column-item" href="https://www-paroc.ru/catalog/?msoption|primenenie=' . urlencode($item) . '">' . $item . '</a><br>';
 }
 
 echo $result;
