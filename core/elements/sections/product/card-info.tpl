@@ -28,10 +28,10 @@
                     <span class="product-card__unit-span">Цена за</span>
                     <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
                     {if $_modx->resource['ploshad_m2'][0] ?}
-                        <a class="product-card__unit-link" href="#" data-val="2">квадратный метр</a>
+                        <a class="product-card__unit-link" href="#" data-val="2">м2</a>
                     {/if}
                     {if $_modx->resource['obyem_m3'][0] ?}
-                        <a class="product-card__unit-link" href="#" data-val="3">кубический метр</a>
+                        <a class="product-card__unit-link" href="#" data-val="3">м3</a>
                     {/if}
                 </div>
             {/if}

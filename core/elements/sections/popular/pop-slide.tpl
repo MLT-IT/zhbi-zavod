@@ -64,7 +64,7 @@
             <div class="product-item__selprice">
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="euv-custom-select custom-select product-item__units-select">
-                    <option value="1" selected>упаковка</option>
+                    <option value="1" selected>упаковку</option>
                     {if $ploshad_m2[0]}
                         <option value="2">м2</option>
                     {/if}

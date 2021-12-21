@@ -138,7 +138,7 @@ export default function funcsProduct(ImageZoom) {
                 price = 0;
             }
 
-            price = functions.numberWithSpaces(Math.ceil(1 / unitVal) * price);
+            price = functions.numberWithSpaces(Math.ceil(1 / unitVal * price));
             $price.text(price);
         }
     }
