@@ -14,6 +14,9 @@
                 <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client5.png" alt=""></div>
                 <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client6.png" alt=""></div>
                 <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client7.png" alt=""></div>
+                <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client8.png" alt=""></div>
+                <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client9.png" alt=""></div>
+                <div class="clients__list-img swiper-slide"><img src="{$_modx->config['template_path']}img/clients/client10.png" alt=""></div>
             </div>
         </div>
     </div>

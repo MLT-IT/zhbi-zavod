@@ -5699,7 +5699,8 @@ p, span {
 .clients__list-img {
     width: -webkit-max-content;
     width: max-content;
-    margin-bottom: 16px
+    margin-bottom: 16px;
+    max-width: 100%;
 }
 
 .clients__list-img:not(:last-of-type) {
