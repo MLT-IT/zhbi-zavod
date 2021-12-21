@@ -8,6 +8,34 @@
         .custom-counter__amount
             width: 65px
 
+            @media screen and (max-width: 550px)
+                width: calc(100% - 62px)
+
+        .product-item__controls
+            @media screen and (max-width: 550px)
+                flex-wrap: wrap
+
+        .product-item__selprice
+            @media screen and (max-width: 550px)
+               flex-wrap: wrap
+
+        .product-item__selprice-span
+            @media screen and (max-width: 550px)
+                width: 100%
+                margin-right: 0
+                margin-bottom: 4px
+
+    &__products-item-avail
+        @media screen and (max-width: 550px)
+            grid-column: span 3
+
+    &__products-item-rate
+        @media screen and (max-width: 768px)
+            margin-left: auto
+
+        @media screen and (max-width: 550px)
+            margin-left: 0
+
     &__filter-button
         @at-root .knauf &
             background-image: url(/assets/template/img/catalog/icons/knauf.png)
@@ -273,6 +301,11 @@
         .product-item__btn-in-cart
             padding-left: 0
             padding-right: 0
+
+            @media screen and (max-width: 550px)
+                margin-top: 10px
+                width: 100%
+                margin-left: 0
 
         &.grid
             .listing__products-item-remove
