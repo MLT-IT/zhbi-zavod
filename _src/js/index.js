@@ -11,6 +11,7 @@ import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
 import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps'
+import add_cover_to_map from './modules/maps'
 
 window.jQuery = $;
 window.$ = $;
@@ -24,6 +25,15 @@ import inputFilter from './functions/inputFilter.js';
 $(function ($) {
     funcsProduct(ImageZoom);
     funcsCatalog();
+
+    // -------------------------------
+    // Запрет прокрутки карты до клика
+    // -------------------------------
+    let $map_containers = $('.map__container');
+    $map_containers.each((idx, map_container) =>
+    {
+        add_cover_to_map(map_container);
+    })
 
     // -------------------------------
     // Вкладки

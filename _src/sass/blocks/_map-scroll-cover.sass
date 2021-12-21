@@ -1,0 +1,18 @@
+.map-scroll-cover
+    display: none
+    position: absolute
+    background-color: rgba(178, 196, 210, 0.9)
+    color: #294a6c
+    text-transform: uppercase
+    font-size: 18px
+    font-weight: bold
+    z-index: 1
+    cursor: pointer
+    will-change: opacity
+    
+    &--visible
+        display: flex
+        justify-content: center
+        align-items: center
+        animation: fadeIn
+        animation-duration: .3s
