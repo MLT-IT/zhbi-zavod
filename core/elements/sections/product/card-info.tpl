@@ -3,7 +3,7 @@
 
 <div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}"
      data-m2="{$_modx->resource['ploshad_m2'][0]}"
-     data-m3="{$_modx->resource['obyem_m3'][0]}" data-key="{$productKey}">
+     data-m3="{$_modx->resource['obyem_m3'][0]}" data-pm="{$_modx->resource['kolvo-pm'][0]}" data-key="{$productKey}">
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <a href="{$image}" data-fancybox class="product-card__img">
@@ -32,6 +32,9 @@
                     {/if}
                     {if $_modx->resource['obyem_m3'][0] ?}
                         <a class="product-card__unit-link" href="#" data-val="3">м3</a>
+                    {/if}
+                    {if $_modx->resource['kolvo-pm'][0] ?}
+                        <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
                     {/if}
                 </div>
             {/if}

@@ -5,7 +5,7 @@
   data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности.
 *}
 
-<div data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}"
+<div data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-pm="{$_pls['kolvo-pm'][0]}"
      class="product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-priority1="{$_pls['priority1']}"
      data-priority2="{$_pls['HitsPage']}">
 
@@ -77,6 +77,9 @@
                     {/if}
                     {if $obyem_m3[0]}
                         <option value="3">м3</option>
+                    {/if}
+                    {if $_pls['kolvo-pm'][0]}
+                        <option value="4">п.м.</option>
                     {/if}
                 </select>
             </div>

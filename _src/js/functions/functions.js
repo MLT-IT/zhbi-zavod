@@ -32,7 +32,8 @@ function getActiveUnitValue($productItem) {
     let unitValues = {
         '1': 1,
         '2': $productItem.attr('data-m2'),
-        '3': $productItem.attr('data-m3')
+        '3': $productItem.attr('data-m3'),
+        '4': $productItem.attr('data-pm'),
     };
 
     // Обработка кол-ва единиц измерения
