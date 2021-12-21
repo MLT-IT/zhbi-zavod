@@ -56,7 +56,7 @@
                 <span class="header__catalog-text">Каталог</span>
                         <div class="header__catalog-menu header__catalog-menu_width_full">
                             <div class="header__catalog-menu-inner">
-                                <a href="/catalog/" class="header__catalog-menu-header">Каталог</a>
+                                <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
                                 {set $menu = 'createMenu' | snippet}
                                 {foreach $menu as $key => $menuTypes}
                                     <div class="header__catalog-menu-type">
