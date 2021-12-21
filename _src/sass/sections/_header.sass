@@ -9,6 +9,66 @@
         z-index: 50
         height: 64px
 
+    &__catalog-btn
+        border-radius: 4px
+        background: transparent
+        width: 100%
+        height: 100%
+        justify-content: flex-start
+        padding-left: 24px
+        padding-right: 19px
+        transition: .3s
+        display: flex
+        align-items: center
+
+        @at-root .knauf &
+            background: #4F70AD
+        @at-root .rockwool &
+            background: #AA000F
+        @at-root .tn &
+            background: #ED1C24
+        @at-root .penoplex &
+            background: #F36F21
+        @at-root .isover &
+            background: #FFDD00
+        @at-root .paroc &
+            background: #CE1126
+        @at-root .ursa &
+            background: #EA4740
+
+        &:hover
+            @at-root .knauf &
+                background-color: darken(#4f70ad, 10%)
+            @at-root .rockwool &
+                background-color: darken(#AA000F, 10%)
+            @at-root .tn &
+                background-color: darken(#ED1C24, 10%)
+            @at-root .penoplex &
+                background-color: darken(#F36F21, 10%)
+            @at-root .isover &
+                background-color: darken(#FFDD00, 10%)
+            @at-root .paroc &
+                background-color: darken(#CE1126, 10%)
+            @at-root .ursa &
+                background-color: darken(#EA4740, 10%)
+
+    &__catalog
+        width: 128px
+        height: 40px
+
+        &.hover
+            .header__catalog-menu
+                opacity: 1
+                max-height: 1500px
+                padding: 13px 25px 25px 25px
+                margin-left: -25px
+
+                &_width
+                    &_full
+                        margin-left: 0
+                        padding-left: 15px
+                        padding-right: 15px
+
     &__column, &__catalog-menu-type
         &:nth-last-of-type(n+2)
             margin-right: 31px
@@ -87,8 +147,21 @@
         display: none
         margin-right: 16.5px
 
-        @at-root .header__burger.burger span
-            background-color: #323232
+        span
+            @at-root .knauf &
+                background-color: #4F70AD
+            @at-root .rockwool &
+                background-color: #AA000F
+            @at-root .tn &
+                background-color: #ED1C24
+            @at-root .penoplex &
+                background-color: #f36f21
+            @at-root .isover &
+                background-color: #323232
+            @at-root .paroc &
+                background-color: #ce1126
+            @at-root .ursa &
+                background-color: #ea4740
 
         @media screen and (max-width: 768px)
             display: block
@@ -129,51 +202,6 @@
         height: auto
         margin-right: 54px
 
-    &__catalog
-        border: 2px solid
-        border-radius: 4px
-        background: transparent
-        width: 128px
-        height: 40px
-        justify-content: flex-start
-        padding-left: 24px
-        padding-right: 19px
-
-        @at-root .knauf &
-            background: #FFFFFF
-            border-color: #4F70AD
-        @at-root .rockwool &
-            background: #FFFFFF
-            border-color: #AA000F
-        @at-root .tn &
-            background: #FFFFFF
-            border-color: #ED1C24
-        @at-root .penoplex &
-            background: #F36F21
-            border-color: transparent
-        @at-root .isover &
-            background: #FFDD00
-            border-color: transparent
-        @at-root .paroc &
-            background: #CE1126
-            border-color: transparent
-        @at-root .ursa &
-            background: #EA4740
-            border-color: transparent
-
-        &.hover
-            .header__catalog-menu
-                opacity: 1
-                max-height: 1500px
-                padding: 13px 25px 25px 25px
-                margin-left: -25px
-
-                &_width
-                    &_full
-                        margin-left: 0
-                        padding-left: 15px
-                        padding-right: 15px
-
     &__catalog-menu
         max-height: 0
         overflow: hidden
@@ -184,12 +212,13 @@
         z-index: 200
         padding-top: 0
         left: 0
+        cursor: default
 
         &_width
             &_full
                 max-width: 1150px
                 width: 100vw
-                left: -212px
+                left: -210px
 
     &__catalog-menu-inner
         display: flex
@@ -226,21 +255,10 @@
         font-size: 14px
         line-height: 100%
         margin-left: 15px
+        color: #fff
 
-        @at-root .knauf &
-            color: #4f70ad
-        @at-root .rockwool &
-            color: #AA000F
-        @at-root .tn &
-            color: #ED1C24
-        @at-root .penoplex &
-            color: #FFF
         @at-root .isover &
             color: #323232
-        @at-root .paroc &
-            color: #FFF
-        @at-root .ursa &
-            color: #FFF
 
     &__search-wrap
         flex-basis: 504px

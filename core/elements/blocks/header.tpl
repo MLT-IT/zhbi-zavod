@@ -48,12 +48,14 @@
                 </a>
             {/if}
             <div class="header__catalog">
-                <div class="burger">
-                    <span class="burger__stick"></span>
-                    <span class="burger__stick"></span>
-                    <span class="burger__stick"></span>
+                <div class="header__catalog-btn">
+                    <div class="burger">
+                        <span class="burger__stick"></span>
+                        <span class="burger__stick"></span>
+                        <span class="burger__stick"></span>
+                    </div>
+                    <span class="header__catalog-text">Каталог</span>
                 </div>
-                <span class="header__catalog-text">Каталог</span>
                         <div class="header__catalog-menu header__catalog-menu_width_full">
                             <div class="header__catalog-menu-inner">
                                 <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>

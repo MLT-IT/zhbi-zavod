@@ -3870,7 +3870,6 @@ p, span {
     height: 16px;
     height: -webkit-max-content;
     height: max-content;
-    cursor: pointer
 }
 
 .burger span {
@@ -4762,6 +4761,10 @@ p, span {
 
 .header__catalog .burger span {
     background-color: #fff
+}
+
+.isover .header__catalog .burger span {
+    background-color: #000
 }
 
 .header__about {

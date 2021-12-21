@@ -29,22 +29,26 @@ $(function ($) {
     // -------------------------------
     // Меню на ПК
     // -------------------------------
-    $('.header__catalog').hover(function() {
-        $(this).addClass('hover');
-    }, function() {
-        $(this).removeClass('hover');
+    $('.header__catalog').on('click', function (e) {
+        let $target = $(e.target);
+        if (!$target.closest('.header__catalog-menu').length) {
+            $(this).toggleClass('hover');
+        }
     });
 
-    $('.header__catalog .burger').on('click', function() {
-        $(this).parent().removeClass('hover');
-    });
+    $(document).on('click', function (e) {
+        let $target = $(e.target);
+
+        if (!$target.hasClass('header__catalog') && !$target.closest('.header__catalog').length) {
+            $('.header__catalog.hover').removeClass('hover');
+        }
+    })
 
     // -------------------------------
     // Запрет прокрутки карты до клика
     // -------------------------------
     let $map_containers = $('.map__container');
-    $map_containers.each((idx, map_container) =>
-    {
+    $map_containers.each((idx, map_container) => {
         add_cover_to_map(map_container);
     })
 
