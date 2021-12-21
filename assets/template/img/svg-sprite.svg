@@ -306,4 +306,9 @@
   <symbol viewBox="0 0 21 18" xmlns="http://www.w3.org/2000/svg" id="icon-heart">
     <path d="M18.112 2.41452C17.6722 1.96607 17.15 1.61034 16.5752 1.36763C16.0005 1.12492 15.3844 1 14.7623 1C14.1401 1 13.5241 1.12492 12.9493 1.36763C12.3746 1.61034 11.8524 1.96607 11.4126 2.41452L10.4998 3.34476L9.58699 2.41452C8.69858 1.50912 7.49364 1.00047 6.23725 1.00047C4.98085 1.00047 3.77591 1.50912 2.88751 2.41452C1.9991 3.31992 1.5 4.5479 1.5 5.82833C1.5 7.10875 1.9991 8.33674 2.88751 9.24214L3.80029 10.1724L10.4998 17L17.1992 10.1724L18.112 9.24214C18.5521 8.79391 18.9011 8.26171 19.1393 7.67596C19.3774 7.0902 19.5 6.46237 19.5 5.82833C19.5 5.19428 19.3774 4.56645 19.1393 3.9807C18.9011 3.39494 18.5521 2.86275 18.112 2.41452V2.41452Z" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+  <symbol viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" id="icon-compare">
+    <path d="M8 13.3333V6.66667" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 13.3333V2.66666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 13.3333V10.6667" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>

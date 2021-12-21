@@ -8,6 +8,12 @@
         font-weight: 700
         font-size: 12px
         color: #b1b2b3
+        width: 100%
+        text-align: right
+
+        @media screen and (max-width: 880px)
+            text-align: left
+            margin-top: 16px
 
     &__title-1
         font-size: 24px
@@ -132,7 +138,6 @@
         font-size: 14px
         line-height: 100%
         grid-column: span 2
-        margin-top: 12px
 
     &__unit-link
         line-height: 1.8
@@ -145,3 +150,59 @@
             border-radius: 4px
             padding: 7px 8.5px
             background-color: #F8F8F8
+
+    &__info-inner
+        grid-column: span 2
+        display: flex
+        align-items: flex-start
+
+        @media screen and (max-width: 1200px)
+            grid-column: span 1
+
+        @media screen and (max-width: 880px)
+            display: block
+
+    &__right-info
+        display: flex
+        margin-left: auto
+        flex-wrap: wrap
+        width: 224px
+
+        @media screen and (max-width: 880px)
+            margin-left: 0
+            margin-bottom: 12px
+
+    &__btn
+        position: relative
+        font-weight: 500
+        font-size: 14px
+        line-height: 100%
+        text-decoration: underline
+        padding-left: 23px
+        transition: .3s
+        white-space: nowrap
+        margin-top: 12px
+
+        +set_colors_1(color)
+
+        &-fav
+            margin-left: 32px
+
+        &:hover
+            text-decoration: none
+        svg
+            position: absolute
+            left: 0
+            fill: transparent
+            +set_colors_1(stroke)
+
+    &__btn-fav
+        svg
+            stroke-width: 1.5px
+            width: 16px
+            height: 16px
+
+    &__btn-compare
+        svg
+            width: 17.5px
+            height: 17.5px

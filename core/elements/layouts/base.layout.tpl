@@ -8,7 +8,7 @@
     {case 'tn'}
         {set $brand = 'Технониколь'}
     {case 'penoplex'}
-        {set $brand = 'Пеноплекс'}
+        {set $brand = 'Пеноплэкс'}
     {case 'isover'}
         {set $brand = 'Изовер'}
     {case 'paroc'}

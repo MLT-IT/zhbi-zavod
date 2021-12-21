@@ -5448,10 +5448,6 @@ p, span {
     border-bottom-color: transparent
 }
 
-.product-card__price {
-    grid-column: span 2
-}
-
 .product-card__about {
     margin-bottom: 60px;
     max-width: 620px
@@ -7284,10 +7280,6 @@ p, span {
 @media screen and (max-width: 1200px) {
     .product-card__info {
         grid-template-columns:1fr
-    }
-
-    .product-card__price {
-        grid-column: span 1
     }
 
     .office .swiper-buttons {

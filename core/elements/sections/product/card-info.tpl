@@ -20,29 +20,27 @@
     <div class="product-card__info" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <link itemprop="availability" href="http://schema.org/InStock">
 
-        <div class="product-card__price">
-            <p class="product-card__article">Арт. {$_modx->resource['article']}</p>
+        <div class="product-card__info-inner">
+            <div class="product-card__left-info">
+                {if $_modx->resource.context_key === 'rockwool'}
+                    <div class="product-card__units-wrap">
+                        <input type="hidden" name="unit" value="1">
+                        <span class="product-card__unit-span">Цена за</span>
+                        <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
+                        {if $_modx->resource['ploshad_m2'][0] ?}
+                            <a class="product-card__unit-link" href="#" data-val="2">м2</a>
+                        {/if}
+                        {if $_modx->resource['obyem_m3'][0] ?}
+                            <a class="product-card__unit-link" href="#" data-val="3">м3</a>
+                        {/if}
+                        {if $_modx->resource['kolvo-pm'][0] ?}
+                            <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
+                        {/if}
+                    </div>
+                {/if}
 
-            {if $_modx->resource.context_key === 'rockwool'}
-                <div class="product-card__units-wrap">
-                    <span class="product-card__unit-span">Цена за</span>
-                    <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
-                    {if $_modx->resource['ploshad_m2'][0] ?}
-                        <a class="product-card__unit-link" href="#" data-val="2">м2</a>
-                    {/if}
-                    {if $_modx->resource['obyem_m3'][0] ?}
-                        <a class="product-card__unit-link" href="#" data-val="3">м3</a>
-                    {/if}
-                    {if $_modx->resource['kolvo-pm'][0] ?}
-                        <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
-                    {/if}
-                </div>
-            {/if}
-
-            <input type="hidden" name="unit" value="1">
-
-            {if $price}
-                <span class="product-card__price-wrap">
+                {if $price}
+                    <span class="product-card__price-wrap">
                     <span itemprop="price" class="product-item__price"
                           data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
                     <meta itemprop="priceCurrency" content="RUB">
@@ -53,13 +51,36 @@
                         {$unit[0] ? '/ ' ~ $unit[0] : ''}
                     {/if}
                 </span>
-            {/if}
+                {/if}
 
-            {set $upakovka = 'getPackage' | snippet}
-            {if $upakovka | length > 0}
-                <div class="product-card__package">В упаковке: {$upakovka}</div>
-            {/if}
+                {set $upakovka = 'getPackage' | snippet}
+                {if $upakovka | length > 0}
+                    <div class="product-card__package">В упаковке: {$upakovka}</div>
+                {/if}
+            </div>
+            <div class="product-card__right-info">
+                <span class="product-card__article">Арт. {$_modx->resource['article']}</span>
+                {*
+                <a class="product-card__btn product-card__btn-compare" href="#">
+                    <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
+                         height="16">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
+                    </svg>
+                    Сравнить
+                </a>
+                <a class="product-card__btn product-card__btn-fav" href="#">
+                    <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
+                         height="18">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
+                    </svg>
+                    В избранное
+                </a>
+                *}
+            </div>
         </div>
+
         <div class="product-card__info-left">
             {include "file:chunks/productElems.tpl"}
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
