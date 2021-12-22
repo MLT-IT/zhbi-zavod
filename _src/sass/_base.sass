@@ -19,19 +19,19 @@
 
 @mixin set_colors_2($property)
     @at-root .knauf &, .knauf
-        color: #323232
+        #{$property}: #323232
     @at-root .rockwool &, .rockwool
-        color: #323232
+        #{$property}: #323232
     @at-root .tn &, .tn
-        color: #666666
+        #{$property}: #666666
     @at-root .penoplex &, .penoplex
-        color: #323232
+        #{$property}: #323232
     @at-root .isover &, .isover
-        color: #323232
+        #{$property}: #323232
     @at-root .paroc &, .paroc
-        color: #323232
+        #{$property}: #323232
     @at-root .ursa &, .ursa
-        color: #232F61
+        #{$property}: #232F61
 
 @mixin set_colors_3($property)
     @at-root .knauf &
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6
     font-weight: normal
 
 a, input, textarea
-    +set_colors_2(color)
+    color: #323232
 
 a:hover
     +set_colors_1(color)
