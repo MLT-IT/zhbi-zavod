@@ -11,6 +11,10 @@
         &:hover
             box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
 
+        .custom-counter
+            @media screen and (max-width: 550px)
+                width: 100%
+
         .custom-counter__amount
             width: 65px
 
@@ -30,6 +34,12 @@
                 width: 100%
                 margin-right: 0
                 margin-bottom: 4px
+
+        .product-item__btn-in-cart
+            @media screen and (max-width: 550px)
+                margin-top: 10px
+                width: 100%
+                margin-left: 0
 
     &__products-item-avail
         @media screen and (max-width: 550px)
@@ -312,11 +322,6 @@
         .product-item__btn-in-cart
             padding-left: 0
             padding-right: 0
-
-            @media screen and (max-width: 550px)
-                margin-top: 10px
-                width: 100%
-                margin-left: 0
 
         &.grid
             .listing__products-item-remove
