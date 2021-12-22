@@ -53,7 +53,12 @@
                 </span>
                 {/if}
 
-                {set $upakovka = 'getPackage' | snippet}
+                {if $_modx->resource.context_key == 'rockwool'}
+                    {set $upakovka = 'getPackageRockwool' | snippet}
+                {else}
+                    {set $upakovka = 'getPackage' | snippet}
+                {/if}
+
                 {if $upakovka | length > 0}
                     <div class="product-card__package">В упаковке: {$upakovka}</div>
                 {/if}

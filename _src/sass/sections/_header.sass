@@ -143,6 +143,12 @@
             margin-right: 0
             margin-left: auto
 
+    .header__burger
+        min-width: 25px
+
+        span
+            height: 4px
+
     &__burger
         display: none
         margin-right: 16.5px
@@ -177,6 +183,12 @@
         height: 40px
         width: 161px
         margin-right: 34px
+
+        @at-root .rockwool &
+            @media screen and (max-width: 768px)
+                width: 90px
+                display: flex
+                align-items: center
 
         @media screen and (max-width: 768px)
             height: 26px
