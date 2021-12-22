@@ -143,9 +143,14 @@ a:hover
 .product-card__form, .product-card__controls
     margin-bottom: 15px
 
-.listing__products-item-right, .product-item__to-cart
+.product-item__to-cart
     max-width: 271px
+
+.listing__products-item-right, .product-item__to-cart
     width: 100%
+
+    @media screen and (max-width: 768px)
+        max-width: none
 
 // ------------------------------
 // Переопределение базовых стилей (базовые стили написаны в самом верху этого файла)
