@@ -6,6 +6,7 @@ $(function () {
     $(document).on('mse2_load', function (e, data) {
         window.getRemainder();
         window.initStyledCounter();
+        $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
     });
 
     // -------------------------------

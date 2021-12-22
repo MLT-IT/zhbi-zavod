@@ -48,6 +48,48 @@
         <div class="listing__products-item-art">Арт. {$article}</div>
     </div>
     <div class="listing__products-item-right">
+        <div class="listing__products-item-chars-wrap">
+            <span class="listing__products-item-chars-btn">
+                <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     version="1.1">
+                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                </svg>
+                Показать информацию
+            </span>
+            <div class="listing__products-item-chars">
+                {set $charsValues = [
+                    $_pls['primenenie'][0],
+                    $_pls['plotnost'][0],
+                    $_pls['teploprovodnost'][0],
+                    $_pls['ploshad_m2'][0],
+                    $_pls['obyem_m3'][0],
+                    $_pls['v_upakovke'][0],
+                    $_pls['kolvo-pm'][0],
+                ]}
+                {set $charsHeaders = [
+                    'Применение',
+                    'Плотность, кг/м3',
+                    'Теплопроводность',
+                    'Площадь, м2',
+                    'Объем, м3',
+                    'Кол-во в упаковке, шт',
+                    'Кол-во в упаковке, п.м.'
+                ]}
+                {foreach $charsValues as $key => $value}
+                    {if $value ?}
+                        <div class="listing__products-item-chars-line">
+                            <span class="listing__products-item-chars-span">
+                                {$charsHeaders[$key]}:
+                            </span>
+                            <span class="listing__products-item-chars-val">
+                                {$value}
+                            </span>
+                        </div>
+                    {/if}
+                {/foreach}
+            </div>
+        </div>
+
         <div class="listing__products-item-price">
             {if $price}
                 <span class="product-item__price" data-default="{$price}">{$price}</span> руб

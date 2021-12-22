@@ -3,6 +3,32 @@
  */
 export default function funcsCatalog() {
     // -------------------------------------------
+    // Скрыть / показать характеристики на карточках
+    // -------------------------------------------
+    $(document).on('click', '.listing__products-item-chars-btn', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('active').closest('.listing__products-item-chars-wrap').find('.listing__products-item-chars').slideToggle();
+    });
+
+    if ($('.listing').length) {
+        let lastW = 0;
+
+        $(window).resize(function () {
+            let $charsWrap = $('.listing__products-item-chars-wrap');
+            if (window.innerWidth <= 550 && lastW > 550) {
+                $charsWrap.find('.listing__products-item-chars').hide();
+                $charsWrap.find('.listing__products-item-chars-btn').removeClass('active');
+                // console.log('переключение на мобилки');
+            } else if (window.innerWidth > 550 && lastW <= 550) {
+                $charsWrap.find('.listing__products-item-chars').show();
+                $charsWrap.find('.listing__products-item-chars-btn').addClass('active');
+                // console.log('переключение на ПК');
+            }
+            lastW = window.innerWidth;
+        }).resize();
+    }
+
+    // -------------------------------------------
     // Раскрытие меню для фильтрации на мобилках
     // -------------------------------------------
     $('.listing__filter-button').on('click', function (e) {

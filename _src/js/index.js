@@ -22,9 +22,15 @@ import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import inputFilter from './functions/inputFilter.js';
 
+// Замена сообщения о ненайденных результатах на странице каталога. Другого способа разделить сообщения mFilter2 и mSearch2, который не сбросится при обновлении / переустановке плагина, я не нашел
+let elem = document.querySelector('.listing__content .msearch2message');
+if (elem !== null) {
+    elem.innerHTML = 'Подходящих результатов не найдено.';
+}
+
 $(function ($) {
-    funcsProduct(ImageZoom);
     funcsCatalog();
+    funcsProduct(ImageZoom);
 
     // -------------------------------
     // Меню на ПК
