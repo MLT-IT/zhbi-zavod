@@ -171,23 +171,13 @@
                 ]}
             </ul>
 
-            <ul class="header__nav-list">
-                <li class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-                {*<li class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></li>*}
-                {*<li class="header__nav-item sale"><a class="header__nav-link" href="#">Скидки</a></li>*}
-                {*<li class="header__nav-item"><a class="header__nav-link" href="#">Акции</a></li>*}
-                {*<li class="header__nav-item"><a class="header__nav-link" href="#">О компании</a></li>*}
-                {*
-                <li class="header__nav-item openable"><a href="#">О компании</a>
-                    <ul class="header__nav-sublist">
-                        <li><a href="#">Вопрос-ответ</a></li>
-                        <li><a href="#">Отзывы</a></li>
-                    </ul>
-                </li>
-                *}
-                <li class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></li>
-                {*<li class="header__nav-item header__nav-item_special"><a class="header__nav-link" href="#">Акции</a>*}
-            </ul>
+            <div class="header__nav-list">
+                <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
+                <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
+                <a class="header__email" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
+                    {'!utm' | snippet : ['val' => 'email']}
+                </a>
+            </div>
         </nav>
     </div>
 </header>

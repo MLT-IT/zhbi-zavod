@@ -41,6 +41,9 @@
                 width: 100%
                 margin-left: 0
 
+    &__products-item-art
+        font-size: .675rem
+
     &__products-item-avail
         @media screen and (max-width: 550px)
             grid-column: span 3
@@ -403,10 +406,12 @@
         font-weight: bold
 
     &__products-item-chars-span, &__products-item-chars-val
+        color: rgba(0,0,0,.6)
+        font-size: .750rem
+
         @media screen and (max-width: 768px)
             display: block
 
-    &__products-item-chars-line
         &:nth-last-of-type(n+2)
             @media screen and (max-width: 768px)
                 margin-bottom: 10px

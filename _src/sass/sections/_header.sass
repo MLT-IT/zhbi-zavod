@@ -416,13 +416,18 @@
     &__contacts
         margin-right: 48px
 
-    &__phone
+    &__phone, &__email
         font-weight: 500
         font-size: 14px
         line-height: 100%
-        margin-bottom: 5px
         white-space: nowrap
         transition: .3s
+
+    &__phone
+        margin-bottom: 5px
+
+    &__email
+        margin-left: auto
 
     &__contacts-city
         font-weight: 500
@@ -691,6 +696,8 @@
                 transform: translateX(0)
 
     &__nav-list
+        width: calc(100% - 30px)
+
         &.mobile
             display: none
 
