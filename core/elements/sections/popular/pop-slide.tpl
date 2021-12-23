@@ -39,6 +39,34 @@
             </svg>
         </div>
         <div class="listing__products-item-art">Арт. {$article}</div>
+        {*
+        ВАЖНО! Когда раскомментируешь кнопки, измени у ".listing__products-item-art" grid-column: span 3 на 2.
+        <div class="listing__products-item-btns-wrap">
+            <span class="listing__products-item-btn listing__products-item-btn-more">
+                <svg class="svg icon-dots" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
+                     height="16">
+                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-dots"></use>
+                </svg>
+            </span>
+            <div class="listing__products-item-btns-wrap-inner">
+                <span class="listing__products-item-btn listing__products-item-btn-compare" href="#">
+                    <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
+                         height="16">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
+                    </svg>
+                </span>
+                <span class="listing__products-item-btn listing__products-item-btn-fav" href="#">
+                    <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
+                         height="18">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        *}
     </div>
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
