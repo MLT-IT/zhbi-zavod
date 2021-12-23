@@ -7,9 +7,9 @@
     {block 'description'}
         {include "file:elements/meta-description.tpl"}
     {/block}
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css">
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css">
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=1">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=1">
     {include 'file:elements/metrika.tpl'}
 
     {* >>> favicon *}
@@ -87,9 +87,9 @@
     <a class="scroll-top active" href="javascript:;" onclick="document.getElementById('body').scrollIntoView();">
         <img src="{$_modx->config['template_path']}img/scroll-top.png">
     </a>
-    <script src="{$_modx->config['template_path']}js/main.js"></script>
-    <script src="{$_modx->config['template_path']}js/scripts.js"></script>
-    <script src="{$_modx->config['template_path']}js/vendors.js"></script>
-    <script src="{$_modx->config['template_path']}js/base.js"></script>
+    <script src="{$_modx->config['template_path']}js/main.js?v=1"></script>
+    <script src="{$_modx->config['template_path']}js/scripts.js?v=1"></script>
+    <script src="{$_modx->config['template_path']}js/vendors.js?v=1"></script>
+    <script src="{$_modx->config['template_path']}js/base.js?v=1"></script>
     <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" async defer></script>
 {/block}
