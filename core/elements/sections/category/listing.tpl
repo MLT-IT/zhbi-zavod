@@ -2,9 +2,7 @@
     <div class="wrapper">
         {*        <h1 class="title-1">Продажа газобетонных блоков H+H в самом лучшем городе СПБ</h1>*}
         <div class="listing__content" id="mse2_mfilter">
-            {*'msPCS' | snippet*}
-
-            [[msPCS]]
+            {'!msPCS' | snippet}
 
             {set $params = [
             'element' => 'msProducts',
@@ -27,10 +25,9 @@
             'includeTVs' => 'priority1,HitsPage',
 
             'values_delimeter' => '~',
-
             'context' => $_modx->resource.context_key,
 
-            'optionFilters' => '[[+mspcs.option]]'
+            'optionFilters' => $_modx->getPlaceholder('mspcs.option')
             ]}
 
             {if $_modx->resource.template == 4}
@@ -41,3 +38,10 @@
         </div>
     </div>
 </section>
+
+
+
+
+<div class="test" style="display: none">
+    {$_modx->getPlaceholder('mspcs.option')}
+</div>
