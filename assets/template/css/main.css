@@ -6612,7 +6612,6 @@ p, span {
 .listing__products-list.grid .listing__products-item-right,
 .swiper-wrapper.sect-pop__slider .listing__products-item-right {
     margin-left: 0;
-    margin-top: auto;
     width: 100%;
     align-items: flex-start
 }
