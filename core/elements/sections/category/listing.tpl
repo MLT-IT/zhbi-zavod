@@ -38,10 +38,3 @@
         </div>
     </div>
 </section>
-
-
-
-
-<div class="test" style="display: none">
-    {$_modx->getPlaceholder('mspcs.option')}
-</div>
