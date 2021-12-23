@@ -41,8 +41,9 @@
                 width: 100%
                 margin-left: 0
 
-    &__products-item-art
+    .listing__products-item-art
         font-size: .675rem
+        order: 1
 
     &__products-item-avail
         @media screen and (max-width: 550px)
@@ -289,6 +290,7 @@
         margin-top: -9px
 
     &__products-item-title
+        padding-top: 8px
         a
             color: #1a0dab
 
@@ -465,3 +467,35 @@
 
             @media screen and (max-width: 510px)
                 top: 10px
+
+    &__products-item-btns-wrap
+        order: 1
+        width: 60px
+        margin-left: auto
+
+    &__products-item-btn
+        stroke: #000
+        display: inline-block
+
+        svg
+            transition: .3s
+
+        &:hover
+            svg
+                +set_colors_1(stroke)
+
+        &-fav
+            svg
+                fill: transparent
+                stroke-width: 2px
+                width: 18px
+                height: 16px
+
+        &-compare
+            margin-right: 18px
+            svg
+                stroke-width: 1px
+                width: 17px
+                height: 17px
+
+

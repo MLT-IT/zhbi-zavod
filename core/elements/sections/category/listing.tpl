@@ -2,6 +2,10 @@
     <div class="wrapper">
         {*        <h1 class="title-1">Продажа газобетонных блоков H+H в самом лучшем городе СПБ</h1>*}
         <div class="listing__content" id="mse2_mfilter">
+            {*'msPCS' | snippet*}
+
+            [[msPCS]]
+
             {set $params = [
             'element' => 'msProducts',
             'filters' => $_modx->resource.listFilters ?: "",
@@ -24,7 +28,9 @@
 
             'values_delimeter' => '~',
 
-            'context' => $_modx->resource.context_key
+            'context' => $_modx->resource.context_key,
+
+            'optionFilters' => '[[+mspcs.option]]'
             ]}
 
             {if $_modx->resource.template == 4}

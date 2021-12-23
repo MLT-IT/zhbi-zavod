@@ -1,7 +1,7 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div data-key="{$productKey}" class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-pm="{$_pls['kolvo-pm'][0]}">
+<div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-pm="{$_pls['kolvo-pm'][0]}">
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
             <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="{$pagetitle}">

@@ -6623,12 +6623,12 @@ p, span {
 
 .listing__products-list.grid .listing__products-item-avail,
 .swiper-wrapper.sect-pop__slider .listing__products-item-avail {
-    order: 0
+    order: 2
 }
 
 .listing__products-list.grid .listing__products-item-rate,
 .swiper-wrapper.sect-pop__slider .listing__products-item-rate {
-    order: 1;
+    order: 2;
     margin-right: 0;
     grid-column: span 1
 }
@@ -6645,8 +6645,7 @@ p, span {
 
 .listing__products-list.grid .listing__products-item-art,
 .swiper-wrapper.sect-pop__slider .listing__products-item-art {
-    order: 3;
-    grid-column: span 3;
+    grid-column: span 2;
     margin-bottom: 10px
 }
 
@@ -6747,7 +6746,7 @@ p, span {
 }
 
 .listing__products-item-avail {
-    order: 1;
+    order: 2;
     display: flex;
     align-items: center;
     grid-column: span 2
@@ -6797,7 +6796,6 @@ p, span {
 }
 
 .listing__products-item-art {
-    order: 3;
     align-self: center;
     color: #b1b2b3;
     font-weight: 700
