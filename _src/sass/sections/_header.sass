@@ -428,10 +428,17 @@
 
     &__email
         margin-left: auto
+        color: #b9b9b9
+        @media screen and (max-width: 768px)
+            display: none
 
     &__contacts-city
         font-weight: 500
         font-size: 14px
+        white-space: nowrap
+
+        @media screen and (max-width: 860px)
+            white-space: normal
 
     &__contacts-time
         text-align: left

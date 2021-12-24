@@ -41,6 +41,12 @@
                 width: 100%
                 margin-left: 0
 
+    .listing__products-item
+        &:nth-of-type(n+2)
+            .listing__products-item-chars-val-info
+                @media screen and (max-width: 790px)
+                    left: -160px
+
     .listing__products-item-art
         font-size: .675rem
         order: 1
@@ -604,8 +610,11 @@
     &__products-item-chars-val-info-wrap
         display: inline-block
         position: absolute
-        margin-top: -6px
+        margin-top: 0
         margin-left: 4px
+
+        @media screen and (max-width: 768px)
+            margin-top: -2px
 
         &:hover
             .listing__products-item-chars-val-info
