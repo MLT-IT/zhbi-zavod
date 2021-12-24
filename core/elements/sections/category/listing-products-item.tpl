@@ -85,8 +85,20 @@
                 Показать информацию
             </span>
             <div class="listing__products-item-chars">
+                {set $primenenieCount = $_pls['primenenie'] | count}
+                {set $primenenieInfo = []}
+                {if $primenenieCount > 1}
+                    {set $primenenie = $_pls['primenenie'][0] ~ '...'}
+
+                    {foreach 1..($primenenieCount-1) as $value}
+                        {set $primenenieInfo[] = $_pls['primenenie'][$value]}
+                    {/foreach}
+                {else}
+                    {set $primenenie = $_pls['primenenie'][0]}
+                {/if}
+
                 {set $charsValues = [
-                    $_pls['primenenie'][0],
+                    $primenenie,
                     $_pls['plotnost'][0],
                     $_pls['teploprovodnost'][0],
                     $_pls['ploshad_m2'][0],
@@ -111,6 +123,21 @@
                             </span>
                             <span class="listing__products-item-chars-val">
                                 {$value}
+
+                                {if $key == 'Применение' && $primenenieInfo | count > 0}
+                                    <div class="listing__products-item-chars-val-info-wrap">
+                                        <span class="listing__products-item-chars-val-info-btn">
+                                            <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                 version="1.1">
+                                                <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                            </svg>
+                                        </span>
+                                        <div class="listing__products-item-chars-val-info">
+                                            {$primenenieInfo | implode : ', '}
+                                        </div>
+                                    </div>
+                                {/if}
                             </span>
                         </div>
                     {/if}

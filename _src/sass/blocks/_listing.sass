@@ -403,15 +403,18 @@
 
     &__products-item-chars
         margin-bottom: 20px
-        overflow: hidden
         transition: .3s
 
         @media screen and (max-width: 768px)
+            overflow: hidden
             max-height: 0
             margin-bottom: 0
 
     &__products-item-chars-span
         font-weight: bold
+
+    &__products-item-chars-val
+        position: relative
 
     &__products-item-chars-span, &__products-item-chars-val
         color: rgba(0,0,0,.6)
@@ -420,16 +423,13 @@
         @media screen and (max-width: 768px)
             display: block
 
-        &:nth-last-of-type(n+2)
-            @media screen and (max-width: 768px)
-                margin-bottom: 10px
-
     &__products-item-chars-wrap
         width: 100%
 
         &.active
             .listing__products-item-chars
                 @media screen and (max-width: 768px)
+                    overflow: visible
                     max-height: 250px
                     margin-bottom: 20px
 
@@ -485,6 +485,7 @@
         width: 60px
         margin-left: auto
         position: relative
+        display: inline-block
 
         &.active
             .listing__products-item-btns-wrap-inner
@@ -564,7 +565,6 @@
             @media screen and (max-width: 550px)
                 display: block
 
-
     &__products-item-btns-wrap-inner
         @media screen and (max-width: 550px)
             max-height: 0
@@ -578,3 +578,42 @@
             padding: 21px 23px 21px 26px
             box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.08)
             border-radius: 8px
+
+    &__products-item-chars-val-info-btn
+        display: inline-block
+
+        svg
+            width: 20px
+            height: 20px
+            fill: #808181
+            flex-shrink: 0
+
+    &__products-item-chars-val-info
+        background-color: #fff
+        position: absolute
+        box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.08)
+        width: 170px
+        border-radius: 6px
+        opacity: 0
+        transition: .3s
+        max-height: 0
+        padding: 0
+        overflow: hidden
+        z-index: 1000
+
+    &__products-item-chars-val-info-wrap
+        display: inline-block
+        position: absolute
+        margin-top: -6px
+        margin-left: 4px
+
+        &:hover
+            .listing__products-item-chars-val-info
+                opacity: 1
+                max-height: 400px
+                padding: 6px
+
+    &__products-item-chars-line
+        &:nth-last-of-type(n+2)
+            @media screen and (max-width: 768px)
+                margin-bottom: 10px
