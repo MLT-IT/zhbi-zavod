@@ -82,6 +82,7 @@
     {/if}
     {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
+    {include "file:sections/payment.tpl"}
     {include "file:sections/advantages.tpl"}
     {include "file:sections/partners.tpl"}
 {/block}

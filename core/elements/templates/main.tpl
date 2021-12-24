@@ -19,6 +19,7 @@
     {include "file:sections/main/stocks.tpl"}
     {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
+    {include "file:sections/payment.tpl"}
     {include "file:sections/advantages.tpl"}
 
     {if $_modx->resource.content | length > 0}

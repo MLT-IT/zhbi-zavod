@@ -4499,10 +4499,6 @@ p, span {
     border-radius: 10px
 }
 
-.listing__tags .swiper-scrollbar-drag {
-    background-color: #ffbe00
-}
-
 .listing__tags-item {
     padding: 5px;
     width: -webkit-min-content;

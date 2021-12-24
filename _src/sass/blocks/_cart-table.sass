@@ -191,13 +191,20 @@
         font-size: 18px
         line-height: 120%
         text-transform: uppercase
-        color: #3C3C3B
+        transition: border-bottom-color .3s
 
         @at-root a#{&}
             border-bottom: 1px dashed #B1B2B3
+            color: #1a0dab
             &:hover
-                border: 0
-                padding-bottom: 1px
+                color: #1a0dab
+            &:visited
+                color: #6f0099
+                &:hover
+                    color: #6f0099
+
+            &:hover
+                border-bottom-color: transparent
 
     &__article
         font-weight: bold

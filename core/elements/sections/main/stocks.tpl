@@ -7,7 +7,7 @@
             </div>
             <div class="stocks__banner-right">
                 <a data-btn-key="turnkey" class="yellow-btn" href="#callback" data-fancybox="">Получить скидку</a>
-                <a class="stocks__link" href="#">Перейти к другим акциям</a>
+                <a class="stocks__link" href="/akcii/">Перейти к другим акциям</a>
             </div>
         </div>
     </div>
