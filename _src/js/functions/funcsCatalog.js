@@ -15,7 +15,7 @@ export default function funcsCatalog() {
     // -------------------------------------------
     $(document).on('click', '.listing__products-item-chars-btn', function(e) {
         e.preventDefault();
-        $(this).toggleClass('active').closest('.listing__products-item-chars-wrap').find('.listing__products-item-chars').slideToggle();
+        $(this).closest('.listing__products-item-chars-wrap').toggleClass('active');
     });
 
     if ($('.listing').length) {
@@ -23,14 +23,10 @@ export default function funcsCatalog() {
 
         $(window).resize(function () {
             let $charsWrap = $('.listing__products-item-chars-wrap');
-            if (window.innerWidth <= 768 && lastW > 768) {
-                $charsWrap.find('.listing__products-item-chars').hide();
-                $charsWrap.find('.listing__products-item-chars-btn').removeClass('active');
-                // console.log('переключение на мобилки');
-            } else if (window.innerWidth > 768 && lastW <= 768) {
-                $charsWrap.find('.listing__products-item-chars').show();
-                $charsWrap.find('.listing__products-item-chars-btn').addClass('active');
-                // console.log('переключение на ПК');
+            if (window.innerWidth <= 768 && (lastW > 768)) {
+                $charsWrap.removeClass('active');
+            } else if (window.innerWidth > 768 && (lastW <= 768)) {
+                $charsWrap.addClass('active');
             }
             lastW = window.innerWidth;
         }).resize();

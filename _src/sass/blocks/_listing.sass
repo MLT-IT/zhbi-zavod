@@ -403,6 +403,12 @@
 
     &__products-item-chars
         margin-bottom: 20px
+        overflow: hidden
+        transition: .3s
+
+        @media screen and (max-width: 768px)
+            max-height: 0
+            margin-bottom: 0
 
     &__products-item-chars-span
         font-weight: bold
@@ -420,6 +426,20 @@
 
     &__products-item-chars-wrap
         width: 100%
+
+        &.active
+            .listing__products-item-chars
+                @media screen and (max-width: 768px)
+                    max-height: 250px
+                    margin-bottom: 20px
+
+            .listing__products-item-chars-btn
+                    &::after
+                        transform: rotate(-135deg)
+                        top: 10px
+
+                        @media screen and (max-width: 510px)
+                            top: 10px
 
     &__products-item-chars-btn
         cursor: pointer
@@ -443,14 +463,6 @@
             fill: #808181
             margin-right: 6px
             flex-shrink: 0
-
-        &.active
-            &::after
-                transform: rotate(-135deg)
-                top: 10px
-
-                @media screen and (max-width: 510px)
-                    top: 10px
 
         &::after
             content: ""
