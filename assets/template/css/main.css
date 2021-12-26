@@ -5709,6 +5709,12 @@ p, span {
     transition: filter .3s
 }
 
+@media screen and (max-width: 768px) {
+    .clients__list-img img {
+        filter: none;
+    }
+}
+
 .clients__list-img img:hover {
     filter: grayscale(0)
 }
