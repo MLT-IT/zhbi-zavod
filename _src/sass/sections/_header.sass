@@ -735,7 +735,6 @@
     &__btns-wrap
         display: flex
         margin-left: auto
-        transition: transform .15s
 
         @media screen and (max-width: 990px)
             margin-left: 12px
@@ -770,20 +769,26 @@
             margin-right: 0
 
         &:hover
+            padding-bottom: 12px
+            margin-bottom: -12px
+
             @media screen and (min-width: 769px)
                 .header__info
-                    z-index: 100
                     opacity: 1
+                    max-height: 250px
+                    padding: 32px 32px 24px 32px
 
     &__info
-        z-index: -100
+        padding: 0
+        overflow: hidden
+        z-index: 100
         opacity: 0
         position: absolute
         right: -4px
         top: 32px
-        transition: .3s
+        max-height: 0
+        transition: .15s
         background-color: #fff
-        padding: 32px 32px 24px 32px
         box-shadow: 0 8px 32px rgba(25, 41, 63, 0.12)
         border-radius: 16px
         white-space: nowrap
