@@ -21,6 +21,7 @@
     {include "file:sections/faq.tpl"}
     {include "file:sections/payment.tpl"}
     {include "file:sections/advantages.tpl"}
+    {include "file:sections/steps.tpl"}
 
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">

@@ -1,0 +1,147 @@
+.advantages
+    &__cards
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(235px, 1fr))
+        grid-gap: 11px
+
+    &__card
+        border: 1px solid #eaeaea
+        border-radius: 2px
+        width: 100%
+        background-color: #fff
+        display: flex
+        align-items: center
+        flex-direction: column
+        padding: 35px 20px
+
+    &__card-title
+        text-transform: uppercase
+        font-weight: 700
+        text-align: center
+        margin-bottom: 20px
+
+    &__card-text
+        text-align: center
+
+.advantages, .steps
+    margin-bottom: 60px
+
+    &__card:hover &__card-img
+        box-shadow: none
+
+    &__card-img
+        border-radius: 50%
+        width: 70px
+        height: 70px
+        display: flex
+        align-items: center
+        justify-content: center
+        background: linear-gradient(180deg, #f9cd4a, #d5a000)
+        box-shadow: 0 4px 4px #b56e00
+        transition: box-shadow .3s
+        margin-bottom: 15px
+
+.steps
+    counter-reset: steps-cards
+
+    &__cards
+        display: flex
+        flex-wrap: wrap
+
+    &__card
+        font-size: 14px
+        line-height: 120%
+        color: #323232
+        background: #FFFFFF
+        border: 2px solid #EAEAEA
+        box-sizing: border-box
+        box-shadow: 0 8px 24px rgba(25, 41, 63, 0.08)
+        border-radius: 12px
+        padding: 16px 16px 10px
+        position: relative
+
+        @media screen and (min-width: 701px)
+            &:nth-last-of-type(n+2)
+                margin-right: 40px
+
+        @media screen and (min-width: 993px)
+            // По 4 карточки
+            width: calc(20% - 32px)
+
+        @media screen and (min-width: 701px) and (max-width: 992px)
+            // По 3 карточки
+            width: calc(33.33% - 27px)
+            margin-right: 40px
+            &:nth-of-type(3n)
+                margin-right: 0
+
+        @media screen and (min-width: 521px) and (max-width: 992px)
+            margin-bottom: 20px
+
+        @media screen and (min-width: 521px) and (max-width: 700px)
+            // По 2 карточки
+            width: calc(50% - 20px)
+            &:nth-of-type(odd)
+                margin-right: 40px
+
+        @media screen and (max-width: 520px)
+            // По 1 карточке
+            width: 100%
+            height: 174px
+            &:nth-last-of-type(n+2)
+                margin-bottom: 40px
+
+        &::before
+            // Счётик
+            counter-increment: steps-cards
+            content: counter(steps-cards)
+            display: block
+            position: absolute
+            font-size: 32px
+            line-height: 100%
+            font-weight: 900
+            color: #DAD9D9
+            right: 17px
+            top: 34px
+
+        &::after
+            // Стрелка
+            content: ""
+            right: -32px
+            top: 50%
+            transform: translateY(-50%)
+            position: absolute
+            display: block
+            width: 20px
+            height: 20px
+            background: url(/assets/template/img/svg-sprite/double-arrow-right.svg) no-repeat center center
+
+            @at-root .steps__card:nth-last-of-type(1)::after
+                content: none
+
+            @media screen and (min-width: 701px) and (max-width: 992px)
+                @at-root .steps__card:nth-of-type(3)::after
+                    content: none
+
+            @media screen and (min-width: 520px) and (max-width: 700px)
+                @at-root .steps__card:nth-of-type(even)::after
+                    content: none
+
+            @media screen and (max-width: 520px)
+                content: ""
+                transform: rotate(90deg) translateY(-50%)
+                bottom: -32px
+                top: auto
+                right: 50%
+
+    &__card-img
+        fill: transparent
+
+    &__card-title
+        font-weight: 900
+        line-height: 100%
+        margin-bottom: 8px
+
+    &__card-text
+        line-height: 120%
