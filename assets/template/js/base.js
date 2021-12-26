@@ -2674,14 +2674,16 @@
             loop: false,
             slidesPerView: "auto",
             lazy: {loadPrevNext: !0},
-            navigation: {nextEl: ".product-slider-1 .swiper-button-next", prevEl: ".product-slider-1 .swiper-button-prev"}
+            navigation: {nextEl: ".product-slider-1 .swiper-button-next", prevEl: ".product-slider-1 .swiper-button-prev"},
+            scrollbar: {draggable: !0, el: ".product-slider-1 .swiper-scrollbar"}
             }),
 
             new oe(".product-slider-2 .swiper-container", {
             loop: false,
             slidesPerView: "auto",
             lazy: {loadPrevNext: !0},
-            navigation: {nextEl: ".product-slider-2 .swiper-button-next", prevEl: ".product-slider-2 .swiper-button-prev"}
+            navigation: {nextEl: ".product-slider-2 .swiper-button-next", prevEl: ".product-slider-2 .swiper-button-prev"},
+            scrollbar: {draggable: !0, el: ".product-slider-2 .swiper-scrollbar"}
             }),
 
             window.matchMedia("(max-width: 1349px)").matches && new oe(".clients__list", {

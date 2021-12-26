@@ -21,6 +21,7 @@
                     'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
                     ]}
                 </div>
+                <div class="swiper-scrollbar"></div>
             </div>
         </div>
     </section>

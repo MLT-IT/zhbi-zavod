@@ -6565,10 +6565,6 @@ p, span {
     flex-direction: column
 }
 
-.listing__products .swiper-scrollbar-drag {
-    cursor: grab
-}
-
 .listing__products-list {
     width: 100%;
     display: grid;
