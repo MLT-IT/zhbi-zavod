@@ -964,8 +964,19 @@ var mSearch2 = {
                                 continue;
                             }
                             var label = $('#' + mSearch2.options.prefix + selector, mSearch2.filters).find('label[for="' + input.prop('id') + '"]');
-                            var elem = input.parent().find(mSearch2.options.suggestion);
+                            var elem = input.closest('label').find(mSearch2.options.suggestion);
                             elem.text(count);
+
+                            // >>> Установка приоритета
+                            let priority = count;
+                            if (typeof priority === 'string') {
+                                priority = priority.replace(/\D/g, '');
+                            }
+                            if (isNaN(parseInt(priority))) {
+                                priority = 0
+                            }
+                            elem.closest('.filter-option').attr('data-priority', priority);
+                            // <<< Установка приоритета
 
                             if (count == 0) {
                                 if (input.is(':not(:checked)')) {

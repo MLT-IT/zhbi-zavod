@@ -1,5 +1,12 @@
-{var $key = $table ~ $delimeter ~ $filter}
-<a href="{$_modx->resource.id | url}?[[+filter_key]]=[[+value]]" class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}">
+{set $key = $table ~ $delimeter ~ $filter}
+
+{if $disabled?}
+    {set $priority = 0}
+{else}
+    {set $priority = $num | ereplace : '/\D/' : ''}
+{/if}
+
+<a data-priority="{$priority}" href="{$_modx->resource.id | url}?[[+filter_key]]=[[+value]]" class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}">
     <label for="mse2_{$key}_{$idx}" class="filter-option__label">
         <span class="custom-checkbox filter-option__checkbox">
             <input class="custom-checkbox__input" type="checkbox" name="{$filter_key}" id="mse2_{$key}_{$idx}"

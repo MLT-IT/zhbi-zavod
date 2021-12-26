@@ -3,6 +3,44 @@
  */
 export default function funcsCatalog() {
     // -------------------------------------------
+    // Сортировка фильтров - в самом верху те, у которых больше всего результатов
+    // -------------------------------------------
+    window.catalogSortFilters = function() {
+        $('.listing__filter-block').each(function(index, elem) {
+            // Пропускаем фильтр по цене
+            if (index === 0) {
+                return;
+            }
+
+            let $this = $(this);
+            let $container = $($this.find('.listing__filter-option')[0]).parent();
+
+            let $items = $container.find('.listing__filter-option').sort(function(a,b) {
+                if (isNaN(parseInt($(a).attr('data-priority')))) {
+                    return -1
+                }
+
+                if (isNaN(parseInt($(b).attr('data-priority')))) {
+                    return 1
+                }
+
+                if (parseInt($(a).attr('data-priority')) > parseInt($(b).attr('data-priority'))) {
+                    return -1;
+                }
+
+                if (parseInt($(a).attr('data-priority')) < parseInt($(b).attr('data-priority'))) {
+                    return 1;
+                }
+
+                return 0;
+            });
+
+            $items.appendTo($container);
+        });
+    }
+    window.catalogSortFilters();
+
+    // -------------------------------------------
     // Скрыть / показать доп. кнопки на карточках на маленьких экранах
     // -------------------------------------------
     $(document).on('click', '.listing__products-item-btn-more', function(e) {
