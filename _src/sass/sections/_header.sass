@@ -131,12 +131,6 @@
             @media screen and (max-width: 768px)
                 transform: translateX(0)
 
-        &-contents-wrap
-            display: none
-
-            @media screen and (max-width: 768px)
-                display: block
-
         &-text
             font-weight: bold
             font-size: 13px
@@ -230,10 +224,20 @@
                 &:last-of-type
                     width: 10px
 
+        &-contents-wrap
+            display: none
+            overflow: hidden
+            transition: .3s
+
+            @media screen and (max-width: 768px)
+                display: block
+
         &-content
             display: none
+            position: absolute
 
             &.active
+                position: relative
                 display: block
 
 
