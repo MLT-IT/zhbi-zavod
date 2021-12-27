@@ -17,7 +17,7 @@
             </div>
 
             {* Поиск *}
-            <form action="/search/" class="header__search-wrap">
+            <form action="/search/" class="header__search-wrap header__search-wrap_type_mobile">
                 <input class="header__search" placeholder="Поиск по сайту" name="query">
                 <button type="submit" class="header__search-btn"></button>
             </form>
@@ -54,7 +54,7 @@
             {* Заголовок *}
             <div class="header__nav-text">Каталог</div>
             {* Кнопка назад *}
-            <div class="header__mobile-menu-link" data-key="home">Назад</div>
+            <span class="header__nav-item"><span data-key="home" class="header__nav-link header__mobile-menu-link">Назад</span></span>
 
             {* Кнопка для перехода в Каталог *}
             <a href="/catalog/" class="header__nav-header">
@@ -74,12 +74,12 @@
                 {* Заголовок *}
                 <div class="header__nav-text">{$key}</div>
                 {* Кнопка назад *}
-                <div class="header__mobile-menu-link" data-key="catalog">Назад</div>
+                <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link">Назад</span></span>
 
                 {* Пункты меню *}
                 {foreach $menuTypes as $items}
                     {foreach $items as $item}
-                        {$item}
+                        <span class="header__nav-item"><a class="header__nav-link" href="/{$item.uri}">{$item.name}</a></span>
                     {/foreach}
                 {/foreach}
             </div>
