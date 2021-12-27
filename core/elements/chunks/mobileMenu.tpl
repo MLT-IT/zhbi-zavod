@@ -23,7 +23,7 @@
             </form>
 
             {* Кнопка Каталог *}
-            <span class="header__nav-header header__mobile-menu-link" data-key="catalog">
+            <span class="header__nav-header header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_1" data-key="catalog">
                 <span class="header__nav-header-burger burger">
                     <span class="burger__stick"></span>
                     <span class="burger__stick"></span>
@@ -54,7 +54,7 @@
             {* Заголовок *}
             <div class="header__nav-text">Каталог</div>
             {* Кнопка назад *}
-            <span class="header__nav-item"><span data-key="home" class="header__nav-link header__mobile-menu-link">Назад</span></span>
+            <span class="header__nav-item"><span data-key="home" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
 
             {* Кнопка для перехода в Каталог *}
             <a href="/catalog/" class="header__nav-header">
@@ -63,7 +63,7 @@
 
             {* Кнопки фильтров *}
             {foreach $menu as $key => $nevermind}
-                <span class="header__nav-item"><a data-key="{$key}" class="header__mobile-menu-link header__nav-link">{$key}</a></span>
+                <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$key}" class="header__mobile-menu-link header__nav-link">{$key}</span></span>
             {/foreach}
         </div>
 
@@ -74,12 +74,12 @@
                 {* Заголовок *}
                 <div class="header__nav-text">{$key}</div>
                 {* Кнопка назад *}
-                <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link">Назад</span></span>
+                <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
 
                 {* Пункты меню *}
                 {foreach $menuTypes as $items}
                     {foreach $items as $item}
-                        <span class="header__nav-item"><a class="header__nav-link" href="/{$item.uri}">{$item.name}</a></span>
+                        <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
                     {/foreach}
                 {/foreach}
             </div>

@@ -4894,10 +4894,6 @@ p, span {
     padding-right: 2px
 }
 
-.header__nav-item > a {
-    transition: color .3s
-}
-
 .header__nav-item:hover > a {
     color: #ffbe00
 }
@@ -4936,14 +4932,6 @@ p, span {
     background: url(../img/svg-sprite/icon-sale.svg);
     width: 13px;
     height: 13px
-}
-
-.header__nav-item:not(:last-of-type) {
-    margin-right: 40px
-}
-
-.header__nav-item > a {
-    font-weight: 700
 }
 
 .catalog {

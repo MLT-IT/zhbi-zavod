@@ -142,7 +142,11 @@
                 display: block
 
         &-link
+            margin-right: 24px
+
             @media screen and (max-width: 768px)
+                margin-right: 0
+                font-weight: bold
                 padding-top: 16px
                 padding-bottom: 16px
                 width: 100%
@@ -179,6 +183,7 @@
             transition: .3s
             border-radius: 4px
             cursor: pointer
+            font-weight: bold
             +set_colors_1(background-color)
 
             &:hover
@@ -196,20 +201,6 @@
                     background-color: darken(#CE1126, 10%)
                 @at-root .ursa &
                     background-color: darken(#EA4740, 10%)
-
-            &::after
-                content: ""
-                display: block
-                border: solid #fff
-                border-width: 0 3px 3px 0
-                padding: 3px
-                transform: rotate(-45deg) translateY(-50%)
-                position: absolute
-                right: 20px
-                top: 50%
-
-                @at-root .isover &
-                    border-color: #000
 
             @at-root .header &:hover
                 color: #fff
@@ -697,6 +688,37 @@
 
     &__cat, &__mobile-phone
         margin-right: 40px
+
+    &__mobile-menu-arrow
+        &_reverse
+            &::after
+                @at-root  .header &
+                    transform: rotate(130deg)
+
+        &_color
+            &_1
+                &::after
+                    border-color: #fff
+                    @at-root .isover
+                        border-color: #323232
+
+            &_2
+                &::after
+                    +set_colors_1(border-color)
+
+        &::after
+            content: ""
+            display: block
+            border: solid #fff
+            border-width: 0 3px 3px 0
+            padding: 3px
+            transform: rotate(-45deg) translateY(-50%)
+            position: absolute
+            right: 20px
+            top: 50%
+
+            @at-root .isover &
+                border-color: #000
 
     &__mobile-phone
         display: none

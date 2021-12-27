@@ -4,11 +4,11 @@
 
 <header class="header">
     <div class="header__wrapper wrapper">
-        <a href="#" class="header__burger burger">
+        <span class="header__burger burger">
             <span class="burger__stick"></span>
             <span class="burger__stick"></span>
             <span class="burger__stick"></span>
-        </a>
+        </span>
         <div class="header__line header__line_type_about">
             <div class="header__about">
                 <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
@@ -68,7 +68,7 @@
                                         <div class="header__column">
                                             <div class="header__column-items-wrap">
                                                 {foreach $items as $item}
-                                                    <a class="header__menu-item" href="/{$item.uri}">
+                                                    <a class="header__menu-item" href="{$item.uri}">
                                                         {$item.name}
                                                     </a>
                                                 {/foreach}
