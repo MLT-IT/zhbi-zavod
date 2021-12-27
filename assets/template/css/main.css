@@ -4887,11 +4887,6 @@ p, span {
     background-color: #ffbe00
 }
 
-.header__nav-list {
-    display: flex;
-    align-items: center
-}
-
 .header__nav-item {
     display: flex;
     align-items: center;
