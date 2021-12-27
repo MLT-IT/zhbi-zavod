@@ -9,49 +9,6 @@
         z-index: 50
         height: 64px
 
-    &__catalog-btn
-        border-radius: 4px
-        background: transparent
-        width: 100%
-        height: 100%
-        justify-content: flex-start
-        padding-left: 24px
-        padding-right: 19px
-        transition: .3s
-        display: flex
-        align-items: center
-
-        @at-root .knauf &
-            background: #4F70AD
-        @at-root .rockwool &
-            background: #AA000F
-        @at-root .tn &
-            background: #ED1C24
-        @at-root .penoplex &
-            background: #F36F21
-        @at-root .isover &
-            background: #FFDD00
-        @at-root .paroc &
-            background: #CE1126
-        @at-root .ursa &
-            background: #EA4740
-
-        &:hover
-            @at-root .knauf &
-                background-color: darken(#4f70ad, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#EA4740, 10%)
-
     &__catalog
         width: 128px
         height: 40px
@@ -69,6 +26,71 @@
                         padding-left: 15px
                         padding-right: 15px
 
+        &-btn
+            border-radius: 4px
+            background: transparent
+            width: 100%
+            height: 100%
+            justify-content: flex-start
+            padding-left: 24px
+            padding-right: 19px
+            transition: .3s
+            display: flex
+            align-items: center
+
+            @at-root .knauf &
+                background: #4F70AD
+            @at-root .rockwool &
+                background: #AA000F
+            @at-root .tn &
+                background: #ED1C24
+            @at-root .penoplex &
+                background: #F36F21
+            @at-root .isover &
+                background: #FFDD00
+            @at-root .paroc &
+                background: #CE1126
+            @at-root .ursa &
+                background: #EA4740
+
+            &:hover
+                @at-root .knauf &
+                    background-color: darken(#4f70ad, 10%)
+                @at-root .rockwool &
+                    background-color: darken(#AA000F, 10%)
+                @at-root .tn &
+                    background-color: darken(#ED1C24, 10%)
+                @at-root .penoplex &
+                    background-color: darken(#F36F21, 10%)
+                @at-root .isover &
+                    background-color: darken(#FFDD00, 10%)
+                @at-root .paroc &
+                    background-color: darken(#CE1126, 10%)
+                @at-root .ursa &
+                    background-color: darken(#EA4740, 10%)
+
+        &-menu
+            .header__menu-item
+                display: table
+                margin-bottom: 20px
+                color: rgba(0,0,0,.6)
+
+            &-header
+                position: absolute
+                font-size: 20px
+                top: 20px
+                padding-bottom: 2px
+                font-weight: 700
+                transition: border-bottom-color .3s
+                border-bottom: 1px dashed rgba(60, 60, 59, .5)
+                line-height: 1.4em
+
+                &:hover
+                    border-bottom-color: transparent
+
+                @at-root .header &
+                    color: #1a0dab
+
     &__column, &__catalog-menu-type
         &:nth-last-of-type(n+2)
             margin-right: 31px
@@ -79,35 +101,151 @@
         padding-bottom: 16px
         white-space: nowrap
 
-    &__column-item
-        display: table
-        margin-bottom: 20px
 
-    .header__column-item
-        color: rgba(0,0,0,.6)
+    &__nav
+        margin-top: 0
+        padding-bottom: 10px
+        border-bottom: 0
+        margin-bottom: 0
 
-    &__catalog-menu-header
-        position: absolute
-        font-size: 20px
-        top: 20px
-        padding-bottom: 2px
-        font-weight: 700
-        transition: border-bottom-color .3s
-        border-bottom: 1px dashed rgba(60, 60, 59, .5)
-        line-height: 1.4em
+        @media screen and (max-width: 768px)
+            z-index: 40
+            transition: .3s
+            transform: translateX(-100%)
+            overflow-y: auto
+            display: block
+            width: 320px
+            position: absolute
+            left: 0
+            padding: 22px 15px 6px 16px
+            background: #fff
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+            top: 66px
+            height: calc(100vh - 66px)
 
-        &:hover
-            border-bottom-color: transparent
+        .header__search-wrap
+            @media screen and (min-width: 769px)
+                display: none
 
-    .header__catalog-menu-header
-        color: #1a0dab
+        &.opened
+            @media screen and (max-width: 768px)
+                transform: translateX(0)
 
-    //&__catalog-link
-    //    position: absolute
-    //    width: calc(100% + 4px)
-    //    height: calc(100% + 4px)
-    //    left: -2px
-    //    top: -2px
+        &-contents-wrap
+            display: none
+
+            @media screen and (max-width: 768px)
+                display: block
+
+        &-text
+            font-weight: bold
+            font-size: 13px
+            line-height: 1
+            margin-bottom: 18px
+            display: none
+
+            @media screen and (max-width: 768px)
+                display: block
+
+        &-link
+            @media screen and (max-width: 768px)
+                padding-top: 16px
+                padding-bottom: 16px
+                width: 100%
+                padding-left: 24px
+
+        &-item
+            @media screen and (max-width: 768px)
+                width: 100%
+
+            @at-root .header &
+                @media screen and (max-width: 768px)
+                    margin-right: 0
+
+            &:hover
+                & > a
+                    +set_colors_1(color)
+
+        &-list
+            width: calc(100% - 30px)
+
+            &.mobile
+                display: none
+
+                @media screen and (max-width: 768px)
+                    display: block
+
+            @media screen and (min-width: 769px)
+                position: absolute
+                top: 0
+
+            @media screen and (max-width: 768px)
+                display: flex
+                flex-direction: column
+                left: 0
+                width: 100%
+
+        &-header
+            display: none
+            align-items: center
+            position: relative
+            width: 100%
+            padding: 16px 2px 16px 24px
+            transition: .3s
+            border-radius: 4px
+            margin-top: 10px
+            cursor: pointer
+            +set_colors_1(background-color)
+
+            &:hover
+                @at-root .knauf &
+                    background-color: darken(#4f70ad, 10%)
+                @at-root .rockwool &
+                    background-color: darken(#AA000F, 10%)
+                @at-root .tn &
+                    background-color: darken(#ED1C24, 10%)
+                @at-root .penoplex &
+                    background-color: darken(#F36F21, 10%)
+                @at-root .isover &
+                    background-color: darken(#FFDD00, 10%)
+                @at-root .paroc &
+                    background-color: darken(#CE1126, 10%)
+                @at-root .ursa &
+                    background-color: darken(#EA4740, 10%)
+
+            &::after
+                content: ""
+                display: block
+                border: solid #fff
+                border-width: 0 3px 3px 0
+                padding: 3px
+                transform: rotate(-45deg) translateY(-50%)
+                position: absolute
+                right: 20px
+                top: 50%
+
+                @at-root .isover &
+                    border-color: #000
+
+            @at-root .header &:hover
+                color: #fff
+
+            @media screen and (max-width: 768px)
+                display: flex
+
+        &-header-burger
+            margin-right: 10px
+
+            .burger__stick
+                &:last-of-type
+                    width: 10px
+
+        &-content
+            display: none
+
+            &.active
+                display: block
+
 
     &__columns-wrap
         display: flex
@@ -364,16 +502,6 @@
             &_about
                 @media screen and (max-width: 768px)
                     order: 2
-
-    &__nav-text
-        font-weight: bold
-        font-size: 13px
-        line-height: 1
-        margin-bottom: 18px
-        display: none
-
-        @media screen and (max-width: 768px)
-            display: block
 
     &__about-phone
         display: none
@@ -636,18 +764,6 @@
             height: 16px
             transition: .3s
 
-    &__nav-link
-        @media screen and (max-width: 768px)
-            padding-top: 16px
-            padding-bottom: 16px
-            width: 100%
-            padding-left: 24px
-
-    &__nav-item
-        &:hover
-            & > a
-                +set_colors_1(color)
-
         @media screen and (max-width: 768px)
             width: 100%
 
@@ -673,109 +789,6 @@
 
         &::after
             display: none
-
-    &__nav
-        margin-top: 0
-        padding-bottom: 10px
-        border-bottom: 0
-        margin-bottom: 0
-
-        @media screen and (max-width: 768px)
-            z-index: 40
-            transition: .3s
-            transform: translateX(-100%)
-            overflow-y: auto
-            display: block
-            width: 320px
-            position: absolute
-            left: 0
-            padding: 22px 15px 6px 16px
-            background: #fff
-            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
-            top: 66px
-            height: calc(100vh - 66px)
-
-        .header__search-wrap
-            @media screen and (min-width: 769px)
-                display: none
-
-        &.opened
-            @media screen and (max-width: 768px)
-                transform: translateX(0)
-
-    &__nav-list
-        width: calc(100% - 30px)
-
-        &.mobile
-            display: none
-
-            @media screen and (max-width: 768px)
-                display: block
-
-        @media screen and (min-width: 769px)
-            position: absolute
-            top: 0
-
-        @media screen and (max-width: 768px)
-            display: flex
-            flex-direction: column
-            left: 0
-            width: 100%
-
-    &__nav-header
-        display: none
-        align-items: center
-        position: relative
-        width: 100%
-        padding: 16px 2px 16px 24px
-        transition: .3s
-        border-radius: 4px
-        margin-top: 10px
-        cursor: pointer
-        +set_colors_1(background-color)
-
-        &:hover
-            @at-root .knauf &
-                background-color: darken(#4f70ad, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#EA4740, 10%)
-
-        &::after
-            content: ""
-            display: block
-            border: solid #fff
-            border-width: 0 3px 3px 0
-            padding: 3px
-            transform: rotate(-45deg) translateY(-50%)
-            position: absolute
-            right: 20px
-            top: 50%
-
-            @at-root .isover &
-                border-color: #000
-
-        @at-root .header &:hover
-            color: #fff
-
-        @media screen and (max-width: 768px)
-            display: flex
-
-    &__nav-header-burger
-        margin-right: 10px
-
-        .burger__stick
-            &:last-of-type
-                width: 10px
 
     &__btns-wrap
         display: flex

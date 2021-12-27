@@ -56,56 +56,30 @@
                     </div>
                     <span class="header__catalog-text">Каталог</span>
                 </div>
-                        <div class="header__catalog-menu header__catalog-menu_width_full">
-                            <div class="header__catalog-menu-inner">
-                                <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
-                                {set $menu = 'createMenu' | snippet}
-                                {foreach $menu as $key => $menuTypes}
-                                    <div class="header__catalog-menu-type">
-                                        <p class="header__column-header">{$key}</p>
-                                        <div class="header__columns-wrap">
-                                            {foreach $menuTypes as $items}
-                                                <div class="header__column">
-                                                    <div class="header__column-items-wrap">
-                                                        {foreach $items as $item}
-                                                            {$item}
-                                                        {/foreach}
-                                                    </div>
-                                                </div>
-                                            {/foreach}
+                <div class="header__catalog-menu header__catalog-menu_width_full">
+                    <div class="header__catalog-menu-inner">
+                        <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
+                        {set $menu = 'createMenu' | snippet}
+                        {foreach $menu as $key => $menuTypes}
+                            <div class="header__catalog-menu-type">
+                                <p class="header__column-header">{$key}</p>
+                                <div class="header__columns-wrap">
+                                    {foreach $menuTypes as $items}
+                                        <div class="header__column">
+                                            <div class="header__column-items-wrap">
+                                                {foreach $items as $item}
+                                                    <a class="header__menu-item" href="{$item.uri}">
+                                                        {$item.name}
+                                                    </a>
+                                                {/foreach}
+                                            </div>
                                         </div>
-                                    </div>
-                                {/foreach}
-                            </div>
-                        </div>
-
-                        {* СТАРОЕ МЕНЮ
-                        <div class="header__catalog-menu">
-                            <div class="header__catalog-menu-inner">
-                                    <div class="header__catalog-column">
-                                        <ul class="header__catalog-list">
-                                            {'pdoMenu' | snippet : [
-                                            'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
-                                            'depth' => 1000,
-                                            'limit' => 0,
-                                            'tplOuter' => '@INLINE {$wrapper}',
-                                            'tplInner' => '@INLINE {$wrapper}',
-                                            'tpl' => '@FILE chunks/catalogCategoryItem.tpl',
-                                            'tplCategoryFolder' => '@FILE chunks/catalogCategoryItem.tpl',
-                                            'where' => '{"template:=":"5"}',
-                                            ]}
-
-                                            {if $site_context === 'isover'}
-                                                {set $menutitle = 8861 | resource : 'menutitle'}
-                                                {set $pagetitle = 8861 | resource : 'pagetitle'}
-                                                {set $uri = 8861 | resource : 'uri' ~ '/'}
-                                                {include "file:chunks/catalogCategoryItem.tpl" menutitle=$menutitle pagetitle=$pagetitle uri=$uri}
-                                            {/if}
-                                        </ul>
-                                    </div>
+                                    {/foreach}
                                 </div>
-                        </div>
-                        *}
+                            </div>
+                        {/foreach}
+                    </div>
+                </div>
             </div>
 
             <form action="/search/" class="header__search-wrap">
@@ -143,63 +117,8 @@
                 *}
             </div>
         </div>
-        <nav class="header__nav">
-            <div class="header__nav-text">
-                Поставка
-                {if $_modx->context.key != 'krovlya'}
-                    утеплителя {$brand}
-                {else}
-                    кровли
-                {/if}
-                по Санкт-Петербургу и Ленинградской области от официального дилера
-            </div>
 
-            <form action="/search/" class="header__search-wrap">
-                <input class="header__search" placeholder="Поиск по сайту" name="query">
-                <button type="submit" class="header__search-btn"></button>
-            </form>
-            <span class="header__nav-header">
-                <span class="header__nav-header-burger burger">
-                    <span class="burger__stick"></span>
-                    <span class="burger__stick"></span>
-                    <span class="burger__stick"></span>
-                </span>
-                Каталог
-            </span>
-            <ul class="header__nav-list mobile">
-                {'!pdoResources' | snippet : [
-                'tpl' => '@FILE chunks/menuItem.tpl',
-                'depth' => 0,
-                'limit' => 0,
-                'includeTVs' => 'mainImage',
-                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
-                'sortby' => 'menuindex',
-                'sortdir' => 'ASC'
-                ]}
-            </ul>
+        {include 'file:chunks/mobileMenu.tpl'}
 
-            <div class="header__nav-list">
-                <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
-                <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
-
-                {set $certs = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'certs']}
-                {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
-                {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
-
-                {if $certs->hidemenu == 0}
-                    <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
-                {/if}
-                {if $faq->hidemenu == 0}
-                    <span class="header__nav-item"><a class="header__nav-link" href="/faq/">Вопросы-ответы</a></span>
-                {/if}
-                {if $akcii->hidemenu == 0}
-                    <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
-                {/if}
-
-                <a class="header__email" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
-                    {'!utm' | snippet : ['val' => 'email']}
-                </a>
-            </div>
-        </nav>
     </div>
 </header>

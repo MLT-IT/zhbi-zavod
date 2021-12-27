@@ -51,6 +51,16 @@ $(function ($) {
     })
 
     // -------------------------------
+    // Меню на мобилках
+    // -------------------------------
+    $('.header__mobile-menu-link').on('click', function (e) {
+        e.preventDefault();
+        let $this = $(this);
+        $this.closest('.header__nav-content.active').removeClass('active');
+        $this.closest('.header__nav-contents-wrap').find('.header__nav-content[data-key="' + $this.attr('data-key') + '"]').addClass('active');
+    });
+
+    // -------------------------------
     // Запрет прокрутки карты до клика
     // -------------------------------
     let $map_containers = $('.map__container');
