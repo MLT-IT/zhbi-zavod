@@ -4754,11 +4754,13 @@ p, span {
     position: relative
 }
 
-.header__catalog .burger span {
+.header__catalog .burger span,
+.header__nav-header-burger .burger__stick {
     background-color: #fff
 }
 
-.isover .header__catalog .burger span {
+.isover .header__catalog .burger span,
+.isover .header__nav-header-burger .burger__stick {
     background-color: #000
 }
 

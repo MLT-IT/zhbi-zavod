@@ -154,11 +154,18 @@
                 по Санкт-Петербургу и Ленинградской области от официального дилера
             </div>
 
-            <a href="/catalog/" class="header__nav-header">Каталог</a>
             <form action="/search/" class="header__search-wrap">
                 <input class="header__search" placeholder="Поиск по сайту" name="query">
                 <button type="submit" class="header__search-btn"></button>
             </form>
+            <span class="header__nav-header">
+                <span class="header__nav-header-burger burger">
+                    <span class="burger__stick"></span>
+                    <span class="burger__stick"></span>
+                    <span class="burger__stick"></span>
+                </span>
+                Каталог
+            </span>
             <ul class="header__nav-list mobile">
                 {'!pdoResources' | snippet : [
                 'tpl' => '@FILE chunks/menuItem.tpl',
