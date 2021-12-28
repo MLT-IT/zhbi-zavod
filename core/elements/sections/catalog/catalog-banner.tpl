@@ -43,7 +43,7 @@
         {case 'ursa'}
             {set $imgname = 'ursa.jpg'}
         {case 'krovlya'}
-            {set $imgname = 'krovlyasp.jpg'}
+            {set $imgname = 'krovlya.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>
