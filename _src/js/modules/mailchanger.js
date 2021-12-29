@@ -10,6 +10,7 @@ export default function mailChange () {
             n.innerText = n.innerText.replace('mail@www-isover.ru', 'info@www-isover.ru');
             n.innerText = n.innerText.replace('mail@www-paroc.ru', 'info@www-paroc.ru');
             n.innerText = n.innerText.replace('mail@www-ursa.ru', 'info@www-ursa.ru');
+            n.innerText = n.innerText.replace('mail@krovlyasp.ru', 'info@krovlyasp.ru');
 
             n.href = n.href.replace('mail@www-knauf.ru', 'info@www-knauf.ru');
             n.href = n.href.replace('mail@www-rockwool.ru', 'info@www-rockwool.ru');
@@ -18,6 +19,7 @@ export default function mailChange () {
             n.href = n.href.replace('mail@www-isover.ru', 'info@www-isover.ru');
             n.href = n.href.replace('mail@www-paroc.ru', 'info@www-paroc.ru');
             n.href = n.href.replace('mail@www-ursa.ru', 'info@www-ursa.ru');
+            n.href = n.href.replace('mail@krovlyasp.ru', 'info@krovlyasp.ru');
         })
     }, TIMEOUT)
 }

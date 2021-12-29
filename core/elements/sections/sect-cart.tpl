@@ -63,6 +63,7 @@
                         <td class="cart-table__table-cell price cart-table__table-cell_content_num">
                             <span class="cart-table__price-value">{$product.price}</span>
                             <span class="cart-table__currency cart-table__currency">руб</span>
+                            <div class="cart-table__units">за упаковку</div>
                         </td>
                         <td class="count cart-table__table-cell">
                             <form method="post" class="cart-table__form ms2_form" role="form">
