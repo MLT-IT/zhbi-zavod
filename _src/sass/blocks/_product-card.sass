@@ -15,6 +15,16 @@
             text-align: left
             margin-top: 16px
 
+        &_mobile
+            display: none
+
+            @media screen and (max-width: 768px)
+                display: block
+
+        &_pc
+            @media screen and (max-width: 768px)
+                display: none
+
     &__title-1
         font-size: 24px
         color: #323232
@@ -54,6 +64,11 @@
     &__img
         cursor: zoom-in
 
+        @media screen and (max-width: 768px)
+            margin-left: auto
+            margin-right: auto
+            text-align: center
+
     &__buy
         max-width: 271px
 
@@ -85,7 +100,7 @@
 
             .product-card__mobile-tabs-button
                 background-color: #fff
-                color: #ffbe00
+                +set_colors_1(color)
 
                 &::before
                     transform: rotate(-135deg)
@@ -125,7 +140,7 @@
             transform: rotate(45deg)
             border-width: 0 2px 2px 0
             border-style: solid
-            border-color: #ffbe00
+            +set_colors_1(border-color)
 
     &__price-wrap
         font-weight: 700

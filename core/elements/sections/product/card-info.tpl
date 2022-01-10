@@ -6,6 +6,8 @@
      data-m3="{$_modx->resource['obyem_m3'][0]}" data-pm="{$_modx->resource['kolvo-pm'][0]}">
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
+    <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
+
     <a href="{$image}" data-fancybox class="product-card__img">
         <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
              alt="{$_modx->resource.pagetitle}">
@@ -53,9 +55,8 @@
                 </span>
                 {/if}
 
-                {if $_modx->resource.context_key == 'rockwool'}
-                    {set $upakovka = 'getPackageRockwool' | snippet}
-                {else}
+                {set $upakovka = 'getPackageNew' | snippet}
+                {if $upakovka is empty}
                     {set $upakovka = 'getPackage' | snippet}
                 {/if}
 
@@ -64,7 +65,7 @@
                 {/if}
             </div>
             <div class="product-card__right-info">
-                <span class="product-card__article">Арт. {$_modx->resource['article']}</span>
+                <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
                 {*
                 <a class="product-card__btn product-card__btn-compare" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
