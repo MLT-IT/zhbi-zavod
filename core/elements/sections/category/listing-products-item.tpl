@@ -5,8 +5,20 @@
   data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности.
 *}
 
-<div data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-pm="{$_pls['kolvo-pm'][0]}"
-     class="product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-priority1="{$_pls['priority1']}"
+{set $pm = $_pls['kolvo-pm'][0]}
+{set $m2 = $_pls['ploshad_m2'][0]}
+{set $m3 = $_pls['obyem_m3'][0]}
+{if $_pls['v_upakovke'][0]? && $price?}
+    {set $list = $_pls['price'] / $_pls['v_upakovke'][0]}
+    {set $list = $list | round : 2 | replace : ',' : '.'}
+{/if}
+
+<div class="product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}"
+     data-m2="{$m2}"
+     data-m3="{$m3}"
+     data-pm="{$pm}"
+     data-list="{$list}"
+     data-priority1="{$_pls['priority1']}"
      data-priority2="{$_pls['HitsPage']}">
 
     <div class="listing__products-item-left">
@@ -104,7 +116,7 @@
                     $_pls['ploshad_m2'][0],
                     $_pls['obyem_m3'][0],
                     $_pls['v_upakovke'][0],
-                    $_pls['kolvo-pm'][0],
+                    $pm,
                 ]}
                 {set $charsHeaders = [
                     'Применение',
@@ -147,7 +159,8 @@
 
         <div class="listing__products-item-price">
             {if $price}
-                <span class="product-item__price" data-default="{$price}">{$price}</span> руб
+                <span class="product-item__price" data-default="{$price}">{$price}</span>
+                руб
             {/if}
 
             {if $_modx->resource.context_key != 'rockwool'}
@@ -164,19 +177,22 @@
             {/if}
         </div>
 
-        {if $_modx->resource.context_key === 'rockwool'}
+        {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
             <div class="product-item__selprice listing__products-item-selprice">
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="euv-custom-select custom-select product-item__units-select">
                     <option value="1" selected>упаковку</option>
-                    {if $ploshad_m2[0]}
+                    {if $m2}
                         <option value="2">м2</option>
                     {/if}
-                    {if $obyem_m3[0]}
+                    {if $m3}
                         <option value="3">м3</option>
                     {/if}
-                    {if $_pls['kolvo-pm'][0]}
+                    {if $pm}
                         <option value="4">п.м.</option>
+                    {/if}
+                    {if $list}
+                        <option value="5">лист</option>
                     {/if}
                 </select>
             </div>

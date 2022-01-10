@@ -34,6 +34,7 @@ function getActiveUnitValue($productItem) {
         '2': $productItem.attr('data-m2'),
         '3': $productItem.attr('data-m3'),
         '4': $productItem.attr('data-pm'),
+        '5': $productItem.attr('data-list'),
     };
 
     // Обработка кол-ва единиц измерения

@@ -1,9 +1,20 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
+{set $pm = $_modx->resource['kolvo-pm'][0]}
+{set $m2 = $_modx->resource['ploshad_m2'][0]}
+{set $m3 = $_modx->resource['obyem_m3'][0]}
+{if $_modx->resource['v_upakovke'][0]? && $price?}
+    {set $list = $price / $_modx->resource['v_upakovke'][0] | round : 2}
+    {set $list = $list | round : 2 | replace : ',' : '.'}
+{/if}
+
 <div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}"
-     data-m2="{$_modx->resource['ploshad_m2'][0]}"
-     data-m3="{$_modx->resource['obyem_m3'][0]}" data-pm="{$_modx->resource['kolvo-pm'][0]}">
+     data-m2="{$m2}"
+     data-m3="{$m3}"
+     data-pm="{$pm}"
+     data-list="{$list}">
+
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
     <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
@@ -24,19 +35,22 @@
 
         <div class="product-card__info-inner">
             <div class="product-card__left-info">
-                {if $_modx->resource.context_key === 'rockwool'}
+                {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
                     <div class="product-card__units-wrap">
                         <input type="hidden" name="unit" value="1">
                         <span class="product-card__unit-span">Цена за</span>
                         <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
-                        {if $_modx->resource['ploshad_m2'][0] ?}
+                        {if $m2 ?}
                             <a class="product-card__unit-link" href="#" data-val="2">м2</a>
                         {/if}
-                        {if $_modx->resource['obyem_m3'][0] ?}
+                        {if $m3 ?}
                             <a class="product-card__unit-link" href="#" data-val="3">м3</a>
                         {/if}
-                        {if $_modx->resource['kolvo-pm'][0] ?}
+                        {if $pm ?}
                             <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
+                        {/if}
+                        {if $list}
+                            <a class="product-card__unit-link" href="#" data-val="5">лист</a>
                         {/if}
                     </div>
                 {/if}
@@ -48,7 +62,7 @@
                     <meta itemprop="priceCurrency" content="RUB">
                     руб
 
-                    {if $_modx->resource.context_key != 'rockwool'}
+                    {if $_modx->resource.context_key not in list ['rockwool', 'penoplex']}
                         {set $unit = $_modx->resource.unit}
                         {$unit[0] ? '/ ' ~ $unit[0] : ''}
                     {/if}

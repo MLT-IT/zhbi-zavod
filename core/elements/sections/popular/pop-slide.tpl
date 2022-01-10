@@ -1,7 +1,20 @@
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
-<div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}" data-m2="{$ploshad_m2[0]}" data-m3="{$obyem_m3[0]}" data-pm="{$_pls['kolvo-pm'][0]}">
+{set $pm = $_pls['kolvo-pm'][0]}
+{set $m2 = $_pls['ploshad_m2'][0]}
+{set $m3 = $_pls['obyem_m3'][0]}
+{if $_pls['v_upakovke'][0]? && $price?}
+    {set $list = $_pls['price'] / $_pls['v_upakovke'][0] | round : 2}
+    {set $list = $list | round : 2 | replace : ',' : '.'}
+{/if}
+
+<div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}"
+     data-m2="{$m2}"
+     data-m3="{$m3}"
+     data-pm="{$pm}"
+     data-list="{$list}">
+
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
             <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="{$pagetitle}">
@@ -74,7 +87,7 @@
                 <span class="product-item__price" data-default="{$price}">{$price}</span> руб
             {/if}
 
-            {if $_modx->resource.context_key != 'rockwool'}
+            {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
                 {if $price and $unit[0]}
                     <div class="listing__products-item-measure">
                         Цена за
@@ -88,19 +101,22 @@
             {/if}
         </div>
 
-        {if $_modx->resource.context_key === 'rockwool'}
+        {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
             <div class="product-item__selprice">
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="euv-custom-select custom-select product-item__units-select">
                     <option value="1" selected>упаковку</option>
-                    {if $ploshad_m2[0]}
+                    {if $m2}
                         <option value="2">м2</option>
                     {/if}
-                    {if $obyem_m3[0]}
+                    {if $m3}
                         <option value="3">м3</option>
                     {/if}
-                    {if $_pls['kolvo-pm'][0]}
+                    {if $pm}
                         <option value="4">п.м.</option>
+                    {/if}
+                    {if $list}
+                        <option value="5">лист</option>
                     {/if}
                 </select>
             </div>
