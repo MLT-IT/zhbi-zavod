@@ -1,7 +1,8 @@
 <section class="listing">
     <div class="wrapper">
         {*        <h1 class="title-1">Продажа газобетонных блоков H+H в самом лучшем городе СПБ</h1>*}
-        <div class="listing__content" id="mse2_mfilter">
+
+        <div class="listing__content" id="mse2_mfilter" data-val="">
             {'!msPCS' | snippet}
 
             {set $params = [
@@ -30,8 +31,19 @@
             'optionFilters' => $_modx->getPlaceholder('mspcs.option')
             ]}
 
-            {if $_modx->resource.template == 4}
-                {set $params['parents'] = '-9125,-10594,-10998'}
+            {set $value = $_modx->getPlaceholder('mspcs.option')}
+            {if $value ?}
+                {set $id = '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']}
+
+                {if $_modx->resource.template == 4}
+                    {set $params['parents'] = $id ~ ',-9125,-10594,-10998'}
+                {else}
+                    {set $params['parents'] = $id}
+                {/if}
+            {else}
+                {if $_modx->resource.template == 4}
+                    {set $params['parents'] = '-9125,-10594,-10998'}
+                {/if}
             {/if}
 
             {'!mFilter2' | snippet : $params}
