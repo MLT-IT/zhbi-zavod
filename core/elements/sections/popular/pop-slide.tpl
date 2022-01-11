@@ -18,17 +18,9 @@
                   ($_pls['parent'] not in list [9052, 9125, 14193, 10998])}
 
 {* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
-{if $_pls['v_upakovke']?}
-    {switch $_modx->resource.context_key}
-        {case 'penoplex'}
-            {set $m2 = $m2 * $_pls['v_upakovke'][0]}
-            {set $m2 = $m2 | replace : ',' : '.'}
-            {set $m3 = $m3 * $_pls['v_upakovke'][0]}
-            {set $m3 = $m3 | replace : ',' : '.'}
-        {case 'web'}
-            {set $m2 = $m2 * $_pls['v_upakovke'][0]}
-            {set $m2 = $m2 | replace : ',' : '.'}
-    {/switch}
+{if $_pls['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
+    {set $m2 = $m2 * $_pls['v_upakovke'][0]}
+    {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
 <div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}"

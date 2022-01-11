@@ -7,6 +7,8 @@
 
             {set $params = [
             'element' => 'msProducts',
+            'suggestionsMaxFilters' => 2000,
+            'suggestionsMaxResults' => 100000,
             'filters' => $_modx->resource.listFilters ?: "",
             'tpls' => "@FILE sections/category/listing-products-item.tpl",
             'tplOuter' => '@FILE sections/category/listing-outer.tpl',
