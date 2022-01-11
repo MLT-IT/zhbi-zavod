@@ -8,14 +8,14 @@
 {set $pm = $_pls['kolvo-pm'][0]}
 {set $m2 = $_pls['ploshad_m2'][0]}
 {set $m3 = $_pls['obyem_m3'][0]}
-{if $_pls['v_upakovke'][0]? && $price?}
+{if $_pls['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
     {set $list = $_pls['price'] * $_pls['v_upakovke'][0]}
     {set $list = $list | round : 2 | replace : ',' : '.'}
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
 {set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa']) &&
-                  ($_pls['parent'] not in list [9052, 9125, 14193, 10998])}
+                  ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819])}
 
 {* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
 {if $_pls['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
