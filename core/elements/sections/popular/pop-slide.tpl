@@ -9,6 +9,9 @@
     {set $list = $list | round : 2 | replace : ',' : '.'}
 {/if}
 
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa']) &&
+                  ($_pls['parent'] not in list [9052, 9125, 14193, 10998])}
+
 <div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
@@ -84,10 +87,11 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price">
             {if $price}
-                <span class="product-item__price" data-default="{$price}">{$price}</span> руб
+                <span class="product-item__price" data-default="{$price}">{$price}</span>
+                руб
             {/if}
 
-            {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
+            {if $condition}
                 {if $price and $unit[0]}
                     <div class="listing__products-item-measure">
                         Цена за
@@ -101,21 +105,21 @@
             {/if}
         </div>
 
-        {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
+        {if $condition}
             <div class="product-item__selprice">
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="euv-custom-select custom-select product-item__units-select">
                     <option value="1" selected>упаковку</option>
-                    {if $m2}
+                    {if $m2 ?}
                         <option value="2">м2</option>
                     {/if}
-                    {if $m3}
+                    {if $m3 ?}
                         <option value="3">м3</option>
                     {/if}
-                    {if $pm}
+                    {if $pm ?}
                         <option value="4">п.м.</option>
                     {/if}
-                    {if $list}
+                    {if $list ?}
                         <option value="5">лист</option>
                     {/if}
                 </select>

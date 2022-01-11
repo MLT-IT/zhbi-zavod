@@ -9,6 +9,9 @@
     {set $list = $list | round : 2 | replace : ',' : '.'}
 {/if}
 
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa']) &&
+                  ($_modx->resource.parent not in list [9052, 9125, 14193, 10998])}
+
 <div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
@@ -35,7 +38,7 @@
 
         <div class="product-card__info-inner">
             <div class="product-card__left-info">
-                {if $_modx->resource.context_key in list ['rockwool', 'penoplex']}
+                {if $condition}
                     <div class="product-card__units-wrap">
                         <input type="hidden" name="unit" value="1">
                         <span class="product-card__unit-span">Цена за</span>
@@ -49,24 +52,26 @@
                         {if $pm ?}
                             <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
                         {/if}
-                        {if $list}
+                        {if $list ?}
                             <a class="product-card__unit-link" href="#" data-val="5">лист</a>
                         {/if}
                     </div>
+                {else}
+                    <input type="hidden" name="unit" value="1">
                 {/if}
 
                 {if $price}
                     <span class="product-card__price-wrap">
-                    <span itemprop="price" class="product-item__price"
-                          data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
-                    <meta itemprop="priceCurrency" content="RUB">
-                    руб
+                        <span itemprop="price" class="product-item__price"
+                              data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
+                        <meta itemprop="priceCurrency" content="RUB">
+                        руб
 
-                    {if $_modx->resource.context_key not in list ['rockwool', 'penoplex']}
-                        {set $unit = $_modx->resource.unit}
-                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
-                    {/if}
-                </span>
+                        {if $condition}
+                            {set $unit = $_modx->resource.unit}
+                            {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                        {/if}
+                    </span>
                 {/if}
 
                 {set $upakovka = 'getPackageNew' | snippet}
