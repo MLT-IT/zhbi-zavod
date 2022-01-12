@@ -5,11 +5,7 @@
         <div class="listing__content" id="mse2_mfilter" data-val="">
             {'!msPCS' | snippet}
 
-            {set $parents = 'getParentFromWhere' | snippet}
-
             {set $params = [
-            'parents' = $parents,
-
             'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
             'suggestionsMaxResults' => 100000,
@@ -34,7 +30,8 @@
             'values_delimeter' => '~',
             'context' => $_modx->resource.context_key,
 
-            'optionFilters' => $_modx->getPlaceholder('mspcs.option')
+            'optionFilters' => $_modx->getPlaceholder('mspcs.option'),
+            'where' => $_modx->getPlaceholder('mspcs.where'),
             ]}
 
             {set $value = $_modx->getPlaceholder('mspcs.option')}
