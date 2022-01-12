@@ -647,6 +647,11 @@ switch ($context) {
         $thicknessResult = [
             [
                 "uri" =>
+                    "/catalog/?msoption|item_thickness=30",
+                "name" => "30",
+            ],
+            [
+                "uri" =>
                     "/catalog/?msoption|item_thickness=50",
                 "name" => "50",
             ],
@@ -824,7 +829,77 @@ switch ($context) {
         ];
         break;
     case "isover":
+        $primenenieResult = [
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0%2F%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8",
+                "name" => "Для балкона/лоджии",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%B1%D0%B0%D0%BD%D0%B8",
+                "name" => "Для бани",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8",
+                "name" => "Для кровли",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B",
+                "name" => "Для мансарды",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA",
+                "name" => "Для перегородок",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9",
+                "name" => "Для перекрытий",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%BE%D0%BB%D0%B0",
+                "name" => "Для пола",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0",
+                "name" => "Для потолка",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%81%D1%82%D0%B5%D0%BD",
+                "name" => "Для стен",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%82%D1%80%D1%83%D0%B1",
+                "name" => "Для труб",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0",
+                "name" => "Для фасада",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%2F%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F",
+                "name" => "Для фундамента/цоколя",
+            ],
+        ];
         $thicknessResult = [
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=20",
+                "name" => "20",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=25",
+                "name" => "25",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=30",
+                "name" => "30",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=40",
+                "name" => "40",
+            ],
             [
                 "uri" =>
                     "/catalog/?msoption|item_thickness=50",
@@ -832,8 +907,33 @@ switch ($context) {
             ],
             [
                 "uri" =>
+                    "/catalog/?msoption|item_thickness=60",
+                "name" => "60",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=65",
+                "name" => "65",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=75",
+                "name" => "75",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=80",
+                "name" => "80",
+            ],
+            [
+                "uri" =>
                     "/catalog/?msoption|item_thickness=100",
                 "name" => "100",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=120",
+                "name" => "120",
             ],
             [
                 "uri" =>
@@ -843,11 +943,149 @@ switch ($context) {
         ];
         break;
     case "web":
+        $primenenieResult = [
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0%2F%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8",
+                "name" => "Для балкона/лоджии",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%B1%D0%B0%D0%BD%D0%B8",
+                "name" => "Для бани",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8",
+                "name" => "Для вентиляции",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8",
+                "name" => "Для кровли",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B",
+                "name" => "Для мансарды",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA",
+                "name" => "Для перегородок",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9",
+                "name" => "Для перекрытий",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%B5%D1%87%D0%B8%2F%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0",
+                "name" => "Для печи/камина",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%BE%D0%BB%D0%B0",
+                "name" => "Для пола",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0",
+                "name" => "Для потолка",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%81%D1%82%D0%B5%D0%BD",
+                "name" => "Для стен",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%82%D1%80%D1%83%D0%B1",
+                "name" => "Для труб",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0",
+                "name" => "Для фасада",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%94%D0%BB%D1%8F+%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%2F%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F",
+                "name" => "Для фундамента/цоколя",
+            ],
+            [
+                "uri" => "/catalog/?msoption|primenenie=%D0%9F%D0%BE%D0%B4+%D1%88%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BA%D1%83",
+                "name" => "Под штукатурку",
+            ]
+        ];
         $thicknessResult = [
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=6.5",
+                "name" => "6.5",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=8",
+                "name" => "8",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=10",
+                "name" => "10",
+            ],
+
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=16",
+                "name" => "16",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=20",
+                "name" => "20",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=27",
+                "name" => "27",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=30",
+                "name" => "30",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=40",
+                "name" => "40",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=45",
+                "name" => "45",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=47",
+                "name" => "47",
+            ],
             [
                 "uri" =>
                     "/catalog/?msoption|item_thickness=50",
                 "name" => "50",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=60",
+                "name" => "60",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=70",
+                "name" => "70",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=75",
+                "name" => "75",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=80",
+                "name" => "80",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=90",
+                "name" => "90",
             ],
             [
                 "uri" =>
@@ -856,8 +1094,28 @@ switch ($context) {
             ],
             [
                 "uri" =>
+                    "/catalog/?msoption|item_thickness=110",
+                "name" => "110",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=120",
+                "name" => "120",
+            ],
+            [
+                "uri" =>
                     "/catalog/?msoption|item_thickness=150",
                 "name" => "150",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=180",
+                "name" => "180",
+            ],
+            [
+                "uri" =>
+                    "/catalog/?msoption|item_thickness=200",
+                "name" => "200",
             ],
         ];
         break;
