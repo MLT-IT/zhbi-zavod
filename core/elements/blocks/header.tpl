@@ -118,7 +118,6 @@
 
         <div class="header__nav-list">
             <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
-            <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
 
             {set $certs = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'certs']}
             {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
@@ -132,6 +131,8 @@
             {if $akcii->hidemenu == 0}
                 <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
             {/if}
+
+            <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
 
             <a class="header__email" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
                 {'!utm' | snippet : ['val' => 'email']}

@@ -102,7 +102,7 @@
                 руб
             {/if}
 
-            {if $condition}
+            {if !$condition}
                 {if $price and $unit[0]}
                     <div class="listing__products-item-measure">
                         Цена за

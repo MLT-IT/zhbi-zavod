@@ -5,7 +5,11 @@
         <div class="listing__content" id="mse2_mfilter" data-val="">
             {'!msPCS' | snippet}
 
+            {set $parents = 'getParentFromWhere' | snippet}
+
             {set $params = [
+            'parents' = $parents,
+
             'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
             'suggestionsMaxResults' => 100000,
