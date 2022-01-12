@@ -13,4 +13,21 @@
     {set $params['depth'] = '0'}
 {/if}
 
+{switch $_modx->resource.parent}
+    {case 13127}
+        {set $params['parents'] = 4}
+    {case 10987}
+        {set $params['parents'] = 3028}
+    {case 13128}
+        {set $params['parents'] = 3989}
+    {case 13129}
+        {set $params['parents'] = 4950}
+    {case 13130}
+        {set $params['parents'] = 5911}
+    {case 13131}
+        {set $params['parents'] = 6872}
+    {case 13132}
+        {set $params['parents'] = 7833}
+{/switch}
+
 {'!pdoResources' | snippet : $params}
