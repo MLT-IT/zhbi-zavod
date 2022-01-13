@@ -33,8 +33,7 @@
                                 <span class="error_MAIL">[[!+fi.error.MAIL]]</span>
                             </label>
                             <label class="popup-order__label popup-order__label_width_half mla">
-                                <input name="PHONE" placeholder="Телефон" class="popup-order__input"
-                                       type="tel">
+                                <input name="PHONE" placeholder="Укажите номер телефона*" class="popup-order__input" type="tel">
                                 <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
                             </label>
                         </div>
@@ -115,7 +114,7 @@
                                 <span class="error_MAIL">[[!+fi.error.MAIL]]</span>
                             </label>
                             <label class="popup-order__label popup-order__label_width_half mla">
-                                <input name="PHONE" placeholder="Телефон" class="popup-order__input"
+                                <input name="PHONE" placeholder="Укажите номер телефона*" class="popup-order__input"
                                        type="tel">
                                 <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
                             </label>

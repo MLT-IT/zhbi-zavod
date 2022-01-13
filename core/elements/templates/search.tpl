@@ -45,7 +45,7 @@
         'ajaxElemLink' => '.spag__item',
         'ajaxElemPagination' => '.sect-search__pagination',
         'ajax' => '1',
-        'ajaxMode' => 'default',
+        'ajaxMode' => 'default'
         ]}
 
         <div class="sect-search__content ajax-content">

@@ -9,7 +9,7 @@
             </label>
 
             <label>
-                <input type="tel" placeholder="+7 (989) 999-99-99" name="PHONE">
+                <input type="tel" placeholder="Укажите номер телефона*" name="PHONE">
                 <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
             </label>
         </div>

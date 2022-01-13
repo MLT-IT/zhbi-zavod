@@ -11,7 +11,7 @@
             под Ваши требования</p>
         <form class="catalog-banner__form" method="post">
             <input type="text" class="catalog-banner__input" name="NAME" placeholder="Ваше имя">
-            <input type="text" class="catalog-banner__input" name="PHONE" placeholder="Телефон">
+            <input type="tel" class="catalog-banner__input" name="PHONE" placeholder="Укажите номер телефона*">
 
             <label class="catalog-banner__privacy-wrap privacy">
                 <span class="custom-checkbox">
