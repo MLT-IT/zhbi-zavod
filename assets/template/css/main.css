@@ -4518,10 +4518,6 @@ a .breadcrumbs__val:hover {
     margin-right: 15px
 }
 
-.listing__tags-item:hover, .listing__tags-item:hover .listing__tags-item-img {
-    border-color: #ffbe00
-}
-
 .listing__tags-item-img {
     flex-shrink: 0;
     margin-right: 7px;
