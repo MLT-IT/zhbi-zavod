@@ -34,6 +34,29 @@
     <link rel="icon" href="/assets/template/img/favicons/{$site_context}/favicon.ico" type="image/x-icon">
     {* <<< favicon *}
 
+    {* >>> Open Graph и Twitter Card  *}
+    {set $img = 'assets/template/img/logos/' ~ $site_context}
+    {set $title = 'Поставка '}
+    {if $site_context !== 'krovlya'}
+        {set $img = $img ~ '.png'}
+        {set $title = $title ~ 'утеплителя ' ~ $brand}
+    {else}
+        {set $img = $img ~ '.svg'}
+        {set $title = $title ~ 'кровли'}
+    {/if}
+    {set $title = $title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{$title}" />
+    <meta property="og:description" content="{$_modx->resource.description}" />
+    <meta property="og:url" content="{'site_url' | option}" />
+    <meta property="og:image" content="{'site_url' | option}{$img}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="{$_modx->resource.description}" />
+    <meta name="twitter:title" content="{$title}" />
+    <meta name="twitter:image" content="{'site_url' | option}{$img}" />
+    {* <<< Open Graph и Twitter Card  *}
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a) { m[i]=m[i]||function() { (m[i].a=m[i].a||[]).push(arguments) } ;
