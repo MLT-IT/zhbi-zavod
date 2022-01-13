@@ -5989,7 +5989,7 @@ a .breadcrumbs__val:hover {
 
 .payment__item-top span {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     margin-right: auto
 }
 
@@ -7836,10 +7836,6 @@ a .breadcrumbs__val:hover {
 
     .payment__item-top {
         padding: 15px 10px
-    }
-
-    .payment__item-top span {
-        font-size: 16px
     }
 
     .payment__item-content {
