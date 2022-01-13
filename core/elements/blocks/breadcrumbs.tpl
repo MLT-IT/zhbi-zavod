@@ -1,7 +1,7 @@
 {'pdoCrumbs' | snippet : [
-    'tpl' => '@INLINE <div class="breadcrumbs__item"><a href="[[+link]]">[[+menutitle]]</a></div>',
-    'tplCurrent' => '@INLINE <div class="breadcrumbs__item">[[+menutitle]]</div>',
-    'tplWrapper' => '@INLINE <div class="breadcrumbs">[[+output]]</div>',
+    'tpl' => '@FILE blocks/breadcrumbs-item.tpl',
+    'tplCurrent' => '@FILE blocks/breadcrumbs-item-current.tpl',
+    'tplWrapper' => '@INLINE <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumbs">[[+output]]</ul>',
     'showHome' => 1,
     'showAtHome' => 0,
     'hideSingle' => 1

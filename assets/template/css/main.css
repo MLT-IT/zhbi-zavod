@@ -4101,10 +4101,11 @@ p, span {
 
 .breadcrumbs__item:not(:last-of-type):after {
     content: "/";
-    margin: 0 5px
+    margin-left: 3px;
+    margin-right: 5px;
 }
 
-.breadcrumbs__item a {
+.breadcrumbs__val {
     font-size: 12px;
     line-height: 120%;
     color: #b1b2b3;
@@ -4112,7 +4113,7 @@ p, span {
     border-bottom: 1px solid transparent
 }
 
-.breadcrumbs__item a:hover {
+a .breadcrumbs__val:hover {
     border-bottom-color: currentColor
 }
 
