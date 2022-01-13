@@ -233,5 +233,20 @@ $(function ($) {
         $this.addClass('active');
     });
 
+    // -------------------------------
+    // faq
+    // -------------------------------
+    $('.questions__item-top').on('click', function(e) {
+       e.preventDefault();
+       $(this).parent().toggleClass('active');
+    });
+
+    $('.questions__btn-more').on('click', function(e) {
+        e.preventDefault();
+        const $this = $(this);
+        $this.parent().find('.questions__list-hidden').slideToggle();
+        $this.remove();
+    });
+
 });
 
