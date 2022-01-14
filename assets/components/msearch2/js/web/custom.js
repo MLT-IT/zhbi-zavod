@@ -924,7 +924,7 @@ var mSearch2 = {
                         vmax = Number(value);
                     }
                 }
-                selector = filter.replace(mse2Config['filter_delimeter'], "\\" + mse2Config['filter_delimeter']);
+                selector = CSS.escape(filter);
                 var imin = $('#' + mSearch2.options.prefix + selector + '_0', mSearch2.filters);
                 if (imin.length) {
                     if (vmin == null) {
@@ -951,7 +951,7 @@ var mSearch2 = {
                         continue;
                     }
                     count = arr[value];
-                    selector = filter.replace(mse2Config['filter_delimeter'], "\\" + mse2Config['filter_delimeter']);
+                    selector = CSS.escape(filter);
                     input = $('#' + mSearch2.options.prefix + selector, mSearch2.filters).find('[value="' + value.replace(/&quot;/g, '\\"') + '"]');
                     if (!input[0]) {
                         continue;
@@ -964,7 +964,7 @@ var mSearch2 = {
                                 continue;
                             }
                             var label = $('#' + mSearch2.options.prefix + selector, mSearch2.filters).find('label[for="' + input.prop('id') + '"]');
-                            var elem = input.closest('label').find(mSearch2.options.suggestion);
+                            var elem = input.parents('label').find(mSearch2.options.suggestion);
                             elem.text(count);
 
                             // >>> Установка приоритета
@@ -1154,7 +1154,7 @@ var mSearch2 = {
         for (var value in this.sliders) {
             if (this.sliders.hasOwnProperty(value)) {
                 this.sliders[value]['changed'] =
-                this.sliders[value]['user_changed'] = false;
+                    this.sliders[value]['user_changed'] = false;
             }
         }
 
