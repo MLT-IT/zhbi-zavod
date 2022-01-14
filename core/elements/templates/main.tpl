@@ -29,7 +29,7 @@
             "@type": "Review",
             "author": "{$reviews['review']['author']}",
             "datePublished": "{$reviews['review']['date']}",
-            "name": "{$name}",
+            "name": "{$reviews['reviewName']}",
             "reviewBody": "{$reviews['review']['text']}",
             "reviewRating": {
                 "@type": "Rating",
