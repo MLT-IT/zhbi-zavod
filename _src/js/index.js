@@ -6,6 +6,7 @@ import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
+import Cookies from 'js-cookie'
 
 // Модули
 import mailChange from './modules/mailchanger';
