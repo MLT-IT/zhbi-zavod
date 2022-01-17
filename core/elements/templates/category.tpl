@@ -67,8 +67,8 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
 
-    <div class="wrapper category-header">
-        <h1 class="title-1 category-header__title">{$_modx->resource.pagetitle}</h1>
+    <div class="wrapper">
+        <h1 class="title-1 category-header asfs">{$_modx->resource.pagetitle}</h1>
     </div>
 
     {include "file:sections/category/listing.tpl"}

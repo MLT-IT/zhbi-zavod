@@ -656,11 +656,11 @@
             .header__cart-button
                 background: transparent
 
-    &__cart, &__fav
+    &__cart, &__favorites, &__comparison
         align-items: center
         display: flex
 
-    &__cart, &__fav, &__cat, &__mobile-phone
+    &__cart, &__favorites, &__comparison, &__cat, &__mobile-phone
         @media screen and (max-width: 768px)
             flex-direction: column
             align-items: center
@@ -762,12 +762,30 @@
             margin-left: 0
             margin-top: auto
 
-    &__fav
-        position: relative
-
+    &__favorites
         @media screen and (max-width: 768px)
             order: 2
             margin-right: 40px
+
+            .icon-heart
+                fill: transparent
+                stroke: #000
+                stroke-width: 2px
+                width: 18px
+                height: 16px
+                transition: .3s
+
+    &__comparison
+            .icon-compare
+                fill: transparent
+                stroke: #000
+                stroke-width: 2px
+                width: 18px
+                height: 16px
+                transition: .3s
+
+    &__favorites, &__comparison
+        position: relative
 
         &:hover
             .header__fav-text
@@ -776,13 +794,7 @@
             .icon-heart
                 stroke: #FFB400
 
-        .icon-heart
-            fill: transparent
-            stroke: #000
-            stroke-width: 2px
-            width: 18px
-            height: 16px
-            transition: .3s
+
 
         @media screen and (max-width: 768px)
             width: 100%

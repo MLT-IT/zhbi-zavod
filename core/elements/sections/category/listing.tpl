@@ -1,7 +1,5 @@
 <section class="listing">
     <div class="wrapper">
-        {*        <h1 class="title-1">Продажа газобетонных блоков H+H в самом лучшем городе СПБ</h1>*}
-
         <div class="listing__content" id="mse2_mfilter">
             {'!msPCS' | snippet}
 

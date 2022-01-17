@@ -4,6 +4,10 @@ import functions from "./functions";
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
 export default function funcsProduct(ImageZoom) {
+    let $btnToFav = $('.header__to-favorites');
+    let splitted = getSplitted();
+    hideOrShowBtnToFav(splitted);
+
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
@@ -250,4 +254,87 @@ export default function funcsProduct(ImageZoom) {
     }
 
     handleMiniCart();
+
+    // -------------------------------
+    // Берет куки с избранными товарами, превращает в массив, удаляет повторяющиеся элементы, возвращает результат {array}.
+    // -------------------------------
+    function getSplitted() {
+        let favIds = Cookies.get('favIds');
+        if (typeof favIds === 'undefined') {
+            favIds = '';
+        }
+
+        // Превращаем значение куки в массив
+        let splitted = favIds.split('-');
+
+        // Удаляем повторяющиеся элементы
+        splitted = splitted.filter(e => e);
+
+        return splitted;
+    }
+
+    // -------------------------------
+    // Обработчик кнопок для добавления / удаления товара из избранного
+    // -------------------------------
+    $(document).on('click', '.product-card__btn-fav', function (e) {
+        e.preventDefault();
+
+        // Основные переменные
+        let $this = $(this);
+        let id = $this.closest('.product-item').find('input[data-id]').val();
+        let splitted = getSplitted();
+        let message = '<br><a href="' + window.location.origin + '/favorites.html' + '">Посмотреть</a>';
+
+        $this.toggleClass('active');
+
+        // Добавляем или удаляем новый элемент
+        if ($this.hasClass('active')) {
+            splitted.push(id);
+            message = 'Товар добавлен в избранное' + message;
+        } else {
+            const index = splitted.indexOf(id);
+            if (index > -1) {
+                splitted.splice(index, 1);
+            }
+            message = 'Товар удален из избранного';
+        }
+
+        hideOrShowBtnToFav(splitted);
+
+        miniShop2.Message.info(message);
+
+        // Превращаем массив в строку
+        let favIds = splitted.join('-');
+
+        // Устанавливаем куки
+        Cookies.set('favIds', favIds);
+
+        let $favCard = $this.closest('.favorites-table__row');
+        if ($favCard.length) {
+            $favCard.remove();
+
+            // Если товаров в избранном не осталось, то удаляем весь блок (в нем пустая таблица)
+            if (!$('.favorites-table__row').length) {
+                $('.favorites').remove();
+            }
+        }
+
+        // Удаляем карточку товара, если был клик по кнопке "Добавить в избранное" на странице избранных
+        if ($this.hasClass('.favorites-table__btn-like.active')) {
+            $(this).closest('.js-product').remove();
+        }
+    });
+
+    // -------------------------------
+    // Спрятать / показать кнопку-ссылку для перехода на страницу с избранными товарами.
+    // @param splitted - массив с id избранных товаров.
+    // -------------------------------
+    function hideOrShowBtnToFav(splitted) {
+        if (splitted.length) {
+            $btnToFav.addClass('visible');
+        } else {
+            $btnToFav.removeClass('visible');
+        }
+        $btnToFav.find('.header__to-favorites-amount').text(splitted.length);
+    }
 }

@@ -104,15 +104,18 @@
 
                 {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
 
-                {*
-                <a class="header__fav" href="#">
+                <a class="header__comparison" href="#">
+                    <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
+                    </svg>
+                    <span class="header__fav-value">5</span>
+                </a>
+                <a class="header__favorites" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="header__fav-value">5</span>
-                    <span class="header__fav-text">Избранное</span>
                 </a>
-                *}
             </div>
         </div>
 
