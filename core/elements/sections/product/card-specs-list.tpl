@@ -13,4 +13,26 @@
             </div>
         {/if}
     {/foreach}
+
+    {if $modx->resource.made_in?}
+        a1
+        <div class="product-card__specs-list-item">
+            <div class="product-card__specs-list-item-name">Страна:</div>
+            <div class="product-card__specs-list-item-value">
+                {$modx->resource.made_in}
+            </div>
+        </div>
+    {/if}
+
+    {$_pls['vendor.name']}
+    {if $modx->resource.vendor.name?}
+        b1
+        <div class="product-card__specs-list-item">
+            <div class="product-card__specs-list-item-name">Производитель:</div>
+            <div class="product-card__specs-list-item-value">
+                {$modx->resource.vendor.name}
+            </div>
+        </div>
+    {/if}
+
 </div>

@@ -17,11 +17,9 @@
 
             'tplFilter.row.price' => '@FILE chunks/filterNumberInner.tpl',
             'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
-            'tplFilter.row.price2' => '@FILE chunks/filterNumberInner.tpl',
-            'tplFilter.outer.price2' => '@FILE chunks/filterNumber.tpl',
             'tplFilter.row.default' => '@FILE chunks/filterCheckbox.tpl',
 
-            'aliases' => 'ms|price==price,msoption|price2==price2',
+            'aliases' => 'ms|price==price',
             'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
             'includeTVs' => 'priority1,HitsPage',
 
