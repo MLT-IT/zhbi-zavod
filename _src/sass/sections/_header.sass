@@ -750,7 +750,13 @@
             .header__cat-icon-stick
                 +set_colors_1(background-color)
 
-    &__cart-text, &__fav-text, &__cat-text, &__mobile-phone-text
+    &__comparison-text, &__favorites-text
+        display: none
+
+        @media screen and (max-width: 768px)
+            display: block
+
+    &__cart-text, &__cat-text, &__mobile-phone-text, &__comparison-text, &__favorites-text
         margin-left: 8px
         transition: .3s
         font-weight: bold
@@ -770,7 +776,6 @@
 
         @media screen and (max-width: 768px)
             order: 2
-            margin-right: 40px
 
     &__favorites, &__comparison, &__cart-wrap
         &:nth-last-child(n+2)
@@ -779,6 +784,9 @@
 
     &__favorites, &__comparison
         position: relative
+
+        @media screen and (max-width: 768px)
+            margin-right: 40px
 
         svg
             width: 18px
@@ -789,9 +797,6 @@
         &:hover
             svg
                 +set_colors_3(stroke)
-
-        @media screen and (max-width: 768px)
-            width: 100%
 
         &_special
             a
