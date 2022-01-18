@@ -763,38 +763,32 @@
             margin-top: auto
 
     &__favorites
+        .icon-heart
+            fill: transparent
+            stroke: #000
+            stroke-width: 2px
+
         @media screen and (max-width: 768px)
             order: 2
             margin-right: 40px
 
-            .icon-heart
-                fill: transparent
-                stroke: #000
-                stroke-width: 2px
-                width: 18px
-                height: 16px
-                transition: .3s
-
-    &__comparison
-            .icon-compare
-                fill: transparent
-                stroke: #000
-                stroke-width: 2px
-                width: 18px
-                height: 16px
-                transition: .3s
+    &__favorites, &__comparison, &__cart-wrap
+        &:nth-last-child(n+2)
+            @media screen and (min-width: 769px)
+                margin-right: 24px
 
     &__favorites, &__comparison
         position: relative
 
+        svg
+            width: 18px
+            height: 16px
+            transition: .3s
+            stroke: #000
+
         &:hover
-            .header__fav-text
-                color: #FFB400
-
-            .icon-heart
-                stroke: #FFB400
-
-
+            svg
+                +set_colors_3(stroke)
 
         @media screen and (max-width: 768px)
             width: 100%
@@ -808,14 +802,6 @@
                 a
                     text-decoration: none
 
-        &:nth-last-of-type(n+2)
-            @media screen and (min-width: 769px)
-                margin-right: 24px
-
-        &:nth-last-of-type(n)
-            @media screen and (max-width: 768px)
-                margin-right: 0
-
         a
             font-weight: 400
 
@@ -826,7 +812,7 @@
         display: flex
         margin-left: auto
 
-        @media screen and (max-width: 990px)
+        @media screen and (max-width: 1066px)
             margin-left: 12px
 
         &.closed
