@@ -1,7 +1,5 @@
-{* Ключ товара, нужен для добавления товара в корзину *}
+{* Ключ товара, нужен для проверки, есть ли товар в корзине *}
 {set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
-
-{* Товар находится в корзине? *}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
 {* Основные единицы измерения *}

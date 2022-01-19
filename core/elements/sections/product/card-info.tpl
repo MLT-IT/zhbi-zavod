@@ -1,8 +1,8 @@
 {* Информация об избранном и сравнении *}
 {set $checkFavAndComp = '!checkFavAndComp' | snippet : ['id' => $_modx->resource.id]| replace: "-" : ","}
-{* Ключ товара, нужен для добавления товара в корзину *}
+
+{* Ключ товара, нужен для проверки, есть ли товар в корзине *}
 {set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
-{* Товар находится в корзине? *}
 {set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
 
 {* Основные единицы измерения *}
