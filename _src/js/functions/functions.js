@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue}
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText}
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -48,4 +48,11 @@ function getActiveUnitValue($productItem) {
     const unit = $productItem.find('*[name="unit"]').val();
 
     return unitValues[unit];
+}
+
+// Поменять местами текст внутри тега с текстом внутри атрибута attr_1
+function toggleText(elem, attr_1) {
+    var text = elem.attr(attr_1);
+    elem.attr(attr_1, elem.text());
+    elem.text(text);
 }

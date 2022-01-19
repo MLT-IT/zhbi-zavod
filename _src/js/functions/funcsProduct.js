@@ -3,10 +3,9 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom) {
+export default function funcsProduct(ImageZoom, Cookies) {
     let $btnToFav = $('.header__to-favorites');
-    let splitted = getSplitted();
-    hideOrShowBtnToFav(splitted);
+    hideOrShowBtnToFav(getSplitted('favIds'));
 
     // -------------------------------
     // Щелчок по якорю "Отзывы"
@@ -256,16 +255,18 @@ export default function funcsProduct(ImageZoom) {
     handleMiniCart();
 
     // -------------------------------
-    // Берет куки с избранными товарами, превращает в массив, удаляет повторяющиеся элементы, возвращает результат {array}.
+    // Избранное и сравнение
     // -------------------------------
-    function getSplitted() {
-        let favIds = Cookies.get('favIds');
-        if (typeof favIds === 'undefined') {
-            favIds = '';
+    // Берет куки с товарами, превращает в массив, удаляет повторяющиеся элементы, возвращает результат {array}.
+    // Принимает параметр - название куки. Это либо favIds, либо compIds
+    function getSplitted(cookie) {
+        let ids = Cookies.get(cookie);
+        if (typeof ids === 'undefined') {
+            ids = '';
         }
 
         // Превращаем значение куки в массив
-        let splitted = favIds.split('-');
+        let splitted = ids.split('-');
 
         // Удаляем повторяющиеся элементы
         splitted = splitted.filter(e => e);
@@ -273,42 +274,65 @@ export default function funcsProduct(ImageZoom) {
         return splitted;
     }
 
-    // -------------------------------
-    // Обработчик кнопок для добавления / удаления товара из избранного
-    // -------------------------------
-    $(document).on('click', '.product-card__btn-fav', function (e) {
+    // Обработчик кнопок для добавления / удаления товара из избранного / сравнения
+    $(document).on('click', '.product-card__btn', function (e) {
         e.preventDefault();
 
-        // Основные переменные
+        // Основные переменные и константы
         let $this = $(this);
-        let id = $this.closest('.product-item').find('input[data-id]').val();
-        let splitted = getSplitted();
-        let message = '<br><a href="' + window.location.origin + '/favorites.html' + '">Посмотреть</a>';
+        let pageUri;
+        let targetText1;
+        let targetText2;
+        let splitted;
+        let cookieName;
 
+        switch (true) {
+            case $this.hasClass('product-card__btn-fav'):
+                pageUri = '/favorites/';
+                targetText1 = 'избранное';
+                targetText2 = 'избранного';
+                cookieName = 'favIds';
+                splitted = getSplitted(cookieName);
+                break;
+            case $this.hasClass('product-card__btn-compare'):
+                pageUri = '/comparison/'
+                targetText1 = 'сравнение';
+                targetText2 = 'сравнения';
+                cookieName = 'compIds';
+                splitted = getSplitted(cookieName);
+                break;
+        }
+
+        // Дополнительные переменные
+        let id = $this.closest('.product-item').find('input[name="id"]').val();
+        let message = '<br><a href="' + window.location.origin + pageUri + '">Посмотреть</a>';
+
+        // Переключение класса
         $this.toggleClass('active');
 
-        // Добавляем или удаляем новый элемент
+        // Добавляем или удаляем новый элемент в массив с куки
         if ($this.hasClass('active')) {
             splitted.push(id);
-            message = 'Товар добавлен в избранное' + message;
+            message = 'Товар добавлен в ' + targetText1 + message;
         } else {
             const index = splitted.indexOf(id);
             if (index > -1) {
                 splitted.splice(index, 1);
             }
-            message = 'Товар удален из избранного';
+            message = 'Товар удален из ' + targetText2;
         }
 
+        // Прячем / показываем кнопку
         hideOrShowBtnToFav(splitted);
 
+        // Выводим сообщение
         miniShop2.Message.info(message);
 
-        // Превращаем массив в строку
-        let favIds = splitted.join('-');
-
         // Устанавливаем куки
-        Cookies.set('favIds', favIds);
+        Cookies.set(cookieName, splitted.join('-'));
 
+        /*
+        // Если мы находимся на странице избранных
         let $favCard = $this.closest('.favorites-table__row');
         if ($favCard.length) {
             $favCard.remove();
@@ -323,18 +347,17 @@ export default function funcsProduct(ImageZoom) {
         if ($this.hasClass('.favorites-table__btn-like.active')) {
             $(this).closest('.js-product').remove();
         }
+        */
     });
 
-    // -------------------------------
     // Спрятать / показать кнопку-ссылку для перехода на страницу с избранными товарами.
     // @param splitted - массив с id избранных товаров.
-    // -------------------------------
     function hideOrShowBtnToFav(splitted) {
         if (splitted.length) {
-            $btnToFav.addClass('visible');
+            $btnToFav.removeClass('hidden');
         } else {
-            $btnToFav.removeClass('visible');
+            $btnToFav.addClass('hidden');
         }
-        $btnToFav.find('.header__to-favorites-amount').text(splitted.length);
+        $btnToFav.find('.header__fav-value').text(splitted.length);
     }
 }
