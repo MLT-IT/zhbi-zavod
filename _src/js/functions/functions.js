@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText}
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim}
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -55,4 +55,12 @@ function toggleText(elem, attr_1) {
     var text = elem.attr(attr_1);
     elem.attr(attr_1, elem.text());
     elem.text(text);
+}
+
+// Strip whitespace (or other characters) from the beginning and end of a string
+// +   original by: Ilia Kantor (http://javascript.ru)
+function trim(str, charlist) {
+    charlist = !charlist ? ' \s\xA0' : charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '\$1');
+    var re = new RegExp('^[' + charlist + ']+|[' + charlist + ']+$', 'g');
+    return str.replace(re, '');
 }

@@ -3,7 +3,7 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, Cookies) {
+export default function funcsProduct(ImageZoom, Cookies, trim) {
     let $btnToFav = $('.header__to-favorites');
     hideOrShowBtnToFav(getSplitted('favIds'));
 
@@ -265,11 +265,19 @@ export default function funcsProduct(ImageZoom, Cookies) {
             ids = '';
         }
 
+        // Обрезаем ненужные символы
+        let splitted = trim(ids, '-');
+
         // Превращаем значение куки в массив
-        let splitted = ids.split('-');
+        splitted = splitted.split('-');
 
         // Удаляем повторяющиеся элементы
-        splitted = splitted.filter(e => e);
+        splitted = splitted.filter(function(item, pos) {
+            return splitted.indexOf(item) === pos;
+        })
+
+        // Удаляем пустые элементы из массива
+        splitted = splitted.filter(n => n)
 
         return splitted;
     }

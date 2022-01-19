@@ -31,7 +31,7 @@ if (elem !== null) {
 
 $(function ($) {
     funcsCatalog();
-    funcsProduct(ImageZoom, Cookies);
+    funcsProduct(ImageZoom, Cookies, functions.trim);
 
     // -------------------------------
     // Меню на ПК
