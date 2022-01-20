@@ -13,7 +13,7 @@
 <div class="product-item__controls product-item__controls_action_change">
     <div class="custom-counter product-item__custom-counter">
         <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-        <input name="count" class="custom-counter__amount" value="{$itemInCart}">
+        <input name="count" class="custom-counter__amount" value="{$itemInCart?:0}">
         <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
     </div>
     <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>

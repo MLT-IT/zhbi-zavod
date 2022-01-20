@@ -1,8 +1,7 @@
 {* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = '!getProductKey' | snippet : ['productId' => $id]}
-
-{* Товар находится в корзине? *}
-{set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
+{set $productKey = ($id ~ ($price | replace : ' ' : '') ~ $weight ~ '[]') | md5}
+{* Кол-во товара в корзине *}
+{set $itemInCart = $_modx->getPlaceholder('itemsInCart')[$id]}
 
 {* Основные единицы измерения *}
 {set $pm = $_pls['kolvo-pm'][0]}
@@ -26,7 +25,7 @@
 {*
   data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности
 *}
-<div data-upakovka="{$_pls['v_upakovke'][0]}"  class="product-item listing__products-item{if $itemInCart > 0} product-item-in-cart{/if}"
+<div data-upakovka="{$_pls['v_upakovke'][0]}"  class="product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"

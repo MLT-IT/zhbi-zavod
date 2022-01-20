@@ -1,6 +1,7 @@
 {* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = $_modx->resource['id'] ~ $_modx->resource['price'] ~ $weight ~ '[]'}
-{set $productKey = $productKey | md5}
+{set $productKey = ($_modx->resource['id'] ~ $_modx->resource['price'] ~ $weight ~ '[]') | md5}
+{* Кол-во товара в корзине *}
+{set $itemInCart = $_modx->getPlaceholder('itemsInCart')[$_modx->resource['id']]}
 
 {* Основные единицы измерения *}
 {set $pm = $_modx->resource['kolvo-pm'][0]}
@@ -21,7 +22,7 @@
     {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
-<div class="product-card__top product-item{if $_modx->getPlaceholder('itemsInCart')[$_modx->resource['id']]?} product-item-in-cart{/if}"
+<div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
