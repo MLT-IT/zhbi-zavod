@@ -19,6 +19,8 @@
 
 {$_modx->setPlaceholder('brand', $brand)}
 
+{'!getItemsInCart' | snippet}
+
 <!doctype html>
 <html lang="ru">
 <head>

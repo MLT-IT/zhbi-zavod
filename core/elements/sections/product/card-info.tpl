@@ -1,8 +1,6 @@
 {* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = '!getProductKey' | snippet : ['productId' => $_modx->resource['id']]}
-
-{* Товар находится в корзине? *}
-{set $itemInCart = '!itemInCart' | snippet : ['key' => $productKey]}
+{set $productKey = $_modx->resource['id'] ~ $_modx->resource['price'] ~ $weight ~ '[]'}
+{set $productKey = $productKey | md5}
 
 {* Основные единицы измерения *}
 {set $pm = $_modx->resource['kolvo-pm'][0]}
@@ -23,7 +21,7 @@
     {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
-<div class="product-card__top product-item{if $itemInCart > 0} product-item-in-cart{/if}"
+<div class="product-card__top product-item{if $_modx->getPlaceholder('itemsInCart')[$_modx->resource['id']]?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
@@ -85,13 +83,11 @@
                     </span>
                 {/if}
 
-                {set $upakovka = 'getPackageNew' | snippet}
-                {if $upakovka is empty}
-                    {set $upakovka = 'getPackage' | snippet}
-                {/if}
-
-                {if $upakovka | length > 0}
-                    <div class="product-card__package">В упаковке: {$upakovka}</div>
+                {if $_modx->resource.context_key != 'krovlya'}
+                    {set $upakovka = 'getPackageNew' | snippet}
+                    {if $upakovka | length > 0}
+                        <div class="product-card__package">В упаковке: {$upakovka}</div>
+                    {/if}
                 {/if}
             </div>
             <div class="product-card__right-info">
