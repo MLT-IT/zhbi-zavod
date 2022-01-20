@@ -38,7 +38,7 @@ export default function funcsCatalog() {
             $items.appendTo($container);
         });
     }
-    window.catalogSortFilters();
+    // window.catalogSortFilters();
 
     // -------------------------------------------
     // Скрыть / показать доп. кнопки на карточках на маленьких экранах

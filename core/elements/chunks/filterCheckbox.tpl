@@ -14,10 +14,12 @@
             <span class="custom-checkbox__checkmark"></span>
         </span>
         <span class="filter-option__title">{$title}</span>
+        {*
         <sup class="filter-option__num">
             {if $num?}
                 ({$num})
             {/if}
         </sup>
+        *}
     </label>
 </a>

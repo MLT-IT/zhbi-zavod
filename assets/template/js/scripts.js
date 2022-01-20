@@ -7,7 +7,7 @@ $(function () {
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
         window.getRemainder();
         window.initStyledCounter();
-        window.catalogSortFilters();
+        // window.catalogSortFilters();
     });
 
     // -------------------------------

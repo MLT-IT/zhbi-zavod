@@ -3,7 +3,7 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom) {
+export default function funcsProduct(ImageZoom, Cookies) {
     let $btnToFav = $('.header__to-favorites');
     let splitted = getSplitted();
     hideOrShowBtnToFav(splitted);
