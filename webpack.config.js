@@ -14,7 +14,9 @@ module.exports = (env, args) => {
     }
 
     return {
-        entry: './_src/js/index.js',
+        entry: {
+            app: ['./_src/js/index.js', './_src/js/other/scripts.js', './_src/js/other/vendors.js', './_src/js/other/base.js'],
+        },
         performance: {
             hints: false
         },

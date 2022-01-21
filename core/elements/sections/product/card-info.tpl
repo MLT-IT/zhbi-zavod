@@ -93,6 +93,8 @@
             </div>
             <div class="product-card__right-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
+
+                {*
                 <a class="product-card__btn product-card__btn-compare" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
@@ -109,6 +111,7 @@
                     </svg>
                     В избранное
                 </a>
+                *}
             </div>
         </div>
 
