@@ -44,22 +44,21 @@ module.exports = (env, args) => {
                                 sourceMap: true
                             }
                         }
-                    ]
+                    ],
                 },
                 {
                     test: /\.(css)$/,
                     use: [
-                        styleLoader,
+                        'style-loader',
                         'css-loader',
-                        'postcss-loader',
                     ]
                 },
-                {
-                    test: /\.svg$/,
-                    use: [
-                        'url-loader'
-                    ]
-                },
+                // {
+                //     test: /\.svg$/,
+                //     use: [
+                //         'url-loader'
+                //     ]
+                // },
                 {
                     test: /\.(png|jpg|gif)$/,
                     use: [{
@@ -68,6 +67,18 @@ module.exports = (env, args) => {
                             name: 'tpl-imgs/[name].[ext]'
                         }
                     }]
+                },
+                {
+                    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[name].[ext]',
+                                outputPath: 'fonts/'
+                            }
+                        }
+                    ]
                 }
             ]
         },
