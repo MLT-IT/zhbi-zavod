@@ -7,9 +7,11 @@
     {block 'description'}
         {include "file:elements/meta-description.tpl"}
     {/block}
+    {*
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=1">
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=1">
+    *}
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=3">
     {include 'file:elements/metrika.tpl'}
 
     {if $_modx->context.key == 'web'}
