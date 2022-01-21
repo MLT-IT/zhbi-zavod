@@ -53,12 +53,12 @@ module.exports = (env, args) => {
                         'css-loader',
                     ]
                 },
-                {
-                    test: /\.svg$/,
-                    use: [
-                        'url-loader'
-                    ]
-                },
+                // {
+                //     test: /\.svg$/,
+                //     use: [
+                //         'url-loader'
+                //     ]
+                // },
                 {
                     test: /\.(png|jpg|gif)$/,
                     use: [{
