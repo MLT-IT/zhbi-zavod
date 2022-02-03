@@ -6528,7 +6528,7 @@ a .breadcrumbs__val:hover {
 }
 
 .listing__products-list.grid .listing__products-item-art, .swiper-wrapper.sect-pop__slider .listing__products-item-art {
-    grid-column: span 3;
+    grid-column: span 2;
     margin-bottom: 10px
 }
 

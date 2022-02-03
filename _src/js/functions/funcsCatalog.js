@@ -41,14 +41,6 @@ export default function funcsCatalog() {
     // window.catalogSortFilters();
 
     // -------------------------------------------
-    // Скрыть / показать доп. кнопки на карточках на маленьких экранах
-    // -------------------------------------------
-    $(document).on('click', '.listing__products-item-btn-more', function(e) {
-        e.preventDefault();
-        $(this).closest('.listing__products-item-btns-wrap').toggleClass('active');
-    });
-
-    // -------------------------------------------
     // Скрыть / показать характеристики на карточках
     // -------------------------------------------
     $(document).on('click', '.listing__products-item-chars-btn', function(e) {

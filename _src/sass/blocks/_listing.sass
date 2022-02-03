@@ -48,6 +48,11 @@
                 margin-left: 0
 
     .listing__products-item
+        &:nth-of-type(even)
+            .listing__products-item-btns-wrap-inner
+                @media screen and (max-width: 550px)
+                    right: 0
+
         &:nth-of-type(n+2)
             .listing__products-item-chars-val-info
                 @media screen and (max-width: 790px)
@@ -509,7 +514,7 @@
         position: relative
         display: inline-block
 
-        &.active
+        &:hover
             .listing__products-item-btns-wrap-inner
                 opacity: 1
                 max-height: 100px
@@ -520,6 +525,7 @@
     &__products-item-btn
         stroke: #000
         display: inline-block
+        cursor: pointer
 
         svg
             transition: .3s
@@ -545,7 +551,13 @@
                 width: 18px
                 height: 16px
 
-            &:hover, .active
+            &:hover
+                svg
+                    @media screen and (min-width: 769px)
+                        +set_colors_1(fill)
+                        +set_colors_1(stroke)
+
+            &.active
                 svg
                     +set_colors_1(fill)
                     +set_colors_1(stroke)
@@ -577,7 +589,12 @@
                 left: 13px
                 top: 1px
 
-            &:hover, .active
+            &:hover
+                &::before
+                    @media screen and (min-width: 769px)
+                        opacity: 1
+
+            &.active
                 &::before
                     opacity: 1
 

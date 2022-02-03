@@ -294,14 +294,14 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         let cookieName;
 
         switch (true) {
-            case $this.hasClass('product-item__btn-fav'):
+            case ($this.hasClass('product-item__btn-fav') || $this.hasClass('listing__products-item-btn-fav')):
                 pageUri = '/favorites/';
                 targetText1 = 'избранное';
                 targetText2 = 'избранного';
                 cookieName = 'favIds';
                 splitted = getSplitted(cookieName);
                 break;
-            case $this.hasClass('product-item__btn-compare') || $this.hasClass('product-item__actions-compare'):
+            case $this.hasClass('product-item__btn-compare') || $this.hasClass('product-item__actions-compare') || $this.hasClass('listing__products-item-btn-compare'):
                 pageUri = '/comparison/'
                 targetText1 = 'сравнение';
                 targetText2 = 'сравнения';
@@ -358,7 +358,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
     }
 
     // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
-    $(document).on('click', '.product-item__btn', actionsHandler);
+    $(document).on('click', '.product-item__btn, .product-item__action-btn', actionsHandler);
     $(document).on('change', '.product-item__actions-compare', actionsHandler);
 
     // Обновить кнопки в шапке
