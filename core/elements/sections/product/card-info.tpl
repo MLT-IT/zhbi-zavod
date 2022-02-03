@@ -93,7 +93,6 @@
             </div>
             <div class="product-card__right-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
-                <a class="product-card__btn product-card__btn-compare" href="#">
                 <span class="product-card__btn product-card__btn-compare{if $checkFavAndComp['compIds'] === 'TRUE'} active{/if}" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
@@ -107,7 +106,6 @@
                          height="18">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
                     </svg>
-                </a>
                 </span>
             </div>
         </div>
