@@ -82,14 +82,14 @@
                 </svg>
             </span>
             <div class="listing__products-item-btns-wrap-inner">
-                <span class="product-item__action-btn listing__products-item-btn listing__products-item-btn-compare{if $checkItems['comp'][$id] === 1} active{/if}" href="#">
+                <span class="product-item__action-btn listing__products-item-btn listing__products-item-btn-compare{if $checkItems['comp'][$id]?} active{/if}" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
                          height="16">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
                     </svg>
                 </span>
-                <span class="product-item__action-btn listing__products-item-btn listing__products-item-btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
+                <span class="product-item__action-btn listing__products-item-btn listing__products-item-btn-fav{if $checkItems['fav'][$id]?} active{/if}" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                          height="18">
@@ -100,17 +100,15 @@
         </div>
     </div>
     <div class="listing__products-item-right">
-
-        {*
-        <div class="listing__products-item-actions listing__products-item-actions">
+        <div class="listing__products-item-actions">
             <label for="listing__products-item-actions-compare-{$id}" class="listing__products-item-actions-compare-label">
                 <span class="custom-checkbox listing__actions-compare-checkbox">
-                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" id="listing__products-item-actions-compare-{$id}"{if $checkItems['comp'][$id] === 1} checked{/if} />
+                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" id="listing__products-item-actions-compare-{$id}"{if $checkItems['comp'][$id]?} checked{/if} />
                     <span class="custom-checkbox__checkmark"></span>
                 </span>
                 <span class="listing__products-item-actions-compare-text">Сравнить</span>
             </label>
-            <span class="listing__actions-btn-fav product-item__btn product-item__btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
+            <span class="listing__actions-btn-fav product-item__btn product-item__btn-fav{if $checkItems['fav'][$id]?} active{/if}" href="#">
                 <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                      height="18">
@@ -118,7 +116,6 @@
                 </svg>
             </span>
         </div>
-        *}
 
         <div class="listing__products-item-chars-wrap">
             <span class="listing__products-item-chars-btn">
