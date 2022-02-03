@@ -184,7 +184,7 @@
         display: flex
         margin-left: auto
         flex-wrap: wrap
-        width: 224px
+        width: 262px
 
         @media screen and (max-width: 880px)
             margin-left: 0
@@ -200,6 +200,7 @@
         transition: .3s
         white-space: nowrap
         margin-top: 12px
+        cursor: pointer
 
         +set_colors_1(color)
 
@@ -215,12 +216,33 @@
             +set_colors_1(stroke)
 
     &__btn-fav
+        &::after
+            content: "В избранное"
+            display: inline-block
+
+        &.active
+            &::after
+                content: "Из избранного"
+                display: inline-block
+            svg
+                +set_colors_1(fill)
+
         svg
             stroke-width: 1.5px
             width: 16px
             height: 16px
 
     &__btn-compare
+        margin-left: auto
+
+        &::after
+            content: "Сравнить"
+            display: inline-block
+
+        &.active
+            &::after
+                content: "Из сравнения"
+                display: inline-block
         svg
             width: 17.5px
             height: 17.5px
