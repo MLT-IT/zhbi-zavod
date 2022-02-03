@@ -109,7 +109,7 @@
                     <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" name="product-item__actions-compare" id="product-item__actions-compare-{$id}"{if $checkItems['comp'][$id] === 1} checked{/if} />
                     <span class="custom-checkbox__checkmark"></span>
                 </span>
-                <span class="filter-option__title">Сравнить</span>
+                <span class="product-item__actions-compare-text">Сравнить</span>
             </label>
             <span class="product-item__btn product-item__btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
                 <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"

@@ -80,6 +80,8 @@
                     text-transform: uppercase
 
     &__btn-fav
+        margin-left: auto
+
         &::after
             content: "В избранное"
             display: inline-block
@@ -120,13 +122,9 @@
         padding-left: 23px
         transition: .3s
         white-space: nowrap
-        margin-top: 12px
         cursor: pointer
 
         +set_colors_1(color)
-
-        &-fav
-            margin-left: 32px
 
         &:hover
             text-decoration: none
@@ -135,6 +133,13 @@
             left: 0
             fill: transparent
             +set_colors_1(stroke)
+
+    &__actions-compare-label
+        display: inline-flex
+        align-items: center
+
+    &__actions-compare-checkbox
+        margin-right: 8px
 
 .product-item-in-cart
     .product-item__controls_action_add
