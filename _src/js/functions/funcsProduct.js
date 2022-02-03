@@ -5,7 +5,6 @@ import functions from "./functions";
  */
 export default function funcsProduct(ImageZoom, Cookies, trim) {
     let $btnToFav = $('.header__to-favorites');
-    hideOrShowBtnToFav(getSplitted('favIds'));
 
     // -------------------------------
     // Щелчок по якорю "Отзывы"
@@ -272,7 +271,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         splitted = splitted.split('-');
 
         // Удаляем повторяющиеся элементы
-        splitted = splitted.filter(function(item, pos) {
+        splitted = splitted.filter(function (item, pos) {
             return splitted.indexOf(item) === pos;
         })
 
@@ -331,7 +330,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         }
 
         // Прячем / показываем кнопку
-        hideOrShowBtnToFav(splitted);
+        refreshBtnsInHeader(splitted.length, cookieName);
 
         // Выводим сообщение
         miniShop2.Message.info(message);
@@ -362,14 +361,15 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
     $(document).on('click', '.product-item__btn', actionsHandler);
     $(document).on('change', '.product-item__actions-compare', actionsHandler);
 
-    // Спрятать / показать кнопку-ссылку для перехода на страницу с избранными товарами.
-    // @param splitted - массив с id избранных товаров.
-    function hideOrShowBtnToFav(splitted) {
-        if (splitted.length) {
-            $btnToFav.removeClass('hidden');
-        } else {
-            $btnToFav.addClass('hidden');
+    // Обновить кнопки в шапке
+    function refreshBtnsInHeader(length, cookieName) {
+        switch (cookieName) {
+            case 'favIds':
+                $('.header__fav-value').text(length);
+                break;
+            case 'compIds':
+                $('.header__comp-value').text(length);
+                break;
         }
-        $btnToFav.find('.header__fav-value').text(splitted.length);
     }
 }
