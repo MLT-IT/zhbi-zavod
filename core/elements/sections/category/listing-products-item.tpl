@@ -103,15 +103,15 @@
         *}
     </div>
     <div class="listing__products-item-right">
-        <div class="listing__products-item-actions product-item__actions">
-            <label for="product-item__actions-compare-{$id}" class="product-item__actions-compare-label">
-                <span class="custom-checkbox product-item__actions-compare-checkbox">
-                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" name="product-item__actions-compare" id="product-item__actions-compare-{$id}"{if $checkItems['comp'][$id] === 1} checked{/if} />
+        <div class="listing__products-item-actions listing__products-item-actions">
+            <label for="listing__products-item-actions-compare-{$id}" class="listing__products-item-actions-compare-label">
+                <span class="custom-checkbox listing__actions-compare-checkbox">
+                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" id="listing__products-item-actions-compare-{$id}"{if $checkItems['comp'][$id] === 1} checked{/if} />
                     <span class="custom-checkbox__checkmark"></span>
                 </span>
-                <span class="product-item__actions-compare-text">Сравнить</span>
+                <span class="listing__products-item-actions-compare-text">Сравнить</span>
             </label>
-            <span class="product-item__btn product-item__btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
+            <span class="listing__actions-btn-fav product-item__btn product-item__btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
                 <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                      height="18">

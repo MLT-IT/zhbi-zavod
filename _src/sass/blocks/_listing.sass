@@ -297,13 +297,19 @@
 
     // ---------------------------------------------------
 
-
     .listing__products-item-selprice
         margin-top: -9px
 
     &__products-item-actions
         display: flex
         width: 100%
+        margin-bottom: 11px
+        margin-top: -2px
+        align-items: flex-start
+
+        @media screen and (max-width: 480px)
+            flex-direction: column
+            margin-bottom: 20px
 
     &__products-item-title
         padding-top: 8px
@@ -636,3 +642,20 @@
         &:nth-last-of-type(n+2)
             @media screen and (max-width: 768px)
                 margin-bottom: 10px
+
+    &__products-item-actions-compare-label
+        display: inline-flex
+        align-items: center
+        cursor: pointer
+
+    &__actions-compare-checkbox
+        margin-right: 8px
+
+    &__actions-btn-fav
+        align-items: center
+        display: inline-flex
+        margin-top: 2px
+
+        @media screen and (max-width: 480px)
+            margin-left: 0
+            margin-top: 10px
