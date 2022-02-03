@@ -282,12 +282,12 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         return splitted;
     }
 
-    // Обработчик кнопок для добавления / удаления товара из избранного / сравнения
-    $(document).on('click', '.product-card__btn', function (e) {
+    function actionsHandler(e) {
         e.preventDefault();
 
         // Основные переменные и константы
         let $this = $(this);
+
         let pageUri;
         let targetText1;
         let targetText2;
@@ -295,14 +295,14 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         let cookieName;
 
         switch (true) {
-            case $this.hasClass('product-card__btn-fav'):
+            case $this.hasClass('product-item__btn-fav'):
                 pageUri = '/favorites/';
                 targetText1 = 'избранное';
                 targetText2 = 'избранного';
                 cookieName = 'favIds';
                 splitted = getSplitted(cookieName);
                 break;
-            case $this.hasClass('product-card__btn-compare'):
+            case $this.hasClass('product-item__btn-compare') || $this.hasClass('product-item__actions-compare'):
                 pageUri = '/comparison/'
                 targetText1 = 'сравнение';
                 targetText2 = 'сравнения';
@@ -319,7 +319,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         $this.toggleClass('active');
 
         // Добавляем или удаляем новый элемент в массив с куки
-        if ($this.hasClass('active')) {
+        if (($this.prop("tagName") === 'INPUT' && $this.is(':checked')) || ($this.prop("tagName") !== 'INPUT' && $this.hasClass('active'))) {
             splitted.push(id);
             message = 'Товар добавлен в ' + targetText1 + message;
         } else {
@@ -356,7 +356,11 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
             $(this).closest('.js-product').remove();
         }
         */
-    });
+    }
+
+    // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
+    $(document).on('click', '.product-item__btn', actionsHandler);
+    $(document).on('change', '.product-item__actions-compare', actionsHandler);
 
     // Спрятать / показать кнопку-ссылку для перехода на страницу с избранными товарами.
     // @param splitted - массив с id избранных товаров.

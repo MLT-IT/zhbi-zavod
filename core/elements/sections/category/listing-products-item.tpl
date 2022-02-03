@@ -1,7 +1,9 @@
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
+
 {* Ключ товара, нужен для добавления товара в корзину *}
 {set $productKey = ($id ~ ($price | replace : ' ' : '') ~ $weight ~ '[]') | md5}
 {* Кол-во товара в корзине *}
-{set $itemInCart = $_modx->getPlaceholder('checkItems')['cart'][$id]}
+{set $itemInCart = $checkItems['cart'][$id]}
 
 {* Основные единицы измерения *}
 {set $pm = $_pls['kolvo-pm'][0]}
@@ -101,18 +103,15 @@
         *}
     </div>
     <div class="listing__products-item-right">
-
         <div class="listing__products-item-actions product-item__actions">
-            <label for="product-item__actions-compare" class="product-item__actions-compare-label">
+            <label for="product-item__actions-compare-{$id}" class="product-item__actions-compare-label">
                 <span class="custom-checkbox product-item__actions-compare-checkbox">
-                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" name="product-item__actions-compare" id="product-item__actions-compare"
-                           value="" />
+                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" name="product-item__actions-compare" id="product-item__actions-compare-{$id}"{if $checkItems['comp'][$id] === 1} checked{/if} />
                     <span class="custom-checkbox__checkmark"></span>
                 </span>
                 <span class="filter-option__title">Сравнить</span>
             </label>
-
-            <span class="product-card__btn product-card__btn-fav" href="#">
+            <span class="product-item__btn product-item__btn-fav{if $checkItems['fav'][$id] === 1} active{/if}" href="#">
                 <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                      height="18">

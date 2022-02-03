@@ -1,7 +1,9 @@
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
+
 {* Ключ товара, нужен для добавления товара в корзину *}
 {set $productKey = ($id ~ ($price | replace : ' ' : '') ~ $weight ~ '[]') | md5}
 {* Кол-во товара в корзине *}
-{set $itemInCart = $_modx->getPlaceholder('checkItems')['cart'][$id]}
+{set $itemInCart = $checkItems['cart'][$id]}
 
 {* Основные единицы измерения *}
 {set $pm = $_pls['kolvo-pm'][0]}

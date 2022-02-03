@@ -95,14 +95,14 @@
             </div>
             <div class="product-card__right-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
-                <span class="product-card__btn product-card__btn-compare{if $checkItems['comp'][$_modx->resource['id']] === 1} active{/if}" href="#">
+                <span class="product-item__btn product-item__btn-compare{if $checkItems['comp'][$_modx->resource['id']] === 1} active{/if}" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
                          height="16">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
                     </svg>
                 </span>
-                <span class="product-card__btn product-card__btn-fav{if $checkItems['fav'][$_modx->resource['id']] === 1} active{/if}" href="#">
+                <span class="product-item__btn product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']] === 1} active{/if}" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                          height="18">
