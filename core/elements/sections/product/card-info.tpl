@@ -1,7 +1,9 @@
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
+
 {* Ключ товара, нужен для добавления товара в корзину *}
 {set $productKey = ($_modx->resource['id'] ~ $_modx->resource['price'] ~ $weight ~ '[]') | md5}
 {* Кол-во товара в корзине *}
-{set $itemInCart = $_modx->getPlaceholder('itemsInCart')[$_modx->resource['id']]}
+{set $itemInCart = $checkItems['cart'][$_modx->resource['id']]}
 
 {* Основные единицы измерения *}
 {set $pm = $_modx->resource['kolvo-pm'][0]}
@@ -93,14 +95,14 @@
             </div>
             <div class="product-card__right-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
-                <span class="product-card__btn product-card__btn-compare{if $checkFavAndComp['compIds'] === 'TRUE'} active{/if}" href="#">
+                <span class="product-card__btn product-card__btn-compare{if $checkItems['comp'][$_modx->resource['id']] === 1} active{/if}" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
                          height="16">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
                     </svg>
                 </span>
-                <span class="product-card__btn product-card__btn-fav{if $checkFavAndComp['favIds'] === 'TRUE'} active{/if}" href="#">
+                <span class="product-card__btn product-card__btn-fav{if $checkItems['fav'][$_modx->resource['id']] === 1} active{/if}" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                          height="18">

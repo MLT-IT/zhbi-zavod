@@ -19,7 +19,7 @@
 
 {$_modx->setPlaceholder('brand', $brand)}
 
-{'!getItemsInCart' | snippet}
+{'!checkItems' | snippet}
 
 <!doctype html>
 <html lang="ru">
