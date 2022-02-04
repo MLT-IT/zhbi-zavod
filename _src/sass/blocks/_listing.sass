@@ -6,8 +6,17 @@
             box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
 
     &__products
+        // Избранное
         &_full
             width: 100%
+
+            .listing__products-list.grid
+                .listing__products-item-avail, .listing__products-item-rate
+                    order: 1
+
+                .listing__products-item-art
+                    order: 2
+                    margin-bottom: 0
 
             .listing__products-item-btns-wrap
                 display: none
@@ -688,3 +697,32 @@
         @media screen and (max-width: 480px)
             margin-left: 0
             margin-top: 10px
+
+    &__products-item-fav-remove-btn
+        right: 9.5px
+        top: 9.5px
+        width: 13px
+        height: 13px
+        position: absolute
+        cursor: pointer
+
+        &:hover
+            opacity: 1
+
+            &::before, &::after
+                +set_colors_1(background-color)
+
+        &::before, &::after
+            position: absolute
+            left: 5.5px
+            content: ""
+            height: 13px
+            width: 2px
+            background-color: #B9B9B9
+
+        &::before
+            transform: rotate(45deg)
+
+        &::after
+            transform: rotate(-45deg)
+

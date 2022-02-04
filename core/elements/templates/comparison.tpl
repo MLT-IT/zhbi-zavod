@@ -11,14 +11,46 @@
     <div class="wrapper">
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
-    <div class="wrapper sect-inner">
-        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
-        {if $_modx->resource.content | length > 0}
-            <article class="sect-inner__content content-block">
-                {$_modx->resource.content}
-            </article>
-        {/if}
+    {set $resources = $_modx->getPlaceholder('checkItems')['comp'] | join : ','}
+    {set $countResources = $_modx->getPlaceholder('checkItems')['comp'] | length}
 
-    </div>
+    <section class="product-slider product-slider-1 sect-pop">
+        <div class="wrapper sect-pop__wrapper">
+            <h1 class="asfs title-1">{$_modx->resource.pagetitle}
+                <span class="title-1__sup">{$countResources}
+                    {'formOfWord' | snippet : [
+                        'n' => $countResources,
+                        'f1' => 'товар',
+                        'f2' => 'товара',
+                        'f5' => 'товаров'
+                    ]}
+                </span>
+            </h1>
+
+            {if $resources != ''}
+                <div class="swiper-buttons sect-pop__swiper-buttons" style="display: none;">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper sect-pop__slider">
+                        {'!msProducts' | snippet : [
+                        'parents' => 0,
+                        'depth' => 50,
+                        'limit' => 42,
+                        'sortby' => '',
+                        'sortdir' => '',
+                        'resources' => $resources,
+                        'tpl' => '@FILE sections/popular/comp-slide.tpl',
+                        'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
+                        ]}
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            {/if}
+
+        </div>
+    </section>
+
 {/block}

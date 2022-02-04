@@ -3,9 +3,7 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, Cookies, trim) {
-    let $btnToFav = $('.header__to-favorites');
-
+export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
@@ -329,7 +327,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
             message = 'Товар удален из ' + targetText2;
         }
 
-        // Прячем / показываем кнопку
+        // Обновляем кнопку в шапке
         refreshBtnsInHeader(splitted.length, cookieName);
 
         // Выводим сообщение
@@ -338,23 +336,22 @@ export default function funcsProduct(ImageZoom, Cookies, trim) {
         // Устанавливаем куки
         Cookies.set(cookieName, splitted.join('-'));
 
-        /*
-        // Если мы находимся на странице избранных
-        let $favCard = $this.closest('.favorites-table__row');
-        if ($favCard.length) {
-            $favCard.remove();
-
-            // Если товаров в избранном не осталось, то удаляем весь блок (в нем пустая таблица)
-            if (!$('.favorites-table__row').length) {
-                $('.favorites').remove();
-            }
+        // --------------------------------------------
+        // Если мы находимся на странице сравнения
+        // --------------------------------------------
+        let $sup = $('.title-1__sup');
+        if ($sup.length) {
+            $sup.text(splitted.length + ' ' + formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
         }
 
-        // Удаляем карточку товара, если был клик по кнопке "Добавить в избранное" на странице избранных
-        if ($this.hasClass('.favorites-table__btn-like.active')) {
-            $(this).closest('.js-product').remove();
+        if ($this.hasClass('listing__products-item-fav-remove-btn')) {
+            $(this).closest('.comp-slide').remove();
         }
-        */
+
+        // Если это была последняя карточка, то удаляем секцию с карточками
+        if (!$('.comp-slide').length) {
+            $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
+        }
     }
 
     // Обработчики кнопок для добавления / удаления товара из избранного / сравнения

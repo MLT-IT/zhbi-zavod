@@ -11,7 +11,9 @@
     <div class="wrapper">
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
+
     {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
+
     <div class="wrapper sect-inner">
         <h1 class="title-1 asfs">{$_modx->resource.pagetitle}</h1>
 

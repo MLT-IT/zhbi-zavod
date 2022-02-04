@@ -3,6 +3,9 @@
     flex-direction: column
     width: 267px
 
+    &.comp-slide
+        padding-top: 33px
+
     .product-item__units-select
         width: 175px
 
@@ -11,3 +14,21 @@
 
         @media screen and (max-width: 550px)
             margin-right: 6px
+
+    &__options-wrap
+        margin-top: 6px
+        padding-top: 18px
+        border-top: 1px solid #F0F0F0
+        width: 100%
+
+    &__option-caption
+        font-size: 12px
+        color: #B9B9B9
+
+    &__option-value
+        font-weight: 600
+        font-size: 14px
+
+    &__option
+        &:nth-last-of-type(n+2)
+            margin-bottom: 16px

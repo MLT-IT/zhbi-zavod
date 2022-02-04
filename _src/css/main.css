@@ -3648,6 +3648,15 @@ p, span {
     font-size: 24px
 }
 
+.title-1__sup {
+    font-size: 14px;
+    color: #B9B9B9;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    margin-left: 4px;
+}
+
 .title-2 {
     font-size: 23px;
     line-height: 130%;
