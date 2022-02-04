@@ -19,7 +19,7 @@
                     {else}
                         кровли
                     {/if}
-                    по Санкт-Петербургу и Ленинградской области от официального дилера
+                    по Санкт-Петербургу и Ленинградской области
                 </div>
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
@@ -39,10 +39,10 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                {if $site_context !== 'krovlya'}
-                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
-                {else}
+                {if $site_context in list ['krovlya', 'rockwool']}
                     <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
+                {else}
+                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
                 {/if}
             </a>
             <div class="header__catalog">
@@ -105,17 +105,12 @@
                 {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
 
                 {*
-                <a class="header__comparison" href="#">
-                    <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
-                    </svg>
-                    <span class="header__fav-value">5</span>
-                </a>
-                <a class="header__favorites" href="#">
+                <a class="header__fav" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
                     </svg>
                     <span class="header__fav-value">5</span>
+                    <span class="header__fav-text">Избранное</span>
                 </a>
                 *}
             </div>

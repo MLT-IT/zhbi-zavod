@@ -2,10 +2,10 @@
     <div class="wrapper">
         <div class="footer__left">
             <a class="footer__logo" href="/">
-                {if $site_context !== 'krovlya'}
-                    <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.png">
-                {else}
+                {if $site_context in list ['krovlya', 'rockwool']}
                     <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.svg">
+                {else}
+                    <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.png">
                 {/if}
             </a>
             <div class="footer__about">© 2010-{'' | date : "Y"}</div>
