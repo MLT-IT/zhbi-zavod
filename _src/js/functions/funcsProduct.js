@@ -346,11 +346,11 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
 
         if ($this.hasClass('listing__products-item-fav-remove-btn')) {
             $(this).closest('.comp-slide').remove();
-        }
 
-        // Если это была последняя карточка, то удаляем секцию с карточками
-        if (!$('.comp-slide').length) {
-            $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
+            // Если это была последняя карточка, то удаляем секцию с карточками
+            if (!$('.comp-slide').length) {
+                $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
+            }
         }
     }
 

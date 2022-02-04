@@ -1,0 +1,44 @@
+.custom-toggler
+    display: inline-flex
+    position: relative
+    user-select: none
+    height: 20px
+    width: 36px
+
+    // Стандартный чекбокс
+    &__input
+        position: absolute
+        opacity: 0
+        height: 0
+        width: 0
+
+        // Галочка - видна, если чекбокс активен
+        &:checked
+            & ~ .custom-checkbox__checkmark
+                +set_colors_1(background)
+                border: 0
+
+                &::after
+                    display: block
+
+    // Окошко чекбокса. Почему не custom-checkbox? Потому что ее нельзя будет застилизовать для :checked. А сейчас можно - с помощью селектора ~
+    &__checkmark
+        position: absolute
+        display: flex
+        left: 0
+        top: 0
+        height: 100%
+        width: 100%
+
+        background: #F0F0F0
+        border: 1px solid #B9B9B9
+        box-sizing: border-box
+        border-radius: 20px
+
+        // Галочка
+        &::after
+            content: ""
+            width: 16px
+            height: 16px
+            background-color: #C51717
+            border-radius: 100px

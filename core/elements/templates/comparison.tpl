@@ -29,6 +29,14 @@
             </h1>
 
             {if $resources != ''}
+                <label for="only-different-toggler" class="only-different-toggler-label">
+                    <span class="custom-toggler">
+                        <input class="custom-toggler__input" type="checkbox" id="only-different-toggler">
+                        <span class="custom-toggler__checkmark"></span>
+                    </span>
+                    <span class="custom-toggler__text">Только отличающиеся</span>
+                </label>
+
                 <div class="swiper-buttons sect-pop__swiper-buttons" style="display: none;">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
