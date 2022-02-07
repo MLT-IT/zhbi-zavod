@@ -39,11 +39,7 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                {if $site_context in list ['krovlya', 'rockwool', 'ursa']}
-                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
-                {else}
-                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
-                {/if}
+                <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
             </a>
             <div class="header__catalog">
                 <div class="header__catalog-btn">
@@ -95,7 +91,6 @@
                     <span class="header__cat-text">Каталог</span>
                 </a>
 
-                {*
                 <a class="header__favorites" href="/favorites/">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
@@ -110,7 +105,6 @@
                     <span class="header__comp-value">{$_modx->getPlaceholder('checkItems')['comp'] | length}</span>
                     <span class="header__comparison-text">Сравнение</span>
                 </a>
-                *}
 
                 {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
             </div>
@@ -140,6 +134,5 @@
         </div>
 
         {include 'file:chunks/mobileMenu.tpl'}
-
     </div>
 </header>
