@@ -1,0 +1,22 @@
+.sect-comparison
+    &__header-and-toggler
+        display: flex
+        width: 100%
+        align-items: center
+
+        @media screen and (max-width: 580px)
+            flex-direction: column
+            align-items: flex-start
+
+    &__custom-toggler
+        margin-left: auto
+        margin-bottom: 18px
+
+        @media screen and (max-width: 580px)
+            margin-left: 0
+
+    &__buttons, &__slider
+        margin-top: 70px
+
+        @media screen and (max-width: 580px)
+            margin-top: 0
