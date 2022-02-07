@@ -45,7 +45,7 @@
                     </svg>
                 </div>
                 <div class="advantages__card-title">Лучшая цена</div>
-                <div class="advantages__card-text">Мы гарантируем самую низкую цену на утеплитель {$brand}, так как являемся официальным дилером</div>
+                <div class="advantages__card-text">Мы гарантируем самую низкую цену на утеплитель {$brand}, так как являемся одним из самых крупных поставщиков</div>
             </div>
             <div class="advantages__card">
                 <div class="advantages__card-img">
