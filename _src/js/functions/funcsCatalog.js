@@ -5,8 +5,8 @@ export default function funcsCatalog() {
     // -------------------------------------------
     // Сортировка фильтров - в самом верху те, у которых больше всего результатов
     // -------------------------------------------
-    window.catalogSortFilters = function() {
-        $('.listing__filter-block').each(function(index, elem) {
+    window.catalogSortFilters = function () {
+        $('.listing__filter-block').each(function (index, elem) {
             // Пропускаем фильтр по цене
             if (index === 0) {
                 return;
@@ -15,7 +15,7 @@ export default function funcsCatalog() {
             let $this = $(this);
             let $container = $($this.find('.listing__filter-option')[0]).parent();
 
-            let $items = $container.find('.listing__filter-option').sort(function(a,b) {
+            let $items = $container.find('.listing__filter-option').sort(function (a, b) {
                 if (isNaN(parseInt($(a).attr('data-priority')))) {
                     return -1
                 }
@@ -43,7 +43,7 @@ export default function funcsCatalog() {
     // -------------------------------------------
     // Скрыть / показать характеристики на карточках
     // -------------------------------------------
-    $(document).on('click', '.listing__products-item-chars-btn', function(e) {
+    $(document).on('click', '.listing__products-item-chars-btn', function (e) {
         e.preventDefault();
         $(this).closest('.listing__products-item-chars-wrap').toggleClass('active');
     });
@@ -178,6 +178,47 @@ export default function funcsCatalog() {
     // Только отличающиеся
     // -------------------------------
     if ($('.sect-comparison').length) {
-        $('.')
+        $('.custom-toggler__input').on('change', function () {
+            let $toggler = $(this);
+            if ($toggler.is(':checked')) {
+                // Получаем опции каждого товара
+                let items = [];
+                $('.product-item').each(function () {
+                    let $this = $(this);
+                    items[$this.find('[name="id"]').val()] = [];
+                    $this.find('.pop-slide__option').each(function () {
+                        let $opt = $(this);
+                        let key = ($opt.find('.pop-slide__option-caption').html()).trim();
+                        let val = ($opt.find('.pop-slide__option-value').html()).trim();
+                        items[$this.find('[name="id"]').val()][key] = val;
+                    });
+                });
+
+                let keys = items.keys();
+                console.log(Array.prototype.from(keys.prototype.keys));
+
+                // items.forEach(function (currentValue1, index1) {
+                //     items.forEach(function (currentValue2, index2) {
+                //         if (index1 === index2) {
+                //             continue
+                //         }
+                //         console.log('currentValue1', currentValue1, index1);
+                //         console.log('currentValue2', currentValue2, index2);
+                //     });
+                // });
+            } else {
+
+            }
+        });
     }
+
+    /**
+     * Функция проверяет, уникальные ли объекты? Если да, то возвращает true. В противном случае false.
+     * @param obj1
+     * @param obj2
+     */
+    function checkObjectsForUniqueness(obj1, obj2) {
+
+    }
+
 }

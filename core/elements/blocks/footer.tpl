@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="footer__left">
             <a class="footer__logo" href="/">
-                {if $site_context in list ['krovlya', 'rockwool', 'ursa']}
+                {if $site_context in list ['krovlya', 'rockwool', 'ursa', 'penoplex', 'isover']}
                     <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.svg">
                 {else}
                     <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.png">

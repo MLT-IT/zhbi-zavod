@@ -39,7 +39,7 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                {if $site_context in list ['krovlya', 'rockwool', 'ursa']}
+                {if $site_context in list ['krovlya', 'rockwool', 'ursa', 'penoplex', 'isover']}
                     <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
                 {else}
                     <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
