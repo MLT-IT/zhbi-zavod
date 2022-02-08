@@ -352,6 +352,9 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             if (!$('.comp-slide').length) {
                 $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
             }
+
+            // Обновление слайдера (т.к. изменилось количество карточек)
+            window.dispatchEvent(new Event('resize'));
         }
 
         // --------------------------------------------
@@ -430,6 +433,9 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             // Обновляем текст в h1
             let length = $('.comp-slide').not('.hidden').length;
             $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
+
+            // Обновление слайдера (т.к. изменилось количество карточек)
+            window.dispatchEvent(new Event('resize'));
         });
     }
 
