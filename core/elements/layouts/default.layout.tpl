@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=1">
     *}
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=4">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=5">
     {include 'file:elements/metrika.tpl'}
 
     {if $_modx->context.key == 'web'}
@@ -113,7 +113,7 @@
     <a class="scroll-top active" href="javascript:;" onclick="document.getElementById('body').scrollIntoView();">
         <img src="{$_modx->config['template_path']}img/scroll-top.png">
     </a>
-    <script src="{$_modx->config['template_path']}js/main.js?v=4"></script>
+    <script src="{$_modx->config['template_path']}js/main.js?v=5"></script>
     {*
     <script src="{$_modx->config['template_path']}js/scripts.js?v=1"></script>
     <script src="{$_modx->config['template_path']}js/vendors.js?v=1"></script>
