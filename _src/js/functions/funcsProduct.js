@@ -344,6 +344,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             $sup.text(splitted.length + ' ' + formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
         }
 
+        // Удаление товара из сравнения
         if ($this.hasClass('listing__products-item-fav-remove-btn')) {
             $(this).closest('.comp-slide').remove();
 
@@ -351,6 +352,14 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             if (!$('.comp-slide').length) {
                 $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
             }
+        }
+
+        // --------------------------------------------
+        // Если мы находимся на странице избранного
+        // --------------------------------------------
+        // Удаление товара из избранного
+        if ($this.hasClass('listing__actions-btn-fav')) {
+            $(this).closest('.product-item').remove();
         }
     }
 
@@ -368,5 +377,82 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 $('.header__comp-value').text(length);
                 break;
         }
+    }
+
+    // -------------------------------
+    // Только отличающиеся
+    // -------------------------------
+    // TODO: сделай обновление слайдера.
+    if ($('.sect-comparison').length) {
+        $('.custom-toggler__input').on('change', function () {
+            let $toggler = $(this);
+            if ($toggler.is(':checked')) {
+                // Составляем массив из опций каждого товара
+                let items = [];
+                $('.product-item').each(function () {
+                    let $this = $(this);
+                    items[$this.find('[name="id"]').val()] = [];
+                    $this.find('.pop-slide__option').each(function () {
+                        let $opt = $(this);
+                        let key = ($opt.find('.pop-slide__option-caption').html()).trim();
+                        let val = ($opt.find('.pop-slide__option-value').html()).trim();
+                        items[$this.find('[name="id"]').val()][key] = val;
+                    });
+                });
+
+                // Сравниваем товары и ищем одинаковые
+                let sameProducts = [];
+                items.forEach(function (value1, index1) {
+                    items.forEach(function (value2, index2) {
+                        if (index2 <= index1) {
+                            return;
+                        }
+
+                        if (checkSameness(value1, value2) === true) {
+                            sameProducts.push(index1);
+                        }
+                    });
+                });
+
+                // Оставляем только уникальные
+                sameProducts = sameProducts.filter((value, index, self) => {
+                    return self.indexOf(value) === index;
+                });
+
+                // Скрываем карточки товаров
+                sameProducts.forEach(function (value, index1) {
+                    $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
+                });
+            } else {
+                $('.comp-slide.hidden').removeClass('hidden');
+            }
+
+            // Обновляем текст в h1
+            let length = $('.comp-slide').not('.hidden').length;
+            $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
+        });
+    }
+
+    /**
+     * Функция проверяет, являются ли объекты одинаковыми? Если да, то возвращает true. В противном случае false.
+     * @param obj1
+     * @param obj2
+     */
+    function checkSameness(obj1, obj2) {
+        if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+            return false;
+        }
+
+        for (let key in obj1) {
+            if (typeof obj2[key] === 'undefined') {
+                return false;
+            }
+
+            if (obj1[key] !== obj2[key]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
