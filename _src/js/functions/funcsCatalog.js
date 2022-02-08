@@ -177,11 +177,13 @@ export default function funcsCatalog() {
     // -------------------------------
     // Только отличающиеся
     // -------------------------------
+    // TODO: сделай обновление слайдера. чтобы скроллбар был
+    // TODO: только отличающиеся - сделай так, чтобы изменялся текст в h1
     if ($('.sect-comparison').length) {
         $('.custom-toggler__input').on('change', function () {
             let $toggler = $(this);
             if ($toggler.is(':checked')) {
-                // Получаем опции каждого товара
+                // Составляем массив из опций каждого товара
                 let items = [];
                 $('.product-item').each(function () {
                     let $this = $(this);
@@ -194,31 +196,55 @@ export default function funcsCatalog() {
                     });
                 });
 
-                let keys = items.keys();
-                console.log(Array.prototype.from(keys.prototype.keys));
+                // Сравниваем товары и ищем одинаковые
+                let sameProducts = [];
+                items.forEach(function (value1, index1) {
+                    items.forEach(function (value2, index2) {
+                        if (index2 <= index1) {
+                            return;
+                        }
 
-                // items.forEach(function (currentValue1, index1) {
-                //     items.forEach(function (currentValue2, index2) {
-                //         if (index1 === index2) {
-                //             continue
-                //         }
-                //         console.log('currentValue1', currentValue1, index1);
-                //         console.log('currentValue2', currentValue2, index2);
-                //     });
-                // });
+                        if (checkSameness(value1, value2) === true) {
+                            sameProducts.push(index1);
+                        }
+                    });
+                });
+
+                // Оставляем только уникальные
+                sameProducts = sameProducts.filter((value, index, self) => {
+                    return self.indexOf(value) === index;
+                });
+
+                sameProducts.forEach(function (value, index1) {
+                    $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
+                });
             } else {
-
+                $('.pop-slide').removeClass('hidden');
             }
         });
     }
 
     /**
-     * Функция проверяет, уникальные ли объекты? Если да, то возвращает true. В противном случае false.
+     * Функция проверяет, являются ли объекты одинаковыми? Если да, то возвращает true. В противном случае false.
      * @param obj1
      * @param obj2
      */
-    function checkObjectsForUniqueness(obj1, obj2) {
+    function checkSameness(obj1, obj2) {
+        if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+            return false;
+        }
 
+        for (let key in obj1) {
+            if (typeof obj2[key] === 'undefined') {
+                return false;
+            }
+
+            if (obj1[key] !== obj2[key]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
