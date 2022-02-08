@@ -348,11 +348,19 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         if ($this.hasClass('listing__products-item-fav-remove-btn')) {
             $(this).closest('.comp-slide').remove();
 
+            // Если перключатель "Только отличающиеся" включен, то делаем проверку товаров на отличающиеся
+            let $toggler = $('.custom-toggler__input');
+            if ($toggler.is(':checked')) {
+                onlyDifferent($toggler);
+            }
+
             // Если это была последняя карточка, то удаляем слайдер с карточками
             if (!$('.comp-slide').length) {
                 $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
             }
 
+            // Обновление слайдера и кнопок слайдера
+            // TODO: сделай функцию вместо этого кода
             if ($sup.length) {
                 // Обновление слайдера (т.к. изменилось количество карточек)
                 window.dispatchEvent(new Event('resize'));
@@ -394,63 +402,69 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
     // -------------------------------
     // Только отличающиеся
     // -------------------------------
+    function onlyDifferent($toggler) {
+        if ($toggler.is(':checked')) {
+            // Составляем массив из опций каждого товара
+            let items = [];
+            $('.product-item').each(function () {
+                let $this = $(this);
+                items[$this.find('[name="id"]').val()] = [];
+                $this.find('.pop-slide__option').each(function () {
+                    let $opt = $(this);
+                    let key = ($opt.find('.pop-slide__option-caption').html()).trim();
+                    let val = ($opt.find('.pop-slide__option-value').html()).trim();
+                    items[$this.find('[name="id"]').val()][key] = val;
+                });
+            });
+
+            // Сравниваем товары и ищем одинаковые
+            let sameProducts = [];
+            items.forEach(function (value1, index1) {
+                items.forEach(function (value2, index2) {
+                    if (index2 <= index1) {
+                        return;
+                    }
+
+                    if (checkSameness(value1, value2) === true) {
+                        sameProducts.push(index1);
+                    }
+                });
+            });
+
+            // Оставляем только уникальные
+            sameProducts = sameProducts.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            });
+
+            // Сначала покажем все карточки
+            $('.comp-slide.hidden').removeClass('hidden');
+            // Теперь скроем одинаковые
+            sameProducts.forEach(function (value, index1) {
+                $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
+            });
+        } else {
+            $('.comp-slide.hidden').removeClass('hidden');
+        }
+
+        // Обновляем текст в h1
+        let length = $('.comp-slide').not('.hidden').length;
+        $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
+
+        // Обновление слайдера (т.к. изменилось количество карточек)
+        // TODO: сделай функцию вместо этого кода
+        window.dispatchEvent(new Event('resize'));
+        // Скрыть / показать кнопки слайдера
+        let $buttons = $('.swiper-buttons');
+        if (length > 4) {
+            $buttons.show();
+        } else {
+            $buttons.hide();
+        }
+    }
+
     if ($('.sect-comparison').length) {
         $('.custom-toggler__input').on('change', function () {
-            let $toggler = $(this);
-            if ($toggler.is(':checked')) {
-                // Составляем массив из опций каждого товара
-                let items = [];
-                $('.product-item').each(function () {
-                    let $this = $(this);
-                    items[$this.find('[name="id"]').val()] = [];
-                    $this.find('.pop-slide__option').each(function () {
-                        let $opt = $(this);
-                        let key = ($opt.find('.pop-slide__option-caption').html()).trim();
-                        let val = ($opt.find('.pop-slide__option-value').html()).trim();
-                        items[$this.find('[name="id"]').val()][key] = val;
-                    });
-                });
-
-                // Сравниваем товары и ищем одинаковые
-                let sameProducts = [];
-                items.forEach(function (value1, index1) {
-                    items.forEach(function (value2, index2) {
-                        if (index2 <= index1) {
-                            return;
-                        }
-
-                        if (checkSameness(value1, value2) === true) {
-                            sameProducts.push(index1);
-                        }
-                    });
-                });
-
-                // Оставляем только уникальные
-                sameProducts = sameProducts.filter((value, index, self) => {
-                    return self.indexOf(value) === index;
-                });
-
-                // Скрываем карточки товаров
-                sameProducts.forEach(function (value, index1) {
-                    $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
-                });
-            } else {
-                $('.comp-slide.hidden').removeClass('hidden');
-            }
-
-            // Обновляем текст в h1
-            let length = $('.comp-slide').not('.hidden').length;
-            $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
-
-            // Обновление слайдера (т.к. изменилось количество карточек)
-            window.dispatchEvent(new Event('resize'));
-            // Скрыть / показать кнопки слайдера
-            let $buttons = $('.swiper-buttons');
-            if (length > 4) {
-                $buttons.show();
-            } else {
-                $buttons.hide();
-            }
+            onlyDifferent($(this));
         });
     }
 
