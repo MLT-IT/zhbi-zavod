@@ -5,7 +5,7 @@
             {set $splitted = $ct.file | split: '.'}
             {set $count = $splitted | count}
             {if $count > 1}
-                {set $lastElem = $splitted[$count - 1]}
+                {set $lastElem = $splitted[$count - 1] | strtolower}
 
                 {if $lastElem == 'pdf'}
                     {set $previewSrc = 'pdfToJpg' | snippet : [
