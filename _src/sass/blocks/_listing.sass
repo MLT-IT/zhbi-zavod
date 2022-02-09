@@ -378,6 +378,16 @@
             .listing__products-item-remove
                 width: 100%
 
+    &__sort-item, &__reset-filters
+        font-size: 12px
+        cursor: pointer
+        display: flex
+        align-items: center
+
+    &__reset-filters
+        +set_colors_1(color)
+        border-bottom: 1px dashed currentColor
+
     &__sort-item
         border-bottom: 1px dashed transparent
         transition: border-bottom-color, color .3s
