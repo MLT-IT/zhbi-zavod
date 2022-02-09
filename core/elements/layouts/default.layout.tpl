@@ -114,8 +114,8 @@
         <img src="{$_modx->config['template_path']}img/scroll-top.png">
     </a>
     <script src="{$_modx->config['template_path']}js/main.js?v=5"></script>
+    <script src="{$_modx->config['template_path']}js/scripts.js?v=3"></script>
     {*
-    <script src="{$_modx->config['template_path']}js/scripts.js?v=1"></script>
     <script src="{$_modx->config['template_path']}js/vendors.js?v=1"></script>
     <script src="{$_modx->config['template_path']}js/base.js?v=1"></script>
     *}
