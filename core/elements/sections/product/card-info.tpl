@@ -114,7 +114,13 @@
 
         <div class="product-card__info-left">
             {include "file:chunks/productElems.tpl"}
-            <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
+            <button data-fancybox="" href="#callback" class="product-card__buy white-btn">
+                {if $_modx->resource.context_key === 'krovlya'}
+                    Получить расчет кровли бесплатно
+                {else}
+                    КУПИТЬ В 1 КЛИК
+                {/if}
+            </button>
         </div>
 
         <div class="product-card__info-right">
