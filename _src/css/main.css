@@ -4066,6 +4066,15 @@ p, span {
     .breadcrumbs {
         margin-top: 10px
     }
+
+    .breadcrumbs_page-product {
+        flex-wrap: wrap;
+        margin-top: 4px;
+    }
+
+    .breadcrumbs_page-product .breadcrumbs__item {
+        margin-top: 6px;
+    }
 }
 
 .breadcrumbs__item {

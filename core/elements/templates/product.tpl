@@ -9,8 +9,8 @@
 
 {block "page"}
     <div class="wrapper">
-{include "file:blocks/breadcrumbs.tpl"}
-</div>
+        {include "file:blocks/breadcrumbs.tpl" class='breadcrumbs_page-product'}
+    </div>
     <div class="wrapper product-card" data-views="{'!HitsPage' | snippet : ['saveTv' => 'true']}" itemscope itemtype="http://schema.org/Product">
         <h1 class="title-1 product-card__title-1" itemprop="name">{$_modx->resource.pagetitle}</h1>
         {include "file:sections/product/card.tpl"}
