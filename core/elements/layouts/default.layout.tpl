@@ -23,6 +23,8 @@
 
     {if $_modx->context.key == 'krovlya'}
         {set $site_class = 'rockwool krovlya'}
+    {elseif $_modx->context.key == 'kirpich-m'}
+        {set $site_class = 'rockwool kirpich-m'}
     {/if}
 
     {* >>> favicon *}
@@ -37,15 +39,16 @@
     {* <<< favicon *}
 
     {* >>> Open Graph и Twitter Card  *}
-    {set $micro_img = 'assets/template/img/logos/' ~ $site_context}
+    {set $micro_img = 'assets/template/img/logos/' ~ $site_context ~ '.svg'}
     {set $micro_title = 'Поставка '}
-    {if $site_context !== 'krovlya'}
-        {set $micro_img = $micro_img ~ '.png'}
-        {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
-    {else}
-        {set $micro_img = $micro_img ~ '.svg'}
+    {if $site_context == 'krovlya'}
         {set $micro_title = $micro_title ~ 'кровли'}
+    {elseif $site_context == 'kirpich-m'}
+        {set $micro_title = $micro_title ~ 'кирпича'}
+    {else}
+        {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}
+
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />

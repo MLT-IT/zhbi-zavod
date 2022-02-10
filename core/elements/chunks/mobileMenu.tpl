@@ -8,12 +8,14 @@
             {* Заголовок *}
             <div class="header__nav-text">
                 Поставка
-                {if $_modx->context.key != 'krovlya'}
-                    утеплителя {$brand}
-                {else}
+                {if $_modx->context.key == 'krovlya'}
                     кровли
+                {elseif $_modx->context.key == 'kirpich-m'}
+                    кирпича
+                {else}
+                    утеплителя {$brand}
                 {/if}
-                по Санкт-Петербургу и Ленинградской области от официального дилера
+                по Санкт-Петербургу и Ленинградской области
             </div>
 
             {* Поиск *}

@@ -14,10 +14,12 @@
                 <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
                 <div class="header__about-text">
                     Поставка
-                    {if $_modx->context.key != 'krovlya'}
-                        утеплителя {$brand}
-                    {else}
+                    {if $_modx->context.key == 'krovlya'}
                         кровли
+                    {elseif $_modx->context.key == 'kirpich-m'}
+                        кирпича
+                    {else}
+                        утеплителя {$brand}
                     {/if}
                     по Санкт-Петербургу и Ленинградской области
                 </div>

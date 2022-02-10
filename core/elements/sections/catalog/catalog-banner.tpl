@@ -3,10 +3,12 @@
         <p class="catalog-banner__header">Не знаете, что вам подходит?</p>
         <p class="catalog-banner__subheader">Правильная консультация <span class="catalog-banner__special-text">сэкономит Вам до 40%</span> бюджета!</p>
         <p class="catalog-banner__text">Оставьте заявку и получите бесплатную консультацию по подбору
-            {if $_modx->context.key != 'krovlya'}
-                утеплителя
-            {else}
+            {if $_modx->context.key == 'krovlya'}
                 кровли
+            {elseif $_modx->context.key == 'kirpich-m'}
+                кирпича
+            {else}
+                утеплителя
             {/if}
             под Ваши требования</p>
         <form class="catalog-banner__form" method="post">
@@ -44,6 +46,8 @@
             {set $imgname = 'ursa.jpg'}
         {case 'krovlya'}
             {set $imgname = 'krovlya.jpg'}
+        {case 'kirpich-m'}
+            {set $imgname = 'kirpich-m.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

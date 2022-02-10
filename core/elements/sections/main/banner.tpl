@@ -3,10 +3,12 @@
         <div class="wrapper">
     {/if}
         <div class="banner__slide">
-            {if $_modx->context.key != 'krovlya'}
-                <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
-            {else}
+            {if $_modx->context.key == 'krovlya'}
                 <img src="/assets/template/img/banners-full/krovlya.jpg" class="banner__slide-img">
+            {elseif $_modx->context.key == 'kirpich-m'}
+                <img src="/assets/template/img/banners-full/kirpich-m.jpg" class="banner__slide-img">
+            {else}
+                <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}
             {*
             <div class="banner__slide-content">

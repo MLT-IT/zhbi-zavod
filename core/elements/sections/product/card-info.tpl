@@ -86,7 +86,7 @@
                     </span>
                 {/if}
 
-                {if $_modx->resource.context_key != 'krovlya'}
+                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
@@ -115,8 +115,10 @@
         <div class="product-card__info-left">
             {include "file:chunks/productElems.tpl"}
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">
-                {if $_modx->resource.context_key === 'krovlya'}
+                {if $_modx->resource.context_key == 'krovlya'}
                     Получить расчет кровли бесплатно
+                {elseif $_modx->resource.context_key == 'kirpich-m'}
+                    Получить расчет кирпича бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}
