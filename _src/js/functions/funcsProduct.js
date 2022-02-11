@@ -406,14 +406,28 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         if ($toggler.is(':checked')) {
             // Составляем массив из опций каждого товара
             let items = [];
-            $('.product-item').each(function () {
+            let $productItems = $('.product-item');
+            $productItems.each(function () {
                 let $this = $(this);
-                items[$this.find('[name="id"]').val()] = [];
                 $this.find('.pop-slide__option').each(function () {
                     let $opt = $(this);
                     let key = ($opt.find('.pop-slide__option-caption').html()).trim();
                     let val = ($opt.find('.pop-slide__option-value').html()).trim();
-                    items[$this.find('[name="id"]').val()][key] = val;
+                    if (typeof items[key] === 'undefined') {
+                        items[key] = [];
+                    }
+                    items[key][$this.find('[name="id"]').val()] = val;
+                });
+            });
+
+            let amount = $productItems.length;
+
+            // Проходимся по всем опциям
+            items.forEach(function (options, index) {
+                // Проходимся по всем товарам
+                options.forEach(function (val, key) {
+                    console.log('key', key);
+                    console.log('val', val);
                 });
             });
 

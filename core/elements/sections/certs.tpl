@@ -13,7 +13,7 @@
                     {set $splitted = $ct.file | split: '.'}
                     {set $count = $splitted | count}
                     {if $count > 1}
-                        {set $lastElem = $splitted[$count - 1]}
+                        {set $lastElem = $splitted[$count - 1] | strtolower}
 
                         {if $lastElem == 'pdf'}
                             {set $previewSrc = 'pdfToJpg' | snippet : [
@@ -26,7 +26,7 @@
                         {if $previewSrc ?}
                             {set $previewSrc = 'phpthumbon' | snippet : [
                             'input' => $previewSrc,
-                            'options' => '&w=200&far=1'
+                            'options' => '&h=283&far=1'
                             ]}
                         {/if}
                     {/if}

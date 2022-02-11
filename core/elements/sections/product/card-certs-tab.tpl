@@ -18,7 +18,7 @@
                 {if $previewSrc ?}
                     {set $previewSrc = 'phpthumbon' | snippet : [
                     'input' => $previewSrc,
-                    'options' => '&w=100&far=1'
+                    'options' => '&h=138&far=1'
                     ]}
                 {/if}
             {/if}

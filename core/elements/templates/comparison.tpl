@@ -29,17 +29,15 @@
                 </span>
                 </h1>
 
-                {*
-                    {if $resources != ''}
-                        <label for="only-different-toggler" class="sect-comparison__custom-toggler custom-toggler">
-                            <span class="custom-toggler__span">
-                                <input class="custom-toggler__input" type="checkbox" id="only-different-toggler">
-                                <span class="custom-toggler__checkmark"></span>
-                            </span>
-                            <span class="custom-toggler__text">Только отличающиеся</span>
-                        </label>
-                    {/if}
-                *}
+                {if $resources != ''}
+                    <label for="only-different-toggler" class="sect-comparison__custom-toggler custom-toggler">
+                        <span class="custom-toggler__span">
+                            <input class="custom-toggler__input" type="checkbox" id="only-different-toggler">
+                            <span class="custom-toggler__checkmark"></span>
+                        </span>
+                        <span class="custom-toggler__text">Только отличающиеся</span>
+                    </label>
+                {/if}
             </div>
 
             {if $resources != ''}
