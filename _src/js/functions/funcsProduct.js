@@ -436,15 +436,24 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                     }
                 });
 
-                // Получаем только уникальные
-                let unique = options[opt].filter(function (value, index, self) {
-                    return self.indexOf(value) === index;
+                // Получаем только дубликаты
+                const duplicateOpts = {};
+                options[opt].forEach(function (x) {
+                    duplicateOpts[x] = (duplicateOpts[x] || 0) + 1;
                 });
 
-                if (unique.length === options[opt].filter(n => n).length) {
+                let lengthDuplicates = Object.keys(duplicateOpts).length;
+                let lengthItems = options[opt].filter(n => n).length;
+
+                console.log('duplicateOpts', duplicateOpts);
+                console.log('lengthDuplicates', lengthDuplicates);
+
+                if (lengthDuplicates === 1 && lengthItems > 1) {
                     duplicates.push(opt);
                 }
             }
+
+            console.log('duplicates', duplicates);
 
             // Проходимся по всем карточкам и выводим опции
             itemsIds.forEach(function (id, index) {
@@ -452,7 +461,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                     let $optionsWrap = $(this).closest('.product-item').find('.pop-slide__options-wrap_type_only-different');
                     $optionsWrap.html('');
                     for (let opt in options) {
-                        if (duplicates.indexOf(opt) !== -1) {
+                        if (duplicates.indexOf(opt) === -1) {
                             let $htmlOption = $('<div class="pop-slide__option">' +
                                 '   <div class="pop-slide__option-caption">' + opt + '</div>' +
                                 '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
