@@ -62,4 +62,7 @@
         'product' => $id
     ]}
 
+    <div class="pop-slide__options-wrap pop-slide__options-wrap_type_only-different">
+
+    </div>
 </div>

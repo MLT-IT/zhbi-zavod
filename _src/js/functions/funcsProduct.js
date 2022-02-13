@@ -351,7 +351,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             // Если перключатель "Только отличающиеся" включен, то делаем проверку товаров на отличающиеся
             let $toggler = $('.custom-toggler__input');
             if ($toggler.is(':checked')) {
-                onlyDifferent($toggler);
+                checkOnlyDifferent($toggler);
             }
 
             // Если это была последняя карточка, то удаляем слайдер с карточками
@@ -402,35 +402,56 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
     // -------------------------------
     // Только отличающиеся
     // -------------------------------
-    function onlyDifferent($toggler) {
+    function checkOnlyDifferent($toggler) {
         if ($toggler.is(':checked')) {
-            // Составляем массив из опций каждого товара
-            let items = [];
+            // Массив, где ключи - это название опций, а значения - это {id товара: значение опции}
+            let options = [];
+            // Массив с id товаров
+            let itemsIds = [];
+
             let $productItems = $('.product-item');
             $productItems.each(function () {
                 let $this = $(this);
+                let id = $this.find('[name="id"]').val();
+                itemsIds.push(id);
                 $this.find('.pop-slide__option').each(function () {
                     let $opt = $(this);
                     let key = ($opt.find('.pop-slide__option-caption').html()).trim();
                     let val = ($opt.find('.pop-slide__option-value').html()).trim();
-                    if (typeof items[key] === 'undefined') {
-                        items[key] = [];
+                    if (typeof options[key] === 'undefined') {
+                        options[key] = [];
                     }
-                    items[key][$this.find('[name="id"]').val()] = val;
+                    options[key][id] = val;
                 });
             });
-
-            let amount = $productItems.length;
 
             // Проходимся по всем опциям
-            items.forEach(function (options, index) {
+            for (let opt in options) {
                 // Проходимся по всем товарам
-                options.forEach(function (val, key) {
-                    console.log('key', key);
-                    console.log('val', val);
+                itemsIds.forEach(function (id, index) {
+                    // У тех товаров, где опция не заполнена, ставим прочерк
+                    if (typeof options[opt][id] === 'undefined') {
+                        options[opt][id] = '-';
+                    }
+                });
+            }
+
+            // Проходимся по всем карточкам и выводим опции
+            itemsIds.forEach(function (id, index) {
+                $('.product-item input[name="id"][value="' + id + '"]').each(function () {
+                    let $optionsWrap = $(this).closest('.product-item').find('.pop-slide__options-wrap_type_only-different');
+                    $optionsWrap.html('');
+                    for (let opt in options) {
+                        let $htmlOption = $('<div class="pop-slide__option">' +
+                            '   <div class="pop-slide__option-caption">' + opt + '</div>' +
+                            '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
+                            '</div>');
+                        $htmlOption.appendTo($optionsWrap);
+                    }
                 });
             });
 
+            /*
             // Сравниваем товары и ищем одинаковые
             let sameProducts = [];
             items.forEach(function (value1, index1) {
@@ -456,6 +477,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
             sameProducts.forEach(function (value, index1) {
                 $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
             });
+            */
         } else {
             $('.comp-slide.hidden').removeClass('hidden');
         }
@@ -476,9 +498,11 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         }
     }
 
-    if ($('.sect-comparison').length) {
+    let $comparison = $('.sect-comparison');
+    if ($comparison.length) {
         $('.custom-toggler__input').on('change', function () {
-            onlyDifferent($(this));
+            $comparison.toggleClass('sect-comparison_only-different');
+            checkOnlyDifferent($(this));
         });
     }
 
