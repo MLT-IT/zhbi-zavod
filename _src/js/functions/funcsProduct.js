@@ -459,7 +459,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                     $optionsWrap.html('');
                     for (let opt in options) {
                         if (duplicates.indexOf(opt) === -1) {
-                            let $htmlOption = $('<div class="pop-slide__option">' +
+                            let $htmlOption = $('<div class="pop-slide__option" data-title="' + opt + '">' +
                                 '   <div class="pop-slide__option-caption">' + opt + '</div>' +
                                 '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
                                 '</div>');
@@ -475,6 +475,9 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         // Обновляем текст в h1
         let length = $('.comp-slide').not('.hidden').length;
         $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
+
+        // Обновляем высоту характеристик
+        setHeightToOptions();
     }
 
     let $comparison = $('.sect-comparison');
@@ -485,26 +488,31 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         });
     }
 
-    /**
-     * Функция проверяет, являются ли объекты одинаковыми? Если да, то возвращает true. В противном случае false.
-     * @param obj1
-     * @param obj2
-     */
-    function checkSameness(obj1, obj2) {
-        if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-            return false;
-        }
+    // --------------------------------------------
+    // Высота характеристик в сравнении
+    // --------------------------------------------
+    function setHeightToOptions() {
+        let itemsHeight = [];
+        $('.pop-slide__option').each(function () {
+            let $this = $(this);
+            let dataTitle = $this.attr('data-title');
+            let maxHeight = $this.height();
 
-        for (let key in obj1) {
-            if (typeof obj2[key] === 'undefined') {
-                return false;
+            if (typeof itemsHeight[dataTitle] === 'undefined') {
+                itemsHeight[dataTitle] = maxHeight;
+            } else if (itemsHeight[dataTitle] < maxHeight) {
+                itemsHeight[dataTitle] = maxHeight;
             }
+        });
 
-            if (obj1[key] !== obj2[key]) {
-                return false;
-            }
+        for (let title in itemsHeight) {
+            $('.pop-slide__option[data-title="' + title + '"]').height(itemsHeight[title]);
         }
+    }
 
-        return true;
+    if ($comparison.length) {
+        $(window).on('resize', function () {
+            setHeightToOptions();
+        }).trigger('resize');
     }
 }
