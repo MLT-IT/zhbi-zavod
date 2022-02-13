@@ -279,6 +279,10 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         return splitted;
     }
 
+    /**
+     * Обработчики кнопок для добавления / удаления товара из избранного / сравнения.
+     * @param e - событие.
+     */
     function actionsHandler(e) {
         e.preventDefault();
 
@@ -359,10 +363,8 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
             }
 
-            // Обновление слайдера и кнопок слайдера
-            // TODO: сделай функцию вместо этого кода
+            // Обновление слайдера (т.к. изменилось количество карточек)
             if ($sup.length) {
-                // Обновление слайдера (т.к. изменилось количество карточек)
                 window.dispatchEvent(new Event('resize'));
                 // Скрыть / показать кнопки слайдера
                 let $buttons = $('.swiper-buttons');
@@ -445,15 +447,10 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 let lengthDuplicates = Object.keys(duplicateOpts).length;
                 let lengthItems = options[opt].filter(n => n).length;
 
-                console.log('duplicateOpts', duplicateOpts);
-                console.log('lengthDuplicates', lengthDuplicates);
-
                 if (lengthDuplicates === 1 && lengthItems > 1) {
                     duplicates.push(opt);
                 }
             }
-
-            console.log('duplicates', duplicates);
 
             // Проходимся по всем карточкам и выводим опции
             itemsIds.forEach(function (id, index) {
@@ -478,17 +475,6 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         // Обновляем текст в h1
         let length = $('.comp-slide').not('.hidden').length;
         $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
-
-        // Обновление слайдера (т.к. изменилось количество карточек)
-        // TODO: сделай функцию вместо этого кода
-        window.dispatchEvent(new Event('resize'));
-        // Скрыть / показать кнопки слайдера
-        let $buttons = $('.swiper-buttons');
-        if (length > 4) {
-            $buttons.show();
-        } else {
-            $buttons.hide();
-        }
     }
 
     let $comparison = $('.sect-comparison');
