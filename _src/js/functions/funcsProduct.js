@@ -425,6 +425,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 });
             });
 
+            let duplicates = [];
             // Проходимся по всем опциям
             for (let opt in options) {
                 // Проходимся по всем товарам
@@ -434,6 +435,15 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                         options[opt][id] = '-';
                     }
                 });
+
+                // Получаем только уникальные
+                let unique = options[opt].filter(function (value, index, self) {
+                    return self.indexOf(value) === index;
+                });
+
+                if (unique.length === options[opt].filter(n => n).length) {
+                    duplicates.push(opt);
+                }
             }
 
             // Проходимся по всем карточкам и выводим опции
@@ -442,42 +452,16 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                     let $optionsWrap = $(this).closest('.product-item').find('.pop-slide__options-wrap_type_only-different');
                     $optionsWrap.html('');
                     for (let opt in options) {
-                        let $htmlOption = $('<div class="pop-slide__option">' +
-                            '   <div class="pop-slide__option-caption">' + opt + '</div>' +
-                            '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
-                            '</div>');
-                        $htmlOption.appendTo($optionsWrap);
+                        if (duplicates.indexOf(opt) !== -1) {
+                            let $htmlOption = $('<div class="pop-slide__option">' +
+                                '   <div class="pop-slide__option-caption">' + opt + '</div>' +
+                                '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
+                                '</div>');
+                            $htmlOption.appendTo($optionsWrap);
+                        }
                     }
                 });
             });
-
-            /*
-            // Сравниваем товары и ищем одинаковые
-            let sameProducts = [];
-            items.forEach(function (value1, index1) {
-                items.forEach(function (value2, index2) {
-                    if (index2 <= index1) {
-                        return;
-                    }
-
-                    if (checkSameness(value1, value2) === true) {
-                        sameProducts.push(index1);
-                    }
-                });
-            });
-
-            // Оставляем только уникальные
-            sameProducts = sameProducts.filter((value, index, self) => {
-                return self.indexOf(value) === index;
-            });
-
-            // Сначала покажем все карточки
-            $('.comp-slide.hidden').removeClass('hidden');
-            // Теперь скроем одинаковые
-            sameProducts.forEach(function (value, index1) {
-                $('[name="id"][value="' + value + '"]').closest('.pop-slide').addClass('hidden');
-            });
-            */
         } else {
             $('.comp-slide.hidden').removeClass('hidden');
         }
