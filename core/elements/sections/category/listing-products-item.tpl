@@ -100,6 +100,8 @@
         </div>
     </div>
     <div class="listing__products-item-right">
+        {*
+        // Дизайн карточки для избранного. Кирилл позже сказал, что карточка должна быть как в листинге. Скорее всего, это можно удалять. Но я пока что решил закомментировать
         <div class="listing__products-item-actions">
             <label for="listing__products-item-actions-compare-{$id}" class="listing__products-item-actions-compare-label">
                 <span class="custom-checkbox listing__actions-compare-checkbox">
@@ -116,7 +118,7 @@
                 </svg>
             </span>
         </div>
-
+        *}
         <div class="listing__products-item-chars-wrap">
             <span class="listing__products-item-chars-btn">
                 <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

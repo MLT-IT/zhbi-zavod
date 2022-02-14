@@ -381,7 +381,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         // Если мы находимся на странице избранного
         // --------------------------------------------
         // Удаление товара из избранного
-        if ($this.hasClass('listing__actions-btn-fav')) {
+        if ($this.is('.listing__products_full .listing__products-item-btn-fav')) {
             $(this).closest('.product-item').remove();
         }
     }
