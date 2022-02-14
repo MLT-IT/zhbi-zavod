@@ -21,6 +21,7 @@ window.$ = $;
 import functions from './functions/functions.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
+import funcsFavAndComp from './functions/funcsFavAndComp';
 import inputFilter from './functions/inputFilter.js';
 
 // Замена сообщения о ненайденных результатах на странице каталога. Другого способа разделить сообщения mFilter2 и mSearch2, который не сбросится при обновлении / переустановке плагина, я не нашел. Код написан вверху и без jQuery, чтобы работать быстрее.
@@ -32,6 +33,7 @@ if (elem !== null) {
 $(function ($) {
     funcsCatalog();
     funcsProduct(ImageZoom, Cookies, functions.trim, functions.formOfWord);
+    funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
     // -------------------------------
     // Меню на ПК
