@@ -373,6 +373,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 } else {
                     $buttons.hide();
                 }
+                setOrRemoveIndent();
             }
         }
 
@@ -399,6 +400,23 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 $('.header__comp-value').text(length);
                 break;
         }
+    }
+
+    // -------------------------------
+    // Отступ на странице сравнения
+    // -------------------------------
+    let $comparison = $('.sect-comparison');
+
+    function setOrRemoveIndent() {
+        if ($('.comp-slide').not('.hidden').length <= 4) {
+            $comparison.removeClass('with-buttons');
+        } else {
+            $comparison.addClass('with-buttons');
+        }
+    }
+
+    if ($comparison.length) {
+        setOrRemoveIndent();
     }
 
     // -------------------------------
@@ -480,7 +498,6 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         setHeightToOptions();
     }
 
-    let $comparison = $('.sect-comparison');
     if ($comparison.length) {
         $('.custom-toggler__input').on('change', function () {
             $comparison.toggleClass('sect-comparison_only-different');

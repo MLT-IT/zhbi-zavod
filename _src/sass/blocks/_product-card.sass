@@ -192,3 +192,11 @@
 
     &__btn-fav, &__btn-compare
         margin-top: 12px
+
+        &::after
+            padding-bottom: 2px
+            border-bottom: 1px solid currentColor
+
+        &:hover
+            &::after
+                border-bottom-color: transparent

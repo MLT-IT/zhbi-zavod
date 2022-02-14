@@ -1,4 +1,11 @@
 .sect-comparison
+    &.with-buttons
+        .sect-comparison__buttons, .sect-comparison__slider
+            margin-top: 70px
+
+            @media screen and (max-width: 580px)
+                margin-top: 0
+
     &_only-different
         .pop-slide__options-wrap
             &_type
@@ -11,6 +18,7 @@
         display: flex
         width: 100%
         align-items: center
+        margin-bottom: 12px
 
         @media screen and (max-width: 580px)
             flex-direction: column
@@ -24,7 +32,5 @@
             margin-left: 0
 
     &__buttons, &__slider
-        margin-top: 70px
-
         @media screen and (max-width: 580px)
             margin-top: 0
