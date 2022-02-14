@@ -25,6 +25,8 @@
         {set $site_class = 'rockwool krovlya'}
     {elseif $_modx->context.key == 'kirpich-m'}
         {set $site_class = 'rockwool kirpich-m'}
+    {elseif $_modx->context.key == 'fasady-pro'}
+        {set $site_class = 'rockwool fasady-pro'}
     {/if}
 
     {* >>> favicon *}
@@ -45,6 +47,8 @@
         {set $micro_title = $micro_title ~ 'кровли'}
     {elseif $site_context == 'kirpich-m'}
         {set $micro_title = $micro_title ~ 'кирпича'}
+    {elseif $site_context == 'fasady-pro'}
+        {set $micro_title = $micro_title ~ 'деревянных фасадов'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

@@ -12,6 +12,8 @@
                     кровли
                 {elseif $_modx->context.key == 'kirpich-m'}
                     кирпича
+                {elseif $_modx->context.key == 'fasady-pro'}
+                    деревянных фасадов
                 {else}
                     утеплителя {$brand}
                 {/if}
