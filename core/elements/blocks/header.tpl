@@ -66,7 +66,7 @@
                                         <div class="header__column">
                                             <div class="header__column-items-wrap">
                                                 {foreach $items as $item}
-                                                    <a class="header__menu-item" href="{$item.uri}">
+                                                    <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
                                                         {$item.name}
                                                     </a>
                                                 {/foreach}
