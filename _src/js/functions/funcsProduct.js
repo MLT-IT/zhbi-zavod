@@ -1,9 +1,7 @@
-import functions from "./functions";
-
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
+export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces) {
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
@@ -115,7 +113,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
     // -------------------------------
     function getItemCount($productItem, count) {
         // TODO: надо бы сделать проверку на isNaN
-        let unitVal = functions.getActiveUnitValue($productItem);
+        let unitVal = getActiveUnitValue($productItem);
 
         // Получившееся кол-во
         count = Math.ceil(1 / unitVal * count);
@@ -128,7 +126,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
     // Функция для смены цены в соответствии с ед. измерения
     // -------------------------------
     function calcPrice($productItem) {
-        let unitVal = functions.getActiveUnitValue($productItem);
+        let unitVal = getActiveUnitValue($productItem);
 
         // Изменение цены
         const $price = $productItem.find('.product-item__price');
@@ -138,7 +136,7 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
                 price = 0;
             }
 
-            price = functions.numberWithSpaces(Math.ceil(1 / unitVal * price));
+            price = numberWithSpaces(Math.ceil(1 / unitVal * price));
             $price.text(price);
         }
     }
@@ -231,14 +229,14 @@ export default function funcsProduct(ImageZoom, Cookies, trim, formOfWord) {
         if (typeof count !== 'undefined') {
             cartValue = count;
             $cartValueElem.add($cartInfoCountVal).text(cartValue);
-            $cartInfoCountText.text(functions.formOfWord(cartValue, 'товар', 'товара', 'товаров'));
+            $cartInfoCountText.text(formOfWord(cartValue, 'товар', 'товара', 'товаров'));
         } else {
             cartValue = parseInt($cartValueElem.text());
         }
 
         let cartCost;
         if (typeof cost !== 'undefined') {
-            cartCost = functions.numberWithSpaces(cost);
+            cartCost = numberWithSpaces(cost);
             $cartInfoCostVal.text(cartCost);
         }
 

@@ -32,7 +32,7 @@ if (elem !== null) {
 
 $(function ($) {
     funcsCatalog();
-    funcsProduct(ImageZoom, Cookies, functions.trim, functions.formOfWord);
+    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
     // -------------------------------

@@ -1,14 +1,16 @@
-import functions from "./functions";
-
 /**
- * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
+ * Функции, относящиеся к избранному и сравнению.
  */
 export default function funcsFavAndComp(Cookies, trim, formOfWord) {
-    // -------------------------------
-    // Избранное и сравнение
-    // -------------------------------
-    // Берет куки с товарами, превращает в массив, удаляет повторяющиеся элементы, возвращает результат {array}.
-    // Принимает параметр - название куки. Это либо favIds, либо compIds
+    // --------------------------------------------
+    // Функции
+    // --------------------------------------------
+    /**
+     * Берет куки с товарами, превращает в массив, удаляет повторяющиеся элементы, возвращает результат - массив.
+     *
+     * @param cookie - название куки. Это либо favIds, либо compIds.
+     * @returns {*}.
+     */
     function getSplitted(cookie) {
         let ids = Cookies.get(cookie);
         if (typeof ids === 'undefined') {
@@ -96,28 +98,22 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         // --------------------------------------------
         // Если мы находимся на странице сравнения
         // --------------------------------------------
-        let $sup = $('.title-1__sup');
-        if ($sup.length) {
-            $sup.text(splitted.length + ' ' + formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
-        }
+        if ($('.sect-comparison').length) {
+            $('.title-1__sup').text(splitted.length + ' ' + formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
 
-        // Удаление товара из сравнения
-        if ($this.hasClass('listing__products-item-fav-remove-btn')) {
-            $(this).closest('.comp-slide').remove();
+            // Удаление товара из сравнения
+            if ($this.hasClass('listing__products-item-fav-remove-btn')) {
+                $(this).closest('.comp-slide').remove();
 
-            // Если перключатель "Только отличающиеся" включен, то делаем проверку товаров на отличающиеся
-            let $toggler = $('.custom-toggler__input');
-            if ($toggler.is(':checked')) {
-                checkOnlyDifferent($toggler);
-            }
+                // Обновляем опции
+                refreshOptions()
 
-            // Если это была последняя карточка, то удаляем слайдер с карточками
-            if (!$('.comp-slide').length) {
-                $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
-            }
+                // Если это была последняя карточка, то удаляем слайдер с карточками
+                if (!$('.comp-slide').length) {
+                    $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
+                }
 
-            // Обновление слайдера (т.к. изменилось количество карточек)
-            if ($sup.length) {
+                // Обновление слайдера (т.к. изменилось количество карточек)
                 window.dispatchEvent(new Event('resize'));
                 // Скрыть / показать кнопки слайдера
                 let $buttons = $('.swiper-buttons');
@@ -133,17 +129,19 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         // --------------------------------------------
         // Если мы находимся на странице избранного
         // --------------------------------------------
-        // Удаление товара из избранного
-        if ($this.is('.listing__products_full .listing__products-item-btn-fav')) {
-            $(this).closest('.product-item').remove();
+        if ($('.listing__products_full').length) {
+            // Удаление товара из избранного
+            if ($this.hasClass('.listing__products-item-btn-fav')) {
+                $(this).closest('.product-item').remove();
+            }
         }
     }
 
-    // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
-    $(document).on('click', '.product-item__btn, .product-item__action-btn', actionsHandler);
-    $(document).on('change', '.product-item__actions-compare', actionsHandler);
-
-    // Обновить кнопки в шапке
+    /**
+     * Обновляет кнопки в шапке.
+     * @param length - длина, которая будет в кружочке.
+     * @param cookieName - название куки, влияет на то, какую именно кнопку обновить.
+     */
     function refreshBtnsInHeader(length, cookieName) {
         switch (cookieName) {
             case 'favIds':
@@ -155,11 +153,9 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         }
     }
 
-    // -------------------------------
-    // Отступ на странице сравнения
-    // -------------------------------
-    let $comparison = $('.sect-comparison');
-
+    /**
+     * Устанавливает или удаляет отступ для кнопок, переключающих слайды
+     */
     function setOrRemoveIndent() {
         if ($('.comp-slide').not('.hidden').length <= 4) {
             $comparison.removeClass('with-buttons');
@@ -168,100 +164,112 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         }
     }
 
-    if ($comparison.length) {
-        setOrRemoveIndent();
-    }
+    /**
+     * Делает все опции в карточках товаров на странице сравнения на одном уровне. Добавляет прочерки в карточки, где определенных опций нет. При необходимости удаляет дубликаты.
+     */
+    function refreshOptions() {
+        // Селектор, где содержатся опции
+        let charsWrapSelector;
+        // Удалить дубликаты?
+        let removeDuplicates;
 
+        // Установка переменных charsWrapSelector и removeDuplicates
+        if ($('.custom-toggler__input').is(':checked')) {
+            charsWrapSelector = '.pop-slide__options-wrap_type_only-different';
+            removeDuplicates = true;
+        } else {
+            charsWrapSelector = '.pop-slide__options-wrap_type_default';
+        }
 
-    // -------------------------------
-    // Только отличающиеся
-    // -------------------------------
-    function checkOnlyDifferent($toggler) {
-        if ($toggler.is(':checked')) {
-            // Массив, где ключи - это название опций, а значения - это {id товара: значение опции}
-            let options = [];
-            // Массив с id товаров
-            let itemsIds = [];
+        // Массив, где ключи - это название опций, а значения - это объект типа: {id товара: значение опции}
+        let options = [];
+        // Массив с id товаров
+        let itemsIds = [];
+        // Массив с каточками товаров (jQuery)
+        let $productItems = $('.comp-slide');
 
-            let $productItems = $('.product-item');
-            $productItems.each(function () {
-                let $this = $(this);
-                let id = $this.find('[name="id"]').val();
-                itemsIds.push(id);
-                $this.find('.pop-slide__option').each(function () {
-                    let $opt = $(this);
-                    let key = ($opt.find('.pop-slide__option-caption').html()).trim();
-                    let val = ($opt.find('.pop-slide__option-value').html()).trim();
-                    if (typeof options[key] === 'undefined') {
-                        options[key] = [];
-                    }
-                    options[key][id] = val;
-                });
+        // Заполняем options и itemsIds
+        $productItems.each(function () {
+            let $this = $(this);
+            let id = $this.find('[name="id"]').val();
+            itemsIds.push(id);
+            $this.find('.pop-slide__options-wrap_type_source .pop-slide__option').each(function () {
+                let $opt = $(this);
+                let key = ($opt.find('.pop-slide__option-caption').html()).trim();
+                let val = ($opt.find('.pop-slide__option-value').html()).trim();
+                if (typeof options[key] === 'undefined') {
+                    options[key] = [];
+                }
+                options[key][id] = val;
+            });
+        });
+
+        if (removeDuplicates) {
+            // Массив с названием опций, которые являются одинаковыми во всех карточках
+            let duplicates = [];
+        }
+
+        // Проходимся по всем опциям
+        for (let opt in options) {
+            // Проходимся по всем товарам
+            itemsIds.forEach(function (id, index) {
+                // У тех товаров, где опция не заполнена, ставим прочерк
+                if (typeof options[opt][id] === 'undefined') {
+                    options[opt][id] = '-';
+                }
             });
 
-            let duplicates = [];
-            // Проходимся по всем опциям
-            for (let opt in options) {
-                // Проходимся по всем товарам
-                itemsIds.forEach(function (id, index) {
-                    // У тех товаров, где опция не заполнена, ставим прочерк
-                    if (typeof options[opt][id] === 'undefined') {
-                        options[opt][id] = '-';
-                    }
-                });
-
-                // Получаем только дубликаты
-                const duplicateOpts = {};
+            // Ищем опции-дубликаты, если это необходимо
+            if (removeDuplicates) {
+                let duplicateOpts = {};
                 options[opt].forEach(function (x) {
                     duplicateOpts[x] = (duplicateOpts[x] || 0) + 1;
                 });
 
                 let lengthDuplicates = Object.keys(duplicateOpts).length;
                 let lengthItems = options[opt].filter(n => n).length;
-
                 if (lengthDuplicates === 1 && lengthItems > 1) {
                     duplicates.push(opt);
                 }
             }
-
-            // Проходимся по всем карточкам и выводим опции
-            itemsIds.forEach(function (id, index) {
-                $('.product-item input[name="id"][value="' + id + '"]').each(function () {
-                    let $optionsWrap = $(this).closest('.product-item').find('.pop-slide__options-wrap_type_only-different');
-                    $optionsWrap.html('');
-                    for (let opt in options) {
-                        if (duplicates.indexOf(opt) === -1) {
-                            let $htmlOption = $('<div class="pop-slide__option" data-title="' + opt + '">' +
-                                '   <div class="pop-slide__option-caption">' + opt + '</div>' +
-                                '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
-                                '</div>');
-                            $htmlOption.appendTo($optionsWrap);
-                        }
-                    }
-                });
-            });
-        } else {
-            $('.comp-slide.hidden').removeClass('hidden');
         }
 
-        // Обновляем текст в h1
-        let length = $('.comp-slide').not('.hidden').length;
-        $('.title-1__sup').text(length + ' ' + formOfWord(length, 'товар', 'товара', 'товаров'));
+        // Удаляем дубликаты
+        if (removeDuplicates) {
+            for (let opt in options) {
+                if (duplicates.indexOf(opt) !== -1) {
+                    delete options[opt];
+                }
+            }
+        }
 
-        // Обновляем высоту характеристик
+        // Проходимся по всем карточкам и выводим опции
+        itemsIds.forEach(function (id, index) {
+            $('.product-item input[name="id"][value="' + id + '"]').each(function () {
+                // Контейнер, где находятся все опции
+                let $optionsWrap = $(this).closest('.product-item').find(charsWrapSelector);
+
+                // Очищаем этот контейнер
+                $optionsWrap.html('');
+
+                // Добавляем опции в контейнер
+                for (let opt in options) {
+                    let $htmlOption = $('<div class="pop-slide__option" data-title="' + opt + '">' +
+                        '   <div class="pop-slide__option-caption">' + opt + '</div>' +
+                        '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
+                        '</div>');
+                    $htmlOption.appendTo($optionsWrap);
+                }
+            });
+        });
+
+        // Обновляем высоту опций
         setHeightToOptions();
     }
 
-    if ($comparison.length) {
-        $('.custom-toggler__input').on('change', function () {
-            $comparison.toggleClass('sect-comparison_only-different');
-            checkOnlyDifferent($(this));
-        });
-    }
-
-    // --------------------------------------------
-    // Высота характеристик в сравнении
-    // --------------------------------------------
+    /**
+     * Установка высоты опций в карточках сравнения
+     */
     function setHeightToOptions() {
         let itemsHeight = [];
         $('.pop-slide__option').each(function () {
@@ -281,9 +289,31 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         }
     }
 
+    // -------------------------------
+    // Инициализация
+    // -------------------------------
+    let $comparison = $('.sect-comparison');
+
+    // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
+    $(document).on('click', '.product-item__btn, .product-item__action-btn', actionsHandler);
+    $(document).on('change', '.product-item__actions-compare', actionsHandler);
+
+    // Если мы находимся на странице сравнения
     if ($comparison.length) {
+        // Установка отступа
+        setOrRemoveIndent();
+
+        // Установка обработчика для переключателя "Только отличающиеся"
+        $('.custom-toggler__input').on('change', function () {
+            $comparison.toggleClass('sect-comparison_only-different');
+        });
+
+        // Работа с характеристиками
+        refreshOptions();
+
+        // Установка обработчка для правильной высоты опций
         $(window).on('resize', function () {
             setHeightToOptions();
-        }).trigger('resize');
+        });
     }
 }
