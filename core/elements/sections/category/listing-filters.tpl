@@ -5,6 +5,6 @@
         {if $filters != 'Нечего фильтровать'}
             {$filters}
         {/if}
-        <button type="reset" class="listing__reset-filters-action hidden">Сбросить</button>
+        <button type="reset" style="display: none;" class="listing__reset-filters-action">Сбросить</button>
     </form>
 </div>
