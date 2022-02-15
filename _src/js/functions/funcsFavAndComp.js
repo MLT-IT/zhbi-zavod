@@ -131,7 +131,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         // --------------------------------------------
         if ($('.listing__products_full').length) {
             // Удаление товара из избранного
-            if ($this.hasClass('.listing__products-item-btn-fav')) {
+            if ($this.hasClass('listing__products-item-btn-fav')) {
                 $(this).closest('.product-item').remove();
             }
         }
@@ -171,7 +171,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         // Селектор, где содержатся опции
         let charsWrapSelector;
         // Удалить дубликаты?
-        let removeDuplicates;
+        let removeDuplicates = false;
 
         // Установка переменных charsWrapSelector и removeDuplicates
         if ($('.custom-toggler__input').is(':checked')) {
@@ -206,7 +206,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
 
         if (removeDuplicates) {
             // Массив с названием опций, которые являются одинаковыми во всех карточках
-            let duplicates = [];
+            var duplicates = [];
         }
 
         // Проходимся по всем опциям
@@ -268,12 +268,13 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
     }
 
     /**
-     * Установка высоты опций в карточках сравнения
+     * Установка высоты опций в карточках на странице сравнения
      */
     function setHeightToOptions() {
         let itemsHeight = [];
-        $('.pop-slide__option').each(function () {
+        $('.pop-slide__options-wrap:visible').find('.pop-slide__option').each(function () {
             let $this = $(this);
+            $this.css('height', '');
             let dataTitle = $this.attr('data-title');
             let maxHeight = $this.height();
 
@@ -306,6 +307,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         // Установка обработчика для переключателя "Только отличающиеся"
         $('.custom-toggler__input').on('change', function () {
             $comparison.toggleClass('sect-comparison_only-different');
+            refreshOptions();
         });
 
         // Работа с характеристиками
