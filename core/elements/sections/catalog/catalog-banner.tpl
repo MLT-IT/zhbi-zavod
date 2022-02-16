@@ -9,6 +9,8 @@
                 кирпича
             {elseif $_modx->context.key == 'fasady-pro'}
                 деревянных фасадов
+            {elseif $_modx->context.key == 'fasad'}
+                фасадов
             {else}
                 утеплителя
             {/if}
@@ -52,6 +54,8 @@
             {set $imgname = 'kirpich-m.jpg'}
         {case 'fasady-pro'}
             {set $imgname = 'fasady-pro.jpg'}
+        {case 'fasad'}
+            {set $imgname = 'fasad.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

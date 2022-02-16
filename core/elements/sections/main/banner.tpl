@@ -9,6 +9,8 @@
                 <img src="/assets/template/img/banners-full/kirpich-m.jpg" class="banner__slide-img">
             {elseif $_modx->context.key == 'fasady-pro'}
                 <img src="/assets/template/img/banners-full/fasady-pro.jpg" class="banner__slide-img">
+            {elseif $_modx->context.key == 'fasad'}
+                <img src="/assets/template/img/banners-full/fasad.jpg" class="banner__slide-img">
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}
