@@ -20,7 +20,7 @@
     &__cert-preview
         display: inline-block
 
-    &__pdf-preview
+    &__preview-view, &__preview-download
         display: flex
         align-items: center
         flex-direction: column
@@ -35,10 +35,33 @@
             color: #323232
 
         &::before
-            content: "PDF"
             top: 20px
             margin-top: -10px
 
         &::after
-            content: "посмотреть"
             top: 40px
+
+    &__preview-view
+        &::after
+            content: "посмотреть"
+
+    &__preview-download
+        &::after
+            content: "скачать"
+
+    &__pdf-preview
+        &::before
+            content: "PDF"
+
+    &__dwg-preview
+        &::before
+            content: "DWG"
+
+    &__doc-preview
+        &::before
+            content: "DOC"
+
+    &__xls-preview
+        &::before
+            content: "XLS"
+
