@@ -47,7 +47,7 @@
             <div class="product-card__tabs-page">
                 <div class="product-card__mobile-tabs-button">Сертификаты</div>
                 <div class="product-card__content-wrap">
-                    {include 'file:sections/product/card-certs-tab.tpl' value=$certs}
+                    {include 'file:blocks/certs.tpl'}
                 </div>
             </div>
         {/if}
