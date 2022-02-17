@@ -86,7 +86,7 @@
                     </span>
                 {/if}
 
-                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad']}
+                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
@@ -123,6 +123,8 @@
                     Получить расчет деревянных фасадов бесплатно
                 {elseif $_modx->resource.context_key == 'fasad'}
                     Получить расчет фасадов бесплатно
+                {elseif $_modx->resource.context_key == 'armatura-178'}
+                    Получить расчет арматуры бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}

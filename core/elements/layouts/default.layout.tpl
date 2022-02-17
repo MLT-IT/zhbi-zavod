@@ -29,6 +29,8 @@
         {set $site_class = 'rockwool fasady-pro'}
     {elseif $_modx->context.key == 'fasad'}
         {set $site_class = 'rockwool fasad'}
+    {elseif $_modx->resource.context_key == 'armatura-178'}
+        {set $site_class = 'rockwool armatura-178'}
     {/if}
 
     {* >>> favicon *}
@@ -53,6 +55,8 @@
         {set $micro_title = $micro_title ~ 'деревянных фасадов'}
     {elseif $site_context == 'fasad'}
         {set $micro_title = $micro_title ~ 'фасадов'}
+    {elseif $site_context == 'armatura-178'}
+        {set $micro_title = $micro_title ~ 'арматуры'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

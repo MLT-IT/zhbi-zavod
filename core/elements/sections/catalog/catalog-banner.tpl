@@ -11,6 +11,8 @@
                 деревянных фасадов
             {elseif $_modx->context.key == 'fasad'}
                 фасадов
+            {elseif $_modx->context.key == 'armatura-178'}
+                арматуры
             {else}
                 утеплителя
             {/if}
@@ -56,6 +58,8 @@
             {set $imgname = 'fasady-pro.jpg'}
         {case 'fasad'}
             {set $imgname = 'fasad.jpg'}
+        {case 'armatura-178'}
+            {set $imgname = 'armatura-178.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

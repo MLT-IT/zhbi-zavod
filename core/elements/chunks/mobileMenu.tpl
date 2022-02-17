@@ -16,6 +16,8 @@
                     деревянных фасадов
                 {elseif $_modx->context.key == 'fasad'}
                     фасадов
+                {elseif $_modx->context.key == 'armatura-178'}
+                    арматуры
                 {else}
                     утеплителя {$brand}
                 {/if}
