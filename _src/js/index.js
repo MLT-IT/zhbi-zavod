@@ -159,7 +159,7 @@ $(function ($) {
 
             let regexp = /^(0|[1-9][0-9]{0,})$/;
             if ($this.closest('.custom-counter_type_fractional').length) {
-                regexp = /^((0{1}|[1-9][0-9]{0,})(\.{1}[0-9]{0,2}){0,1})$/;
+                regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
             }
 
             if (!isNaN(minVal)) {

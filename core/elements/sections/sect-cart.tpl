@@ -70,7 +70,7 @@
                                 <input type="hidden" name="key" value="{$product.key}"/>
                                     <div class="custom-counter cart-table__custom-counter{if $template == 17} custom-counter_type_fractional{/if}">
                                         <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-                                        <input type="number" name="count" class="custom-counter__amount" value="{$product.count}">
+                                        <input name="count" class="custom-counter__amount" value="{$product.count}">
                                         <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                                     </div>
                                 <button class="btn btn-sm" type="submit" name="ms2_action" value="cart/change"></button>
