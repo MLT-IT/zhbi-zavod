@@ -151,17 +151,17 @@ $(function ($) {
 
         // Стилизованный список
         let $counterInput = $('.custom-counter__amount');
-        // Фильтр для ввода
+        // Фильтры
         $counterInput.each(function () {
             let filter;
             const $this = $(this);
             const minVal = parseFloat($this.attr('data-min'));
 
+            // Фильтр для изменения значения
             let regexp = /^(0|[1-9][0-9]{0,})$/;
             if ($this.closest('.custom-counter_type_fractional').length) {
                 regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
             }
-
             if (!isNaN(minVal)) {
                 filter = function (value) {
                     return regexp.test(value) && (parseFloat(value) >= minVal);
@@ -171,8 +171,12 @@ $(function ($) {
                     return regexp.test(value);
                 }
             }
-
             $this.inputFilter(filter);
+
+            // Фильтр для ввода значения
+            $this.inputFilter(function (value) {
+                return /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/.test(value);
+            }, {'event':'input'});
         });
 
         // Кнопки стилизованного счетчкика
