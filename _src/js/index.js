@@ -146,22 +146,29 @@ $(function ($) {
     // -------------------------------
     // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
+        // Стилизованный счетчик
         $('.custom-select').euv_custom_select();
 
+        // Стилизованный список
         let $counterInput = $('.custom-counter__amount');
         // Фильтр для ввода
         $counterInput.each(function () {
             let filter;
             const $this = $(this);
-            const minVal = parseInt($this.attr('data-min'));
+            const minVal = parseFloat($this.attr('data-min'));
+
+            let regexp = /^(0|[1-9][0-9]{0,})$/;
+            if ($this.closest('.custom-counter_type_fractional').length) {
+                regexp = /^((0{1}|[1-9][0-9]{0,})(\.{1}[0-9]{0,2}){0,1})$/;
+            }
 
             if (!isNaN(minVal)) {
                 filter = function (value) {
-                    return /^(0|[1-9][0-9]{0,})$/.test(value) && (parseInt(value) >= minVal);
+                    return regexp.test(value) && (parseFloat(value) >= minVal);
                 }
             } else {
                 filter = function (value) {
-                    return /^(0|[1-9][0-9]{0,})$/.test(value);
+                    return regexp.test(value);
                 }
             }
 

@@ -25,7 +25,8 @@ let methods = {
             // -----------
             // Установка переменных и data-значений
             // -----------
-            let events = 'change input keydown keyup mousedown mouseup select contextmenu drop';
+            // let events = 'change input keydown keyup mousedown mouseup select contextmenu drop';
+            let events = 'change select contextmenu drop';
             let events_array = events.split(' ')
             for (let i = 0; i < events_array.length; i++) {
                 events_array[i] += '.' + pluginName;
@@ -50,7 +51,7 @@ let methods = {
                     this.oldSelectionEnd = this.selectionEnd;
                 } else if (this.hasOwnProperty("oldValue")) {
                     this.value = this.oldValue;
-                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    // this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
                 }
             });
         });

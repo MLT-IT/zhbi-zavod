@@ -84,16 +84,18 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let $formAdd = $productItem.find('.product-item__form-add');
         let $elemsChange = $productItem.find('.product-item__controls_action_change');
 
+        // Получение кол-ва
+        let count = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
+        count = getItemCount($productItem, count);
+
         // Установка кол-ва
-        // В счетчик
-        let count = $productItem.find('.custom-counter__amount').val();
+        // В счетчик для изменения кол-ва
         $elemsChange.find('.custom-counter__amount').val(count);
         // В скрытые поля
-        count = getItemCount($productItem, count);
         $formAdd.find('[name="count"]').val(count);
         $('.product-item__form-change [name="count"]').val(count);
 
-        // Отправка
+        // Отправка скрытой формы для добавления товара в корзину
         $formAdd.find('[type="submit"]')[0].click();
         // Добавление класса, что товар этой карточки в корзине
         $productItem.addClass('product-item-in-cart');
@@ -112,11 +114,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // Получить кол-во товара, которое будет добавлено в корзину
     // -------------------------------
     function getItemCount($productItem, count) {
-        // TODO: надо бы сделать проверку на isNaN
         let unitVal = getActiveUnitValue($productItem);
 
         // Получившееся кол-во
-        count = Math.ceil(1 / unitVal * count);
+        count = 1 / unitVal * count;
+        if (!$productItem.find('.custom-counter_type_fractional').length) {
+            count = Math.ceil(count);
+        }
 
         // Результат
         return count;
