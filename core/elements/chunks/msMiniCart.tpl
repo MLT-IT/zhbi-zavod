@@ -5,7 +5,7 @@
                  version="1.1">
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-cart-2"></use>
             </svg>
-            <div class="header__cart-value hidden">{$total_count}</div>
+            <div class="header__cart-value hidden">{$total_count | round}</div>
         </div>
         <span class="header__cart-text">Корзина</span>
     </a>
@@ -13,7 +13,7 @@
     <div class="header__info">
         <span class="header__info-line">
             <span class="header__info-text">В корзине: </span>
-            <span class="header__info-val header__info-val_type_count-val">{$total_count}</span>
+            <span class="header__info-val header__info-val_type_count-val">{$total_count | round}</span>
             <span class="header__info-val header__info-val_type_count-text">
                 {'@FILE snippets/formOfWord.php' | snippet : [
                 'n' => $total_count,
@@ -25,7 +25,7 @@
         </span>
         <span class="header__info-line">
             <span class="header__info-text">Итого: </span>
-            <span class="header__info-val header__info-val_type_cost-val">{$total_cost}</span>
+            <span class="header__info-val header__info-val_type_cost-val">{$total_cost | round | replace : '.' : ','}</span>
             <span class="header__info-val"> руб</span>
         </span>
         <a class="header__info-btn header__info-btn_to-cart custom-btn" href="/cart">Перейти в корзину</a>

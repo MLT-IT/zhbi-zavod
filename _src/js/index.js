@@ -160,7 +160,7 @@ $(function ($) {
             // Фильтр для изменения значения
             let regexp = /^(0|[1-9][0-9]{0,})$/;
             if ($this.closest('.custom-counter_type_fractional').length) {
-                regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
+                regexp = /^((0|[1-9][0-9]{0,})(,[0-9]{0,2}){0,1})$/;
             }
             if (!isNaN(minVal)) {
                 filter = function (value) {
@@ -175,7 +175,7 @@ $(function ($) {
 
             // Фильтр для ввода значения
             $this.inputFilter(function (value) {
-                return /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/.test(value);
+                return regexp.test(value);
             }, {'event':'input'});
         });
 

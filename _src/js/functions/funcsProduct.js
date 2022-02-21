@@ -54,7 +54,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
 
         // Установка кол-ва товара
-        $form.find('[name="count"]').val(count);
+        $form.find('[name="count"]').val(String(count).replace('.', ','));
 
         // Если товар в корзине, то...
         if (inCart) {
@@ -87,13 +87,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Получение кол-ва
         let count = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
         count = getItemCount($productItem, count);
+        let countComma = String(count).replace('.', ',');
 
         // Установка кол-ва
         // В счетчик для изменения кол-ва
-        $elemsChange.find('.custom-counter__amount').val(count);
+        $elemsChange.find('.custom-counter__amount').val(countComma);
         // В скрытые поля
-        $formAdd.find('[name="count"]').val(count);
-        $('.product-item__form-change [name="count"]').val(count);
+        $formAdd.find('[name="count"]').val(countComma);
+        $('.product-item__form-change [name="count"]').val(countComma);
 
         // Отправка скрытой формы для добавления товара в корзину
         $formAdd.find('[type="submit"]')[0].click();
@@ -115,6 +116,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     function getItemCount($productItem, count) {
         let unitVal = getActiveUnitValue($productItem);
+
+        count = count.replace(',', '.');
+        count = parseFloat(count);
 
         // Получившееся кол-во
         count = 1 / unitVal * count;
@@ -231,16 +235,23 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
         let cartValue;
         if (typeof count !== 'undefined') {
-            cartValue = count;
-            $cartValueElem.add($cartInfoCountVal).text(cartValue);
+            count = Number((count).toFixed(2));
+            let countWithComma = String(count).replace('.', ',');
+            cartValue = parseFloat(count);
+            $cartValueElem.add($cartInfoCountVal).text(countWithComma);
             $cartInfoCountText.text(formOfWord(cartValue, 'товар', 'товара', 'товаров'));
         } else {
-            cartValue = parseInt($cartValueElem.text());
+            cartValue = $cartValueElem.text();
+            cartValue = String(cartValue).replace(',', '.');
+            cartValue = parseFloat(cartValue);
         }
 
         let cartCost;
         if (typeof cost !== 'undefined') {
+            cost = Number((cost).toFixed(2));
             cartCost = numberWithSpaces(cost);
+            cartCost = String(cartCost).replace('.', ',');
+            console.log('cartCost = ', cartCost);
             $cartInfoCostVal.text(cartCost);
         }
 

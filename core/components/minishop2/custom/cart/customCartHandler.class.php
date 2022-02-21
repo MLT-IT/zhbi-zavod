@@ -16,7 +16,10 @@ class customCartHandler extends msCartHandler implements msCartInterface {
         if (empty($id) || !is_numeric($id)) {
             return $this->error('ms2_cart_add_err_id');
         }
+
+        $count = str_replace(',', '.', $count);
         $count = floatval($count);
+
         if (is_string($options)) {
             $options = json_decode($options, true);
         }
@@ -92,6 +95,48 @@ class customCartHandler extends msCartHandler implements msCartInterface {
         }
 
         return $this->error('ms2_cart_add_err_nf', $this->status());
+    }
+
+
+    /**
+     * @param string $key
+     * @param int $count
+     *
+     * @return array|string
+     */
+    public function change($key, $count)
+    {
+        if (array_key_exists($key, $this->cart)) {
+            $count = str_replace(',', '.', $count);
+            $count = floatval($count);
+
+            if ($count <= 0) {
+                return $this->remove($key);
+            } else {
+                if ($count > $this->config['max_count']) {
+                    return $this->error('ms2_cart_add_err_count', $this->status(), array('count' => $count));
+                } else {
+                    $response = $this->ms2->invokeEvent('msOnBeforeChangeInCart',
+                        array('key' => $key, 'count' => $count, 'cart' => $this));
+                    if (!$response['success']) {
+                        return $this->error($response['message']);
+                    }
+
+                    $count = $response['data']['count'];
+                    $this->cart[$key]['count'] = $count;
+                    $response = $this->ms2->invokeEvent('msOnChangeInCart',
+                        array('key' => $key, 'count' => $count, 'cart' => $this));
+                    if (!$response['success']) {
+                        return $this->error($response['message']);
+                    }
+                }
+            }
+
+            return $this->success('ms2_cart_change_success', $this->status(array('key' => $key)),
+                array('count' => $count));
+        } else {
+            return $this->error('ms2_cart_change_error', $this->status(array()));
+        }
     }
 
 }
