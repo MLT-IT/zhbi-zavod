@@ -13,6 +13,8 @@
                 фасадов
             {elseif $_modx->context.key == 'armatura-178'}
                 арматуры
+            {elseif $_modx->context.key == 'asconcrete'}
+                асфальтобетона
             {else}
                 утеплителя
             {/if}
@@ -60,6 +62,8 @@
             {set $imgname = 'fasad.jpg'}
         {case 'armatura-178'}
             {set $imgname = 'armatura-178.jpg'}
+        {case 'asconcrete'}
+            {set $imgname = 'asconcrete.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

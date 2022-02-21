@@ -31,6 +31,8 @@
         {set $site_class = 'rockwool fasad'}
     {elseif $_modx->resource.context_key == 'armatura-178'}
         {set $site_class = 'rockwool armatura-178'}
+    {elseif $_modx->resource.context_key == 'asconcrete'}
+        {set $site_class = 'rockwool asconcrete'}
     {/if}
 
     {* >>> favicon *}
@@ -57,6 +59,8 @@
         {set $micro_title = $micro_title ~ 'фасадов'}
     {elseif $site_context == 'armatura-178'}
         {set $micro_title = $micro_title ~ 'арматуры'}
+    {elseif $site_context == 'asconcrete'}
+        {set $micro_title = $micro_title ~ 'асфальтобетона'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

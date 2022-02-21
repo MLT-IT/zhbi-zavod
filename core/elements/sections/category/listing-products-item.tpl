@@ -16,7 +16,7 @@
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
 {set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']) &&
-                  ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
 {if $_pls['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
@@ -141,23 +141,39 @@
                 {/if}
 
                 {set $charsValues = [
-                    $primenenie,
-                    $_pls['plotnost'][0],
-                    $_pls['teploprovodnost'][0],
-                    $_pls['ploshad_m2'][0],
-                    $_pls['obyem_m3'][0],
-                    $_pls['v_upakovke'][0],
-                    $pm,
+                $primenenie,
+                $_pls['plotnost'][0],
+                $_pls['teploprovodnost'][0],
+                $_pls['ploshad_m2'][0],
+                $_pls['obyem_m3'][0],
+                $_pls['v_upakovke'][0],
+                $pm,
                 ]}
+
                 {set $charsHeaders = [
-                    'Применение',
-                    'Плотность, кг/м3',
-                    'Теплопроводность',
-                    'Площадь, м2',
-                    'Объем, м3',
-                    'Кол-во в упаковке, шт',
-                    'Кол-во в упаковке, п.м.'
+                'Применение',
+                'Плотность, кг/м3',
+                'Теплопроводность',
+                'Площадь, м2',
+                'Объем, м3',
+                'Кол-во в упаковке, шт',
+                'Кол-во в упаковке, п.м.',
                 ]}
+
+                {if $_pls['context_key'] == 'armatura-178'}
+                    {set $charsValues = [
+                    $_pls['marka-stali'][0],
+                    $_pls['item_length'][0],
+                    $_pls['diametr-mm'][0],
+                    ]}
+
+                    {set $charsHeaders = [
+                    'Марка стали',
+                    'Длина, мм',
+                    'Диаметр, мм'
+                    ]}
+                {/if}
+
                 {foreach $charsValues as $key => $value}
                     {if $value ?}
                         <div class="listing__products-item-chars-line">
@@ -200,6 +216,8 @@
                         Цена за
                         {if $unit[0] == 'упаковка'}
                             упаковку
+                        {elseif $unit[0] == 'тонна'}
+                            тонну
                         {else}
                             {$unit[0]}
                         {/if}
