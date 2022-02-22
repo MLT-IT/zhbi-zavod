@@ -128,52 +128,64 @@
                 Показать информацию
             </span>
             <div class="listing__products-item-chars">
-                {set $primenenieCount = $_pls['primenenie'] | count}
-                {set $primenenieInfo = []}
-                {if $primenenieCount > 1}
-                    {set $primenenie = $_pls['primenenie'][0] ~ '...'}
-
-                    {foreach 1..($primenenieCount-1) as $value}
-                        {set $primenenieInfo[] = $_pls['primenenie'][$value]}
-                    {/foreach}
-                {else}
-                    {set $primenenie = $_pls['primenenie'][0]}
-                {/if}
-
-                {set $charsValues = [
-                $primenenie,
-                $_pls['plotnost'][0],
-                $_pls['teploprovodnost'][0],
-                $_pls['ploshad_m2'][0],
-                $_pls['obyem_m3'][0],
-                $_pls['v_upakovke'][0],
-                $pm,
+                {* Массив со сложными опциями *}
+                {set $compositeKeys = [
+                    'Применение' => 'primenenie',
+                    'Марка стали' => 'marka-stali'
                 ]}
 
-                {set $charsHeaders = [
-                'Применение',
-                'Плотность, кг/м3',
-                'Теплопроводность',
-                'Площадь, м2',
-                'Объем, м3',
-                'Кол-во в упаковке, шт',
-                'Кол-во в упаковке, п.м.',
-                ]}
+                {* Получение значений опций *}
+                {set $compositeValues = []}
+                {set $compositeExtraValues = []}
+                {set $compositeCount = []}
+                {foreach $compositeKeys as $title => $key}
+                    {set $compositeCount[$key] = $_pls[$key] | count}
+                    {set $info = []}
+                    {if $compositeCount[$key] > 1}
+                        {set $compositeValues[$key] = $_pls[$key][0] ~ '...'}
 
+                        {foreach 1..($compositeCount[$key]-1) as $value}
+                            {set $compositeExtraValues[$key][] = $_pls[$key][$value]}
+                        {/foreach}
+                    {else}
+                        {set $compositeValues[$key] = $_pls[$key][0]}
+                    {/if}
+                {/foreach}
+
+                {* Какие опции будут выводиться *}
                 {if $_pls['context_key'] == 'armatura-178'}
                     {set $charsValues = [
-                    $_pls['marka-stali'][0],
-                    $_pls['item_length'][0],
-                    $_pls['diametr-mm'][0],
+                        $_pls['marka-stali'][0],
+                        $_pls['item_length'][0],
+                        $_pls['item_thickness'][0],
                     ]}
-
                     {set $charsHeaders = [
-                    'Марка стали',
-                    'Длина, мм',
-                    'Диаметр, мм'
+                        'Марка стали',
+                        'Длина, мм',
+                        'Толщина, мм'
+                    ]}
+                {else}
+                    {set $charsValues = [
+                        $primenenie,
+                        $_pls['plotnost'][0],
+                        $_pls['teploprovodnost'][0],
+                        $_pls['ploshad_m2'][0],
+                        $_pls['obyem_m3'][0],
+                        $_pls['v_upakovke'][0],
+                        $pm,
+                    ]}
+                    {set $charsHeaders = [
+                        'Применение',
+                        'Плотность, кг/м3',
+                        'Теплопроводность',
+                        'Площадь, м2',
+                        'Объем, м3',
+                        'Кол-во в упаковке, шт',
+                        'Кол-во в упаковке, п.м.',
                     ]}
                 {/if}
 
+                {* Вывод опций *}
                 {foreach $charsValues as $key => $value}
                     {if $value ?}
                         <div class="listing__products-item-chars-line">
@@ -181,10 +193,11 @@
                                 {$charsHeaders[$key]}:
                             </span>
                             <span class="listing__products-item-chars-val">
-                                {$value}
+                                {if $compositeValues[$compositeKeys[$charsHeaders[$key]]]}
+                                    {$compositeValues[$compositeKeys[$charsHeaders[$key]]]}
 
-                                {if $key == 'Применение' && $primenenieInfo | count > 0}
-                                    <div class="listing__products-item-chars-val-info-wrap">
+                                    {if $compositeExtraValues[$compositeKeys[$charsHeaders[$key]]] | count > 0}
+                                        <div class="listing__products-item-chars-val-info-wrap">
                                         <span class="listing__products-item-chars-val-info-btn">
                                             <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg"
                                                  xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -193,9 +206,12 @@
                                             </svg>
                                         </span>
                                         <div class="listing__products-item-chars-val-info">
-                                            {$primenenieInfo | implode : ', '}
+                                            {$compositeExtraValues[$compositeKeys[$charsHeaders[$key]]] | implode : ', '}
                                         </div>
                                     </div>
+                                    {/if}
+                                {else}
+                                    {$value}
                                 {/if}
                             </span>
                         </div>

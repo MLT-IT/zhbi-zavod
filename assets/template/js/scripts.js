@@ -1,8 +1,17 @@
+
 // Я вынес работу с плагинами MODX в отдельный файл, т.к. почему-то браузер не реагирует на события (например: af_complete, mse2_load), если собирать через webpack.
 $(function () {
     // -------------------------------
     // Работа с mse2_load
     // -------------------------------
+    // TODO: я заметил проблему. Иногда при подгрузке новых элементов в console выдается ошибка о том, что не удается инициализировать select для них.
+    // mSearch2.defaultAfterLoad = mSearch2.afterLoad;
+    // mSearch2.afterLoad = function() {
+    //     mSearch2.defaultAfterLoad();
+    //     window.initStyledCounter();
+    //     console.log('ASD')
+    // };
+
     $(document).on('mse2_load', function (e, data) {
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
         window.getRemainder();
