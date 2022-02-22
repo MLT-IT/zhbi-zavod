@@ -157,12 +157,12 @@
                     {set $charsValues = [
                         $_pls['marka-stali'][0],
                         $_pls['item_length'][0],
-                        $_pls['item_thickness'][0],
+                        $_pls['diametr-mm'][0],
                     ]}
                     {set $charsHeaders = [
                         'Марка стали',
                         'Длина, мм',
-                        'Толщина, мм'
+                        'Диаметр, мм'
                     ]}
                 {else}
                     {set $charsValues = [
