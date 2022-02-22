@@ -6,12 +6,15 @@
     'includeTVs' => 'mainImage',
     'sortby' => 'menuindex',
     'sortdir' => 'ASC',
-    'limit' => 0
+    'limit' => 0,
+    'depth' => 0
 ]}
 
+{*
 {if $_modx->resource.template == 4}
     {set $params['depth'] = '0'}
 {/if}
+*}
 
 {switch $_modx->resource.parent}
     {case 13127}
