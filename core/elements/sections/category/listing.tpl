@@ -1,8 +1,6 @@
 <section class="listing">
     <div class="wrapper">
         <div class="listing__content" id="mse2_mfilter">
-            {'!msPCS' | snippet}
-
             {set $params = [
             'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
@@ -30,8 +28,7 @@
             'where' => $_modx->getPlaceholder('mspcs.where'),
             ]}
 
-            {set $value = $_modx->getPlaceholder('mspcs.option')}
-            {if $value ?}
+            {if ($_modx->getPlaceholder('mspcs.option') is not empty) OR ($_modx->getPlaceholder('mspcs.where') is not empty)}
                 {set $id = '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']}
 
                 {if $_modx->resource.template == 4}
