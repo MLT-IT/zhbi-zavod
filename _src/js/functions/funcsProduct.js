@@ -54,7 +54,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
 
         // Установка кол-ва товара
-        $form.find('[name="count"]').val(String(count).replace('.', ','));
+        $form.find('[name="count"]').val(count);
 
         // Если товар в корзине, то...
         if (inCart) {
@@ -87,14 +87,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Получение кол-ва
         let count = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
         count = getItemCount($productItem, count);
-        let countComma = String(count).replace('.', ',');
 
         // Установка кол-ва
         // В счетчик для изменения кол-ва
-        $elemsChange.find('.custom-counter__amount').val(countComma);
+        $elemsChange.find('.custom-counter__amount').val(count);
         // В скрытые поля
-        $formAdd.find('[name="count"]').val(countComma);
-        $('.product-item__form-change [name="count"]').val(countComma);
+        $formAdd.find('[name="count"]').val(count);
+        $('.product-item__form-change [name="count"]').val(count);
 
         // Отправка скрытой формы для добавления товара в корзину
         $formAdd.find('[type="submit"]')[0].click();
@@ -116,13 +115,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     function getItemCount($productItem, count) {
         let unitVal = getActiveUnitValue($productItem);
-
-        count = count.replace(',', '.');
         count = parseFloat(count);
 
         // Получившееся кол-во
         count = 1 / unitVal * count;
-        if (!$productItem.find('.custom-counter_type_fractional').length) {
+        if ($productItem.find('.custom-counter_type_fractional').length) {
+            count = Number((count).toFixed(2));
+        } else {
             count = Math.ceil(count);
         }
 
@@ -144,7 +143,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 price = 0;
             }
 
-            price = numberWithSpaces(Math.ceil(1 / unitVal * price));
+            price = Math.ceil(1 / unitVal * price);
+
+            price = Number((price).toFixed(2));
+            price = numberWithSpaces(price);
             $price.text(price);
         }
     }
@@ -236,22 +238,18 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let cartValue;
         if (typeof count !== 'undefined') {
             count = Number((count).toFixed(2));
-            let countWithComma = String(count).replace('.', ',');
-            cartValue = parseFloat(count);
-            $cartValueElem.add($cartInfoCountVal).text(countWithComma);
-            $cartInfoCountText.text(formOfWord(cartValue, 'товар', 'товара', 'товаров'));
+            cartValue = count;
+            $cartValueElem.add($cartInfoCountVal).text(count);
+            $cartInfoCountText.text(formOfWord(count, 'товар', 'товара', 'товаров'));
         } else {
-            cartValue = $cartValueElem.text();
-            cartValue = String(cartValue).replace(',', '.');
-            cartValue = parseFloat(cartValue);
+            cartValue = parseFloat($cartValueElem.text());
+            cartValue = Number((cartValue).toFixed(2));
         }
 
         let cartCost;
         if (typeof cost !== 'undefined') {
             cost = Number((cost).toFixed(2));
             cartCost = numberWithSpaces(cost);
-            cartCost = String(cartCost).replace('.', ',');
-            console.log('cartCost = ', cartCost);
             $cartInfoCostVal.text(cartCost);
         }
 

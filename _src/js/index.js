@@ -160,7 +160,7 @@ $(function ($) {
             // Фильтр для изменения значения
             let regexp = /^(0|[1-9][0-9]{0,})$/;
             if ($this.closest('.custom-counter_type_fractional').length) {
-                regexp = /^((0|[1-9][0-9]{0,})(,[0-9]{0,2}){0,1})$/;
+                regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
             }
             if (!isNaN(minVal)) {
                 filter = function (value) {
@@ -209,7 +209,11 @@ $(function ($) {
                     let $product = $this.closest('.cart-table__table-row_type_product');
                     let price = $product.find('.cart-table__price-value').text();
                     price = parseFloat(price.replace(/\s/, ''));
-                    let count = parseInt($product.find('.custom-counter__amount').val());
+
+                    let count = $product.find('.custom-counter__amount').val();
+                    count = parseFloat(count.replace(/\s/g, ''));
+                    count = Number((count).toFixed(2));
+
                     let cost = functions.numberWithSpaces(price * count);
                     $product.find('.cart-table__sum-value').text(cost);
                 });

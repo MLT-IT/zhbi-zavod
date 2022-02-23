@@ -11,7 +11,7 @@
 {set $m3 = $_modx->resource['obyem_m3'][0]}
 {if $_modx->resource['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
     {set $list = $price * $_modx->resource['v_upakovke'][0]}
-    {set $list = $list | round : 2 | replace : ',' : '.'}
+    {set $list = $list | round}
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}

@@ -25,7 +25,7 @@
         </span>
         <span class="header__info-line">
             <span class="header__info-text">Итого: </span>
-            <span class="header__info-val header__info-val_type_cost-val">{$total_cost | round | replace : '.' : ','}</span>
+            <span class="header__info-val header__info-val_type_cost-val">{$total_cost | round}</span>
             <span class="header__info-val"> руб</span>
         </span>
         <a class="header__info-btn header__info-btn_to-cart custom-btn" href="/cart">Перейти в корзину</a>

@@ -17,8 +17,9 @@ class customCartHandler extends msCartHandler implements msCartInterface {
             return $this->error('ms2_cart_add_err_id');
         }
 
-        $count = str_replace(',', '.', $count);
         $count = floatval($count);
+        // Если этого не делать, то иногда добавляется значение с запятой, которое из-за регулярок JS нельзя изменить, да и которое просто смотрится некрасиво - везде ведь точки
+        $count = str_replace(',', '.', $count);
 
         if (is_string($options)) {
             $options = json_decode($options, true);
@@ -107,8 +108,10 @@ class customCartHandler extends msCartHandler implements msCartInterface {
     public function change($key, $count)
     {
         if (array_key_exists($key, $this->cart)) {
-            $count = str_replace(',', '.', $count);
+
             $count = floatval($count);
+            // Если этого не делать, то иногда добавляется значение с запятой, которое из-за регулярок JS нельзя изменить, да и которое просто смотрится некрасиво - везде ведь точки
+            $count = str_replace(',', '.', $count);
 
             if ($count <= 0) {
                 return $this->remove($key);
