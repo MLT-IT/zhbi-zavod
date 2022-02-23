@@ -9,20 +9,27 @@
         {set $schemaImg = $_modx->config.site_url ~ 'assets/template/img/favicons/' ~ $site_context ~ '/apple-touch-icon.png'}
     {/if}
 
-    {* Отзывы *}
-    {set $reviews = 'getSchemaReview' | snippet}
-
-    {* Минимальные / максимальные значения и общее количество товаров *}
-    {'!msGetProductsCount' | snippet}
-    {'!msGetProductsMinMaxPrice' | snippet}
+    {'!msPCS' | snippet}
+    {if ($_modx->getPlaceholder('mspcs.option') is not empty) OR ($_modx->getPlaceholder('mspcs.where') is not empty)}
+        {set $idCat = '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']}
+        {set $dataForSchema = 'getDataForSchema' | snippet : ['idCat' => $idCat]}
+        {$_modx->setPlaceholder('min_price', $dataForSchema['min_price'])}
+        {$_modx->setPlaceholder('max_price', $dataForSchema['max_price'])}
+        {$_modx->setPlaceholder('total_count', $dataForSchema['total_count'])}
+        {set $reviews = 'getSchemaReview' | snippet : ['idCat' => $idCat]}
+    {else}
+        {'!msGetProductsCount' | snippet}
+        {'!msGetProductsMinMaxPrice' | snippet}
+        {set $reviews = 'getSchemaReview' | snippet}
+    {/if}
 
     {* Микроразметка *}
     <script type="application/ld+json">
     {if $_modx->resource.menutitle?}
         {set $name = $_modx->resource.menutitle}
-    {else}
+        {else}
         {set $name = $_modx->resource.pagetitle}
-    {/if}
+        {/if}
     {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -59,6 +66,7 @@
         }
         {/if}
     }
+
     </script>
 {/block}
 
@@ -66,11 +74,9 @@
     <div class="wrapper">
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
-
     <div class="wrapper">
         <h1 class="title-1 category-header asfs">{$_modx->resource.pagetitle}</h1>
     </div>
-
     {include "file:sections/category/listing.tpl"}
     {include "file:sections/districts-map.tpl"}
     {if $_modx->resource.content | length > 0}

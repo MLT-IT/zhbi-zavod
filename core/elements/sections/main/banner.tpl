@@ -13,6 +13,8 @@
                 <img src="/assets/template/img/banners-full/fasad.jpg" class="banner__slide-img">
             {elseif $_modx->resource.context_key == 'armatura-178'}
                 <img src="/assets/template/img/banners-full/armatura-178.jpg" class="banner__slide-img">
+            {elseif $_modx->resource.context_key == 'asconcrete'}
+                <img src="/assets/template/img/banners-full/asconcrete.jpg" class="banner__slide-img">
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}

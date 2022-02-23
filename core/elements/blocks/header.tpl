@@ -24,6 +24,8 @@
                         фасадов
                     {elseif $_modx->context.key == 'armatura-178'}
                         арматуры
+                    {elseif $_modx->context.key == 'asconcrete'}
+                        асфальтобетона
                     {else}
                         утеплителя {$brand}
                     {/if}

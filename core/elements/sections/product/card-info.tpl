@@ -86,7 +86,7 @@
                     </span>
                 {/if}
 
-                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178']}
+                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
@@ -125,6 +125,8 @@
                     Получить расчет фасадов бесплатно
                 {elseif $_modx->resource.context_key == 'armatura-178'}
                     Получить расчет арматуры бесплатно
+                {elseif $_modx->resource.context_key == 'asconcrete'}
+                    Получить расчет асфальтобетона бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}

@@ -6,7 +6,12 @@
                 <div class="promo__top-card-text">Узнайте о наших <span class="promo__top-card-text-span">гарантиях</span></div>
             </a>
             <a class="promo__top-card" href="/dostavka-i-oplata/">
-                <div class="promo__top-card-img"><img src="{$_modx->config['template_path']}img/promo-kamaz.png" alt=""></div>
+                {if $_modx->resource.context_key == 'krovlya'}
+                    {set $promoImg = 'kran.png'}
+                {else}
+                    {set $promoImg = 'promo-kamaz.png'}
+                {/if}
+                <div class="promo__top-card-img"><img src="{$_modx->config['template_path']}img/{$promoImg}" alt=""></div>
                 <div class="promo__top-card-text">Узнайте об <span class="promo__top-card-text-span">условиях доставки</span></div>
             </a>
         </div>
