@@ -43,7 +43,7 @@ $(function () {
             // Если это форма из баннера в каталоге, то с целью все понятно, так как она не из всплывашки
             if ($form.hasClass('catalog-banner__form')) {
                 delete window.currentPopupKey;
-                console.log('banner-main')
+                console.log('banner-catalog')
                 ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%')
             }
 

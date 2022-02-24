@@ -5,7 +5,7 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
 
-    {include "file:sections/main/banner.tpl"}
+    {include "file:sections/main/banner.tpl" dataBtnKey='banner-delivery'}
 
     <div class="wrapper">
         <h1 class="title-1 rm-vert-mgs">{$_modx->resource.pagetitle}</h1>
