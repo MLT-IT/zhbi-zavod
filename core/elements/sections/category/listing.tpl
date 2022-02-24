@@ -26,6 +26,8 @@
 
             'optionFilters' => $_modx->getPlaceholder('mspcs.option'),
             'where' => $_modx->getPlaceholder('mspcs.where'),
+
+            'setMeta' => 0
             ]}
 
             {if ($_modx->getPlaceholder('mspcs.option') is not empty) OR ($_modx->getPlaceholder('mspcs.where') is not empty)}
