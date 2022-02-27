@@ -4,5 +4,5 @@
     {set $name = $menutitle}
 {/if}
 
-{ "uri": "/{$uri}", "name": "{$name}" }
+{ "uri": "/{$uri}", "name": "{$name}", "children" : [{$wrapper}] },
 

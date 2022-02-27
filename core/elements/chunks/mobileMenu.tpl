@@ -73,27 +73,60 @@
             </a>
 
             {* Кнопки фильтров *}
-            {foreach $menu as $key => $nevermind}
-                <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$key}" class="header__mobile-menu-link header__nav-link">{$key}</span></span>
-            {/foreach}
+            {if $_modx->resource.context_key !== 'krovlya'}
+                {foreach $menu as $key => $nevermind}
+                    <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$key}" class="header__mobile-menu-link header__nav-link">{$key}</span></span>
+                {/foreach}
+            {else}
+                {foreach $menu as $column}
+                    {foreach $column as $items}
+                        {if $items.children | count > 0}
+                        <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$items.name}" class="header__mobile-menu-link header__nav-link">{$items.name}</span></span>
+                        {else}
+                            <a class="header__nav-item" href="{$items.uri}">
+                                <span class="header__nav-link">{$items.name}</span>
+                            </a>
+                        {/if}
+                    {/foreach}
+                {/foreach}
+            {/if}
         </div>
 
         {* Остальные вкладки (Фильтры) *}
-        {foreach $menu as $key => $menuTypes}
-            {* Вкладки *}
-            <div class="header__nav-content" data-key="{$key}">
-                {* Заголовок *}
-                <div class="header__nav-text">{$key}</div>
-                {* Кнопка назад *}
-                <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
+        {if $_modx->resource.context_key !== 'krovlya'}
+            {foreach $menu as $key => $menuTypes}
+                {* Вкладки *}
+                <div class="header__nav-content" data-key="{$key}">
+                    {* Заголовок *}
+                    <div class="header__nav-text">{$key}</div>
+                    {* Кнопка назад *}
+                    <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
 
-                {* Пункты меню *}
-                {foreach $menuTypes as $items}
-                    {foreach $items as $item}
-                        <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
+                    {* Пункты меню *}
+                    {foreach $menuTypes as $items}
+                        {foreach $items as $item}
+                            <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
+                        {/foreach}
                     {/foreach}
+                </div>
+            {/foreach}
+        {else}
+            {foreach $menu as $column}
+                {foreach $column as $items}
+                    {* Вкладки *}
+                    <div class="header__nav-content" data-key="{$items.name}">
+                        {* Заголовок *}
+                        <div class="header__nav-text">{$items.name}</div>
+                        {* Кнопка назад *}
+                        <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
+
+                        {* Пункты меню *}
+                        {foreach $items.children as $item}
+                            <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
+                        {/foreach}
+                    </div>
                 {/foreach}
-            </div>
-        {/foreach}
+            {/foreach}
+        {/if}
     </div>
 </nav>
