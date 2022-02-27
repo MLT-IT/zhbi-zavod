@@ -64,24 +64,46 @@
                     <div class="header__catalog-menu-inner">
                         <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
                         {set $menu = 'createMenu' | snippet}
-                        {foreach $menu as $key => $menuTypes}
-                            <div class="header__catalog-menu-type">
-                                <p class="header__column-header">{$key}</p>
-                                <div class="header__columns-wrap">
-                                    {foreach $menuTypes as $items}
+
+                        {if $_modx->resource.context_key !== 'krovlya'}
+                            {foreach $menu as $key => $menuTypes}
+                                <div class="header__catalog-menu-type">
+                                    <p class="header__column-header">{$key}</p>
+                                    <div class="header__columns-wrap">
+                                        {foreach $menuTypes as $items}
+                                            <div class="header__column">
+                                                <div class="header__column-items-wrap">
+                                                    {foreach $items as $item}
+                                                        <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
+                                                            {$item.name}
+                                                        </a>
+                                                    {/foreach}
+                                                </div>
+                                            </div>
+                                        {/foreach}
+                                    </div>
+                                </div>
+                            {/foreach}
+                        {else}
+                            {foreach $menu as $column}
+                                <div class="header__catalog-menu-type">
+                                    {foreach $column as $items}
                                         <div class="header__column">
-                                            <div class="header__column-items-wrap">
-                                                {foreach $items as $item}
-                                                    <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
-                                                        {$item.name}
-                                                    </a>
-                                                {/foreach}
+                                        <p class="header__column-header"><a href="{$items.uri}">{$items.name}</a></p>
+                                            <div class="header__columns-wrap">
+                                                <div class="header__column-items-wrap">
+                                                    {foreach $items.children as $item}
+                                                        <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
+                                                            {$item.name}
+                                                        </a>
+                                                    {/foreach}
+                                                </div>
                                             </div>
                                         </div>
                                     {/foreach}
                                 </div>
-                            </div>
-                        {/foreach}
+                            {/foreach}
+                        {/if}
                     </div>
                 </div>
             </div>
