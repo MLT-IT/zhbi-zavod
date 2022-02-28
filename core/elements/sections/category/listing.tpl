@@ -1,6 +1,13 @@
 <section class="listing">
     <div class="wrapper">
         <div class="listing__content" id="mse2_mfilter">
+
+            {if $_modx->resource.context_key === 'krovlya'}
+                {set $tpl = 'filterCheckboxKrovlya.tpl'}
+            {else}
+                {set $tpl = 'filterCheckbox.tpl'}
+            {/if}
+
             {set $params = [
             'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
@@ -15,7 +22,7 @@
 
             'tplFilter.row.price' => '@FILE chunks/filterNumberInner.tpl',
             'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
-            'tplFilter.row.default' => '@FILE chunks/filterCheckbox.tpl',
+            'tplFilter.row.default' => '@FILE chunks/filterCheckboxKrovlya.tpl',
 
             'aliases' => 'ms|price==price',
             'sort' => 'tv|priority1:asc,tv|HitsPage:asc',

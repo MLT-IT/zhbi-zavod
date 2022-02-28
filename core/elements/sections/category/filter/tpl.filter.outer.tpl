@@ -20,6 +20,8 @@
         {set $keyClass = 'width'}
     {case 'msoption|item_length'}
         {set $keyClass = 'length'}
+    {case 'msoption|cvet'}
+        {set $keyClass = 'cvet'}
 {/switch}
 
 <div class="listing__filter-block{if $keyClass?} filter_type_{$keyClass}{/if}{if $dontActive?}{else} active{/if}" id="mse2_{$key}">
