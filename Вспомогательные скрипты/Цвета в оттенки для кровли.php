@@ -27,6 +27,9 @@ foreach ($ids as $index => $id) {
 
         $cvet = $prod->get('cvet');
         foreach ($cvet as $key => $val) {
+            if (empty($val)) {
+                continue;
+            }
             $cv = mb_strtolower($val);
             $match = preg_match('/^ral|^rr/mi', $cv);
             if ($match === 0) {
@@ -35,7 +38,7 @@ foreach ($ids as $index => $id) {
                 unset($options['cvet'][$key]);
                 $options['ottenok'][] = $val;
             } elseif ($match === 1) {
-                echo '-- У товара с id ' . $id . ' цвет ' . $val . ' останется цветом<br>';
+                //echo '-- У товара с id ' . $id . ' цвет ' . $val . ' останется цветом<br>';
             }
         }
 
