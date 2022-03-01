@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="listing__products-logo" {if $proizvoditel[0] ?}data-brand="{$proizvoditel[0] | toLowerAndRemoveChars}"{/if}></div>
+            <div class="product-logo listing__product-logo" data-brand="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
         </div>
     </div>
 

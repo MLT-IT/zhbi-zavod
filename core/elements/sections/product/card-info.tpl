@@ -73,17 +73,21 @@
                 {/if}
 
                 {if $price}
-                    <span class="product-card__price-wrap">
-                        <span itemprop="price" class="product-item__price"
-                              data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
-                        <meta itemprop="priceCurrency" content="RUB">
-                        руб
+                    <div class="product-card__price-and-logo">
+                        <span class="product-card__price-wrap">
+                            <span itemprop="price" class="product-item__price"
+                                  data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
+                            <meta itemprop="priceCurrency" content="RUB">
+                            руб
 
-                        {if !$condition}
-                            {set $unit = $_modx->resource.unit}
-                            {$unit[0] ? '/ ' ~ $unit[0] : ''}
-                        {/if}
-                    </span>
+                            {if !$condition}
+                                {set $unit = $_modx->resource.unit}
+                                {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                            {/if}
+                        </span>
+
+                        <div class="product-logo product-card__logo" data-brand="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
+                    </div>
                 {/if}
 
                 {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete']}

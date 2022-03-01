@@ -1,6 +1,12 @@
 .product-card
     margin-bottom: 60px
 
+    &__left-info
+        margin-right: 20px
+
+        @media screen and (max-width: 880px)
+            margin-right: 0
+
     &__buy
         margin-top: 15px
 
@@ -145,8 +151,10 @@
     &__price-wrap
         font-weight: 700
         font-size: 24px
-        margin-top: 12px
         display: block
+
+        @at-root .krovlya &
+            margin-right: 20px
 
     &__unit-span
         margin-right: 4px
@@ -200,3 +208,8 @@
         &:hover
             &::after
                 border-bottom-color: transparent
+
+    &__price-and-logo
+        margin-top: 12px
+        display: flex
+        flex-wrap: wrap
