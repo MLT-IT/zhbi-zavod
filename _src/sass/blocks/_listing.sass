@@ -360,7 +360,13 @@
         padding-top: 4px
 
     &__products-item-price
+        margin-bottom: 7px
+        font-weight: 700
+        font-size: 24px
         white-space: nowrap
+
+        @at-root .krovlya &
+            margin-right: auto
 
     &__products-list
         @media screen and (max-width: 768px)
@@ -737,3 +743,56 @@
         &::after
             transform: rotate(-45deg)
 
+    &__products-item-price-and-logo
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        margin-bottom: 8px
+
+    &__products-item-price-wrap
+        @at-root .krovlya &
+            margin-right: 10px
+
+            @media screen and (max-width: 330px)
+                margin-right: 0
+
+
+
+    &__products-logo
+        display: none
+        margin-bottom: 8px
+
+        @at-root .krovlya &
+            display: block
+            width: 75px
+            height: 38px
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: contain
+
+            &[data-brand="aquasystem"]
+                background-image: url(/assets/template/img/brands/aquasystem.jpg)
+            &[data-brand="braas"]
+                background-image: url(/assets/template/img/brands/braas.jpg)
+            &[data-brand="certainteed"]
+                background-image: url(/assets/template/img/brands/certainteed.jpg)
+            &[data-brand="docke"]
+                background-image: url(/assets/template/img/brands/docke.jpg)
+            &[data-brand="icopal"]
+                background-image: url(/assets/template/img/brands/icopal.jpg)
+            &[data-brand="katepal"]
+                background-image: url(/assets/template/img/brands/katepal.jpg)
+            &[data-brand="kriastak"]
+                background-image: url(/assets/template/img/brands/kriastak.jpg)
+            &[data-brand="krovent"]
+                background-image: url(/assets/template/img/brands/krovent.jpg)
+            &[data-brand="металл-профиль"]
+                background-image: url(/assets/template/img/brands/metallprofil.jpg)
+            &[data-brand="ондулин"]
+                background-image: url(/assets/template/img/brands/onduline.jpg)
+            &[data-brand="тегола"]
+                background-image: url(/assets/template/img/brands/tegola.jpg)
+            &[data-brand="технониколь"]
+                background-image: url(/assets/template/img/brands/tn.jpg)
+            &[data-brand="grand-line"]
+                background-image: url(/assets/template/img/brands/grand-line.jpg)

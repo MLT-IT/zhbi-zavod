@@ -41,21 +41,32 @@
         <div class="listing__products-item-fav-remove-btn product-item__action-btn product-item__actions-compare active"></div>
     </div>
     <div class="listing__products-item-right">
-        <div class="listing__products-item-price">
-            {if $price}
-                <span class="product-item__price" data-default="{$price}">{$price}</span>
-                руб
-            {/if}
-            <div class="listing__products-item-measure">
-                Цена за
-                {if $unit[0] == 'упаковка'}
-                    упаковку
-                {elseif $unit[0] == 'тонна'}
-                    тонну
-                {else}
-                    {$unit[0]}
-                {/if}
+        <div class="listing__products-item-price-and-logo">
+            <div class="listing__products-item-price">
+                <div class="listing__products-item-price-wrap">
+                    {if $price}
+                        <span class="product-item__price" data-default="{$price}">{$price}</span>
+                        руб
+                    {/if}
+
+                    {if !$condition}
+                        {if $price and $unit[0]}
+                            <div class="listing__products-item-measure">
+                                Цена за
+                                {if $unit[0] == 'упаковка'}
+                                    упаковку
+                                {elseif $unit[0] == 'тонна'}
+                                    тонну
+                                {else}
+                                    {$unit[0]}
+                                {/if}
+                            </div>
+                        {/if}
+                    {/if}
+                </div>
             </div>
+
+            <div class="listing__products-logo" {if $proizvoditel[0] ?}data-brand="{$proizvoditel[0] | toLowerAndRemoveChars}"{/if}></div>
         </div>
     </div>
 

@@ -6582,12 +6582,6 @@ a .breadcrumbs__val:hover {
     flex-direction: column
 }
 
-.listing__products-item-price {
-    margin-bottom: 15px;
-    font-weight: 700;
-    font-size: 24px
-}
-
 .listing__products-item-button {
     position: relative
 }
