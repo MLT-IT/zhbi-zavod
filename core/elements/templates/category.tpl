@@ -75,7 +75,7 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper">
-        <h1 class="title-1 category-header asfs">{$_modx->resource.pagetitle}</h1>
+        <h1 class="title-1 category-header asfs">{$_modx->resource.pagetitle}{'!textFromGetParams' | snippet}</h1>
     </div>
     {include "file:sections/category/listing.tpl"}
     {include "file:sections/districts-map.tpl"}
