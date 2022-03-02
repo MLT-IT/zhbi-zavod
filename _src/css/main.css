@@ -7707,7 +7707,6 @@ a .breadcrumbs__val:hover {
 
     .listing__products-list .listing__products-item-right {
         margin-left: 0;
-        margin-top: auto;
         width: 100%;
         align-items: flex-start
     }

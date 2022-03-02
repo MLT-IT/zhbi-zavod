@@ -1,4 +1,8 @@
 .listing
+    &__products-item-bottom
+        width: 100%
+        margin-top: auto
+
     &__tags-item
         transition: .3s
 
@@ -372,7 +376,6 @@
         @media screen and (max-width: 768px)
             display: flex
             flex-wrap: wrap
-            align-items: flex-start
 
         .custom-counter__amount
             width: 53px
@@ -494,7 +497,6 @@
                 @media screen and (max-width: 768px)
                     overflow: visible
                     max-height: 250px
-                    margin-bottom: 20px
 
             .listing__products-item-chars-btn
                     &::after
@@ -694,9 +696,8 @@
                 padding: 6px
 
     &__products-item-chars-line
-        &:nth-last-of-type(n+2)
-            @media screen and (max-width: 768px)
-                margin-bottom: 10px
+        @media screen and (max-width: 768px)
+            margin-bottom: 10px
 
     &__products-item-actions-compare-label
         display: inline-flex

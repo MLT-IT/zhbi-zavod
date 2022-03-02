@@ -146,6 +146,8 @@
             <input type="hidden" name="unit" value="1">
         {/if}
 
-        {include "file:chunks/productElems.tpl" prodId=$id}
+        <div class="listing__products-item-bottom">
+            {include "file:chunks/productElems.tpl" prodId=$id}
+        </div>
     </div>
 </div>
