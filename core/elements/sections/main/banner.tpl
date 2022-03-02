@@ -18,6 +18,7 @@
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}
+
             {*
             <div class="banner__slide-content">
                 <div class="banner__slide-text-lg">Knauf</div>
@@ -39,11 +40,19 @@
             *}
 
             <a data-btn-key="{$dataBtnKey?:'banner-main'}" data-fancybox="" href="#cost-delivery" class="banner__slide-link delivery__banner-btn yellow-btn">
-                <svg viewBox="0 0 235 50">
-                    <text x="0" y="21">Оставить заявку и получить</text>
-                    <text x="16" y="40">скидку 30% на доставку</text>
-                </svg>
+                {if $_modx->resource.context_key in list ['fasady-pro', 'fasad', 'armatura-178', 'kirpich-m', 'asconcrete']}
+                    <svg viewBox="0 0 235 50">
+                        <text class="banner__text-big" x="37" y="24">Оставить заявку</text>
+                        <text class="banner__text-small" x="26" y="40">И получите расчёт за 5 минут</text>
+                    </svg>
+                {else}
+                    <svg viewBox="0 0 235 50">
+                        <text x="0" y="21">Оставить заявку и получить</text>
+                        <text x="16" y="40">скидку 30% на доставку</text>
+                    </svg>
+                {/if}
             </a>
+
         </div>
     {if $dontNeedWrapper != true}
         </div>
