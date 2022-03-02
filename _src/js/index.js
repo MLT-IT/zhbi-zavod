@@ -63,7 +63,7 @@ $(function ($) {
         let $headerNav = $this.closest('.header__nav-contents-wrap');
 
         $headerNav.addClass('fade');
-        setTimeout(function() {
+        setTimeout(function () {
             $this.closest('.header__nav-content.active').removeClass('active');
             $this.closest('.header__nav-contents-wrap').find('.header__nav-content[data-key="' + $this.attr('data-key') + '"]').addClass('active');
             $headerNav.removeClass('fade');
@@ -176,7 +176,7 @@ $(function ($) {
             // Фильтр для ввода значения
             $this.inputFilter(function (value) {
                 return regexp.test(value);
-            }, {'event':'input'});
+            }, {'event': 'input'});
         });
 
         // Кнопки стилизованного счетчкика
@@ -254,12 +254,12 @@ $(function ($) {
     // -------------------------------
     // faq
     // -------------------------------
-    $('.questions__item-top').on('click', function(e) {
-       e.preventDefault();
-       $(this).parent().toggleClass('active');
+    $('.questions__item-top').on('click', function (e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('active');
     });
 
-    $('.questions__btn-more').on('click', function(e) {
+    $('.questions__btn-more').on('click', function (e) {
         e.preventDefault();
         const $this = $(this);
         $this.parent().find('.questions__list-hidden').slideToggle();

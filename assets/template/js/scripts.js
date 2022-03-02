@@ -1,21 +1,68 @@
-
 // Я вынес работу с плагинами MODX в отдельный файл, т.к. почему-то браузер не реагирует на события (например: af_complete, mse2_load), если собирать через webpack.
 $(function () {
     // -------------------------------
+    // Подстановка h1 на странице каталога
+    // -------------------------------
+    function catalogH1FromGetParams() {
+        let result = [];
+        let filters = {};
+        let params = getSearchParameters();
+
+        // Заполняем filters
+        $('.listing__filter-block').each(function (index, elem) {
+            let $elem = $(elem);
+
+            let elemId = $elem.attr('id');
+            if (typeof elemId !== "undefined") {
+                filters[elemId] = $elem.find('.listing__filter-block-title').text();
+            }
+        });
+
+        // Проходим по get-параметрам и заполняем result
+        for (let param in params) {
+            if (typeof filters['mse2_' + param] !== 'undefined') {
+                result.push(filters['mse2_' + param] + ' - ' + params[param].replace('~', ', '));
+            }
+        }
+
+        if (result.length) {
+            result = result.join('; ');
+            result = ', ' + result;
+        } else {
+            result = '';
+        }
+
+        $('.category-header .category-header__inner-text').text(result);
+    }
+
+    // -------------------------------
+    // Функции для работы с GET-параметрами.
+    // Взял их отсюда и немного улучшил:
+    // https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
+    // TODO: хорошо бы их как-нибудь в functions.js поместить. Вдруг еще где пригодятся
+    // -------------------------------
+    function getSearchParameters() {
+        let prmstr = window.location.search.substr(1);
+        return prmstr != null && prmstr != "" ? transformToAssocArray(decodeURI(prmstr)) : {};
+    }
+    function transformToAssocArray(prmstr) {
+        let params = {};
+        let prmarr = prmstr.split("&");
+        for (let i = 0; i < prmarr.length; i++) {
+            let tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
+    }
+
+    // -------------------------------
     // Работа с mse2_load
     // -------------------------------
-    // TODO: я заметил проблему. Иногда при подгрузке новых элементов в console выдается ошибка о том, что не удается инициализировать select для них.
-    // mSearch2.defaultAfterLoad = mSearch2.afterLoad;
-    // mSearch2.afterLoad = function() {
-    //     mSearch2.defaultAfterLoad();
-    //     window.initStyledCounter();
-    //     console.log('ASD')
-    // };
-
     $(document).on('mse2_load', function (e, data) {
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
         window.getRemainder();
         window.initStyledCounter();
+        catalogH1FromGetParams();
         // window.catalogSortFilters();
     });
 
