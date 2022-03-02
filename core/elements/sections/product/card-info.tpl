@@ -85,8 +85,9 @@
                                 {$unit[0] ? '/ ' ~ $unit[0] : ''}
                             {/if}
                         </span>
-
+                        {*
                         <div class="product-logo product-card__logo" data-brand="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
+                        *}
                     </div>
                 {/if}
 
