@@ -5288,13 +5288,6 @@ a .breadcrumbs__val:hover {
     height: 100%
 }
 
-.product-card__delivery {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    grid-column: span 2
-}
-
 .product-card__delivery a {
     font-weight: 700;
     font-size: 12px;

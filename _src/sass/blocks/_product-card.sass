@@ -82,11 +82,20 @@
         max-width: 372px
         width: 100%
 
+    &__info-wrap
+        flex-basis: 526px
+        flex-shrink: 0
+        flex-grow: 0
+
     &__img
         cursor: zoom-in
 
         @at-root .krovlya &
-            max-width: 578px
+            flex-basis: 578px
+            flex-shrink: 0
+            flex-grow: 0
+            margin-right: 16px
+            max-width: none
 
         @media screen and (max-width: 768px)
             margin-left: auto
@@ -98,6 +107,10 @@
         display: grid
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
         grid-gap: 10px 30px
+
+        &_type
+            &_minor
+                margin-top: 16px
 
         @media screen and (max-width: 1200px)
             grid-template-columns: 1fr
@@ -316,3 +329,42 @@
     &__info-simple
         grid-column: span 2
 
+    &__delivery
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        grid-column: span 2
+
+        @at-root .krovlya &
+            margin-top: 16px
+            padding: 16px 16px 18px 16px
+            border: 1px solid #f0f0f0
+            display: flex
+
+    &__delivery-title
+        font-weight: bold
+        margin-bottom: 14px
+
+    &__delivery-content
+        width: 100%
+        display: flex
+
+    a.product-card__delivery-link
+        margin-top: 1px
+        background: url(/assets/template/img/svg-sprite/icon-delivery-2.svg) no-repeat left top 1px
+        padding-left: 16px
+        font-weight: 600
+
+    &__delivery-text
+        margin-right: 12px
+        font-weight: 600
+
+    .product-item__btn-in-cart
+        @at-root .krovlya &
+            width: 167px
+            margin-left: 12px
+            margin-right: 12px
+
+    .product-item__precount
+        @at-root .krovlya &
+            width: 64px

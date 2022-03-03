@@ -6,11 +6,10 @@
     {else}
         {include "file:sections/product/card-info.tpl"}
     {/if}
-
-    <div class="product-card__about">
-        {if $_modx->resource.introtext}
+    {if $_modx->resource.introtext?}
+        <div class="product-card__about">
             {$_modx->resource.introtext}
-        {/if}
-    </div>
+        </div>
+    {/if}
     {include "file:sections/product/card-tabs.tpl"}
 </div>
