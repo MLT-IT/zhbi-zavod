@@ -99,9 +99,40 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
         grid-gap: 10px 30px
 
+        @media screen and (max-width: 1200px)
+            grid-template-columns: 1fr
+
         @at-root .krovlya &
             border: 1px solid #F0F0F0
             padding: 16px
+
+    &__info-left, &__info-right
+        grid-template-columns: 2fr
+
+    &__info-left
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+
+        .yellow-btn
+            width: 100%
+            padding: 0 10px
+
+            svg
+                margin-right: 10px
+
+        .white-btn
+            width: 100%
+            grid-column: span 2
+
+    &__info-right
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+        grid-gap: 14px
+
+        & > *
+            height: 50px
 
     &__buy
         max-width: 271px
@@ -284,3 +315,4 @@
 
     &__info-simple
         grid-column: span 2
+
