@@ -109,7 +109,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://armatura-178.local/",
+                    target: "http://krovlyasp.local/",
                     secure: false,
                     changeOrigin: true
                 }

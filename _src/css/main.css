@@ -5270,13 +5270,6 @@ a .breadcrumbs__val:hover {
     align-self: flex-start
 }
 
-.product-card__content {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    padding: 27px;
-    width: 100%
-}
-
 .product-card__top {
     display: flex;
     margin-bottom: 25px;
@@ -5293,13 +5286,6 @@ a .breadcrumbs__val:hover {
     object-fit: cover;
     width: 100%;
     height: 100%
-}
-
-.product-card__info {
-    width: 100%;
-    display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 10px 30px
 }
 
 .product-card__info-left {

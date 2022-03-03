@@ -1,14 +1,21 @@
 .product-card
     margin-bottom: 60px
 
+    &__content
+        background: #fff
+        border: 1px solid #eaeaea
+        padding: 27px
+        width: 100%
+
+        @at-root .krovlya &
+            padding: 0
+            border: 0
+
     &__left-info
         margin-right: 20px
 
         @media screen and (max-width: 880px)
             margin-right: 0
-
-    &__buy
-        margin-top: 15px
 
     &__article
         font-weight: 700
@@ -16,6 +23,10 @@
         color: #b1b2b3
         width: 100%
         text-align: right
+
+        @at-root .krovlya &
+            width: auto
+            margin-right: 24px
 
         @media screen and (max-width: 880px)
             text-align: left
@@ -30,6 +41,10 @@
         &_pc
             @media screen and (max-width: 768px)
                 display: none
+
+    &__availability
+        @at-root .krovlya &
+            margin-right: 24px
 
     &__title-1
         font-size: 24px
@@ -70,13 +85,33 @@
     &__img
         cursor: zoom-in
 
+        @at-root .krovlya &
+            max-width: 578px
+
         @media screen and (max-width: 768px)
             margin-left: auto
             margin-right: auto
             text-align: center
 
+    &__info
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+        grid-gap: 10px 30px
+
+        @at-root .krovlya &
+            border: 1px solid #F0F0F0
+            padding: 16px
+
     &__buy
         max-width: 271px
+        margin-top: 15px
+
+        @at-root .krovlya &
+            margin-top: 0
+            max-width: 175px
+            padding-left: 16px
+            padding-right: 16px
 
     &__reviews
         white-space: nowrap
@@ -182,6 +217,12 @@
         display: flex
         align-items: flex-start
 
+        @at-root .krovlya &
+            border-bottom: 1px solid #F0F0F0
+            padding-bottom: 24px
+            margin-bottom: 14px
+            flex-wrap: wrap
+
         @media screen and (max-width: 1200px)
             grid-column: span 1
 
@@ -213,3 +254,33 @@
         margin-top: 12px
         display: flex
         flex-wrap: wrap
+
+    &__top-line
+        display: flex
+        align-items: center
+        border-bottom: 1px solid #F0F0F0
+        padding-bottom: 16px
+        margin-bottom: 24px
+
+    &__select-span
+        font-size: 12px
+
+    &__select-wrap
+        .custom-select
+            width: 100%
+
+        &_align
+            &_right
+                margin-left: auto
+
+        &_type
+            &_full
+                width: 100%
+                margin-bottom: 16px
+
+            &_half
+                width: calc(50% - 6px)
+
+
+    &__info-simple
+        grid-column: span 2
