@@ -27,6 +27,11 @@
         @at-root .krovlya &
             width: auto
             margin-right: 24px
+            margin-top: 0
+
+            @media screen and (max-width: 768px)
+                margin-bottom: 4px
+                margin-right: 0
 
         @media screen and (max-width: 880px)
             text-align: left
@@ -87,15 +92,26 @@
         flex-shrink: 0
         flex-grow: 0
 
+        @media screen and (max-width: 880px)
+            flex-basis: 100%
+            width: 100%
+
     &__img
         cursor: zoom-in
 
         @at-root .krovlya &
             flex-basis: 578px
-            flex-shrink: 0
             flex-grow: 0
             margin-right: 16px
             max-width: none
+
+            @media screen and (max-width: 880px)
+                flex-basis: 260px
+                text-align: center
+                margin: 16px auto 24px
+
+            @media screen and (max-width: 768px)
+                margin: 0 0 31px 0
 
         @media screen and (max-width: 768px)
             margin-left: auto
@@ -118,6 +134,12 @@
         @at-root .krovlya &
             border: 1px solid #F0F0F0
             padding: 16px
+
+            @media screen and (max-width: 880px)
+                border: none
+
+            @media screen and (max-width: 768px)
+                padding: 0
 
     &__info-left, &__info-right
         grid-template-columns: 2fr
@@ -156,6 +178,16 @@
             max-width: 175px
             padding-left: 16px
             padding-right: 16px
+
+            &_type
+                &_mobile
+                    display: none
+                    max-width: 256px
+                    width: 100%
+
+                    @media screen and (max-width: 500px)
+                        display: block
+                        margin-top: 6px
 
     &__reviews
         white-space: nowrap
@@ -261,17 +293,27 @@
         display: flex
         align-items: flex-start
 
-        @at-root .krovlya &
-            border-bottom: 1px solid #F0F0F0
-            padding-bottom: 24px
-            margin-bottom: 14px
-            flex-wrap: wrap
-
         @media screen and (max-width: 1200px)
             grid-column: span 1
 
         @media screen and (max-width: 880px)
             display: block
+
+        @at-root .krovlya &
+            border-bottom: 1px solid #F0F0F0
+            padding-bottom: 24px
+            margin-bottom: 14px
+            display: flex
+            flex-wrap: wrap
+            grid-column: span 2
+
+            @media screen and (max-width: 768px)
+                padding-bottom: 16px
+                margin-bottom: 8px
+
+            @media screen and (max-width: 500px)
+                margin-bottom: 10px
+                padding-bottom: 16px
 
     &__right-info
         display: flex
@@ -280,8 +322,12 @@
         width: 240px
 
         @media screen and (max-width: 880px)
+            order: 2
             margin-left: 0
             margin-bottom: 12px
+
+            @at-root .krovlya &
+                margin-bottom: 0
 
     &__btn-fav, &__btn-compare
         margin-top: 12px
@@ -299,23 +345,61 @@
         display: flex
         flex-wrap: wrap
 
+    &__top
+        @at-root .krovlya &
+            @media screen and (max-width: 880px)
+                flex-wrap: wrap
+                border: 1px solid #f0f0f0
+                border-radius: 4px
+
+            @media screen and (max-width: 768px)
+                padding: 16px
+
     &__top-line
         display: flex
         align-items: center
         border-bottom: 1px solid #F0F0F0
         padding-bottom: 16px
         margin-bottom: 24px
+        flex-wrap: wrap
+
+        @media screen and (max-width: 880px)
+            border-bottom: none
+            margin-bottom: 0
+
+        @media screen and (max-width: 500px)
+            display: none
+
+        &::after
+            order: 1
+            display: none
+            content: ""
+            width: 100%
+
+            @media screen and (max-width: 880px)
+                display: block
 
     &__select-span
         font-size: 12px
+        padding-bottom: 8px
 
     &__select-wrap
+        @media screen and (max-width: 500px)
+            width: 100%
+            margin-bottom: 16px
+
+            &:nth-last-of-type(1)
+                margin-bottom: 0
+
         .custom-select
             width: 100%
 
         &_align
             &_right
                 margin-left: auto
+
+                @media screen and (max-width: 500px)
+                    margin-left: 0
 
         &_type
             &_full
@@ -325,9 +409,12 @@
             &_half
                 width: calc(50% - 6px)
 
-
     &__info-simple
         grid-column: span 2
+        display: flex
+
+        @media screen and (max-width: 500px)
+            display: none
 
     &__delivery
         display: flex
@@ -341,13 +428,31 @@
             border: 1px solid #f0f0f0
             display: flex
 
+            @media screen and (max-width: 880px)
+                border: none
+
+            @media screen and (max-width: 768px)
+                padding: 0
+
     &__delivery-title
         font-weight: bold
         margin-bottom: 14px
 
+        @at-root .krovlya &
+            font-size: 16px
+
     &__delivery-content
         width: 100%
         display: flex
+
+        @media screen and (max-width: 500px)
+            flex-wrap: wrap
+
+    &__article-and-availability
+        display: none
+
+        @media screen and (max-width: 500px)
+            display: block 
 
     a.product-card__delivery-link
         margin-top: 1px
@@ -359,11 +464,19 @@
         margin-right: 12px
         font-weight: 600
 
+        @media screen and (max-width: 500px)
+            width: 100%
+            margin-right: 0
+            margin-bottom: 10px
+
     .product-item__btn-in-cart
         @at-root .krovlya &
             width: 167px
             margin-left: 12px
             margin-right: 12px
+
+            @media screen and (max-width: 500px)
+                margin-right: 0
 
     .product-item__precount
         @at-root .krovlya &

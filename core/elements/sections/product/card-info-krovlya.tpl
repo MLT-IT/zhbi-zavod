@@ -166,7 +166,7 @@
             <div class="product-card__info-inner">
                 <div class="product-card__select-wrap product-card__select-wrap_type_full">
                     <div class="product-card__select-span">Покрытие:</div>
-                    <select name="surface" class="euv-custom-select custom-select">
+                    <select name="surface" class="custom-select euv-custom-select_type_wide">
                         <option value="1">Покрытие 1</option>
                         <option value="1">Покрытие 2</option>
                         <option value="1">Покрытие 3</option>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="product-card__select-wrap product-card__select-wrap_type_half">
                     <div class="product-card__select-span">Цвет:</div>
-                    <select name="cvet" class="euv-custom-select custom-select">
+                    <select name="cvet" class="custom-select euv-custom-select_type_wide">
                         <option value="1">Цвет 1</option>
                         <option value="1">Цвет 2</option>
                         <option value="1">Цвет 3</option>
@@ -182,7 +182,7 @@
                 </div>
                 <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
                     <div class="product-card__select-span">Толщина, мм:</div>
-                    <select name="unit" class="euv-custom-select custom-select">
+                    <select name="unit" class="custom-select euv-custom-select_type_wide">
                         <option value="1">Покрытие 1</option>
                         <option value="1">Покрытие 2</option>
                         <option value="1">Покрытие 3</option>
@@ -207,7 +207,6 @@
                         <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
                     </div>
                     <a href="#" type="submit" class="product-item__btn-in-cart product-item__to-cart">В корзину</a>
-                    <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
                 </div>
                 <div class="product-item__controls product-item__controls_action_change">
                     <div class="custom-counter product-item__custom-counter{$extraClass}">
@@ -217,7 +216,6 @@
                     </div>
                     <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span>
                         Перейти</a>
-                    <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
                 </div>
                 <div class="product-item__ms2-elems">
                     <form class="product-item__form-add ms2_form" method="post">
@@ -234,6 +232,20 @@
                         <button type="submit" name="ms2_action" value="cart/change">Изменить кол-во</button>
                     </form>
                 </div>
+                <button data-fancybox="" href="#callback" class="product-card__buy white-btn">КУПИТЬ В 1 КЛИК</button>
+            </div>
+        </div>
+
+        <button data-fancybox="" href="#callback" class="product-card__buy white-btn product-card__buy_type_mobile">КУПИТЬ В 1 КЛИК</button>
+
+        <div class="product-card__aux-info">
+            <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
+            <div class="product-card__availability">
+                <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
+                </svg>
+                В наличии
             </div>
         </div>
 
