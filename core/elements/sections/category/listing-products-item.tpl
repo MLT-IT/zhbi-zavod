@@ -130,9 +130,11 @@
             <div class="listing__products-item-chars">
                 {* Массив со сложными опциями *}
                 {set $compositeKeys = [
-                    'Применение' => 'primenenie',
                     'Марка стали' => 'marka-stali'
                 ]}
+                {if $_modx->resource.context_key not in list ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa']}
+                    {set $compositeKeys['Применение'] = 'primenenie'}
+                {/if}
 
                 {* Получение значений опций *}
                 {set $compositeValues = []}
@@ -211,7 +213,8 @@
                                     </div>
                                     {/if}
                                 {else}
-                                    {$value}
+                                    {* На всякий случай делаем join, вдруг значение - это массив. Ну а если нет, то со значением ничего не будет *}
+                                    {$value | join : ', '}
                                 {/if}
                             </span>
                         </div>
