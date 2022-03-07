@@ -1,5 +1,73 @@
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE);
+$message = '';
+$isCli = php_sapi_name() === 'cli';
+
+// ---------------------------
+// Основные функции
+// ---------------------------
+function logToFile($text, $isEnd = false) {
+    global $message;
+    global $isCli;
+
+    if ($isCli) {
+        fwrite(STDOUT, $text . "\n");
+    } else {
+        $message .= $text . '<br>';
+    }
+
+    $dirpath = __DIR__ . DIRECTORY_SEPARATOR . 'logs';
+    if (!is_dir($dirpath)) {
+        mkdir($dirpath);
+    }
+    file_put_contents($dirpath . DIRECTORY_SEPARATOR . 'log.txt', $text . "\r\n", FILE_APPEND);
+
+    if ($isEnd) {
+        if (!$isCli) {
+            echo $message;
+        }
+    }
+}
+
+logToFile('Начало работы скрипта');
+
+// ---------------------------
+// Подключаем MODX
+// ---------------------------
+define('MODX_API_MODE', true);
+
+$current_dir = !empty($current_dir) ? $current_dir : dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR;
+$index_php = $current_dir . 'index.php';
+
+$i = 0;
+while (!file_exists($index_php) && $i < 9) {
+    $current_dir = dirname(dirname($index_php)) . '/';
+    $index_php = $current_dir . 'index.php';
+    $i++;
+}
+
+if (file_exists($index_php)) {
+    require_once $index_php;
+}
+
+$ROOT = dirname($index_php);
+
+if (!is_object($modx)) {
+    logToFile('ERROR: Не удалось подгрузить MODX');
+    die;
+}
+
+
+// ---------------------------
+// Кодировка
+// ---------------------------
+header('Content-Type: text/html; charset=utf-8');
+
+
+// ---------------------------
+// Работа скрипта
+// ---------------------------
 // Получение id кирпичей
 $ids = $modx->runSnippet('pdoResources', [
     'parents' => 0,
@@ -13,14 +81,15 @@ $ids = $modx->runSnippet('pdoResources', [
 $ids = explode(',', $ids);
 
 // Это временная мера
-$ids = [29981];
+//$ids = [37929];
+//$ids = [16806];
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
 
     // Получаем все картинки
     if ($files = $prod->getMany('Files')) {
-        // Фильтруем - нам нужны только оригиналы
+        // Фильтруем - нам нужны только оригиналы (small и webp не нужны)
         $files = array_filter($files, function ($val) {
             if (mb_substr_count($val->path, '/') === 1) {
                 return true;
@@ -34,13 +103,13 @@ foreach ($ids as $id) {
 
         // Обрезаем каждую картинку
         foreach ($files as $f) {
-            $pathToImage = $_SERVER['DOCUMENT_ROOT'] . $f->url;
+            $pathToImage = $ROOT . $f->url;
             // Иногда в пути стоит домен сайта. Например: https://minvata-78.ru. Убираем это
             $pathToImage = preg_replace('/http.*?\.ru/u', '', $pathToImage);
 
             // Проверяем, существует ли файл
             if (!file_exists($pathToImage)) {
-                echo 'Файл ' . $pathToImage . ' не существует (' . $id . ')<br>';
+                logToFile('Файл ' . $pathToImage . ' не существует (' . $id . ')');
                 continue;
             }
 
@@ -71,7 +140,7 @@ foreach ($ids as $id) {
             // Заменяем картинку
             if ($phpThumb->GenerateThumbnail()) {
                 if (!$phpThumb->renderToFile($pathToImage)) {
-                    echo 'Ошибка при сохранении картинки ' . $pathToImage . ' (' . $id . ')<br>';
+                    logToFile('Ошибка при сохранении картинки ' . $pathToImage . ' (' . $id . ')');
                     continue;
                 }
             }
@@ -82,12 +151,12 @@ foreach ($ids as $id) {
             ['processors_path' => $modx->getOption('core_path') . 'components/minishop2/processors/']);
 
         if ($regeneratePreviewsResult->response['success'] === false) {
-            echo 'Ошибка при перегенерации превью (' . $id . ')<br>';
+            logToFile('Ошибка при перегенерации превью (' . $id . ')');
             continue;
         }
     }
 
-    break;
+    logToFile('Работа с товаром с id ' . $id . ' завершена');
 }
 
-echo 'Конец работы скрипта';
+logToFile('Конец работы скрипта', 1);
