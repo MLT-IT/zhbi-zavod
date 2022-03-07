@@ -1,8 +1,14 @@
 <?php
 
+// ---------------------------
+// ВАЖНО!
+// 1. Этот скрипт не будет работать два раза - он обрежет фотки еще раз, а это не надо.
+// 2. Кирилл сказал, что обрезать фотки надо со второй. В Excel файле, из которого была сделана выгрузка, в столбце "Фото 1" запись есть ВСЕГДА. Если будут другие файлы, где в некоторых случаях нет записи в "Фото 1", скрипт сработает некорректно.
+// ---------------------------
 error_reporting(E_ALL & ~E_NOTICE);
 $message = '';
 $isCli = php_sapi_name() === 'cli';
+$logTime = time();
 
 // ---------------------------
 // Основные функции
@@ -10,6 +16,7 @@ $isCli = php_sapi_name() === 'cli';
 function logToFile($text, $isEnd = false) {
     global $message;
     global $isCli;
+    global $logTime;
 
     if ($isCli) {
         fwrite(STDOUT, $text . "\n");
@@ -21,7 +28,7 @@ function logToFile($text, $isEnd = false) {
     if (!is_dir($dirpath)) {
         mkdir($dirpath);
     }
-    file_put_contents($dirpath . DIRECTORY_SEPARATOR . 'log.txt', $text . "\r\n", FILE_APPEND);
+    file_put_contents($dirpath . DIRECTORY_SEPARATOR . 'log-' . $logTime . '.txt', $text . "\r\n", FILE_APPEND);
 
     if ($isEnd) {
         if (!$isCli) {
@@ -75,7 +82,9 @@ $ids = $modx->runSnippet('pdoResources', [
     'depth' => 999999,
     'returnIds' => 1,
     'where' => '{"template:=": 6}',
-    'sortby' => 'id'
+    'sortby' => 'id',
+    'sortdir' => 'ASC',
+    'context' => 'kirpich-m'
 ]);
 
 $ids = explode(',', $ids);
@@ -98,8 +107,13 @@ foreach ($ids as $id) {
             }
         });
 
-        // Убираем первую, т.к. Кирилл сказал, что у нее все хорошо
+        // Убираем первую, т.к. Кирилл сказал, что ее обрабатывать не надо
         array_shift($files);
+
+        if (empty($files)) {
+            logToFile('Товар с id ' . $id . ' пропускается, поскольку у него нет или только одна картинка');
+            continue;
+        }
 
         // Обрезаем каждую картинку
         foreach ($files as $f) {
@@ -109,7 +123,7 @@ foreach ($ids as $id) {
 
             // Проверяем, существует ли файл
             if (!file_exists($pathToImage)) {
-                logToFile('Файл ' . $pathToImage . ' не существует (' . $id . ')');
+                logToFile('Ошибка при попытке обрезать картинку - файл ' . $pathToImage . ' не существует (' . $id . ')');
                 continue;
             }
 
