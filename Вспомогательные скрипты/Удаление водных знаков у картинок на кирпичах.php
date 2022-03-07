@@ -2,21 +2,23 @@
 
 // ---------------------------
 // ВАЖНО!
-// 1. Этот скрипт не будет работать два раза - он обрежет фотки еще раз, а это не надо.
-// 2. Кирилл сказал, что обрезать фотки надо со второй. В Excel файле, из которого была сделана выгрузка, в столбце "Фото 1" запись есть ВСЕГДА. Если будут другие файлы, где в некоторых случаях нет записи в "Фото 1", скрипт сработает некорректно.
+// Кирилл сказал, что обрезать фотки надо со второй. В Excel файле, из которого была сделана выгрузка, в столбце "Фото 1" запись есть ВСЕГДА. Если будут другие файлы, где в некоторых случаях нет записи в "Фото 1", скрипт сработает некорректно.
 // ---------------------------
-error_reporting(E_ALL & ~E_NOTICE);
 $message = '';
 $isCli = php_sapi_name() === 'cli';
 $logTime = time();
+$basepath = __DIR__ . DIRECTORY_SEPARATOR . 'logs';
+
 
 // ---------------------------
 // Основные функции
 // ---------------------------
+// Логирование
 function logToFile($text, $isEnd = false) {
     global $message;
     global $isCli;
     global $logTime;
+    global $basepath;
 
     if ($isCli) {
         fwrite(STDOUT, $text . "\n");
@@ -24,11 +26,10 @@ function logToFile($text, $isEnd = false) {
         $message .= $text . '<br>';
     }
 
-    $dirpath = __DIR__ . DIRECTORY_SEPARATOR . 'logs';
-    if (!is_dir($dirpath)) {
-        mkdir($dirpath);
+    if (!is_dir($basepath)) {
+        mkdir($basepath);
     }
-    file_put_contents($dirpath . DIRECTORY_SEPARATOR . 'log-' . $logTime . '.txt', $text . "\r\n", FILE_APPEND);
+    file_put_contents($basepath . DIRECTORY_SEPARATOR . 'log-' . $logTime . '.txt', $text . "\r\n", FILE_APPEND);
 
     if ($isEnd) {
         if (!$isCli) {
@@ -37,7 +38,18 @@ function logToFile($text, $isEnd = false) {
     }
 }
 
-logToFile('Начало работы скрипта');
+// Сохранение данных в файл
+function saveToFile($id) {
+    global $basepath;
+
+    if (!is_dir($basepath)) {
+        mkdir($basepath);
+    }
+
+    $text = $id . ',';
+    file_put_contents($basepath . DIRECTORY_SEPARATOR . 'saved.txt', $text, FILE_APPEND);
+}
+
 
 // ---------------------------
 // Подключаем MODX
@@ -75,6 +87,18 @@ header('Content-Type: text/html; charset=utf-8');
 // ---------------------------
 // Работа скрипта
 // ---------------------------
+logToFile('Начало работы скрипта');
+
+// Загружаем все обработанные картинки
+$saved = $basepath . DIRECTORY_SEPARATOR . 'saved.txt';
+if (file_exists($saved)) {
+    $saved = file_get_contents($saved);
+    $saved = explode(',', $saved);
+    $saved = array_filter($saved);
+} else {
+    $saved = [];
+}
+
 // Получение id кирпичей
 $ids = $modx->runSnippet('pdoResources', [
     'parents' => 0,
@@ -90,8 +114,7 @@ $ids = $modx->runSnippet('pdoResources', [
 $ids = explode(',', $ids);
 
 // Это временная мера
-//$ids = [37929];
-//$ids = [16806];
+$ids = [16806, 8918, 8919, 9924];
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
@@ -110,6 +133,17 @@ foreach ($ids as $id) {
         // Убираем первую, т.к. Кирилл сказал, что ее обрабатывать не надо
         array_shift($files);
 
+        // Фильтруем - убираем уже обработанные картинки
+        $files = array_filter($files, function ($val) {
+            global $saved;
+            $test = array_search($val->id, $saved);
+            if (is_null($test) || $test === false) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
         if (empty($files)) {
             logToFile('Товар с id ' . $id . ' пропускается, поскольку у него нет или только одна картинка');
             continue;
@@ -123,21 +157,15 @@ foreach ($ids as $id) {
 
             // Проверяем, существует ли файл
             if (!file_exists($pathToImage)) {
-                logToFile('Ошибка при попытке обрезать картинку - файл ' . $pathToImage . ' не существует (' . $id . ')');
+                logToFile('Ошибка при попытке обрезать картинку - файл ' . $pathToImage . ' не существует (товар ' . $id . ')');
                 continue;
             }
 
             // Обрабатываем файл
-            // Основные переменные
-            $size = getimagesize($pathToImage);
-            $width = $size[0];
-            $height = $size[1];
-            $cropPixelsBottom = 71;
-
             // Массив параметров для phpThumb
             $params = [
                 'fltr' => [
-                    'crop|0|0|0|' . $cropPixelsBottom
+                    'crop|0|0|0|' . 71
                 ]
             ];
 
@@ -152,12 +180,18 @@ foreach ($ids as $id) {
             }
 
             // Заменяем картинку
-            if ($phpThumb->GenerateThumbnail()) {
-                if (!$phpThumb->renderToFile($pathToImage)) {
-                    logToFile('Ошибка при сохранении картинки ' . $pathToImage . ' (' . $id . ')');
-                    continue;
-                }
+            if (!$phpThumb->GenerateThumbnail()) {
+                logToFile('Ошибка при обрезании картинки ' . $pathToImage . ' (товар ' . $id . ')');
+                continue;
             }
+
+            if (!$phpThumb->renderToFile($pathToImage)) {
+                logToFile('Ошибка при сохранении картинки ' . $pathToImage . ' (товар ' . $id . ')');
+                continue;
+            }
+
+            // Сохраняем информацию о том, что с этой картинкой больше работать не надо
+            saveToFile($f->id);
         }
 
         // Перегенерация превью
