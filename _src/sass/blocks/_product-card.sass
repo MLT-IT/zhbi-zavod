@@ -1,6 +1,9 @@
 .product-card
     margin-bottom: 60px
 
+    .content-block
+        margin-bottom: 0
+
     &__content
         background: #fff
         border: 1px solid #eaeaea
@@ -56,6 +59,9 @@
         color: #323232
         align-self: flex-start
 
+        @at-root .krovlya &
+            margin-bottom: 16px
+
         @media screen and (max-width: 768px)
             text-align: left
 
@@ -97,21 +103,21 @@
             width: 100%
 
     &__img
-        cursor: zoom-in
-
         @at-root .krovlya &
+            position: relative
             flex-basis: 578px
             flex-grow: 0
             margin-right: 16px
             max-width: none
 
             @media screen and (max-width: 880px)
-                flex-basis: 260px
+                flex-basis: 500px
                 text-align: center
                 margin: 16px auto 24px
 
             @media screen and (max-width: 768px)
-                margin: 0 0 31px 0
+                margin: 0 0 16px 0
+                flex-basis: auto
 
         @media screen and (max-width: 768px)
             margin-left: auto
@@ -176,8 +182,10 @@
         @at-root .krovlya &
             margin-top: 0
             max-width: 175px
-            padding-left: 16px
-            padding-right: 16px
+            padding-left: 14px
+            padding-right: 14px
+            font-size: 16px
+            border-radius: 4px
 
             &_type
                 &_mobile
@@ -188,6 +196,7 @@
                     @media screen and (max-width: 500px)
                         display: block
                         margin-top: 6px
+                        max-width: none
 
     &__reviews
         white-space: nowrap
@@ -325,12 +334,16 @@
             order: 2
             margin-left: 0
             margin-bottom: 12px
+            margin-top: 12px
 
             @at-root .krovlya &
                 margin-bottom: 0
 
     &__btn-fav, &__btn-compare
         margin-top: 12px
+
+        @at-root .krovlya &
+            margin-top: 0
 
         &::after
             padding-bottom: 2px
@@ -430,9 +443,11 @@
 
             @media screen and (max-width: 880px)
                 border: none
+                margin-top: 0
+                padding-top: 0
 
             @media screen and (max-width: 768px)
-                padding: 0
+                padding: 16px 0 0 0
 
     &__delivery-title
         font-weight: bold
@@ -440,6 +455,7 @@
 
         @at-root .krovlya &
             font-size: 16px
+            font-weight: 900
 
     &__delivery-content
         width: 100%
@@ -452,7 +468,7 @@
         display: none
 
         @media screen and (max-width: 500px)
-            display: block 
+            display: block
 
     a.product-card__delivery-link
         margin-top: 1px
@@ -469,8 +485,26 @@
             margin-right: 0
             margin-bottom: 10px
 
-    .product-item__btn-in-cart
-        @at-root .krovlya &
+    &__aux-info
+        display: none
+        margin-top: 16px
+
+        .product-card__availability svg
+            margin-right: 6px
+
+        @media screen and (max-width: 500px)
+            display: flex
+
+    @at-root .krovlya &
+        .product-item
+            .custom-counter__amount
+                width: 64px
+
+        .product-item__controls
+            width: auto
+
+        .product-item__btn-in-cart
+            font-size: 16px
             width: 167px
             margin-left: 12px
             margin-right: 12px
@@ -478,6 +512,18 @@
             @media screen and (max-width: 500px)
                 margin-right: 0
 
-    .product-item__precount
-        @at-root .krovlya &
-            width: 64px
+        .product-card__mobile-btns
+            display: none
+            width: calc(100% + 30px)
+            margin-left: -15px
+            border-top: 1px solid #f0f0f0
+            border-bottom: 1px solid #f0f0f0
+            padding: 12px 15px
+            margin-bottom: 25px
+            justify-content: center
+
+            .product-item__btn-in-cart
+                width: 148px
+
+            @media screen and (max-width: 500px)
+                display: flex

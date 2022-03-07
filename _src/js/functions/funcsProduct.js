@@ -18,7 +18,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Приближение при наведении на картинку
     // -------------------------------
-    const $productCardImg = $(".product-card__img");
+    const $productCardImg = $(".zoom"); 
     if ($productCardImg.length) {
         new ImageZoom($productCardImg[0], {
             fillContainer: true,

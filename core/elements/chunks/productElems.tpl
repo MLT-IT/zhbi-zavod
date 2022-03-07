@@ -13,7 +13,7 @@
 <div class="product-item__controls product-item__controls_action_add">
     <div class="custom-counter product-item__custom-counter{$extraClass}">
         <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-        <input name="count" class="custom-counter__amount product-item__precount" value="1" data-min="{$dataMin}">
+        <input name="count" class="custom-counter__amount" value="1" data-min="{$dataMin}">
         <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
     </div>
     <a href="#" type="submit" class="product-item__btn-in-cart product-item__to-cart">В корзину</a>
