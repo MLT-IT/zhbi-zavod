@@ -41,13 +41,25 @@ function logToFile($text, $isEnd = false) {
 // Сохранение данных в файл
 function saveToFile($id) {
     global $basepath;
+    $pathToSave = $basepath . DIRECTORY_SEPARATOR . 'saved.txt';
 
-    if (!is_dir($basepath)) {
-        mkdir($basepath);
+
+    if ($id === true) {
+        $data = file_get_contents($pathToSave);
+        $data = explode(',', $data);
+        $data = array_filter($data);
+        $data = array_unique($data);
+        $data = implode(',', $data);
+        file_put_contents($pathToSave, $data);
+    } else {
+        if (!is_dir($basepath)) {
+            mkdir($basepath);
+        }
+
+        $text = $id . ',';
+        file_put_contents($pathToSave, $text, FILE_APPEND);
     }
 
-    $text = $id . ',';
-    file_put_contents($basepath . DIRECTORY_SEPARATOR . 'saved.txt', $text, FILE_APPEND);
 }
 
 
@@ -114,7 +126,7 @@ $ids = $modx->runSnippet('pdoResources', [
 $ids = explode(',', $ids);
 
 // Это временная мера
-$ids = [16806, 8918, 8919, 9924];
+$ids = [37933, 37934, 37935, 37943];
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
@@ -136,8 +148,8 @@ foreach ($ids as $id) {
         // Фильтруем - убираем уже обработанные картинки
         $files = array_filter($files, function ($val) {
             global $saved;
-            $test = array_search($val->id, $saved);
-            if (is_null($test) || $test === false) {
+            $check = array_search($val->id, $saved);
+            if (is_null($check) || $check === false) {
                 return true;
             } else {
                 return false;
@@ -207,4 +219,5 @@ foreach ($ids as $id) {
     logToFile('Работа с товаром с id ' . $id . ' завершена');
 }
 
+saveToFile(true);
 logToFile('Конец работы скрипта', 1);
