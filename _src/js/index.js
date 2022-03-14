@@ -141,6 +141,29 @@ $(function ($) {
     // -------------------------------
     mailChange();
 
+
+    // -------------------------------
+    // custom-select
+    // -------------------------------
+    // Важно! Этот код должен быть до инициализации euv_custom_select.
+    $('.custom-select_scrollable').on('euv_custom_select_init', function() {
+        let $select = $(this).closest('.euv-custom-select');
+        let $children = $select.find('.euv-custom-select__options-wrap').children();
+        let $scroll = $('<div class="euv-custom-select__options-wrap-scroll"></div>').appendTo($select.find('.euv-custom-select__options-wrap'));
+        $children.appendTo($scroll);
+        $scroll.overlayScrollbars({});
+    });
+
+
+    // -------------------------------
+    // Стилизованный счетчик и стилизованный список
+    // -------------------------------
+    $('.custom-select-mobile-popup').on('click', function() {
+        if (window.innerWidth <= 768) {
+        }
+    });
+
+
     // -------------------------------
     // Стилизованный счетчик и стилизованный список
     // -------------------------------

@@ -173,27 +173,42 @@
                 <div class="product-card__info-inner">
                     <div class="product-card__select-wrap product-card__select-wrap_type_full">
                         <div class="product-card__select-span">Покрытие:</div>
-                        <select name="surface" class="custom-select euv-custom-select_type_wide">
-                            <option value="1">Покрытие 1</option>
-                            <option value="1">Покрытие 2</option>
-                            <option value="1">Покрытие 3</option>
-                        </select>
+                        <div class="custom-select-mobile-popup">
+                            <select name="surface"
+                                    class="custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                <option value="1">Покрытие 1</option>
+                                <option value="1">Покрытие 2</option>
+                                <option value="1">Покрытие 3</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="product-card__select-wrap product-card__select-wrap_type_half">
                         <div class="product-card__select-span">Цвет:</div>
-                        <select name="cvet" class="custom-select euv-custom-select_type_wide product-card__select_color">
-                            <option value="1" data-val="ral-1015">Цвет 1</option>
-                            <option value="2" data-val="ral-1018">Цвет 2</option>
-                            <option value="3" data-val="ral-3003">Цвет 3</option>
-                        </select>
+                        <div class="custom-select-mobile-popup">
+                            <select name="cvet"
+                                    class="custom-select euv-custom-select_type_wide custom-select_color custom-select_scrollable">
+                                <option value="1" data-val="ral-1015">Цвет 1</option>
+                                <option value="2" data-val="ral-1018">Цвет 2</option>
+                                <option value="3" data-val="ral-3003">Цвет 3</option>
+                                <option value="3" data-val="ral-3003">Цвет 4</option>
+                                <option value="3" data-val="ral-3003">Цвет 5</option>
+                                <option value="3" data-val="ral-3003">Цвет 6</option>
+                                <option value="3" data-val="ral-3003">Цвет 7</option>
+                                <option value="3" data-val="ral-3003">Цвет 8</option>
+                                <option value="3" data-val="ral-3003">Цвет 9</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
                         <div class="product-card__select-span">Толщина, мм:</div>
-                        <select name="unit" class="custom-select euv-custom-select_type_wide">
-                            <option value="1">Покрытие 1</option>
-                            <option value="1">Покрытие 2</option>
-                            <option value="1">Покрытие 3</option>
-                        </select>
+                        <div class="custom-select-mobile-popup">
+                            <select name="unit"
+                                    class="custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                <option value="1">Покрытие 1</option>
+                                <option value="1">Покрытие 2</option>
+                                <option value="1">Покрытие 3</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
