@@ -147,10 +147,30 @@ $(function ($) {
     // -------------------------------
     // Важно! Этот код должен быть до инициализации euv_custom_select.
     $('.custom-select_scrollable').on('euv_custom_select_init', function() {
+        let $this = $(this);
         let $select = $(this).closest('.euv-custom-select');
         let $children = $select.find('.euv-custom-select__options-wrap').children();
         let $scroll = $('<div class="euv-custom-select__options-wrap-scroll"></div>').appendTo($select.find('.euv-custom-select__options-wrap'));
-        $children.appendTo($scroll);
+
+        // Если это список с цветами, то создаем два столбца
+        if ($this.hasClass('custom-select_color')) {
+            let $scrollInner = $('<div class="euv-custom-select__options-wrap-scroll-inner"></div>').appendTo($scroll);
+            let $col1 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
+            let $col2 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
+
+            let length = $children.length;
+            length = length / 2;
+            $children.each(function(i, e) {
+                if (i < length) {
+                    $(e).appendTo($col1);
+                } else {
+                    $(e).appendTo($col2);
+                }
+            });
+        } else {
+            $children.appendTo($scroll);
+        }
+
         $scroll.overlayScrollbars({});
     });
 
