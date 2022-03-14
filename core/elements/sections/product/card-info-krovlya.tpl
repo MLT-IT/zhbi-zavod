@@ -181,10 +181,10 @@
                     </div>
                     <div class="product-card__select-wrap product-card__select-wrap_type_half">
                         <div class="product-card__select-span">Цвет:</div>
-                        <select name="cvet" class="custom-select euv-custom-select_type_wide">
-                            <option value="1">Цвет 1</option>
-                            <option value="1">Цвет 2</option>
-                            <option value="1">Цвет 3</option>
+                        <select name="cvet" class="custom-select euv-custom-select_type_wide product-card__select_color">
+                            <option value="1" data-val="ral-1015">Цвет 1</option>
+                            <option value="2" data-val="ral-1018">Цвет 2</option>
+                            <option value="3" data-val="ral-3003">Цвет 3</option>
                         </select>
                     </div>
                     <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
