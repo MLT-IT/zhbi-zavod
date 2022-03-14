@@ -35,3 +35,7 @@
     'validationErrorMessage' => 'В форме содержатся ошибки!',
     'successMessage' => 'Спасибо, ваш отзыв отправлен на модерацию'
 ]}
+
+{if in_array($_modx->resource.template, [6, 17])  && $_modx->resource.context_key === 'krovlya'}
+    {include 'file:elements/modals/callback/popup-select.tpl'}
+{/if}
