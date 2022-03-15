@@ -5,30 +5,54 @@
 {* Кол-во товара в корзине *}
 {set $itemInCart = $checkItems['cart'][$id]}
 
-{* Основные единицы измерения *}
-{set $pm = $_pls['kolvo-pm'][0]}
-{set $m2 = $_pls['ploshad_m2'][0]}
-{set $m3 = $_pls['obyem_m3'][0]}
-{if $_pls['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
-    {set $list = $_pls['price'] * $_pls['v_upakovke'][0]}
-    {set $list = $list | round}
+{* Единицы измерения для утеплителей *}
+{if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
+    {set $pm = $_pls['kolvo-pm'][0]}
+    {set $m2 = $_pls['ploshad_m2'][0]}
+    {set $m3 = $_pls['obyem_m3'][0]}
+    {if $_pls['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
+        {set $list = $_pls['price'] * $_pls['v_upakovke'][0]}
+        {set $list = $list | round}
+    {/if}
 {/if}
 
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']) &&
-                  ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
-
-{* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
+{* Единицы измерения - дополнительные рассчеты для web и penoplex *}
 {if $_pls['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
     {set $m2 = $m2 * $_pls['v_upakovke'][0]}
     {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
+{* Единицы измерения для арматуры *}
+{if $_modx->resource.context_key === 'armatura-178'}
+    {set $metrov_v_tonne = $_pls['kolichestvo-metrov-v-1-tonne'][0] | floatval}
+    {set $dlina_m = $_pls['dlina-m'][0] | floatval}
+    {if $metrov_v_tonne > 0}
+        {if $dlina_m > 0}
+            {set $thing = ($metrov_v_tonne / $dlina_m) | replace : ',' : '.'}
+        {/if}
+        {set $pm = $metrov_v_tonne | replace : ',' : '.'}
+    {/if}
+{/if}
+
+{* Цена за ... *}
+{if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
+    {set $pricePer = 'упаковку'}
+{elseif $unit[0] == 'тонна'}
+    {set $pricePer = 'тонну'}
+{else}
+    {set $pricePer = $unit[0]}
+{/if}
+
+{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
+($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+
 <div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
-     data-list="{$list}">
+     data-list="{$list}"
+     data-thing="{$thing}">
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -107,13 +131,7 @@
                         {if $price and $unit[0]}
                             <div class="listing__products-item-measure">
                                 Цена за
-                                {if $unit[0] == 'упаковка'}
-                                    упаковку
-                                {elseif $unit[0] == 'тонна'}
-                                    тонну
-                                {else}
-                                    {$unit[0]}
-                                {/if}
+                                {$pricePer}
                             </div>
                         {/if}
                     {/if}
@@ -127,7 +145,7 @@
             <div class="product-item__selprice">
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="euv-custom-select custom-select product-item__units-select">
-                    <option value="1" selected>упаковку</option>
+                    <option value="1" selected>{$pricePer}</option>
                     {if $m2 ?}
                         <option value="2">м2</option>
                     {/if}
@@ -139,6 +157,9 @@
                     {/if}
                     {if $list ?}
                         <option value="5">лист</option>
+                    {/if}
+                    {if $thing ?}
+                        <option value="6">штуку</option>
                     {/if}
                 </select>
             </div>
