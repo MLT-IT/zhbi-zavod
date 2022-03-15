@@ -5,30 +5,45 @@
 {* Кол-во товара в корзине *}
 {set $itemInCart = $checkItems['cart'][$_modx->resource['id']]}
 
-{* Основные единицы измерения *}
-{set $pm = $_modx->resource['kolvo-pm'][0]}
-{set $m2 = $_modx->resource['ploshad_m2'][0]}
-{set $m3 = $_modx->resource['obyem_m3'][0]}
-{if $_modx->resource['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
-    {set $list = $price * $_modx->resource['v_upakovke'][0]}
-    {set $list = $list | round}
+{* Единицы измерения для утеплителей *}
+{if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
+    {set $pm = $_modx->resource['kolvo-pm'][0]}
+    {set $m2 = $_modx->resource['ploshad_m2'][0]}
+    {set $m3 = $_modx->resource['obyem_m3'][0]}
+    {if $_modx->resource['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
+        {set $list = $price * $_modx->resource['v_upakovke'][0]}
+        {set $list = $list | round}
+    {/if}
 {/if}
 
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']) &&
-                  ($_modx->resource.parent not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
-
-{* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
+{* Единицы измерения - дополнительные рассчеты для web и penoplex *}
 {if $_modx->resource['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
     {set $m2 = $m2 * $_modx->resource['v_upakovke'][0]}
     {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
+{* Единицы измерения для арматуры *}
+{if $_modx->resource.context_key === 'armatura-178'}
+    {set $metrov_v_tonne = $_modx->resource['kolichestvo-metrov-v-1-tonne'][0] | floatval}
+    {set $dlina_m = $_modx->resource['dlina-m'][0] | floatval}
+    {if $metrov_v_tonne > 0}
+        {if $dlina_m > 0}
+            {set $thing = ($metrov_v_tonne / $dlina_m) | replace : ',' : '.'}
+        {/if}
+        {set $pm = $metrov_v_tonne | replace : ',' : '.'}
+    {/if}
+{/if}
+
+{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
+    ($_modx->resource.parent not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+
 <div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
-     data-list="{$list}">
+     data-list="{$list}"
+     data-thing="{$thing}">
 
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
@@ -66,6 +81,9 @@
                         {/if}
                         {if $list ?}
                             <a class="product-card__unit-link" href="#" data-val="5">лист</a>
+                        {/if}
+                        {if $thing ?}
+                            <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
                         {/if}
                     </div>
                 {else}

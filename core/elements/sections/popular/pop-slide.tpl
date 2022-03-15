@@ -45,7 +45,7 @@
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
 {set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
-($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+    ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 <div class="pop-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
