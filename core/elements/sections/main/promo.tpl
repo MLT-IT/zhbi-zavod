@@ -6,7 +6,7 @@
                 <div class="promo__top-card-text">Узнайте о наших <span class="promo__top-card-text-span">гарантиях</span></div>
             </a>
             <a class="promo__top-card" href="/dostavka-i-oplata/">
-                {if $_modx->resource.context_key == 'krovlya'}
+                {if $_modx->resource.context_key in list ['krovlya', 'armatura-178']}
                     {set $promoImg = 'kran.png'}
                 {else}
                     {set $promoImg = 'promo-kamaz.png'}

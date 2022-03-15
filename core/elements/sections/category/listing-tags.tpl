@@ -33,4 +33,8 @@
         {set $params['parents'] = 7833}
 {/switch}
 
+{if $_modx->resource.context_key == 'armatura-178'}
+    {set $params['where'] = '{"hidemenu:=": 0}'}
+{/if}
+
 {'!pdoResources' | snippet : $params}
