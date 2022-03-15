@@ -6538,7 +6538,6 @@ a .breadcrumbs__val:hover {
 
 .listing__products-list.grid .listing__products-item-photo, .swiper-wrapper.sect-pop__slider .listing__products-item-photo {
     width: 100%;
-    height: 120px;
     margin: 5px 0 10px;
     max-width: unset;
     order: 2;

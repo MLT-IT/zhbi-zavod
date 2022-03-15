@@ -23,6 +23,8 @@
 
     {if $_modx->context.key == 'krovlya'}
         {set $site_class = 'rockwool krovlya'}
+    {elseif $_modx->context.key == 'pilomat'}
+        {set $site_class = 'knauf pilomat'}
     {elseif $_modx->context.key == 'kirpich-m'}
         {set $site_class = 'rockwool kirpich-m'}
     {elseif $_modx->context.key == 'fasady-pro'}
