@@ -1,3 +1,32 @@
+{set $brand_with_space = ''}
+
+{if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
+    {set $iword = 'утеплитель'}
+    {set $rword = 'утеплителя'}
+    {set $brand_with_space = ' ' ~ $brand}
+{elseif $_modx->resource.context_key == 'krovlya'}
+    {set $iword = 'кровельные материалы'}
+    {set $rword = 'кровельных материалов'}
+{elseif $_modx->resource.context_key == 'kirpich-m'}
+    {set $iword = 'кирпич'}
+    {set $rword = 'кирпича'}
+{elseif $_modx->resource.context_key == 'asconcrete'}
+    {set $iword = 'асфальт'}
+    {set $rword = 'асфальта'}
+{elseif $_modx->resource.context_key == 'fasady-pro'}
+    {set $iword = 'деревянный фасад'}
+    {set $rword = 'деревянного фасада'}
+{elseif $_modx->resource.context_key == 'fasad'}
+    {set $iword = 'фасадные материалы'}
+    {set $rword = 'фасадных материалов'}
+{elseif $_modx->resource.context_key == 'armatura-178'}
+    {set $iword = 'арматура'}
+    {set $rword = 'арматуры'}
+{elseif $_modx->resource.context_key == 'pilomat'}
+    {set $iword = 'пиломатериалы'}
+    {set $rword = 'пиломатериалов'}
+{/if}
+
 <section class="advantages">
     <div class="wrapper">
         <div class="title-2">Преимущества компании</div>
@@ -45,7 +74,7 @@
                     </svg>
                 </div>
                 <div class="advantages__card-title">Лучшая цена</div>
-                <div class="advantages__card-text">Мы гарантируем самую низкую цену на утеплитель {$brand}, так как являемся одним из самых крупных поставщиков</div>
+                <div class="advantages__card-text">Мы гарантируем самую низкую цену на {$iword}{$brand_with_space}, так как являемся одним из самых крупных поставщиков</div>
             </div>
             <div class="advantages__card">
                 <div class="advantages__card-img">
@@ -54,7 +83,7 @@
                     </svg>
                 </div>
                 <div class="advantages__card-title">Доставка по звонку</div>
-                <div class="advantages__card-text">После уточнения наличия вы можете получить утеплитель уже через 2 часа у Вас на объекте!</div>
+                <div class="advantages__card-text">После уточнения наличия вы можете получить {$iword} уже через 2 часа у Вас на объекте!</div>
             </div>
             <div class="advantages__card">
                 <div class="advantages__card-img">
@@ -72,7 +101,7 @@
                     </svg>
                 </div>
                 <div class="advantages__card-title">Огромный ассортимент</div>
-                <div class="advantages__card-text">В наличии всегда имеются самые популярные позиции утеплителя {$brand}</div>
+                <div class="advantages__card-text">В наличии всегда имеются самые популярные позиции {$rword}{$brand_with_space}</div>
             </div>
         </div>
     </div>
