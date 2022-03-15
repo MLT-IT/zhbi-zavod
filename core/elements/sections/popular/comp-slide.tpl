@@ -1,5 +1,13 @@
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 
+{if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
+    {set $pricePer = 'упаковку'}
+{elseif $unit[0] == 'тонна'}
+    {set $pricePer = 'тонну'}
+{else}
+    {set $pricePer = $unit[0]}
+{/if}
+
 <div class="pop-slide comp-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
@@ -53,13 +61,7 @@
                         {if $price and $unit[0]}
                             <div class="listing__products-item-measure">
                                 Цена за
-                                {if $unit[0] == 'упаковка'}
-                                    упаковку
-                                {elseif $unit[0] == 'тонна'}
-                                    тонну
-                                {else}
-                                    {$unit[0]}
-                                {/if}
+                                {$pricePer}
                             </div>
                         {/if}
                     {/if}
