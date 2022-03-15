@@ -20,7 +20,7 @@
     {set $iword = 'фасадные материалы'}
     {set $rword = 'фасадных материалов'}
 {elseif $_modx->resource.context_key == 'armatura-178'}
-    {set $iword = 'арматура'}
+    {set $iword = 'арматуру'}
     {set $rword = 'арматуры'}
 {elseif $_modx->resource.context_key == 'pilomat'}
     {set $iword = 'пиломатериалы'}
