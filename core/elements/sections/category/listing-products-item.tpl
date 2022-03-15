@@ -100,25 +100,6 @@
         </div>
     </div>
     <div class="listing__products-item-right">
-        {*
-        // Дизайн карточки для избранного. Кирилл позже сказал, что карточка должна быть как в листинге. Скорее всего, это можно удалять. Но я пока что решил закомментировать
-        <div class="listing__products-item-actions">
-            <label for="listing__products-item-actions-compare-{$id}" class="listing__products-item-actions-compare-label">
-                <span class="custom-checkbox listing__actions-compare-checkbox">
-                    <input class="product-item__actions-compare custom-checkbox__input" type="checkbox" id="listing__products-item-actions-compare-{$id}"{if $checkItems['comp'][$id]?} checked{/if} />
-                    <span class="custom-checkbox__checkmark"></span>
-                </span>
-                <span class="listing__products-item-actions-compare-text">Сравнить</span>
-            </label>
-            <span class="listing__actions-btn-fav product-item__btn product-item__btn-fav{if $checkItems['fav'][$id]?} active{/if}" href="#">
-                <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
-                     height="18">
-                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
-                </svg>
-            </span>
-        </div>
-        *}
         <div class="listing__products-item-chars-wrap">
             <span class="listing__products-item-chars-btn">
                 <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -157,14 +138,20 @@
                 {* Какие опции будут выводиться *}
                 {if $_pls['context_key'] == 'armatura-178'}
                     {set $charsValues = [
-                        $_pls['marka-stali'][0],
-                        $_pls['item_length'][0],
                         $_pls['diametr-mm'][0],
+                        $_pls['dlina-m'][0],
+                        $_pls['surface'][0],
+                        $_pls['massa-1-m-profilya-kg'][0],
+                        $_pls['marka-stali'][0],
+                        $_pls['kolichestvo-metrov-v-1-tonne'][0],
                     ]}
                     {set $charsHeaders = [
-                        'Марка стали',
-                        'Длина, мм',
-                        'Диаметр, мм'
+                        'Диаметр, мм',
+                        'Длина, м',
+                        'Поверхность'
+                        'Масса 1 п.м. профиля, кг'
+                        'Марка стали'
+                        'Количество п.м. в 1 тонне'
                     ]}
                 {else}
                     {set $charsValues = [
