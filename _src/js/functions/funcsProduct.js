@@ -85,12 +85,12 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let $elemsChange = $productItem.find('.product-item__controls_action_change');
 
         // Получение кол-ва
-        let count = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
-        count = getItemCount($productItem, count);
+        let countRaw = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
+        let count = getItemCount($productItem, countRaw);
 
         // Установка кол-ва
         // В счетчик для изменения кол-ва
-        $elemsChange.find('.custom-counter__amount').val(count);
+        $elemsChange.find('.custom-counter__amount').val(countRaw);
         // В скрытые поля
         $formAdd.find('[name="count"]').val(count);
         $('.product-item__form-change [name="count"]').val(count);
