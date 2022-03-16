@@ -33,6 +33,15 @@
                 </tr>
 
                 {foreach $products as $product}
+                    {* Цена за ... *}
+                    {if ($product.unit[0] is empty) || ($product.unit[0] == 'упаковка')}
+                        {set $pricePer = 'упаковку'}
+                    {elseif $product.unit[0] == 'тонна'}
+                        {set $pricePer = 'тонну'}
+                    {else}
+                        {set $pricePer = $product.unit[0]}
+                    {/if}
+
                     {var $image}
                     {if $product.thumb?}
                         <img class="cart-table__img" src="{$product.thumb}" alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
@@ -63,7 +72,7 @@
                         <td class="cart-table__table-cell price cart-table__table-cell_content_num">
                             <span class="cart-table__price-value">{$product.price}</span>
                             <span class="cart-table__currency cart-table__currency">руб</span>
-                            <div class="cart-table__units">за упаковку</div>
+                            <div class="cart-table__units">за {$pricePer}</div>
                         </td>
                         <td class="count cart-table__table-cell">
                             <form method="post" class="cart-table__form ms2_form" role="form">

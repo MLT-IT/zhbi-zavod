@@ -36,6 +36,16 @@
     {/if}
 {/if}
 
+{* Цена за ... *}
+{set $unit = $_modx->resource.unit}
+{if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
+    {set $pricePer = 'упаковку'}
+{elseif $unit[0] == 'тонна'}
+    {set $pricePer = 'тонну'}
+{else}
+    {set $pricePer = $unit[0]}
+{/if}
+
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
 {set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
     ($_modx->resource.parent not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
@@ -71,7 +81,7 @@
                     <div class="product-card__units-wrap">
                         <input type="hidden" name="unit" value="1">
                         <span class="product-card__unit-span">Цена за</span>
-                        <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
+                        <a class="product-card__unit-link active" href="#" data-val="1">{$pricePer}</a>
                         {if $m2 ?}
                             <a class="product-card__unit-link" href="#" data-val="2">м2</a>
                         {/if}
@@ -101,7 +111,6 @@
                             руб
 
                             {if !$condition}
-                                {set $unit = $_modx->resource.unit}
                                 {$unit[0] ? '/ ' ~ $unit[0] : ''}
                             {/if}
                         </span>
