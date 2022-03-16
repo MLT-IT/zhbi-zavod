@@ -41,13 +41,13 @@
                 {set $id = '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog']}
 
                 {if $_modx->resource.template == 4}
-                    {set $params['parents'] = $id ~ ',-9125,-10594,-10998'}
+                    {set $params['parents'] = $id ~ ',-9125,-10594,-10998,-49018'}
                 {else}
                     {set $params['parents'] = $id}
                 {/if}
             {else}
                 {if $_modx->resource.template == 4}
-                    {set $params['parents'] = '-9125,-10594,-10998'}
+                    {set $params['parents'] = '-9125,-10594,-10998,-49018'}
                 {/if}
             {/if}
 
