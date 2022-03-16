@@ -42,7 +42,7 @@
         padding: 3px
         left: 0
 
-        @at-root .krovlya &
+        @at-root .krovlya .product-card &
             overflow: hidden
             border: solid #fff
             border-left-width: 24px
@@ -64,11 +64,11 @@
     &__selected-option
         font-weight: bold
 
-        @at-root .krovlya &
+        @at-root .krovlya .product-card &
             font-weight: normal
 
 
-    @at-root .krovlya .colors-options
+    @at-root .krovlya .product-card .colors-options
         .euv-custom-select__input-value, .euv-custom-select__option
             &::before
                 content: ""
@@ -84,7 +84,7 @@
 
 
     &__input-value
-        @at-root .krovlya &, .krovlya .colors-options
+        @at-root .krovlya .product-card &, .krovlya .product-card .colors-options
             display: flex
 
     &__option
@@ -94,7 +94,7 @@
         &:hover
             background: #E4E4E4
 
-        @at-root .krovlya &
+        @at-root .krovlya .product-card &, .popup-select &
             padding: 8px
             line-height: 1
             font-size: 14px
