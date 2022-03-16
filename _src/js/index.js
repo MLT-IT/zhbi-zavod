@@ -143,81 +143,98 @@ $(function ($) {
 
 
     // -------------------------------
-    // Стилизованный список на странице товара для кровли
+    // Работа со страницей товара на кровле
     // -------------------------------
-    // Важно! Этот код должен быть до инициализации euv_custom_select.
-    $('.custom-select_scrollable').on('euv_custom_select_init', function() {
-        let $this = $(this);
-        let $select = $(this).closest('.euv-custom-select');
-        let $children = $select.find('.euv-custom-select__options-wrap').children();
-        let $scroll = $('<div class="euv-custom-select__options-wrap-scroll"></div>').appendTo($select.find('.euv-custom-select__options-wrap'));
+    if ($('.krovlya .product-item').length) {
+        // -------------------------------
+        // Стилизованный список на странице товара для кровли
+        // -------------------------------
+        // Важно! Этот код должен быть до инициализации euv_custom_select.
+        $('.custom-select_scrollable').on('euv_custom_select_init', function() {
+            let $this = $(this);
+            let $select = $(this).closest('.euv-custom-select');
+            let $children = $select.find('.euv-custom-select__options-wrap').children();
+            let $scroll = $('<div class="euv-custom-select__options-wrap-scroll"></div>').appendTo($select.find('.euv-custom-select__options-wrap'));
 
-        // Если это список с цветами, то создаем два столбца
-        if ($this.hasClass('colors-options')) {
-            let $scrollInner = $('<div class="euv-custom-select__options-wrap-scroll-inner"></div>').appendTo($scroll);
-            let $col1 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
-            let $col2 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
+            // Если это список с цветами, то создаем два столбца
+            if ($this.hasClass('colors-options')) {
+                let $scrollInner = $('<div class="euv-custom-select__options-wrap-scroll-inner"></div>').appendTo($scroll);
+                let $col1 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
+                let $col2 = $('<div class="euv-custom-select__options-col"></div>').appendTo($scrollInner);
 
-            let length = $children.length;
-            length = length / 2;
-            $children.each(function(i, e) {
-                if (i < length) {
-                    $(e).appendTo($col1);
-                } else {
-                    $(e).appendTo($col2);
-                }
-            });
-        } else {
-            $children.appendTo($scroll);
-        }
+                let length = $children.length;
+                length = length / 2;
+                $children.each(function(i, e) {
+                    if (i < length) {
+                        $(e).appendTo($col1);
+                    } else {
+                        $(e).appendTo($col2);
+                    }
+                });
+            } else {
+                $children.appendTo($scroll);
+            }
 
-        $scroll.overlayScrollbars({});
-    });
-
-
-    // -------------------------------
-    // Мобильный стилизованный список на странице товара для кровли
-    // -------------------------------
-    $('.custom-select-mobile-link').on('click', function() {
-        // Основные переменные
-        let $popup = $('.popup-select');
-        let $customSelectWrap = $(this).closest('.custom-select-wrap');
-        let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
-
-        // Очистка от предыдущего использования
-        $popup.html('');
-        $popup.removeClass('colors-options');
-
-        // Добавление класса для отображения цветов
-        if ($customSelectWrap.find('.colors-options').length) {
-            $popup.addClass('colors-options');
-        }
-
-        // Добавление item'ов
-        $children.each(function() {
-            // Основные переменные
-            let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
-            let $child = $(this);
-            let attr = $child.attr('data-euv_custom_select_value');
-
-            // Установка текста
-            $item.text($child.text());
-            // Вот в этой строке нет необходимости. Но я решил ее сделать, чтобы через dev tools можно было увидеть значение
-            $item.attr('data-value', attr);
-            // Атрибут для цвета
-            $item.attr('data-val', $child.attr('data-val'));
-
-            // Добавление обработчика
-            $item.on('click', function(e) {
-                e.preventDefault();
-                $customSelectWrap.find('select').val(attr).trigger('change.euv_custom_select');
-                $('.popup-select .fancybox-button').click();
-            });
-
-            // Добавление айтема во всплывашку
-            $item.appendTo($popup);
+            $scroll.overlayScrollbars({});
         });
-    });
+
+        let $selectColors = $('.colors-options');
+        $selectColors.on('change', selectColorsOnChange);
+        function selectColorsOnChange(elem) {
+            let $this = $(elem.target);
+            let $parent = $this.closest('.euv-custom-select');
+            let val = $parent.find('.euv-custom-select__selected-option').attr('data-val');
+            $parent.find('.euv-custom-select__input-value').attr('data-val', val);
+        }
+        $selectColors.on('euv_custom_select_init', function() {
+            selectColorsOnChange({target: $selectColors[0]})
+        });
+
+
+        // -------------------------------
+        // Мобильный стилизованный список на странице товара для кровли
+        // -------------------------------
+        $('.custom-select-mobile-link').on('click', function() {
+            // Основные переменные
+            let $popup = $('.popup-select');
+            let $customSelectWrap = $(this).closest('.custom-select-wrap');
+            let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
+
+            // Очистка от предыдущего использования
+            $popup.html('');
+            $popup.removeClass('colors-options');
+
+            // Добавление класса для отображения цветов
+            if ($customSelectWrap.find('.colors-options').length) {
+                $popup.addClass('colors-options');
+            }
+
+            // Добавление item'ов
+            $children.each(function() {
+                // Основные переменные
+                let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
+                let $child = $(this);
+                let attr = $child.attr('data-euv_custom_select_value');
+
+                // Установка текста
+                $item.text($child.text());
+                // Вот в этой строке нет необходимости. Но я решил ее сделать, чтобы через dev tools можно было увидеть значение
+                $item.attr('data-value', attr);
+                // Атрибут для цвета
+                $item.attr('data-val', $child.attr('data-val'));
+
+                // Добавление обработчика
+                $item.on('click', function(e) {
+                    e.preventDefault();
+                    $customSelectWrap.find('select').val(attr).trigger('change.euv_custom_select');
+                    $('.popup-select .fancybox-button').click();
+                });
+
+                // Добавление айтема во всплывашку
+                $item.appendTo($popup);
+            });
+        });
+    }
 
 
     // -------------------------------
