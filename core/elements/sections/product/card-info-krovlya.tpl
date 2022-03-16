@@ -24,6 +24,7 @@
     {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
+{* Дробное добавление товара в корзину *}
 {set $prodId = $_modx->resource.id}
 {if $_modx->resource.template === 17}
     {set $extraClass = ' custom-counter_type_fractional'}
@@ -32,6 +33,9 @@
     {set $extraClass = ''}
     {set $dataMin = '1'}
 {/if}
+
+{* Данные для карточки для кровли *}
+{set $krovlyaData = '!getKrovlyaData' | snippet}
 
 <div class="product-card__top-line">
     <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
@@ -171,49 +175,53 @@
                 </div>
 
                 <div class="product-card__info-inner">
-                    <div class="product-card__select-wrap product-card__select-wrap_type_full">
-                        <div class="product-card__select-span">Покрытие:</div>
-                        <div class="custom-select-wrap">
-                            <select name="surface"
-                                    class="custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                <option value="1">Покрытие 1</option>
-                                <option value="1">Покрытие 2</option>
-                                <option value="1">Покрытие 3</option>
-                            </select>
-                            <div class="custom-select-mobile-link"></div>
-                            <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                    {if $krovlyaData.pokrytie?}
+                        <div class="product-card__select-wrap product-card__select-wrap_type_full">
+                            <div class="product-card__select-span">Покрытие:</div>
+                            <div class="custom-select-wrap">
+                                <select name="surface"
+                                        class="custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                    {foreach $krovlyaData.pokrytie as $id => $val}
+                                        {set $v = $val | toLowerAndRemoveChars}
+                                        <option value="{$v}" data-val="{$v}">{$val}</option>
+                                    {/foreach}
+                                </select>
+                                <div class="custom-select-mobile-link"></div>
+                                <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-card__select-wrap product-card__select-wrap_type_half">
-                        <div class="product-card__select-span">Цвет:</div>
-                        <div class="custom-select-wrap">
-                            <select name="cvet"
-                                    class="custom-select euv-custom-select_type_wide colors-options custom-select_scrollable">
-                                <option value="1" data-val="ral-1015">Цвет 1</option>
-                                <option value="2" data-val="ral-1018">Цвет 2</option>
-                                <option value="3" data-val="ral-3003">Цвет 3</option>
-                                <option value="3" data-val="ral-3003">Цвет 4</option>
-                                <option value="3" data-val="ral-3003">Цвет 5</option>
-                                <option value="3" data-val="ral-3003">Цвет 6</option>
-                                <option value="3" data-val="ral-3003">Цвет 7</option>
-                                <option value="3" data-val="ral-3003">Цвет 8</option>
-                                <option value="3" data-val="ral-3003">Цвет 9</option>
-                            </select>
-                            <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                    {/if}
+
+                    {if $krovlyaData.cvet?}
+                        <div class="product-card__select-wrap product-card__select-wrap_type_half">
+                            <div class="product-card__select-span">Цвет:</div>
+                            <div class="custom-select-wrap">
+                                <select name="cvet" class="custom-select euv-custom-select_type_wide colors-options custom-select_scrollable">
+                                    {foreach $krovlyaData.cvet as $id => $val}
+                                        {set $v = $val | toLowerAndRemoveChars}
+                                        <option value="{$v}" data-val="{$val | toLowerAndRemoveChars}">{$val}</option>
+                                    {/foreach}
+                                </select>
+                                <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
-                        <div class="product-card__select-span">Толщина, мм:</div>
-                        <div class="custom-select-wrap">
-                            <select name="unit"
-                                    class="custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                <option value="1">Покрытие 1</option>
-                                <option value="1">Покрытие 2</option>
-                                <option value="1">Покрытие 3</option>
-                            </select>
-                            <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                    {/if}
+
+                    {if $krovlyaData.item_thickness?}
+                        <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
+                            <div class="product-card__select-span">Толщина, мм:</div>
+                            <div class="custom-select-wrap">
+                                <select name="unit"
+                                        class="custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                    {foreach $krovlyaData.item_thickness as $id => $val}
+                                        {set $v = $val | toLowerAndRemoveChars}
+                                        <option value="{$v}" data-val="{$val | toLowerAndRemoveChars}">{$val}</option>
+                                    {/foreach}
+                                </select>
+                                <div href="#select" data-fancybox class="custom-select-mobile-link"></div>
+                            </div>
                         </div>
-                    </div>
+                    {/if}
                 </div>
 
                 <div class="product-card__info-simple">
