@@ -233,7 +233,7 @@
                     {/if}
 
                     {if $krovlyaData.item_thickness?}
-                        <div class="product-card__select-wrap product-card__select-wrap_type_half product-card__select-wrap_align_right">
+                        <div class="product-card__select-wrap product-card__select-wrap_type_half{if $krovlyaData.cvet?} product-card__select-wrap_align_right{/if}">
                             <div class="product-card__select-span">Толщина, мм:</div>
                             <div class="custom-select-wrap">
                                 <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
