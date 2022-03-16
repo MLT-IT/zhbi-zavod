@@ -38,12 +38,17 @@
         top: 100%
         min-width: 100%
         background: #ffffff
-        border: 24px solid #fff
-        border-right-width: 20px
+        box-shadow: 0 8px 32px rgba(25, 41, 63, 0.12)
+        padding: 3px
         left: 0
-        box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
-        border-radius: 4px
-        overflow: hidden
+
+        @at-root .krovlya &
+            overflow: hidden
+            border: 24px solid #fff
+            border-right-width: 20px
+            padding: 0
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+            border-radius: 4px
 
     &__input
         padding: 7px 12px
@@ -53,21 +58,32 @@
         display: flex
         margin-top: 0
 
+    &__selected-option
+        font-weight: bold
+
+        @at-root .krovlya &
+            font-weight: normal
+
     &__option
-        padding: 8px
-        line-height: 1
-        font-size: 14px
         display: flex
         align-items: center
 
-        &:nth-last-of-type(n+2)
-            margin-bottom: 12px
-
-        @at-root .colors-options &
-            width: 50%
-
         &:hover
-            color: #C51717
+            background: #E4E4E4
+
+        @at-root .krovlya &
+            padding: 8px
+            line-height: 1
+            font-size: 14px
+            &:nth-last-of-type(n+2)
+                margin-bottom: 12px
+
+            &:hover
+                background: transparent
+                color: #C51717
+
+        @at-root .krovlya .colors-options &
+            width: 50%
 
     &_visible
         .euv-custom-select__btn

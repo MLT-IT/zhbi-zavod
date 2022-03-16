@@ -10,6 +10,9 @@
         padding: 27px
         width: 100%
 
+        @media screen and (max-width: 450px)
+            padding: 7px
+
         @at-root .krovlya &
             padding: 0
             border: 0
@@ -148,7 +151,8 @@
                 padding: 0
 
     &__info-left, &__info-right
-        grid-template-columns: 2fr
+        @media screen and (max-width: 450px)
+            grid-template-columns: 2fr
 
     &__info-left
         display: flex
@@ -334,10 +338,10 @@
             order: 2
             margin-left: 0
             margin-bottom: 12px
-            margin-top: 12px
 
             @at-root .krovlya &
                 margin-bottom: 0
+                margin-top: 12px
 
     &__btn-fav, &__btn-compare
         margin-top: 12px

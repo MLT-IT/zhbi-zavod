@@ -7763,10 +7763,6 @@ a .breadcrumbs__val:hover {
         padding: 44px 10px
     }
 
-    .product-card__content {
-        padding: 7px
-    }
-
     .product-card__img {
         max-width: unset;
         margin-right: 0;
