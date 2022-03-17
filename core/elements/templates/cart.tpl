@@ -9,7 +9,10 @@
 
 {block "page"}
     <div class="wrapper sect-cart">
-        {'!msCart' | snippet : ['tpl' => '@FILE: sections/sect-cart.tpl']}
+        {'!msCart' | snippet : [
+            'tpl' => '@FILE: sections/sect-cart.tpl',
+            'includeTVs' => 'isFractional'
+        ]}
 {*        {'!msOrder' | snippet : ['tpl' => '@FILE: chunks/msOrder.tpl']}*}
 {*        {'!msGetOrder' | snippet : ['tpl' => '@FILE: chunks/msGetOrder.tpl']}*}
 

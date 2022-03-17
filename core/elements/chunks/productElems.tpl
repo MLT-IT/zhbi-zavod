@@ -2,7 +2,7 @@
     {set $prodId = $_modx->resource['id']}
 {/if}
 
-{if $template == 17 OR $_modx->resource.template === 17}
+{if $_pls['isFractional'] == 1 OR $_modx->resource.isFractional == 1}
     {set $extraClass = ' custom-counter_type_fractional'}
     {set $dataMin = '0.01'}
 {else}

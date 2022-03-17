@@ -18,7 +18,8 @@
                     'sortdir' => '',
                     'resources' => $recentlyViewed,
                     'tpl' => '@FILE sections/popular/pop-slide.tpl',
-                    'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
+                    'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
+                    'includeTVs' => 'isFractional',
                     ]}
                 </div>
                 <div class="swiper-scrollbar"></div>

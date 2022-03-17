@@ -26,7 +26,7 @@
 
             'aliases' => 'ms|price==price',
             'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
-            'includeTVs' => 'priority1,HitsPage',
+            'includeTVs' => 'priority1,HitsPage,isFractional',
 
             'values_delimeter' => '~',
             'context' => $_modx->resource.context_key,
