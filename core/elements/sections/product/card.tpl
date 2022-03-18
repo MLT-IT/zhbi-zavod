@@ -1,8 +1,8 @@
 {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
 
 <div class="product-card__content">
-    {if $_modx->resource.context_key === 'krovlya'}
-        {include "file:sections/product/card-info-krovlya.tpl"}
+    {if $_modx->resource.template === 17}
+        {include "file:sections/product/card-info-links.tpl"}
     {else}
         {include "file:sections/product/card-info.tpl"}
     {/if}

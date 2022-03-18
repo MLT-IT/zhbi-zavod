@@ -13,7 +13,7 @@
         @media screen and (max-width: 450px)
             padding: 7px
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             padding: 0
             border: 0
 
@@ -30,7 +30,7 @@
         width: 100%
         text-align: right
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             width: auto
             margin-right: 24px
             margin-top: 0
@@ -54,7 +54,7 @@
                 display: none
 
     &__availability
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-right: 24px
 
     &__title-1
@@ -62,7 +62,7 @@
         color: #323232
         align-self: flex-start
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-bottom: 16px
 
         @media screen and (max-width: 768px)
@@ -106,7 +106,7 @@
             width: 100%
 
     &__img
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             position: relative
             flex-basis: 578px
             flex-grow: 0
@@ -140,7 +140,7 @@
         @media screen and (max-width: 1200px)
             grid-template-columns: 1fr
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             border: 1px solid #F0F0F0
             padding: 16px
 
@@ -183,7 +183,7 @@
         max-width: 271px
         margin-top: 15px
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-top: 0
             max-width: 175px
             padding-left: 14px
@@ -277,7 +277,7 @@
         font-size: 24px
         display: block
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-right: 20px
 
     &__unit-span
@@ -312,7 +312,7 @@
         @media screen and (max-width: 880px)
             display: block
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             border-bottom: 1px solid #F0F0F0
             padding-bottom: 24px
             margin-bottom: 14px
@@ -339,14 +339,14 @@
             margin-left: 0
             margin-bottom: 12px
 
-            @at-root .krovlya &
+            @at-root .product-card_type_relinking &
                 margin-bottom: 0
                 margin-top: 12px
 
     &__btn-fav, &__btn-compare
         margin-top: 12px
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-top: 0
 
         &::after
@@ -363,7 +363,7 @@
         flex-wrap: wrap
 
     &__top
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             @media screen and (max-width: 880px)
                 flex-wrap: wrap
                 border: 1px solid #f0f0f0
@@ -439,7 +439,7 @@
         align-items: flex-start
         grid-column: span 2
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             margin-top: 16px
             padding: 16px 16px 18px 16px
             border: 1px solid #f0f0f0
@@ -457,7 +457,7 @@
         font-weight: bold
         margin-bottom: 14px
 
-        @at-root .krovlya &
+        @at-root .product-card_type_relinking &
             font-size: 16px
             font-weight: 900
 
@@ -499,35 +499,35 @@
         @media screen and (max-width: 500px)
             display: flex
 
-    @at-root .krovlya &
-        .product-item
-            .custom-counter__amount
-                width: 64px
+.product-card_type_relinking
+    .product-item
+        .custom-counter__amount
+            width: 64px
 
-        .product-item__controls
-            width: auto
+    .product-item__controls
+        width: auto
+
+    .product-item__btn-in-cart
+        font-size: 16px
+        width: 167px
+        margin-left: 12px
+        margin-right: 12px
+
+        @media screen and (max-width: 500px)
+            margin-right: 0
+
+    .product-card__mobile-btns
+        display: none
+        width: calc(100% + 30px)
+        margin-left: -15px
+        border-top: 1px solid #f0f0f0
+        border-bottom: 1px solid #f0f0f0
+        padding: 12px 15px
+        margin-bottom: 25px
+        justify-content: center
 
         .product-item__btn-in-cart
-            font-size: 16px
-            width: 167px
-            margin-left: 12px
-            margin-right: 12px
+            width: 148px
 
-            @media screen and (max-width: 500px)
-                margin-right: 0
-
-        .product-card__mobile-btns
-            display: none
-            width: calc(100% + 30px)
-            margin-left: -15px
-            border-top: 1px solid #f0f0f0
-            border-bottom: 1px solid #f0f0f0
-            padding: 12px 15px
-            margin-bottom: 25px
-            justify-content: center
-
-            .product-item__btn-in-cart
-                width: 148px
-
-            @media screen and (max-width: 500px)
-                display: flex
+        @media screen and (max-width: 500px)
+            display: flex

@@ -145,8 +145,8 @@ $(function ($) {
     // -------------------------------
     // Работа со страницей товара на кровле
     // -------------------------------
-    if ($('.krovlya .product-item').length) {
-        let $select = $('.krovlya .product-item .euv-custom-select');
+    if ($('.product-card_type_relinking').length) {
+        let $select = $('.product-card_type_relinking .euv-custom-select');
 
         $select.on('click', function () {
             let plugin_name = 'euv_custom_select';
