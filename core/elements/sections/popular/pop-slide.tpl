@@ -15,7 +15,7 @@
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']) &&
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'krovlya']) &&
                   ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
