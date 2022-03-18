@@ -59,6 +59,7 @@ $(function () {
     // Работа с mse2_load
     // -------------------------------
     $(document).on('mse2_load', function (e, data) {
+        console.log(data)
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
         window.getRemainder();
         window.initStyledCounter();

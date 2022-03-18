@@ -9,7 +9,7 @@
     {set $pricePer = $unit[0]}
 {/if}
 
-<div class="pop-slide comp-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}">
+<div class="not-init pop-slide comp-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -47,7 +47,7 @@
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
             </svg>
         </div>
-        <div class="listing__products-item-fav-remove-btn product-item__action-btn product-item__actions-compare active"></div>
+        <div class="not-init listing__products-item-fav-remove-btn product-item__action-btn product-item__actions-compare active"></div>
     </div>
     <div class="listing__products-item-right">
         <div class="listing__products-item-price-and-logo">

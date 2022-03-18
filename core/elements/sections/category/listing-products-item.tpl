@@ -50,7 +50,7 @@
 ($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
-<div data-upakovka="{$_pls['v_upakovke'][0]}"  class="product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
+<div data-upakovka="{$_pls['v_upakovke'][0]}"  class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"

@@ -146,79 +146,85 @@ $(function ($) {
     // -------------------------------
     // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
-        // Стилизованный счетчик
-        $('.custom-select').euv_custom_select();
+        $('.not-init.listing__products-item').each(function() {
+            // Основные переменные
+            let $item = $(this);
+            let $counterInput = $item.find('.custom-counter__amount');
 
-        // Стилизованный список
-        let $counterInput = $('.custom-counter__amount');
-        // Фильтры
-        $counterInput.each(function () {
-            let filter;
-            const $this = $(this);
-            const minVal = parseFloat($this.attr('data-min'));
+            // Инициализируем стилизованный список
+            $item.find('.custom-select').euv_custom_select();
 
-            // Фильтр для изменения значения
-            let regexp = /^(0|[1-9][0-9]{0,})$/;
-            if ($this.closest('.custom-counter_type_fractional').length) {
-                regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
-            }
-            if (!isNaN(minVal)) {
-                filter = function (value) {
-                    return regexp.test(value) && (parseFloat(value) >= minVal);
-                }
-            } else {
-                filter = function (value) {
-                    return regexp.test(value);
-                }
-            }
-            $this.inputFilter(filter);
-
-            // Фильтр для ввода значения
-            $this.inputFilter(function (value) {
-                return regexp.test(value);
-            }, {'event': 'input'});
-        });
-
-        // Кнопки стилизованного счетчкика
-        $('.custom-counter__btn').on('click', function (e) {
-            e.preventDefault();
-            let $this = $(this);
-            let $inputValue = $this.closest('.custom-counter').find('.custom-counter__amount');
-
-            let val = parseInt($inputValue.val());
-            switch (true) {
-                case $this.hasClass('custom-counter__btn_dir_less'):
-                    val--;
-                    break;
-                case $this.hasClass('custom-counter__btn_dir_more'):
-                    val++;
-                    break;
-            }
-            $inputValue.val(val);
-            $inputValue.trigger('change');
-
-            // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
-            $this.closest('.cart-table__table-row').find('.btn-sm').click();
-        });
-
-        // Если находимся на странице корзины, то вешаем дополнительный обработчик на change количества, чтобы менялась сумма корзины (она должна перерасчитываться сама, но почему-то этого не происходит)
-        if ($('.sect-cart').length) {
+            // Инициализируем фильтры для счетчика
             $counterInput.each(function () {
-                $(this).on('change', function () {
-                    let $this = $(this);
-                    let $product = $this.closest('.cart-table__table-row_type_product');
-                    let price = $product.find('.cart-table__price-value').text();
-                    price = parseFloat(price.replace(/\s/, ''));
+                let filter;
+                const $this = $(this);
+                const minVal = parseFloat($this.attr('data-min'));
 
-                    let count = $product.find('.custom-counter__amount').val();
-                    count = parseFloat(count.replace(/\s/g, ''));
-                    count = Number((count).toFixed(2));
+                // Фильтр для изменения значения
+                let regexp = /^(0|[1-9][0-9]{0,})$/;
+                if ($this.closest('.custom-counter_type_fractional').length) {
+                    regexp = /^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$/;
+                }
+                if (!isNaN(minVal)) {
+                    filter = function (value) {
+                        return regexp.test(value) && (parseFloat(value) >= minVal);
+                    }
+                } else {
+                    filter = function (value) {
+                        return regexp.test(value);
+                    }
+                }
+                $this.inputFilter(filter);
 
-                    let cost = functions.numberWithSpaces(price * count);
-                    $product.find('.cart-table__sum-value').text(cost);
-                });
+                // Фильтр для ввода значения
+                $this.inputFilter(function (value) {
+                    return regexp.test(value);
+                }, {'event': 'input'});
             });
-        }
+
+            // Кнопки стилизованного счетчкика
+            $item.find('.custom-counter__btn').on('click', function (e) {
+                e.preventDefault();
+                let $this = $(this);
+                let $inputValue = $this.closest('.custom-counter').find('.custom-counter__amount');
+
+                let val = parseInt($inputValue.val());
+                switch (true) {
+                    case $this.hasClass('custom-counter__btn_dir_less'):
+                        val--;
+                        break;
+                    case $this.hasClass('custom-counter__btn_dir_more'):
+                        val++;
+                        break;
+                }
+                $inputValue.val(val);
+                $inputValue.trigger('change');
+
+                // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
+                $this.closest('.cart-table__table-row').find('.btn-sm').click();
+            });
+
+            // Если находимся на странице корзины, то вешаем дополнительный обработчик на change количества, чтобы менялась сумма корзины (она должна перерасчитываться сама, но почему-то этого не происходит)
+            if ($('.sect-cart').length) {
+                $counterInput.each(function () {
+                    $(this).on('change', function () {
+                        let $this = $(this);
+                        let $product = $this.closest('.cart-table__table-row_type_product');
+                        let price = $product.find('.cart-table__price-value').text();
+                        price = parseFloat(price.replace(/\s/, ''));
+
+                        let count = $product.find('.custom-counter__amount').val();
+                        count = parseFloat(count.replace(/\s/g, ''));
+                        count = Number((count).toFixed(2));
+
+                        let cost = functions.numberWithSpaces(price * count);
+                        $product.find('.cart-table__sum-value').text(cost);
+                    });
+                });
+            }
+
+            $item.removeClass('not-init');
+        });
     }
     window.initStyledCounter();
 
