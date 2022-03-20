@@ -310,3 +310,38 @@ a.white-btn, button.white-btn
         &[data-brand=""]
             display: none
 
+.above-tags
+    margin-top: -32px
+
+.chips-item
+    position: relative
+    padding: 6px 36px 6px 16px
+    height: 28px
+    border-radius: 16px
+    display: inline-block
+    margin-bottom: 14px
+    +set_colors_1(background)
+
+    &__cross
+        position: absolute
+        right: 32px
+        top: 8px
+
+        &::before,  &::after
+            position: absolute
+            left: 6px
+            content: ""
+            height: 13px
+            width: 2px
+            background-color: #fff
+
+        &::before
+            transform: rotate(45deg)
+
+        &::after
+            transform: rotate(-45deg)
+
+    &__title
+        color: #fff
+        font-style: normal
+        font-size: 14px

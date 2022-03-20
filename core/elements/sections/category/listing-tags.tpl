@@ -7,7 +7,8 @@
     'sortby' => 'menuindex',
     'sortdir' => 'ASC',
     'limit' => 0,
-    'depth' => 0
+    'depth' => 0,
+    'toPlaceholder' => 'tags'
 ]}
 
 {*

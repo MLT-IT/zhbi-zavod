@@ -13,7 +13,7 @@ var mSearch2 = {
 
         filters: '#mse2_filters',
         filter_title: '.filter_title',
-        filter_wrapper: 'fieldset',
+        filter_wrapper: '.listing__filter-block',
 
         pagination: '.mse2_pagination',
         pagination_link: '.mse2_pagination a',
@@ -25,9 +25,9 @@ var mSearch2 = {
         tpl_link: '#mse2_tpl a',
 
         selected: '#mse2_selected',
-        selected_tpl: '<a href="#" data-id="_id_" class="mse2_selected_link"><em>_title_</em><sup>x</sup></a>',
+        selected_tpl: '<a href="#" data-id="_id_" class="chips-item mse2_selected_link"><span class="chips-item__title">_title_</span><span class="chips-item__cross"></span></a>',
         selected_wrapper_tpl: '<strong>_title_:</strong>',
-        selected_filters_delimeter: '; ',
+        selected_filters_delimeter: ' ',
         selected_values_delimeter: ' ',
 
         more: '.btn_more',
@@ -968,14 +968,14 @@ var mSearch2 = {
                             elem.text(count);
 
                             // >>> Установка приоритета
-                            let priority = count;
-                            if (typeof priority === 'string') {
-                                priority = priority.replace(/\D/g, '');
-                            }
-                            if (isNaN(parseInt(priority))) {
-                                priority = 0
-                            }
-                            elem.closest('.filter-option').attr('data-priority', priority);
+                            // let priority = count;
+                            // if (typeof priority === 'string') {
+                            //     priority = priority.replace(/\D/g, '');
+                            // }
+                            // if (isNaN(parseInt(priority))) {
+                            //     priority = 0
+                            // }
+                            // elem.closest('.filter-option').attr('data-priority', priority);
                             // <<< Установка приоритета
 
                             if (count == 0) {
@@ -1154,7 +1154,7 @@ var mSearch2 = {
         for (var value in this.sliders) {
             if (this.sliders.hasOwnProperty(value)) {
                 this.sliders[value]['changed'] =
-                    this.sliders[value]['user_changed'] = false;
+                this.sliders[value]['user_changed'] = false;
             }
         }
 
