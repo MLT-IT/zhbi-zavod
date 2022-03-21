@@ -13,7 +13,10 @@
     </div>
 
     <div class="listing__sort">
+        {*
         <span class="listing__reset-filters">Сбросить фильтры</span>
+        *}
+
         <div id="mse2_sort" class="listing__sort-list"><span>Сортировать: </span>
             <a href="#" data-sort="tv|HitsPage" data-dir="" class="listing__sort-item min{if $.get.sort == ''} active{/if}">по популярности</a>
             <a href="#" data-sort="ms|price" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms|price:desc'} active{/if}">по цене</a>
