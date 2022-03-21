@@ -8,9 +8,6 @@
             {elseif $_modx->context.key == 'kirpich-m'}
                 <img src="/assets/template/img/banners-full/kirpich-m.jpg" class="banner__slide-img">
             {elseif $_modx->context.key == 'pilomat'}
-                <div class="banner__title">
-                    Бесплатно расчитаем доски под ключ
-                </div>
                 <img src="/assets/template/img/banners-full/pilomat.jpg" class="banner__slide-img">
             {elseif $_modx->context.key == 'fasady-pro'}
                 <img src="/assets/template/img/banners-full/fasady-pro.jpg" class="banner__slide-img">
