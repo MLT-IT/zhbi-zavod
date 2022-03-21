@@ -1,10 +1,12 @@
 .above-tags
     margin-top: -32px
 
+.listing__selected
+    display: flex
+    flex-wrap: wrap
 
-@media screen and (max-width: 460px)
-    .listing__selected
-        display: flex
+    @media screen and (max-width: 460px)
+        flex-wrap: nowrap
         overflow-x: auto
 
 .chips-item
@@ -12,13 +14,11 @@
     padding: 6px 36px 6px 16px
     height: 28px
     border-radius: 16px
-    display: inline-block
     margin-bottom: 14px
     +set_colors_1(background)
 
-    @media screen and (max-width: 460px)
-        &:nth-last-of-type(n+2)
-            margin-right: 8px
+    &:nth-last-of-type(n+2)
+        margin-right: 8px
 
     &__cross
         position: absolute
