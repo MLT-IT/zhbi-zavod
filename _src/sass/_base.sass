@@ -313,6 +313,12 @@ a.white-btn, button.white-btn
 .above-tags
     margin-top: -32px
 
+
+@media screen and (max-width: 460px)
+    .listing__selected
+        display: flex
+        overflow-x: auto
+
 .chips-item
     position: relative
     padding: 6px 36px 6px 16px
@@ -321,6 +327,10 @@ a.white-btn, button.white-btn
     display: inline-block
     margin-bottom: 14px
     +set_colors_1(background)
+
+    @media screen and (max-width: 460px)
+        &:nth-last-of-type(n+2)
+            margin-right: 8px
 
     &__cross
         position: absolute
@@ -345,3 +355,4 @@ a.white-btn, button.white-btn
         color: #fff
         font-style: normal
         font-size: 14px
+        white-space: nowrap
