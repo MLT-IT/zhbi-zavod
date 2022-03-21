@@ -20,8 +20,9 @@ $(function () {
 
         // Проходим по get-параметрам и заполняем result
         for (let param in params) {
+            console.log(params[param]);
             if (typeof filters['mse2_' + param] !== 'undefined') {
-                result.push(filters['mse2_' + param] + ' - ' + params[param].replace('~', ', '));
+                result.push(filters['mse2_' + param] + ' - ' + params[param].replaceAll('~', ', '));
             }
         }
 
