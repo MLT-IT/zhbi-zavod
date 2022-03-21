@@ -138,10 +138,13 @@
                 Показать информацию
             </span>
             <div class="listing__products-item-chars">
+                {* TODO: вынеси это в сниппет на php. Или в чанк на fenom *}
                 {* Массив со сложными опциями *}
-                {set $compositeKeys = [
-                    'Марка стали' => 'marka-stali'
-                ]}
+                {if $_modx->resource.context_key == 'armatura-178'}
+                    {set $compositeKeys = [
+                        'Марка стали' => 'marka-stali'
+                    ]}
+                {/if}
                 {if $_modx->resource.context_key not in list ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa']}
                     {set $compositeKeys['Применение'] = 'primenenie'}
                 {/if}
@@ -181,6 +184,23 @@
                         'Масса 1 п.м. профиля, кг'
                         'Марка стали'
                         'Количество п.м. в 1 тонне'
+                    ]}
+                {elseif $_pls['context_key'] == 'pilomat'}
+                    {set $charsValues = [
+                        ([$_pls['item_thickness'][0], $_pls['item_width'][0], $_pls['item_length'][0]] | implode : 'x'),
+                        $_pls['vlazhnost'][0],
+                        $_pls['sort'][0],
+                        $_pls['vid-obrabotki'][0],
+                        $_pls['massa'][0],
+                        $_pls['kol-vokub-sh'][0],
+                    ]}
+                    {set $charsHeaders = [
+                        'Размер',
+                        'Влажность',
+                        'Сорт',
+                        'Вид обработки',
+                        'Вес, кг',
+                        'Кол-во в кубе, шт',
                     ]}
                 {else}
                     {set $charsValues = [
