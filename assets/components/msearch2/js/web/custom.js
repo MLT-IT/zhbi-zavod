@@ -565,6 +565,16 @@ var mSearch2 = {
 
         if (count) {
             this.selected.append(selected.join(this.options['selected_filters_delimeter'])).show();
+
+            if (count > 1) {
+                let $resetBtn = $('<a href="#" class="chips-item chips-item_type_reset"><span class="chips-item__title">очистить всё</span></a>').appendTo(this.selected);
+                $resetBtn.on('click', function (e) {
+                    e.preventDefault();
+                    mSearch2.reset();
+                });
+            }
+
+            this.selected.show();
         }
         else {
             this.selected.hide();

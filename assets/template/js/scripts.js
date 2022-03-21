@@ -20,7 +20,6 @@ $(function () {
 
         // Проходим по get-параметрам и заполняем result
         for (let param in params) {
-            console.log(params[param]);
             if (typeof filters['mse2_' + param] !== 'undefined') {
                 result.push(filters['mse2_' + param] + ' - ' + params[param].replaceAll('~', ', '));
             }
@@ -60,7 +59,6 @@ $(function () {
     // Работа с mse2_load
     // -------------------------------
     $(document).on('mse2_load', function (e, data) {
-        console.log(data)
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
         window.getRemainder();
         window.initStyledCounter();

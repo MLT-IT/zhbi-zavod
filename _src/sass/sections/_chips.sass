@@ -16,9 +16,61 @@
     border-radius: 16px
     margin-bottom: 14px
     +set_colors_1(background)
+    transition: background-color .3s, border-color .3s
+
+    &:hover
+        @at-root .knauf &
+            background-color: darken(#4f70ad, 10%)
+        @at-root .rockwool &
+            background-color: darken(#AA000F, 10%)
+        @at-root .tn &
+            background-color: darken(#ED1C24, 10%)
+        @at-root .penoplex &
+            background-color: darken(#F36F21, 10%)
+        @at-root .isover &
+            background-color: darken(#FFDD00, 10%)
+        @at-root .paroc &
+            background-color: darken(#CE1126, 10%)
+        @at-root .ursa &
+            background-color: darken(#EA4740, 10%)
 
     &:nth-last-of-type(n+2)
         margin-right: 8px
+
+    &_type
+        &_reset
+            padding-top: 4px
+            padding-right: 16px
+            border: 1px solid
+            +set_colors_1(border-color)
+
+            @at-root .listing__selected &
+                background-color: transparent
+
+                &:hover
+                    .chips-item__title
+                        color: #fff
+
+            &:hover
+                +set_colors_1(border-color)
+
+                @at-root .knauf &
+                    border-color: darken(#4f70ad, 10%)
+                @at-root .rockwool &
+                    border-color: darken(#AA000F, 10%)
+                @at-root .tn &
+                    border-color: darken(#ED1C24, 10%)
+                @at-root .penoplex &
+                    border-color: darken(#F36F21, 10%)
+                @at-root .isover &
+                    border-color: darken(#FFDD00, 10%)
+                @at-root .paroc &
+                    border-color: darken(#CE1126, 10%)
+                @at-root .ursa &
+                    border-color: darken(#EA4740, 10%)
+
+            .chips-item__title
+                +set_colors_1(color)
 
     &__cross
         position: absolute
