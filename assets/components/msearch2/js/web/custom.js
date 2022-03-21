@@ -26,7 +26,7 @@ var mSearch2 = {
 
         selected: '#mse2_selected',
         selected_tpl: '<a href="#" data-id="_id_" class="chips-item mse2_selected_link"><span class="chips-item__title">_title_</span><span class="chips-item__cross"></span></a>',
-        selected_wrapper_tpl: '<strong>_title_:</strong>',
+        selected_wrapper_tpl: '<span class="chips-item__name">_title_:</span>',
         selected_filters_delimeter: ' ',
         selected_values_delimeter: ' ',
 
@@ -573,6 +573,12 @@ var mSearch2 = {
                     mSearch2.reset();
                 });
             }
+
+            let $strong = this.selected.find('.chips-item__name');
+            $strong.each(function(i, e) {
+                e = $(e);
+                e.prependTo(e.next());
+            });
 
             this.selected.show();
         }
