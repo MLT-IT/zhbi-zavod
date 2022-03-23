@@ -120,11 +120,15 @@
                     </div>
                 {/if}
 
-                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete']}
+                {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete', 'pilomat']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
                     {/if}
+                {/if}
+
+                {if $_modx->resource.context_key === 'pilomat'}
+                    <div class="product-card__package">Цена за куб: {$_modx->resource['cenazakub'][0]}</div>
                 {/if}
             </div>
             <div class="product-card__right-info">
