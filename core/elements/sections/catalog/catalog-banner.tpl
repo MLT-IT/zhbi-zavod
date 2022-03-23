@@ -7,6 +7,8 @@
                 кровли
             {elseif $_modx->context.key == 'kirpich-m'}
                 кирпича
+            {elseif $_modx->context.key == 'pilomat'}
+                пиломатериала
             {elseif $_modx->context.key == 'fasady-pro'}
                 деревянных фасадов
             {elseif $_modx->context.key == 'fasad'}
@@ -38,6 +40,8 @@
     </div>
 
     {switch $_modx->resource.context_key}
+        {case 'pilomat'}
+            {set $imgname = 'pilomat.jpg'}
         {case 'web'}
             {set $imgname = 'knauf.jpg'}
         {case 'rockwool'}
