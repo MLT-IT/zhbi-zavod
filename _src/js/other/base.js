@@ -2729,7 +2729,7 @@
                 e.addEventListener("click", (function () {
                     e.classList.toggle("active")
                 }))
-            })), new n.a("+7 (999) 999-99-99").mask(document.querySelectorAll('input[name="PHONE"]')), function () {
+            })), new n.a("+7 (999) 999-99-9{2,3}").mask(document.querySelectorAll('input[name="PHONE"]')), function () {
                 var e;
                 e = window.matchMedia("(min-width: 1024px)").matches ? document.querySelector("header") : document.querySelector(".mobile-header");
                 var t = document.querySelector(".header-sticky"), i = document.querySelector(".scroll-top"),
