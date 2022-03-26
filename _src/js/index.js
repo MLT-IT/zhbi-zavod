@@ -141,6 +141,108 @@ $(function ($) {
     // -------------------------------
     mailChange();
 
+
+    // -------------------------------
+    // Работа со страницей товара на кровле
+    // -------------------------------
+    if ($('.product-card_type_relinking').length) {
+        let $select = $('.product-card_type_relinking .euv-custom-select');
+
+        $select.on('click', function () {
+            let plugin_name = 'euv_custom_select';
+            let custom_select_visible_class = 'euv-custom-select_visible';
+            let custom_select_option_class = 'euv-custom-select__option';
+            let custom_select_class = 'euv-custom-select';
+            function close_select(e) {
+                let $target = $(e.target);
+                let $target_select = $target.closest('.' + custom_select_class);
+                $('.' + custom_select_visible_class).each(function () {
+                    let $this = $(this);
+                    if ($this[0] != $target_select[0] || $target.hasClass(custom_select_option_class)) {
+                        if ($('.' + custom_select_visible_class).length < 2) {
+                            $(document).off('click.' + plugin_name, close_select);
+                        }
+                        $this.removeClass(custom_select_visible_class);
+                    }
+                });
+            }
+
+            let $this = $(this);
+            $this.toggleClass(custom_select_visible_class);
+            if ($this.hasClass('euv-custom-select_visible')) {
+                $(document).off('click.' + plugin_name, close_select);
+                $(document).on('click.' + plugin_name, close_select);
+            } else {
+                $(document).off('click.' + plugin_name, close_select);
+            }
+        });
+
+        // -------------------------------
+        // Стилизованный список на странице товара для кровли
+        // -------------------------------
+        $select.each(function() {
+            let $this = $(this);
+            let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
+
+            $scroll.overlayScrollbars({});
+
+            let $selectColors = $('.colors-options');
+            $selectColors.on('change', selectColorsOnChange);
+            function selectColorsOnChange(elem) {
+                let $this = $(elem.target);
+                let $parent = $this.closest('.euv-custom-select');
+                let val = $parent.find('.euv-custom-select__selected-option').attr('data-val');
+                $parent.find('.euv-custom-select__input-value').attr('data-val', val);
+            }
+            $selectColors.on('euv_custom_select_init', function () {
+                selectColorsOnChange({target: $selectColors[0]})
+            });
+        })
+
+        // -------------------------------
+        // Мобильный стилизованный список на странице товара для кровли
+        // -------------------------------
+        $('.custom-select-mobile-link').on('click', function () {
+            // Основные переменные
+            let $popup = $('.popup-select');
+            let $customSelectWrap = $(this).closest('.custom-select-wrap');
+            let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
+
+            // Очистка от предыдущего использования
+            $popup.html('');
+            $popup.removeClass('colors-options');
+
+            // Добавление класса для отображения цветов
+            if ($customSelectWrap.find('.colors-options').length) {
+                $popup.addClass('colors-options');
+            }
+
+            // Добавление item'ов
+            $children.each(function () {
+                // Основные переменные
+                let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
+                let $child = $(this);
+
+                // Установка текста
+                $item.text($child.text());
+                // Установка href
+                $item.attr('href',  $child.attr('href'));
+                // Установка атрибут для цвета
+                $item.attr('data-val', $child.attr('data-val'));
+
+                // Добавление обработчика
+                $item.on('click', function (e) {
+                    // Закрываем всплывашку
+                    // $('.popup-select .fancybox-button').click();
+                });
+
+                // Добавление айтема во всплывашку
+                $item.appendTo($popup);
+            });
+        });
+    }
+
+
     // -------------------------------
     // Стилизованный счетчик и стилизованный список
     // -------------------------------

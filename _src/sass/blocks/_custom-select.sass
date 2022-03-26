@@ -1,3 +1,9 @@
+.euv-custom-select_type_wide.euv-custom-select_visible
+    $block: '.euv-custom-select'
+
+    #{$block}__btn
+        top: 22px
+
 .euv-custom-select
     $block: &
     width: 179px
@@ -7,6 +13,27 @@
     box-sizing: border-box
     border-radius: 8px
 
+    &_type
+        &_wide
+            height: 48px
+
+            #{$block}__btn
+                top: 18px
+
+    &__options-wrap-scroll
+        overflow-y: scroll
+        max-height: 246px
+
+        @at-root .colors-options &
+            width: 368px
+
+    &__options-wrap-scroll-inner
+        display: flex
+        width: 100%
+
+    &__options-col
+        width: 50%
+
     &__options-wrap
         top: 100%
         min-width: 100%
@@ -15,6 +42,17 @@
         padding: 3px
         left: 0
 
+        @at-root .product-card_type_relinking &
+            overflow: hidden
+            border: solid #fff
+            border-left-width: 24px
+            border-right-width: 20px
+            border-top-width: 20px
+            border-bottom-width: 20px
+            padding: 0
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+            border-radius: 4px
+
     &__input
         padding: 7px 12px
         border: 0
@@ -22,10 +60,30 @@
         align-items: center
         display: flex
         margin-top: 0
-        height: auto
 
     &__selected-option
         font-weight: bold
+
+        @at-root .product-card_type_relinking &
+            font-weight: normal
+
+    @at-root .colors-options
+        .euv-custom-select__input-value, .euv-custom-select__option
+            &::before
+                content: ""
+                display: block
+                height: 18px
+                flex-basis: 32px
+                flex-shrink: 0
+                flex-grow: 0
+                margin-right: 8px
+                border-radius: 3px
+
+            +colors_to_selector('::before')
+
+    &__input-value
+        @at-root .product-card_type_relinking &, .product-card_type_relinking .colors-options
+            display: flex
 
     &__option
         display: flex
@@ -33,6 +91,17 @@
 
         &:hover
             background: #E4E4E4
+
+        @at-root .product-card_type_relinking &, .popup-select &
+            padding: 8px
+            line-height: 1
+            font-size: 14px
+            &:nth-last-of-type(n+2)
+                margin-bottom: 12px
+
+            &:hover
+                background: transparent
+                color: #C51717
 
     &_visible
         .euv-custom-select__btn
@@ -53,3 +122,17 @@
 
         &::after
             content: none
+
+.custom-select-wrap
+    position: relative
+
+.custom-select-mobile-link
+    display: none
+
+    @media screen and (max-width: 768px)
+        display: block
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0

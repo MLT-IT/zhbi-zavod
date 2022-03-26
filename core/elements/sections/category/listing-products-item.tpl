@@ -284,7 +284,7 @@
         {if $condition}
             <div class="product-item__selprice listing__products-item-selprice">
                 <span class="product-item__selprice-span">Цена за</span>
-                <select name="unit" class="euv-custom-select custom-select product-item__units-select">
+                <select name="unit" class="custom-select product-item__units-select">
                     <option value="1" selected>{$pricePer}</option>
                     {if $m2 ?}
                         <option value="2">м2</option>

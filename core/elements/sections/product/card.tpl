@@ -1,11 +1,16 @@
 {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
 
 <div class="product-card__content">
-    {include "file:sections/product/card-info.tpl"}
-    <div class="product-card__about">
-        {if $_modx->resource.introtext}
+    {if $_modx->resource.template === 17}
+        {include "file:sections/product/card-info-links.tpl"}
+    {else}
+        {include "file:sections/product/card-info.tpl"}
+    {/if}
+
+    {*if $_modx->resource.introtext?*}
+        <div class="product-card__about">
             {$_modx->resource.introtext}
-        {/if}
-    </div>
+        </div>
+    {*/if*}
     {include "file:sections/product/card-tabs.tpl"}
 </div>
