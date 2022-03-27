@@ -1,0 +1,164 @@
+.product-card_type_relinking
+    $block: '.product-card'
+
+    #{$block}__content
+        padding: 0
+        border: 0
+
+    #{$block}__info-wrap
+        flex-basis: 526px
+        flex-shrink: 0
+        flex-grow: 0
+
+        @media screen and (max-width: 880px)
+            flex-basis: 100%
+            width: 100%
+
+    #{$block}__info
+        border: 1px solid #F0F0F0
+        padding: 16px
+
+        @media screen and (max-width: 880px)
+            border: none
+
+        @media screen and (max-width: 768px)
+            padding: 0
+
+    #{$block}__buy
+        margin-top: 0
+        max-width: 175px
+        padding-left: 14px
+        padding-right: 14px
+        font-size: 16px
+        border-radius: 4px
+
+        &_type
+            &_mobile
+                display: none
+                max-width: 256px
+                width: 100%
+
+                @media screen and (max-width: 500px)
+                    display: block
+                    margin-top: 6px
+                    max-width: none
+
+    #{$block}__price-wrap
+        margin-right: 20px
+
+
+    #{$block}__info-inner
+        border-bottom: 1px solid #F0F0F0
+        padding-bottom: 24px
+        margin-bottom: 14px
+        display: flex
+        flex-wrap: wrap
+        grid-column: span 2
+
+        @media screen and (max-width: 768px)
+            padding-bottom: 16px
+            margin-bottom: 8px
+
+        @media screen and (max-width: 500px)
+            margin-bottom: 10px
+            padding-bottom: 16px
+
+    #{$block}__right-info
+        @media screen and (max-width: 880px)
+            order: 2
+            margin-bottom: 0
+            margin-top: 12px
+
+    #{$block}__mobile-btns
+        display: none
+        width: calc(100% + 30px)
+        margin-left: -15px
+        border-top: 1px solid #f0f0f0
+        border-bottom: 1px solid #f0f0f0
+        padding: 12px 15px
+        margin-bottom: 25px
+        justify-content: center
+
+        .product-item__btn-in-cart
+            width: 148px
+
+        @media screen and (max-width: 500px)
+            display: flex
+
+    #{$block}__top
+        @media screen and (max-width: 880px)
+            flex-wrap: wrap
+            border: 1px solid #f0f0f0
+            border-radius: 4px
+
+        @media screen and (max-width: 768px)
+            padding: 16px
+
+    #{$block}__article
+        width: auto
+        margin-right: 24px
+        margin-top: 0
+
+        @media screen and (max-width: 768px)
+            margin-bottom: 4px
+            margin-right: 0
+
+    #{$block}__availability
+        margin-right: 24px
+
+    #{$block}__title-1
+        margin-bottom: 16px
+
+    #{$block}__img
+        position: relative
+        flex-basis: 578px
+        flex-grow: 0
+        margin-right: 16px
+        max-width: none
+        cursor: default
+
+        @media screen and (max-width: 880px)
+            flex-basis: 500px
+            text-align: center
+            margin: 16px auto 24px
+
+        @media screen and (max-width: 768px)
+            margin: 0 0 16px 0
+            flex-basis: auto
+
+    #{$block}__btn-fav, #{$block}__btn-compare
+        margin-top: 0
+
+    #{$block}__delivery
+        margin-top: 16px
+        padding: 16px 16px 18px 16px
+        border: 1px solid #f0f0f0
+        display: flex
+
+        @media screen and (max-width: 880px)
+            border: none
+            margin-top: 0
+            padding-top: 0
+
+        @media screen and (max-width: 768px)
+            padding: 16px 0 0 0
+
+    #{$block}__delivery-title
+        font-size: 16px
+        font-weight: 900
+
+    .product-item
+        &__controls
+            width: auto
+
+        &__btn-in-cart
+            font-size: 16px
+            width: 167px
+            margin-left: 12px
+            margin-right: 12px
+
+            @media screen and (max-width: 500px)
+                margin-right: 0
+
+        .custom-counter__amount
+            width: 64px

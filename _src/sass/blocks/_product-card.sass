@@ -1,25 +1,16 @@
 .product-card
     margin-bottom: 60px
 
-
-    // TODO: ВОЗМОЖНО, ЭТО ТОЛЬКО ДЛЯ КРОВЛИ! ПРОВЕРЬ
     .content-block
         margin-bottom: 0
 
     &__content
-        background: #fff
         border: 1px solid #eaeaea
         padding: 27px
         width: 100%
 
         @media screen and (max-width: 450px)
             padding: 7px
-
-        @at-root .product-card_type_relinking &
-            padding: 0
-            border: 0
-    // TODO: ВОЗМОЖНО, ЭТО ТОЛЬКО ДЛЯ КРОВЛИ! ПРОВЕРЬ
-
 
     &__left-info
         margin-right: 20px
@@ -33,15 +24,6 @@
         color: #b1b2b3
         width: 100%
         text-align: right
-
-        @at-root .product-card_type_relinking &
-            width: auto
-            margin-right: 24px
-            margin-top: 0
-
-            @media screen and (max-width: 768px)
-                margin-bottom: 4px
-                margin-right: 0
 
         @media screen and (max-width: 880px)
             text-align: left
@@ -57,18 +39,11 @@
             @media screen and (max-width: 768px)
                 display: none
 
-    &__availability
-        @at-root .product-card_type_relinking &
-            margin-right: 24px
-
     &__title-1
         font-size: 24px
         color: #323232
         align-self: flex-start
         text-align: left
-
-        @at-root .product-card_type_relinking &
-            margin-bottom: 16px
 
     &__specs-list-item
         display: flex
@@ -98,17 +73,6 @@
         max-width: 372px
         width: 100%
 
-    // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ
-    &__info-wrap
-        flex-basis: 526px
-        flex-shrink: 0
-        flex-grow: 0
-
-        @media screen and (max-width: 880px)
-            flex-basis: 100%
-            width: 100%
-    // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ
-
     &__img
         cursor: zoom-in
 
@@ -117,48 +81,14 @@
             margin-right: auto
             text-align: center
 
-        @at-root .product-card_type_relinking &
-            position: relative
-            flex-basis: 578px
-            flex-grow: 0
-            margin-right: 16px
-            max-width: none
-            cursor: default
-
-            @media screen and (max-width: 880px)
-                flex-basis: 500px
-                text-align: center
-                margin: 16px auto 24px
-
-            @media screen and (max-width: 768px)
-                margin: 0 0 16px 0
-                flex-basis: auto
-
-
-
-    // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ
     &__info
         width: 100%
         display: grid
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
         grid-gap: 10px 30px
 
-        &_type
-            &_minor
-                margin-top: 16px
-
         @media screen and (max-width: 1200px)
             grid-template-columns: 1fr
-
-        @at-root .product-card_type_relinking &
-            border: 1px solid #F0F0F0
-            padding: 16px
-
-            @media screen and (max-width: 880px)
-                border: none
-
-            @media screen and (max-width: 768px)
-                padding: 0
 
     &__info-left, &__info-right
         @media screen and (max-width: 450px)
@@ -188,34 +118,10 @@
 
         & > *
             height: 50px
-    // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ
-
 
     &__buy
-        // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТА СТРОКА НЕ НУЖНА
         max-width: 271px
-        // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТА СТРОКА НЕ НУЖНА
-
         margin-top: 15px
-
-        @at-root .product-card_type_relinking &
-            margin-top: 0
-            max-width: 175px
-            padding-left: 14px
-            padding-right: 14px
-            font-size: 16px
-            border-radius: 4px
-
-            &_type
-                &_mobile
-                    display: none
-                    max-width: 256px
-                    width: 100%
-
-                    @media screen and (max-width: 500px)
-                        display: block
-                        margin-top: 6px
-                        max-width: none
 
     &__reviews
         white-space: nowrap
@@ -292,9 +198,6 @@
         font-size: 24px
         display: block
 
-        @at-root .product-card_type_relinking &
-            margin-right: 20px
-
     &__unit-span
         margin-right: 4px
 
@@ -327,22 +230,6 @@
         @media screen and (max-width: 880px)
             display: block
 
-        @at-root .product-card_type_relinking &
-            border-bottom: 1px solid #F0F0F0
-            padding-bottom: 24px
-            margin-bottom: 14px
-            display: flex
-            flex-wrap: wrap
-            grid-column: span 2
-
-            @media screen and (max-width: 768px)
-                padding-bottom: 16px
-                margin-bottom: 8px
-
-            @media screen and (max-width: 500px)
-                margin-bottom: 10px
-                padding-bottom: 16px
-
     &__right-info
         display: flex
         margin-left: auto
@@ -350,22 +237,11 @@
         width: 240px
 
         @media screen and (max-width: 880px)
-            // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТА СТРОКА НЕ НУЖНА
-            order: 2
-            // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТА СТРОКА НЕ НУЖНА
-
             margin-left: 0
             margin-bottom: 12px
 
-            @at-root .product-card_type_relinking &
-                margin-bottom: 0
-                margin-top: 12px
-
     &__btn-fav, &__btn-compare
         margin-top: 12px
-
-        @at-root .product-card_type_relinking &
-            margin-top: 0
 
         &::after
             padding-bottom: 2px
@@ -379,19 +255,6 @@
         margin-top: 12px
         display: flex
         flex-wrap: wrap
-
-
-
-    // TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ
-    &__top
-        @at-root .product-card_type_relinking &
-            @media screen and (max-width: 880px)
-                flex-wrap: wrap
-                border: 1px solid #f0f0f0
-                border-radius: 4px
-
-            @media screen and (max-width: 768px)
-                padding: 16px
 
     &__top-line
         display: flex
@@ -460,27 +323,9 @@
         align-items: flex-start
         grid-column: span 2
 
-        @at-root .product-card_type_relinking &
-            margin-top: 16px
-            padding: 16px 16px 18px 16px
-            border: 1px solid #f0f0f0
-            display: flex
-
-            @media screen and (max-width: 880px)
-                border: none
-                margin-top: 0
-                padding-top: 0
-
-            @media screen and (max-width: 768px)
-                padding: 16px 0 0 0
-
     &__delivery-title
         font-weight: bold
         margin-bottom: 14px
-
-        @at-root .product-card_type_relinking &
-            font-size: 16px
-            font-weight: 900
 
     &__delivery-content
         width: 100%
@@ -519,37 +364,3 @@
 
         @media screen and (max-width: 500px)
             display: flex
-
-.product-card_type_relinking
-    .product-item
-        .custom-counter__amount
-            width: 64px
-
-    .product-item__controls
-        width: auto
-
-    .product-item__btn-in-cart
-        font-size: 16px
-        width: 167px
-        margin-left: 12px
-        margin-right: 12px
-
-        @media screen and (max-width: 500px)
-            margin-right: 0
-
-    .product-card__mobile-btns
-        display: none
-        width: calc(100% + 30px)
-        margin-left: -15px
-        border-top: 1px solid #f0f0f0
-        border-bottom: 1px solid #f0f0f0
-        padding: 12px 15px
-        margin-bottom: 25px
-        justify-content: center
-
-        .product-item__btn-in-cart
-            width: 148px
-
-        @media screen and (max-width: 500px)
-            display: flex
-// TODO: ПРЕДПОЛОЖИТЕЛЬНО ЭТО ТОЛЬКО ДЛЯ КРОВЛИ

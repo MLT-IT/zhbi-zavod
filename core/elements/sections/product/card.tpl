@@ -7,10 +7,10 @@
         {include "file:sections/product/card-info.tpl"}
     {/if}
 
-    {*if $_modx->resource.introtext?*}
+    {if $_modx->resource.introtext?}
         <div class="product-card__about">
             {$_modx->resource.introtext}
         </div>
-    {*/if*}
+    {/if}
     {include "file:sections/product/card-tabs.tpl"}
 </div>
