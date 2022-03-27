@@ -5272,7 +5272,6 @@ a .breadcrumbs__val:hover {
 
 .product-card__top {
     display: flex;
-    margin-bottom: 25px;
     align-items: flex-start
 }
 
