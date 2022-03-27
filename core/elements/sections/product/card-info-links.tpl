@@ -35,7 +35,7 @@
 {/if}
 
 {* Данные для списков *}
-{set $krovlyaData = '!getLinksData' | snippet}
+{set $krovlyaData = 'getLinksData' | snippet}
 
 <div class="product-card__top-line">
     <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
