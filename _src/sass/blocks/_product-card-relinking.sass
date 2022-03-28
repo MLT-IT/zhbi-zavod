@@ -24,6 +24,11 @@
         @media screen and (max-width: 768px)
             padding: 0
 
+    #{$block}__fav-n-comp
+        width: 240px
+        flex-wrap: wrap
+        display: flex
+
     #{$block}__buy
         margin-top: 0
         max-width: 175px
@@ -34,18 +39,19 @@
 
         &_type
             &_mobile
-                display: none
-                max-width: 256px
+                max-width: none
                 width: 100%
+                margin-top: 16px
 
-                @media screen and (max-width: 500px)
-                    display: block
-                    margin-top: 6px
-                    max-width: none
+    #{$block}__mobile
+        display: none
+        margin-top: 10px
+
+        @media screen and (max-width: 500px)
+            display: block
 
     #{$block}__price-wrap
         margin-right: 20px
-
 
     #{$block}__info-inner
         border-bottom: 1px solid #F0F0F0

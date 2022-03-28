@@ -298,7 +298,29 @@
                 </div>
             </div>
 
-            <button data-fancybox="" href="#callback" class="product-card__buy white-btn product-card__buy_type_mobile">КУПИТЬ В 1 КЛИК</button>
+            <div class="product-card__mobile">
+                <div class="product-card__fav-n-comp">
+                    <span class="product-item__btn product-card__btn-compare product-item__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"
+                          href="#">
+                        <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
+                             height="16">
+                            <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
+                        </svg>
+                    </span>
+                    <span class="product-item__btn product-card__btn-fav product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}"
+                          href="#">
+                        <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
+                             height="18">
+                            <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
+                        </svg>
+                    </span>
+                </div>
+                <button data-fancybox="" href="#callback"
+                        class="product-card__buy white-btn product-card__buy_type_mobile">КУПИТЬ В 1 КЛИК
+                </button>
+            </div>
 
             <div class="product-card__delivery">
                 <span class="product-card__delivery-title">Доставка</span>
