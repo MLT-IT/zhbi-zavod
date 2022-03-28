@@ -140,12 +140,21 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Изменение цены
         const $price = $productItem.find('.product-item__price');
         if ($price.length) {
+            const unit = $productItem.find('*[name="unit"]').val();
             let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
             if (isNaN(price)) {
                 price = 0;
             }
 
-            price = Math.ceil(1 / unitVal * price);
+            if (unit == 7) {
+                price = unitVal * price;
+                if (price > 100) {
+                    let tmp = price % 100;
+                    price = price - tmp;
+                }
+            } else {
+                price = Math.ceil(1 / unitVal * price);
+            }
 
             price = Number((price).toFixed(2));
             price = numberWithSpaces(price);

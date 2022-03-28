@@ -36,6 +36,11 @@
     {/if}
 {/if}
 
+{* Единицы измерения для пиломата *}
+{if $_modx->resource.context_key === 'pilomat'}
+    {set $kub = $_modx->resource['kol-vokub-sh'][0] | replace : ',' : '.'}
+{/if}
+
 {* Цена за ... *}
 {set $unit = $_modx->resource.unit}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
@@ -46,8 +51,8 @@
     {set $pricePer = $unit[0]}
 {/if}
 
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
+{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. И родитель не должен являться сопутствующими товарами, например *}
+{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat']) &&
     ($_modx->resource.parent not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 <div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}"
@@ -55,7 +60,8 @@
      data-m3="{$m3}"
      data-pm="{$pm}"
      data-list="{$list}"
-     data-thing="{$thing}">
+     data-thing="{$thing}"
+     data-cub="{$kub}">
 
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
@@ -97,6 +103,9 @@
                         {if $thing ?}
                             <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
                         {/if}
+                        {if $kub ?}
+                            <a class="product-card__unit-link" href="#" data-val="7">куб</a>
+                        {/if}
                     </div>
                 {else}
                     <input type="hidden" name="unit" value="1">
@@ -125,10 +134,6 @@
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
                     {/if}
-                {/if}
-
-                {if $_modx->resource.context_key === 'pilomat'}
-                    <div class="product-card__package">Цена за куб: {$_modx->resource['cenazakub'][0]}</div>
                 {/if}
             </div>
             <div class="product-card__right-info">

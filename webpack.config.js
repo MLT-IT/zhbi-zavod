@@ -109,7 +109,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://krovlyasp.local/",
+                    target: "http://pilomat.local/",
                     secure: false,
                     changeOrigin: true
                 }
