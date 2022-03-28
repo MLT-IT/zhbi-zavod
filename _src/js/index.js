@@ -248,7 +248,7 @@ $(function ($) {
     // -------------------------------
     // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
-        $('.not-init.listing__products-item, .product-card .product-item').each(function() {
+        $('.not-init.listing__products-item, .product-card .product-item, .cart-table__table-row_type_product').each(function() {
             // Основные переменные
             let $item = $(this);
             let $counterInput = $item.find('.custom-counter__amount');

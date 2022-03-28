@@ -18,7 +18,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Приближение при наведении на картинку
     // -------------------------------
-    const $productCardImg = $(".zoom"); 
+    const $productCardImg = $(".zoom");
     if ($productCardImg.length) {
         new ImageZoom($productCardImg[0], {
             fillContainer: true,
@@ -85,12 +85,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let $elemsChange = $productItem.find('.product-item__controls_action_change');
 
         // Получение кол-ва
-        let countRaw = $productItem.find('.product-item__controls_action_add .custom-counter__amount').val();
+        let countRaw = $this.closest('.product-item__controls_action_add').find('.custom-counter__amount').val();
         let count = getItemCount($productItem, countRaw);
 
         // Установка кол-ва
-        // В счетчик для изменения кол-ва
-        $elemsChange.find('.custom-counter__amount').val(countRaw);
+        // В счетчик для изменения кол-ва. Цикл нужен, т.к. может быть 2 счетчика для изменения кол-ва. Первый - для ПК, второй - для мобилок
+        $elemsChange.find('.custom-counter__amount').each(function(i, e) {
+            $(e).val(countRaw);
+        });
         // В скрытые поля
         $formAdd.find('[name="count"]').val(count);
         $('.product-item__form-change [name="count"]').val(count);
