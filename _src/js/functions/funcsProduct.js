@@ -118,9 +118,15 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     function getItemCount($productItem, count) {
         let unitVal = getActiveUnitValue($productItem);
         count = parseFloat(count);
+        const unit = $productItem.find('*[name="unit"]').val();
 
         // Получившееся кол-во
-        count = 1 / unitVal * count;
+        if (unit == 7) {
+            count = unitVal * count;
+        } else {
+            count = 1 / unitVal * count;
+        }
+
         if ($productItem.find('.custom-counter_type_fractional').length) {
             count = Number((count).toFixed(2));
         } else {

@@ -1,5 +1,6 @@
 {* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = ($src['id'] ~ $src['price'] ~ $weight ~ '[]') | md5}
+{set $productKey = ($src['id'] ~ $src['price'] ~ $src['weight'] ~ '[]') | replace : ' ' : '' | md5}
+
 {* Информация о кол-ве товара в корзине, есть ли товар в избранном, в сравнении *}
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 {* Кол-во товара в корзине *}
