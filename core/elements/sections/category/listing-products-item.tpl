@@ -1,69 +1,23 @@
-{* TODO: Данный код (или почти данный) есть в трех местах. Хорошо бы объединить этот код в 1 чанк fenom, который я буду подключать. *}
-
 {* Данный код нужен, т.к. при подгрузке товаров через AJAX (mFilter2) плейсхолдер checkItems будет пустым, он ведь устанавливается при загрузке страницы *}
 {if $_modx->getPlaceholder('checkItems') is null}
     {'!checkItems' | snippet}
 {/if}
-
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 
-{* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = ($id ~ ($price | replace : ' ' : '') ~ $weight ~ '[]') | md5}
-{* Кол-во товара в корзине *}
-{set $itemInCart = $checkItems['cart'][$id]}
+{set $src = $_pls}
+{insert "file:blocks/set-values-for-prod.tpl"}
 
-{* Единицы измерения для утеплителей *}
-{if $_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
-    {set $pm = $_pls['kolvo-pm'][0]}
-    {set $m2 = $_pls['ploshad_m2'][0]}
-    {set $m3 = $_pls['obyem_m3'][0]}
-    {if $_pls['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
-        {set $list = $_pls['price'] * $_pls['v_upakovke'][0]}
-        {set $list = $list | round}
-    {/if}
-{/if}
-
-{* Единицы измерения - дополнительные рассчеты для web и penoplex *}
-{if $_pls['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
-    {set $m2 = $m2 * $_pls['v_upakovke'][0]}
-    {set $m2 = $m2 | replace : ',' : '.'}
-{/if}
-
-{* Единицы измерения для арматуры *}
-{if $_modx->resource.context_key === 'armatura-178'}
-    {set $metrov_v_tonne = $_pls['kolichestvo-metrov-v-1-tonne'][0] | floatval}
-    {set $dlina_m = $_pls['dlina-m'][0] | floatval}
-    {if $metrov_v_tonne > 0}
-        {if $dlina_m > 0}
-            {set $thing = ($metrov_v_tonne / $dlina_m) | replace : ',' : '.'}
-        {/if}
-        {set $pm = $metrov_v_tonne | replace : ',' : '.'}
-    {/if}
-{/if}
-
-{* Цена за ... *}
-{if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
-    {set $pricePer = 'упаковку'}
-{elseif $unit[0] == 'тонна'}
-    {set $pricePer = 'тонну'}
-{else}
-    {set $pricePer = $unit[0]}
-{/if}
-
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
-($_pls['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
-
-{* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
-<div data-upakovka="{$_pls['v_upakovke'][0]}"  class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
+<div data-upakovka="{$src['v_upakovke'][0]}"  class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
+
+    {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-list="{$list}"
      data-thing="{$thing}"
 
-     data-priority1="{$_pls['priority1']}"
-     data-priority2="{$_pls['HitsPage']}">
+     data-priority1="{$src['priority1']}"
+     data-priority2="{$src['HitsPage']}">
 
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -154,28 +108,28 @@
                 {set $compositeExtraValues = []}
                 {set $compositeCount = []}
                 {foreach $compositeKeys as $title => $key}
-                    {set $compositeCount[$key] = $_pls[$key] | count}
+                    {set $compositeCount[$key] = $src[$key] | count}
                     {set $info = []}
                     {if $compositeCount[$key] > 1}
-                        {set $compositeValues[$key] = $_pls[$key][0] ~ '...'}
+                        {set $compositeValues[$key] = $src[$key][0] ~ '...'}
 
                         {foreach 1..($compositeCount[$key]-1) as $value}
-                            {set $compositeExtraValues[$key][] = $_pls[$key][$value]}
+                            {set $compositeExtraValues[$key][] = $src[$key][$value]}
                         {/foreach}
                     {else}
-                        {set $compositeValues[$key] = $_pls[$key][0]}
+                        {set $compositeValues[$key] = $src[$key][0]}
                     {/if}
                 {/foreach}
 
                 {* Какие опции будут выводиться *}
-                {if $_pls['context_key'] == 'armatura-178'}
+                {if $src['context_key'] == 'armatura-178'}
                     {set $charsValues = [
-                        $_pls['diametr-mm'][0],
-                        $_pls['dlina-m'][0],
-                        $_pls['surface'][0],
-                        $_pls['massa-1-m-profilya-kg'][0],
-                        $_pls['marka-stali'][0],
-                        $_pls['kolichestvo-metrov-v-1-tonne'][0],
+                        $src['diametr-mm'][0],
+                        $src['dlina-m'][0],
+                        $src['surface'][0],
+                        $src['massa-1-m-profilya-kg'][0],
+                        $src['marka-stali'][0],
+                        $src['kolichestvo-metrov-v-1-tonne'][0],
                     ]}
                     {set $charsHeaders = [
                         'Диаметр, мм',
@@ -185,14 +139,14 @@
                         'Марка стали'
                         'Количество п.м. в 1 тонне'
                     ]}
-                {elseif $_pls['context_key'] == 'pilomat'}
+                {elseif $src['context_key'] == 'pilomat'}
                     {set $charsValues = [
-                        ([$_pls['item_thickness'][0], $_pls['item_width'][0], $_pls['item_length'][0]] | implode : 'x'),
-                        $_pls['vlazhnost'][0],
-                        $_pls['sort'][0],
-                        $_pls['vid-obrabotki'][0],
-                        $_pls['massa'][0],
-                        $_pls['kol-vokub-sh'][0],
+                        ([$src['item_thickness'][0], $src['item_width'][0], $src['item_length'][0]] | implode : 'x'),
+                        $src['vlazhnost'][0],
+                        $src['sort'][0],
+                        $src['vid-obrabotki'][0],
+                        $src['massa'][0],
+                        $src['kol-vokub-sh'][0],
                     ]}
                     {set $charsHeaders = [
                         'Размер',
@@ -205,11 +159,11 @@
                 {else}
                     {set $charsValues = [
                         $primenenie,
-                        $_pls['plotnost'][0],
-                        $_pls['teploprovodnost'][0],
-                        $_pls['ploshad_m2'][0],
-                        $_pls['obyem_m3'][0],
-                        $_pls['v_upakovke'][0],
+                        $src['plotnost'][0],
+                        $src['teploprovodnost'][0],
+                        $src['ploshad_m2'][0],
+                        $src['obyem_m3'][0],
+                        $src['v_upakovke'][0],
                         $pm,
                     ]}
                     {set $charsHeaders = [
