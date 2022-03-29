@@ -1,47 +1,16 @@
-{set $checkItems = $_modx->getPlaceholder('checkItems')}
-
-{* Ключ товара, нужен для добавления товара в корзину *}
-{set $productKey = ($_modx->resource['id'] ~ $_modx->resource['price'] ~ $weight ~ '[]') | md5}
-{* Кол-во товара в корзине *}
-{set $itemInCart = $checkItems['cart'][$_modx->resource['id']]}
-
-{* Основные единицы измерения *}
-{set $pm = $_modx->resource['kolvo-pm'][0]}
-{set $m2 = $_modx->resource['ploshad_m2'][0]}
-{set $m3 = $_modx->resource['obyem_m3'][0]}
-{if $_modx->resource['v_upakovke'][0]? && $price? && $_modx->resource.context_key == 'penoplex'}
-    {set $list = $price * $_modx->resource['v_upakovke'][0]}
-    {set $list = $list | round}
-{/if}
-
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину *}
-{set $condition = ($_modx->resource.context_key in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'krovlya']) &&
-($_modx->resource.parent not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
-
-{* Дополнительные рассчеты цен за единицы измерения для некоторых контекстов *}
-{if $_modx->resource['v_upakovke']? && $_modx->resource.context_key in list ['web', 'penoplex']}
-    {set $m2 = $m2 * $_modx->resource['v_upakovke'][0]}
-    {set $m2 = $m2 | replace : ',' : '.'}
-{/if}
-
-{* Дробное добавление товара в корзину *}
-{set $prodId = $_modx->resource.id}
-{if $_modx->resource.template === 17}
-    {set $extraClass = ' custom-counter_type_fractional'}
-    {set $dataMin = '0.01'}
-{else}
-    {set $extraClass = ''}
-    {set $dataMin = '1'}
-{/if}
+{set $src = $_modx->resource}
+{insert "file:blocks/set-values-for-prod.tpl"}
 
 {* Данные для списков *}
 {set $krovlyaData = 'getLinksData' | snippet}
 
-
-<div class="product-item{if $itemInCart?} product-item-in-cart{/if}" data-m2="{$m2}"
+<div class="product-item{if $itemInCart?} product-item-in-cart{/if}"
+    data-m2="{$m2}"
     data-m3="{$m3}"
     data-pm="{$pm}"
-    data-list="{$list}">
+    data-list="{$list}"
+    data-thing="{$thing}"
+    data-cub="{$cub}">
 
     <div class="product-card__top-line">
         <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
@@ -130,7 +99,7 @@
                             <div class="product-card__units-wrap">
                                 <input type="hidden" name="unit" value="1">
                                 <span class="product-card__unit-span">Цена за</span>
-                                <a class="product-card__unit-link active" href="#" data-val="1">упаковку</a>
+                                <a class="product-card__unit-link active" href="#" data-val="1">{$pricePer}</a>
                                 {if $m2 ?}
                                     <a class="product-card__unit-link" href="#" data-val="2">м2</a>
                                 {/if}
@@ -142,6 +111,12 @@
                                 {/if}
                                 {if $list ?}
                                     <a class="product-card__unit-link" href="#" data-val="5">лист</a>
+                                {/if}
+                                {if $thing ?}
+                                    <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
+                                {/if}
+                                {if $cub ?}
+                                    <a class="product-card__unit-link" href="#" data-val="7">куб</a>
                                 {/if}
                             </div>
                         {else}

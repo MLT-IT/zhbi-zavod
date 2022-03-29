@@ -7,7 +7,7 @@
      data-pm="{$pm}"
      data-list="{$list}"
      data-thing="{$thing}"
-     data-cub="{$kub}">
+     data-cub="{$cub}">
 
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
@@ -49,7 +49,7 @@
                         {if $thing ?}
                             <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
                         {/if}
-                        {if $kub ?}
+                        {if $cub ?}
                             <a class="product-card__unit-link" href="#" data-val="7">куб</a>
                         {/if}
                     </div>

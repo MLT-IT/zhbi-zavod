@@ -1,5 +1,7 @@
 {* Ключ товара, нужен для добавления товара в корзину *}
 {set $productKey = ($src['id'] ~ $src['price'] ~ $weight ~ '[]') | md5}
+{* Информация о кол-ве товара в корзине, есть ли товар в избранном, в сравнении *}
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
 {* Кол-во товара в корзине *}
 {set $itemInCart = $checkItems['cart'][$src['id']]}
 
@@ -34,7 +36,7 @@
 
 {* Единицы измерения для пиломата *}
 {if $src['context_key'] === 'pilomat'}
-    {set $kub = $src['kol-vokub-sh'][0] | replace : ',' : '.'}
+    {set $cub = $src['kol-vokub-sh'][0] | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}
@@ -48,5 +50,15 @@
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178']) &&
+{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat']) &&
 ($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+
+{* Дробное добавление товара в корзину *}
+{set $prodId = $src['id']}
+{if $src['template'] === 17}
+    {set $extraClass = ' custom-counter_type_fractional'}
+    {set $dataMin = '0.01'}
+{else}
+    {set $extraClass = ''}
+    {set $dataMin = '1'}
+{/if}

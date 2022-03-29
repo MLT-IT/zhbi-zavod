@@ -2,20 +2,19 @@
 {if $_modx->getPlaceholder('checkItems') is null}
     {'!checkItems' | snippet}
 {/if}
-{set $checkItems = $_modx->getPlaceholder('checkItems')}
 
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div data-upakovka="{$src['v_upakovke'][0]}"  class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
+<div data-upakovka="{$src['v_upakovke'][0]}" class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
      data-m2="{$m2}"
      data-m3="{$m3}"
      data-pm="{$pm}"
-
-    {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-list="{$list}"
      data-thing="{$thing}"
+     data-cub="{$cub}"
 
+    {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-priority1="{$src['priority1']}"
      data-priority2="{$src['HitsPage']}">
 
@@ -254,6 +253,9 @@
                     {/if}
                     {if $thing ?}
                         <option value="6">штуку</option>
+                    {/if}
+                    {if $cub ?}
+                        <option value="7">куб</option>
                     {/if}
                 </select>
             </div>
