@@ -20,7 +20,7 @@
     {if $_modx->resource.item_thickness is empty}
         {$resources = ''}
     {else}
-        {set $resources = '!msProducts' | snippet : [
+        {set $resources = 'msProducts' | snippet : [
             'parents' => 0,
             'depth' => 50,
             'limit' => 42,
