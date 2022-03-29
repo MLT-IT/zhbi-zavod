@@ -40,7 +40,7 @@
 {/if}
 
 {* Цена за ... *}
-{set $unit = $_modx->resource.unit}
+{set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
     {set $pricePer = 'упаковку'}
 {elseif $unit[0] == 'тонна'}
