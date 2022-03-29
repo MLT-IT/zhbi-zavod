@@ -16,5 +16,9 @@
                 {set $params['where'] = '{"hidemenu:=": 0}'}
             {/if}
 
+            {if $_modx->resource.context_key == 'krovlya'}
+                {set $params['resources'] = '-56941'}
+            {/if}
+
             {'!pdoResources' | snippet : $params}
 </section>
