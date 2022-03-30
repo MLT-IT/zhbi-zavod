@@ -91,7 +91,7 @@
                 Показать информацию
             </span>
             <div class="listing__products-item-chars">
-                {* TODO: вынеси это в сниппет на php. Или в чанк на fenom *}
+                {* TODO: вынеси это в сниппет на php. Или в чанк на fenom. Т.к. здесь этот  огромный кусок кода смотрится не очень *}
                 {* Массив со сложными опциями *}
                 {if $_modx->resource.context_key == 'armatura-178'}
                     {set $compositeKeys = [
@@ -154,6 +154,27 @@
                         'Вид обработки',
                         'Вес, кг',
                         'Кол-во в кубе, шт',
+                    ]}
+                {elseif $src['context_key'] == 'kirpich-m'}
+                    {set $charsValues = [
+                        $src['voidness'][0],
+                        $src['proizvoditel'][0],
+                        $src['razmer-mm'][0],
+                        $src['strength_grade'][0],
+                        $src['pallet_num'][0],
+                        $src['plotnost'][0],
+                        $src['massa'][0],
+                        $src['format'][0],
+                    ]}
+                    {set $charsHeaders = [
+                        'Пустотность',
+                        'Производитель',
+                        'Размер, мм',
+                        'Марка прочности',
+                        'Кол-во на поддоне',
+                        'Плотность, кг/м3',
+                        'Вес, кг',
+                        'Формат',
                     ]}
                 {else}
                     {set $charsValues = [
