@@ -36,7 +36,7 @@ function getActiveUnitValue($productItem) {
         '4': $productItem.attr('data-pm'),
         '5': $productItem.attr('data-list'),
         '6': $productItem.attr('data-thing'),
-        '7': $productItem.attr('data-cub'),
+        '7': $productItem.attr('data-pilomat-thing'),
     };
 
     // Обработка кол-ва единиц измерения

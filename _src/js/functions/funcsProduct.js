@@ -121,11 +121,11 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         const unit = $productItem.find('*[name="unit"]').val();
 
         // Получившееся кол-во
-        if (unit == 7) {
-            count = unitVal * count;
-        } else {
+        // if (unit == 7) {
+        //     count = unitVal * count;
+        // } else {
             count = 1 / unitVal * count;
-        }
+        // }
 
         if ($productItem.find('.custom-counter_type_fractional').length) {
             count = Number((count).toFixed(2));
@@ -152,15 +152,15 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 price = 0;
             }
 
-            if (unit == 7) {
-                price = unitVal * price;
-                if (price > 100) {
-                    let tmp = price % 100;
-                    price = price - tmp;
-                }
-            } else {
+            // if (unit == 7) {
+            //     price = unitVal * price;
+            //     if (price > 100) {
+            //         let tmp = price % 100;
+            //         price = price - tmp;
+            //     }
+            // } else {
                 price = Math.ceil(1 / unitVal * price);
-            }
+            // }
 
             price = Number((price).toFixed(2));
             price = numberWithSpaces(price);

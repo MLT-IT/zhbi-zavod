@@ -7,7 +7,7 @@
      data-pm="{$pm}"
      data-list="{$list}"
      data-thing="{$thing}"
-     data-cub="{$cub}">
+     data-pilomat-thing="{$pilomat_thing}">
 
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
@@ -49,8 +49,8 @@
                         {if $thing ?}
                             <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
                         {/if}
-                        {if $cub ?}
-                            <a class="product-card__unit-link" href="#" data-val="7">куб</a>
+                        {if $pilomat_thing ?}
+                            <a class="product-card__unit-link" href="#" data-val="7">штуку</a>
                         {/if}
                     </div>
                 {else}

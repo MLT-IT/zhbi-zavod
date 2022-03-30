@@ -37,7 +37,7 @@
 
 {* Единицы измерения для пиломата *}
 {if $src['context_key'] === 'pilomat'}
-    {set $cub = $src['kol-vokub-sh'][0] | replace : ',' : '.'}
+    {set $pilomat_thing = $src['kol-vokub-sh'][0] | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}

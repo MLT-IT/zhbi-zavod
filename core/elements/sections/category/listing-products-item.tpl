@@ -12,9 +12,9 @@
      data-pm="{$pm}"
      data-list="{$list}"
      data-thing="{$thing}"
-     data-cub="{$cub}"
+     data-pilomat-thing="{$pilomat_thing}"
 
-    {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
+     {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-priority1="{$src['priority1']}"
      data-priority2="{$src['HitsPage']}">
 
@@ -275,8 +275,8 @@
                     {if $thing ?}
                         <option value="6">штуку</option>
                     {/if}
-                    {if $cub ?}
-                        <option value="7">куб</option>
+                    {if $pilomat_thing ?}
+                        <option value="7">штуку</option>
                     {/if}
                 </select>
             </div>
