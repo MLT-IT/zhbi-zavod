@@ -5,6 +5,22 @@
  * Все настройки в самому верху. Ниже ничего менять не нужно.
  */
 
+
+/*
+$result = $modx->runSnippet('msProducts', [
+    'parents' => 11760,
+    'depth' => 100,
+    'limit' => 0,
+    'sortby' => 'id',
+    'sortdir' => 'ASC',
+    'tpl' => '@INLINE: [[+id]] - цвет: [[+cvet.0]], покрытие: [[+pokrytie.0]], толщина: [[+item_thickness.0]]<br>',
+    'optionFilters' => '{"cvet:=": "RAL 3005", "pokrytie:=":"Atlas"}'
+]);
+
+echo $result;
+*/
+
+
 // ------------------------------------
 // Настройка скрипта
 // ------------------------------------

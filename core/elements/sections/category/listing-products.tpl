@@ -1,15 +1,8 @@
 <div class="listing__products">
     {include "file:sections/category/listing-tags.tpl"}
 
-    {set $tags = $_modx->getPlaceholder('tags')}
-    {set $chipsClass = ''}
-    {if $tags ?}
-        {$_modx->getPlaceholder('tags')}
-        {set $chipsClass = ' above-tags'}
-    {/if}
-
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">
-        <div class="listing__selected{$chipsClass}" id="mse2_selected"></div>
+        <div class="listing__selected" id="mse2_selected"></div>
     </div>
 
     <div class="listing__sort">

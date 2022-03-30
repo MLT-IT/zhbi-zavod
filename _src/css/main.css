@@ -1133,7 +1133,7 @@ button.swiper-pagination-bullet {
 .swiper-container-horizontal > .swiper-scrollbar {
     position: absolute;
     left: 1%;
-    bottom: 3px;
+    bottom: 13px;
     z-index: 50;
     height: 5px;
     width: 98%
@@ -4474,8 +4474,7 @@ a .breadcrumbs__val:hover {
 
 .listing__tags {
     width: 100%;
-    padding-bottom: 20px;
-    margin-bottom: 50px
+    padding-bottom: 30px;
 }
 
 .listing__tags .swiper-scrollbar {
@@ -4518,7 +4517,7 @@ a .breadcrumbs__val:hover {
 }
 
 .listing__tags-item-title {
-    font-size: 12px
+    font-size: .875rem
 }
 
 .header-sticky {

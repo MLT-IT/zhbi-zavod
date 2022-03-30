@@ -3,7 +3,7 @@
         {if $_pls['tv.mainImage']?}
             {set $src = 'phpthumbon' | snippet : [
                 'input' => $_pls['tv.mainImage'],
-                'options' => '&w=100&far=1'
+                'options' => '&w=100&h=69&far=1&bg=ffffff'
             ]}
         {else}
             {set $src = 'assets/images/no_image_small.jpg'}
