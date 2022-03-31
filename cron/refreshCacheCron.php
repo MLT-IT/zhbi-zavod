@@ -1,7 +1,5 @@
 <?php
 
-// TODO: убери "modWebLink", "modSymLink" из обработки
-
 // -------------------------------
 // Основные переменные и константы
 // -------------------------------
@@ -10,6 +8,7 @@ define('START_TIME', time());
 define('PATH_LOGS', __DIR__ . DIRECTORY_SEPARATOR . 'logs');
 define('LIMIT', 1000);
 $message = '';
+$counter = 0;
 
 // Кодировка - если это режим HTTP
 if (!IS_CLI) {
@@ -20,17 +19,6 @@ if (!IS_CLI) {
 echo " ";
 
 output('Начало работы скрипта');
-
-
-// -------------------------------
-// Настройки для отладки
-// -------------------------------
-// Вывод ошибок - если это режим HTTP
-if (!IS_CLI) {
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
-}
 
 
 // -------------------------------
@@ -163,8 +151,8 @@ if (!is_object($modx)) {
 // Временная установка настройки для MODX
 $modx->setOption("syncsite_default", false);
 
-// Формирование запроса на выборку ресурсов. Исключаем sitemap (template 8), поскольку там по умолчанию forceXML, из-за которого срабатывает exit, что прерывает выполнение скрипта
-$where = 'cacheable = 1 AND published = 1 AND deleted = 0 AND template <> 8';
+// Формирование запроса на выборку ресурсов. Исключаем sitemap (template 8), поскольку там по умолчанию forceXML, из-за которого срабатывает exit, что прерывает выполнение скрипта. Также исключаем modWebLink - для него кеш не создается, зачем тратить время и ресурсы на его обработку
+$where = 'cacheable = 1 AND published = 1 AND deleted = 0 AND template <> 8 AND class_key <> modWebLink';
 
 // Получение общего количества
 $query = 'SELECT COUNT(id) FROM ' . $modx->getOption('table_prefix') . 'site_content WHERE ' . $where;
