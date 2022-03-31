@@ -152,7 +152,7 @@ if (!is_object($modx)) {
 $modx->setOption("syncsite_default", false);
 
 // Формирование запроса на выборку ресурсов. Исключаем sitemap (template 8), поскольку там по умолчанию forceXML, из-за которого срабатывает exit, что прерывает выполнение скрипта. Также исключаем modWebLink - для него кеш не создается, зачем тратить время и ресурсы на его обработку
-$where = 'cacheable = 1 AND published = 1 AND deleted = 0 AND template <> 8 AND class_key <> modWebLink';
+$where = 'cacheable = 1 AND published = 1 AND deleted = 0 AND template <> 8 AND class_key <> "modWebLink"';
 
 // Получение общего количества
 $query = 'SELECT COUNT(id) FROM ' . $modx->getOption('table_prefix') . 'site_content WHERE ' . $where;
@@ -178,6 +178,7 @@ for ($offset = 0; $offset < $maxOffset; $offset += LIMIT) {
     foreach ($data as $id) {
         if ($resource = $modx->getObject('modResource', $id)) {
             output('Обработка ресурса с id ' . $id);
+
             cacheRegenerate($resource);
         } else {
             output('Не удалось найти ресурс с id ' . $id);
