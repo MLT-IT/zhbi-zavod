@@ -9,7 +9,7 @@
             {/if}
 
             {set $params = [
-            'element' => '!msProducts',
+            'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
             'suggestionsMaxResults' => 100000,
             'filters' => $_modx->resource.listFilters ?: "",
