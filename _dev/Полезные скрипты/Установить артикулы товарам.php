@@ -1,5 +1,4 @@
 <?php
-
 if (!function_exists('rus2translit')) {
     function rus2translit($string) {
         $converter = [
@@ -36,15 +35,19 @@ if (!function_exists('handleWord')) {
 
 $ids = $modx->runSnippet('pdoResources', [
     'parents' => 0,
-    'depth' => 100,
+    'depth' => 1000,
     'returnIds' => 1,
     'where' => '{"template:=": "6"}',
-    'limit' => 0,
     'sortby' => 'id',
-    'sortdir' => 'ASC'
+    'sortdir' => 'ASC',
+
+    'offset' => 0,
+    'limit' => 10000,
+    'context' => 'krovlya'
 ]);
 
 $ids = explode(',', $ids);
+array_filter($ids);
 
 foreach ($ids as $id) {
     $article = '';
@@ -79,8 +82,10 @@ foreach ($ids as $id) {
 
     $article .= '-' . $id;
 
-    echo 'Для товара с id ' . $id . ' артикул будет таким: ' . $article . '<br>';
+    //echo 'Для товара с id ' . $id . ' артикул будет таким: ' . $article . '<br>';
 
     $prod->set('article', $article);
     $prod->save();
 }
+
+echo 'Конец работы скрипта';
