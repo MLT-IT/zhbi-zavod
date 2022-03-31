@@ -11,7 +11,7 @@
                     {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
                     {set $resources = $_modx->config['popular_ids']}
                 {/if}
-                {'msProducts' | snippet : [
+                {'!msProducts' | snippet : [
                     'parents' => 0,
                     'depth' => 50,
                     'limit' => 42,

@@ -10,7 +10,7 @@
             </div>
             <div class="swiper-container">
                 <div class="swiper-wrapper sect-pop__slider" data-items="{$recentlyViewed | dump}">
-                    {'msProducts' | snippet : [
+                    {'!msProducts' | snippet : [
                     'parents' => 0,
                     'depth' => 100,
                     'limit' => 42,
