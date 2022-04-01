@@ -28,6 +28,10 @@
                         арматуры
                     {elseif $_modx->context.key == 'asconcrete'}
                         асфальтобетона
+                    {elseif $_modx->context.key == 'plitaosb'}
+                        плит ОСБ
+                    {elseif $_modx->context.key == 'pro-fanera'}
+                        фанеры
                     {else}
                         утеплителя {$brand}
                     {/if}

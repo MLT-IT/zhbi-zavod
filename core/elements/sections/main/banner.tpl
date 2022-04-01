@@ -17,6 +17,10 @@
                 <img src="/assets/template/img/banners-full/armatura-178.jpg" class="banner__slide-img">
             {elseif $_modx->resource.context_key == 'asconcrete'}
                 <img src="/assets/template/img/banners-full/asconcrete.jpg" class="banner__slide-img">
+            {elseif $_modx->resource.context_key == 'pro-fanera'}
+                <img src="/assets/template/img/banners-full/pro-fanera.jpg" class="banner__slide-img">
+            {elseif $_modx->resource.context_key == 'plitaosb'}
+                <img src="/assets/template/img/banners-full/plitaosb.jpg" class="banner__slide-img">
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}

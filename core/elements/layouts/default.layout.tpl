@@ -35,6 +35,10 @@
         {set $site_class = 'rockwool armatura-178'}
     {elseif $_modx->resource.context_key == 'asconcrete'}
         {set $site_class = 'rockwool asconcrete'}
+    {elseif $_modx->resource.context_key == 'plitaosb'}
+        {set $site_class = 'rockwool plitaosb'}
+    {elseif $_modx->resource.context_key == 'pro-fanera'}
+        {set $site_class = 'rockwool pro-fanera'}
     {/if}
 
     {* >>> favicon *}
@@ -63,6 +67,10 @@
         {set $micro_title = $micro_title ~ 'арматуры'}
     {elseif $site_context == 'asconcrete'}
         {set $micro_title = $micro_title ~ 'асфальтобетона'}
+    {elseif $site_context == 'plitaosb'}
+        {set $micro_title = $micro_title ~ 'плит ОСБ'}
+    {elseif $site_context == 'pro-fanera'}
+        {set $micro_title = $micro_title ~ 'фанеры'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

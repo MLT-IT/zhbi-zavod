@@ -25,6 +25,12 @@
 {elseif $_modx->resource.context_key == 'pilomat'}
     {set $iword = 'пиломатериалы'}
     {set $rword = 'пиломатериалов'}
+{elseif $_modx->resource.context_key == 'plitaosb'}
+    {set $iword = 'плиты ОСБ'}
+    {set $rword = 'плит ОСБ'}
+{elseif $_modx->resource.context_key == 'pro-fanera'}
+    {set $iword = 'фанеру'}
+    {set $rword = 'фанеры'}
 {/if}
 
 <section class="advantages">

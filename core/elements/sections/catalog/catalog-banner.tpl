@@ -17,6 +17,10 @@
                 арматуры
             {elseif $_modx->context.key == 'asconcrete'}
                 асфальтобетона
+            {elseif $_modx->context.key == 'plitaosb'}
+                плит ОСБ
+            {elseif $_modx->context.key == 'pro-fanera'}
+                фанеры
             {else}
                 утеплителя
             {/if}
@@ -68,6 +72,10 @@
             {set $imgname = 'armatura-178.jpg'}
         {case 'asconcrete'}
             {set $imgname = 'asconcrete.jpg'}
+        {case 'pro-fanera'}
+            {set $imgname = 'pro-fanera.jpg'}
+        {case 'plitaosb'}
+            {set $imgname = 'plitaosb.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

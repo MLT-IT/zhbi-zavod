@@ -116,6 +116,10 @@
                     Получить расчет арматуры бесплатно
                 {elseif $_modx->resource.context_key == 'asconcrete'}
                     Получить расчет асфальтобетона бесплатно
+                {elseif $_modx->resource.context_key == 'pro-fanera'}
+                    Получить расчет фанеры бесплатно
+                {elseif $_modx->resource.context_key == 'plitaosb'}
+                    Получить расчет плит ОСБ бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}
