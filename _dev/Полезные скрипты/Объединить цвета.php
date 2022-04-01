@@ -2,9 +2,9 @@
 // --------------------------------------------
 // Настройки
 // --------------------------------------------
-$oldVal = 'чёрный';
-$newVal = 'черный';
-$targetOption = 'ottenok';
+$oldVal = 'RR21';
+$newVal = 'RR 21';
+$targetOption = 'cvet';
 
 // --------------------------------------------
 // Работа скрипта
@@ -16,12 +16,11 @@ $ids = $modx->runSnippet('msProducts', [
     'sortby' => 'id',
     'sortdir' => 'ASC',
     'innerJoin' => '{"Options":{"class":"msProductOption"}}',
-    'tpl' => '@INLINE [[+id]],',
+    'returnIds' => '1',
     'where' => '{"1":{"Options.key":"' . $targetOption . '","Options.value:=":"' . $oldVal . '"}}',
     'context' => 'krovlya'
 ]);
 
-$ids = trim($ids, " \t\n\r\0\x0B,");
 $ids = explode(',', $ids);
 $ids = array_map(function ($id) {
     return trim($id);
