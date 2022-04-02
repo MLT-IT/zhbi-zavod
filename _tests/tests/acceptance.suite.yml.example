@@ -11,12 +11,13 @@ modules:
 #        url: http://knauf.local/
 
     - \Helper\Acceptance
+    - \Codeception\Module\Asserts
 
     - WebDriver:
         url: 'http://knauf.local/'
         browser: chrome
         capabilities:
           chromeOptions:
-            args: ["--headless", "--disable-gpu"]
+            args: ["--headless", "--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
 
 step_decorators: ~
