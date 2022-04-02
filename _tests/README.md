@@ -2,16 +2,19 @@
 
 ### Установка
 
-Шаг 1. Перейти в папку `_tests`.
-
-Шаг 2. Скачать все пакеты.
+Шаг 1. Скачать все пакеты:
 ```
 composer update
 ```
 
-Шаг 3. Установить codeception.
+Шаг 2. Перейти в папку `_tests`:
 ```
-"vendor/bin/codecept" bootstrap
+cd _tests
+```
+
+Шаг 3. Установить codeception:
+```
+"../vendor/bin/codecept" bootstrap
 ```
 
 Шаг 4. Установить Selenium. Глобально, т.к. Selenium - это программа, а не библиотека. Она может использоваться для разных проектов.
@@ -28,14 +31,18 @@ selenium-standalone install
 
 ### Запуск
 
-Шаг 1. Запускаем Selenium.
+Шаг 1. Запускаем Selenium:
 ```
 selenium-standalone start
 ```
 
-Шаг 2. Запускаем все тесты. Важно, чтобы Chrome был версии, которая соответствует WebDriver (его мы установили командой composer update).
+Шаг 2. Запускаем все тесты. Важно, чтобы Chrome был версии, которая соответствует WebDriver (его мы установили командой composer update):
 ```
-"vendor/bin/codecept" run acceptance --steps
+"../vendor/bin/codecept" run acceptance --steps
+```
+Можно запустить только какой-то один тест:
+```
+"../vendor/bin/codecept" run acceptance --steps CatalogCest:checkFavAndComp
 ```
 
 ### Контексты
@@ -43,9 +50,9 @@ selenium-standalone start
 
 Вот пример запуска тестов на домене `krovlyasp.local`:
 ```
-"vendor/bin/codecept" run acceptance --steps --env krovlyasp
+"../vendor/bin/codecept" run acceptance --steps --env krovlyasp
 ```
 Через `&&` можно объединять команды. И таким образом одной командой запустить тесты сразу на нескольких контекстах. Пример:
 ```
-"vendor/bin/codecept" run acceptance --steps && "vendor/bin/codecept" run acceptance --steps --env krovlyasp && "vendor/bin/codecept" run acceptance --steps --env armatura-178
+"../vendor/bin/codecept" run acceptance --steps && "../vendor/bin/codecept" run acceptance --steps --env krovlyasp && "../vendor/bin/codecept" run acceptance --steps --env armatura-178
 ```
