@@ -7,8 +7,8 @@
 actor: AcceptanceTester
 modules:
   enabled:
-#    - PhpBrowser:
-#        url: http://knauf.local/
+    #    - PhpBrowser:
+    #        url: http://knauf.local/
 
     - \Helper\Acceptance
     - \Codeception\Module\Asserts
@@ -19,5 +19,18 @@ modules:
         capabilities:
           chromeOptions:
             args: ["--headless", "--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
+
+env:
+  krovlyasp:
+    modules:
+      config:
+        WebDriver:
+          url: 'http://krovlyasp.local'
+
+  armatura-178:
+    modules:
+      config:
+        WebDriver:
+          url: 'http://armatura-178.local'
 
 step_decorators: ~
