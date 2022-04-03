@@ -42,7 +42,7 @@ selenium-standalone start
 ```
 Можно запустить только какой-то один тест:
 ```
-"../vendor/bin/codecept" run acceptance --steps CatalogCest:checkFavAndComp
+"../vendor/bin/codecept" run acceptance --steps CatalogCest:checkFavAndCompBtns
 ```
 
 ### Контексты

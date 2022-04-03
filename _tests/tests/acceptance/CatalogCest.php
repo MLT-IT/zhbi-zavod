@@ -53,40 +53,66 @@ class CatalogCest {
     }
 
 
-    public function checkFavBtn(AcceptanceTester $I) {
-        $I->wantTo('Проверка кнопки "Добавить в избранное"');
+    public function checkFavAndCompBtns(AcceptanceTester $I) {
+        $I->wantTo('Проверка кнопок "Добавить в избранное" и "Добавить в сравнение" в чанке');
 
-        // Основные переменные
+        // Существует ли хотя бы один чанк?
         $fstItemSelector = '//div[contains(@class, "listing__products-list")]//div[contains(@class, "listing__products-item")][1]';
         $I->seeElement($fstItemSelector);
 
-        // Получаем id. Этот id будет записываться в куки
+        // Получаем id товара. Этот id будет записываться в куки
         $id = $I->grabValueFrom($this->itemsCssSelector . ' .product-item__ms2-elems .product-item__form-add input[name="id"]');
         if (empty($id)) {
             $I->fail('Не удалось получить id первого товара');
         }
         $I->comment('Id товара равен: ' . $id);
 
-        // Кликаем в чанке по кнопке для добавления товара в избранное
-        $I->click($fstItemSelector . '//*[contains(@class, "listing__products-item-btn-compare")]');
+        // Определяем переменные для цикла
+        $keys = [
+            'fav' => 'избранное',
+            'comp' => 'сравнение'
+        ];
 
-        // Смотрим, изменился ли класс
-        $I->seeElement($fstItemSelector . '//*[contains(@class, "listing__products-item-btn-compare") and contains(@class, "active")]');
+        // Поскольку действия для проверки кнопок добавления в избранное и сравнение одинаковые, делаем их в цикле
+        foreach ($keys as $k => $val) {
+            $I->comment('Проверка кнопки "Добавить в '. $val.'"');
 
-        // Получаем куки
-        $cookie = $I->grabCookie('compIds');
-        if (empty($cookie)) {
-            $I->fail('Не установилась куки при щелчке по кнопке для добавления товара в Избранное');
+            // Пробуем добавить товар
+            $I->click($fstItemSelector . '//span[contains(@class, "listing__products-item-btn-' . $k . '")]');
+
+            // Смотрим, изменился ли класс
+            $I->seeElement($fstItemSelector . '//span[contains(@class, "listing__products-item-btn-' . $k . '") and contains(@class, "active")]');
+
+            // Проверяем куки
+            $cookie = $I->grabCookie($k . 'Ids');
+            if (empty($cookie)) {
+                $I->fail('Не установилась куки при щелчке по кнопке для добавления товара в ' . $val);
+            }
+            $I->comment('Куки равна: ' . $cookie);
+
+            // Сравниваем id и куки
+            if ($id != $cookie) {
+                $I->fail('id не равен cookie');
+            }
+
+            // Смотрим, изменилось ли количество товара на кнопке в шапке
+            $val = $I->grabTextFrom('//span[contains(@class, "header__' . $k . '-value")]');
+            if ($val == 0) {
+                $I->fail('Не изменилось кол-во товара на кнопке в шапке');
+            }
+
+            // Попробуем удалить товар из избранного
+            $I->click($fstItemSelector . '//*[contains(@class, "listing__products-item-btn-' . $k . '")]');
+
+            // Смотрим, изменился ли класс
+            $I->dontSeeElement($fstItemSelector . '//*[contains(@class, "listing__products-item-btn-' . $k . '") and contains(@class, "active")]');
+
+            // Проверяем куки
+            $cookie = $I->grabCookie($k . 'Ids');
+            if (!empty($cookie)) {
+                $I->fail('Не удалилась куки при щелчке по кнопке для удаления товара в ' . $val);
+            }
         }
-        $I->comment('Куки равна: ' . $cookie);
-
-        // Сравниваем id и куки
-        if ($id != $cookie) {
-            $I->fail('id не равен cookie');
-        }
-
-        // Попробуем удалить из избранного
-
     }
 
 }
