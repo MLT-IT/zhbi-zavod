@@ -51,7 +51,7 @@
                              alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
                     {/if}
                     {/var}
-                    <tr id="{$product.key}" class="cart-table__table-row cart-table__table-row_type_product">
+                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product">
                         <td class="title cart-table__table-cell">
                                 {if $product.id?}
                                     <a class="cart-table__img-wrap" href="{$product.id | url}">{$image}</a>
@@ -78,10 +78,10 @@
                             <form method="post" class="cart-table__form ms2_form" role="form">
                                 <input type="hidden" name="key" value="{$product.key}"/>
                                     <div class="custom-counter cart-table__custom-counter">
-                                        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+                                        <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
                                         <input name="count" class="custom-counter__amount{if $product.isFractional} custom-counter_type_fractional{/if}"
                                                value="{$product.count}">
-                                        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+                                        <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                                     </div>
                                 <button class="btn btn-sm" type="submit" name="ms2_action" value="cart/change"></button>
                             </form>

@@ -13,17 +13,17 @@
 
 <div class="product-item__controls product-item__controls_action_add">
     <div class="custom-counter product-item__custom-counter{$extraClass}">
-        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
-        <input name="count" class="custom-counter__amount product-item__precount" value="1" data-min="{$dataMin}">
-        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+        <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
+        <input name="count" class="custom-counter__amount" value="1" data-min="{$dataMin}">
+        <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
     </div>
-    <a href="#" type="submit" class="product-item__btn-in-cart product-item__to-cart">В корзину</a>
+    <span class="product-item__btn-in-cart product-item__to-cart">В корзину</span>
 </div>
 <div class="product-item__controls product-item__controls_action_change">
     <div class="custom-counter product-item__custom-counter{$extraClass}">
-        <a href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</a>
+        <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
         <input name="count" class="custom-counter__amount" value="{$itemInCart?:0}">
-        <a href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</a>
+        <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
     </div>
     <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>
 </div>

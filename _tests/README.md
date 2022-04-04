@@ -56,3 +56,15 @@ selenium-standalone start
 ```
 "../vendor/bin/codecept" run acceptance --steps && "../vendor/bin/codecept" run acceptance --steps --env krovlyasp && "../vendor/bin/codecept" run acceptance --steps --env armatura-178
 ```
+
+### Написание тестов
+Если во время написания теста что-то не получается, можно включить полноценный режим проверки - чтобы открывалось окно браузера и были видны действия, которые в нем происходят. 
+
+Для этого в файле `acceptance.suite.yml` нужно подправить эту строку:
+```
+args: ["--headless", "--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
+```
+Нужно убрать из нее `"--headless", ` После правок она будет выглядеть так:
+```
+args: ["--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
+```
