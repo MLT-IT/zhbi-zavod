@@ -103,6 +103,13 @@
 
         <div class="product-card__info-left">
             {include "file:chunks/productElems.tpl"}
+
+            {if $_modx->resource.context_key === 'kirpich-m' && $_modx->resource['pallet_num'][0] ?}
+                <div class="product-card__saleinfo">
+                    На поддоне: {$_modx->resource['pallet_num'][0]} шт.
+                </div>
+            {/if}
+
             <button data-fancybox="" href="#callback" class="product-card__buy white-btn">
                 {if $_modx->resource.context_key == 'krovlya'}
                     Получить расчет кровли бесплатно
