@@ -2,12 +2,6 @@
     <div class="wrapper">
         <div class="listing__content" id="mse2_mfilter">
 
-            {if $_modx->resource.context_key === 'krovlya'}
-                {set $tpl = 'filterCheckboxKrovlya.tpl'}
-            {else}
-                {set $tpl = 'filterCheckbox.tpl'}
-            {/if}
-
             {set $params = [
             'element' => 'msProducts',
             'suggestionsMaxFilters' => 2000,
