@@ -77,7 +77,7 @@
             </a>
 
             {* Кнопки фильтров *}
-            {if $_modx->resource.context_key !== 'krovlya'}
+            {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
                 {foreach $menu as $key => $nevermind}
                     <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$key}" class="header__mobile-menu-link header__nav-link">{$key}</span></span>
                 {/foreach}
@@ -85,11 +85,17 @@
                 {foreach $menu as $column}
                     {foreach $column as $items}
                         {if $items.children | count > 0}
-                        <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$items.name}" class="header__mobile-menu-link header__nav-link">{$items.name}</span></span>
+                            <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$items.name}" class="header__mobile-menu-link header__nav-link">{$items.name}</span></span>
                         {else}
-                            <a class="header__nav-item" href="{$items.uri}">
-                                <span class="header__nav-link">{$items.name}</span>
-                            </a>
+                            {if $items.uri ?}
+                                <a class="header__nav-item" href="{$items.uri}">
+                                    <span class="header__nav-link">{$items.name}</span>
+                                </a>
+                            {else}
+                                <span class="header__nav-item">
+                                    <span class="header__nav-link">{$items.name}</span>
+                                </span>
+                            {/if}
                         {/if}
                     {/foreach}
                 {/foreach}
@@ -97,7 +103,7 @@
         </div>
 
         {* Остальные вкладки (Фильтры) *}
-        {if $_modx->resource.context_key !== 'krovlya'}
+        {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
             {foreach $menu as $key => $menuTypes}
                 {* Вкладки *}
                 <div class="header__nav-content" data-key="{$key}">
