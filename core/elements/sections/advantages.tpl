@@ -26,8 +26,8 @@
     {set $iword = 'пиломатериалы'}
     {set $rword = 'пиломатериалов'}
 {elseif $_modx->resource.context_key == 'plitaosb'}
-    {set $iword = 'плиты ОСБ'}
-    {set $rword = 'плит ОСБ'}
+    {set $iword = 'плитные материалы'}
+    {set $rword = 'плитных материалов'}
 {elseif $_modx->resource.context_key == 'pro-fanera'}
     {set $iword = 'фанеру'}
     {set $rword = 'фанеры'}
