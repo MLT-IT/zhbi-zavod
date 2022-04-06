@@ -71,7 +71,7 @@
                         <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
                         {set $menu = 'createMenu' | snippet}
 
-                        {if $_modx->resource.context_key !== 'krovlya'}
+                        {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
                             {foreach $menu as $key => $menuTypes}
                                 <div class="header__catalog-menu-type">
                                     <p class="header__column-header">{$key}</p>
@@ -95,7 +95,14 @@
                                 <div class="header__catalog-menu-type">
                                     {foreach $column as $items}
                                         <div class="header__column">
-                                        <p class="header__column-header"><a href="{$items.uri}">{$items.name}</a></p>
+                                            <p class="header__column-header">
+                                                {if $items.uri ?}
+                                                    <a href="{$items.uri}">{$items.name}</a>
+                                                {else}
+                                                    <span>{$items.name}</span>
+                                                {/if}
+                                            </p>
+
                                             <div class="header__columns-wrap">
                                                 <div class="header__column-items-wrap">
                                                     {foreach $items.children as $item}
