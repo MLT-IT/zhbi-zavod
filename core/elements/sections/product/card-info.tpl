@@ -61,7 +61,7 @@
                     <div class="product-card__price-and-logo">
                         <span class="product-card__price-wrap">
                             <span itemprop="price" class="product-item__price"
-                                  data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' '}</span>
+                                  data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}</span>
                             <meta itemprop="priceCurrency" content="RUB">
                             руб
 
@@ -79,6 +79,14 @@
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
                         <div class="product-card__package">В упаковке: {$upakovka}</div>
+                    {/if}
+                {/if}
+
+                {if $_modx->resource.context_key === 'kirpich-m' && $_modx->resource['pallet_num'][0] ?}
+                    {set $pricePerPallet = ($_modx->resource['pallet_num'][0] * $_modx->resource.price) | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+
+                    {if $pricePerPallet > 0}
+                        <div class="product-card__package">Цена за поддон: {$pricePerPallet} руб</div>
                     {/if}
                 {/if}
             </div>
