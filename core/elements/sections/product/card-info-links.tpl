@@ -5,13 +5,11 @@
 {set $krovlyaData = 'getLinksData' | snippet}
 
 <div class="product-item{if $itemInCart?} product-item-in-cart{/if}"
-    data-m2="{$m2}"
-    data-m3="{$m3}"
-    data-pm="{$pm}"
-    data-list="{$list}"
-    data-thing="{$thing}"
-    data-pilomat-thing="{$pilomat_thing}">
-
+    {* Выводим data-атрибуты *}
+    {foreach $itemUnits as $key => $val}
+        data-{$key}="{$val['val']}"
+    {/foreach}
+>
     <div class="product-card__top-line">
         <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
         <div class="product-card__availability">
@@ -100,24 +98,9 @@
                                 <input type="hidden" name="unit" value="1">
                                 <span class="product-card__unit-span">Цена за</span>
                                 <a class="product-card__unit-link active" href="#" data-val="1">{$pricePer}</a>
-                                {if $m2 ?}
-                                    <a class="product-card__unit-link" href="#" data-val="2">м2</a>
-                                {/if}
-                                {if $m3 ?}
-                                    <a class="product-card__unit-link" href="#" data-val="3">м3</a>
-                                {/if}
-                                {if $pm ?}
-                                    <a class="product-card__unit-link" href="#" data-val="4">п.м.</a>
-                                {/if}
-                                {if $list ?}
-                                    <a class="product-card__unit-link" href="#" data-val="5">лист</a>
-                                {/if}
-                                {if $thing ?}
-                                    <a class="product-card__unit-link" href="#" data-val="6">штуку</a>
-                                {/if}
-                                {if $pilomat_thing ?}
-                                    <a class="product-card__unit-link" href="#" data-val="7">штуку</a>
-                                {/if}
+                                {foreach $itemUnits as $val}
+                                    <a class="product-card__unit-link" href="#" data-val="{$val['id']}">{$val['title']}</a>
+                                {/foreach}
                             </div>
                         {else}
                             <input type="hidden" name="unit" value="1">

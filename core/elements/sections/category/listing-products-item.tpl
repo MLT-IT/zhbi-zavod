@@ -3,21 +3,20 @@
     {'!checkItems' | snippet}
 {/if}
 
+{* Устанавливаем переменные для чанка *}
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div data-upakovka="{$src['v_upakovke'][0]}" class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
-     data-m2="{$m2}"
-     data-m3="{$m3}"
-     data-pm="{$pm}"
-     data-list="{$list}"
-     data-thing="{$thing}"
-     data-pilomat-thing="{$pilomat_thing}"
+<div class="not-init product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}"
+    {* Выводим data-атрибуты *}
+    {foreach $itemUnits as $key => $val}
+        data-{$key}="{$val['val']}"
+    {/foreach}
 
      {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-priority1="{$src['priority1']}"
-     data-priority2="{$src['HitsPage']}">
-
+     data-priority2="{$src['HitsPage']}"
+>
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
             <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image_small.jpg'}" alt="{$pagetitle}">
@@ -260,24 +259,9 @@
                 <span class="product-item__selprice-span">Цена за</span>
                 <select name="unit" class="custom-select product-item__units-select">
                     <option value="1" selected>{$pricePer}</option>
-                    {if $m2 ?}
-                        <option value="2">м2</option>
-                    {/if}
-                    {if $m3 ?}
-                        <option value="3">м3</option>
-                    {/if}
-                    {if $pm ?}
-                        <option value="4">п.м.</option>
-                    {/if}
-                    {if $list ?}
-                        <option value="5">лист</option>
-                    {/if}
-                    {if $thing ?}
-                        <option value="6">штуку</option>
-                    {/if}
-                    {if $pilomat_thing ?}
-                        <option value="7">штуку</option>
-                    {/if}
+                    {foreach $itemUnits as $val}
+                        <option value="{$val['id']}">{$val['title']}</option>
+                    {/foreach}
                 </select>
             </div>
         {else}

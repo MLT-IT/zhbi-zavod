@@ -40,6 +40,13 @@
     {set $pilomat_thing = $src['kol-vokub-sh'][0] | replace : ',' : '.'}
 {/if}
 
+{* Единицы измерения для кирпича *}
+{if $src['context_key'] === 'kirpich-m'}
+    {set $k_m3seamless = $src['k_m3seamless'][0] | replace : ',' : '.'}
+    {set $k_m3seam = $src['k_m3seam'][0] | replace : ',' : '.'}
+    {set $k_m2seam = $src['k_m2seam'][0] | replace : ',' : '.'}
+{/if}
+
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
@@ -51,7 +58,7 @@
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat']) &&
+{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m']) &&
 ($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дробное добавление товара в корзину *}
@@ -62,4 +69,31 @@
 {else}
     {set $extraClass = ''}
     {set $dataMin = '1'}
+{/if}
+
+{* Установка itemUnits *}
+{set $itemUnits = []}
+{if $m2?}
+    {set $itemUnits['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2']}
+{/if}
+{if $m3?}
+    {set $itemUnits['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3']}
+{/if}
+{if $pm?}
+    {set $itemUnits['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4']}
+{/if}
+{if $list?}
+    {set $itemUnits['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5']}
+{/if}
+{if $thing?}
+    {set $itemUnits['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6']}
+{/if}
+{if $pilomat_thing?}
+    {set $itemUnits['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7']}
+{/if}
+{if $k_m2seam?}
+    {set $itemUnits['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8']}
+{/if}
+{if $k_m3seam?}
+    {set $itemUnits['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9']}
 {/if}
