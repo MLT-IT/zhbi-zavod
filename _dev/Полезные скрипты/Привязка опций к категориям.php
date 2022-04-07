@@ -1,22 +1,36 @@
 <?php
 
+// ------------------------------------------
+// Основные настройки
+// ------------------------------------------
+// id опции, которую будем привязывать к категориям
+$optId = 624;
+//$optId = 623;
+//$optId = 625;
+
+// Корневая категория для поиска других категорий
+$rootCatId = 18986;
+
+// Контекст
+$context = 'kirpich-m';
+
+
+// ------------------------------------------
+// Работа скрипта
+// ------------------------------------------
 $miniShop2 = $modx->getService('miniShop2'); // Сам MiniShop2
 
-// Оттенок
-$optId = 108;
-
-// Выбираем все категории
+// Выбираем категории, к которым надо привязать опцию
 $catIds = $modx->runSnippet('pdoResources', [
-    'parents' => 0,
+    'parents' => $rootCatId,
     'limit' => 0,
-    'depth' => 0,
+    'depth' => 1000,
     'returnIds' => 1,
     'where' => '{"template:=":"5"}',
-    'context' => 'krovlya'
+    'context' => $context
 ]);
 
 $catIds = explode(',', $catIds);
-
 foreach ($catIds as $cId) {
     $values = [
         'option_id' => $optId,
@@ -44,6 +58,8 @@ foreach ($catIds as $cId) {
         }
         $message .= 'при создании ';
     }
-    $message .= 'опции для категории с id ' . $cId . '<br>';
+    $message .= 'привязки опции для категории с id ' . $cId . '<br>';
     echo $message;
 }
+
+echo 'Конец работы скрипта';
