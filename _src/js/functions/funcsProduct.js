@@ -35,32 +35,37 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     $(document).on('change', '.product-item .custom-counter__amount', function (e) {
         e.preventDefault();
-        changeCountItemInCart();
+        changeCountItemInCart($(this).closest('.product-item'));
     });
 
 
     // -------------------------------
     // Изменить кол-во товара в корзине
     // -------------------------------
-    function changeCountItemInCart() {
-        // Основные переменные
-        let $this = $(this);
-        let $productItem = $this.closest('.product-item');
-
-        // Кол-во товара
-        let count = $this.val();
-        count = getItemCount($productItem, count);
+    function changeCountItemInCart($productItem, forbidZero) {
+        forbidZero = typeof forbidZero !== 'undefined' ?  forbidZero : false;
 
         let $form;
         let inCart = false;
+        let $amount;
 
         if ($productItem.hasClass('product-item-in-cart')) {
             // Товар уже в корзине, нужно изменить кол-во
             $form = $productItem.find('.product-item__form-change');
             inCart = true;
+            $amount = $productItem.find('.product-item__controls_action_change .custom-counter__amount');
         } else {
             // Товара нет в корзине
             $form = $productItem.find('.product-item__form-add');
+            $amount = $productItem.find('.product-item__controls_action_add .custom-counter__amount');
+        }
+
+        // Кол-во товара
+        let count = $amount.val();
+        count = getItemCount($productItem, count);
+
+        if (forbidZero && count === 0) {
+            count = 1
         }
 
         // Установить кол-ва товара
@@ -74,8 +79,8 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             // Если кол-во равно нулю
             if (count === 0) {
                 let $elemsAdd = $productItem.find('.product-item__controls_action_add');
-                // trigger change нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                $elemsAdd.find('[name="count"]').val(1).trigger('change');
+                // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
+                $elemsAdd.find('[name="count"]').val(1).trigger('refreshInput');
                 // Удаление класса, что товар этой карточки в корзине
                 $productItem.removeClass('product-item-in-cart');
             }
@@ -126,7 +131,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         calcPrice($productItem);
 
         // Пересчитываем кол-во товара в корзине
-        changeCountItemInCart();
+        changeCountItemInCart($productItem, true);
 
         // Вызываем событие о том, что у товара изменилась ед. измерения
         $productItem.trigger('changeUnit');

@@ -347,7 +347,6 @@ $(function ($) {
             // Если находится в кирпичах, то вешаем обработчик на смену единиц измерения
             if ($('body.kirpich-m').length) {
                 $item.on('changeUnit', function() {
-                    console.log('changeUnit handler!');
                 });
             }
 

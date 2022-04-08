@@ -32,10 +32,10 @@ let methods = {
             let events
             switch (settings.event) {
                 case 'change':
-                    events = 'change select contextmenu drop';
+                    events = 'change select contextmenu drop refreshInput';
                     break;
                 case 'input':
-                    events = 'change input keydown keyup mousedown mouseup select contextmenu drop';
+                    events = 'change input keydown keyup mousedown mouseup select contextmenu drop refreshInput';
                     break;
             }
 
