@@ -63,6 +63,8 @@ $(function () {
         window.getRemainder();
         window.initStyledCounter();
         catalogH1FromGetParams();
+
+        // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
         // window.catalogSortFilters();
     });
 

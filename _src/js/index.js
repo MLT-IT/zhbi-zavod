@@ -6,13 +6,13 @@ import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 // Модули
 import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
-import mapsLazyload from './modules/lazyload_maps'
-import add_cover_to_map from './modules/maps'
+import mapsLazyload from './modules/lazyload_maps';
+import add_cover_to_map from './modules/maps';
 
 window.jQuery = $;
 window.$ = $;
@@ -79,7 +79,7 @@ $(function ($) {
     let $map_containers = $('.map__container');
     $map_containers.each((idx, map_container) => {
         add_cover_to_map(map_container);
-    })
+    });
 
 
     // -------------------------------
@@ -204,9 +204,9 @@ $(function ($) {
                 $parent.find('.euv-custom-select__input-value').attr('data-val', val);
             }
             $selectColors.on('euv_custom_select_init', function () {
-                selectColorsOnChange({target: $selectColors[0]})
+                selectColorsOnChange({target: $selectColors[0]});
             });
-        })
+        });
 
         // -------------------------------
         // Мобильный стилизованный список на странице товара для кровли
@@ -279,11 +279,11 @@ $(function ($) {
                 if (!isNaN(minVal)) {
                     filter = function (value) {
                         return regexp.test(value) && (parseFloat(value) >= minVal);
-                    }
+                    };
                 } else {
                     filter = function (value) {
                         return regexp.test(value);
-                    }
+                    };
                 }
                 $this.inputFilter(filter);
 
@@ -344,9 +344,18 @@ $(function ($) {
                 });
             }
 
+            // Если находится в кирпичах, то вешаем обработчик на смену единиц измерения
+            if ($('body.kirpich-m').length) {
+                $item.on('changeUnit', function() {
+                    console.log('changeUnit handler!');
+                });
+            }
+
+
+            // Удаляем у чанка класс о том, что чанк еще НЕ ИНИЦИАЛИЗИРОВАН
             $item.removeClass('not-init');
         });
-    }
+    };
     window.initStyledCounter();
 
     // -------------------------------

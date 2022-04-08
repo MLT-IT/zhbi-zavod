@@ -9,6 +9,9 @@
     {set $pricePer = $unit[0]}
 {/if}
 
+{* Цена для красивого вывода *}
+{set $outputPrice = $_pls['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+
 <div class="not-init pop-slide comp-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
@@ -54,7 +57,7 @@
             <div class="listing__products-item-price">
                 <div class="listing__products-item-price-wrap">
                     {if $price}
-                        <span class="product-item__price" data-default="{$defaultPrice}">{$outputPrice}</span>
+                        <span class="product-item__price">{$outputPrice}</span>
                         руб
                     {/if}
 

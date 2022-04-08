@@ -35,6 +35,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     $(document).on('change', '.product-item .custom-counter__amount', function (e) {
         e.preventDefault();
+        changeCountItemInCart();
+    });
+
+
+    // -------------------------------
+    // Изменить кол-во товара в корзине
+    // -------------------------------
+    function changeCountItemInCart() {
         // Основные переменные
         let $this = $(this);
         let $productItem = $this.closest('.product-item');
@@ -43,15 +51,6 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let count = $this.val();
         count = getItemCount($productItem, count);
 
-        // Изменить количество товара
-        changeItemInCart($productItem, count);
-    });
-
-
-    // -------------------------------
-    // Изменить кол-во товара в корзине
-    // -------------------------------
-    function changeItemInCart($productItem, count) {
         let $form;
         let inCart = false;
 
@@ -119,12 +118,18 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Обработчик списка в карточках для смены ед. измерения
     // -------------------------------
-    $(document).on('change', '.product-item__units-select', function (e) {
+    $(document).on('change', 'select.product-item__units-select', function (e) {
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
+
+        // Меняем цену
         calcPrice($productItem);
 
+        // Пересчитываем кол-во товара в корзине
+        changeCountItemInCart();
 
+        // Вызываем событие о том, что у товара изменилась ед. измерения
+        $productItem.trigger('changeUnit');
     });
 
 
@@ -191,7 +196,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             // Работа с мини-корзиной
             handleMiniCart(response.data.total_count, response.data.total_cost);
         }
-    }
+    };
 
     // Удаление товара из корзины. Вызывается при нажатии на крестик на странице корзины
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
@@ -201,7 +206,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
             checkCart(response.data.total_cost);
         }
-    }
+    };
 
     // Изменение товара в корзине. Вызывается при изменении кол-ва товара на странице корзины
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
@@ -211,7 +216,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
             checkCart(response.data.total_cost);
         }
-    }
+    };
 
     function checkCart(total_count) {
         // Если товаров в корзине 0. И если мы на странице корзины. То перезагружаем страницу
@@ -229,12 +234,17 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         $('.product-card__unit-link').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
+            let $productItem = $this.closest('.product-item');
+
             $('.product-card__unit-link.active').removeClass('active');
             $this.addClass('active');
             $('[name="unit"]').val($this.attr('data-val'));
 
             // Обработчик кнопки на странице товара для смены ед. измерения
-            calcPrice($this.closest('.product-item'));
+            calcPrice($productItem);
+
+            // Вызываем событие о том, что у товара изменилась ед. измерения
+            $productItem.trigger('changeUnit');
         });
 
         // Вкладки на мобилках
