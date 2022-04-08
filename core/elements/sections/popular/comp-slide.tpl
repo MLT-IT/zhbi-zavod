@@ -54,7 +54,7 @@
             <div class="listing__products-item-price">
                 <div class="listing__products-item-price-wrap">
                     {if $price}
-                        <span class="product-item__price" data-default="{$price}">{$price}</span>
+                        <span class="product-item__price" data-default="{$defaultPrice}">{$outputPrice}</span>
                         руб
                     {/if}
 

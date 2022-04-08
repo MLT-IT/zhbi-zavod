@@ -44,7 +44,7 @@
                     <div class="product-card__price-and-logo">
                         <span class="product-card__price-wrap">
                             <span itemprop="price" class="product-item__price"
-                                  data-default="{$_modx->resource['price']}">{$_modx->resource['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}</span>
+                                  data-default="{$defaultPrice}">{$outputPrice}</span>
                             <meta itemprop="priceCurrency" content="RUB">
                             руб
 

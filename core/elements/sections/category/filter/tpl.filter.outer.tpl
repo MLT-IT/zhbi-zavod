@@ -26,6 +26,10 @@
         {set $keyClass = 'cvet'}
 {/switch}
 
+{if $key === 'msoption|brand' && $_modx->resource.context_key === 'kirpich-m'}
+    {set $dontActive = true}
+{/if}
+
 <div class="listing__filter-block{if $keyClass?} filter_type_{$keyClass}{/if}{if $dontActive?}{else} active{/if}" id="mse2_{$key}">
     <div class="listing__filter-block-header">
         <div class="listing__filter-block-title filter_title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}</div>

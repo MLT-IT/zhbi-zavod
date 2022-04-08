@@ -15,6 +15,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }, 300);
     });
 
+
     // -------------------------------
     // Приближение при наведении на картинку
     // -------------------------------
@@ -27,6 +28,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             offset: {vertical: 0, horizontal: 10},
         });
     }
+
 
     // -------------------------------
     // Обработчик счетчика на товарах
@@ -41,9 +43,18 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let count = $this.val();
         count = getItemCount($productItem, count);
 
-        // Определение формы
+        // Изменить количество товара
+        changeItemInCart($productItem, count);
+    });
+
+
+    // -------------------------------
+    // Изменить кол-во товара в корзине
+    // -------------------------------
+    function changeItemInCart($productItem, count) {
         let $form;
         let inCart = false;
+
         if ($productItem.hasClass('product-item-in-cart')) {
             // Товар уже в корзине, нужно изменить кол-во
             $form = $productItem.find('.product-item__form-change');
@@ -53,7 +64,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             $form = $productItem.find('.product-item__form-add');
         }
 
-        // Установка кол-ва товара
+        // Установить кол-ва товара
         $form.find('[name="count"]').val(count);
 
         // Если товар в корзине, то...
@@ -64,13 +75,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             // Если кол-во равно нулю
             if (count === 0) {
                 let $elemsAdd = $productItem.find('.product-item__controls_action_add');
-                // trigger input нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                $elemsAdd.find('[name="count"]').val(1).trigger('input');
+                // trigger change нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
+                $elemsAdd.find('[name="count"]').val(1).trigger('change');
                 // Удаление класса, что товар этой карточки в корзине
                 $productItem.removeClass('product-item-in-cart');
             }
         }
-    });
+    }
+
 
     // -------------------------------
     // Обработчик кнопки для добавления товара в корзину
@@ -103,6 +115,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         $productItem.addClass('product-item-in-cart');
     });
 
+
     // -------------------------------
     // Обработчик списка в карточках для смены ед. измерения
     // -------------------------------
@@ -110,7 +123,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
         calcPrice($productItem);
+
+
     });
+
 
     // -------------------------------
     // Получить кол-во товара, которое будет добавлено в корзину
@@ -136,6 +152,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Результат
         return count;
     }
+
 
     // -------------------------------
     // Функция для смены цены в соответствии с ед. измерения
@@ -163,6 +180,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             $price.text(price);
         }
     }
+
 
     // -------------------------------
     // Обработчики Minishop2
@@ -202,6 +220,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
     }
 
+
     // -------------------------------
     // Работа со страницей товара
     // -------------------------------
@@ -238,6 +257,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             $('.product-card__tabs-button:nth-child(' + index + ')').addClass('active');
         });
     }
+
 
     // -------------------------------
     // Мини-корзина в шапке сайта

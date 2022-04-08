@@ -42,6 +42,7 @@ export default function funcsCatalog() {
             $items.appendTo($container);
         });
     }
+    // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
     // window.catalogSortFilters();
 
     // -------------------------------------------

@@ -35,6 +35,7 @@ $(function ($) {
     funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
+
     // -------------------------------
     // Меню на ПК
     // -------------------------------
@@ -51,7 +52,8 @@ $(function ($) {
         if (!$target.hasClass('header__catalog') && !$target.closest('.header__catalog').length) {
             $('.header__catalog.hover').removeClass('hover');
         }
-    })
+    });
+
 
     // -------------------------------
     // Меню на мобилках
@@ -70,6 +72,7 @@ $(function ($) {
         }, 300);
     });
 
+
     // -------------------------------
     // Запрет прокрутки карты до клика
     // -------------------------------
@@ -77,6 +80,7 @@ $(function ($) {
     $map_containers.each((idx, map_container) => {
         add_cover_to_map(map_container);
     })
+
 
     // -------------------------------
     // Вкладки
@@ -95,6 +99,7 @@ $(function ($) {
         });
     });
 
+
     // -------------------------------
     // Скрыть / показать кнопки слайдера
     // -------------------------------
@@ -105,6 +110,7 @@ $(function ($) {
             $this.show();
         }
     });
+
 
     // -------------------------------
     // Из какой формы отправили? Это костыль. По-хорошему надо делать через api fancybox. Но fancybox минифицирован
@@ -124,17 +130,20 @@ $(function ($) {
         }
     });
 
+
     // -------------------------------
     // Яндекс карты
     // -------------------------------
     window.initDistrictsMap = initDistrictsMap;
     mapsLazyload();
 
+
     // -------------------------------
     // Стилизованный скроллбар
     // -------------------------------
     // Это лучше сделать через Swiper. Пример: https://codesandbox.io/s/o0uzz?file=/index.html:8994-9227 . Но актуальных исходников нет
     $('.js-custom-scrollbar').overlayScrollbars({});
+
 
     // -------------------------------
     // Подмена Email'а
@@ -180,7 +189,7 @@ $(function ($) {
         // -------------------------------
         // Стилизованный список на странице товара для кровли
         // -------------------------------
-        $select.each(function() {
+        $select.each(function () {
             let $this = $(this);
             let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
 
@@ -226,7 +235,7 @@ $(function ($) {
                 // Установка текста
                 $item.text($child.text());
                 // Установка href
-                $item.attr('href',  $child.attr('href'));
+                $item.attr('href', $child.attr('href'));
                 // Установка атрибут для цвета
                 $item.attr('data-val', $child.attr('data-val'));
 
@@ -248,7 +257,7 @@ $(function ($) {
     // -------------------------------
     // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
-        $('.not-init.listing__products-item, .product-card .product-item, .cart-table__table-row_type_product').each(function() {
+        $('.not-init.listing__products-item, .product-card .product-item, .cart-table__table-row_type_product').each(function () {
             // Основные переменные
             let $item = $(this);
             let $counterInput = $item.find('.custom-counter__amount');
@@ -288,15 +297,25 @@ $(function ($) {
             $item.find('.custom-counter__btn').on('click', function (e) {
                 e.preventDefault();
                 let $this = $(this);
-                let $inputValue = $this.closest('.custom-counter').find('.custom-counter__amount');
+                let $counter = $this.closest('.custom-counter');
+                let $inputValue = $counter.find('.custom-counter__amount');
+
+                let step = 1;
+                let dataStep = $counter.attr('data-step');
+                if (typeof dataStep !== 'undefined') {
+                    dataStep = parseFloat(dataStep);
+                    if (!isNaN(dataStep) && dataStep > 0) {
+                        step = dataStep;
+                    }
+                }
 
                 let val = parseInt($inputValue.val());
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):
-                        val--;
+                        val -= step;
                         break;
                     case $this.hasClass('custom-counter__btn_dir_more'):
-                        val++;
+                        val += step;
                         break;
                 }
                 $inputValue.val(val);
