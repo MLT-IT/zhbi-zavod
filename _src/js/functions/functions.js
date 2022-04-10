@@ -110,6 +110,8 @@ function getStep($item) {
 
 
 function getCorrectValueToCounter(step, count) {
+    count = parseFloat(count);
+    step = parseFloat(step);
     let redundant = count % step;
     redundant = step - redundant;
     if (redundant !== step) {
