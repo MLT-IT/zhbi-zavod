@@ -35,7 +35,6 @@ $(function ($) {
     funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
-
     // -------------------------------
     // Меню на ПК
     // -------------------------------
@@ -186,6 +185,7 @@ $(function ($) {
             }
         });
 
+
         // -------------------------------
         // Стилизованный список на странице товара для кровли
         // -------------------------------
@@ -207,6 +207,7 @@ $(function ($) {
                 selectColorsOnChange({target: $selectColors[0]});
             });
         });
+
 
         // -------------------------------
         // Мобильный стилизованный список на странице товара для кровли
@@ -252,6 +253,18 @@ $(function ($) {
     }
 
 
+    function setItemVal($item) {
+        let $inputValue = $item.find('.custom-counter__amount');
+        let val = parseInt($inputValue.val());
+        let step = $item.attr('data-step');
+
+        val = Math.ceil(val / step);
+        val = val * step;
+        $inputValue.val(val);
+        $inputValue.trigger('change');
+    }
+
+
     // -------------------------------
     // Стилизованный счетчик и стилизованный список
     // -------------------------------
@@ -265,18 +278,20 @@ $(function ($) {
             // Инициализируем стилизованный список
             $item.find('.custom-select').euv_custom_select();
 
-            // ---------------------------------------
-            // Если находимся в кирпичах, то...
-            // ---------------------------------------
-            if ($('body.kirpich-m').length && $item.attr('data-on_pallet')) {
-                // Устанавливаем data-step. Вешаем обработчик на смену единиц измерения для изменения data-step
-                setStep($item);
 
-                $item.on('changeUnit', function () {
-                    setStep($item);
-                });
-            }
-            // ---------------------------------------
+            $item.on('changeUnit', function () {
+
+                // Получае чистое значение. Для этого надо кол-во разделить на шаг
+
+
+
+
+                setStep($item);
+                setItemVal($item);
+            });
+            setStep($item);
+            setItemVal($item);
+
 
             // Инициализируем фильтры для счетчика
             $counterInput.each(function () {
@@ -305,6 +320,7 @@ $(function ($) {
                     return regexp.test(value);
                 }, {'event': 'input'});
             });
+
 
             // Обработчик кнопок стилизованного счетчкика
             $item.find('.custom-counter__btn').on('click', function (e) {
@@ -339,12 +355,14 @@ $(function ($) {
                         break;
                 }
                 val = val * step;
+
                 $inputValue.val(val);
                 $inputValue.trigger('change');
 
                 // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
                 $this.closest('.cart-table__table-row').find('.btn-sm').click();
             });
+
 
             // Если находимся на странице корзины, то вешаем дополнительный обработчик на change количества, чтобы менялась сумма корзины (она должна перерасчитываться сама, но почему-то этого не происходит)
             if ($('.sect-cart').length) {
@@ -364,6 +382,7 @@ $(function ($) {
                     });
                 });
             }
+
 
             // Удаляем у чанка класс о том, что чанк еще не инициализирован
             $item.removeClass('not-init');
@@ -389,6 +408,7 @@ $(function ($) {
         $e.attr('data-step', step);
     }
 
+
     // -------------------------------
     // Меню
     // -------------------------------
@@ -406,6 +426,7 @@ $(function ($) {
         $this.closest('.header__wrapper').find('.header__nav').toggleClass('opened');
     });
 
+
     // -------------------------------
     // Звездочки во всплывашке для рейтинга
     // -------------------------------
@@ -417,6 +438,7 @@ $(function ($) {
         let $this = $(this);
         $this.addClass('active');
     });
+
 
     // -------------------------------
     // faq

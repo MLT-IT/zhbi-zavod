@@ -80,7 +80,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             if (count === 0) {
                 let $elemsAdd = $productItem.find('.product-item__controls_action_add');
                 // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                $elemsAdd.find('[name="count"]').val(1).trigger('refreshInput');
+                $elemsAdd.find('[name="count"]').val($productItem.attr('data-step')).trigger('refreshInput');
                 // Удаление класса, что товар этой карточки в корзине
                 $productItem.removeClass('product-item-in-cart');
             }
