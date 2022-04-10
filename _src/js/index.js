@@ -281,9 +281,12 @@ $(function ($) {
             let $item = $(this);
             let $counterInput = $item.find('.custom-counter__amount');
 
-            // Инициализируем стилизованный список
-            $item.find('.custom-select').euv_custom_select();
-
+            // Инициализируем стилизованный список для смены единиц измерения
+            let $select = $item.find('select.custom-select');
+            $select.euv_custom_select();
+            $select.on('beforeChange.euv_custom_select', function () {
+                $item.attr('data-last-unit-value', functions.getActiveUnitValue($item));
+            });
 
             if (!$item.hasClass('cart-table__table-row_type_product')) {
                 // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
@@ -339,13 +342,9 @@ $(function ($) {
                 let step = getStep($item);
 
                 // Установка val
-
-
                 let val = parseFloat($inputValue.val());
-                let clearVal = Math.ceil(val / step);
-                $item.attr('data-clear-val', clearVal);
-
                 val = Math.ceil(val / step);
+
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):
                         val -= 1;
@@ -355,7 +354,6 @@ $(function ($) {
                         break;
                 }
                 val = val * step;
-
 
                 $inputValue.val(val);
                 $inputValue.trigger('change');
@@ -404,16 +402,6 @@ $(function ($) {
         // Поле в текущей форме
         let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
 
-
-        // ---------------------------------------------
-        // Получаем чистое количество товара. Это необходимо делать перед изменением шага. Чистое количество нужно для установки нового количества
-        // ---------------------------------------------
-        // Текущее количество товара
-        let val = $activeFormInput.val();
-        // Делим текущее количество на текущий шаг и округляем в большую сторону
-        let clearVal = Math.round(val / step);
-
-
         // ---------------------------------------------
         // Устанавливаем новый шаг и новое число (если шаг изменился)
         // ---------------------------------------------
@@ -423,25 +411,43 @@ $(function ($) {
             coeff = 0;
         }
 
-        if (coeff > 0) {
-            // Получаем активную ед. измерения
-            let unitVal = functions.getActiveUnitValue($item);
+        // Если коэфициент равен нулю, то остальные действия не нужны
+        if (coeff === 0) {
+            console.log('Коэффициент пустой, изменение шага и кол-ва товара не произошло');
+            return;
+        }
 
-            if (unitVal === 1) {
-                // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
-                step = coeff * unitVal;
+        // Получаем активную ед. измерения
+        let unitVal = functions.getActiveUnitValue($item);
+
+        if (unitVal === 1) {
+            // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
+            step = coeff * unitVal;
+        } else {
+            // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
+            step = Math.ceil(coeff / unitVal);
+        }
+
+        // Получаем новое количество товара
+        let lastUnitValue = $item.attr('data-last-unit-value');
+        let newVal = $activeFormInput.val();
+        if (typeof lastUnitValue !== 'undefined') {
+            if (lastUnitValue == 1) {
+                newVal = newVal / functions.getActiveUnitValue($item);
             } else {
-                // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
-                step = Math.ceil(coeff / unitVal);
+                newVal = newVal * lastUnitValue / functions.getActiveUnitValue($item);
             }
+        } else {
+            newVal = newVal * step;
+        }
+        newVal = Math.ceil(newVal);
 
-            // Устанавливаем шаг
-            $item.attr('data-step', step);
+        // Устанавливаем шаг
+        $item.attr('data-step', step);
 
-            // Устанавливаем новое количество
-            if (!dontChangeAmount) {
-                $activeFormInput.val(clearVal * step);
-            }
+        // Устанавливаем новое количество
+        if (!dontChangeAmount) {
+            $activeFormInput.val(newVal);
         }
     }
 

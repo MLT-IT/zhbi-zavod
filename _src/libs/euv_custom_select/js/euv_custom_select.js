@@ -238,6 +238,7 @@
                             // Класс с выбранной опцией. Пригодится для дизайна. Но с точки зрения JS никакого функционала не несет
                             $custom_select.find('.' + custom_select_selected_option_class).removeClass(custom_select_selected_option_class);
                             $opt.addClass(custom_select_selected_option_class);
+                            $this.trigger('beforeChange.' + plugin_name);
 
                             // Значение option
                             $this.val($opt.attr('data-' + plugin_name + '_value'));

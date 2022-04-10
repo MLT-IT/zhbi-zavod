@@ -1,3 +1,5 @@
+import functions from "./functions";
+
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
@@ -235,10 +237,12 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             e.preventDefault();
             let $this = $(this);
             let $productItem = $this.closest('.product-item');
-
+            let val = $this.attr('data-val');
+            let $unit = $('[name="unit"]');
+            $productItem.attr('data-last-unit-value', functions.getActiveUnitValue($productItem));
             $('.product-card__unit-link.active').removeClass('active');
             $this.addClass('active');
-            $('[name="unit"]').val($this.attr('data-val'));
+            $unit.val(val);
 
             // Обработчик кнопки на странице товара для смены ед. измерения
             calcPrice($productItem);
