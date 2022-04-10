@@ -32,7 +32,7 @@ if (elem !== null) {
 
 $(function ($) {
     funcsCatalog();
-    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep);
+    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep, functions.getCorrectValueToCounter);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
     // -------------------------------
@@ -424,6 +424,9 @@ $(function ($) {
             newVal = newVal * step;
         }
         newVal = Math.ceil(newVal);
+
+        // Пересчитываем кол-во товара с учетом step
+        newVal = functions.getCorrectValueToCounter(step, newVal);
 
         // Устанавливаем шаг
         $item.attr('data-step', step);

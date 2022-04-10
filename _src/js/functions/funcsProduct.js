@@ -3,7 +3,7 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm) {
+export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm, getStep, getCorrectValueToCounter) {
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------

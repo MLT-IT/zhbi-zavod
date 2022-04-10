@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm, getStep};
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm, getStep, getCorrectValueToCounter};
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -106,4 +106,15 @@ function getStep($item) {
     }
 
     return step;
+}
+
+
+function getCorrectValueToCounter(step, count) {
+    let redundant = count % step;
+    redundant = step - redundant;
+    if (redundant !== step) {
+        count += redundant;
+    }
+
+    return count;
 }
