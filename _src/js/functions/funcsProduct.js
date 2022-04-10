@@ -244,11 +244,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             $this.addClass('active');
             $unit.val(val);
 
-            // Обработчик кнопки на странице товара для смены ед. измерения
-            calcPrice($productItem);
-
+            // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
             // Вызываем событие о том, что у товара изменилась ед. измерения
             $productItem.trigger('changeUnit');
+
+            // Обработчик кнопки на странице товара для смены ед. измерения
+            calcPrice($productItem);
+            // Пересчитываем кол-во товара в корзине
+            changeCountItemInCart($productItem, true);
         });
 
         // Вкладки на мобилках
