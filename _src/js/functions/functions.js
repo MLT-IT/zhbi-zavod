@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm};
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm, getStep};
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -88,4 +88,22 @@ function getActiveForm($productItem) {
         'system': $formService,
         'action': $formAction
     };
+}
+
+
+function getStep($item) {
+    let step = 1;
+    let dataStep = $item.attr('data-step');
+
+    if (typeof dataStep !== 'undefined') {
+        dataStep = parseFloat(dataStep);
+        if (!isNaN(dataStep) && dataStep > 0) {
+            step = dataStep;
+        } else {
+            step = 1;
+            console.error('Ошибка при получении data-step');
+        }
+    }
+
+    return step;
 }

@@ -32,7 +32,7 @@ if (elem !== null) {
 
 $(function ($) {
     funcsCatalog();
-    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm);
+    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
     // -------------------------------
@@ -253,24 +253,6 @@ $(function ($) {
     }
 
 
-    function getStep($item) {
-        let step = 1;
-        let dataStep = $item.attr('data-step');
-
-        if (typeof dataStep !== 'undefined') {
-            dataStep = parseFloat(dataStep);
-            if (!isNaN(dataStep) && dataStep > 0) {
-                step = dataStep;
-            } else {
-                step = 1;
-                console.error('Ошибка при получении data-step');
-            }
-        }
-
-        return step;
-    }
-
-
     // -------------------------------
     // Стилизованный счетчик и стилизованный список
     // -------------------------------
@@ -339,7 +321,7 @@ $(function ($) {
                 let $this = $(this);
                 let $counter = $this.closest('.custom-counter');
                 let $inputValue = $counter.find('.custom-counter__amount');
-                let step = getStep($item);
+                let step = functions.getStep($item);
 
                 // Установка val
                 let val = parseFloat($inputValue.val());
@@ -398,7 +380,7 @@ $(function ($) {
         // Определяем основные переменные
         // ---------------------------------------------
         // Текущий шаг
-        let step = getStep($item);
+        let step = functions.getStep($item);
 
         // Поле в текущей форме
         let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
