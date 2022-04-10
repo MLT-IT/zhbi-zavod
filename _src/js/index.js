@@ -265,6 +265,19 @@ $(function ($) {
             // Инициализируем стилизованный список
             $item.find('.custom-select').euv_custom_select();
 
+            // ---------------------------------------
+            // Если находимся в кирпичах, то...
+            // ---------------------------------------
+            if ($('body.kirpich-m').length && $item.attr('data-on_pallet')) {
+                // Устанавливаем data-step. Вешаем обработчик на смену единиц измерения для изменения data-step
+                setStep($item);
+
+                $item.on('changeUnit', function () {
+                    setStep($item);
+                });
+            }
+            // ---------------------------------------
+
             // Инициализируем фильтры для счетчика
             $counterInput.each(function () {
                 let filter;
@@ -293,36 +306,40 @@ $(function ($) {
                 }, {'event': 'input'});
             });
 
-            // Кнопки стилизованного счетчкика
+            // Обработчик кнопок стилизованного счетчкика
             $item.find('.custom-counter__btn').on('click', function (e) {
                 e.preventDefault();
+
+                // Основные переменные
                 let $this = $(this);
                 let $counter = $this.closest('.custom-counter');
                 let $inputValue = $counter.find('.custom-counter__amount');
 
+                // Получение step
                 let step = 1;
-                let dataStep = $counter.attr('data-step');
+                let dataStep = $item.attr('data-step');
                 if (typeof dataStep !== 'undefined') {
                     dataStep = parseFloat(dataStep);
                     if (!isNaN(dataStep) && dataStep > 0) {
                         step = dataStep;
+                    } else {
+                        console.error('Ошибка при получении data-step');
                     }
                 }
 
+                // Установка val
                 let val = parseInt($inputValue.val());
-                let clearVal = parseInt($inputValue.attr('data-clear-value'));
+                val = Math.ceil(val / step);
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):
-                        val -= step;
-                        clearVal--;
+                        val -= 1;
                         break;
                     case $this.hasClass('custom-counter__btn_dir_more'):
-                        val += step;
-                        clearVal++;
+                        val += 1;
                         break;
                 }
+                val = val * step;
                 $inputValue.val(val);
-                $inputValue.attr('data-clear-value', clearVal);
                 $inputValue.trigger('change');
 
                 // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
@@ -348,37 +365,29 @@ $(function ($) {
                 });
             }
 
-            // Устанавливаем "пользовательское" значение. В некоторых случаях то количество, которое ввел пользователь, будет меняться. И меняться в зависимости от этого значения (делиться, умножаться на него...). Поэтому его нужно сохранить
-            $item.find('.custom-counter__amount').each(function() {
-                $(this).attr('data-clear-value', $(this).val());
-            });
-
-            // Если находимся в кирпичах, то вешаем обработчик на смену единиц измерения для изменения шага на счетчике
-            if ($('body.kirpich-m').length && $item.attr('data-on_pallet')) {
-                $item.on('changeUnit', function () {
-                    let onPallet = parseFloat($item.attr('data-on_pallet'));
-                    if (!isNaN(onPallet) && onPallet > 0) {
-                        let unitVal = functions.getActiveUnitValue($(this).closest('.product-item'));
-                        let step;
-
-                        if (unitVal === 1) {
-                            step = onPallet * unitVal;
-                        } else {
-                            step = Math.ceil(onPallet / unitVal);
-                        }
-
-                        $item.find('.product-item__custom-counter').each(function() {
-                            $(this).attr('data-step', step);
-                        });
-                    }
-                });
-            }
-
             // Удаляем у чанка класс о том, что чанк еще не инициализирован
             $item.removeClass('not-init');
         });
     };
     window.initStyledCounter();
+
+    function setStep($e) {
+        let onPallet = parseFloat($e.attr('data-on_pallet'));
+        if (isNaN(onPallet) || onPallet === 0) {
+            onPallet = 1;
+        }
+
+        let unitVal = functions.getActiveUnitValue($e);
+        let step;
+
+        if (unitVal === 1) {
+            step = onPallet * unitVal;
+        } else {
+            step = Math.ceil(onPallet / unitVal);
+        }
+
+        $e.attr('data-step', step);
+    }
 
     // -------------------------------
     // Меню

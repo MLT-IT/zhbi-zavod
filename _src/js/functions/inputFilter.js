@@ -65,8 +65,6 @@ let methods = {
                     this.value = this["oldValue-" + settings.event];
                     this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
                 }
-
-                $(this).attr('data-clear-value', this.value);
             });
         });
     }
