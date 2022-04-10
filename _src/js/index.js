@@ -376,7 +376,8 @@ $(function ($) {
                         count = parseFloat(count.replace(/\s/g, ''));
                         count = Number((count).toFixed(2));
 
-                        let cost = functions.numberWithSpaces(price * count);
+                        let cost = Number((price * count).toFixed(2));
+                        cost = functions.numberWithSpaces(cost);
                         $product.find('.cart-table__sum-value').text(cost);
                     });
                 });
