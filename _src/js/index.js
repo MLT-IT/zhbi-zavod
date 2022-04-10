@@ -285,15 +285,17 @@ $(function ($) {
             $item.find('.custom-select').euv_custom_select();
 
 
-            // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
-            $item.on('changeUnit', function () {
-                setStepAndAmount($item);
-            });
-            // Устанавливаем шаг и кол-во
-            if ($item.hasClass('product-item-in-cart')) {
-                setStepAndAmount($item, true);
-            } else {
-                setStepAndAmount($item);
+            if (!$item.hasClass('cart-table__table-row_type_product')) {
+                // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
+                $item.on('changeUnit', function () {
+                    setStepAndAmount($item);
+                });
+                // Устанавливаем шаг и кол-во
+                if ($item.hasClass('product-item-in-cart')) {
+                    setStepAndAmount($item, true);
+                } else {
+                    setStepAndAmount($item);
+                }
             }
 
 
