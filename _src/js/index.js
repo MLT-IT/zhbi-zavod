@@ -339,7 +339,12 @@ $(function ($) {
                 let step = getStep($item);
 
                 // Установка val
+
+
                 let val = parseFloat($inputValue.val());
+                let clearVal = Math.ceil(val / step);
+                $item.attr('data-clear-val', clearVal);
+
                 val = Math.ceil(val / step);
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):
@@ -350,6 +355,7 @@ $(function ($) {
                         break;
                 }
                 val = val * step;
+
 
                 $inputValue.val(val);
                 $inputValue.trigger('change');
@@ -387,7 +393,7 @@ $(function ($) {
 
 
     function setStepAndAmount($item, dontChangeAmount) {
-        dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false
+        dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false;
 
         // ---------------------------------------------
         // Определяем основные переменные
@@ -405,38 +411,37 @@ $(function ($) {
         // Текущее количество товара
         let val = $activeFormInput.val();
         // Делим текущее количество на текущий шаг и округляем в большую сторону
-        let clearVal = Math.ceil(val / step);
+        let clearVal = Math.round(val / step);
 
 
         // ---------------------------------------------
-        // Устанавливаем новый шаг
+        // Устанавливаем новый шаг и новое число (если шаг изменился)
         // ---------------------------------------------
         // Получаем коэффициент. Пока что он задан только у кирпичей. Он нам нужен для установки нового шага
         let coeff = parseFloat($item.attr('data-coefficient'));
-        if (isNaN(coeff) || coeff === 0) {
-            coeff = 1;
+        if (isNaN(coeff)) {
+            coeff = 0;
         }
 
-        // Получаем активную ед. измерения
-        let unitVal = functions.getActiveUnitValue($item);
+        if (coeff > 0) {
+            // Получаем активную ед. измерения
+            let unitVal = functions.getActiveUnitValue($item);
 
-        if (unitVal === 1) {
-            // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
-            step = coeff * unitVal;
-        } else {
-            // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
-            step = Math.ceil(coeff / unitVal);
-        }
+            if (unitVal === 1) {
+                // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
+                step = coeff * unitVal;
+            } else {
+                // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
+                step = Math.ceil(coeff / unitVal);
+            }
 
-        // Устанавливаем шаг
-        $item.attr('data-step', step);
+            // Устанавливаем шаг
+            $item.attr('data-step', step);
 
-
-        // ---------------------------------------------
-        // Устанавливаем новое количество
-        // ---------------------------------------------
-        if (!dontChangeAmount) {
-            $activeFormInput.val(clearVal * step);
+            // Устанавливаем новое количество
+            if (!dontChangeAmount) {
+                $activeFormInput.val(clearVal * step);
+            }
         }
     }
 

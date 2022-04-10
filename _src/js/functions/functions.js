@@ -37,8 +37,8 @@ function getActiveUnitValue($productItem) {
         '5': $productItem.attr('data-list'),
         '6': $productItem.attr('data-thing'),
         '7': $productItem.attr('data-pilomat_thing'),
-        '8': $productItem.attr('data-k_m3seam'),
-        '9': $productItem.attr('data-k_m2seam'),
+        '8': $productItem.attr('data-k_m2seam'),
+        '9': $productItem.attr('data-k_m3seam'),
     };
 
     // Обработка кол-ва единиц измерения
