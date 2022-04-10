@@ -1,7 +1,7 @@
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces) {
+export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm) {
     // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
@@ -43,38 +43,33 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // Изменить кол-во товара в корзине
     // -------------------------------
     function changeCountItemInCart($productItem, forbidZero) {
-        forbidZero = typeof forbidZero !== 'undefined' ?  forbidZero : false;
+        forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
 
-        let $form;
         let inCart = false;
         let $amount;
 
+        let $forms = getActiveForm($productItem);
+        let $systemForm = $forms['system'];
         if ($productItem.hasClass('product-item-in-cart')) {
-            // Товар уже в корзине, нужно изменить кол-во
-            $form = $productItem.find('.product-item__form-change');
             inCart = true;
-            $amount = $productItem.find('.product-item__controls_action_change .custom-counter__amount');
-        } else {
-            // Товара нет в корзине
-            $form = $productItem.find('.product-item__form-add');
-            $amount = $productItem.find('.product-item__controls_action_add .custom-counter__amount');
         }
+        $amount = $forms['action'].find('.custom-counter__amount');
 
         // Кол-во товара
         let count = $amount.val();
         count = getItemCount($productItem, count);
 
         if (forbidZero && count === 0) {
-            count = 1
+            count = 1;
         }
 
         // Установить кол-ва товара
-        $form.find('[name="count"]').val(count);
+        $systemForm.find('[name="count"]').val(count);
 
         // Если товар в корзине, то...
         if (inCart) {
             // Отправка
-            $form.find('[type="submit"]')[0].click();
+            $systemForm.find('[type="submit"]')[0].click();
 
             // Если кол-во равно нулю
             if (count === 0) {

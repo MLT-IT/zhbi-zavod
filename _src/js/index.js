@@ -32,7 +32,7 @@ if (elem !== null) {
 
 $(function ($) {
     funcsCatalog();
-    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces);
+    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
 
     // -------------------------------
@@ -265,6 +265,24 @@ $(function ($) {
     }
 
 
+    function getStep($item) {
+        let step = 1;
+        let dataStep = $item.attr('data-step');
+
+        if (typeof dataStep !== 'undefined') {
+            dataStep = parseFloat(dataStep);
+            if (!isNaN(dataStep) && dataStep > 0) {
+                step = dataStep;
+            } else {
+                step = 1;
+                console.error('Ошибка при получении data-step');
+            }
+        }
+
+        return step;
+    }
+
+
     // -------------------------------
     // Стилизованный счетчик и стилизованный список
     // -------------------------------
@@ -280,17 +298,9 @@ $(function ($) {
 
 
             $item.on('changeUnit', function () {
-
-                // Получае чистое значение. Для этого надо кол-во разделить на шаг
-
-
-
-
-                setStep($item);
-                setItemVal($item);
+                setStepAndAmount($item);
             });
-            setStep($item);
-            setItemVal($item);
+            setStepAndAmount($item);
 
 
             // Инициализируем фильтры для счетчика
@@ -330,21 +340,10 @@ $(function ($) {
                 let $this = $(this);
                 let $counter = $this.closest('.custom-counter');
                 let $inputValue = $counter.find('.custom-counter__amount');
-
-                // Получение step
-                let step = 1;
-                let dataStep = $item.attr('data-step');
-                if (typeof dataStep !== 'undefined') {
-                    dataStep = parseFloat(dataStep);
-                    if (!isNaN(dataStep) && dataStep > 0) {
-                        step = dataStep;
-                    } else {
-                        console.error('Ошибка при получении data-step');
-                    }
-                }
+                let step = getStep($item);
 
                 // Установка val
-                let val = parseInt($inputValue.val());
+                let val = parseFloat($inputValue.val());
                 val = Math.ceil(val / step);
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):
@@ -390,22 +389,55 @@ $(function ($) {
     };
     window.initStyledCounter();
 
-    function setStep($e) {
-        let onPallet = parseFloat($e.attr('data-on_pallet'));
-        if (isNaN(onPallet) || onPallet === 0) {
-            onPallet = 1;
+
+    function setStepAndAmount($item) {
+        // ---------------------------------------------
+        // Определяем основные переменные
+        // ---------------------------------------------
+        // Текущий шаг
+        let step = getStep($item);
+
+        // Поле в текущей форме
+        let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
+
+
+        // ---------------------------------------------
+        // Получаем чистое количество товара. Это необходимо делать перед изменением шага. Чистое количество нужно для установки нового количества
+        // ---------------------------------------------
+        // Текущее количество товара
+        let val = $activeFormInput.val();
+        // Делим текущее количество на текущий шаг и округляем в большую сторону
+        let clearVal = Math.ceil(val / step);
+
+
+        // ---------------------------------------------
+        // Устанавливаем новый шаг
+        // ---------------------------------------------
+        // Получаем коэффициент. Пока что он задан только у кирпичей. Он нам нужен для установки нового шага
+        let coeff = parseFloat($item.attr('data-coefficient'));
+        if (isNaN(coeff) || coeff === 0) {
+            coeff = 1;
         }
 
-        let unitVal = functions.getActiveUnitValue($e);
-        let step;
+        // Получаем активную ед. измерения
+        let unitVal = functions.getActiveUnitValue($item);
 
         if (unitVal === 1) {
-            step = onPallet * unitVal;
+            // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
+            step = coeff * unitVal;
         } else {
-            step = Math.ceil(onPallet / unitVal);
+            // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
+            step = Math.ceil(coeff / unitVal);
         }
 
-        $e.attr('data-step', step);
+        // Устанавливаем шаг
+        $item.attr('data-step', step);
+
+
+        // ---------------------------------------------
+        // Устанавливаем новое количество
+        // ---------------------------------------------
+        $activeFormInput.val(clearVal * step);
     }
 
 

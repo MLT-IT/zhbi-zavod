@@ -2,7 +2,7 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim}
+export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm};
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -67,4 +67,25 @@ function trim(str, charlist) {
     charlist = !charlist ? ' \s\xA0' : charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '\$1');
     var re = new RegExp('^[' + charlist + ']+|[' + charlist + ']+$', 'g');
     return str.replace(re, '');
+}
+
+
+function getActiveForm($productItem) {
+    let $formService;
+    let $formAction;
+
+    if ($productItem.hasClass('product-item-in-cart')) {
+        // Товар уже в корзине, нужно изменить кол-во
+        $formService = $productItem.find('.product-item__form-change');
+        $formAction = $productItem.find('.product-item__controls_action_change');
+    } else {
+        // Товара нет в корзине
+        $formService = $productItem.find('.product-item__form-add');
+        $formAction = $productItem.find('.product-item__controls_action_add');
+    }
+
+    return {
+        'system': $formService,
+        'action': $formAction
+    };
 }
