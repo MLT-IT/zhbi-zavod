@@ -13,6 +13,8 @@
         data-{$key}="{$val['val']}"
     {/foreach}
 
+    {insert "file:blocks/get-data-attrs.tpl"}
+
      {* data-priority1 и data-priority2 можно убрать, я их вывел чисто для того, чтобы понять, работает ли сортировка по популярности *}
      data-priority1="{$src['priority1']}"
      data-priority2="{$src['HitsPage']}"

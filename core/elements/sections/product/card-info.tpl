@@ -7,6 +7,8 @@
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
     {/foreach}
+
+    {insert "file:blocks/get-data-attrs.tpl"}
 >
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
     <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>

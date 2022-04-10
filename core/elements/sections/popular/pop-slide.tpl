@@ -7,6 +7,8 @@
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
     {/foreach}
+
+    {insert "file:blocks/get-data-attrs.tpl"}
 >
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">

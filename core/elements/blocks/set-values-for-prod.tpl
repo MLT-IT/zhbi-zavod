@@ -52,6 +52,8 @@
     {set $k_m3seamless = $src['k_m3seamless'][0] | replace : ',' : '.'}
     {set $k_m3seam = $src['k_m3seam'][0] | replace : ',' : '.'}
     {set $k_m2seam = $src['k_m2seam'][0] | replace : ',' : '.'}
+
+    {set $on_pallet = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}

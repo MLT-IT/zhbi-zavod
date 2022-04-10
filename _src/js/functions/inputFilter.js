@@ -26,9 +26,9 @@ let methods = {
 
             let $this = $(this);
 
-            // -----------
+            // -----------------------------------------
             // Установка переменных и data-значений
-            // -----------
+            // -----------------------------------------
             let events
             switch (settings.event) {
                 case 'change':
@@ -49,9 +49,9 @@ let methods = {
             $this.data(pluginName).init = true;
             $this.data(pluginName).events = events;
 
-            // -----------
+            // -----------------------------------------
             // Функционал плагина
-            // -----------
+            // -----------------------------------------
             $this[0]["oldValue-" + settings.event] = $this[0].value;
             $this[0].oldSelectionStart = $this[0].selectionStart;
             $this[0].oldSelectionEnd = $this[0].selectionEnd;
@@ -65,6 +65,8 @@ let methods = {
                     this.value = this["oldValue-" + settings.event];
                     this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
                 }
+
+                $(this).attr('data-clear-value', this.value);
             });
         });
     }
