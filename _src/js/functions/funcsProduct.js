@@ -122,14 +122,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         e.preventDefault();
         let $productItem = $(this).closest('.product-item');
 
-        // Меняем цену
-        calcPrice($productItem);
-
-        // Пересчитываем кол-во товара в корзине
-        changeCountItemInCart($productItem, true);
-
         // Вызываем событие о том, что у товара изменилась ед. измерения
         $productItem.trigger('changeUnit');
+
+        // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
+        // Меняем цену
+        calcPrice($productItem);
+        // Пересчитываем кол-во товара в корзине
+        changeCountItemInCart($productItem, true);
     });
 
 

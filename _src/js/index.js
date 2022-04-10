@@ -253,18 +253,6 @@ $(function ($) {
     }
 
 
-    function setItemVal($item) {
-        let $inputValue = $item.find('.custom-counter__amount');
-        let val = parseInt($inputValue.val());
-        let step = $item.attr('data-step');
-
-        val = Math.ceil(val / step);
-        val = val * step;
-        $inputValue.val(val);
-        $inputValue.trigger('change');
-    }
-
-
     function getStep($item) {
         let step = 1;
         let dataStep = $item.attr('data-step');
@@ -297,10 +285,16 @@ $(function ($) {
             $item.find('.custom-select').euv_custom_select();
 
 
+            // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
             $item.on('changeUnit', function () {
                 setStepAndAmount($item);
             });
-            setStepAndAmount($item);
+            // Устанавливаем шаг и кол-во
+            if ($item.hasClass('product-item-in-cart')) {
+                setStepAndAmount($item, true);
+            } else {
+                setStepAndAmount($item);
+            }
 
 
             // Инициализируем фильтры для счетчика
@@ -390,7 +384,9 @@ $(function ($) {
     window.initStyledCounter();
 
 
-    function setStepAndAmount($item) {
+    function setStepAndAmount($item, dontChangeAmount) {
+        dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false
+
         // ---------------------------------------------
         // Определяем основные переменные
         // ---------------------------------------------
@@ -437,7 +433,9 @@ $(function ($) {
         // ---------------------------------------------
         // Устанавливаем новое количество
         // ---------------------------------------------
-        $activeFormInput.val(clearVal * step);
+        if (!dontChangeAmount) {
+            $activeFormInput.val(clearVal * step);
+        }
     }
 
 

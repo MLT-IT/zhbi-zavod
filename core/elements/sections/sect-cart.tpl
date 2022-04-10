@@ -43,15 +43,18 @@
                     {/if}
 
                     {var $image}
-                    {if $product.thumb?}
-                        <img class="cart-table__img" src="{$product.thumb}" alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
-                    {else}
-                        <img class="cart-table__img" src="{'assets_url' | option}components/minishop2/img/web/ms2_small.png"
-                             srcset="{'assets_url' | option}components/minishop2/img/web/ms2_small@2x.png 2x"
-                             alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
-                    {/if}
+                        {if $product.thumb?}
+                            <img class="cart-table__img" src="{$product.thumb}" alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
+                        {else}
+                            <img class="cart-table__img" src="{'assets_url' | option}components/minishop2/img/web/ms2_small.png"
+                                 srcset="{'assets_url' | option}components/minishop2/img/web/ms2_small@2x.png 2x"
+                                 alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
+                        {/if}
                     {/var}
-                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product">
+
+                    {set $coefficient = $product['pallet_num'][0] | replace : ',' : '.'}
+
+                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product"{if $coefficient?} data-step="{$coefficient}"{/if}>
                         <td class="title cart-table__table-cell">
                                 {if $product.id?}
                                     <a class="cart-table__img-wrap" href="{$product.id | url}">{$image}</a>
