@@ -249,7 +249,7 @@
             miniShop2.$doc.on('change', miniShop2.Cart.cart + ' ' + miniShop2.Cart.countInput, function () {
                 if (!!$(this).val()) {
                     // Закомментировал отправку формы при изменении счетчика, т.к. мне нужно работать со значением счетчика перед отправкой (сделать его так, чтобы оно было кратно step)
-                    // $(this).closest(miniShop2.form).submit();
+                    $(this).closest(miniShop2.form).submit();
                 }
             });
         },
@@ -294,9 +294,14 @@
                 $(miniShop2.Cart.totalWeight).text(miniShop2.Utils.formatWeight(status['total_weight']));
                 $(miniShop2.Cart.totalCount).text(status['total_count']);
                 $(miniShop2.Cart.totalCost).text(miniShop2.Utils.formatPrice(status['total_cost']));
-                if ($(miniShop2.Order.orderCost, miniShop2.Order.order).length) {
-                    miniShop2.Order.getcost();
-                }
+
+                // Перерасчитываем сумму за данный товар
+                let itemSelector = '#' + status['key'];
+                let amount = parseFloat($('.custom-counter__amount', itemSelector).val());
+                let cost = parseFloat($('.cart-table__price-value', itemSelector).text().replace(' ', ''));
+                cost = cost * amount;
+                cost =  cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                $('.cart-table__sum-value', itemSelector).text(cost);
             }
         },
         clean: function () {

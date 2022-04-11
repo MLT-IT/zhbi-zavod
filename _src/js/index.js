@@ -350,33 +350,6 @@ $(function ($) {
             });
 
 
-            // Если находимся на странице корзины, то вешаем дополнительный обработчик на change количества, чтобы менялась сумма корзины (она должна перерасчитываться сама, но почему-то этого не происходит)
-            if ($('.sect-cart').length) {
-                $counterInput.each(function () {
-                    $(this).on('change', function () {
-                        let $this = $(this);
-                        let $product = $this.closest('.cart-table__table-row_type_product');
-                        let step = functions.getStep($product);
-
-                        let count = $product.find('.custom-counter__amount').val();
-                        count = functions.getCorrectValueToCounter(step, count);
-                        $this.val(count);
-                        count = parseFloat(count.toString().replace(/\s/g, ''));
-                        count = Number((count).toFixed(2));
-
-                        let price = $product.find('.cart-table__price-value').text();
-                        price = parseFloat(price.replace(/\s/, ''));
-
-                        let cost = Number((price * count).toFixed(2));
-                        cost = functions.numberWithSpaces(cost);
-                        $product.find('.cart-table__sum-value').text(cost);
-
-                        $this.closest(miniShop2.form).find('[name="ms2_action"]').trigger('click');
-                    });
-                });
-            }
-
-
             // Удаляем у чанка класс о том, что чанк еще не инициализирован
             $item.removeClass('not-init');
         });
