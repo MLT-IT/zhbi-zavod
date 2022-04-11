@@ -299,6 +299,7 @@
                 let amount = parseFloat($('.custom-counter__amount', itemSelector).val());
                 let cost = parseFloat($('.cart-table__price-value', itemSelector).text().replace(' ', ''));
                 cost = cost * amount;
+                cost = cost.toFixed(2);
                 cost =  cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
                 $('.cart-table__sum-value', itemSelector).text(cost);
             }

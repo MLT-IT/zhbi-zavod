@@ -416,9 +416,9 @@ $(function ($) {
         // $item.attr('data-step', step);
 
         // Устанавливаем новое количество
-        if (!dontChangeAmount) {
-            $activeFormInput.val(newVal);
-        }
+        // if (!dontChangeAmount) {
+        //     $activeFormInput.val(newVal);
+        // }
     }
 
 
