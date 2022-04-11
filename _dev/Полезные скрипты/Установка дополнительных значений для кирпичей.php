@@ -13,7 +13,7 @@ $ids = $modx->runSnippet('msProducts', [
     'sortdir' => 'ASC',
 
     'limit' => 1000,
-    'offset' => 5994
+    'offset' => 0
 ]);
 
 if (empty($ids)) {
@@ -29,30 +29,75 @@ foreach ($ids as $id) {
     $options = $obj->loadData()->get('options');
     $razmer = $options['razmer-mm'][0];
     $format = $options['format'][0];
-
+    $workWithRazmer = 1;
     // Формула 1 - это когда формат пустой или <= 10NF. Формула 2 - когда формат > 10NF.
     $formula = 1;
 
-    // Проверка
     if (empty($razmer)) {
-        echo 'Пропущена работа с товаром ' . $id . ', так как не заполнено поле razmer-mm<br>';
-        continue;
+        $workWithRazmer = 0;
+    } else {
+        // Установка длины, ширины, высоты
+        $razmerTmp = explode('х', $razmer);
+        if (count($razmerTmp) !== 3) {
+            $workWithRazmer = 0;
+        }
     }
 
-    // Установка длины, ширины, высоты
-    $razmerTmp = explode('х', $razmer);
-    if (count($razmerTmp) !== 3) {
-        echo 'Пропущена работа с товаром ' . $id . ', так как razmer-mm не удалось разбить на 3 элемента: ' . $razmer . '<br>';
-        continue;
+    if ($workWithRazmer) {
+        $l = $razmerTmp[0];
+        $b = $razmerTmp[1];
+        $h = $razmerTmp[2];
+    } else {
+        // Если размер не указан, то берем длину, ширину, высоту (в некоторых случаях вместо нее толщину)
+        $l = $options['item_length'][0];
+        $b = $options['item_width'][0];
+        $h = $options['vysota-mm'][0];
+        if (empty($h)) {
+            $h = $options['item_thickness'][0];
+        }
+
+        // Валидация
+        if (empty($l)) {
+            echo 'Пропущена работа с товаром ' . $id . ', так как не заполнено поле item_length<br>';
+            continue;
+        }
+        if (empty($b)) {
+            echo 'Пропущена работа с товаром ' . $id . ', так как не заполнено поле item_width<br>';
+            continue;
+        }
+        if (empty($h)) {
+            echo 'Пропущена работа с товаром ' . $id . ', так как не заполнены поля vysota-mm / item_thickness<br>';
+            continue;
+        }
     }
 
-    $l = $razmerTmp[0];
-    $b = $razmerTmp[1];
-    $h = $razmerTmp[2];
+    if (floatval($l) == 0) {
+        // Убираем скобки
+        $l = str_replace(['(', ')'], '', $l);
+        $l = floatval($l);
+    }
+    if (floatval($b) == 0) {
+        // Убираем скобки
+        $b = str_replace(['(', ')'], '', $b);
+        $b = floatval($b);
+    }
+    if (floatval($h) == 0) {
+        // Убираем скобки
+        $h = str_replace(['(', ')'], '', $h);
+        $h = floatval($h);
+    }
 
-    // Валидация $l, $b, $h, это должны быть числа
-    if (floatval($l) == 0 || floatval($b) == 0 || floatval($h) == 0) {
-        echo 'Пропущена работа с товаром ' . $id . ', так как одно из значений опции razmer-mm не является числовым или равно нулю: ' . $razmer . '<br>';
+    // Валидация
+    if ($l == 0) {
+        echo 'Пропущена работа с товаром ' . $id . ', так как l не является числовым или равно нулю: ' . $l . '<br>';
+        continue;
+    }
+    if ($b == 0) {
+        echo 'Пропущена работа с товаром ' . $id . ', так как b не является числовым или равно нулю: ' . $b . '<br>';
+        continue;
+    }
+    if ($h == 0) {
+        echo 'Пропущена работа с товаром ' . $id . ', так как h не является числовым или равно нулю: ' . $h . '<br>';
         continue;
     }
 
