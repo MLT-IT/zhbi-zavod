@@ -42,25 +42,42 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
 
     // -------------------------------
-    // Изменить кол-во товара на счетчике
+    // Изменить кол-во товара
     // -------------------------------
     function changeCountItemInCart($productItem, forbidZero) {
         forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
 
         let inCart = false;
-        let $amount;
+        let $inputAmount;
 
         let $forms = getActiveForm($productItem);
         let $systemForm = $forms['system'];
         if ($productItem.hasClass('product-item-in-cart')) {
             inCart = true;
         }
-        $amount = $forms['action'].find('.custom-counter__amount');
 
-        // Кол-во товара
-        let val = $amount.val();
+        // Получаем input с количеством товара
+        $inputAmount = $forms['action'];
+        // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной
+        if ($inputAmount.length > 1) {
+            $forms['action'].each(function (i, e) {
+                if ($(e).is(':visible')) {
+                    $inputAmount = $(e);
+                }
+            });
+        }
+        $inputAmount = $inputAmount.find('.custom-counter__amount');
+
+        // Получаем кол-во товара
+        let val = $inputAmount.val();
         // val = functions.getCorrectValueToCounter(getStep($productItem), val);
-        // $amount.val(val);
+
+        // Устанавливаем кол-во товара всем input'ам с количеством товара
+        $forms['action'].each(function (i, e) {
+            $(e).find('.custom-counter__amount').val(val);
+        });
+
+        // Устанавливаем count
         let count = getItemCount($productItem, val);
 
         if (forbidZero && count === 0) {
