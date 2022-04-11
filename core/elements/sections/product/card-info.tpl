@@ -98,11 +98,7 @@
             {include "file:chunks/productElems.tpl"}
 
             {if $_modx->resource.context_key === 'kirpich-m' && $_modx->resource['pallet_num'][0] ?}
-                <div class="product-card__saleinfo product-card__saleinfo_color_red product-card__saleinfo_pos_top">
-                    Товар продается кратно поддонам
-                </div>
-
-                <div class="product-card__saleinfo">
+                <div class="product-card__saleinfo product-card__saleinfo_pos_top">
                     На поддоне: {$_modx->resource['pallet_num'][0]} шт.
                 </div>
             {/if}
