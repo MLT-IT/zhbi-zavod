@@ -412,8 +412,8 @@ $(function ($) {
         // Пересчитываем кол-во товара с учетом step
         newVal = functions.getCorrectValueToCounter(step, newVal);
 
-        // Устанавливаем шаг
-        $item.attr('data-step', step);
+        // Устанавливаем шаг. Я закомментировал, т.к. Кирилл сказал отменить эти изменения
+        // $item.attr('data-step', step);
 
         // Устанавливаем новое количество
         if (!dontChangeAmount) {

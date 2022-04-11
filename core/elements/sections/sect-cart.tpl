@@ -54,7 +54,7 @@
 
                     {set $coefficient = $product['pallet_num'][0] | replace : ',' : '.'}
 
-                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product"{if $coefficient?} data-step="{$coefficient}"{/if}>
+                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product"{*{if $coefficient?} data-step="{$coefficient}"{/if}*}>
                         <td class="title cart-table__table-cell">
                                 {if $product.id?}
                                     <a class="cart-table__img-wrap" href="{$product.id | url}">{$image}</a>

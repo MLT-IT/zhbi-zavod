@@ -248,7 +248,6 @@
             }
             miniShop2.$doc.on('change', miniShop2.Cart.cart + ' ' + miniShop2.Cart.countInput, function () {
                 if (!!$(this).val()) {
-                    // Закомментировал отправку формы при изменении счетчика, т.к. мне нужно работать со значением счетчика перед отправкой (сделать его так, чтобы оно было кратно step)
                     $(this).closest(miniShop2.form).submit();
                 }
             });
