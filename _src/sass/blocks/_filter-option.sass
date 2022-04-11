@@ -1,4 +1,4 @@
-.filter_type_cvet .filter-option
+.filter_type_cvet .filter-option, .filter_type_surface .filter-option
     position: relative
 
     &__title
@@ -17,10 +17,46 @@
             flex-shrink: 0
             flex-grow: 0
             margin-right: 8px
-            border-radius: 3px
+
+.filter_type_cvet .filter-option
+    &__label
+        &::after
             border: 1px solid black
+            border-radius: 3px
 
     +colors_to_selector(' .filter-option__label::after')
+
+.filter_type_surface .filter-option
+    &__label
+        &::after
+            background-size: 100% 100%
+
+    &[data-val="матовая"] .filter-option__label::after
+        background-image: url(/assets/template/img/surfaces/matovaya.jpg)
+
+    &[data-val="гладкая"] .filter-option__label::after
+        background-image: url(/assets/template/img/surfaces/gladkiy.jpg)
+
+    &[data-val="глянцевая"] .filter-option__label::after
+        background-image: url(/assets/template/img/surfaces/glyancevaya2.jpg)
+
+    &[data-val="риф"], &[data-val="рифленая"]
+        .filter-option__label::after
+            background-image: url(/assets/template/img/surfaces/relyefnyy_rif_riflenyy2.jpg)
+
+    &[data-val="ретро"], &[data-val="ручной-формовки"], &[data-val="под-старину"]
+        .filter-option__label::after
+            background-image: url(/assets/template/img/surfaces/ruchnik3.jpg)
+
+    &[data-val="фактурная"] .filter-option__label::after
+        background-image: url(/assets/template/img/surfaces/fakturnyy.jpg)
+
+    &[data-val="рельефная"] .filter-option__label::after
+        background-image: url(/assets/template/img/surfaces/relyefnaya.jpg)
+
+    &[data-val="береста"], &[data-val="каре"], &[data-val="кора"], &[data-val="рустик"]
+        .filter-option__label::after
+            background-image: url(/assets/template/img/surfaces/beresta_kare_kora_rustik2.jpg)
 
 .filter-option
     display: block

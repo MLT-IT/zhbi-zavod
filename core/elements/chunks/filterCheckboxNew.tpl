@@ -6,8 +6,7 @@
     {set $priority = $num | ereplace : '/\D/' : ''}
 {/if*}
 
-
-{if $filter === 'cvet'}
+{if $filter in list ['cvet', 'surface']}
     {set $dataVal = $title | toLowerAndRemoveChars}
 {/if}
 

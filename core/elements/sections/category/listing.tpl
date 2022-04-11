@@ -16,7 +16,7 @@
 
             'tplFilter.row.price' => '@FILE chunks/filterNumberInner.tpl',
             'tplFilter.outer.price' => '@FILE chunks/filterNumber.tpl',
-            'tplFilter.row.default' => '@FILE chunks/filterCheckboxKrovlya.tpl',
+            'tplFilter.row.default' => '@FILE chunks/filterCheckboxNew.tpl',
 
             'aliases' => 'ms|price==price',
             'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
