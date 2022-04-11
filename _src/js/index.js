@@ -338,10 +338,15 @@ $(function ($) {
                 val = val * step;
 
                 $inputValue.val(val);
-                $inputValue.trigger('change');
+
+                // При щелчке по кнопкам на странице корзины и так вызывается change. Я бегло посмотрел стандартный файл, но ничего там не нашел. По-хорошему, надо подправить этот момент в стандартном файле
+                if (!$inputValue.closest('.ms2_form').length) {
+                    $inputValue.trigger('change');
+                }
 
                 // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
                 $this.closest('.cart-table__table-row').find('.btn-sm').click();
+
             });
 
 
@@ -351,16 +356,22 @@ $(function ($) {
                     $(this).on('change', function () {
                         let $this = $(this);
                         let $product = $this.closest('.cart-table__table-row_type_product');
-                        let price = $product.find('.cart-table__price-value').text();
-                        price = parseFloat(price.replace(/\s/, ''));
+                        let step = functions.getStep($product);
 
                         let count = $product.find('.custom-counter__amount').val();
-                        count = parseFloat(count.replace(/\s/g, ''));
+                        count = functions.getCorrectValueToCounter(step, count);
+                        $this.val(count);
+                        count = parseFloat(count.toString().replace(/\s/g, ''));
                         count = Number((count).toFixed(2));
+
+                        let price = $product.find('.cart-table__price-value').text();
+                        price = parseFloat(price.replace(/\s/, ''));
 
                         let cost = Number((price * count).toFixed(2));
                         cost = functions.numberWithSpaces(cost);
                         $product.find('.cart-table__sum-value').text(cost);
+
+                        $this.closest(miniShop2.form).find('[name="ms2_action"]').trigger('click');
                     });
                 });
             }

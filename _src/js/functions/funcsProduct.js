@@ -42,7 +42,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
 
     // -------------------------------
-    // Изменить кол-во товара в корзине
+    // Изменить кол-во товара на счетчике
     // -------------------------------
     function changeCountItemInCart($productItem, forbidZero) {
         forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
