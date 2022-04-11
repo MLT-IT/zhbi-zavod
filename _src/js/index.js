@@ -325,7 +325,8 @@ $(function ($) {
 
                 // Установка val
                 let val = parseFloat($inputValue.val());
-                val = Math.ceil(val / step);
+                // val = Math.ceil(val / step);
+                val = Math.floor(val / step);
 
                 switch (true) {
                     case $this.hasClass('custom-counter__btn_dir_less'):

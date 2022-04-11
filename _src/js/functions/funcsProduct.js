@@ -58,9 +58,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         $amount = $forms['action'].find('.custom-counter__amount');
 
         // Кол-во товара
-        let newAmountVal = functions.getCorrectValueToCounter(getStep($productItem), $amount.val());
-        $amount.val(newAmountVal);
-        let count = getItemCount($productItem, newAmountVal);
+        let val = $amount.val();
+        // val = functions.getCorrectValueToCounter(getStep($productItem), val);
+        // $amount.val(val);
+        let count = getItemCount($productItem, val);
 
         if (forbidZero && count === 0) {
             count = 1;
