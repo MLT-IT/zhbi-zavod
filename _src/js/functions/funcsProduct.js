@@ -79,9 +79,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Данный код нужен для расчета кол-ва соответственно кол-ву на поддоне
         // val = functions.getCorrectValueToCounter(getStep($productItem), val);
 
-        if ((isNaN(val) || lastVal == val)) {
-            return;
-        }
+        // if ((isNaN(val) || lastVal == val)) {
+        //     console.log('return', isNaN(val), lastVal == val);
+        //     return;
+        // }
 
         // Устанавливаем кол-во товара всем input'ам с количеством товара
         $forms['action'].each(function (i, e) {
@@ -112,6 +113,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 $productItem.removeClass('product-item-in-cart');
             }
         }
+
     }
 
 

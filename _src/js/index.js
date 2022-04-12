@@ -368,6 +368,9 @@ $(function ($) {
         // Поле в текущей форме
         let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
 
+        // Значение активной ед. измерения
+        let unitVal = functions.getActiveUnitValue($item);
+
         // ---------------------------------------------
         // Устанавливаем новый шаг и новое число (если шаг изменился)
         // ---------------------------------------------
@@ -377,42 +380,42 @@ $(function ($) {
             coeff = 0;
         }
 
-        // Если коэфициент равен нулю, то остальные действия не нужны
+        // Получаем step
         if (coeff === 0) {
-            // console.log('Коэффициент пустой, изменение шага и кол-ва товара не произошло');
-            return;
-        }
-
-        // Получаем активную ед. измерения
-        let unitVal = functions.getActiveUnitValue($item);
-
-        if (unitVal === 1) {
-            // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
-            step = coeff * unitVal;
+            step = 1;
         } else {
-            // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
-            step = Math.ceil(coeff / unitVal);
+            if (unitVal === 1) {
+                // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
+                step = coeff * unitVal;
+            } else {
+                // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
+                step = Math.ceil(coeff / unitVal);
+            }
         }
 
         // Получаем новое количество товара
         let lastUnitValue = $item.attr('data-last-unit-value');
         let newVal = $activeFormInput.val();
         if (typeof lastUnitValue !== 'undefined') {
+            // Если мы с штук перешли на другую ед. измерения
             if (lastUnitValue == 1) {
-                newVal = newVal / functions.getActiveUnitValue($item);
+                newVal = newVal * unitVal;
             } else {
-                newVal = newVal * lastUnitValue / functions.getActiveUnitValue($item);
+                // Если мы НЕ СО ШТУК перешли на любую другую единицу измерения
+                newVal = newVal / lastUnitValue * unitVal;
             }
         } else {
+            // Если мы не переходили ни с каких единиц измерения - просто произошла загрузка страницы
             newVal = newVal * step;
         }
 
+        // Округляем новое значение в большую сторону
         newVal = Math.ceil(newVal);
 
         // Пересчитываем кол-во товара с учетом step
         // newVal = functions.getCorrectValueToCounter(step, newVal);
 
-        // Устанавливаем шаг. Я закомментировал, т.к. Кирилл сказал отменить эти изменения
+        // Устанавливаем новый шаг
         // $item.attr('data-step', step);
 
         // Устанавливаем новое количество
