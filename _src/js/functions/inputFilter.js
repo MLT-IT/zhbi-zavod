@@ -58,6 +58,9 @@ let methods = {
 
             $this.on(events, function () {
                 if (func(this.value)) {
+                    if (settings.event === 'change') {
+                        this["lastValue"] = this["oldValue-" + settings.event];
+                    }
                     this["oldValue-" + settings.event] = this.value;
                     this.oldSelectionStart = this.selectionStart;
                     this.oldSelectionEnd = this.selectionEnd;

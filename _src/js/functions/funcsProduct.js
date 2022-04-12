@@ -68,7 +68,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
         $inputAmount = $inputAmount.find('.custom-counter__amount');
 
-        // Получаем кол-во товара
+        // Получаем последнее кол-во товара
+        let lastVal = $inputAmount[0]['lastValue'];
+        // Получаем новое кол-во товара
         let val = $inputAmount.val();
         // val = functions.getCorrectValueToCounter(getStep($productItem), val);
 
@@ -84,8 +86,8 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             count = 1;
         }
 
-        if (isNaN(count)) {
-            count = 0;
+        if (isNaN(count) || lastVal === val) {
+            return;
         }
 
         // Установить кол-ва товара
