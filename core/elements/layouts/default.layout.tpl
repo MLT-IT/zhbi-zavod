@@ -88,6 +88,10 @@
     <meta name="twitter:image" content="{'site_url' | option}{$micro_img}" />
     {* <<< Open Graph и Twitter Card  *}
 
+    <div class="hidden ya-zdes">
+    {'getServerName' | snippet}
+    </div>
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a) { m[i]=m[i]||function() { (m[i].a=m[i].a||[]).push(arguments) } ;
