@@ -84,6 +84,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             count = 1;
         }
 
+        if (isNaN(count)) {
+            count = 0;
+        }
+
         // Установить кол-ва товара
         $systemForm.find('[name="count"]').val(count);
 
