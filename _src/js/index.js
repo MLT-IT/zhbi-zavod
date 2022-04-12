@@ -279,7 +279,7 @@ $(function ($) {
                 if ($item.hasClass('product-item-in-cart')) {
                     setStepAndAmount($item, true);
                 } else {
-                    setStepAndAmount($item);
+                    setStepAndAmount($item, true);
                 }
             }
 
@@ -405,18 +405,19 @@ $(function ($) {
         } else {
             newVal = newVal * step;
         }
+
         newVal = Math.ceil(newVal);
 
         // Пересчитываем кол-во товара с учетом step
-        newVal = functions.getCorrectValueToCounter(step, newVal);
+        // newVal = functions.getCorrectValueToCounter(step, newVal);
 
         // Устанавливаем шаг. Я закомментировал, т.к. Кирилл сказал отменить эти изменения
         // $item.attr('data-step', step);
 
         // Устанавливаем новое количество
-        // if (!dontChangeAmount) {
-        //     $activeFormInput.val(newVal);
-        // }
+        if (!dontChangeAmount) {
+            $activeFormInput.val(newVal);
+        }
     }
 
 
