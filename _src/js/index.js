@@ -363,7 +363,8 @@ $(function ($) {
         // Определяем основные переменные
         // ---------------------------------------------
         // Текущий шаг
-        let step = functions.getStep($item);
+        // let step = functions.getStep($item);
+        let step = 1;
 
         // Поле в текущей форме
         let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
@@ -375,7 +376,8 @@ $(function ($) {
         // Устанавливаем новый шаг и новое число (если шаг изменился)
         // ---------------------------------------------
         // Получаем коэффициент. Пока что он задан только у кирпичей. Он нам нужен для установки нового шага
-        let coeff = parseFloat($item.attr('data-coefficient'));
+        // let coeff = parseFloat($item.attr('data-coefficient'));
+        let coeff;
         if (isNaN(coeff)) {
             coeff = 0;
         }

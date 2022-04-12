@@ -49,13 +49,12 @@
 
 {* Единицы измерения для кирпича *}
 {if $src['context_key'] === 'kirpich-m'}
-    {set $k_m3seamless = $src['k_m3seamless'][0] | replace : ',' : '.'}
-    {set $k_m3seam = $src['k_m3seam'][0] | replace : ',' : '.'}
-    {set $k_m2seam = $src['k_m2seam'][0] | replace : ',' : '.'}
+    {set $k_m3seam = (1 / $src['k_m3seam'][0]) | replace : ',' : '.'}
+    {set $k_m2seam = (1 / $src['k_m2seam'][0]) | replace : ',' : '.'}
 
     {set $coefficient = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
-
+ 
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
