@@ -19,6 +19,7 @@
 
 {$_modx->setPlaceholder('brand', $brand)}
 
+{'!checkHost' | snippet}
 {'!checkItems' | snippet}
 
 <!doctype html>
