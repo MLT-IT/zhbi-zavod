@@ -56,15 +56,10 @@ let methods = {
             $this[0].oldSelectionStart = $this[0].selectionStart;
             $this[0].oldSelectionEnd = $this[0].selectionEnd;
             $this[0]["lastValue"] = $this[0].value;
-            console.log('$this[0]["lastValue"] = ', $this[0]["lastValue"])
 
             $this.on(events, function (e) {
                 if (func(this.value)) {
                     if (settings.event === 'change' && e.type === 'change') {
-                        console.log('>>> Изменение из фильтра')
-                        console.log('lastVal = ' + this["oldValue-" + settings.event]);
-                        console.log('val = ' + this.value);
-                        console.log('<<< Изменение из фильтра')
                         this["lastValue"] = this["oldValue-" + settings.event];
                     }
                     this["oldValue-" + settings.event] = this.value;
@@ -73,12 +68,6 @@ let methods = {
                 } else if (this.hasOwnProperty("oldValue-" + settings.event)) {
                     this.value = this["oldValue-" + settings.event];
                     this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-
-
-                    console.log('>>> Изменение из фильтра')
-                    console.log('lastVal = ' + this["oldValue-" + settings.event]);
-                    console.log('val = ' + this.value);
-                    console.log('<<< Изменение из фильтра')
                     this["lastValue"] = this["oldValue-" + settings.event];
                 }
             });

@@ -79,12 +79,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Данный код нужен для расчета кол-ва соответственно кол-ву на поддоне
         // val = functions.getCorrectValueToCounter(getStep($productItem), val);
 
-        console.log('>>> Изменение из функции')
-        console.log('lastVal = ' + lastVal);
-        console.log('val = ' + val);
-        console.log('<<< Изменение из функции');
         if ((isNaN(val) || lastVal == val)) {
-            console.log('return')
             return;
         }
 
@@ -140,12 +135,6 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // В счетчик для изменения кол-ва. Цикл нужен, т.к. может быть 2 счетчика для изменения кол-ва. Первый - для ПК, второй - для мобилок
         $elemsChange.find('.custom-counter__amount').each(function (i, e) {
             $(e).val(countRaw);
-
-            console.log('>>> Изменение из добавления');
-            console.log('lastVal = ' + count);
-            console.log('val = ' + countRaw);
-            console.log('элемент ', $(e));
-            console.log('<<< Изменение из добавления');
             e["oldValue-change"] = count;
             e["lastValue"] = count;
         });
