@@ -53,6 +53,7 @@
         <div class="not-init listing__products-item-fav-remove-btn product-item__action-btn product-item__actions-compare active"></div>
     </div>
     <div class="listing__products-item-right">
+        {*
         <div class="listing__products-item-price-and-logo">
             <div class="listing__products-item-price">
                 <div class="listing__products-item-price-wrap">
@@ -74,12 +75,22 @@
 
             <div class="product-logo listing__product-logo" data-brand="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
         </div>
+        *}
     </div>
 
-    {'msProductOptions' | snippet : [
-        'tpl' => '@FILE sections/product/card-options.tpl',
-        'product' => $id
-    ]}
+    <div class="pop-slide__options-wrap pop-slide__options-wrap_type_source">
+        <div class="pop-slide__option" data-title="Цена">
+            <div class="pop-slide__option-caption">Цена</div>
+            <div class="pop-slide__option-value">
+                {$outputPrice} руб
+            </div>
+        </div>
+
+        {'msProductOptions' | snippet : [
+            'tpl' => '@FILE sections/product/card-options.tpl',
+            'product' => $id
+        ]}
+    </div>
 
     <div class="pop-slide__options-wrap pop-slide__options-wrap_type_default"></div>
     <div class="pop-slide__options-wrap pop-slide__options-wrap_type_only-different"></div>
