@@ -47,10 +47,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     function changeCountItemInCart($productItem, forbidZero) {
         forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
 
+        // Товар в корзине?
         let inCart = false;
+        // Счетчик с кол-вом товара
         let $inputAmount;
 
+        // Все формы чанка
         let $forms = getActiveForm($productItem);
+        // Системные формы, которые нужны для управления корзиной
         let $systemForm = $forms['system'];
         if ($productItem.hasClass('product-item-in-cart')) {
             inCart = true;
@@ -70,27 +74,31 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
         // Получаем последнее кол-во товара
         let lastVal = $inputAmount[0]['lastValue'];
-        // Получаем новое кол-во товара
+        // Получаем новое кол-во товара, которое будет отображено на счетчике
         let val = $inputAmount.val();
+        // Данный код нужен для расчета кол-ва соответственно кол-ву на поддоне
         // val = functions.getCorrectValueToCounter(getStep($productItem), val);
+
+        console.log('>>> Изменение из функции')
+        console.log('lastVal = ' + lastVal);
+        console.log('val = ' + val);
+        console.log('<<< Изменение из функции');
+        if ((isNaN(val) || lastVal == val)) {
+            console.log('return')
+            return;
+        }
 
         // Устанавливаем кол-во товара всем input'ам с количеством товара
         $forms['action'].each(function (i, e) {
             $(e).find('.custom-counter__amount').val(val);
         });
 
-        // Устанавливаем count
+        // Устанавливаем то количество, которое будет добавлено в корзину
         let count = getItemCount($productItem, val);
-
         if (forbidZero && count === 0) {
             count = 1;
         }
 
-        if (isNaN(count) || lastVal === val) {
-            return;
-        }
-
-        // Установить кол-ва товара
         $systemForm.find('[name="count"]').val(count);
 
         // Если товар в корзине, то...
@@ -132,6 +140,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // В счетчик для изменения кол-ва. Цикл нужен, т.к. может быть 2 счетчика для изменения кол-ва. Первый - для ПК, второй - для мобилок
         $elemsChange.find('.custom-counter__amount').each(function (i, e) {
             $(e).val(countRaw);
+
+            console.log('>>> Изменение из добавления');
+            console.log('lastVal = ' + count);
+            console.log('val = ' + countRaw);
+            console.log('элемент ', $(e));
+            console.log('<<< Изменение из добавления');
+            e["oldValue-change"] = count;
+            e["lastValue"] = count;
         });
         // В скрытые поля
         $formAdd.find('[name="count"]').val(count);
