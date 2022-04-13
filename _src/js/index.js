@@ -272,8 +272,8 @@ $(function ($) {
 
             if (!$item.hasClass('cart-table__table-row_type_product')) {
                 // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
-                $item.on('changeUnit', function () {
-                    setStepAndAmount($item);
+                $item.on('changeUnit', function (e) {
+                    setStepAndAmount($item, !$item.hasClass('product-item-in-cart'));
                 });
                 // Устанавливаем шаг и кол-во
                 if ($item.hasClass('product-item-in-cart')) {
@@ -356,6 +356,9 @@ $(function ($) {
     window.initStyledCounter();
 
 
+    /**
+     * Конвертация
+     */
     function setStepAndAmount($item, dontChangeAmount) {
         dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false;
 
