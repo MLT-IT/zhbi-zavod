@@ -300,7 +300,7 @@
                 let cost = parseFloat($('.cart-table__price-value', itemSelector).text().replace(' ', ''));
                 cost = cost * amount;
                 let costInt = parseInt(cost);
-                if (costInt === cost) {
+                if (costInt == cost) {
                     cost = costInt;
                 } else {
                     cost = cost.toFixed(2);
