@@ -39,6 +39,8 @@
         {set $site_class = 'rockwool plitaosb'}
     {elseif $_modx->resource.context_key == 'pro-fanera'}
         {set $site_class = 'rockwool pro-fanera'}
+    {elseif $_modx->resource.context_key == 'plity-mdvp'}
+        {set $site_class = 'rockwool plity-mdvp'}
     {/if}
 
     {* >>> favicon *}
@@ -71,6 +73,8 @@
         {set $micro_title = $micro_title ~ 'плит ОСБ'}
     {elseif $site_context == 'pro-fanera'}
         {set $micro_title = $micro_title ~ 'фанеры'}
+    {elseif $site_context == 'plity-mdvp'}
+        {set $micro_title = $micro_title ~ 'плит МДВП'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

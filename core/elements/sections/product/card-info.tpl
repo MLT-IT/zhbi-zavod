@@ -135,6 +135,8 @@
                     Получить расчет фанеры бесплатно
                 {elseif $_modx->resource.context_key == 'plitaosb'}
                     Получить расчет плит ОСБ бесплатно
+                {elseif $_modx->resource.context_key == 'plity-mdvp'}
+                    Получить расчет плит МДВП бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}

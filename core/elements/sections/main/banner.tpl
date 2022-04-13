@@ -21,6 +21,8 @@
                 <img src="/assets/template/img/banners-full/pro-fanera.jpg" class="banner__slide-img">
             {elseif $_modx->resource.context_key == 'plitaosb'}
                 <img src="/assets/template/img/banners-full/plitaosb.jpg" class="banner__slide-img">
+            {elseif $_modx->resource.context_key == 'plity-mdvp'}
+                <img src="/assets/template/img/banners-full/plity-mdvp.jpg" class="banner__slide-img">
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
             {/if}
