@@ -21,6 +21,8 @@
                 плит ОСБ
             {elseif $_modx->context.key == 'pro-fanera'}
                 фанеры
+            {elseif $_modx->context.key == 'plity-mdvp'}
+                плит МДВП
             {else}
                 утеплителя
             {/if}
@@ -76,6 +78,8 @@
             {set $imgname = 'pro-fanera.jpg'}
         {case 'plitaosb'}
             {set $imgname = 'plitaosb.jpg'}
+        {case 'plity-mdvp'}
+            {set $imgname = 'plity-mdvp.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

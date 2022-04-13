@@ -98,7 +98,7 @@
             {include "file:chunks/productElems.tpl"}
 
             {if $_modx->resource.context_key === 'kirpich-m' && $_modx->resource['pallet_num'][0] ?}
-                <div class="product-card__saleinfo product-card__saleinfo_pos_top">
+                <div class="product-card__saleinfo">
                     На поддоне: {$_modx->resource['pallet_num'][0]} шт.
                 </div>
             {/if}
@@ -120,6 +120,8 @@
                     Получить расчет фанеры бесплатно
                 {elseif $_modx->resource.context_key == 'plitaosb'}
                     Получить расчет плит ОСБ бесплатно
+                {elseif $_modx->resource.context_key == 'plity-mdvp'}
+                    Получить расчет плит МДВП бесплатно
                 {else}
                     КУПИТЬ В 1 КЛИК
                 {/if}

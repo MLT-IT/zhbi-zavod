@@ -32,6 +32,8 @@
                         плит ОСБ
                     {elseif $_modx->context.key == 'pro-fanera'}
                         фанеры
+                    {elseif $_modx->context.key == 'plity-mdvp'}
+                        плит МДВП
                     {else}
                         утеплителя {$brand}
                     {/if}
