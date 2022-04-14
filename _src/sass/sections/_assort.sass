@@ -1,12 +1,22 @@
 .assort
     margin-bottom: 60px
+    overflow: hidden
+
+    &__contents-wrap, &__sidebar
+        transition: .3s
 
     &_active
         &_sidebar
             .assort__contents-wrap
-                margin-right: 15px
-                position: absolute
-                right: calc(-100% - 45px)
+                @media screen and (max-width: 500px)
+                    position: absolute
+                    transform: translateX(calc(100% + 45px))
+
+        &_content
+            .assort__sidebar
+                @media screen and (max-width: 500px)
+                    position: absolute
+                    transform: translateX(calc(-100% - 45px))
 
     &__back-text
         margin-left: 12px
@@ -24,7 +34,7 @@
         display: none
 
         @media screen and (max-width: 500px)
-            display: inline-flex
+            display: flex
 
         &:hover
             .assort__back-text
@@ -221,10 +231,10 @@
 
     &__contents-wrap
         flex-grow: 1
-        min-width: 70.714%
+        width: 70.714%
 
         @media screen and (max-width: 700px)
-            min-width: 0
+            width: 0
 
         @media screen and (max-width: 500px)
             width: 100%

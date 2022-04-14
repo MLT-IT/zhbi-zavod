@@ -482,7 +482,27 @@ $(function ($) {
     // -------------------------------
     let $assort = $('.assort');
     if ($assort.length) {
-        let $tabs = $assort.find('.assort__tabs');
+        const sidebar = 1;
+        const content = 2;
+
+        function toggleClasses(classConst) {
+            let oldHeight = $assort.height();
+            switch (classConst) {
+                case sidebar:
+                    $assort.removeClass('assort_active_content').addClass('assort_active_sidebar');
+                    break;
+                case content:
+                    $assort.removeClass('assort_active_sidebar').addClass('assort_active_content');
+                    break;
+            }
+            let newHeight = $assort.height();
+            $assort.height(oldHeight);
+            $assort.animate({'height': newHeight}, 300, function () {
+                $assort.css('height', '');
+            });
+        }
+
+        let $backBtnText = $assort.find('.assort__back-text');
 
         $assort.find('.assort__sidebar-item').on('click', function (e) {
             e.preventDefault();
@@ -490,12 +510,14 @@ $(function ($) {
             $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
             $this.addClass('active');
             $assort.find('.assort__content[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
-            $tabs.removeClass('assort_active_sidebar').addClass('assort_active_content');
+            toggleClasses(content);
+            $backBtnText.text($this.text());
         });
 
         $assort.find('.assort__back').on('click', function (e) {
             e.preventDefault();
-            $tabs.removeClass('assort_active_content').addClass('assort_active_sidebar');
+            toggleClasses(sidebar);
+            $backBtnText.text('');
         });
     }
 });
