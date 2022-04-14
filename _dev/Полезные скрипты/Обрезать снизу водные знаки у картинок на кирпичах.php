@@ -112,21 +112,21 @@ if (file_exists($saved)) {
 }
 
 // Получение id кирпичей
-$ids = $modx->runSnippet('pdoResources', [
+$ids = $modx->runSnippet('msProducts', [
     'parents' => 0,
     'limit' => 0,
     'depth' => 999999,
     'returnIds' => 1,
-    'where' => '{"template:=": 6}',
     'sortby' => 'id',
     'sortdir' => 'ASC',
-    'context' => 'kirpich-m'
+
+    'context' => 'plity-mdvp'
 ]);
 
 $ids = explode(',', $ids);
 
 // Это временная мера
-$ids = [37933, 37934, 37935, 37943];
+$ids = [69941, 69942];
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
@@ -143,7 +143,7 @@ foreach ($ids as $id) {
         });
 
         // Убираем первую, т.к. Кирилл сказал, что ее обрабатывать не надо
-        array_shift($files);
+        //array_shift($files);
 
         // Фильтруем - убираем уже обработанные картинки
         $files = array_filter($files, function ($val) {
@@ -177,7 +177,7 @@ foreach ($ids as $id) {
             // Массив параметров для phpThumb
             $params = [
                 'fltr' => [
-                    'crop|0|0|0|' . 71
+                    'crop|0|0|0|' . 236
                 ]
             ];
 

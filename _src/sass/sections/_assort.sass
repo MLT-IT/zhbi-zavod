@@ -1,12 +1,88 @@
 .assort
+    margin-bottom: 60px
+
+    &_active
+        &_sidebar
+            .assort__contents-wrap
+                margin-right: 15px
+                position: absolute
+                right: calc(-100% - 45px)
+
+    &__back-text
+        margin-left: 12px
+        margin-top: -3px
+        transition: .3s
+
+    &__back
+        align-items: center
+        color: #323232
+        font-weight: 700
+        font-size: 14px
+        transition: .3s
+        cursor: pointer
+        margin-bottom: 16px
+        display: none
+
+        @media screen and (max-width: 500px)
+            display: inline-flex
+
+        &:hover
+            .assort__back-text
+                +set_colors_1(color)
+
+            .assort__back-btn
+                +set_colors_1(background-color)
+
+                &::after
+                    border-color: #fff
+
+    &__back-btn
+        width: 32px
+        height: 32px
+        border: 1px solid
+        border-radius: 4px
+        display: block
+        position: relative
+        transition: .3s
+
+        +set-colors_1(border-color)
+
+        &::after
+            display: block
+            content: ""
+            position: absolute
+            margin-left: 5px
+            flex-shrink: 0
+            border-left: 2px solid
+            border-bottom: 2px solid
+            transform: rotate(45deg) translateY(-50%)
+            transition: .3s
+            width: 7px
+            height: 7px
+            right: 12px
+            top: 50%
+            +set-colors_1(border-color)
+
+    &__content
+        margin-bottom: -16px
+
     &__sidebar
         flex-grow: 1
         max-width: 288px
         width: 100%
         display: flex
-        align-items: flex-start
         flex-direction: column
         margin-right: 40px
+
+        @media screen and (max-width: 992px)
+            margin-right: 20px
+
+        @media screen and (max-width: 700px)
+            max-width: 176px
+
+        @media screen and (max-width: 500px)
+            max-width: none
+            margin-right: 0
 
     &__sidebar-item
         display: flex
@@ -15,7 +91,6 @@
         background: #F0F0F0
         border-radius: 8px
         font-weight: 700
-        width: 100%
         cursor: pointer
         transition: .3s
         font-size: 16px
@@ -40,8 +115,15 @@
         &[data-tab="кладочные-смеси"]::before
             background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
 
-        &:hover, &.active
-            color: #C51717
+        &:hover
+            +set-colors_1(color)
+
+        &.active
+            +set-colors_1(background-color)
+            color: #fff
+
+            &:hover
+                color: #fff
 
         &:nth-last-of-type(n+2)
             margin-bottom: 8px
@@ -49,9 +131,7 @@
     &__tabs
         width: 100%
         display: flex
-
-    &__content-wrap
-        flex-grow: 1
+        position: relative
 
     &__item-link
         background: #F0F0F0
@@ -65,7 +145,7 @@
         color: #323232
 
         &:hover
-            background-color: #C51717
+            +set-colors_1(background-color)
 
             // Переопределяем стандартный стиль при наведении
             @at-root .assort__item-links-wrap &
@@ -90,6 +170,7 @@
             top: 50%
 
     &__item-title
+        display: inline-block
         margin-top: 12px
         margin-bottom: 8px
         font-weight: 600
@@ -110,8 +191,20 @@
         width: calc(50% - 12px)
         margin-bottom: 16px
 
+        @media screen and (max-width: 992px)
+            width: calc(50% - 8px)
+
+        @media screen and (max-width: 700px)
+            width: 100%
+
         &:nth-of-type(odd)
             margin-right: 24px
+
+            @media screen and (max-width: 992px)
+                margin-right: 15px
+
+            @media screen and (max-width: 700px)
+                margin-right: 0
 
     &__item-img
         width: 100%
@@ -128,3 +221,10 @@
 
     &__contents-wrap
         flex-grow: 1
+        min-width: 70.714%
+
+        @media screen and (max-width: 700px)
+            min-width: 0
+
+        @media screen and (max-width: 500px)
+            width: 100%

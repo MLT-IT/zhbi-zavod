@@ -482,12 +482,20 @@ $(function ($) {
     // -------------------------------
     let $assort = $('.assort');
     if ($assort.length) {
-        $assort.find('.assort__sidebar-item').on('click', function(e) {
+        let $tabs = $assort.find('.assort__tabs');
+
+        $assort.find('.assort__sidebar-item').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
             $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
             $this.addClass('active');
-            $assort.find('.assort__content[data-tab="'+$this.attr('data-tab')+'"]').addClass('active');
+            $assort.find('.assort__content[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
+            $tabs.removeClass('assort_active_sidebar').addClass('assort_active_content');
+        });
+
+        $assort.find('.assort__back').on('click', function (e) {
+            e.preventDefault();
+            $tabs.removeClass('assort_active_content').addClass('assort_active_sidebar');
         });
     }
 });
