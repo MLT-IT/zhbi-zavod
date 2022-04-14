@@ -70,7 +70,13 @@
     </div>
 
     {include "file:sections/popular/sect-pop-main.tpl"}
-    {include "file:sections/main/catalog.tpl"}
+
+    {if $_modx->resource.context_key === 'kirpich-m'}
+        {include "file:sections/main/assort.tpl"}
+    {else}
+        {include "file:sections/main/catalog.tpl"}
+    {/if}
+
     {include "file:sections/main/promo.tpl"}
     {include "file:sections/main/stocks.tpl"}
     {include "file:sections/certs.tpl"}

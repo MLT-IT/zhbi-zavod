@@ -476,5 +476,19 @@ $(function ($) {
         $this.remove();
     });
 
+
+    // -------------------------------
+    // assort
+    // -------------------------------
+    let $assort = $('.assort');
+    if ($assort.length) {
+        $assort.find('.assort__sidebar-item').on('click', function(e) {
+            e.preventDefault();
+            let $this = $(this);
+            $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
+            $this.addClass('active');
+            $assort.find('.assort__content[data-tab="'+$this.attr('data-tab')+'"]').addClass('active');
+        });
+    }
 });
 
