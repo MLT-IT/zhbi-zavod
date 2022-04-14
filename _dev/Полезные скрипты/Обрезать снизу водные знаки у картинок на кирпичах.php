@@ -43,13 +43,13 @@ function saveToFile($id) {
     global $basepath;
     $pathToSave = $basepath . DIRECTORY_SEPARATOR . 'saved.txt';
 
-
     if ($id === true) {
         $data = file_get_contents($pathToSave);
         $data = explode(',', $data);
         $data = array_filter($data);
         $data = array_unique($data);
         $data = implode(',', $data);
+        $data .= ',';
         file_put_contents($pathToSave, $data);
     } else {
         if (!is_dir($basepath)) {
@@ -126,7 +126,24 @@ $ids = $modx->runSnippet('msProducts', [
 $ids = explode(',', $ids);
 
 // Это временная мера
-$ids = [69941, 69942];
+$ids = [69940];
+
+// -------------------------------------
+// phpThumb
+// -------------------------------------
+// Подключаем класс phpThumb
+$phpThumb = $modx->getService('modphpthumb', 'modPhpThumb', MODX_CORE_PATH . 'model/phpthumb/', []);
+// Массив параметров для phpThumb
+$params = [
+    'fltr' => [
+        'crop|0|0|0|' . 236
+    ]
+];
+// Устанавливаем параметры
+foreach ($params as $k => $v) {
+    $phpThumb->setParameter($k, $v);
+}
+// -------------------------------------
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
@@ -174,22 +191,8 @@ foreach ($ids as $id) {
             }
 
             // Обрабатываем файл
-            // Массив параметров для phpThumb
-            $params = [
-                'fltr' => [
-                    'crop|0|0|0|' . 236
-                ]
-            ];
-
-            // Подключаем класс phpThumb
-            $phpThumb = $modx->getService('modphpthumb', 'modPhpThumb', MODX_CORE_PATH . 'model/phpthumb/', []);
             // Устанавливаем источик
             $phpThumb->setSourceFilename($pathToImage);
-
-            // Устанавливаем параметры
-            foreach ($params as $k => $v) {
-                $phpThumb->setParameter($k, $v);
-            }
 
             // Заменяем картинку
             if (!$phpThumb->GenerateThumbnail()) {
@@ -214,9 +217,9 @@ foreach ($ids as $id) {
             logToFile('Ошибка при перегенерации превью (' . $id . ')');
             continue;
         }
-    }
 
-    logToFile('Работа с товаром с id ' . $id . ' завершена');
+        logToFile('Работа с товаром с id ' . $id . ' завершена');
+    }
 }
 
 saveToFile(true);
