@@ -17,7 +17,7 @@ $items = [
             ],
             'Облицовочные кирпичи' => [
                 'uri' => '/oblicovochnye/',
-                'img' => '/assets/images/products/38656/small/56b61154-4111-11ea-8104-a0369f3946a4-b924ed5f-432c-11ea-8104-a0369f3946a4.jpg',
+                'img' => '/assets/template/img/assort/oblic-kirpich.jpg',
                 'links' => [
                     'Керамический кирпич' => '/keramicheskie/',
                     'Клинкерный кирпич' => '/klinkernye/',
@@ -26,39 +26,10 @@ $items = [
             ],
             'Кирпич для печи' => [
                 'uri' => '/dlya-pechi/',
-                'img' => '/assets/template/img/import/kirpich-m/pechnye-kirpichi.jpg',
+                'img' => '/assets/template/img/assort/pechnoy.jpg',
                 'links' => [
                     'Шамотный кирпич' => '/shamotnye/',
                     'Керамический кирпич для печей' => '/keramicheskie-kirpichi-dlya-pechej/'
-                ]
-            ]
-        ]
-    ],
-    'Фасадный декор' => [
-        'id' => 'assort-dekor',
-        'items' => [
-            'Фасадный декор' => [
-                'uri' => '/fasadnyj-dekor/',
-                'img' => '/assets/images/products/44022/small/04428e43-1824-11eb-8114-a0369f3946a6-0e84f4d6-28ca-11eb-8116-a0369f3946a6.jpg',
-                'links' => [
-                    'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
-                    'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/'
-                ]
-            ]
-        ]
-    ],
-    'Кладочные смеси' => [
-        'id' => 'assort-smesi',
-        'items' => [
-            'Кладочные смеси' => [
-                'uri' => '/kladochnye-smesi/',
-                'img' => '/assets/images/products/68068/small/f6d043e9b03d218861a6e89f93d299c9.jpg',
-                'links' => [
-                    'Цветные кладочные растворы' => '/cvetnye-kladochnye-rastvory/',
-                    'Нецветные смеси' => '/necvetnye-smesi/',
-                    'Огнеупорные смеси' => '/ogneupornye-smesi/',
-                    'Легкие, теплые растворы' => '/legkie-teplye-rastvory/',
-                    'Клей для газобетона' => '/klej-dlya-gazobetona/'
                 ]
             ]
         ]
@@ -77,7 +48,7 @@ $items = [
             ],
             'Плитка под кирпич' => [
                 'uri' => '/plitka-pod-kirpich/',
-                'img' => '/assets/images/products/41710/small/b1b20887-f1ed-11e6-80f3-003048c9267d-ec883c7d-0d4c-11e7-80f5-003048c9267d.jpg',
+                'img' => '/assets/template/img/assort/plitka.jpg',
                 'links' => [
                     'Клинкерная плитка' => '/klinkernaya-plitka/',
                     'Декоративный кирпич' => '/dekorativnyj-kirpich/',
@@ -98,7 +69,37 @@ $items = [
                 ]
             ]
         ]
-    ]
+    ],
+    'Фасадный декор' => [
+        'id' => 'assort-dekor',
+        'items' => [
+            'Фасадный декор' => [
+                'uri' => '/fasadnyj-dekor/',
+                'img' => '/assets/template/img/assort/dekor.jpg',
+                'links' => [
+                    'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
+                    'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/'
+                ]
+            ]
+        ]
+    ],
+    'Кладочные смеси' => [
+        'id' => 'assort-smesi',
+        'items' => [
+            'Кладочные смеси' => [
+                'uri' => '/kladochnye-smesi/',
+                'img' => '/assets/template/img/assort/smesi.jpg',
+                'links' => [
+                    'Цветные кладочные растворы' => '/cvetnye-kladochnye-rastvory/',
+                    'Нецветные смеси' => '/necvetnye-smesi/',
+                    'Огнеупорные смеси' => '/ogneupornye-smesi/',
+                    'Легкие, теплые растворы' => '/legkie-teplye-rastvory/',
+                    'Клей для газобетона' => '/klej-dlya-gazobetona/'
+                ]
+            ]
+        ]
+    ],
+
 ];
 
 return $items;
