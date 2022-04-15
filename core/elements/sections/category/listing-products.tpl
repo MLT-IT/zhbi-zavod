@@ -2,7 +2,7 @@
     {include "file:sections/category/listing-tags.tpl"}
 
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">
-        <div class="listing__selected" id="mse2_selected"></div>
+        <div class="listing__selected" id="mse2_selected" style="display: none;"></div>
     </div>
 
     <div class="listing__sort">
