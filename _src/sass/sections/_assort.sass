@@ -105,15 +105,6 @@
         transition: .3s
         font-size: 16px
 
-        &::before
-            display: inline-block
-            content: ""
-            width: 24px
-            height: 24px
-            background-size: contain
-            background-repeat: no-repeat
-            margin-right: 12px
-
         &[data-tab="фасадный-декор"]::before
             background-image: url(/assets/template/img/svg-sprite/assort-dekor.svg)
         &[data-tab="искусственный-и-натуральный-камень"]::before
@@ -124,6 +115,10 @@
             background-image: url(/assets/template/img/svg-sprite/assort-plitka.svg)
         &[data-tab="кладочные-смеси"]::before
             background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
+
+        &.active
+            .assort__svg
+                stroke: #fff
 
         &:hover
             +set-colors_1(color)
@@ -238,3 +233,11 @@
 
         @media screen and (max-width: 500px)
             width: 100%
+
+    &__svg
+        width: 24px
+        height: 25px
+        stroke: #B9B9B9
+        fill: transparent
+        margin-right: 12px
+        transition: .3s

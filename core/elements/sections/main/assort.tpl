@@ -5,9 +5,13 @@
     <div class="assort__tabs">
         <div class="assort__sidebar">
             {set $isFirst = true}
-            {foreach $items as $key => $nevermind}
-                <span data-tab="{$key | toLowerAndRemoveChars}"
-                      class="assort__sidebar-item{if $isFirst?} active{/if}">{$key}</span>
+            {foreach $items as $key => $val}
+                <span data-tab="{$val['id']}" class="assort__sidebar-item{if $isFirst?} active{/if}">
+                    <svg class="assort__svg">
+                        <use xlink:href="/assets/template/img/svg-sprite.svg#{$val['id']}"></use>
+                    </svg>
+                    {$key}
+                </span>
                 {set $isFirst = false}
             {/foreach}
         </div>
@@ -17,9 +21,9 @@
                 <span class="assort__back-text">Какой-то текст</span>
             </div>
             {set $isFirst = true}
-            {foreach $items as $key => $items}
-                <div data-tab="{$key | toLowerAndRemoveChars}" class="assort__content{if $isFirst?} active{/if}">
-                    {foreach $items as $title => $item}
+            {foreach $items as $key => $val}
+                <div data-tab="{$val['id']}" class="assort__content{if $isFirst?} active{/if}">
+                    {foreach $val['items'] as $title => $item}
                         <div class="assort__item">
                             <div class="assort__item-img-wrap">
                                 <img class="assort__item-img" src="{$item['img']}" alt="">
