@@ -2689,8 +2689,9 @@
             window.matchMedia("(max-width: 1349px)").matches && new oe(".clients__list", {
             loop: false,
             lazy: {loadPrevNext: !0},
+            spaceBetween: 30,
             navigation: {nextEl: ".clients__list .swiper-button-next", prevEl: ".clients__list .swiper-button-prev"},
-            breakpoints: {300: {spaceBetween: 30, slidesPerView: 1}, 400: {slidesPerView: "auto"}}
+            breakpoints: {300: {spaceBetween: 30, slidesPerView: 1}, 400: {slidesPerView: 2, spaceBetween: 10}, 500: {slidesPerView: 'auto'}}
         }), new oe(".listing__tags", {
             slidesPerView: "auto",
             freeMode: !0,
