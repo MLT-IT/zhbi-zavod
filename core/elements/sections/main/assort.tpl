@@ -1,7 +1,9 @@
 {set $items = '@FILE snippets/assortItems.php' | snippet}
 
 <section class="assort wrapper assort_active_sidebar">
-    <h2 class="title-2">Наш ассортимент</h2>
+    {if $skipHeader is empty}
+        <h2 class="title-2">Наш ассортимент</h2>
+    {/if}
     <div class="assort__tabs">
         <div class="assort__sidebar">
             {set $isFirst = true}

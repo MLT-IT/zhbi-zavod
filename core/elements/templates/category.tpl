@@ -27,9 +27,9 @@
     <script type="application/ld+json">
     {if $_modx->resource.menutitle?}
         {set $name = $_modx->resource.menutitle}
-        {else}
+    {else}
         {set $name = $_modx->resource.pagetitle}
-        {/if}
+    {/if}
     {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -66,7 +66,6 @@
         }
         {/if}
     }
-
     </script>
 {/block}
 
