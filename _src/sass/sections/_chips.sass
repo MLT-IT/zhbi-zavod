@@ -1,6 +1,7 @@
 .listing__selected
     display: flex
     flex-wrap: wrap
+    margin-bottom: 22px
 
     @media screen and (max-width: 460px)
         flex-wrap: nowrap
@@ -11,9 +12,10 @@
     padding: 6px 36px 6px 16px
     height: 28px
     border-radius: 16px
-    margin-bottom: 30px
+    margin-bottom: 8px
     +set_colors_1(background)
     transition: background-color .3s, border-color .3s
+    white-space: nowrap
 
     &:hover
         @at-root .knauf &

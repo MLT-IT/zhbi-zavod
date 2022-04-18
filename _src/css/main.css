@@ -5553,8 +5553,13 @@ a .breadcrumbs__val:hover {
     max-width: 100%
 }
 
-.clients__list-img:not(:last-of-type) {
-    margin-right: 28px
+@media screen and (max-width: 500px) {
+    .clients__list-img img {
+        max-width: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .clients__list-img img {
@@ -7456,10 +7461,6 @@ a .breadcrumbs__val:hover {
     .clients .swiper-buttons {
         opacity: 1;
         visibility: visible
-    }
-
-    .clients__list-img {
-        height: 100px
     }
 
     .map__container {

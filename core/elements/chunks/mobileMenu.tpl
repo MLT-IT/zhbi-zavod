@@ -10,6 +10,8 @@
                 Поставка
                 {if $_modx->context.key == 'krovlya'}
                     кровли
+                {elseif $_modx->context.key == 'pilomat'}
+                    пиломатериалов
                 {elseif $_modx->context.key == 'kirpich-m'}
                     кирпича
                 {elseif $_modx->context.key == 'fasady-pro'}
