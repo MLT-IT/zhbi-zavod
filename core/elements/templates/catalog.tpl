@@ -74,12 +74,17 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper">
-        <h1 class="title-1 category-header asfs">{$_modx->resource.pagetitle}<span class="category-header__inner-text">{'!textFromGetParams' | snippet}</span></h1>
+        <h1 class="title-1 category-header asfs">
+            {$_modx->resource.pagetitle}
+            <span class="category-header__small-text">
+                {'@FILE snippets/echoItemsOnSite.php' | snippet}
+            </span>
+        </h1>
     </div>
 
     {include "file:sections/main/assort.tpl" skipHeader=1}
-    {include "file:sections/popular/sect-pop-main.tpl"}
 
+    {include "file:sections/popular/sect-pop-main.tpl"}
     {set $resources = '!msProducts' | snippet : [
         'parents' => 0,
         'depth' => 1000,
@@ -92,11 +97,6 @@
     {include "file:sections/popular/sect-pop-main.tpl" title="Распродажа" resources=$resources}
 
     {include "file:sections/category/simple-listing.tpl"}
-
-
-
-
-
     {include "file:sections/districts-map.tpl"}
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
