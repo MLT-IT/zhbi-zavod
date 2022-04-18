@@ -2686,6 +2686,14 @@
             scrollbar: {draggable: !0, el: ".product-slider-2 .swiper-scrollbar"}
             }),
 
+            new oe(".product-slider-3 .swiper-container", {
+                loop: false,
+                slidesPerView: "auto",
+                lazy: {loadPrevNext: !0},
+                navigation: {nextEl: ".product-slider-3 .swiper-button-next", prevEl: ".product-slider-3 .swiper-button-prev"},
+                scrollbar: {draggable: !0, el: ".product-slider-3 .swiper-scrollbar"}
+            }),
+
             window.matchMedia("(max-width: 1349px)").matches && new oe(".clients__list", {
             loop: false,
             lazy: {loadPrevNext: !0},

@@ -94,7 +94,7 @@
         'includeTVs' => 'isFractional',
         'context' => $_modx->resource.context_key
     ]}
-    {include "file:sections/popular/sect-pop-main.tpl" title="Распродажа" resources=$resources}
+    {include "file:sections/popular/sect-pop-main.tpl" title="Распродажа" resources=$resources jsClass="product-slider-3"}
 
     {include "file:sections/category/simple-listing.tpl"}
     {include "file:sections/districts-map.tpl"}
