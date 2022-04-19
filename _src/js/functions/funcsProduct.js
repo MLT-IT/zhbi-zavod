@@ -42,6 +42,46 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
 
     // -------------------------------
+    // Пересчет "В листе" при изменении кол-ва товара в карточке товара для фанеры
+    // -------------------------------
+    let $prod = $('.pro-fanera .product-card__top');
+    if ($prod.length) {
+        function changeTextDependingOnAmount($prod) {
+            let m2 = $('.product-card__specs-list-item[data-opt-key="ploshad_m2"] .product-card__specs-list-item-value').text();
+            let m3 = $('.product-card__specs-list-item[data-opt-key="obyem_m3"] .product-card__specs-list-item-value').text();
+
+            let amount = getActiveForm($prod)['action'].find('.custom-counter__amount').val();
+            m2 *= amount;
+            m3 *= amount;
+
+            if (m2) {
+                m2 += ' м2';
+            }
+
+            if (m3) {
+                m3 += ' м3';
+            }
+
+            let val;
+            if (amount == 1) {
+                val = 'В листе: ';
+            } else {
+                val = 'В ' + amount + ' ' + formOfWord(amount, 'листе', 'листах', 'листах') + ': ';
+            }
+            val += [m2, m3].join(', ');
+
+            $('.product-card__package').text(val).show();
+        }
+
+        changeTextDependingOnAmount($prod);
+
+        $prod.on('changeAmount', function () {
+            changeTextDependingOnAmount($(this));
+        });
+    }
+
+
+    // -------------------------------
     // Изменить кол-во товара
     // -------------------------------
     function changeCountItemInCart($productItem, forbidZero) {
@@ -114,6 +154,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             }
         }
 
+        $productItem.trigger('changeAmount');
     }
 
 

@@ -63,13 +63,13 @@
                 {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete', 'pilomat']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
-                        {if $_modx->resource.context_key == 'plitaosb'}
+                        {if $_modx->resource.context_key in list ['plitaosb', 'pro-fanera']}
                             {set $packageText = 'В листе:'}
                         {else}
                             {set $packageText = 'В упаковке:'}
                         {/if}
 
-                        <div class="product-card__package">{$packageText} {$upakovka}</div>
+                        <div {if $_modx->resource.context_key == 'pro-fanera'}style="display: none;"{/if} class="product-card__package">{$packageText} {$upakovka}</div>
                     {/if}
                 {/if}
 

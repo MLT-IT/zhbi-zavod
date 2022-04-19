@@ -1,4 +1,4 @@
-{if $filter == 'price' && $_modx->resource.context_key == 'plitaosb'}
+{if $filter == 'price' && $_modx->resource.context_key in list ['plitaosb', 'pro-fanera']}
     {set $title = 'Цена руб./лист'}
 {else}
     {set $title = ('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}

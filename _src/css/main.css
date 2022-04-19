@@ -4923,6 +4923,10 @@ a .breadcrumbs__val:hover {
     margin-bottom: 70px
 }
 
+.pro-fanera .catalog__cards {
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .catalog__card {
     position: relative;
     overflow: hidden;

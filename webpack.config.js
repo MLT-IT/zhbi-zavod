@@ -109,7 +109,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://kirpich-m.local/",
+                    target: "http://pro-fanera.local/",
                     secure: false,
                     changeOrigin: true
                 }
