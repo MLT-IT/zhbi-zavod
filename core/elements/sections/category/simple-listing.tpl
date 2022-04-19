@@ -35,6 +35,7 @@
         'successMessage' => 'Сообщение успешно отправлено',
     ]}
     <div class="hidden-data">
+        <span id="pdopage_total">{'page.total' | placeholder ?: 0}</span>
         <span id="mse2_total">{$total ?: 0}</span>
     </div>
 </section>

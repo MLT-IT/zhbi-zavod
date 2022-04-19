@@ -40,6 +40,13 @@
         {$results}
     </div>
 
+    <div class="mse2_pagination">
+        {$pagenav}
+    </div>
+    <div class="hidden-data">
+        <span id="mse2_total">{$total ?: 0}</span>
+    </div>
+
     {'!AjaxForm' | snippet : [
         'hooks' => 'create_bitrix_lead',
         'snippet' => 'FormIt',
@@ -50,7 +57,4 @@
         'successMessage' => 'Сообщение успешно отправлено',
     ]}
 
-    <div class="hidden-data">
-        <span id="mse2_total">{$total ?: 0}</span>
-    </div>
 </div>
