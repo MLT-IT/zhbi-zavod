@@ -6536,7 +6536,7 @@ a .breadcrumbs__val:hover {
 .listing__products-item-right {
     margin-left: auto;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .listing__products-item-button {
