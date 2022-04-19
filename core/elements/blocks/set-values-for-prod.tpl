@@ -54,7 +54,12 @@
 
     {set $coefficient = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
- 
+
+{* Единицы измерения для плит ОСБ *}
+{if $src['context_key'] === 'plitaosb'}
+    {set $m2 = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
+{/if}
+
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
@@ -66,7 +71,7 @@
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m']) &&
+{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb']) &&
 ($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дробное добавление товара в корзину *}
