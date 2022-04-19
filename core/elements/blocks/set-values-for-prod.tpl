@@ -54,7 +54,7 @@
 
     {set $coefficient = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
- 
+
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
