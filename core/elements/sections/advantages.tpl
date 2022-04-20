@@ -32,8 +32,8 @@
     {set $iword = 'фанеру'}
     {set $rword = 'фанеры'}
 {elseif $_modx->resource.context_key == 'plity-mdvp'}
-    {set $iword = 'плитные материалы'}
-    {set $rword = 'плитных материалов'}
+    {set $iword = 'плиты МДВП'}
+    {set $rword = 'плит МДВП'}
 {/if}
 
 <section class="advantages">

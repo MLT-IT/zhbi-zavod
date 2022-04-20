@@ -223,7 +223,11 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         if ($productItem.find('.custom-counter_type_fractional').length) {
             count = Number((count).toFixed(2));
         } else {
-            count = Math.ceil(count);
+            if ($('body.kirpich-m').length) {
+                count = Math.round(count);
+            } else {
+                count = Math.ceil(count);
+            }
         }
 
         // Результат
@@ -246,10 +250,11 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 price = 0;
             }
 
-            if (['8', '9'].indexOf(unit) !== -1) {
-                price = unitVal * price;
+            price = 1 / unitVal * price;
+            if ($('body.kirpich-m').length) {
+                price = Math.round(price);
             } else {
-                price = Math.ceil(1 / unitVal * price);
+                price = Math.ceil(price);
             }
 
             price = Number((price).toFixed(2));
