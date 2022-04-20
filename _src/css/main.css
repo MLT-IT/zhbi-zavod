@@ -3552,7 +3552,8 @@ main {
     z-index: 2
 }
 
-.swiper-container .swiper-buttons > * {
+.swiper-container .swiper-buttons > .swiper-button-next,
+.swiper-container .swiper-buttons > .swiper-button-prev {
     transition: opacity .3s, visibility .3s, background-color .3s;
     color: #fff;
     width: 45px;

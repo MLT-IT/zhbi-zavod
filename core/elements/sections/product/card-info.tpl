@@ -19,12 +19,25 @@
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
     <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
 
-    <div class="product-card__img-wrap">
-        <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
-        <a href="{$image}" data-fancybox class="product-card__img zoom">
-            <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
-                 alt="{$_modx->resource.pagetitle}">
-        </a>
+    <div class="product-card__gallery">
+        <div class="product-card__img-wrap">
+            <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+            <a href="{$image}" data-fancybox class="product-card__img zoom">
+                <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
+            </a>
+        </div>
+        <div class="product-card__gallery-btns-wrap swiper-buttons">
+            <div class="product-card__gallery-btn product-card__gallery-btn_dir_prev"></div>
+            <div class="product-card__gallery-btn product-card__gallery-btn_dir_next"></div>
+        </div>
+        <div class="product-card__gallery-slider swiper-container">
+            <div class="swiper-wrapper">
+                {'!msGallery' | snippet : [
+                    'tpl' => '@FILE chunks/gallery.tpl',
+                    'product' => $id,
+                ]}
+            </div>
+        </div>
     </div>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">

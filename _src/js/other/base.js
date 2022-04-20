@@ -2670,6 +2670,14 @@
             navigation: {nextEl: ".promo .swiper-button-next", prevEl: ".promo .swiper-button-prev"}
         }),
 
+            new oe(".product-card__gallery-slider", {
+                loop: false,
+                spaceBetween: 4,
+                slidesPerView: 4,
+                lazy: {loadPrevNext: !0},
+                navigation: {nextEl: ".product-card__gallery-btn_dir_next", prevEl: ".product-card__gallery-btn_dir_prev"},
+            }),
+
             new oe(".product-slider-1 .swiper-container", {
             loop: false,
             slidesPerView: "auto",
