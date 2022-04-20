@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const uglifyJsPlugin = require("babel-minify-webpack-plugin")
 const ExtractTextPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, args) => {
     const isProd = args.mode === 'production'
@@ -94,6 +95,17 @@ module.exports = (env, args) => {
             }),
             new webpack.HotModuleReplacementPlugin()
         ],
+
+        optimization: {
+            minimizer: [
+                new OptimizeCSSAssetsPlugin({
+                    cssProcessorPluginOptions: {
+                        preset: ['default', {discardComments: {removeAll: true}}],
+                    }
+                })
+            ],
+        },
+
         resolve: {
             extensions: ['*', '.js']
         },
