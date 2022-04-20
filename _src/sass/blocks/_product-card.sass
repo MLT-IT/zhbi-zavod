@@ -83,6 +83,7 @@
 
     &__img
         cursor: zoom-in
+        display: block
 
         @media screen and (max-width: 768px)
             margin-left: auto
@@ -375,3 +376,28 @@
 
         @media screen and (max-width: 500px)
             display: flex
+
+    &__brand
+        position: absolute
+        left: 10px
+        top: 10px
+        display: block
+        width: 60px
+        height: 40px
+        z-index: 10
+        background: rgba(255, 255, 255, .5)
+
+        +brands_to_selector('::after')
+
+        &::after
+            content: ""
+            display: block
+            width: 100%
+            height: 100%
+            background-repeat: no-repeat
+            background-position: center center
+            box-sizing: border-box
+            background-size: contain
+
+    &__img-wrap
+        position: relative

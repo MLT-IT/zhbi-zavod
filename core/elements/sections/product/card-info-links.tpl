@@ -1,6 +1,12 @@
 {set $src = $_modx->resource}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
+{* Производитель / Бренд *}
+{set $itemVendor = $_modx->resource['proizvoditel'][0]}
+{if $itemVendor is empty}
+    {set $itemVendor = $_modx->resource['brand'][0]}
+{/if}
+
 {* Данные для списков *}
 {set $krovlyaData = 'getLinksData' | snippet}
 
@@ -78,10 +84,13 @@
 
         <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
 
-        <a href="{$image}" data-fancybox class="product-card__img">
-            <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
-                 alt="{$_modx->resource.pagetitle}">
-        </a>
+        <div class="product-card__img-wrap">
+            <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+            <a href="{$image}" data-fancybox class="product-card__img">
+                <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
+                     alt="{$_modx->resource.pagetitle}">
+            </a>
+        </div>
 
         <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
             <meta itemprop="bestRating" content="5">
