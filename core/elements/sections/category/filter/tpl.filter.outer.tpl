@@ -26,6 +26,10 @@
         {set $keyClass = 'cvet'}
     {case 'msoption|surface'}
         {set $keyClass = 'surface'}
+    {case 'msoption|proizvoditel'}
+        {set $keyClass = 'proizvoditel'}
+    {case 'msoption|brand'}
+        {set $keyClass = 'brand'}
 {/switch}
 
 {if $key === 'msoption|brand' && $_modx->resource.context_key === 'kirpich-m'}

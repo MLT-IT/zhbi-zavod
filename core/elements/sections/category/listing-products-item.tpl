@@ -253,7 +253,7 @@
                 </div>
             </div>
 
-            <div class="product-logo listing__product-logo" data-brand="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
+            <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
         </div>
 
         {if $condition}

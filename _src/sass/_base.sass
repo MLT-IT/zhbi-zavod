@@ -49,11 +49,6 @@
     @at-root .ursa &
         #{$property}: #EA4740
 
-
-/**
- * Полезный сайт, где я нашел много цветов:
- * https://hysy.org/colors/
- */
 @mixin colors_to_selector($selector)
     &[data-val="ral-1014"]#{$selector}
         background-color: #F0E283
@@ -448,6 +443,117 @@
     &[data-val="rr-798"]#{$selector}
         background-color: #7b0323
 
+@mixin brands_to_selector($selector)
+    &[data-val=""]
+        display: none
+
+    // Кровля
+    &[data-val="aquasystem"]#{$selector}
+        background-image: url(/assets/template/img/brands/aquasystem.jpg)
+    &[data-val="braas"]#{$selector}
+        background-image: url(/assets/template/img/brands/braas.jpg)
+    &[data-val="certainteed"]#{$selector}
+        background-image: url(/assets/template/img/brands/certainteed.jpg)
+    &[data-val="docke"]#{$selector}
+        background-image: url(/assets/template/img/brands/docke.jpg)
+    &[data-val="icopal"]#{$selector}
+        background-image: url(/assets/template/img/brands/icopal.jpg)
+    &[data-val="katepal"]#{$selector}
+        background-image: url(/assets/template/img/brands/katepal.jpg)
+    &[data-val="kriastak"]#{$selector}
+        background-image: url(/assets/template/img/brands/kriastak.jpg)
+    &[data-val="krovent"]#{$selector}
+        background-image: url(/assets/template/img/brands/krovent.jpg)
+    &[data-val="металл-профиль"]#{$selector}
+        background-image: url(/assets/template/img/brands/metallprofil.jpg)
+    &[data-val="ондулин"]#{$selector}
+        background-image: url(/assets/template/img/brands/onduline.jpg)
+    &[data-val="тегола"]#{$selector}
+        background-image: url(/assets/template/img/brands/tegola.jpg)
+    &[data-val="технониколь"]#{$selector}
+        background-image: url(/assets/template/img/brands/tn.jpg)
+    &[data-val="grand-line"]#{$selector}
+        background-image: url(/assets/template/img/brands/grand-line.jpg)
+
+    // Кирпичи
+    &[data-val="abc"]#{$selector}
+        background-image: url(/assets/template/img/brands/ABC.png)
+    &[data-val="braer"]#{$selector}
+        background-image: url(/assets/template/img/brands/BRAER.png)
+    &[data-val="dekeramik"]#{$selector}
+        background-image: url(/assets/template/img/brands/DeKERAMIK.png)
+    &[data-val="engels"]#{$selector}
+        background-image: url(/assets/template/img/brands/ENGELS.png)
+    &[data-val="estima"]#{$selector}
+        background-image: url(/assets/template/img/brands/ESTIMA.png)
+    &[data-val="feldhaus-klinker"]#{$selector}
+        background-image: url(/assets/template/img/brands/FeldhausKlinker.png)
+    &[data-val="gres-aragon"]#{$selector}
+        background-image: url(/assets/template/img/brands/GresAragon.png)
+    &[data-val="interbau"]#{$selector}
+        background-image: url(/assets/template/img/brands/Interbau.png)
+    &[data-val="joseph-bricks"]#{$selector}
+        background-image: url(/assets/template/img/brands/JosephBricks.png)
+    &[data-val="king-klinker"]#{$selector}
+        background-image: url(/assets/template/img/brands/KingKlinker.png)
+    &[data-val="lear"]#{$selector}
+        background-image: url(/assets/template/img/brands/LEAR.png)
+    &[data-val="lode"]#{$selector}
+        background-image: url(/assets/template/img/brands/lode.png)
+    &[data-val="modformat"]#{$selector}
+        background-image: url(/assets/template/img/brands/modformat.png)
+    &[data-val="muhr"]#{$selector}
+        background-image: url(/assets/template/img/brands/Muhr.png)
+    &[data-val="nelissen"]#{$selector}
+        background-image: url(/assets/template/img/brands/Nelissen.png)
+    &[data-val="randers-tegl"]#{$selector}
+        background-image: url(/assets/template/img/brands/RandersTegl.png)
+    &[data-val="redstone"]#{$selector}
+        background-image: url(/assets/template/img/brands/REDSTONE.png)
+    &[data-val="roben"]#{$selector}
+        background-image: url(/assets/template/img/brands/Roben.png)
+    &[data-val="s-anselmo"]#{$selector}
+        background-image: url(/assets/template/img/brands/S.Anselmo.png)
+    &[data-val="skriabin-ceramics"]#{$selector}
+        background-image: url(/assets/template/img/brands/SkriabinCeramics.png)
+    &[data-val="stroeher"]#{$selector}
+        background-image: url(/assets/template/img/brands/Stroeher.png)
+    &[data-val="terraklinker"]#{$selector}
+        background-image: url(/assets/template/img/brands/Terraklinker.png)
+    &[data-val="white-hills"]#{$selector}
+        background-image: url(/assets/template/img/brands/WhiteHills.png)
+    &[data-val="wienerberger"]#{$selector}
+        background-image: url(/assets/template/img/brands/wienerberger.png)
+    &[data-val="кс-керамик"]#{$selector}
+        background-image: url(/assets/template/img/brands/КС-Керамик.png)
+    &[data-val="керма"]#{$selector}
+        background-image: url(/assets/template/img/brands/Керма.png)
+    &[data-val="пятый-элемент"]#{$selector}
+        background-image: url(/assets/template/img/brands/Пятый-элемент.png)
+    &[data-val="балтфасад"]#{$selector}
+        background-image: url(/assets/template/img/brands/БАЛТФАСАД.png)
+    &[data-val="бксм"]#{$selector}
+        background-image: url(/assets/template/img/brands/БКСМ.png)
+    &[data-val="боровичский-комбинат-огнеупоров"]#{$selector}
+        background-image: url(/assets/template/img/brands/Боровичский-комбинат-огнеупоров.png)
+    &[data-val="вкз"]#{$selector}
+        background-image: url(/assets/template/img/brands/ВКЗ.png)
+    &[data-val="витебск-цех-1"]#{$selector}
+        background-image: url(/assets/template/img/brands/Витебск-цех-1.png)
+    &[data-val="донские-зори"]#{$selector}
+        background-image: url(/assets/template/img/brands/Донские-зори.png)
+    &[data-val="зсм-эталон"]#{$selector}
+        background-image: url(/assets/template/img/brands/ЗСМ.png)
+    &[data-val="идеальный-камень"]#{$selector}
+        background-image: url(/assets/template/img/brands/Идеальный-Камень.png)
+    &[data-val="лср"]#{$selector}
+        background-image: url(/assets/template/img/brands/lsr.png)
+    &[data-val="экоклинкер"]#{$selector}
+        background-image: url(/assets/template/img/brands/Экоклинкер.png)
+    &[data-val="эталон-зсм"]#{$selector}
+        background-image: url(/assets/template/img/brands/ЗСМ.png)
+    &[data-val="гжельский-кирпичный-завод"]#{$selector}
+        background-image: url(/assets/template/img/brands/Гжельский-кирпичный-завод.png)
 
 // ------------------------------
 // Классы для наследования
@@ -692,116 +798,7 @@ a.white-btn, button.white-btn
         background-position: center center
         background-size: contain
 
-        &[data-brand=""]
-            display: none
-
-        // Кровля
-        &[data-brand="aquasystem"]
-            background-image: url(/assets/template/img/brands/aquasystem.jpg)
-        &[data-brand="braas"]
-            background-image: url(/assets/template/img/brands/braas.jpg)
-        &[data-brand="certainteed"]
-            background-image: url(/assets/template/img/brands/certainteed.jpg)
-        &[data-brand="docke"]
-            background-image: url(/assets/template/img/brands/docke.jpg)
-        &[data-brand="icopal"]
-            background-image: url(/assets/template/img/brands/icopal.jpg)
-        &[data-brand="katepal"]
-            background-image: url(/assets/template/img/brands/katepal.jpg)
-        &[data-brand="kriastak"]
-            background-image: url(/assets/template/img/brands/kriastak.jpg)
-        &[data-brand="krovent"]
-            background-image: url(/assets/template/img/brands/krovent.jpg)
-        &[data-brand="металл-профиль"]
-            background-image: url(/assets/template/img/brands/metallprofil.jpg)
-        &[data-brand="ондулин"]
-            background-image: url(/assets/template/img/brands/onduline.jpg)
-        &[data-brand="тегола"]
-            background-image: url(/assets/template/img/brands/tegola.jpg)
-        &[data-brand="технониколь"]
-            background-image: url(/assets/template/img/brands/tn.jpg)
-        &[data-brand="grand-line"]
-            background-image: url(/assets/template/img/brands/grand-line.jpg)
-
-        // Кирпичи
-        &[data-brand="abc"]
-            background-image: url(/assets/template/img/brands/ABC.png)
-        &[data-brand="braer"]
-            background-image: url(/assets/template/img/brands/BRAER.png)
-        &[data-brand="dekeramik"]
-            background-image: url(/assets/template/img/brands/DeKERAMIK.png)
-        &[data-brand="engels"]
-            background-image: url(/assets/template/img/brands/ENGELS.png)
-        &[data-brand="estima"]
-            background-image: url(/assets/template/img/brands/ESTIMA.png)
-        &[data-brand="feldhaus-klinker"]
-            background-image: url(/assets/template/img/brands/FeldhausKlinker.png)
-        &[data-brand="gres-aragon"]
-            background-image: url(/assets/template/img/brands/GresAragon.png)
-        &[data-brand="interbau"]
-            background-image: url(/assets/template/img/brands/Interbau.png)
-        &[data-brand="joseph-bricks"]
-            background-image: url(/assets/template/img/brands/JosephBricks.png)
-        &[data-brand="king-klinker"]
-            background-image: url(/assets/template/img/brands/KingKlinker.png)
-        &[data-brand="lear"]
-            background-image: url(/assets/template/img/brands/LEAR.png)
-        &[data-brand="lode"]
-            background-image: url(/assets/template/img/brands/lode.png)
-        &[data-brand="modformat"]
-            background-image: url(/assets/template/img/brands/modformat.png)
-        &[data-brand="muhr"]
-            background-image: url(/assets/template/img/brands/Muhr.png)
-        &[data-brand="nelissen"]
-            background-image: url(/assets/template/img/brands/Nelissen.png)
-        &[data-brand="randers-tegl"]
-            background-image: url(/assets/template/img/brands/RandersTegl.png)
-        &[data-brand="redstone"]
-            background-image: url(/assets/template/img/brands/REDSTONE.png)
-        &[data-brand="roben"]
-            background-image: url(/assets/template/img/brands/Roben.png)
-        &[data-brand="s-anselmo"]
-            background-image: url(/assets/template/img/brands/S.Anselmo.png)
-        &[data-brand="skriabin-ceramics"]
-            background-image: url(/assets/template/img/brands/SkriabinCeramics.png)
-        &[data-brand="stroeher"]
-            background-image: url(/assets/template/img/brands/Stroeher.png)
-        &[data-brand="terraklinker"]
-            background-image: url(/assets/template/img/brands/Terraklinker.png)
-        &[data-brand="white-hills"]
-            background-image: url(/assets/template/img/brands/WhiteHills.png)
-        &[data-brand="wienerberger"]
-            background-image: url(/assets/template/img/brands/wienerberger.png)
-        &[data-brand="кс-керамик"]
-            background-image: url(/assets/template/img/brands/КС-Керамик.png)
-        &[data-brand="керма"]
-            background-image: url(/assets/template/img/brands/Керма.png)
-        &[data-brand="пятый-элемент"]
-            background-image: url(/assets/template/img/brands/Пятый-элемент.png)
-        &[data-brand="балтфасад"]
-            background-image: url(/assets/template/img/brands/БАЛТФАСАД.png)
-        &[data-brand="бксм"]
-            background-image: url(/assets/template/img/brands/БКСМ.png)
-        &[data-brand="боровичский-комбинат-огнеупоров"]
-            background-image: url(/assets/template/img/brands/Боровичский-комбинат-огнеупоров.png)
-        &[data-brand="вкз"]
-            background-image: url(/assets/template/img/brands/ВКЗ.png)
-        &[data-brand="витебск-цех-1"]
-            background-image: url(/assets/template/img/brands/Витебск-цех-1.png)
-        &[data-brand="донские-зори"]
-            background-image: url(/assets/template/img/brands/Донские-зори.png)
-        &[data-brand="зсм-эталон"]
-            background-image: url(/assets/template/img/brands/ЗСМ.png)
-        &[data-brand="идеальный-камень"]
-            background-image: url(/assets/template/img/brands/Идеальный-Камень.png)
-        &[data-brand="лср"]
-            background-image: url(/assets/template/img/brands/lsr.png)
-        &[data-brand="экоклинкер"]
-            background-image: url(/assets/template/img/brands/Экоклинкер.png)
-        &[data-brand="эталон-зсм"]
-            background-image: url(/assets/template/img/brands/ЗСМ.png)
-        &[data-brand="гжельский-кирпичный-завод"]
-            background-image: url(/assets/template/img/brands/Гжельский-кирпичный-завод.png)
+        +brands_to_selector('')
 
 // -----------------------------------
 // btn_more
