@@ -117,13 +117,14 @@
     #{$block}__title-1
         margin-bottom: 16px
 
-    #{$block}__img
+    #{$block}__img-link
         position: relative
         flex-basis: 578px
         flex-grow: 0
         margin-right: 16px
         max-width: none
-        cursor: default
+        cursor: pointer
+        display: block
 
         @media screen and (max-width: 880px)
             flex-basis: 500px
@@ -170,3 +171,45 @@
 
         .custom-counter__amount
             width: 64px
+
+    #{$block}__gallery
+        width: 578px
+        display: flex
+        margin-right: 16px
+
+    #{$block}__gallery-slider
+        margin: 32px 16px 32px 0
+        flex-basis: 56px
+        flex-shrink: 0
+
+        .swiper-wrapper
+            flex-direction: column
+
+    #{$block}__img-wrap
+        order: 2
+
+    #{$block}__gallery-btn
+        left: 20px
+        padding: 5px
+
+        &_dir
+            &_next
+                top: auto
+                transform: rotate(45deg)
+                bottom: 4px
+
+            &_prev
+                top: 4px
+                right: auto
+                bottom: auto
+                transform: rotate(225deg)
+
+    #{$block}__gallery-btns-wrap
+        top: 0
+        bottom: auto
+        width: auto
+        height: 100%
+
+    #{$block}__gallery-item
+        width: 56px
+        height: 56px
