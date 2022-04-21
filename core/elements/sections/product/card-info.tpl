@@ -22,8 +22,8 @@
     <div class="product-card__gallery">
         <div class="product-card__img-wrap">
             <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
-            <a href="{$image}" data-fancybox class="product-card__img zoom">
-                <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
+            <a href="{$image}" data-fancybox class="product-card__img-link zoom">
+                <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
             </a>
         </div>
         <div class="product-card__gallery-btns-wrap swiper-buttons">

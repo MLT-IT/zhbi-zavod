@@ -81,7 +81,7 @@
         max-width: 372px
         width: 100%
 
-    &__img
+    &__img-link
         cursor: zoom-in
         display: block
 
@@ -404,12 +404,19 @@
 
     &__gallery-item
         display: block
-        width: 48px
-        height: 48px
+        width: 50px
+        height: 50px
+        overflow: hidden
+        border: 2px solid transparent
+        transition: .3s
+
+        &.active, &:hover
+            +set_colors_1(border-color)
 
     &__gallery-item-img
         max-width: 100%
         height: auto
+        display: block
 
     &__gallery-btns-wrap
         position: absolute
@@ -424,11 +431,11 @@
 
     &__gallery-slider
         margin-top: 15px
-        margin-left: 28px
-        margin-right: 28px
+        margin-left: 26px
+        margin-right: 26px
 
     &__gallery-btn
-        z-index: 100
+        z-index: 10
         position: absolute
         border: solid #323232
         display: inline-block
@@ -438,6 +445,9 @@
         border-width: 0 3px 3px 0
         padding: 6px
         border-radius: 2px
+
+        &:hover
+            +set_colors_1(border-color)
 
         &_dir
             &_next

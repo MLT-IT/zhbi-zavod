@@ -22,8 +22,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // Приближение при наведении на картинку
     // -------------------------------
     const $productCardImg = $(".zoom");
+    let ImageZoomInstance;
     if ($productCardImg.length) {
-        new ImageZoom($productCardImg[0], {
+        ImageZoomInstance = new ImageZoom($productCardImg[0], {
             fillContainer: true,
             height: 260,
             zoomWidth: 500,
@@ -386,4 +387,23 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
     handleMiniCart();
+
+
+    // -------------------------------
+    // Галерея
+    // -------------------------------
+    $('.product-card__gallery-item').on('click', function (e) {
+        e.preventDefault();
+
+        let $this = $(this);
+        let srcBig = $this.attr('href');
+        let srcSmall = $this.find('.product-card__gallery-item-img').attr('src');
+
+        $this.parent().find('.active').removeClass('active');
+        $this.addClass('active');
+        $('.product-card__img-link').attr('href', srcBig);
+        $('.product-card__img').attr('src', srcSmall);
+
+        ImageZoomInstance.setup();
+    });
 }

@@ -5279,13 +5279,13 @@ a .breadcrumbs__val:hover {
     align-items: flex-start
 }
 
-.product-card__img {
+.product-card__img-link {
     width: 100%;
     max-width: 260px;
     margin-right: 30px
 }
 
-.product-card__img img {
+.product-card__img-link img {
     width: 100%;
     height: auto;
 }
@@ -7770,7 +7770,7 @@ a .breadcrumbs__val:hover {
         padding: 44px 10px
     }
 
-    .product-card__img {
+    .product-card__img-link {
         max-width: unset;
         margin-right: 0;
         margin-bottom: 5px
