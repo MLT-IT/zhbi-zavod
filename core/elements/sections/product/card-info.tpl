@@ -26,18 +26,10 @@
                 <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
             </a>
         </div>
-        <div class="product-card__gallery-btns-wrap swiper-buttons">
-            <div class="product-card__gallery-btn product-card__gallery-btn_dir_prev"></div>
-            <div class="product-card__gallery-btn product-card__gallery-btn_dir_next"></div>
-        </div>
-        <div class="product-card__gallery-slider swiper-container">
-            <div class="swiper-wrapper">
-                {'!msGallery' | snippet : [
-                    'tpl' => '@FILE chunks/gallery.tpl',
-                    'product' => $id,
-                ]}
-            </div>
-        </div>
+        {'!msGallery' | snippet : [
+            'tpl' => '@FILE chunks/gallery.tpl',
+            'product' => $id,
+        ]}
     </div>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
