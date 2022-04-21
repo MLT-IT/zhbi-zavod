@@ -35,13 +35,13 @@
 
         @media screen and (max-width: 880px)
             text-align: left
-            margin-top: 16px
 
         &_mobile
             display: none
 
             @media screen and (max-width: 768px)
                 display: block
+                margin-bottom: 6px
 
         &_pc
             @media screen and (max-width: 768px)
@@ -84,11 +84,6 @@
     &__img-link
         cursor: zoom-in
         display: block
-
-        @media screen and (max-width: 768px)
-            margin-left: auto
-            margin-right: auto
-            text-align: center
 
     &__info
         width: 100%
@@ -447,10 +442,18 @@
         margin-right: 30px
         position: relative
 
+        @media screen and (max-width: 768px)
+            margin-left: auto
+            margin-right: auto
+            text-align: center
+
     &__gallery-slider
         margin-top: 15px
         margin-left: 26px
         margin-right: 26px
+
+        @media screen and (max-width: 768px)
+            margin-bottom: 16px
 
     &__gallery-btn
         z-index: 10
@@ -463,6 +466,9 @@
         border-width: 0 3px 3px 0
         padding: 6px
         border-radius: 2px
+
+        @media screen and (max-width: 768px)
+            bottom: 34px
 
         &:hover
             +set_colors_1(border-color)
