@@ -2683,11 +2683,21 @@
 
             new oe(".product-card_type_relinking .product-card__gallery-slider", {
                 loop: false,
-                spaceBetween: 4,
-                direction: 'vertical',
+                spaceBetween: 8,
                 slidesPerView: 'auto',
                 lazy: {loadPrevNext: !0},
-                navigation: {nextEl: ".product-card__gallery-btn_dir_next", prevEl: ".product-card__gallery-btn_dir_prev"},
+                direction: 'horizontal',
+                navigation: {
+                    nextEl: ".product-card__gallery-btn_dir_next",
+                    prevEl: ".product-card__gallery-btn_dir_prev"
+                },
+
+                breakpoints: {
+                    480: {
+                        direction: 'vertical',
+                        spaceBetween: 4,
+                    }
+                }
             }),
             // -------------------------------------------
 
