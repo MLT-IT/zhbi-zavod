@@ -86,27 +86,27 @@
 
 {* Установка itemUnits *}
 {set $itemUnits = []}
-{if $m2?}
+{if ($m2 is not empty) && ($m2 > 0)}
     {set $itemUnits['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2']}
 {/if}
-{if $m3?}
+{if ($m3 is not empty) && ($m3 > 0)}
     {set $itemUnits['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3']}
 {/if}
-{if $pm?}
+{if ($pm is not empty) && ($pm > 0)}
     {set $itemUnits['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4']}
 {/if}
-{if $list?}
+{if ($list is not empty) && ($list > 0)}
     {set $itemUnits['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5']}
 {/if}
-{if $thing?}
+{if ($thing is not empty) && ($thing > 0)}
     {set $itemUnits['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6']}
 {/if}
-{if $pilomat_thing?}
+{if ($pilomat_thing is not empty) && ($pilomat_thing > 0)}
     {set $itemUnits['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7']}
 {/if}
-{if $k_m2seam?}
+{if ($k_m2seam is not empty) && ($k_m2seam > 0)}
     {set $itemUnits['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8']}
 {/if}
-{if $k_m3seam?}
+{if ($k_m3seam is not empty) && ($k_m3seam > 0)}
     {set $itemUnits['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9']}
 {/if}
