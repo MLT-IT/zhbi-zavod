@@ -53,9 +53,11 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "jquery-ui-touch-punch": "^0.2.3",
     "js-cookie": "^3.0.1",
     "js-image-zoom": "^0.7.0",
-    "overlayscrollbars": "^1.13.1"
+    "overlayscrollbars": "^1.13.1",
+    "vanilla-lazyload": "^17.1.2"
   }
 }
