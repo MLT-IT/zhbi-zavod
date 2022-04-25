@@ -66,7 +66,7 @@ $(function ($) {
     });
 
     var lazyLoadInstance = new LazyLoad();
-    let im = new Inputmask("+7 (999) 999-99-99");
+    let im = new Inputmask("+7 (999) 999-99-9{2,3}");
     im.mask(document.querySelectorAll('input[name="PHONE"]'));
 
     // CUSTOM FUNCTIONS
