@@ -23,8 +23,9 @@
                 'tplInner' => '@INLINE {$wrapper}',
                 'tpl' => '@FILE chunks/sitemapItem.tpl',
                 'tplCategoryFolder' => '@FILE chunks/sitemapCategoryItem.tpl',
-                'showUnpublished' => '1',
-                'context' => $_modx->resource.context_key
+                'showHidden' => '1',
+                'context' => $_modx->resource.context_key,
+                'where' => '{"searchable:=":1}'
             ]}
         </div>
     </div>
