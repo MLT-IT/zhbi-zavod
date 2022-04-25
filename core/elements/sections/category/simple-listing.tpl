@@ -1,11 +1,12 @@
 <section class="sect-listing wrapper">
+    <h2 class="sect-listing__title title-2">Все товары</h2>
     <div id="pdopage" class="sect-listing__content">
         <div class="listing__products-list rows grid">
             {set $params = [
                 'element' => 'msProducts',
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
                 'ajax' => 1,
-                'limit' => 42,
+                'limit' => 44,
                 'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
                 'includeTVs' => 'priority1,HitsPage,isFractional',
                 'context' => $_modx->resource.context_key,
@@ -15,7 +16,7 @@
 
                 'ajaxMode' => 'button',
                 'ajaxElemMore' => "#pdopage .btn_more",
-                'ajaxTplMore' => '@INLINE <button class="btn btn-default btn_more">Показать еще</button>',
+                'ajaxTplMore' => '@INLINE <button class="btn btn-default btn_more" data-max="44">Показать еще</button>',
 
                 'setMeta' => 0,
             ]}

@@ -128,6 +128,7 @@ export default function funcsCatalog() {
     window.getRemainder = function () {
         // Количество товаров в листинге
         let amount = $('.listing__products-list .product-item').length;
+        let $btnMore = $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more');
 
         // Проверка - существует ли листинг на основе pdoPage или mSearch2. И есть ли в таком листинге товары
         if (((typeof mSearch2 !== 'undefined' && mSearch2) ||
@@ -144,15 +145,22 @@ export default function funcsCatalog() {
             // Сколько осталось вывести товаров?
             let remainder = 0;
 
+
+            let remainderMax = 42;
+            if ($btnMore.attr('data-max')) {
+                remainderMax = $btnMore.attr('data-max');
+            }
+
             if (total > amount) {
                 remainder = total - amount;
             }
-            if (remainder > 42) {
-                remainder = 42;
+            if (remainder > remainderMax) {
+                remainder = remainderMax;
             }
 
+
             // Установка текста для кнопки
-            $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more').text('Показать еще ' + remainder);
+            $btnMore.text('Показать еще ' + remainder);
         }
     }
 
