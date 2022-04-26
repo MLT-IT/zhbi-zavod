@@ -167,6 +167,8 @@
         display: flex
         margin-right: 16px
         width: auto
+        position: relative
+        padding-left: 72px
 
         @media screen and (max-width: 880px)
             flex-basis: 500px
@@ -179,16 +181,22 @@
 
         @media screen and (max-width: 480px)
             flex-direction: column
+            padding-left: 0
 
     #{$block}__gallery-slider
         margin: 32px 16px 32px 0
         flex-basis: 56px
         flex-shrink: 0
+        position: absolute
+        overflow: hidden
+        height: calc(100% - 64px)
+        left: 0
 
         .swiper-wrapper
             flex-direction: column
 
         @media screen and (max-width: 480px)
+            position: static
             flex-basis: 100%
             margin: 8px 0 0 0
             order: 2
@@ -201,6 +209,7 @@
         order: 2
 
         @media screen and (max-width: 480px)
+            padding-left: 0
             order: 1
 
     #{$block}__gallery-btn

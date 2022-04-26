@@ -2684,6 +2684,7 @@
             new oe(".product-card_type_relinking .product-card__gallery-slider", {
                 loop: false,
                 spaceBetween: 8,
+
                 slidesPerView: 'auto', // Чтобы размер фоток был как в CSS, делаем auto
                 lazy: {loadPrevNext: !0},
                 direction: 'horizontal',
@@ -2693,7 +2694,7 @@
                 },
 
                 breakpoints: {
-                    480: {
+                    481: {
                         direction: 'vertical',
                         spaceBetween: 4,
                     }

@@ -1,5 +1,7 @@
-{if ($files | count) > 1}
-    <div class="product-card__gallery-btns-wrap swiper-buttons">
+{set $amountPhotos = $files | count}
+
+{if $amountPhotos > 1}
+    <div class="product-card__gallery-btns-wrap swiper-buttons"{if (($amountPhotos < 5) && ($_modx->resource.template === 6)) || $_modx->resource.template === 17} style="display: none;"{/if}>
         <div class="product-card__gallery-btn product-card__gallery-btn_dir_prev"></div>
         <div class="product-card__gallery-btn product-card__gallery-btn_dir_next"></div>
     </div>

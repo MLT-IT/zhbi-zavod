@@ -43,7 +43,7 @@ $ids = $modx->runSnippet('msProducts', [
 
     'offset' => 0,
     'limit' => 10000,
-    'context' => 'armatura-178'
+    'context' => 'fasad'
 ]);
 
 $ids = explode(',', $ids);

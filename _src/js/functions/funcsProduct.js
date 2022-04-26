@@ -392,18 +392,59 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Галерея
     // -------------------------------
-    $('.product-card__gallery-item').on('click', function (e) {
-        e.preventDefault();
+    let $galleryItem = $('.product-card__gallery-item');
+    let $gallerySlider = $('.product-card__gallery-slider');
 
-        let $this = $(this);
-        let srcBig = $this.attr('href');
-        let srcSmall = $this.find('.product-card__gallery-item-img').attr('src');
+    if ($gallerySlider.length) {
+        $galleryItem.on('click', function (e) {
+            e.preventDefault();
 
-        $this.parent().find('.active').removeClass('active');
-        $this.addClass('active');
-        $('.product-card__img-link').attr('href', srcBig);
-        $('.product-card__img').attr('src', srcSmall);
+            // Основные переменные
+            let $this = $(this);
+            let srcBig = $this.attr('href');
+            let srcSmall = $this.find('.product-card__gallery-item-img').attr('src');
 
-        ImageZoomInstance.setup();
-    });
+            // Меняем элемент с классом active
+            $this.parent().find('.active').removeClass('active');
+            $this.addClass('active');
+            // Меняем картинку (href - для всплывашки, src - для избражения)
+            $('.product-card__img-link').attr('href', srcBig);
+            $('.product-card__img').attr('src', srcSmall);
+
+            // Поскольку картинка сменилась, нужно обновить скрипт для увеличения при наведении
+            if (typeof ImageZoomInstance !== 'undefined') {
+                ImageZoomInstance.setup();
+            }
+        });
+
+        // Если шаблон с перелинковкой, то вешаем обработчик для показа / скрытия стрелок в слайдере галереи
+        if ($('.product-card_type_relinking').length) {
+            $(window).on('resize', onResizeHandler);
+            onResizeHandler();
+
+            function onResizeHandler() {
+                if (window.innerWidth > 480) {
+                    let commonSlidesHeight = 0;
+                    let mb = parseFloat($galleryItem.css('margin-bottom'));
+                    let $btnsWrap = $('.product-card__gallery-btns-wrap');
+
+                    // Я сделал новый jQuery селектор, чтобы удобнее было отлаживать (так можно через devtools добавлять слайды). После отладки можно заменить селектор на $galleryItem
+                    $('.product-card__gallery-item').each(function (i, e) {
+                        commonSlidesHeight += $(e).outerHeight(true);
+                    });
+
+                    // Вычитаем один margin-bottom, т.к. Swiper добавляет его даже для последнего элемента
+                    commonSlidesHeight -= mb;
+                    // Отнимаем несколько пикселей, чтобы стрелки не появлялись, если карточки чуть-чуть не вмещаются
+                    commonSlidesHeight -= 10;
+
+                    if ($gallerySlider.height() < commonSlidesHeight) {
+                        $btnsWrap.show();
+                    } else {
+                        $btnsWrap.hide();
+                    }
+                }
+            }
+        }
+    }
 }
