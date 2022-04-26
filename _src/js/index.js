@@ -1,52 +1,59 @@
 // -------------------------------------
-// >>> deniskasup
+// Стили
 // -------------------------------------
-// TODO: Надо раскидать эти строки, чтобы они не выделялись как deniskasup.
-// Styles
+// Стили библиотек
 import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 import 'swiper/swiper-bundle.min.css';
 import 'animate.css';
+// Стили сайта
+import '../sass/styles.sass';
 
-// PLUGINS
+
+// -------------------------------------
+// Библиотеки (в основном из node_modules)
+// -------------------------------------
 import Inputmask from 'inputmask';
 import LazyLoad from "vanilla-lazyload";
 import '@fancyapps/fancybox';
-
-// MODULES
-import './deniskasup/js-modules/sliders.js';
-import initTabs from './deniskasup/js-modules/tabs.js';
-// -------------------------------------
-// <<< deniskasup
-// -------------------------------------
-
-// Стили
-import '../sass/styles.sass';
-
-// Библиотеки
 import ImageZoom from 'js-image-zoom';
-// Эта библиотека не вызывается, т.к. для ее работы достаточно просто подключить ее в JS
-import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
+import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min'; // Эта библиотека не вызывается (PHPStorm подсвечивает ее серым, как неиспользуемую), но она используется - просто для ее работы достаточно подключить ее в JS, вызывать не надо
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
 import Cookies from 'js-cookie';
 
-// Модули
+
+// -------------------------------------
+// Самописные модули на JS
+// -------------------------------------
+import './modules/sliders.js';
+import initTabs from './modules/tabs.js';
 import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps';
 import add_cover_to_map from './modules/maps';
 import modxJS from './modxJS';
 
+
+// -------------------------------------
+// Подключение JQuery
+// -------------------------------------
 window.jQuery = $;
 window.$ = $;
 
-// Функции
+
+// -------------------------------------
+// Импорт функций на JQuery
+// -------------------------------------
 import functions from './functions/functions.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
 import inputFilter from './functions/inputFilter.js';
 
+
+// -------------------------------------
+// Основной код файла
+// -------------------------------------
 // Замена сообщения о ненайденных результатах на странице каталога. Другого способа разделить сообщения mFilter2 и mSearch2, который не сбросится при обновлении / переустановке плагина, я не нашел. Код написан вверху и без jQuery, чтобы работать быстрее.
 let elem = document.querySelector('.listing__content .msearch2message');
 if (elem !== null) {
@@ -54,34 +61,32 @@ if (elem !== null) {
 }
 
 $(function ($) {
+    // Код с обработчиками MODX
     modxJS();
 
-    // -------------------------------------
-    // >>> deniskasup
-    // -------------------------------------
-    document.querySelectorAll('.burger').forEach(burger => {
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-        });
-    });
+    // Lazyload для картинок
+    let lazyLoadInstance = new LazyLoad();
 
-    var lazyLoadInstance = new LazyLoad();
+    // Inputmask для ввода номера телефона
     let im = new Inputmask("+7 (999) 999-99-9{2,3}");
     im.mask(document.querySelectorAll('input[name="PHONE"]'));
 
-    // CUSTOM FUNCTIONS
+    // Инициализация табов
     initTabs();
 
+
     // -------------------------------------
-    // <<< deniskasup
+    // Функции страниц на JQuery
     // -------------------------------------
-
-
-
-
+    // Функции для каталога
     funcsCatalog();
+
+    // Функции для карточки товара
     funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep, functions.getCorrectValueToCounter);
+
+    // Функции для избранного и сравнения
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
+
 
     // -------------------------------
     // Меню на ПК
@@ -526,7 +531,7 @@ $(function ($) {
 
 
     // -------------------------------
-    // assort
+    // Новый блок с ассортиментом товаров
     // -------------------------------
     let $assort = $('.assort');
     if ($assort.length) {
