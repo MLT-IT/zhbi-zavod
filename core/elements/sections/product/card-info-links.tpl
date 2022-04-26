@@ -8,7 +8,15 @@
 {/if}
 
 {* Данные для списков *}
-{set $krovlyaData = 'getLinksData' | snippet}
+{if $_modx->resource.template == 17}
+    {set $krovlyaData = 'getLinksData' | snippet}
+    {set $cvet = $_modx->resource.cvet[0]}
+{/if}
+{if $_modx->resource.template == 20}
+    {set $krovlyaData = 'getLinksDataOttenok' | snippet}
+    {set $cvet = $_modx->resource.ottenok[0]}
+{/if}
+
 
 <div class="product-item{if $itemInCart?} product-item-in-cart{/if}"
     {* Выводим data-атрибуты *}
@@ -182,7 +190,7 @@
                             <div class="custom-select-wrap">
                                 <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                     <div class="euv-custom-select__input">
-                                        <span data-val="{$_modx->resource.cvet[0] | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$_modx->resource.cvet[0]}</span>
+                                        <span data-val="{$cvet | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$cvet}</span>
                                     </div>
                                     <a href="#" class="euv-custom-select__btn"></a>
                                     <div class="euv-custom-select__options-wrap">

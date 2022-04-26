@@ -1,7 +1,7 @@
 {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
 
 <div class="product-card__content">
-    {if $_modx->resource.template === 17}
+    {if $_modx->resource.template in list [17, 20]}
         {include "file:sections/product/card-info-links.tpl"}
     {else}
         {include "file:sections/product/card-info.tpl"}

@@ -36,6 +36,6 @@
 'successMessage' => 'Спасибо, ваш отзыв отправлен на модерацию'
 ]}
 
-{if ($_modx->resource.template in list [6, 17]) && ($_modx->resource.context_key === 'krovlya')}
+{if ($_modx->resource.template in list [6, 17, 20]) && ($_modx->resource.context_key === 'krovlya')}
     {include 'file:elements/modals/callback/popup-select.tpl'}
 {/if}
