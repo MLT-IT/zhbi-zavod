@@ -43,13 +43,13 @@ function saveToFile($id) {
     global $basepath;
     $pathToSave = $basepath . DIRECTORY_SEPARATOR . 'saved.txt';
 
-
     if ($id === true) {
         $data = file_get_contents($pathToSave);
         $data = explode(',', $data);
         $data = array_filter($data);
         $data = array_unique($data);
         $data = implode(',', $data);
+        $data .= ',';
         file_put_contents($pathToSave, $data);
     } else {
         if (!is_dir($basepath)) {
@@ -112,21 +112,38 @@ if (file_exists($saved)) {
 }
 
 // Получение id кирпичей
-$ids = $modx->runSnippet('pdoResources', [
+$ids = $modx->runSnippet('msProducts', [
     'parents' => 0,
     'limit' => 0,
     'depth' => 999999,
     'returnIds' => 1,
-    'where' => '{"template:=": 6}',
     'sortby' => 'id',
     'sortdir' => 'ASC',
-    'context' => 'kirpich-m'
+
+    'context' => 'plity-mdvp'
 ]);
 
 $ids = explode(',', $ids);
 
 // Это временная мера
-$ids = [37933, 37934, 37935, 37943];
+$ids = [69940];
+
+// -------------------------------------
+// phpThumb
+// -------------------------------------
+// Подключаем класс phpThumb
+$phpThumb = $modx->getService('modphpthumb', 'modPhpThumb', MODX_CORE_PATH . 'model/phpthumb/', []);
+// Массив параметров для phpThumb
+$params = [
+    'fltr' => [
+        'crop|0|0|0|' . 236
+    ]
+];
+// Устанавливаем параметры
+foreach ($params as $k => $v) {
+    $phpThumb->setParameter($k, $v);
+}
+// -------------------------------------
 
 foreach ($ids as $id) {
     $prod = $modx->getObject('msProduct', $id);
@@ -143,7 +160,7 @@ foreach ($ids as $id) {
         });
 
         // Убираем первую, т.к. Кирилл сказал, что ее обрабатывать не надо
-        array_shift($files);
+        //array_shift($files);
 
         // Фильтруем - убираем уже обработанные картинки
         $files = array_filter($files, function ($val) {
@@ -174,22 +191,8 @@ foreach ($ids as $id) {
             }
 
             // Обрабатываем файл
-            // Массив параметров для phpThumb
-            $params = [
-                'fltr' => [
-                    'crop|0|0|0|' . 71
-                ]
-            ];
-
-            // Подключаем класс phpThumb
-            $phpThumb = $modx->getService('modphpthumb', 'modPhpThumb', MODX_CORE_PATH . 'model/phpthumb/', []);
             // Устанавливаем источик
             $phpThumb->setSourceFilename($pathToImage);
-
-            // Устанавливаем параметры
-            foreach ($params as $k => $v) {
-                $phpThumb->setParameter($k, $v);
-            }
 
             // Заменяем картинку
             if (!$phpThumb->GenerateThumbnail()) {
@@ -214,9 +217,9 @@ foreach ($ids as $id) {
             logToFile('Ошибка при перегенерации превью (' . $id . ')');
             continue;
         }
-    }
 
-    logToFile('Работа с товаром с id ' . $id . ' завершена');
+        logToFile('Работа с товаром с id ' . $id . ' завершена');
+    }
 }
 
 saveToFile(true);

@@ -1,4 +1,5 @@
 <?php
+
 if (!function_exists('rus2translit')) {
     function rus2translit($string) {
         $converter = [
@@ -33,17 +34,16 @@ if (!function_exists('handleWord')) {
     }
 }
 
-$ids = $modx->runSnippet('pdoResources', [
+$ids = $modx->runSnippet('msProducts', [
     'parents' => 0,
     'depth' => 1000,
     'returnIds' => 1,
-    'where' => '{"template:=": "6"}',
     'sortby' => 'id',
     'sortdir' => 'ASC',
 
     'offset' => 0,
     'limit' => 10000,
-    'context' => 'krovlya'
+    'context' => 'fasad'
 ]);
 
 $ids = explode(',', $ids);

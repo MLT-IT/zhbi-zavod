@@ -476,5 +476,49 @@ $(function ($) {
         $this.remove();
     });
 
+
+    // -------------------------------
+    // assort
+    // -------------------------------
+    let $assort = $('.assort');
+    if ($assort.length) {
+        const sidebar = 1;
+        const content = 2;
+
+        function toggleClasses(classConst) {
+            let oldHeight = $assort.height();
+            switch (classConst) {
+                case sidebar:
+                    $assort.removeClass('assort_active_content').addClass('assort_active_sidebar');
+                    break;
+                case content:
+                    $assort.removeClass('assort_active_sidebar').addClass('assort_active_content');
+                    break;
+            }
+            let newHeight = $assort.height();
+            $assort.height(oldHeight);
+            $assort.animate({'height': newHeight}, 300, function () {
+                $assort.css('height', '');
+            });
+        }
+
+        let $backBtnText = $assort.find('.assort__back-text');
+
+        $assort.find('.assort__sidebar-item').on('click', function (e) {
+            e.preventDefault();
+            let $this = $(this);
+            $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
+            $this.addClass('active');
+            $assort.find('.assort__content[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
+            toggleClasses(content);
+            $backBtnText.text($this.text());
+        });
+
+        $assort.find('.assort__back').on('click', function (e) {
+            e.preventDefault();
+            toggleClasses(sidebar);
+            $backBtnText.text('');
+        });
+    }
 });
 

@@ -1,8 +1,4 @@
 .listing
-    &__products-item-bottom
-        width: 100%
-        margin-top: auto
-
     &__tags-item
         transition: .3s
 
@@ -236,8 +232,9 @@
         position: absolute
         margin-left: 5px
         flex-shrink: 0
-        border-left: 2px solid rgba(0,0,0,.6)
-        border-bottom: 2px solid rgba(0,0,0,.6)
+        border-left: 2px solid
+        border-bottom: 2px solid
+        border-color: #000
         transform: rotate(225deg)
         transition: .3s
         width: 9px
@@ -377,6 +374,8 @@
             margin-right: auto
 
     &__products-list
+        margin-bottom: 20px
+
         @media screen and (max-width: 768px)
             display: flex
             flex-wrap: wrap
@@ -753,6 +752,7 @@
         flex-wrap: wrap
         width: 100%
         margin-bottom: 8px
+        margin-top: auto
 
     &__products-item-price-wrap
         @at-root .product-card_type_relinking &
@@ -763,3 +763,17 @@
 
     &__product-logo
         margin-bottom: 8px
+
+.sect-listing
+    margin-bottom: 40px
+    align-items: flex-start
+    justify-content: space-between
+    width: 100%
+    display: flex
+    flex-direction: column
+
+    &__content
+        width: 100%
+
+    &__title
+        align-self: center

@@ -1,5 +1,8 @@
-{* Ключ товара, нужен для добавления товара в корзину *}
-{* Если запускать сайт на Windows, то дробные числа должны быть с запятой, иначе ключ рассчитается неправильно и будет невозможно изменить кол-во товара. Если на Linux, то с точкой. *}
+{* id товара, нужен для добавления товара в корзину *}
+{set $prodId = $src['id']}
+
+{* Ключ товара, нужен для изменения товара в корзине *}
+{* Если запускать сайт на Windows, то дробные числа должны быть с запятой, иначе ключ рассчитается неправильно и будет невозможно изменить кол-во товара (на неглавных контекстах). Если на Linux, то с точкой. Дело в настройках локали *}
 {set $productKey = ($src['id'] ~ $src['price'] ~ $src['weight'] ~ '[]') | replace : ',' : '.' | replace : ' ' : '' | md5}
 
 {* Цена по умолчанию - нужна для расчета других цен на JS. Тут наоборот нужна точка, т.к. функция parseFloat неправильно распарсит число с запятой *}
@@ -55,6 +58,11 @@
     {set $coefficient = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
 
+{* Единицы измерения для плит ОСБ и фанеры *}
+{if $src['context_key'] in list ['plitaosb', 'pro-fanera']}
+    {set $m2 = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
+{/if}
+
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
@@ -66,12 +74,16 @@
 {/if}
 
 {* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m']) &&
+{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera']) &&
 ($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дробное добавление товара в корзину *}
-{set $prodId = $src['id']}
-{if $src['template'] === 17}
+{if $_modx->resource.template in list [17, 20, 6]}
+    {set $isFractional = $_modx->resource['isFractional']}
+{else}
+    {set $isFractional = $src['isFractional']}
+{/if}
+{if $isFractional == 1}
     {set $extraClass = ' custom-counter_type_fractional'}
     {set $dataMin = '0.01'}
 {else}
@@ -81,27 +93,27 @@
 
 {* Установка itemUnits *}
 {set $itemUnits = []}
-{if $m2?}
+{if ($m2 is not empty) && ($m2 > 0)}
     {set $itemUnits['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2']}
 {/if}
-{if $m3?}
+{if ($m3 is not empty) && ($m3 > 0)}
     {set $itemUnits['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3']}
 {/if}
-{if $pm?}
+{if ($pm is not empty) && ($pm > 0)}
     {set $itemUnits['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4']}
 {/if}
-{if $list?}
+{if ($list is not empty) && ($list > 0)}
     {set $itemUnits['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5']}
 {/if}
-{if $thing?}
+{if ($thing is not empty) && ($thing > 0)}
     {set $itemUnits['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6']}
 {/if}
-{if $pilomat_thing?}
+{if ($pilomat_thing is not empty) && ($pilomat_thing > 0)}
     {set $itemUnits['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7']}
 {/if}
-{if $k_m2seam?}
+{if ($k_m2seam is not empty) && ($k_m2seam > 0)}
     {set $itemUnits['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8']}
 {/if}
-{if $k_m3seam?}
+{if ($k_m3seam is not empty) && ($k_m3seam > 0)}
     {set $itemUnits['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9']}
 {/if}

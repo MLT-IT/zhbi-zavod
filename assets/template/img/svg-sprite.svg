@@ -389,4 +389,31 @@
         </linearGradient>
       </defs>
   </symbol>
+
+  <symbol viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" id="assort-dekor">
+    <path d="M12 2.5L3 9.5V20.5V22.5H5H19H21V20.5V9.5L12 2.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9 22.5V12.5H15V22.5" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" id="assort-kamen">
+    <path d="M11.2 3.5H2V9.6H14.9V3.5H11.2ZM8.47 15.717H21.37V9.617H8.47V15.717V15.717Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2.02148 21.8139H14.9215V15.7139H2.02148V21.8139V21.8139Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" id="assort-kirpich">
+    <path d="M3.15039 9.79999V18.6L10.0504 22.4M3.15039 9.79999L10.0504 13.5M3.15039 9.79999L15.2003 2.3501L21.8504 6.29999M10.0504 22.4V13.5M10.0504 22.4L21.8504 15.1V6.29999M10.0504 13.5L21.8504 6.29999"  stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" id="assort-plitka">
+    <path d="M10 3.5H3V10.5H10V3.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 3.5H14V10.5H21V3.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 14.5H14V21.5H21V14.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 14.5H3V21.5H10V14.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" id="assort-smesi">
+    <path d="M8 19.9748H6.14765C4.96644 19.9748 4 19.0657 4 17.9546V4.52021C4 3.4091 4.96644 2.5 6.14765 2.5H17.8523C19.0336 2.5 20 3.4091 20 4.52021V17.9546C20 19.0657 19.0336 19.9748 17.8523 19.9748H16" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11.9473 14.1162V17.0454V22.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17.2081 14.015L11.9463 5.22705L6.68457 14.015H17.2081Z" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>

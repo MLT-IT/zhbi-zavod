@@ -1,5 +1,9 @@
 <?php
 
+/*
+Установка k_m3seamless, k_m3seam, k_m2seam для кирпичей по формулам из Word файла.
+*/
+
 error_reporting(E_ALL ^ E_NOTICE);
 
 $ids = $modx->runSnippet('msProducts', [

@@ -2,6 +2,12 @@
 {set $src = $_modx->resource}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
+{* Бренд / Производитель *}
+{set $itemVendor = $_modx->resource['brand'][0]}
+{if $itemVendor is empty}
+    {set $itemVendor = $_modx->resource['proizvoditel'][0]}
+{/if}
+
 <div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
@@ -13,10 +19,18 @@
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
     <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
 
-    <a href="{$image}" data-fancybox class="product-card__img zoom">
-        <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
-             alt="{$_modx->resource.pagetitle}">
-    </a>
+    <div class="product-card__gallery">
+        <div class="product-card__img-wrap">
+            <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+            <a href="{$image}" data-fancybox class="product-card__img-link zoom">
+                <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
+            </a>
+        </div>
+        {'!msGallery' | snippet : [
+            'tpl' => '@FILE chunks/gallery.tpl',
+            'product' => $id,
+        ]}
+    </div>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
         <meta itemprop="bestRating" content="5">
@@ -55,7 +69,7 @@
                             {/if}
                         </span>
                         {*
-                        <div class="product-logo product-card__logo" data-brand="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
+                        <div class="product-logo product-card__logo" data-val="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
                         *}
                     </div>
                 {/if}
@@ -63,7 +77,13 @@
                 {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete', 'pilomat']}
                     {set $upakovka = 'getPackageNew' | snippet}
                     {if $upakovka | length > 0}
-                        <div class="product-card__package">В упаковке: {$upakovka}</div>
+                        {if $_modx->resource.context_key in list ['plitaosb', 'pro-fanera']}
+                            {set $packageText = 'В листе:'}
+                        {else}
+                            {set $packageText = 'В упаковке:'}
+                        {/if}
+
+                        <div {if $_modx->resource.context_key == 'pro-fanera'}style="display: none;"{/if} class="product-card__package">{$packageText} {$upakovka}</div>
                     {/if}
                 {/if}
 

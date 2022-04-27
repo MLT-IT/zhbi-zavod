@@ -11,7 +11,7 @@
     <div class="wrapper">
         {include "file:blocks/breadcrumbs.tpl" class='breadcrumbs_page-product'}
     </div>
-    <div class="wrapper product-card{if $_modx->resource.template == 17} product-card_type_relinking{/if}" data-views="{'!HitsPage' | snippet : ['saveTv' => 'true']}" itemscope itemtype="http://schema.org/Product">
+    <div class="wrapper product-card {if $_modx->resource.template in list [17, 20]}product-card_type_relinking{else}product-card_type_usual{/if}" data-views="{'!HitsPage' | snippet : ['saveTv' => 'true']}" itemscope itemtype="http://schema.org/Product">
         <h1 class="title-1 product-card__title-1" itemprop="name">{$_modx->resource.pagetitle}</h1>
         {include "file:sections/product/card.tpl"}
     </div>

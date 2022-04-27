@@ -22,8 +22,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // Приближение при наведении на картинку
     // -------------------------------
     const $productCardImg = $(".zoom");
+    let ImageZoomInstance;
     if ($productCardImg.length) {
-        new ImageZoom($productCardImg[0], {
+        ImageZoomInstance = new ImageZoom($productCardImg[0], {
             fillContainer: true,
             height: 260,
             zoomWidth: 500,
@@ -39,6 +40,46 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         e.preventDefault();
         changeCountItemInCart($(this).closest('.product-item'));
     });
+
+
+    // -------------------------------
+    // Пересчет "В листе" при изменении кол-ва товара в карточке товара для фанеры
+    // -------------------------------
+    let $prod = $('.pro-fanera .product-card__top');
+    if ($prod.length) {
+        function changeTextDependingOnAmount($prod) {
+            let m2 = $('.product-card__specs-list-item[data-opt-key="ploshad_m2"] .product-card__specs-list-item-value').text();
+            let m3 = $('.product-card__specs-list-item[data-opt-key="obyem_m3"] .product-card__specs-list-item-value').text();
+
+            let amount = getActiveForm($prod)['action'].find('.custom-counter__amount').val();
+            m2 *= amount;
+            m3 *= amount;
+
+            if (m2) {
+                m2 += ' м2';
+            }
+
+            if (m3) {
+                m3 += ' м3';
+            }
+
+            let val;
+            if (amount == 1) {
+                val = 'В листе: ';
+            } else {
+                val = 'В ' + amount + ' ' + formOfWord(amount, 'листе', 'листах', 'листах') + ': ';
+            }
+            val += [m2, m3].join(', ');
+
+            $('.product-card__package').text(val).show();
+        }
+
+        changeTextDependingOnAmount($prod);
+
+        $prod.on('changeAmount', function () {
+            changeTextDependingOnAmount($(this));
+        });
+    }
 
 
     // -------------------------------
@@ -114,6 +155,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             }
         }
 
+        $productItem.trigger('changeAmount');
     }
 
 
@@ -345,4 +387,64 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
     handleMiniCart();
+
+
+    // -------------------------------
+    // Галерея
+    // -------------------------------
+    let $galleryItem = $('.product-card__gallery-item');
+    let $gallerySlider = $('.product-card__gallery-slider');
+
+    if ($gallerySlider.length) {
+        $galleryItem.on('click', function (e) {
+            e.preventDefault();
+
+            // Основные переменные
+            let $this = $(this);
+            let srcBig = $this.attr('href');
+            let srcSmall = $this.find('.product-card__gallery-item-img').attr('src');
+
+            // Меняем элемент с классом active
+            $this.parent().find('.active').removeClass('active');
+            $this.addClass('active');
+            // Меняем картинку (href - для всплывашки, src - для избражения)
+            $('.product-card__img-link').attr('href', srcBig);
+            $('.product-card__img').attr('src', srcSmall);
+
+            // Поскольку картинка сменилась, нужно обновить скрипт для увеличения при наведении
+            if (typeof ImageZoomInstance !== 'undefined') {
+                ImageZoomInstance.setup();
+            }
+        });
+
+        // Если шаблон с перелинковкой, то вешаем обработчик для показа / скрытия стрелок в слайдере галереи
+        if ($('.product-card_type_relinking').length) {
+            $(window).on('resize', onResizeHandler);
+            onResizeHandler();
+
+            function onResizeHandler() {
+                if (window.innerWidth > 480) {
+                    let commonSlidesHeight = 0;
+                    let mb = parseFloat($galleryItem.css('margin-bottom'));
+                    let $btnsWrap = $('.product-card__gallery-btns-wrap');
+
+                    // Я сделал новый jQuery селектор, чтобы удобнее было отлаживать (так можно через devtools добавлять слайды). После отладки можно заменить селектор на $galleryItem
+                    $('.product-card__gallery-item').each(function (i, e) {
+                        commonSlidesHeight += $(e).outerHeight(true);
+                    });
+
+                    // Вычитаем один margin-bottom, т.к. Swiper добавляет его даже для последнего элемента
+                    commonSlidesHeight -= mb;
+                    // Отнимаем несколько пикселей, чтобы стрелки не появлялись, если карточки чуть-чуть не вмещаются
+                    commonSlidesHeight -= 10;
+
+                    if ($gallerySlider.height() < commonSlidesHeight) {
+                        $btnsWrap.show();
+                    } else {
+                        $btnsWrap.hide();
+                    }
+                }
+            }
+        }
+    }
 }

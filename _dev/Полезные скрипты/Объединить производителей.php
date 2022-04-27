@@ -2,9 +2,9 @@
 // --------------------------------------------
 // Настройки
 // --------------------------------------------
-$oldVal = 'RR21';
-$newVal = 'RR 21';
-$targetOption = 'cvet';
+$oldVal = 'Braer';
+$newVal = 'BRAER';
+$targetOption = 'proizvoditel';
 
 // --------------------------------------------
 // Работа скрипта
@@ -18,7 +18,7 @@ $ids = $modx->runSnippet('msProducts', [
     'innerJoin' => '{"Options":{"class":"msProductOption"}}',
     'returnIds' => '1',
     'where' => '{"1":{"Options.key":"' . $targetOption . '","Options.value:=":"' . $oldVal . '"}}',
-    'context' => 'krovlya'
+    'context' => 'kirpich-m'
 ]);
 
 $ids = explode(',', $ids);
@@ -39,7 +39,6 @@ foreach ($ids as $index => $id) {
                 $options[$targetOption][$key] = $newVal;
             } else {
                 echo $id . ' ' . $val . ' !== ' . $oldVal . '<br>';
-                continue;
             }
         }
 

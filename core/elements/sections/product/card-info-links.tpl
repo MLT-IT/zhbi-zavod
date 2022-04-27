@@ -1,8 +1,22 @@
 {set $src = $_modx->resource}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
+{* Производитель / Бренд *}
+{set $itemVendor = $_modx->resource['proizvoditel'][0]}
+{if $itemVendor is empty}
+    {set $itemVendor = $_modx->resource['brand'][0]}
+{/if}
+
 {* Данные для списков *}
-{set $krovlyaData = 'getLinksData' | snippet}
+{if $_modx->resource.template == 17}
+    {set $krovlyaData = 'getLinksData' | snippet}
+    {set $cvet = $_modx->resource.cvet[0]}
+{/if}
+{if $_modx->resource.template == 20}
+    {set $krovlyaData = 'getLinksDataOttenok' | snippet}
+    {set $cvet = $_modx->resource.ottenok[0]}
+{/if}
+
 
 <div class="product-item{if $itemInCart?} product-item-in-cart{/if}"
     {* Выводим data-атрибуты *}
@@ -78,10 +92,18 @@
 
         <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
 
-        <a href="{$image}" data-fancybox class="product-card__img">
-            <img itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}"
-                 alt="{$_modx->resource.pagetitle}">
-        </a>
+        <div class="product-card__gallery">
+            <div class="product-card__img-wrap">
+                <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+                <a href="{$image}" data-fancybox class="product-card__img-link">
+                    <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
+                </a>
+            </div>
+            {'!msGallery' | snippet : [
+                'tpl' => '@FILE chunks/gallery.tpl',
+                'product' => $id,
+            ]}
+        </div>
 
         <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
             <meta itemprop="bestRating" content="5">
@@ -122,7 +144,7 @@
                                     {/if}
                                 </span>
                                 {*
-                                <div class="product-logo product-card__logo" data-brand="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
+                                <div class="product-logo product-card__logo" data-val="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
                                 *}
                             </div>
                         {/if}
@@ -164,11 +186,18 @@
 
                     {if $krovlyaData.cvet?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_half">
-                            <div class="product-card__select-span">Цвет:</div>
+                            <div class="product-card__select-span">
+                                {if $_modx->resource.template == 17}
+                                    Цвет:
+                                {/if}
+                                {if $_modx->resource.template == 20}
+                                    Оттенок:
+                                {/if}
+                            </div>
                             <div class="custom-select-wrap">
                                 <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                     <div class="euv-custom-select__input">
-                                        <span data-val="{$_modx->resource.cvet[0] | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$_modx->resource.cvet[0]}</span>
+                                        <span data-val="{$cvet | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$cvet}</span>
                                     </div>
                                     <a href="#" class="euv-custom-select__btn"></a>
                                     <div class="euv-custom-select__options-wrap">

@@ -1,22 +1,26 @@
-.filter_type_cvet .filter-option, .filter_type_surface .filter-option
-    position: relative
+.filter_type_cvet, .filter_type_surface, .filter_type_brand, .filter_type_proizvoditel
+    .filter-option
+        position: relative
 
-    &__title
-        order: 3
+        &__title
+            order: 3
 
-    &__checkbox
-        order: 1
+        &__checkbox
+            order: 1
 
-    &__label
-        &::after
-            order: 2
-            content: ""
-            display: block
-            flex-basis: 28px
-            height: 18px
-            flex-shrink: 0
-            flex-grow: 0
-            margin-right: 8px
+        &__label
+            &::after
+                order: 2
+                content: ""
+                display: block
+                flex-basis: 30px
+                height: 20px
+                flex-shrink: 0
+                flex-grow: 0
+                margin-right: 8px
+                background-repeat: no-repeat
+                background-position: center center
+                box-sizing: border-box
 
 .filter_type_cvet .filter-option
     &__label
@@ -57,6 +61,14 @@
     &[data-val="береста"], &[data-val="каре"], &[data-val="кора"], &[data-val="рустик"]
         .filter-option__label::after
             background-image: url(/assets/template/img/surfaces/beresta_kare_kora_rustik2.jpg)
+
+.filter_type_brand, .filter_type_proizvoditel
+    .filter-option
+        +brands_to_selector(' .filter-option__label::after')
+
+        &__label
+            &::after
+                background-size: contain
 
 .filter-option
     display: block

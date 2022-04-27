@@ -108,8 +108,11 @@
         margin-top: 0
 
         @media screen and (max-width: 768px)
-            margin-bottom: 4px
+            margin-bottom: 24px
             margin-right: 0
+
+        @media screen and (max-width: 480px)
+            margin-bottom: 4px
 
     #{$block}__availability
         margin-right: 24px
@@ -117,22 +120,10 @@
     #{$block}__title-1
         margin-bottom: 16px
 
-    #{$block}__img
+    #{$block}__img-link
         position: relative
-        flex-basis: 578px
-        flex-grow: 0
-        margin-right: 16px
         max-width: none
-        cursor: default
-
-        @media screen and (max-width: 880px)
-            flex-basis: 500px
-            text-align: center
-            margin: 16px auto 24px
-
-        @media screen and (max-width: 768px)
-            margin: 0 0 16px 0
-            flex-basis: auto
+        cursor: pointer
 
     #{$block}__btn-fav, #{$block}__btn-compare
         margin-top: 0
@@ -170,3 +161,113 @@
 
         .custom-counter__amount
             width: 64px
+
+    #{$block}__gallery
+        flex-basis: 578px
+        display: flex
+        margin-right: 16px
+        width: auto
+        position: relative
+        padding-left: 72px
+
+        @media screen and (max-width: 880px)
+            flex-basis: 500px
+            text-align: center
+            margin: 16px 0 24px 16px
+
+        @media screen and (max-width: 768px)
+            margin: 0 0 16px 0
+            flex-basis: auto
+
+        @media screen and (max-width: 480px)
+            flex-direction: column
+            padding-left: 0
+
+    #{$block}__gallery-slider
+        margin: 32px 16px 32px 0
+        flex-basis: 56px
+        flex-shrink: 0
+        position: absolute
+        overflow: hidden
+        height: calc(100% - 64px)
+        left: 0
+
+        .swiper-wrapper
+            flex-direction: column
+
+        @media screen and (max-width: 480px)
+            position: static
+            flex-basis: 100%
+            margin: 8px 0 0 0
+            order: 2
+
+            .swiper-wrapper
+                justify-content: center
+                flex-direction: row
+
+    #{$block}__img-wrap
+        order: 2
+
+        @media screen and (max-width: 480px)
+            padding-left: 0
+            order: 1
+
+    #{$block}__gallery-btn
+        left: 20px
+        padding: 5px
+
+        &_dir
+            &_next
+                top: auto
+                transform: rotate(45deg)
+                bottom: 4px
+
+            &_prev
+                top: 4px
+                right: auto
+                bottom: auto
+                transform: rotate(225deg)
+
+    #{$block}__gallery-btns-wrap
+        top: 0
+        bottom: auto
+        width: auto
+        height: 100%
+
+        @media screen and (max-width: 480px)
+            // Как я понял, в swiper.js нельзя через JS убрать пагинацию на определенной ширине экрана. При загрузке страницы ей добавляется style="display: block;". Это можно переопределить только через !important
+            display: none !important
+
+    #{$block}__gallery-item
+        width: 56px
+        height: 56px
+
+        @media screen and (max-width: 480px)
+            width: 8px
+            height: 8px
+            border-radius: 100%
+            border: 0
+            background-color: #B9B9B9
+
+            &:hover
+                @at-root .knauf &
+                    background-color: rgba(#4f70ad,.4)
+                @at-root .rockwool &
+                    background-color: rgba(#AA000F,.4)
+                @at-root .tn &
+                    background-color: rgba(#ED1C24,.4)
+                @at-root .penoplex &
+                    background-color: rgba(#F36F21,.4)
+                @at-root .isover &
+                    background-color: rgba(#FFDD00,.4)
+                @at-root .paroc &
+                    background-color: rgba(#CE1126,.4)
+                @at-root .ursa &
+                    background-color: rgba(#EA4740,.4)
+
+            &.active
+                +set_colors_1(background-color)
+
+    #{$block}__gallery-item-img
+        @media screen and (max-width: 480px)
+            display: none

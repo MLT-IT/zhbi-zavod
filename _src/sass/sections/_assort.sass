@@ -1,0 +1,243 @@
+.assort
+    margin-bottom: 60px
+    overflow: hidden
+
+    &__contents-wrap, &__sidebar
+        transition: .3s
+
+    &_active
+        &_sidebar
+            .assort__contents-wrap
+                @media screen and (max-width: 500px)
+                    position: absolute
+                    transform: translateX(calc(100% + 45px))
+
+        &_content
+            .assort__sidebar
+                @media screen and (max-width: 500px)
+                    position: absolute
+                    transform: translateX(calc(-100% - 45px))
+
+    &__back-text
+        margin-left: 12px
+        margin-top: -3px
+        transition: .3s
+
+    &__back
+        align-items: center
+        color: #323232
+        font-weight: 700
+        font-size: 14px
+        transition: .3s
+        cursor: pointer
+        margin-bottom: 16px
+        display: none
+
+        @media screen and (max-width: 500px)
+            display: flex
+
+        &:hover
+            .assort__back-text
+                +set_colors_1(color)
+
+            .assort__back-btn
+                +set_colors_1(background-color)
+
+                &::after
+                    border-color: #fff
+
+    &__back-btn
+        width: 32px
+        height: 32px
+        border: 1px solid
+        border-radius: 4px
+        display: block
+        position: relative
+        transition: .3s
+
+        +set-colors_1(border-color)
+
+        &::after
+            display: block
+            content: ""
+            position: absolute
+            margin-left: 5px
+            flex-shrink: 0
+            border-left: 2px solid
+            border-bottom: 2px solid
+            transform: rotate(45deg) translateY(-50%)
+            transition: .3s
+            width: 7px
+            height: 7px
+            right: 12px
+            top: 50%
+            +set-colors_1(border-color)
+
+    &__content
+        margin-bottom: -16px
+
+    &__sidebar
+        flex-grow: 1
+        max-width: 288px
+        width: 100%
+        display: flex
+        flex-direction: column
+        margin-right: 40px
+
+        @media screen and (max-width: 992px)
+            margin-right: 20px
+
+        @media screen and (max-width: 700px)
+            max-width: 176px
+
+        @media screen and (max-width: 500px)
+            max-width: none
+            margin-right: 0
+
+    &__sidebar-item
+        display: flex
+        align-items: center
+        padding: 13px 12px
+        background: #F0F0F0
+        border-radius: 8px
+        font-weight: 700
+        cursor: pointer
+        transition: .3s
+        font-size: 16px
+
+        &[data-tab="фасадный-декор"]::before
+            background-image: url(/assets/template/img/svg-sprite/assort-dekor.svg)
+        &[data-tab="искусственный-и-натуральный-камень"]::before
+            background-image: url(/assets/template/img/svg-sprite/assort-kamen.svg)
+        &[data-tab="кирпич"]::before
+            background-image: url(/assets/template/img/svg-sprite/assort-kirpich.svg)
+        &[data-tab="фасадная-плитка--отделка"]::before
+            background-image: url(/assets/template/img/svg-sprite/assort-plitka.svg)
+        &[data-tab="кладочные-смеси"]::before
+            background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
+
+        &.active
+            .assort__svg
+                stroke: #fff
+
+        &:hover
+            +set-colors_1(color)
+
+        &.active
+            +set-colors_1(background-color)
+            color: #fff
+
+            &:hover
+                color: #fff
+
+        &:nth-last-of-type(n+2)
+            margin-bottom: 8px
+
+    &__tabs
+        width: 100%
+        display: flex
+        position: relative
+
+    &__item-link
+        background: #F0F0F0
+        border-radius: 8px
+        padding: 4px 28px 4px 8px
+        margin: 4px 0 4px 0
+        font-weight: 500
+        font-size: 16px
+        position: relative
+        transition: .3s
+        color: #323232
+
+        &:hover
+            +set-colors_1(background-color)
+
+            // Переопределяем стандартный стиль при наведении
+            @at-root .assort__item-links-wrap &
+                color: #FFFFFF
+
+            &::after
+                border-color: #FFFFFF
+
+        &::after
+            display: block
+            content: ""
+            position: absolute
+            margin-left: 5px
+            flex-shrink: 0
+            border-left: 2px solid #323232
+            border-bottom: 2px solid #323232
+            transform: rotate(225deg) translateY(50%)
+            transition: .3s
+            width: 5px
+            height: 5px
+            right: 14px
+            top: 50%
+
+    &__item-title
+        display: inline-block
+        margin-top: 12px
+        margin-bottom: 8px
+        font-weight: 600
+        font-size: 16px
+        line-height: 1
+        color: #323232
+
+    &__item-links-wrap
+        display: flex
+        flex-wrap: wrap
+        flex-direction: column
+        align-items: flex-start
+
+    &__item
+        padding: 8px 8px 4px
+        border: 1px solid #F0F0F0
+        border-radius: 8px
+        width: calc(50% - 12px)
+        margin-bottom: 16px
+
+        @media screen and (max-width: 992px)
+            width: calc(50% - 8px)
+
+        @media screen and (max-width: 700px)
+            width: 100%
+
+        &:nth-of-type(odd)
+            margin-right: 24px
+
+            @media screen and (max-width: 992px)
+                margin-right: 15px
+
+            @media screen and (max-width: 700px)
+                margin-right: 0
+
+    &__item-img
+        width: 100%
+        height: auto
+        display: block
+        border-radius: 4px
+
+    &__content
+        display: none
+
+        &.active
+            display: flex
+            flex-wrap: wrap
+
+    &__contents-wrap
+        flex-grow: 1
+        width: 70.714%
+
+        @media screen and (max-width: 700px)
+            width: 0
+
+        @media screen and (max-width: 500px)
+            width: 100%
+
+    &__svg
+        width: 24px
+        height: 25px
+        stroke: #B9B9B9
+        fill: transparent
+        margin-right: 12px
+        transition: .3s
