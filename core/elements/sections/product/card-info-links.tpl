@@ -186,7 +186,14 @@
 
                     {if $krovlyaData.cvet?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_half">
-                            <div class="product-card__select-span">Цвет:</div>
+                            <div class="product-card__select-span">
+                                {if $_modx->resource.template == 17}
+                                    Цвет:
+                                {/if}
+                                {if $_modx->resource.template == 20}
+                                    Оттенок:
+                                {/if}
+                            </div>
                             <div class="custom-select-wrap">
                                 <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                     <div class="euv-custom-select__input">
