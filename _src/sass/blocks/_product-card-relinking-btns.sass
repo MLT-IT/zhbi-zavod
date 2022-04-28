@@ -1,112 +1,255 @@
 .product-card_type_relinking-btns
     $block: '.product-card'
 
-    #{$block}__content
-        padding: 0
-        border: 0
+    .product-card
+        &__content
+            padding: 0
+            border: 0
 
-    #{$block}__article
-        width: auto
-        margin-right: 24px
-        margin-top: 0
+        &__article
+            width: auto
+            margin-right: 24px
+            margin-top: 0
 
-    #{$block}__availability
-        margin-right: 24px
+            font-weight: 400
+            font-size: 14px
+            color: #B9B9B9
 
-    #{$block}__title-1
-        margin-bottom: 28px
+            @media only screen and (max-width: 550px)
+                width: 100%
+                margin-right: 0
+                margin-bottom: 16px
 
-    #{$block}__main-specs
-        flex-basis: 332px
+        &__availability
+            margin-right: 24px
 
-    #{$block}__side-panel
-        flex-basis: 420px
-        margin-left: 32px
-        background-color: #FBFBFB
-        padding: 16px 20px 16px 20px
-        margin-top: -24px
-
-    #{$block}__gallery
-        width: 304px
-
-    #{$block}__img-link
-        margin-right: 0
-        max-width: none
-
-    #{$block}__gallery-slider
-        width: 208px
-        margin-left: auto
-        margin-right: auto
-
-    #{$block}__side-panel-text
-        font-size: 14px
-        line-height: 100%
-        color: #323232
-        font-weight: 500
-
-    #{$block}__relinking-items-wrap
-        display: flex
-        flex-wrap: wrap
-        margin-left: -4px
-
-    #{$block}__relinking-item
-        padding: 3px 4px
-        display: inline-block
-        margin-right: 4px
-        margin-bottom: 8px
-        text-decoration: underline
-        transition: .3s
-
-        &.active, &:hover
-            text-decoration: none
-            background: #C51717
-            color: #FFFFFF
-
-    #{$block}__relinking-block
-        &:nth-last-of-type(n+2)
+        &__title-1
             margin-bottom: 28px
 
-        #{$block}__side-panel-text
-            margin-bottom: 12px
+            @media only screen and (max-width: 550px)
+                margin-bottom: 16px
 
-    #{$block}__controls-elem
-        &:nth-last-of-type(n+2)
-            margin-right: 16px
+        &__main-specs
+            flex-basis: 332px
 
-        #{$block}__side-panel-text
+            #{$block}__specs-list-item
+                &:nth-last-of-type(n+2)
+                    margin-bottom: 24px
+
+            @media only screen and (max-width: 768px)
+                flex-basis: auto
+                flex-grow: 1
+
+            @media only screen and (max-width: 550px)
+                margin-bottom: 10px
+
+        &__side-panel
+            flex-basis: 420px
+            margin-left: 32px
+            background-color: #FBFBFB
+            padding: 16px 20px 16px 20px
+            margin-top: -24px
+
+            @media only screen and (max-width: 810px)
+                margin-top: 10px
+                margin-left: 0
+
+            @media only screen and (max-width: 550px)
+                margin-left: -15px
+                margin-right: -15px
+
+        &__gallery
+            width: 304px
+            min-width: 260px
+
+            @media only screen and (max-width: 768px)
+                margin-right: 20px
+                margin-left: 0
+
+            @media only screen and (max-width: 550px)
+                margin-left: auto
+                margin-right: auto
+                margin-bottom: 32px
+                width: 100%
+
+        &__img-link
+            margin-right: 0
+            max-width: none
+
+        &__gallery-slider
+            width: 208px
+            margin-left: auto
+            margin-right: auto
+            margin-top: 8px
+
+            @media only screen and (max-width: 768px)
+                margin-bottom: 0
+
+        &__side-panel-text
+            font-size: 14px
+            line-height: 100%
+            color: #323232
+            font-weight: 500
+
+        &__relinking-items-wrap
+            display: flex
+            flex-wrap: wrap
+            margin-left: -4px
+
+        &__relinking-item
+            padding: 3px 4px
+            display: inline-block
+            margin-right: 4px
             margin-bottom: 8px
+            text-decoration: underline
+            transition: .3s
 
-            sup
-                position: absolute
-                margin-top: -2px
+            &.active, &:hover
+                text-decoration: none
+                background: #C51717
+                color: #FFFFFF
 
-    #{$block}__controls-block
-        display: flex
-        margin-top: -8px
-        margin-bottom: 28px
+        &__relinking-block
+            &:nth-last-of-type(n+2)
+                margin-bottom: 28px
 
-        .product-item__custom-counter
-            height: 40px
+            #{$block}__side-panel-text
+                margin-bottom: 12px
 
-    #{$block}__info-block
-        display: flex
-        margin-bottom: 28px
+        &__controls-elem
+            &:nth-last-of-type(n+2)
+                margin-right: 16px
 
-    #{$block}__info-block-elem
-        &:nth-last-of-type(n+2)
-            margin-right: 64px
+            #{$block}__side-panel-text
+                margin-bottom: 8px
 
-        #{$block}__info-elem
-            margin-bottom: 16px
+                sup
+                    position: absolute
+                    margin-top: -2px
 
-    #{$block}__info-val
-        display: flex
-        font-weight: 800
-        color: #3C3C3B
-        font-size: 24px
+        &__controls-block
+            display: flex
+            margin-top: -8px
+            margin-bottom: 28px
 
-    #{$block}__weight-val, #{$block}__price-val
-        margin-right: 4px
+            .product-item__custom-counter
+                height: 40px
+
+        &__info-block
+            display: flex
+            margin-bottom: 28px
+
+        &__info-block-elem
+            &:nth-last-of-type(n+2)
+                margin-right: 64px
+
+            #{$block}__info-elem
+                margin-bottom: 16px
+
+        &__info-val
+            display: flex
+            font-weight: 800
+            color: #3C3C3B
+            font-size: 24px
+
+        &__weight-val, &__price-val
+            margin-right: 4px
+
+        &__callback-btn
+            margin-top: 16px
+            flex-direction: column
+            width: 100%
+            padding-left: 0
+            padding-right: 0
+
+        &__callback-btn-spec-text
+            color: #C51717
+            display: block
+            font-weight: 500
+            font-size: 12px
+
+        &__callback-btn-main-text
+            white-space: nowrap
+
+        &__amount_style_default
+            width: 69px
+
+        &__amount_style_bordered
+            border-left: 1px solid #eaeaea
+            border-right: 1px solid #eaeaea
+            width: 92px
+            text-align: left
+            padding-left: 12px
+            padding-right: 12px
+
+        &__amount_style_default, &__amount_style_bordered, .custom-counter__btn
+            background-color: #fff
+
+        &__main-content
+            display: flex
+            flex-direction: column
+            flex-basis: 668px
+
+            @media only screen and (max-width: 810px)
+                flex-basis: auto
+
+        &__main-content-top
+            display: flex
+
+            @media only screen and (max-width: 550px)
+                flex-direction: column
+
+        &__main-content-top, &__main-content-bottom
+            width: 100%
+
+        &__top
+            @media only screen and (max-width: 810px)
+                flex-direction: column
+
+        &__right-info
+            @media only screen and (max-width: 550px)
+                display: none
+
+        &__reviews
+            @media only screen and (max-width: 880px)
+                margin-right: 30px
+
+        &__article_pc
+            @media only screen and (max-width: 768px)
+                display: block
+
+        &__mobile
+            display: none
+
+            @media only screen and (max-width: 550px)
+                display: block
+
+        &__top-line
+            @media only screen and (max-width: 500px)
+                display: flex
+
+        &__fav-n-comp
+            max-width: 240px
+            width: 100%
+            margin-bottom: 32px
+
+            @media only screen and (max-width: 550px)
+                display: flex
+
+            .product-item__btn-fav
+                margin-left: auto
+
+        &__right-info
+            @media screen and (max-width: 880px)
+                order: 2
+                margin-bottom: 0
+                margin-top: 12px
+
+        &__btn-compare, &__btn-fav
+            margin-top: 0
+
+    .content-block
+        margin-top: 18px
 
     .product-item__btn-in-cart
         width: 100%
@@ -114,45 +257,6 @@
         height: 48px
         max-width: none
 
-    #{$block}__callback-btn
-        margin-top: 16px
-        flex-direction: column
-        width: 100%
-
-    #{$block}__callback-btn-spec-text
-        color: #C51717
-        display: block
-        font-weight: 500
-        font-size: 12px
-
-    #{$block}__amount_style_default
-        width: 69px
-
-    #{$block}__amount_style_bordered
-        border-left: 1px solid #eaeaea
-        border-right: 1px solid #eaeaea
-        width: 92px
-        text-align: left
-        padding-left: 12px
-        padding-right: 12px
-
     .custom-counter__btn
         color: #323232
-
-    #{$block}__amount_style_default, #{$block}__amount_style_bordered, .custom-counter__btn
-        background-color: #fff
-
-    #{$block}__main-content
-        display: flex
-        flex-direction: column
-        flex-basis: 668px
-
-    #{$block}__main-content-top
-        display: flex
-
-    #{$block}__main-content-top, #{$block}__main-content-bottom
-        width: 100%
-
-    .content-block
-        margin-top: 18px
-
+        width: 32px

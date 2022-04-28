@@ -1,5 +1,4 @@
 {set $amountPhotos = $files | count}
-
 {if $amountPhotos > 1}
     <div class="product-card__gallery-btns-wrap swiper-buttons"
         {if (($amountPhotos < 5) && ($_modx->resource.template in list [6, 21])) ||

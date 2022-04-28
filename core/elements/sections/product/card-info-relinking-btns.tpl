@@ -71,6 +71,9 @@
                 ]}
             </a>
         </div>
+
+
+
         <div class="product-card__right-info">
             <span class="product-item__btn product-card__btn-compare product-item__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"
                   href="#">
@@ -93,8 +96,6 @@
     <div class="product-card__top">
         <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
 
-        <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
-
         <div class="product-card__main-content">
             <div class="product-card__main-content-top">
                 <div class="product-card__gallery">
@@ -109,6 +110,24 @@
                         'tpl' => '@FILE chunks/gallery.tpl',
                         'product' => $id,
                     ]}
+                </div>
+
+                <div class="product-card__mobile product-card__fav-n-comp">
+                    <span class="product-item__btn product-card__btn-compare product-item__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"
+                          href="#">
+                        <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
+                             height="16">
+                            <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
+                        </svg>
+                    </span>
+                            <span class="product-item__btn product-card__btn-fav product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}" href="#">
+                        <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
+                             height="18">
+                            <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
+                        </svg>
+                    </span>
                 </div>
 
                 <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
