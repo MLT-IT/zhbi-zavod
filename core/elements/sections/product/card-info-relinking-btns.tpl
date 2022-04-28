@@ -204,6 +204,7 @@
                 </div>
             {/if}
 
+            <span itemprop="price" class="product-item__price" data-default="{$defaultPrice}"></span>
             <input type="hidden" name="unit" value="1">
             <div class="product-item__ms2-elems">
                 <form class="product-item__form-add ms2_form" method="post">
@@ -215,7 +216,7 @@
                 </form>
                 <form class="product-item__form-change ms2_form" method="post">
                     <input name="key" value="{$productKey}">
-                    <input name="count" value="1">
+                    <input name="count" value="{$itemInCart?:1}">
                     <input name="ctx" value="{$_modx->resource.context_key}">
                     <button type="submit" name="ms2_action" value="cart/change">Изменить кол-во</button>
                 </form>
@@ -227,14 +228,14 @@
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="1" data-min="{$dataMin}">
+                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:0}">
+                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}">
                         </div>
                     </div>
                 </div>
@@ -253,7 +254,7 @@
                             <div class="product-card__side-panel-text">Цена</div>
                         </div>
                         <div class="product-card__info-val">
-                            <div class="product-card__price-val">750</div>
+                            <div class="product-card__price-val">{$outputPrice}</div>
                             <div class="product-card__price-unit">руб</div>
                         </div>
                     </div>
@@ -273,14 +274,14 @@
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:0}">
+                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:0}">
+                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}">
                         </div>
                     </div>
                 </div>
@@ -299,7 +300,7 @@
                             <div class="product-card__side-panel-text">Цена</div>
                         </div>
                         <div class="product-card__info-val">
-                            <div class="product-card__price-val">750</div>
+                            <div class="product-card__price-val">{$outputPrice}</div>
                             <div class="product-card__price-unit">руб</div>
                         </div>
                     </div>

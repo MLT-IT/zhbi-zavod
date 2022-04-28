@@ -5,6 +5,24 @@ import functions from "./functions";
  */
 export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm, getStep, getCorrectValueToCounter) {
     // -------------------------------
+    // Код для страницы с перелинковкой для фанеры
+    // -------------------------------
+    if ($('.pro-fanera .product-card_type_relinking-btns').length) {
+        let $productItem = $('.product-card__content .product-item');
+        $productItem.on('changeAmount', changeAmountHandler);
+        function changeAmountHandler() {
+            // Установка цены
+            let $activeForm = functions.getActiveForm($productItem);
+            let amount = $activeForm.action.find('.custom-counter__amount').val();
+            let price = $('.product-item__price').attr('data-default');
+            let newPrice = amount * price;
+            $('.product-card__price-val').text(functions.numberWithSpaces(newPrice));
+        }
+        changeAmountHandler();
+    }
+
+
+    // -------------------------------
     // Щелчок по якорю "Отзывы"
     // -------------------------------
     $('.product-card__reviews-quantity').on('click', function (e) {

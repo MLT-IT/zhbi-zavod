@@ -283,7 +283,7 @@
                         </form>
                         <form class="product-item__form-change ms2_form" method="post">
                             <input name="key" value="{$productKey}">
-                            <input name="count" value="1">
+                            <input name="count" value="{$itemInCart?:1}">
                             <input name="ctx" value="{$_modx->resource.context_key}">
                             <button type="submit" name="ms2_action" value="cart/change">Изменить кол-во</button>
                         </form>
