@@ -1,9 +1,15 @@
 {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
 
 <div class="product-card__content">
+
     {if $_modx->resource.template in list [17, 20]}
-        {include "file:sections/product/card-info-links.tpl"}
+        {* Кровля *}
+        {include "file:sections/product/card-info-relinking-selects.tpl"}
+    {elseif $_modx->resource.template == 21}
+        {* Фанера *}
+        {include "file:sections/product/card-info-relinking-btns.tpl"}
     {else}
+        {* Обычная карточка *}
         {include "file:sections/product/card-info.tpl"}
     {/if}
 

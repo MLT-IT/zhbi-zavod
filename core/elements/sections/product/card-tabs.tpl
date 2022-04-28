@@ -16,8 +16,11 @@
 
 <div class="product-card__tabs" id="card-tabs">
     <div class="product-card__tabs-buttons" data-tabs="product-card__tabs-pages">
-        <div class="product-card__tabs-button active">Описание</div>
-        <div class="product-card__tabs-button">Характеристики</div>
+        {if $_modx->resource.template != 21}
+            <div class="product-card__tabs-button active">Описание</div>
+        {/if}
+
+        <div class="product-card__tabs-button{if $_modx->resource.template == 21} active{/if}">Характеристики</div>
 
         {if $renderCerts == 1}
             <div class="product-card__tabs-button">Сертификаты</div>
@@ -30,13 +33,16 @@
         <div class="product-card__tabs-button product-card__tabs-button_type_reviews">Отзывы</div>
     </div>
     <div class="product-card__tabs-pages">
-        <div class="product-card__tabs-page active">
-            <div class="product-card__mobile-tabs-button">Описание</div>
-            <div class="product-card__content-wrap">
-                {include 'file:sections/product/card-content-tab.tpl'}
+        {if $_modx->resource.template != 21}
+            <div class="product-card__tabs-page active">
+                <div class="product-card__mobile-tabs-button">Описание</div>
+                <div class="product-card__content-wrap">
+                    {include 'file:sections/product/card-content-tab.tpl'}
+                </div>
             </div>
-        </div>
-        <div class="product-card__tabs-page">
+        {/if}
+
+        <div class="product-card__tabs-page{if $_modx->resource.template == 21} active{/if}">
             <div class="product-card__mobile-tabs-button">Характеристики</div>
             <div class="product-card__content-wrap">
                 {include 'file:sections/product/card-specs-tab.tpl'}

@@ -7,16 +7,15 @@
     {set $itemVendor = $_modx->resource['brand'][0]}
 {/if}
 
-{* Данные для списков *}
+{* Данные для перелинковки *}
 {if $_modx->resource.template == 17}
-    {set $krovlyaData = 'getLinksData' | snippet}
+    {set $linksData = 'getLinksData' | snippet}
     {set $cvet = $_modx->resource.cvet[0]}
 {/if}
 {if $_modx->resource.template == 20}
-    {set $krovlyaData = 'getLinksDataOttenok' | snippet}
+    {set $linksData = 'getLinksDataOttenok' | snippet}
     {set $cvet = $_modx->resource.ottenok[0]}
 {/if}
-
 
 <div class="product-item{if $itemInCart?} product-item-in-cart{/if}"
     {* Выводим data-атрибуты *}
@@ -159,7 +158,7 @@
                 </div>
 
                 <div class="product-card__info-inner">
-                    {if $krovlyaData.pokrytie?}
+                    {if $linksData.pokrytie?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_full">
                             <div class="product-card__select-span">Покрытие:</div>
                             <div class="custom-select-wrap">
@@ -170,7 +169,7 @@
                                     <a href="#" class="euv-custom-select__btn"></a>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
-                                            {foreach $krovlyaData.pokrytie as $id => $val}
+                                            {foreach $linksData.pokrytie as $id => $val}
                                                 <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
                                                     {$val}
                                                 </a>
@@ -184,7 +183,7 @@
                         </div>
                     {/if}
 
-                    {if $krovlyaData.cvet?}
+                    {if $linksData.cvet?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_half">
                             <div class="product-card__select-span">
                                 {if $_modx->resource.template == 17}
@@ -203,7 +202,7 @@
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             <div class="euv-custom-select__options-wrap-scroll-inner">
-                                                {foreach $krovlyaData.cvet as $data}
+                                                {foreach $linksData.cvet as $data}
                                                     <div class="euv-custom-select__options-col">
                                                         {foreach $data as $id => $val}
                                                             {set $v = $val | toLowerAndRemoveChars}
@@ -223,8 +222,8 @@
                         </div>
                     {/if}
 
-                    {if $krovlyaData.item_thickness?}
-                        <div class="product-card__select-wrap product-card__select-wrap_type_half{if $krovlyaData.cvet?} product-card__select-wrap_align_right{/if}">
+                    {if $linksData.item_thickness?}
+                        <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.cvet?} product-card__select-wrap_align_right{/if}">
                             <div class="product-card__select-span">Толщина, мм:</div>
                             <div class="custom-select-wrap">
                                 <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
@@ -234,7 +233,7 @@
                                     <a href="#" class="euv-custom-select__btn"></a>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
-                                            {foreach $krovlyaData.item_thickness as $id => $val}
+                                            {foreach $linksData.item_thickness as $id => $val}
                                                 <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
                                                     {$val}
                                                 </a>
