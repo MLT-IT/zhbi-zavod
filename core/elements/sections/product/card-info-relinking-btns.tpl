@@ -8,7 +8,7 @@
 {/if}
 
 {* Данные для перелинковки *}
-{set $linksData = 'getLinksDataBtns' | snippet}
+{set $linksData = 'getLinksDataFanera' | snippet}
 
 {* Данные для добавления / изменения товара в корзине *}
 {set $prodId = $_modx->resource['id']}
@@ -165,77 +165,41 @@
         </div>
 
         <div class="product-card__side-panel">
-
-            {* TODO: УДАЛИ ЭТОТ КОД >>> *}
-            <div class="product-card__relinking-block">
-                <div class="product-card__side-panel-text">Формат, мм</div>
-                <div class="product-card__relinking-items-wrap">
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1250×2500</a>
-                    <a href="#" class="product-card__relinking-item">1500×3000</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                </div>
-            </div>
-
-            <div class="product-card__relinking-block">
-                <div class="product-card__side-panel-text">Формат, мм</div>
-                <div class="product-card__relinking-items-wrap">
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1250×2500</a>
-                    <a href="#" class="product-card__relinking-item">1500×3000</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                    <a href="#" class="product-card__relinking-item">1220×2440</a>
-                </div>
-            </div>
-            {* TODO: УДАЛИ ЭТОТ КОД <<< *}
-
-            {if $linksData.format?}
+            {if $linksData['razmer-mm']?}
                 <div class="product-card__relinking-block">
                     <div class="product-card__side-panel-text">Формат, мм</div>
                     <div class="product-card__relinking-items-wrap">
-                        <div class="product-card__relinking-item">1220×2440</div>
-                        <div class="product-card__relinking-item">1250×2500</div>
-                        <div class="product-card__relinking-item">1500×3000</div>
-                        <div class="product-card__relinking-item">1220×2440</div>
-                        <div class="product-card__relinking-item">1220×2440</div>
-                        <div class="product-card__relinking-item">1220×2440</div>
+                        {foreach $linksData['razmer-mm'] as $id => $val}
+                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['razmer-mm'] == $val} active{/if}">
+                                {$val}
+                            </a>
+                        {/foreach}
                     </div>
                 </div>
             {/if}
 
-            {if $linksData.thickness?}
+            {if $linksData['item_thickness']?}
                 <div class="product-card__relinking-block">
                     <div class="product-card__side-panel-text">Толщина, мм</div>
                     <div class="product-card__relinking-items-wrap">
-                        <a href="#" class="product-card__relinking-item">4</a>
-                        <a href="#" class="product-card__relinking-item">6</a>
-                        <a href="#" class="product-card__relinking-item">9</a>
-                        <a href="#" class="product-card__relinking-item">12</a>
-                        <a href="#" class="product-card__relinking-item">15</a>
-                        <a href="#" class="product-card__relinking-item">18</a>
+                        {foreach $linksData['item_thickness'] as $id => $val}
+                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['item_thickness'] == $val} active{/if}">
+                                {$val}
+                            </a>
+                        {/foreach}
                     </div>
                 </div>
             {/if}
 
-            {if $linksData.sort?}
+            {if $linksData['sort']?}
                 <div class="product-card__relinking-block">
                     <div class="product-card__side-panel-text">Сорт</div>
                     <div class="product-card__relinking-items-wrap">
-                        <div class="product-card__relinking-item">4</div>
-                        <div class="product-card__relinking-item">6</div>
-                        <div class="product-card__relinking-item">9</div>
-                        <div class="product-card__relinking-item">12</div>
-                        <div class="product-card__relinking-item">15</div>
-                        <div class="product-card__relinking-item">18</div>
+                        {foreach $linksData['sort'] as $id => $val}
+                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['sort'] == $val} active{/if}">
+                                {$val}
+                            </a>
+                        {/foreach}
                     </div>
                 </div>
             {/if}
