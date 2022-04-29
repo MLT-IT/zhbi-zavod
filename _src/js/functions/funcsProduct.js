@@ -56,7 +56,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     $(document).on('change', '.product-item .custom-counter__amount', function (e) {
         e.preventDefault();
-        changeCountItemInCart($(this).closest('.product-item'));
+        changeCountItemInCart($(this).closest('.product-item'), false, $(this));
     });
 
 
@@ -103,8 +103,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Изменить кол-во товара
     // -------------------------------
-    function changeCountItemInCart($productItem, forbidZero) {
+    function changeCountItemInCart($productItem, forbidZero, $target) {
         forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
+        $target = typeof $target !== 'undefined' ? $target : null;
 
         // Товар в корзине?
         let inCart = false;
@@ -119,33 +120,73 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             inCart = true;
         }
 
-        // Получаем input с количеством товара
-        $inputAmount = $forms['action'];
-        // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной
-        if ($inputAmount.length > 1) {
-            $forms['action'].each(function (i, e) {
-                if ($(e).is(':visible')) {
-                    $inputAmount = $(e);
-                }
-            });
+        if (typeof $target === 'undefined') {
+            // Получаем input с количеством товара
+            $inputAmount = $forms['action'];
+            // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной
+            if ($inputAmount.length > 1) {
+                $forms['action'].each(function (i, e) {
+                    if ($(e).is(':visible')) {
+                        $inputAmount = $(e);
+                    }
+                });
+            }
+            $inputAmount = $inputAmount.find('.custom-counter__amount');
+        } else {
+            $inputAmount = $target;
         }
-        $inputAmount = $inputAmount.find('.custom-counter__amount');
 
-        // Получаем последнее кол-во товара
-        let lastVal = $inputAmount[0]['lastValue'];
         // Получаем новое кол-во товара, которое будет отображено на счетчике
         let val = $inputAmount.val();
-        // Данный код нужен для расчета кол-ва соответственно кол-ву на поддоне
-        // val = functions.getCorrectValueToCounter(getStep($productItem), val);
 
-        // if ((isNaN(val) || lastVal == val)) {
-        //     console.log('return', isNaN(val), lastVal == val);
-        //     return;
-        // }
-
-        // Устанавливаем кол-во товара всем input'ам с количеством товара
+        // Устанавливаем кол-во товара всем input'ам с количеством товара. Дело в том, что их на странице может быть несколько (например, на кровле там - для мобилок одна форма, для ПК - другая. И по-хорошему, они должны быть синхронизированы)
         $forms['action'].each(function (i, e) {
-            $(e).find('.custom-counter__amount').val(val);
+            $(e).find('.custom-counter__amount').each(function(i, e) {
+                let valTmp = val;
+                let $checkedAmount = $(e);
+
+                // Коэффициент проверяемого счетчика
+                let koeff1 = $checkedAmount.attr('data-koeff');
+                // Коэффициент изменяемого счетчика
+                let koeff2 = $inputAmount.attr('data-koeff');
+
+                // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
+                let cond1 = typeof koeff1 !== 'undefined' && typeof koeff2 === 'undefined';
+                // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
+                let cond2 = typeof koeff1 === 'undefined' && typeof koeff2 !== 'undefined';
+
+                // Если ни одно из условий в switch не сработало, значит, коэфициента нет ни у проверяемого, ни у изменяемого счетчиков
+                switch (true) {
+                    // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
+                    case (cond1):
+                        valTmp = koeff1 * valTmp;
+                        break;
+                    // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
+                    case (cond2):
+                        valTmp = valTmp / koeff2;
+                        break;
+                }
+
+                if ($productItem.find('.custom-counter_type_fractional').length) {
+                    valTmp = Number((valTmp).toFixed(2));
+                } else {
+                    if ($('body.kirpich-m').length) {
+                        valTmp = Math.round(valTmp);
+                    } else {
+                        valTmp = Math.ceil(valTmp);
+                    }
+                }
+
+                if (!$checkedAmount.is($inputAmount)) {
+                    $checkedAmount.val(valTmp);
+                    console.log('checkedAmount = ', $checkedAmount)
+                    console.log('inputAmount = ', $inputAmount)
+                }
+
+                if (cond2) {
+                    val = valTmp;
+                }
+            });
         });
 
         // Устанавливаем то количество, которое будет добавлено в корзину
