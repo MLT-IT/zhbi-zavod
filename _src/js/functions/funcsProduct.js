@@ -9,16 +9,26 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     if ($('.pro-fanera .product-card_type_relinking-btns').length) {
         let $productItem = $('.product-card__content .product-item');
+
         $productItem.on('changeAmount', changeAmountHandler);
+        changeAmountHandler();
+
         function changeAmountHandler() {
-            // Установка цены
             let $activeForm = functions.getActiveForm($productItem);
             let amount = $activeForm.action.find('.custom-counter__amount').val();
-            let price = $('.product-item__price').attr('data-default');
+
+            // Установка цены
+            let price = $('.product-item__price').attr('content');
             let newPrice = amount * price;
             $('.product-card__price-val').text(functions.numberWithSpaces(newPrice));
+
+            // Установка веса
+            let weight = $('.product-item__weight').attr('content');
+            if (weight > 0) {
+                let newWeight = amount * weight;
+                $('.product-card__weight-val').text(functions.numberWithSpaces(newWeight));
+            }
         }
-        changeAmountHandler();
     }
 
 
@@ -179,8 +189,6 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
                 if (!$checkedAmount.is($inputAmount)) {
                     $checkedAmount.val(valTmp);
-                    console.log('checkedAmount = ', $checkedAmount)
-                    console.log('inputAmount = ', $inputAmount)
                 }
 
                 if (cond2) {

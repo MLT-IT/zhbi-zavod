@@ -204,7 +204,9 @@
                 </div>
             {/if}
 
-            <span itemprop="price" class="product-item__price" data-default="{$defaultPrice}"></span>
+            <meta itemprop="price" class="product-item__price" content="{$defaultPrice}">
+            <meta itemprop="weight" class="product-item__weight" content="{$_modx->resource['massa'][0]}">
+
             <input type="hidden" name="unit" value="1">
             <div class="product-item__ms2-elems">
                 <form class="product-item__form-add ms2_form" method="post">
@@ -240,15 +242,17 @@
                     </div>
                 </div>
                 <div class="product-card__info-block">
-                    <div class="product-card__info-block-elem">
-                        <div class="product-card__info-elem">
-                            <div class="product-card__side-panel-text">Вес</div>
+                    {if $_modx->resource['massa'][0] > 0}
+                        <div class="product-card__info-block-elem">
+                            <div class="product-card__info-elem">
+                                <div class="product-card__side-panel-text">Вес</div>
+                            </div>
+                            <div class="product-card__info-val">
+                                <div class="product-card__weight-val">{$_modx->resource['massa'][0]}</div>
+                                <div class="product-card__weight-unit">кг</div>
+                            </div>
                         </div>
-                        <div class="product-card__info-val">
-                            <div class="product-card__weight-val">156</div>
-                            <div class="product-card__weight-unit">кг</div>
-                        </div>
-                    </div>
+                    {/if}
                     <div class="product-card__info-block-elem">
                         <div class="product-card__info-elem">
                             <div class="product-card__side-panel-text">Цена</div>
@@ -286,15 +290,17 @@
                     </div>
                 </div>
                 <div class="product-card__info-block">
-                    <div class="product-card__info-block-elem">
-                        <div class="product-card__info-elem">
-                            <div class="product-card__side-panel-text">Вес</div>
+                    {if $_modx->resource['massa'][0] > 0}
+                        <div class="product-card__info-block-elem">
+                            <div class="product-card__info-elem">
+                                <div class="product-card__side-panel-text">Вес</div>
+                            </div>
+                            <div class="product-card__info-val">
+                                <div class="product-card__weight-val">{$_modx->resource['massa'][0]}</div>
+                                <div class="product-card__weight-unit">кг</div>
+                            </div>
                         </div>
-                        <div class="product-card__info-val">
-                            <div class="product-card__weight-val">156</div>
-                            <div class="product-card__weight-unit">кг</div>
-                        </div>
-                    </div>
+                    {/if}
                     <div class="product-card__info-block-elem">
                         <div class="product-card__info-elem">
                             <div class="product-card__side-panel-text">Цена</div>
