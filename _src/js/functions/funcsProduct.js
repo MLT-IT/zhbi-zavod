@@ -7,7 +7,8 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Код для страницы с перелинковкой для фанеры
     // -------------------------------
-    if ($('.pro-fanera .product-card_type_relinking-btns').length) {
+    let $proFaneraCard = $('.pro-fanera .product-card_type_relinking-btns');
+    if ($proFaneraCard.length) {
         let $productItem = $('.product-card__content .product-item');
 
         $productItem.on('changeAmount', changeAmountHandler);
@@ -28,6 +29,12 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 let newWeight = amount * weight;
                 $('.product-card__weight-val').text(functions.numberWithSpaces(newWeight));
             }
+        }
+
+        // Если товар есть в корзине, то надо пересчитать кол-во м2
+        if ($proFaneraCard.find('.product-item-in-cart')) {
+            let $amountM2 = $('.custom-counter__amount[data-purpose="m2"]');
+            $amountM2.val(Math.ceil($amountM2.val() * $amountM2.attr('data-koeff')));
         }
     }
 
