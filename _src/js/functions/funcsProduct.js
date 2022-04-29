@@ -151,7 +151,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
         // Устанавливаем кол-во товара всем input'ам с количеством товара. Дело в том, что их на странице может быть несколько (например, на кровле там - для мобилок одна форма, для ПК - другая. И по-хорошему, они должны быть синхронизированы)
         $forms['action'].each(function (i, e) {
-            $(e).find('.custom-counter__amount').each(function(i, e) {
+            $(e).find('.custom-counter__amount').each(function (i, e) {
                 let valTmp = val;
                 let $checkedAmount = $(e);
 
@@ -236,19 +236,46 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let $this = $(this);
         let $productItem = $this.closest('.product-item');
         let $formAdd = $productItem.find('.product-item__form-add');
-        let $elemsChange = $productItem.find('.product-item__controls_action_change');
+        let $formChange = $productItem.find('.product-item__controls_action_change');
+        let $closestFormAdd = $(this).closest('.product-item__controls_action_add');
+        let purposes = {};
 
+        // Обновление input'ов в форме для изменения кол-ва товара
+        /*
+        После добавления товара к узлу добавляется класс, который скрывает форму для добавления и показывает форму для изменения кол-ва товара. В этой форме input'ы имеют неправильное значение, нужно обновить его в соответствии с тем, которое указал пользователь при добавлении товара в корзину.
+        Но проблема в том, что input'ов может быть несколько: один для штук, другой для м2 (так в карточке с перелинковкой для фанеры). И в них должны быть разные значения (взаимо-сконвертированные). Для этого им указывается атрибут data-purpose, значения input'ов заносятся в массив, где ключ - это значение данного атрибута.
+        Если же input всего один, то массив с data-purpose будет пустым. Таким образом, сначала проверяем массив с data-purpose. Если он пустой, то просто копируем значение.
+        */
         // Получение кол-ва
-        let countRaw = $this.closest('.product-item__controls_action_add').find('.custom-counter__amount').val();
+        let countRaw = $closestFormAdd.find('.custom-counter__amount').val();
         let count = getItemCount($productItem, countRaw);
 
-        // Установка кол-ва
-        // В счетчик для изменения кол-ва. Цикл нужен, т.к. может быть 2 счетчика для изменения кол-ва. Первый - для ПК, второй - для мобилок
-        $elemsChange.find('.custom-counter__amount').each(function (i, e) {
-            $(e).val(countRaw);
-            e["oldValue-change"] = count;
-            e["lastValue"] = count;
+        $closestFormAdd.find('.custom-counter__amount').each(function (i, e) {
+            let $e = $(e);
+            let key = $e.attr('data-purpose');
+            if (typeof key !== 'undefined') {
+                purposes[key] = $e.val();
+            }
         });
+
+        // Установка кол-ва в пользовательский счетчик для изменения кол-ва
+        // Цикл для input'ов нужен, т.к. может быть 2 счетчика для изменения кол-ва. Первый - для ПК, второй - для мобилок. Так, например, в карточке с перелинковкой для кровли
+        if (Object.keys(purposes).length) {
+            for (let key in purposes) {
+                $formChange.find('.custom-counter__amount[data-purpose="' + key + '"]').each(function (i, e) {
+                    $(e).val(purposes[key]);
+                    e["oldValue-change"] = purposes[key];
+                    e["lastValue"] = purposes[key];
+                });
+            }
+        } else {
+            $formChange.find('.custom-counter__amount').each(function (i, e) {
+                $(e).val(countRaw);
+                e["oldValue-change"] = count;
+                e["lastValue"] = count;
+            });
+        }
+
         // В скрытые поля
         $formAdd.find('[name="count"]').val(count);
         $('.product-item__form-change [name="count"]').val(count);

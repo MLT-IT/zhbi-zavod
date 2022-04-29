@@ -230,14 +230,14 @@
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
+                            <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
                         </div>
                     </div>
                 </div>
@@ -278,14 +278,14 @@
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
+                            <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
                             <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
                         </div>
                     </div>
                 </div>
