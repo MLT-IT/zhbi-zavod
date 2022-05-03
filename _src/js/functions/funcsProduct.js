@@ -7,6 +7,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Код для страницы с перелинковкой для фанеры
     // -------------------------------
+    // TODO: Будет красивее, если рассчитывать цену, вес и кол-во товара для м2 на back-end. Загружалось бы сразу с нужным количеством, а не менялось на глазах от JS.
     let $proFaneraCard = $('.pro-fanera .product-card_type_relinking-btns');
     if ($proFaneraCard.length) {
         let $productItem = $('.product-card__content .product-item');

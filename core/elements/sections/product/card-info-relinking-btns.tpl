@@ -170,9 +170,15 @@
                     <div class="product-card__side-panel-text">Формат, мм</div>
                     <div class="product-card__relinking-items-wrap">
                         {foreach $linksData['razmer-mm'] as $id => $val}
-                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['razmer-mm'] == $val} active{/if}">
-                                {$val}
-                            </a>
+                            {if $_modx->resource['razmer-mm'][0] == $val}
+                                <span class="product-card__relinking-item active">
+                                    {$val}
+                                </span>
+                            {else}
+                                <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item">
+                                    {$val}
+                                </a>
+                            {/if}
                         {/foreach}
                     </div>
                 </div>
@@ -183,9 +189,15 @@
                     <div class="product-card__side-panel-text">Толщина, мм</div>
                     <div class="product-card__relinking-items-wrap">
                         {foreach $linksData['item_thickness'] as $id => $val}
-                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['item_thickness'] == $val} active{/if}">
-                                {$val}
-                            </a>
+                            {if $_modx->resource['item_thickness'][0] == $val}
+                                <span class="product-card__relinking-item active">
+                                    {$val}
+                                </span>
+                            {else}
+                                <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item">
+                                    {$val}
+                                </a>
+                            {/if}
                         {/foreach}
                     </div>
                 </div>
@@ -196,9 +208,15 @@
                     <div class="product-card__side-panel-text">Сорт</div>
                     <div class="product-card__relinking-items-wrap">
                         {foreach $linksData['sort'] as $id => $val}
-                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item{if $_modx->resource['sort'] == $val} active{/if}">
-                                {$val}
-                            </a>
+                            {if $_modx->resource['sort'][0] == $val}
+                                <span class="product-card__relinking-item active">
+                                    {$val}
+                                </span>
+                            {else}
+                                <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-item">
+                                    {$val}
+                                </a>
+                            {/if}
                         {/foreach}
                     </div>
                 </div>

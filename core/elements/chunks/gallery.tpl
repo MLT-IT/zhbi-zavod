@@ -1,6 +1,7 @@
 {set $amountPhotos = $files | count}
 {if $amountPhotos > 1}
     <div class="product-card__gallery-btns-wrap swiper-buttons"
+        {* У шаблонов 6, 21 стрелки выводятся, только если фоток больше 4. У шаблонов 17, 20 стрелки выводятся в зависимости от ширины экрана, поэтому изначально прячем их в любом случае *}
         {if (($amountPhotos < 5) && ($_modx->resource.template in list [6, 21])) ||
             $_modx->resource.template in list [17, 20]}
             style="display: none;"
