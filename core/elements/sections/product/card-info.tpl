@@ -8,7 +8,15 @@
     {set $itemVendor = $_modx->resource['proizvoditel'][0]}
 {/if}
 
-<div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}"
+{* Галерея *}
+{'!msGallery' | snippet : [
+    'tpl' => '@FILE chunks/gallery.tpl',
+    'product' => $id,
+    'toPlaceholder' => 'gallery'
+]}
+{set $gallery = $_modx->getPlaceholder('gallery')}
+
+<div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -26,10 +34,8 @@
                 <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
             </a>
         </div>
-        {'!msGallery' | snippet : [
-            'tpl' => '@FILE chunks/gallery.tpl',
-            'product' => $id,
-        ]}
+
+        {$_modx->getPlaceholder('gallery')}
     </div>
 
     <div class="hidden" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">

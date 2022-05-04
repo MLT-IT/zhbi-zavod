@@ -163,15 +163,15 @@
         .custom-counter__amount
             width: 64px
 
-    @at-root .product-card_with-gallery .product-card__gallery
-        padding-left: 72px
-
     #{$block}__gallery
         flex-basis: 578px
         display: flex
         margin-right: 16px
         width: auto
         position: relative
+
+        @at-root .product-card_with-gallery &
+            padding-left: 72px
 
         @media screen and (max-width: 880px)
             flex-basis: 500px
