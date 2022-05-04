@@ -140,11 +140,14 @@
                 </div>
 
                 <div class="product-card__main-specs">
-                    {if $_modx->resource['razmer-mm'][0]?}
+                    {if ($_modx->resource['item_thickness'][0] is not empty) &&
+                        ($_modx->resource['item_width'][0] is not empty) &&
+                        ($_modx->resource['item_length'][0] is not empty)
+                    }
                         <div class="product-card__specs-list-item" data-opt-key="unit">
                             <div class="product-card__specs-list-item-name">Размер</div>
                             <div class="product-card__specs-list-item-value">
-                                {$_modx->resource['razmer-mm'][0]}
+                                {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : 'х'}
                             </div>
                         </div>
                     {/if}
