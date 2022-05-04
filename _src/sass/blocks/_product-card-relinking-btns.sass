@@ -30,7 +30,8 @@
                 margin-bottom: 16px
 
         &__main-specs
-            flex-basis: 332px
+            //flex-basis: 332px
+            flex-basis: 100%
 
             #{$block}__specs-list-item
                 &:nth-last-of-type(n+2)
@@ -61,7 +62,7 @@
                 width: calc(100% + 30px)
 
         &__gallery
-            width: 304px
+            //width: 304px
             min-width: 260px
 
             @media only screen and (max-width: 768px)
@@ -77,6 +78,13 @@
         &__img-link
             margin-right: 0
             max-width: none
+
+        &__img
+            @media only screen and (max-width: 550px)
+                width: 290px !important
+                height: 290px !important
+                margin-left: auto
+                margin-right: auto
 
         &__gallery-slider
             width: 208px
@@ -210,10 +218,6 @@
         &__right-info
             @media only screen and (max-width: 550px)
                 display: none
-
-        &__reviews
-            @media only screen and (max-width: 880px)
-                margin-right: 30px
 
         &__article_pc
             @media only screen and (max-width: 768px)

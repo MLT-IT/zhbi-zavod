@@ -99,7 +99,7 @@
                 <div class="product-card__gallery">
                     <div class="product-card__img-wrap">
                         <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
-                        <a href="{$image}" data-fancybox class="product-card__img-link">
+                        <a href="{$image}" data-fancybox class="product-card__img-link zoom">
                             <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
                         </a>
                     </div>
@@ -119,7 +119,7 @@
                             <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
                         </svg>
                     </span>
-                            <span class="product-item__btn product-card__btn-fav product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}" href="#">
+                    <span class="product-item__btn product-card__btn-fav product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}" href="#">
                         <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                              height="18">
