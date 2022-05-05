@@ -147,7 +147,7 @@
                         <div class="product-card__specs-list-item" data-opt-key="unit">
                             <div class="product-card__specs-list-item-name">Размер</div>
                             <div class="product-card__specs-list-item-value">
-                                {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : 'х'}
+                                {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : ' мм х '} мм
                             </div>
                         </div>
                     {/if}
