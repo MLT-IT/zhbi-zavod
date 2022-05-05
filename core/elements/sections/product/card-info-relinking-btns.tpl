@@ -268,8 +268,8 @@
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
-                        <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
+                        <div class="custom-counter product-item__custom-counter custom-counter_type_fractional">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
                         </div>
                     </div>
                 </div>
@@ -316,8 +316,8 @@
                     </div>
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
-                        <div class="custom-counter product-item__custom-counter{$extraClass}">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}">
+                        <div class="custom-counter product-item__custom-counter custom-counter_type_fractional">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
                         </div>
                     </div>
                 </div>

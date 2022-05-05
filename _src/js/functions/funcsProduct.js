@@ -5,7 +5,7 @@ import functions from "./functions";
  */
 export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm, getStep, getCorrectValueToCounter) {
     // -------------------------------
-    // Код для страницы с перелинковкой для фанеры
+    // Код для страницы с перелинковкой для фанеры и плит ОСБ
     // -------------------------------
     // TODO: Будет красивее, если рассчитывать цену, вес и кол-во товара для м2 на back-end. Загружалось бы сразу с нужным количеством, а не менялось на глазах от JS.
     let $proFaneraCard = $('.pro-fanera .product-card_type_relinking-btns');
@@ -21,13 +21,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
             // Установка цены
             let price = $('.product-item__price').attr('content');
-            let newPrice = amount * price;
+            let newPrice = Number(amount * price).toFixed(2);
             $('.product-card__price-val').text(functions.numberWithSpaces(newPrice));
 
             // Установка веса
             let weight = $('.product-item__weight').attr('content');
             if (weight > 0) {
-                let newWeight = amount * weight;
+                let newWeight = Number(amount * weight).toFixed(2);
                 $('.product-card__weight-val').text(functions.numberWithSpaces(newWeight));
             }
         }
@@ -35,7 +35,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         // Если товар есть в корзине, то надо пересчитать кол-во м2
         if ($proFaneraCard.find('.product-item-in-cart')) {
             let $amountM2 = $('.custom-counter__amount[data-purpose="m2"]');
-            $amountM2.val(Math.ceil($amountM2.val() * $amountM2.attr('data-koeff')));
+            $amountM2.val($amountM2.val() * $amountM2.attr('data-koeff'));
         }
     }
 
@@ -186,7 +186,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 }
 
                 if ($productItem.find('.custom-counter_type_fractional').length) {
-                    valTmp = Number((valTmp).toFixed(2));
+                    valTmp = Number(valTmp).toFixed(2);
                 } else {
                     if ($('body.kirpich-m').length) {
                         valTmp = Math.round(valTmp);
@@ -196,6 +196,11 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 }
 
                 if (!$checkedAmount.is($inputAmount)) {
+                    // На странице товара с перелинковкой с кнопками (это фанера и плиты ОСБ) есть 2 поля. Одно десятичное, другое целое. Данный код нужен как раз для таких случаев
+                    if (!$checkedAmount.parent().hasClass('custom-counter_type_fractional')) {
+                        valTmp = Math.ceil(valTmp);
+                    }
+
                     $checkedAmount.val(valTmp);
                 }
 

@@ -60,7 +60,7 @@
 
 {* Единицы измерения для плит ОСБ и фанеры *}
 {if $src['context_key'] in list ['plitaosb', 'pro-fanera']}
-    {set $m2 = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
+    {set $m2 = ($src['ploshad_m2'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}

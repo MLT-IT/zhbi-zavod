@@ -23,6 +23,10 @@ function formOfWord(n, f1, f2, f5) {
 
 // Разделить тысячные пробелами
 function numberWithSpaces(x) {
+    if (x % 1 === 0) {
+        x = Number.parseInt(x);
+    }
+
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
