@@ -138,7 +138,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             inCart = true;
         }
 
-        if (typeof $target === 'undefined') {
+        if ($target === null) {
             // Получаем input с количеством товара
             $inputAmount = $forms['action'];
             // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной

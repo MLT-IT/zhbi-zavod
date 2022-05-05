@@ -173,7 +173,7 @@
         </div>
 
         <div class="product-card__side-panel">
-            {if ($_modx->resource->context_key === 'pro-fanera')}
+            {if ($_modx->resource.context_key === 'pro-fanera')}
                 {set $formatKey = 'razmer-mm'}
             {else}
                 {set $formatKey = 'format_text'}
