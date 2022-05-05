@@ -1,276 +1,274 @@
 .product-card_type_relinking
-    $block: '.product-card'
-
-    #{$block}__content
-        padding: 0
-        border: 0
-
-    #{$block}__info-wrap
-        flex-basis: 526px
-        flex-shrink: 0
-        flex-grow: 0
-
-        @media screen and (max-width: 880px)
-            flex-basis: 100%
-            width: 100%
-
-    #{$block}__info
-        border: 1px solid #F0F0F0
-        padding: 16px
-
-        @media screen and (max-width: 880px)
-            border: none
-
-        @media screen and (max-width: 768px)
+    .product-card
+        &__content
             padding: 0
+            border: 0
 
-    #{$block}__fav-n-comp
-        width: 240px
-        flex-wrap: wrap
-        display: flex
+        &__info-wrap
+            flex-basis: 526px
+            flex-shrink: 0
+            flex-grow: 0
 
-    #{$block}__buy
-        margin-top: 0
-        max-width: 175px
-        padding-left: 14px
-        padding-right: 14px
-        font-size: 16px
-        border-radius: 4px
-
-        &_type
-            &_mobile
-                max-width: none
+            @media screen and (max-width: 880px)
+                flex-basis: 100%
                 width: 100%
-                margin-top: 16px
 
-    #{$block}__mobile
-        display: none
-        margin-top: 10px
-
-        @media screen and (max-width: 500px)
-            display: block
-
-    #{$block}__price-wrap
-        margin-right: 20px
-
-    #{$block}__info-inner
-        border-bottom: 1px solid #F0F0F0
-        padding-bottom: 24px
-        margin-bottom: 14px
-        display: flex
-        flex-wrap: wrap
-        grid-column: span 2
-
-        @media screen and (max-width: 768px)
-            padding-bottom: 16px
-            margin-bottom: 8px
-
-        @media screen and (max-width: 500px)
-            margin-bottom: 10px
-            padding-bottom: 16px
-
-    #{$block}__right-info
-        @media screen and (max-width: 880px)
-            order: 2
-            margin-bottom: 0
-            margin-top: 12px
-
-    #{$block}__mobile-btns
-        display: none
-        width: calc(100% + 30px)
-        margin-left: -15px
-        border-top: 1px solid #f0f0f0
-        border-bottom: 1px solid #f0f0f0
-        padding: 12px 15px
-        margin-bottom: 25px
-        justify-content: center
-
-        .product-item__btn-in-cart
-            width: 148px
-
-        @media screen and (max-width: 500px)
-            display: flex
-
-    #{$block}__top
-        margin-bottom: 25px
-
-        @media screen and (max-width: 880px)
-            flex-wrap: wrap
-            border: 1px solid #f0f0f0
-            border-radius: 4px
-
-        @media screen and (max-width: 768px)
+        &__info
+            border: 1px solid #F0F0F0
             padding: 16px
 
-    #{$block}__article
-        width: auto
-        margin-right: 24px
-        margin-top: 0
+            @media screen and (max-width: 880px)
+                border: none
 
-        @media screen and (max-width: 768px)
-            margin-bottom: 24px
-            margin-right: 0
+            @media screen and (max-width: 768px)
+                padding: 0
 
-        @media screen and (max-width: 480px)
-            margin-bottom: 4px
+        &__fav-n-comp
+            width: 240px
+            flex-wrap: wrap
+            display: flex
 
-    #{$block}__availability
-        margin-right: 24px
-
-    #{$block}__title-1
-        margin-bottom: 16px
-
-    #{$block}__img-link
-        margin-right: 0
-        position: relative
-        max-width: none
-        cursor: pointer
-
-    #{$block}__btn-fav, #{$block}__btn-compare
-        margin-top: 0
-
-    #{$block}__delivery
-        margin-top: 16px
-        padding: 16px 16px 18px 16px
-        border: 1px solid #f0f0f0
-        display: flex
-
-        @media screen and (max-width: 880px)
-            border: none
+        &__buy
             margin-top: 0
-            padding-top: 0
-
-        @media screen and (max-width: 768px)
-            padding: 16px 0 0 0
-
-    #{$block}__delivery-title
-        font-size: 16px
-        font-weight: 900
-
-    .product-item
-        &__controls
-            width: auto
-
-        &__btn-in-cart
+            max-width: 175px
+            padding-left: 14px
+            padding-right: 14px
             font-size: 16px
-            width: 167px
-            margin-left: 12px
-            margin-right: 12px
+            border-radius: 4px
+
+            &_type
+                &_mobile
+                    max-width: none
+                    width: 100%
+                    margin-top: 16px
+
+        &__mobile
+            display: none
+            margin-top: 10px
 
             @media screen and (max-width: 500px)
+                display: block
+
+        &__price-wrap
+            margin-right: 20px
+
+        &__info-inner
+            border-bottom: 1px solid #F0F0F0
+            padding-bottom: 24px
+            margin-bottom: 14px
+            display: flex
+            flex-wrap: wrap
+            grid-column: span 2
+
+            @media screen and (max-width: 768px)
+                padding-bottom: 16px
+                margin-bottom: 8px
+
+            @media screen and (max-width: 500px)
+                margin-bottom: 10px
+                padding-bottom: 16px
+
+        &__right-info
+            @media screen and (max-width: 880px)
+                order: 2
+                margin-bottom: 0
+                margin-top: 12px
+
+        &__mobile-btns
+            display: none
+            width: calc(100% + 30px)
+            margin-left: -15px
+            border-top: 1px solid #f0f0f0
+            border-bottom: 1px solid #f0f0f0
+            padding: 12px 15px
+            margin-bottom: 25px
+            justify-content: center
+
+            .product-item__btn-in-cart
+                width: 148px
+
+            @media screen and (max-width: 500px)
+                display: flex
+
+        &__top
+            margin-bottom: 25px
+
+            @media screen and (max-width: 880px)
+                flex-wrap: wrap
+                border: 1px solid #f0f0f0
+                border-radius: 4px
+
+            @media screen and (max-width: 768px)
+                padding: 16px
+
+        &__article
+            width: auto
+            margin-right: 24px
+            margin-top: 0
+
+            @media screen and (max-width: 768px)
+                margin-bottom: 24px
                 margin-right: 0
 
-        .custom-counter__amount
-            width: 64px
+            @media screen and (max-width: 480px)
+                margin-bottom: 4px
 
-    .product-card_with-gallery .product-card__gallery
-        padding-left: 72px
+        &__availability
+            margin-right: 24px
 
-    #{$block}__gallery
-        flex-basis: 578px
-        display: flex
-        margin-right: 16px
-        width: auto
-        position: relative
+        &__title-1
+            margin-bottom: 16px
 
-        @media screen and (max-width: 880px)
-            flex-basis: 500px
-            text-align: center
-            margin: 16px 0 24px 16px
+        &__img-link
+            margin-right: 0
+            position: relative
+            max-width: none
 
-        @media screen and (max-width: 768px)
-            margin: 0 0 16px 0
-            flex-basis: auto
+        &__btn-fav, &__btn-compare
+            margin-top: 0
 
-        @media screen and (max-width: 480px)
-            flex-direction: column
-            padding-left: 0
+        &__delivery
+            margin-top: 16px
+            padding: 16px 16px 18px 16px
+            border: 1px solid #f0f0f0
+            display: flex
 
-    #{$block}__gallery-slider
-        margin: 32px 16px 32px 0
-        flex-basis: 56px
-        flex-shrink: 0
-        position: absolute
-        overflow: hidden
-        height: calc(100% - 64px)
-        left: 0
+            @media screen and (max-width: 880px)
+                border: none
+                margin-top: 0
+                padding-top: 0
 
-        .swiper-wrapper
-            flex-direction: column
+            @media screen and (max-width: 768px)
+                padding: 16px 0 0 0
 
-        @media screen and (max-width: 480px)
-            position: static
-            flex-basis: 100%
-            margin: 8px 0 0 0
-            order: 2
+        &__delivery-title
+            font-size: 16px
+            font-weight: 900
+
+        .product-item
+            &__controls
+                width: auto
+
+            &__btn-in-cart
+                font-size: 16px
+                width: 167px
+                margin-left: 12px
+                margin-right: 12px
+
+                @media screen and (max-width: 500px)
+                    margin-right: 0
+
+            .custom-counter__amount
+                width: 64px
+
+        .product-card_with-gallery .product-card__gallery
+            padding-left: 72px
+
+        &__gallery
+            flex-basis: 578px
+            display: flex
+            margin-right: 16px
+            width: auto
+            position: relative
+
+            @media screen and (max-width: 880px)
+                flex-basis: 500px
+                text-align: center
+                margin: 16px 0 24px 16px
+
+            @media screen and (max-width: 768px)
+                margin: 0 0 16px 0
+                flex-basis: auto
+
+            @media screen and (max-width: 480px)
+                flex-direction: column
+                padding-left: 0
+
+        &__gallery-slider
+            margin: 32px 16px 32px 0
+            flex-basis: 56px
+            flex-shrink: 0
+            position: absolute
+            overflow: hidden
+            height: calc(100% - 64px)
+            left: 0
 
             .swiper-wrapper
-                justify-content: center
-                flex-direction: row
+                flex-direction: column
 
-    #{$block}__img-wrap
-        order: 2
+            @media screen and (max-width: 480px)
+                position: static
+                flex-basis: 100%
+                margin: 8px 0 0 0
+                order: 2
 
-        @media screen and (max-width: 480px)
-            padding-left: 0
-            order: 1
+                .swiper-wrapper
+                    justify-content: center
+                    flex-direction: row
 
-    #{$block}__gallery-btn
-        left: 20px
-        padding: 5px
+        &__img-wrap
+            order: 2
 
-        &_dir
-            &_next
-                top: auto
-                transform: rotate(45deg)
-                bottom: 4px
+            @media screen and (max-width: 480px)
+                padding-left: 0
+                order: 1
 
-            &_prev
-                top: 4px
-                right: auto
-                bottom: auto
-                transform: rotate(225deg)
+        &__gallery-btn
+            left: 20px
+            padding: 5px
 
-    #{$block}__gallery-btns-wrap
-        top: 0
-        bottom: auto
-        width: auto
-        height: 100%
+            &_dir
+                &_next
+                    top: auto
+                    transform: rotate(45deg)
+                    bottom: 4px
 
-        @media screen and (max-width: 480px)
-            // Как я понял, в swiper.js нельзя через JS убрать пагинацию на определенной ширине экрана. При загрузке страницы ей добавляется style="display: block;". Это можно переопределить только через !important
-            display: none !important
+                &_prev
+                    top: 4px
+                    right: auto
+                    bottom: auto
+                    transform: rotate(225deg)
 
-    #{$block}__gallery-item
-        width: 56px
-        height: 56px
+        &__gallery-btns-wrap
+            top: 0
+            bottom: auto
+            width: auto
+            height: 100%
 
-        @media screen and (max-width: 480px)
-            width: 8px
-            height: 8px
-            border-radius: 100%
-            border: 0
-            background-color: #B9B9B9
+            @media screen and (max-width: 480px)
+                // Как я понял, в swiper.js нельзя через JS убрать пагинацию на определенной ширине экрана. При загрузке страницы ей добавляется style="display: block;". Это можно переопределить только через !important
+                display: none !important
 
-            &:hover
-                @at-root .knauf &
-                    background-color: rgba(#4f70ad,.4)
-                @at-root .rockwool &
-                    background-color: rgba(#AA000F,.4)
-                @at-root .tn &
-                    background-color: rgba(#ED1C24,.4)
-                @at-root .penoplex &
-                    background-color: rgba(#F36F21,.4)
-                @at-root .isover &
-                    background-color: rgba(#FFDD00,.4)
-                @at-root .paroc &
-                    background-color: rgba(#CE1126,.4)
-                @at-root .ursa &
-                    background-color: rgba(#EA4740,.4)
+        &__gallery-item
+            width: 56px
+            height: 56px
 
-            &.active
-                +set_colors_1(background-color)
+            @media screen and (max-width: 480px)
+                width: 8px
+                height: 8px
+                border-radius: 100%
+                border: 0
+                background-color: #B9B9B9
 
-    #{$block}__gallery-item-img
-        @media screen and (max-width: 480px)
-            display: none
+                &:hover
+                    @at-root .knauf &
+                        background-color: rgba(#4f70ad,.4)
+                    @at-root .rockwool &
+                        background-color: rgba(#AA000F,.4)
+                    @at-root .tn &
+                        background-color: rgba(#ED1C24,.4)
+                    @at-root .penoplex &
+                        background-color: rgba(#F36F21,.4)
+                    @at-root .isover &
+                        background-color: rgba(#FFDD00,.4)
+                    @at-root .paroc &
+                        background-color: rgba(#CE1126,.4)
+                    @at-root .ursa &
+                        background-color: rgba(#EA4740,.4)
+
+                &.active
+                    +set_colors_1(background-color)
+
+        &__gallery-item-img
+            @media screen and (max-width: 480px)
+                display: none

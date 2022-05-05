@@ -549,4 +549,25 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             }
         }
     }
+
+
+    // -------------------------------
+    // Приближение при наведении на месте, а не в отдельном квадратике (js-image-zoom)
+    // -------------------------------
+    let $zoomImg = $('.zoom-here');
+    if ($zoomImg.length) {
+        $zoomImg.css('background-image', 'url(' + $zoomImg.find('img').attr('src') + ')');
+        $zoomImg.mousemove(function (e) {
+            let zoomer = e.currentTarget;
+            let offsetX, offsetY;
+
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
+            let x = offsetX / zoomer.offsetWidth * 100;
+            let y = offsetY / zoomer.offsetHeight * 100;
+
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+            zoomer.style.backgroundSize = 200 + '%';
+        });
+    }
 }
