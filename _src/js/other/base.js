@@ -2673,7 +2673,7 @@
             // -------------------------------------------
             // Галерея
             // -------------------------------------------
-            new oe(".product-card_type_usual .product-card__gallery-slider", {
+            new oe(".product-card_type_usual .product-card__gallery-slider, .product-card_type_relinking-btns .product-card__gallery-slider", {
                 loop: false,
                 spaceBetween: 4,
                 slidesPerView: 'auto', // Чтобы размер фоток был как в CSS, делаем auto

@@ -173,12 +173,18 @@
         </div>
 
         <div class="product-card__side-panel">
-            {if $linksData['razmer-mm']?}
+            {if ($_modx->resource->context_key === 'pro-fanera')}
+                {set $formatKey = 'razmer-mm'}
+            {else}
+                {set $formatKey = 'format_text'}
+            {/if}
+
+            {if $linksData['format']?}
                 <div class="product-card__relinking-block">
                     <div class="product-card__side-panel-text">Формат, мм</div>
                     <div class="product-card__relinking-items-wrap">
-                        {foreach $linksData['razmer-mm'] as $id => $val}
-                            {if $_modx->resource['razmer-mm'][0] == $val}
+                        {foreach $linksData['format'] as $id => $val}
+                            {if $_modx->resource[$formatKey][0] == $val}
                                 <span class="product-card__relinking-item active">
                                     {$val}
                                 </span>
