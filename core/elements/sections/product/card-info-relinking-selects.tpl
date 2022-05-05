@@ -9,11 +9,11 @@
 
 {* Данные для перелинковки *}
 {if $_modx->resource.template == 17}
-    {set $linksData = 'getLinksData' | snippet}
+    {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
     {set $cvet = $_modx->resource.cvet[0]}
 {/if}
 {if $_modx->resource.template == 20}
-    {set $linksData = 'getLinksDataOttenok' | snippet}
+    {set $linksData = 'getRelinkingData_OttenokSurfaceThickness' | snippet}
     {set $cvet = $_modx->resource.ottenok[0]}
 {/if}
 

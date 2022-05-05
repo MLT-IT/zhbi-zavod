@@ -8,7 +8,7 @@
 {/if}
 
 {* Данные для перелинковки *}
-{set $linksData = 'getLinksDataFanera' | snippet}
+{set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
 {* Данные для добавления / изменения товара в корзине *}
 {set $prodId = $_modx->resource['id']}
