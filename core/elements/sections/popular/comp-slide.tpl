@@ -12,7 +12,7 @@
 {* Цена для красивого вывода *}
 {set $outputPrice = $_pls['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
 
-<div class="not-init pop-slide comp-slide swiper-slide product-item listing__products-item{if $itemInCart?} product-item-in-cart{/if}">
+<div class="not-init pop-slide comp-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
@@ -50,7 +50,7 @@
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-star"></use>
             </svg>
         </div>
-        <div class="not-init listing__products-item-fav-remove-btn product-item__action-btn product-item__actions-compare active"></div>
+        <div class="not-init listing__products-item-fav-remove-btn js-product__action-btn js-product__actions-compare active"></div>
     </div>
     <div class="listing__products-item-right">
         {*
@@ -58,7 +58,7 @@
             <div class="listing__products-item-price">
                 <div class="listing__products-item-price-wrap">
                     {if $price}
-                        <span class="product-item__price">{$outputPrice}</span>
+                        <span class="js-product__price">{$outputPrice}</span>
                         руб
                     {/if}
 

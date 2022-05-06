@@ -16,7 +16,7 @@
 ]}
 {set $gallery = $_modx->getPlaceholder('gallery')}
 
-<div class="product-card__top product-item{if $itemInCart?} product-item-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
+<div class="product-card__top js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -65,7 +65,7 @@
                 {if $price}
                     <div class="product-card__price-outer">
                                 <span class="product-card__price-wrap">
-                                    <span itemprop="price" class="product-item__price"
+                                    <span itemprop="price" class="js-product__price"
                                           data-default="{$defaultPrice}">
                                         {if $outputOldPrice?}
                                             {$outputOldPrice}
@@ -111,14 +111,14 @@
             </div>
             <div class="product-card__right-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
-                <span class="product-item__btn product-card__btn-compare product-item__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}" href="#">
+                <span class="js-product__btn product-card__btn-compare js-product__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}" href="#">
                     <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 16" width="16"
                          height="16">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
                     </svg>
                 </span>
-                <span class="product-item__btn product-card__btn-fav product-item__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}" href="#">
+                <span class="js-product__btn product-card__btn-fav js-product__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}" href="#">
                     <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 21 18" width="21"
                          height="18">

@@ -11,9 +11,9 @@ class CatalogCest {
     private $btnPlusSelector = '//span[contains(@class, "custom-counter__btn_dir_more")]';
     private $btnMinusSelector = '//span[contains(@class, "custom-counter__btn_dir_less")]';
     private $amountSelector = '//input[contains(@class, "custom-counter__amount")]';
-    private $addSelector = '//div[contains(@class, "product-item__controls_action_add")]';
-    private $changeSelector = '//div[contains(@class, "product-item__controls_action_change")]';
-    private $addBtnSelector = '//span[contains(@class, "product-item__to-cart")]';
+    private $addSelector = '//div[contains(@class, "js-product__controls_action_add")]';
+    private $changeSelector = '//div[contains(@class, "js-product__controls_action_change")]';
+    private $addBtnSelector = '//span[contains(@class, "js-product__to-cart")]';
     private $itemSelector = '//div[contains(@class, "listing__products-list")]//div[contains(@class, "listing__products-item")]';
 
     public function _before(AcceptanceTester $I) {

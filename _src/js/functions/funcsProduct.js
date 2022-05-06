@@ -10,7 +10,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // TODO: Будет красивее, если рассчитывать цену, вес и кол-во товара для м2 на back-end. Загружалось бы сразу с нужным количеством, а не менялось на глазах от JS.
     let $proFaneraCard = $('.pro-fanera .product-card_type_relinking-btns');
     if ($proFaneraCard.length) {
-        let $productItem = $('.product-card__content .product-item');
+        let $productItem = $('.product-card__content .js-product');
 
         $productItem.on('changeAmount', changeAmountHandler);
         changeAmountHandler();
@@ -20,12 +20,12 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             let amount = $activeForm.action.find('.custom-counter__amount').val();
 
             // Установка цены
-            let price = $('.product-item__price').attr('content');
+            let price = $('.js-product__price').attr('content');
             let newPrice = Number(amount * price).toFixed(2);
             $('.product-card__price-val').text(functions.numberWithSpaces(newPrice));
 
             // Установка веса
-            let weight = $('.product-item__weight').attr('content');
+            let weight = $('.js-product__weight').attr('content');
             if (weight > 0) {
                 let newWeight = Number(amount * weight).toFixed(2);
                 $('.product-card__weight-val').text(functions.numberWithSpaces(newWeight));
@@ -33,7 +33,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
 
         // Если товар есть в корзине, то надо пересчитать кол-во м2
-        if ($proFaneraCard.find('.product-item-in-cart')) {
+        if ($proFaneraCard.find('.js-product-in-cart')) {
             let $amountM2 = $('.custom-counter__amount[data-purpose="m2"]');
             $amountM2.val($amountM2.val() * $amountM2.attr('data-koeff'));
         }
@@ -72,9 +72,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Обработчик счетчика на товарах
     // -------------------------------
-    $(document).on('change', '.product-item .custom-counter__amount', function (e) {
+    $(document).on('change', '.js-product .custom-counter__amount', function (e) {
         e.preventDefault();
-        changeCountItemInCart($(this).closest('.product-item'), false, $(this));
+        changeCountItemInCart($(this).closest('.js-product'), false, $(this));
     });
 
 
@@ -134,7 +134,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let $forms = getActiveForm($productItem);
         // Системные формы, которые нужны для управления корзиной
         let $systemForm = $forms['system'];
-        if ($productItem.hasClass('product-item-in-cart')) {
+        if ($productItem.hasClass('js-product-in-cart')) {
             inCart = true;
         }
 
@@ -225,13 +225,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
             // Если кол-во равно нулю
             if (count === 0) {
-                let $elemsAdd = $productItem.find('.product-item__controls_action_add');
+                let $elemsAdd = $productItem.find('.js-product__controls_action_add');
                 // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
                 let clearVal = 1;
                 // let clearVal = $productItem.attr('data-step');
                 $elemsAdd.find('[name="count"]').val(clearVal).trigger('refreshInput');
                 // Удаление класса, что товар этой карточки в корзине
-                $productItem.removeClass('product-item-in-cart');
+                $productItem.removeClass('js-product-in-cart');
             }
         }
 
@@ -242,15 +242,15 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     // Обработчик кнопки для добавления товара в корзину
     // -------------------------------
-    $(document).on('click', '.product-item .product-item__to-cart', function (e) {
+    $(document).on('click', '.js-product .js-product__to-cart', function (e) {
         e.preventDefault();
 
         // Основные переменные
         let $this = $(this);
-        let $productItem = $this.closest('.product-item');
-        let $formAdd = $productItem.find('.product-item__form-add');
-        let $formChange = $productItem.find('.product-item__controls_action_change');
-        let $closestFormAdd = $(this).closest('.product-item__controls_action_add');
+        let $productItem = $this.closest('.js-product');
+        let $formAdd = $productItem.find('.js-product__form-add');
+        let $formChange = $productItem.find('.js-product__controls_action_change');
+        let $closestFormAdd = $(this).closest('.js-product__controls_action_add');
         let purposes = {};
 
         // Обновление input'ов в форме для изменения кол-ва товара
@@ -291,21 +291,21 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
 
         // В скрытые поля
         $formAdd.find('[name="count"]').val(count);
-        $('.product-item__form-change [name="count"]').val(count);
+        $('.js-product__form-change [name="count"]').val(count);
 
         // Отправка скрытой формы для добавления товара в корзину
         $formAdd.find('[type="submit"]')[0].click();
         // Добавление класса, что товар этой карточки в корзине
-        $productItem.addClass('product-item-in-cart');
+        $productItem.addClass('js-product-in-cart');
     });
 
 
     // -------------------------------
     // Обработчик списка в карточках для смены ед. измерения
     // -------------------------------
-    $(document).on('change', 'select.product-item__units-select', function (e) {
+    $(document).on('change', 'select.js-product__units-select', function (e) {
         e.preventDefault();
-        let $productItem = $(this).closest('.product-item');
+        let $productItem = $(this).closest('.js-product');
 
         // Вызываем событие о том, что у товара изменилась ед. измерения
         $productItem.trigger('changeUnit');
@@ -350,7 +350,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         let unitVal = getActiveUnitValue($productItem);
 
         // Изменение цены
-        const $price = $productItem.find('.product-item__price');
+        const $price = $productItem.find('.js-product__price');
         if ($price.length) {
             const unit = $productItem.find('*[name="unit"]').val();
             let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
@@ -419,7 +419,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         $('.product-card__unit-link').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
-            let $productItem = $this.closest('.product-item');
+            let $productItem = $this.closest('.js-product');
             let val = $this.attr('data-val');
             let $unit = $('[name="unit"]');
             $productItem.attr('data-last-unit-value', functions.getActiveUnitValue($productItem));

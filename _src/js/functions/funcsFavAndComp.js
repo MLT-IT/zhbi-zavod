@@ -51,14 +51,14 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         let cookieName;
 
         switch (true) {
-            case ($this.hasClass('product-item__btn-fav') || $this.hasClass('listing__products-item-btn-fav')):
+            case ($this.hasClass('js-product__btn-fav') || $this.hasClass('listing__products-item-btn-fav')):
                 pageUri = '/favorites/';
                 targetText1 = 'избранное';
                 targetText2 = 'избранного';
                 cookieName = 'favIds';
                 splitted = getSplitted(cookieName);
                 break;
-            case $this.hasClass('product-item__btn-compare') || $this.hasClass('product-item__actions-compare') || $this.hasClass('listing__products-item-btn-compare'):
+            case $this.hasClass('js-product__btn-compare') || $this.hasClass('js-product__actions-compare') || $this.hasClass('listing__products-item-btn-compare'):
                 pageUri = '/comparison/'
                 targetText1 = 'сравнение';
                 targetText2 = 'сравнения';
@@ -68,7 +68,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         }
 
         // Дополнительные переменные
-        let id = $this.closest('.product-item').find('input[name="id"]').val();
+        let id = $this.closest('.js-product').find('input[name="id"]').val();
         let message = '<br><a href="' + window.location.origin + pageUri + '">Посмотреть</a>';
 
         // Переключение класса
@@ -132,7 +132,7 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
         if ($('.listing__products_full').length) {
             // Удаление товара из избранного
             if ($this.hasClass('listing__products-item-btn-fav')) {
-                $(this).closest('.product-item').remove();
+                $(this).closest('.js-product').remove();
             }
         }
     }
@@ -254,9 +254,9 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
 
         // Проходимся по всем карточкам и выводим опции
         itemsIds.forEach(function (id, index) {
-            $('.product-item input[name="id"][value="' + id + '"]').each(function () {
+            $('.js-product input[name="id"][value="' + id + '"]').each(function () {
                 // Контейнер, где находятся все опции
-                let $optionsWrap = $(this).closest('.product-item').find(charsWrapSelector);
+                let $optionsWrap = $(this).closest('.js-product').find(charsWrapSelector);
 
                 // Очищаем этот контейнер
                 $optionsWrap.html('');
@@ -311,8 +311,8 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
     let $comparison = $('.sect-comparison');
 
     // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
-    $(document).on('click', '.product-item__btn, .product-item__action-btn', actionsHandler);
-    $(document).on('change', '.product-item__actions-compare', actionsHandler);
+    $(document).on('click', '.js-product__btn, .js-product__action-btn', actionsHandler);
+    $(document).on('change', '.js-product__actions-compare', actionsHandler);
 
     // Если мы находимся на странице сравнения
     if ($comparison.length) {

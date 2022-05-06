@@ -78,14 +78,14 @@ function getActiveForm($productItem) {
     let $formService;
     let $formAction;
 
-    if ($productItem.hasClass('product-item-in-cart')) {
+    if ($productItem.hasClass('js-product-in-cart')) {
         // Товар уже в корзине, нужно изменить кол-во
-        $formService = $productItem.find('.product-item__form-change');
-        $formAction = $productItem.find('.product-item__controls_action_change');
+        $formService = $productItem.find('.js-product__form-change');
+        $formAction = $productItem.find('.js-product__controls_action_change');
     } else {
         // Товара нет в корзине
-        $formService = $productItem.find('.product-item__form-add');
-        $formAction = $productItem.find('.product-item__controls_action_add');
+        $formService = $productItem.find('.js-product__form-add');
+        $formAction = $productItem.find('.js-product__controls_action_add');
     }
 
     return {

@@ -127,7 +127,7 @@ export default function funcsCatalog() {
     // -------------------------------
     window.getRemainder = function () {
         // Количество товаров в листинге
-        let amount = $('.listing__products-list .product-item').length;
+        let amount = $('.listing__products-list .js-product').length;
         let $btnMore = $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more');
 
         // Проверка - существует ли листинг на основе pdoPage или mSearch2. И есть ли в таком листинге товары

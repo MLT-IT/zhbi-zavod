@@ -258,7 +258,7 @@ $(function ($) {
     // -------------------------------
     // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
     window.initStyledCounter = function initStyledCounter() {
-        $('.not-init.listing__products-item, .product-card .product-item, .cart-table__table-row_type_product').each(function () {
+        $('.not-init.listing__products-item, .product-card .js-product, .cart-table__table-row_type_product').each(function () {
             // Основные переменные
             let $item = $(this);
             let $counterInput = $item.find('.custom-counter__amount');
@@ -273,10 +273,10 @@ $(function ($) {
             if (!$item.hasClass('cart-table__table-row_type_product')) {
                 // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
                 $item.on('changeUnit', function (e) {
-                    setStepAndAmount($item, !$item.hasClass('product-item-in-cart'));
+                    setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
                 });
                 // Устанавливаем шаг и кол-во
-                if ($item.hasClass('product-item-in-cart')) {
+                if ($item.hasClass('js-product-in-cart')) {
                     setStepAndAmount($item, true);
                 } else {
                     setStepAndAmount($item, true);
