@@ -1,6 +1,7 @@
 .product-card
     margin-bottom: 60px
 
+    // Переопределение
     .content-block
         margin-bottom: 0
 
@@ -204,11 +205,6 @@
             border-style: solid
             +set_colors_1(border-color)
 
-    &__price-wrap
-        font-weight: 700
-        font-size: 24px
-        display: block
-
     &__unit-span
         margin-right: 4px
 
@@ -262,10 +258,24 @@
             &::after
                 border-bottom-color: transparent
 
-    &__price-and-logo
+    &__old-price
+        display: none
+        font-weight: bold
+        color: #aa000f
         margin-top: 12px
+
+    &__price-wrap
+        margin-top: 12px
+        font-weight: 700
+        font-size: 24px
+        display: block
+        margin-right: 20px
+
+    &__price-outer
         display: flex
         flex-wrap: wrap
+        align-items: center
+        margin-top: 4px
 
     &__top
         margin-bottom: 60px
@@ -494,3 +504,21 @@
             &_prev
                 left: 0
                 transform: rotate(135deg)
+
+.product-card_with-discount
+    .product-card__price-wrap, .product-card__info-price
+        position: relative
+
+        &::after
+            content: ""
+            border-bottom: 2px solid #aa000f
+            position: absolute
+            width: 100%
+            height: 50%
+            transform: rotate(12deg)
+            left: 0
+            top: 0
+
+    .product-card__old-price
+        display: block
+

@@ -273,28 +273,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card__info-block">
-                    {if $_modx->resource['massa'][0] > 0}
-                        <div class="product-card__info-block-elem">
-                            <div class="product-card__info-elem">
-                                <div class="product-card__side-panel-text">Вес</div>
-                            </div>
-                            <div class="product-card__info-val">
-                                <div class="product-card__weight-val">{$_modx->resource['massa'][0]}</div>
-                                <div class="product-card__weight-unit">кг</div>
-                            </div>
-                        </div>
-                    {/if}
-                    <div class="product-card__info-block-elem">
-                        <div class="product-card__info-elem">
-                            <div class="product-card__side-panel-text">Цена</div>
-                        </div>
-                        <div class="product-card__info-val">
-                            <div class="product-card__price-val">{$outputPrice}</div>
-                            <div class="product-card__price-unit">руб</div>
-                        </div>
-                    </div>
-                </div>
+                {if $_modx->resource.old_price}
+                    {include "file:chunks/card-info-relinking-btns-info.tpl"}
+                {/if}
                 <div class="product-card__btns-block">
                     <span class="product-item__btn-in-cart product-item__to-cart">В корзину</span>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
@@ -321,28 +302,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card__info-block">
-                    {if $_modx->resource['massa'][0] > 0}
-                        <div class="product-card__info-block-elem">
-                            <div class="product-card__info-elem">
-                                <div class="product-card__side-panel-text">Вес</div>
-                            </div>
-                            <div class="product-card__info-val">
-                                <div class="product-card__weight-val">{$_modx->resource['massa'][0]}</div>
-                                <div class="product-card__weight-unit">кг</div>
-                            </div>
-                        </div>
-                    {/if}
-                    <div class="product-card__info-block-elem">
-                        <div class="product-card__info-elem">
-                            <div class="product-card__side-panel-text">Цена</div>
-                        </div>
-                        <div class="product-card__info-val">
-                            <div class="product-card__price-val">{$outputPrice}</div>
-                            <div class="product-card__price-unit">руб</div>
-                        </div>
-                    </div>
-                </div>
+                {if $outputOldPrice?}
+                    {include "file:chunks/card-info-relinking-btns-info.tpl"}
+                {/if}
                 <div class="product-card__btns-block">
                     <a href="/cart/" class="product-item__btn-in-cart"><span class="product-item__btn-in-cart-top-text">В корзине</span> Перейти</a>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">

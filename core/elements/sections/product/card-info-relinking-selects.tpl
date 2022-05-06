@@ -136,21 +136,28 @@
                         {/if}
 
                         {if $price}
-                            <div class="product-card__price-and-logo">
+                            <div class="product-card__price-outer">
                                 <span class="product-card__price-wrap">
                                     <span itemprop="price" class="product-item__price"
-                                          data-default="{$defaultPrice}">{$outputPrice}</span>
+                                          data-default="{$defaultPrice}">
+                                        {if $outputOldPrice?}
+                                            {$outputOldPrice}
+                                        {else}
+                                            {$outputPrice}
+                                        {/if}
+                                    </span>
                                     <meta itemprop="priceCurrency" content="RUB">
                                     руб
-
-                                    {if !$condition}
-                                        {set $unit = $_modx->resource.unit}
-                                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
-                                    {/if}
                                 </span>
-                                {*
-                                <div class="product-logo product-card__logo" data-val="{$_modx->resource.proizvoditel[0] | toLowerAndRemoveChars}"></div>
-                                *}
+
+                                {if $outputOldPrice?}
+                                    <span class="product-card__old-price">{$outputPrice} рублей<br>Цена действительна до {'getTomorrowDate' | snippet}</span>
+                                {/if}
+
+                                {if !$condition}
+                                    {set $unit = $_modx->resource.unit}
+                                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                                {/if}
                             </div>
                         {/if}
 

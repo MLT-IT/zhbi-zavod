@@ -10,6 +10,10 @@
 
 {* Цена для красивого вывода *}
 {set $outputPrice = $src['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+{* Старая цена для красивого вывода *}
+{if $src['old_price']}
+    {set $outputOldPrice = $src['old_price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+{/if}
 
 {* Информация о кол-ве товара в корзине, есть ли товар в избранном, в сравнении *}
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
