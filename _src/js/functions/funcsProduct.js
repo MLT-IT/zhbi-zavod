@@ -8,7 +8,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // Код для страницы с перелинковкой для фанеры и плит ОСБ
     // -------------------------------
     // TODO: Будет красивее, если рассчитывать цену, вес и кол-во товара для м2 на back-end. Загружалось бы сразу с нужным количеством, а не менялось на глазах от JS.
-    let $proFaneraCard = $('.pro-fanera .product-card_type_relinking-btns');
+    let $proFaneraCard = $('.product-card_type_relinking-btns');
     if ($proFaneraCard.length) {
         let $productItem = $('.product-card__content .js-product');
 
@@ -20,9 +20,15 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             let amount = $activeForm.action.find('.custom-counter__amount').val();
 
             // Установка цены
-            let price = $('.js-product__price').attr('content');
-            let newPrice = Number(amount * price).toFixed(2);
-            $('.product-card__price-val').text(functions.numberWithSpaces(newPrice));
+            let price = $productItem.find('.js-product__price').attr('data-default');
+            let priceNewVal = Number(amount * price).toFixed(2);
+            $('.product-card__price-val').text(functions.numberWithSpaces(priceNewVal));
+
+            if ($productItem.hasClass('js-product_with-discount')) {
+                let newPrice = $productItem.find('.js-product__new-price').attr('data-default')
+                let newPriceNewVal = Number(amount * newPrice).toFixed(2);
+                $('.js-product__new-price-output').text(functions.numberWithSpaces(newPriceNewVal));
+            }
 
             // Установка веса
             let weight = $('.js-product__weight').attr('content');
@@ -196,11 +202,12 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
                 }
 
                 if (!$checkedAmount.is($inputAmount)) {
-                    // На странице товара с перелинковкой с кнопками (это фанера и плиты ОСБ) есть 2 поля. Одно десятичное, другое целое. Данный код нужен как раз для таких случаев
                     if (!$checkedAmount.parent().hasClass('custom-counter_type_fractional')) {
                         valTmp = Math.ceil(valTmp);
                     }
 
+                    // parseFloat нужен, чтобы удалить ненужные нули в конце числа
+                    valTmp = parseFloat(valTmp);
                     $checkedAmount.val(valTmp);
                 }
 
@@ -349,10 +356,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     function calcPrice($productItem) {
         let unitVal = getActiveUnitValue($productItem);
 
-        // Изменение цены
-        const $price = $productItem.find('.js-product__price');
+        let $price;
+        if ($productItem.hasClass('js-product_with-discount')) {
+            $price = $productItem.find('.js-product__price');
+        } else {
+            $price = $productItem.find('.js-product__new-price');
+        }
+
         if ($price.length) {
-            const unit = $productItem.find('*[name="unit"]').val();
             let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
             if (isNaN(price)) {
                 price = 0;

@@ -7,7 +7,7 @@
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div class="not-init js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}"
+<div class="not-init js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"

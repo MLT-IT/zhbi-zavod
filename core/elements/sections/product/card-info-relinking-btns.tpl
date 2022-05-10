@@ -1,7 +1,7 @@
 {* Данные для перелинковки *}
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
-<div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
+<div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -210,10 +210,10 @@
             {/if}
 
             {if $outputOldPrice?}
-                <meta itemprop="price" class="js-product__price" data-default="{$defaultOldPrice}">
-                <meta class="js-product__new-price" data-default="{$defaultPrice}">
+                <meta class="js-product__price" data-default="{$defaultOldPrice}" content="{$defaultOldPrice}">
+                <meta itemprop="price" class="js-product__new-price js-product__new-price-output" data-default="{$defaultPrice}" content="{$defaultPrice}">
             {else}
-                <meta itemprop="price" class="js-product__price" data-default="{$defaultPrice}">
+                <meta itemprop="price" class="js-product__price" data-default="{$defaultPrice}" content="{$defaultPrice}">
             {/if}
             <meta itemprop="priceCurrency" content="RUB">
             <meta itemprop="weight" class="js-product__weight" content="{$_modx->resource['massa'][0]}">
@@ -252,9 +252,9 @@
                         </div>
                     </div>
                 </div>
-                {if $_modx->resource.old_price}
-                    {include "file:chunks/card-info-relinking-btns-info.tpl"}
-                {/if}
+
+                {include "file:chunks/card-info-relinking-btns-info.tpl"}
+
                 <div class="product-card__btns-block">
                     <span class="js-product__btn-in-cart js-product__to-cart">В корзину</span>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
@@ -281,9 +281,9 @@
                         </div>
                     </div>
                 </div>
-                {if $outputOldPrice?}
-                    {include "file:chunks/card-info-relinking-btns-info.tpl"}
-                {/if}
+
+                {include "file:chunks/card-info-relinking-btns-info.tpl"}
+
                 <div class="product-card__btns-block">
                     <a href="/cart/" class="js-product__btn-in-cart"><span class="js-product__btn-in-cart-top-text">В корзине</span> Перейти</a>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">

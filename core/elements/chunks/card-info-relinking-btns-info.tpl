@@ -5,8 +5,8 @@
                 <div class="product-card__side-panel-text">Вес</div>
             </div>
             <div class="product-card__info-val">
-                <div class="product-card__weight-val">{$_modx->resource['massa'][0]}</div>
-                <div class="product-card__weight-unit">кг</div>
+                <span class="product-card__weight-val">{$_modx->resource['massa'][0]}</span>
+                <span class="product-card__weight-unit">кг</span>
             </div>
         </div>
     {/if}
@@ -27,7 +27,7 @@
             </div>
             {if $outputOldPrice?}
                 <div class="product-card__new-price-wrap js-product__new-price-wrap">
-                    <span class="js-product__new-price">
+                    <span class="js-product__new-price-output">
                         {$outputPrice}
                     </span>
                     рублей<br>Цена действительна до {'getTomorrowDate' | snippet}

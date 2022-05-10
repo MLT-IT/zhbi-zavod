@@ -1,4 +1,4 @@
-<div class="product-card__top js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
+<div class="product-card__top js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -57,7 +57,7 @@
                                 </div>
                         {if $outputOldPrice?}
                             <div class="product-card__new-price-wrap js-product__new-price-wrap">
-                                <span class="js-product__new-price" data-default="{$defaultPrice}">
+                                <span class="js-product__new-price js-product__new-price-output" data-default="{$defaultPrice}">
                                     {$outputPrice}
                                 </span>
                                 рублей<br>Цена действительна до {'getTomorrowDate' | snippet}

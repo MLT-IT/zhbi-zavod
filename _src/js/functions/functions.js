@@ -23,9 +23,8 @@ function formOfWord(n, f1, f2, f5) {
 
 // Разделить тысячные пробелами
 function numberWithSpaces(x) {
-    if (x % 1 === 0) {
-        x = Number.parseInt(x);
-    }
+    // Это нужно, чтобы убрать ненужные в конце. Пример: 1.80 - здесь лишний ноль
+    x = parseFloat(x);
 
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
