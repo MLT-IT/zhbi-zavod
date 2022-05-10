@@ -234,9 +234,14 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             if (count === 0) {
                 let $elemsAdd = $productItem.find('.js-product__controls_action_add');
                 // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                let clearVal = 1;
-                // let clearVal = $productItem.attr('data-step');
-                $elemsAdd.find('[name="count"]').val(clearVal).trigger('refreshInput');
+                $elemsAdd.find('[name="count"]').each(function(i, e) {
+                    let $e = $(e);
+                    let newVal = 1;
+                    if ($e.attr('data-koeff')) {
+                        newVal = $e.attr('data-koeff') * newVal;
+                    }
+                    $e.val(newVal).trigger('refreshInput');
+                });
                 // Удаление класса, что товар этой карточки в корзине
                 $productItem.removeClass('js-product-in-cart');
             }
