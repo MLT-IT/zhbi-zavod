@@ -120,22 +120,18 @@
 
                         {if $price}
                             <div class="product-card__price-outer">
-                                <span class="product-card__price-wrap js-product__price-wrap">
-                                    <span itemprop="price" class="js-product__price"
-                                          data-default="{$defaultPrice}">
-                                        {if $outputOldPrice?}
-                                            {$outputOldPrice}
-                                        {else}
-                                            {$outputPrice}
-                                        {/if}
-                                    </span>
+                                <div class="product-card__price-wrap js-product__price-wrap">
+                                    {if $outputOldPrice?}
+                                        <span itemprop="price" class="js-product__price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
+                                    {else}
+                                        <span itemprop="price" class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
+                                    {/if}
                                     <meta itemprop="priceCurrency" content="RUB">
                                     руб
-                                </span>
-
+                                </div>
                                 {if $outputOldPrice?}
-                                    <div class="js-product__new-price-wrap product-card__new-price-wrap">
-                                        <span class=" js-product__new-price">
+                                    <div class="product-card__new-price-wrap js-product__new-price-wrap">
+                                        <span class="js-product__new-price" data-default="{$defaultPrice}">
                                             {$outputPrice}
                                         </span>
                                         рублей<br>Цена действительна до {'getTomorrowDate' | snippet}

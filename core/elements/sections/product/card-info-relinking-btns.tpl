@@ -209,7 +209,13 @@
                 </div>
             {/if}
 
-            <meta itemprop="price" class="js-product__price" content="{$defaultPrice}">
+            {if $outputOldPrice?}
+                <meta itemprop="price" class="js-product__price" data-default="{$defaultOldPrice}">
+                <meta class="js-product__new-price" data-default="{$defaultPrice}">
+            {else}
+                <meta itemprop="price" class="js-product__price" data-default="{$defaultPrice}">
+            {/if}
+            <meta itemprop="priceCurrency" content="RUB">
             <meta itemprop="weight" class="js-product__weight" content="{$_modx->resource['massa'][0]}">
 
             <input type="hidden" name="unit" value="1">
