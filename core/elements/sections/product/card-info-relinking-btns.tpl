@@ -209,12 +209,17 @@
                 </div>
             {/if}
 
+            {*
+              Атрибут content нужен для поисковиков, т.к. это тег meta.
+              Атрибут data-default нужен для расчета цены при смене ед. измерения. В data-default хранится цена за ед. измерения по умолчанию (без умножения на какие-либо коэффициенты) - как в админке.
+            *}
             {if $outputOldPrice?}
-                <meta class="js-product__price" data-default="{$defaultOldPrice}" content="{$defaultOldPrice}">
-                <meta itemprop="price" class="js-product__new-price js-product__new-price-output" data-default="{$defaultPrice}" content="{$defaultPrice}">
+                <meta class="js-product__price" data-default="{$defaultOldPrice}">
+                <meta itemprop="price" class="js-product__new-price" data-default="{$defaultPrice}" content="{$defaultPrice}">
             {else}
                 <meta itemprop="price" class="js-product__price" data-default="{$defaultPrice}" content="{$defaultPrice}">
             {/if}
+
             <meta itemprop="priceCurrency" content="RUB">
             <meta itemprop="weight" class="js-product__weight" content="{$_modx->resource['massa'][0]}">
 

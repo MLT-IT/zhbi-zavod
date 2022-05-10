@@ -27,7 +27,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             if ($productItem.hasClass('js-product_with-discount')) {
                 let newPrice = $productItem.find('.js-product__new-price').attr('data-default')
                 let newPriceNewVal = Number(amount * newPrice).toFixed(2);
-                $('.js-product__new-price-output').text(functions.numberWithSpaces(newPriceNewVal));
+                $('.product-card__new-price').text(functions.numberWithSpaces(newPriceNewVal));
             }
 
             // Установка веса
@@ -360,31 +360,34 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     // -------------------------------
     function calcPrice($productItem) {
         let unitVal = getActiveUnitValue($productItem);
+        let selectors = [];
 
-        let $price;
+        selectors.push('.js-product__price');
         if ($productItem.hasClass('js-product_with-discount')) {
-            $price = $productItem.find('.js-product__price');
-        } else {
-            $price = $productItem.find('.js-product__new-price');
+            selectors.push('.js-product__new-price');
         }
 
-        if ($price.length) {
-            let price = parseFloat($price.attr('data-default').replace(/\s/g, ''));
-            if (isNaN(price)) {
-                price = 0;
-            }
+        selectors.forEach(function(selector) {
+            let $elem = $(selector)
 
-            price = 1 / unitVal * price;
-            if ($('body.kirpich-m').length) {
-                price = Math.round(price);
-            } else {
-                price = Math.ceil(price);
-            }
+            if ($elem.length) {
+                let value = parseFloat($elem.attr('data-default').replace(/\s/g, ''));
+                if (isNaN(value)) {
+                    value = 0;
+                }
 
-            price = Number((price).toFixed(2));
-            price = numberWithSpaces(price);
-            $price.text(price);
-        }
+                value = 1 / unitVal * value;
+                if ($('body.kirpich-m').length) {
+                    value = Math.round(value);
+                } else {
+                    value = Math.ceil(value);
+                }
+
+                value = Number((value).toFixed(2));
+                value = numberWithSpaces(value);
+                $elem.text(value);
+            }
+        });
     }
 
 

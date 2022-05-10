@@ -27,7 +27,7 @@
             </div>
             {if $outputOldPrice?}
                 <div class="product-card__new-price-wrap js-product__new-price-wrap">
-                    <span class="js-product__new-price-output">
+                    <span class="js-product__new-price-output product-card__new-price">
                         {$outputPrice}
                     </span>
                     рублей<br>Цена действительна до {'getTomorrowDate' | snippet}
