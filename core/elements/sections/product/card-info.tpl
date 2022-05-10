@@ -1,21 +1,3 @@
-{* Устанавливаем переменные для чанка *}
-{set $src = $_modx->resource}
-{insert "file:blocks/set-values-for-prod.tpl"}
-
-{* Бренд / Производитель *}
-{set $itemVendor = $_modx->resource['brand'][0]}
-{if $itemVendor is empty}
-    {set $itemVendor = $_modx->resource['proizvoditel'][0]}
-{/if}
-
-{* Галерея *}
-{'!msGallery' | snippet : [
-    'tpl' => '@FILE chunks/gallery.tpl',
-    'product' => $id,
-    'toPlaceholder' => 'gallery'
-]}
-{set $gallery = $_modx->getPlaceholder('gallery')}
-
 <div class="product-card__top js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
@@ -64,7 +46,7 @@
 
                 {if $price}
                     <div class="product-card__price-outer">
-                                <span class="product-card__price-wrap">
+                                <span class="product-card__price-wrap js-product__price-wrap">
                                     <span itemprop="price" class="js-product__price"
                                           data-default="{$defaultPrice}">
                                         {if $outputOldPrice?}
@@ -77,9 +59,13 @@
                                     руб
                                 </span>
 
-                                {if $outputOldPrice?}
-                                    <span class="product-card__old-price">{$outputPrice} рублей<br>Цена действительна до {'getTomorrowDate' | snippet}</span>
-                                {/if}
+                        {if $outputOldPrice?}
+                            <span class="product-card__new-price-wrap js-product__new-price-wrap">
+                                <span class="js-product__new-price">
+                                    {$outputPrice}
+                                </span>
+                                рублей<br>Цена действительна до {'getTomorrowDate' | snippet}</span>
+                        {/if}
 
                         {if !$condition}
                             {set $unit = $_modx->resource.unit}

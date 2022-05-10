@@ -1,33 +1,5 @@
-{* Устанавливаем переменные для чанка *}
-{set $src = $_modx->resource}
-{insert "file:blocks/set-values-for-prod.tpl"}
-
-{* Бренд / Производитель *}
-{set $itemVendor = $_modx->resource['brand'][0]}
-{if $itemVendor is empty}
-    {set $itemVendor = $_modx->resource['proizvoditel'][0]}
-{/if}
-
 {* Данные для перелинковки *}
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
-
-{* Данные для добавления / изменения товара в корзине *}
-{set $prodId = $_modx->resource['id']}
-{if $_pls['isFractional'] == 1 OR $_modx->resource.isFractional == 1}
-    {set $extraClass = ' custom-counter_type_fractional'}
-    {set $dataMin = '0.01'}
-{else}
-    {set $extraClass = ''}
-    {set $dataMin = '1'}
-{/if}
-
-{* Галерея *}
-{'!msGallery' | snippet : [
-    'tpl' => '@FILE chunks/gallery.tpl',
-    'product' => $id,
-    'toPlaceholder' => 'gallery'
-]}
-{set $gallery = $_modx->getPlaceholder('gallery')}
 
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}"
     {* Выводим data-атрибуты *}
@@ -237,7 +209,6 @@
                 </div>
             {/if}
 
-            <meta class="js-product__old-price" content="{$defaultPrice}">
             <meta itemprop="price" class="js-product__price" content="{$defaultPrice}">
             <meta itemprop="weight" class="js-product__weight" content="{$_modx->resource['massa'][0]}">
 

@@ -258,10 +258,8 @@
             &::after
                 border-bottom-color: transparent
 
-    &__old-price
-        display: none
+    &__new-price-wrap
         font-weight: bold
-        color: #aa000f
         margin-top: 12px
 
     &__price-wrap
@@ -504,21 +502,3 @@
             &_prev
                 left: 0
                 transform: rotate(135deg)
-
-.product-card_with-discount
-    .product-card__price-wrap, .product-card__info-price
-        position: relative
-
-        &::after
-            content: ""
-            border-bottom: 2px solid #aa000f
-            position: absolute
-            width: 100%
-            height: 50%
-            transform: rotate(12deg)
-            left: 0
-            top: 0
-
-    .product-card__old-price
-        display: block
-

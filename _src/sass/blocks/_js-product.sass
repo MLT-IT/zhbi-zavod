@@ -5,6 +5,30 @@
     &__price
         font: inherit
 
+    &__new-price-wrap
+        color: #aa000f
+        display: none
+
+    &__new-price-wrap, &__new-price-wrap > span, &__new-price-wrap > p
+        font-size: 14px
+
+    &_with-discount
+        .js-product__new-price-wrap
+            display: block
+
+        .js-product__price-wrap
+            position: relative
+
+            &::after
+                content: ""
+                border-bottom: 2px solid #aa000f
+                position: absolute
+                width: 100%
+                height: 50%
+                transform: rotate(12deg)
+                left: 0
+                top: 0
+
     &__btn-in-cart
         display: flex
         justify-content: center

@@ -7,11 +7,11 @@
 
 {* Цена по умолчанию - нужна для расчета других цен на JS. Тут наоборот нужна точка, т.к. функция parseFloat неправильно распарсит число с запятой *}
 {set $defaultPrice = $src['price'] | replace : ',' : '.' | replace : ' ' : ''}
-
 {* Цена для красивого вывода *}
 {set $outputPrice = $src['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
-{* Старая цена для красивого вывода *}
+{* Старая цена *}
 {if $src['old_price']}
+    {set $defaultOldPrice = $src['old_price'] | replace : ',' : '.' | replace : ' ' : ''}
     {set $outputOldPrice = $src['old_price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
 {/if}
 
