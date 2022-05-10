@@ -2,6 +2,9 @@
 
 <div class="product-card__content">
 
+
+
+
     {if $_modx->resource.template in list [17, 20]}
         {* Кровля *}
         {include "file:sections/product/card-info-relinking-selects.tpl"}

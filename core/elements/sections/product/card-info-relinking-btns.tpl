@@ -1,10 +1,11 @@
+{* Устанавливаем переменные для чанка *}
 {set $src = $_modx->resource}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-{* Производитель / Бренд *}
-{set $itemVendor = $_modx->resource['proizvoditel'][0]}
+{* Бренд / Производитель *}
+{set $itemVendor = $_modx->resource['brand'][0]}
 {if $itemVendor is empty}
-    {set $itemVendor = $_modx->resource['brand'][0]}
+    {set $itemVendor = $_modx->resource['proizvoditel'][0]}
 {/if}
 
 {* Данные для перелинковки *}
@@ -236,6 +237,7 @@
                 </div>
             {/if}
 
+            <meta class="js-product__old-price" content="{$defaultPrice}">
             <meta itemprop="price" class="js-product__price" content="{$defaultPrice}">
             <meta itemprop="weight" class="js-product__weight" content="{$_modx->resource['massa'][0]}">
 

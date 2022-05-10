@@ -2,7 +2,7 @@
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div class="not-init pop-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}"
+<div class="not-init pop-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $outputOldPrice?} listing__products-item_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -82,16 +82,25 @@
                         <span class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
                         руб
                     {/if}
-
-                    {if !$condition}
-                        {if $price and $unit[0]}
-                            <div class="listing__products-item-measure">
-                                Цена за
-                                {$pricePer}
-                            </div>
-                        {/if}
-                    {/if}
                 </div>
+
+                {if $outputOldPrice?}
+                    <div class="listing__product-new-price-wrap">
+                        <span class="listing__product-new-price">
+                            {$outputOldPrice}
+                        </span>
+                        руб
+                    </div>
+                {/if}
+
+                {if !$condition}
+                    {if $price and $unit[0]}
+                        <div class="listing__products-item-measure">
+                            Цена за
+                            {$pricePer}
+                        </div>
+                    {/if}
+                {/if}
             </div>
 
             <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
