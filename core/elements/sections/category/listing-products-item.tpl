@@ -263,6 +263,12 @@
             </div>
 
             <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
+
+            {if $outputOldPrice?}
+                <div class="js-product__new-price-wrap listing__new-price-text">
+                    Цена действительна до {'getTomorrowDate' | snippet}
+                </div>
+            {/if}
         </div>
 
         {if $condition}
