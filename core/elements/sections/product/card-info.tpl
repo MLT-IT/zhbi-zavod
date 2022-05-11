@@ -11,7 +11,12 @@
 
     <div class="product-card__gallery">
         <div class="product-card__img-wrap">
-            <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+            {if $itemVendor?}
+                <div class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></div>
+            {/if}
+            {if $outputOldPrice?}
+                <div class="js-product__discount">Скидка {'!calculateDiscount' | snippet}%</div>
+            {/if}
             <a href="{$image}" data-fancybox class="product-card__img-link zoom">
                 <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
             </a>

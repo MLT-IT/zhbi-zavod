@@ -8,7 +8,7 @@
     {set $cvet = $_modx->resource.ottenok[0]}
 {/if}
 
-<div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
+<div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $outputOldPrice?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -84,7 +84,12 @@
 
         <div class="product-card__gallery">
             <div class="product-card__img-wrap">
-                <span {if $itemVendor is empty}style="display: none;"{/if} class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></span>
+                {if $itemVendor?}
+                    <div class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></div>
+                {/if}
+                {if $outputOldPrice?}
+                    <div class="js-product__discount">Скидка {'!calculateDiscount' | snippet}%</div>
+                {/if}
                 <a href="{$image}" data-fancybox class="product-card__img-link zoom-here">
                     <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
                 </a>
