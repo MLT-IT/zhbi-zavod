@@ -82,6 +82,10 @@
         font-size: .675rem
         order: 1
 
+    &__products-item-art
+        @media screen and (max-width: 550px)
+            font-size: .675rem
+
     &__products-item-avail
         @media screen and (max-width: 550px)
             grid-column: span 3
@@ -365,6 +369,9 @@
         font-weight: 700
         font-size: 24px
         white-space: nowrap
+
+        @media screen and (max-width: 550px)
+            order: 1
 
         @at-root .krovlya &, .kirpich-m &, .plitaosb &
             margin-right: auto
@@ -750,6 +757,9 @@
         margin-bottom: 8px
         margin-top: auto
 
+        @media screen and (max-width: 500px)
+            flex-direction: column
+
     &__products-item-price-wrap
         @at-root .product-card_type_relinking &
             margin-right: 10px
@@ -760,8 +770,23 @@
     &__product-logo
         margin-bottom: 8px
 
+        @media screen and (max-width: 550px)
+            order: 3
+            margin-top: 8px
+            margin-bottom: 0
+
     &__new-price-text
         font-weight: bold
+
+        @media screen and (max-width: 550px)
+            order: 2
+
+    &__discount
+        right: -6px
+        top: 38px
+
+        @media screen and (max-width: 550px)
+            top: 24px
 
 .sect-listing
     margin-bottom: 40px
