@@ -17,20 +17,21 @@
         <div class="product-card__info-val product-card__info-val_content_price">
             <div class="product-card__info-price js-product__price-wrap">
                 <span class="product-card__price-val">
-                    {if $outputOldPrice?}
-                        {$outputOldPrice}
-                    {else}
-                        {$outputPrice}
-                    {/if}
+                    {$outputPrice}
                 </span>
                 <span class="product-card__price-unit">руб</span>
             </div>
             {if $outputOldPrice?}
                 <div class="product-card__new-price-wrap js-product__new-price-wrap">
-                    <span class="js-product__new-price-output product-card__new-price">
-                        {$outputPrice}
-                    </span>
-                    рублей<br>Цена действительна до {'getTomorrowDate' | snippet}
+                    <div class="js-product__new-price-val">
+                        <span class="js-product__new-price-output product-card__new-price">
+                            {$outputOldPrice}
+                        </span>
+                        руб
+                    </div>
+                    <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
+                        Цена действительна до {'getTomorrowDate' | snippet}
+                    </div>
                 </div>
             {/if}
         </div>

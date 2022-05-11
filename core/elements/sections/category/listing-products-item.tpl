@@ -240,17 +240,12 @@
         <div class="listing__products-item-price-and-logo">
             <div class="listing__products-item-price">
                 <div class="listing__products-item-price-wrap js-product__price-wrap">
-                    {if $outputOldPrice?}
-                        <span class="js-product__price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
-                    {else}
-                        <span class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
-                    {/if}
-                    руб
+                    <span class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span> руб
                 </div>
 
                 {if $outputOldPrice?}
-                    <div class="listing__product-new-price-wrap js-product__new-price-wrap">
-                        <span class="listing__product-new-price js-product__new-price" data-default="{$defaultPrice}">{$outputPrice}</span>
+                    <div class="listing__product-new-price-wrap js-product__new-price-wrap js-product__new-price-val">
+                        <span class="listing__product-new-price js-product__new-price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
                         руб
                     </div>
                 {/if}
@@ -268,7 +263,7 @@
             <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
 
             {if $outputOldPrice?}
-                <div class="js-product__new-price-wrap listing__new-price-text">
+                <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
                     Цена действительна до {'getTomorrowDate' | snippet}
                 </div>
             {/if}

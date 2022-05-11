@@ -219,8 +219,8 @@
               Атрибут data-default нужен для расчета цены при смене ед. измерения. В data-default хранится цена за ед. измерения по умолчанию (без умножения на какие-либо коэффициенты) - как в админке.
             *}
             {if $outputOldPrice?}
-                <meta class="js-product__price" data-default="{$defaultOldPrice}">
-                <meta itemprop="price" class="js-product__new-price" data-default="{$defaultPrice}" content="{$defaultPrice}">
+                <meta class="js-product__price" data-default="{$defaultPrice}">
+                <meta itemprop="price" class="js-product__new-price" data-default="{$defaultOldPrice}" content="{$defaultPrice}">
             {else}
                 <meta itemprop="price" class="js-product__price" data-default="{$defaultPrice}" content="{$defaultPrice}">
             {/if}

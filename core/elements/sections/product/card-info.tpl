@@ -52,21 +52,23 @@
                 {if $price}
                     <div class="product-card__price-outer">
                         <div class="product-card__price-wrap js-product__price-wrap">
-                            {if $outputOldPrice?}
-                                <span itemprop="price" class="js-product__price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
-                            {else}
-                                <span itemprop="price" class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
-                            {/if}
+                            <span itemprop="price" class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
                             <meta itemprop="priceCurrency" content="RUB">
                             руб
                         </div>
 
                         {if $outputOldPrice?}
                             <div class="product-card__new-price-wrap js-product__new-price-wrap">
-                                <span class="js-product__new-price" data-default="{$defaultPrice}">
-                                    {$outputPrice}
-                                </span>
-                                рублей<br>Цена действительна до {'getTomorrowDate' | snippet}
+                                <div class="js-product__new-price-val">
+                                    <span class="js-product__new-price" data-default="{$defaultOldPrice}">
+                                        {$outputOldPrice}
+                                    </span>
+                                    руб
+                                </div>
+
+                                <div class="js-product__new-price-text">
+                                    Цена действительна до {'getTomorrowDate' | snippet}
+                                </div>
                             </div>
                         {/if}
 
