@@ -10,7 +10,7 @@
 {* Цена для красивого вывода *}
 {set $outputPrice = $src['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
 {* Старая цена *}
-{if $src['old_price']}
+{if $src['old_price']?}
     {set $defaultOldPrice = $src['old_price'] | replace : ',' : '.' | replace : ' ' : ''}
     {set $outputOldPrice = $src['old_price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
 {/if}

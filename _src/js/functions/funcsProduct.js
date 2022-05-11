@@ -368,7 +368,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
 
         selectors.forEach(function(selector) {
-            let $elem = $(selector)
+            let $elem = $productItem.find(selector);
 
             if ($elem.length) {
                 let value = parseFloat($elem.attr('data-default').replace(/\s/g, ''));

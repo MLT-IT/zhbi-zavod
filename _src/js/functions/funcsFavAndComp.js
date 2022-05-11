@@ -267,7 +267,12 @@ export default function funcsFavAndComp(Cookies, trim, formOfWord) {
                         '   <div class="pop-slide__option-caption">' + opt + '</div>' +
                         '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
                         '</div>');
-                    $htmlOption.appendTo($optionsWrap);
+
+                    if (opt === 'Цена без скидки') {
+                        $htmlOption.prependTo($optionsWrap);
+                    } else {
+                        $htmlOption.appendTo($optionsWrap);
+                    }
 
                     $htmlOption.mouseenter(function () {
                         $(charsWrapSelector + ' .pop-slide__option[data-title="' + $(this).attr('data-title') + '"]').addClass('hover');

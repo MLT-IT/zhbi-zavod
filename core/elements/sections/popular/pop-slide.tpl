@@ -2,7 +2,7 @@
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div class="not-init pop-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $outputOldPrice?} listing__products-item_with-discount{/if}"
+<div class="not-init pop-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $outputOldPrice?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -77,18 +77,18 @@
     <div class="listing__products-item-right">
         <div class="listing__products-item-price-and-logo">
             <div class="listing__products-item-price">
-                <div class="listing__products-item-price-wrap">
-                    {if $price}
+                <div class="listing__products-item-price-wrap js-product__price-wrap">
+                    {if $outputOldPrice?}
+                        <span class="js-product__price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
+                    {else}
                         <span class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
-                        руб
                     {/if}
+                    руб
                 </div>
 
                 {if $outputOldPrice?}
-                    <div class="listing__product-new-price-wrap">
-                        <span class="listing__product-new-price">
-                            {$outputOldPrice}
-                        </span>
+                    <div class="listing__product-new-price-wrap js-product__new-price-wrap">
+                        <span class="listing__product-new-price js-product__new-price" data-default="{$defaultPrice}">{$outputPrice}</span>
                         руб
                     </div>
                 {/if}

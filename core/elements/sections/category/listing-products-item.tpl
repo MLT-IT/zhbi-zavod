@@ -7,7 +7,7 @@
 {set $src = $_pls}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
-<div class="not-init js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
+<div class="not-init js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}{if $outputOldPrice?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
     {foreach $itemUnits as $key => $val}
         data-{$key}="{$val['val']}"
@@ -236,21 +236,30 @@
 
         <div class="listing__products-item-price-and-logo">
             <div class="listing__products-item-price">
-                <div class="listing__products-item-price-wrap">
-                    {if $price}
+                <div class="listing__products-item-price-wrap js-product__price-wrap">
+                    {if $outputOldPrice?}
+                        <span class="js-product__price" data-default="{$defaultOldPrice}">{$outputOldPrice}</span>
+                    {else}
                         <span class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
-                        руб
                     {/if}
-
-                    {if !$condition}
-                        {if $price and $unit[0]}
-                            <div class="listing__products-item-measure">
-                                Цена за
-                                {$pricePer}
-                            </div>
-                        {/if}
-                    {/if}
+                    руб
                 </div>
+
+                {if $outputOldPrice?}
+                    <div class="listing__product-new-price-wrap js-product__new-price-wrap">
+                        <span class="listing__product-new-price js-product__new-price" data-default="{$defaultPrice}">{$outputPrice}</span>
+                        руб
+                    </div>
+                {/if}
+
+                {if !$condition}
+                    {if $price and $unit[0]}
+                        <div class="listing__products-item-measure">
+                            Цена за
+                            {$pricePer}
+                        </div>
+                    {/if}
+                {/if}
             </div>
 
             <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>

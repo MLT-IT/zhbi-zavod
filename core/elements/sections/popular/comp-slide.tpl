@@ -11,6 +11,10 @@
 
 {* Цена для красивого вывода *}
 {set $outputPrice = $_pls['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+{if $_pls['old_price']?}
+    {set $outputOldPrice = $_pls['old_price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+{/if}
+
 
 <div class="not-init pop-slide comp-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
@@ -79,6 +83,15 @@
     </div>
 
     <div class="pop-slide__options-wrap pop-slide__options-wrap_type_source">
+        {if $outputOldPrice?}
+            <div class="pop-slide__option" data-title="Цена без скидки">
+                <div class="pop-slide__option-caption">Цена без скидки</div>
+                <div class="pop-slide__option-value">
+                    {$outputOldPrice} руб
+                </div>
+            </div>
+        {/if}
+
         <div class="pop-slide__option" data-title="Цена">
             <div class="pop-slide__option-caption">Цена</div>
             <div class="pop-slide__option-value">
