@@ -165,25 +165,6 @@ $(function ($) {
 
 
     // -------------------------------
-    // Из какой формы отправили? Это костыль. По-хорошему надо делать через api fancybox. Но fancybox минифицирован
-    // -------------------------------
-    window.currentPopupKey = '';
-    $('[href]').on('click', function () {
-        let $this = $(this);
-        if ($this.attr('href') === 'javascript:;') {
-            return;
-        }
-
-        window.currentPopupKey = '';
-
-        let key = $this.attr('data-btn-key');
-        if (key) {
-            window.currentPopupKey = key;
-        }
-    });
-
-
-    // -------------------------------
     // Яндекс карты
     // -------------------------------
     window.initDistrictsMap = initDistrictsMap;

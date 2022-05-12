@@ -38,7 +38,7 @@ export default function modxJS() {
     // Функции для работы с GET-параметрами.
     // Взял их отсюда и немного улучшил:
     // https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
-    // TODO: хорошо бы их как-нибудь в functions.js поместить. Вдруг еще где пригодятся
+    // TODO: хорошо бы их в functions.js поместить. Вдруг еще где пригодятся
     // -------------------------------
     function getSearchParameters() {
         let prmstr = window.location.search.substr(1);
@@ -72,58 +72,63 @@ export default function modxJS() {
     // -------------------------------
     $(document).on('af_complete', function (event, response) {
         if (response.success === true) {
-            // $fancybox.close() не сработает. Даже если в консоль браузера ввести fancybox, то ничего не выведет. Вероятно, это из-за webpack. Поэтому пришлось написать костыль с click.
-            $('.fancybox-close-small').trigger('click');
-
+            // Проверка ответа, это нужно чтобы получить форму
             if (typeof response.form !== 'object' ||
                 Array.isArray(response.form) ||
                 response.form === null) {
                 return;
             }
-
+            // Получаем форму
             let $form = $(response.form[0]);
 
-            // Если это форма с отзывами, то сбрасываем рейтинг
+            // Если это форма с отзывами, то сбрасываем рейтинг, чтобы при следующем открытии он не был задан
             if ($form.hasClass('popup-reviews__form')) {
                 $form.find('.popup-reviews__stars svg').removeClass('active');
             }
 
-            // Если это форма из баннера в каталоге, то с целью все понятно, так как она не из всплывашки
+            // Форма из баннера в каталоге
             if ($form.hasClass('catalog-banner__form')) {
-                delete window.currentPopupKey;
-                console.log('banner-catalog')
-                ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%')
+                console.log('banner-catalog');
+                ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
             }
 
-            if (window.currentPopupKey) {
-                switch (window.currentPopupKey) {
-                    case 'banner-delivery':
-                        console.log('banner-delivery')
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka')
-                        break;
-                    case 'banner-main':
-                        console.log('banner-main')
-                        ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%')
-                        break;
-                    case 'header-link':
-                        console.log('header-link')
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
-                        break;
-                    case 'cart':
-                        console.log('cart')
-                        ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
-                        break;
-                    case 'turnkey':
-                        console.log('turnkey')
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch')
-                        break;
-                }
-                window.currentPopupKey = '';
-            }
-
+            // Форма для оформления заказа
             if ($form.hasClass('popup-order__form')) {
                 document.location.href = "/";
             }
+
+            // Далее идут повторяющиеся формы, где важен не класс формы, а элемент, которым вызвали форму
+            let currentPopupKey;
+            if (typeof parent.$.fancybox.getInstance().$trigger !== 'undefined') {
+                currentPopupKey = parent.$.fancybox.getInstance().$trigger.attr('data-btn-key');
+            }
+            if (currentPopupKey) {
+                switch (currentPopupKey) {
+                    case 'banner-delivery':
+                        console.log('banner-delivery');
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
+                        break;
+                    case 'banner-main':
+                        console.log('banner-main');
+                        ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                        break;
+                    case 'header-link':
+                        console.log('header-link');
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
+                        break;
+                    case 'cart':
+                        console.log('cart');
+                        ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
+                        break;
+                    case 'turnkey':
+                        console.log('turnkey');
+                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
+                        break;
+                }
+            }
+
+            // Закрываем fancybox
+            parent.$.fancybox.close();
         }
     });
 }
