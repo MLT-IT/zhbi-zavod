@@ -3,12 +3,15 @@ import Swiper, {Navigation, Pagination, Scrollbar, Thumbs, Autoplay, Lazy} from 
 Swiper.use([Navigation, Pagination, Scrollbar, Thumbs, Autoplay, Lazy]);
 
 // Галерея на странице товара
-new Swiper(".product-card_type_usual .product-card__gallery-slider", {
+new Swiper(".product-card_type_usual .product-card__gallery-slider, .product-card_type_relinking-btns .product-card__gallery-slider", {
     loop: false,
     spaceBetween: 4,
     slidesPerView: 'auto', // Чтобы размер фоток был как в CSS, делаем auto
     lazy: {loadPrevNext: true},
-    navigation: {nextEl: ".product-card__gallery-btn_dir_next", prevEl: ".product-card__gallery-btn_dir_prev"},
+    navigation: {
+        nextEl: ".product-card__gallery-btn_dir_next",
+        prevEl: ".product-card__gallery-btn_dir_prev"
+    },
 });
 
 // Галерея на странице товара с перелинковкой
@@ -24,7 +27,7 @@ new Swiper(".product-card_type_relinking .product-card__gallery-slider", {
     },
 
     breakpoints: {
-        480: {
+        481: {
             direction: 'vertical',
             spaceBetween: 4,
         }
@@ -36,7 +39,10 @@ new Swiper(".product-slider-1 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
-    navigation: {nextEl: ".product-slider-1 .swiper-button-next", prevEl: ".product-slider-1 .swiper-button-prev"},
+    navigation: {
+        nextEl: ".product-slider-1 .swiper-button-next",
+        prevEl: ".product-slider-1 .swiper-button-prev"
+    },
     scrollbar: {draggable: true, el: ".product-slider-1 .swiper-scrollbar"}
 });
 
@@ -45,7 +51,10 @@ new Swiper(".product-slider-2 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
-    navigation: {nextEl: ".product-slider-2 .swiper-button-next", prevEl: ".product-slider-2 .swiper-button-prev"},
+    navigation: {
+        nextEl: ".product-slider-2 .swiper-button-next",
+        prevEl: ".product-slider-2 .swiper-button-prev"
+    },
     scrollbar: {draggable: true, el: ".product-slider-2 .swiper-scrollbar"}
 });
 
@@ -54,7 +63,10 @@ new Swiper(".product-slider-3 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
-    navigation: {nextEl: ".product-slider-3 .swiper-button-next", prevEl: ".product-slider-3 .swiper-button-prev"},
+    navigation: {
+        nextEl: ".product-slider-3 .swiper-button-next",
+        prevEl: ".product-slider-3 .swiper-button-prev"
+    },
     scrollbar: {draggable: true, el: ".product-slider-3 .swiper-scrollbar"}
 });
 

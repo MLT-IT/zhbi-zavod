@@ -3,7 +3,34 @@ import functions from "./functions";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
-export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, numberWithSpaces, getActiveForm, getStep, getCorrectValueToCounter) {
+export default {
+    init,
+    initStyledCounter
+};
+
+// Инициализация
+function init(ImageZoom, inputFilter) {
+    // -------------------------------
+    // Приближение при наведении на месте, а не в отдельном квадратике (js-image-zoom)
+    // -------------------------------
+    let $zoomImg = $('.zoom-here');
+    if ($zoomImg.length) {
+        $zoomImg.css('background-image', 'url(' + $zoomImg.find('img').attr('src') + ')');
+        $zoomImg.mousemove(function (e) {
+            let zoomer = e.currentTarget;
+            let offsetX, offsetY;
+
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
+            let x = offsetX / zoomer.offsetWidth * 100;
+            let y = offsetY / zoomer.offsetHeight * 100;
+
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+            zoomer.style.backgroundSize = 200 + '%';
+        });
+    }
+
+
     // -------------------------------
     // Код для страницы с перелинковкой для фанеры и плит ОСБ
     // -------------------------------
@@ -25,7 +52,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             $('.product-card__price-val').text(functions.numberWithSpaces(priceNewVal));
 
             if ($productItem.hasClass('js-product_with-discount')) {
-                let newPrice = $productItem.find('.js-product__new-price').attr('data-default')
+                let newPrice = $productItem.find('.js-product__new-price').attr('data-default');
                 let newPriceNewVal = Number(amount * newPrice).toFixed(2);
                 $('.product-card__new-price').text(functions.numberWithSpaces(newPriceNewVal));
             }
@@ -46,9 +73,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
 
-    // -------------------------------
+    // -------------------------------------
     // Щелчок по якорю "Отзывы"
-    // -------------------------------
+    // -------------------------------------
     $('.product-card__reviews-quantity').on('click', function (e) {
         e.preventDefault();
 
@@ -60,11 +87,13 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     });
 
 
-    // -------------------------------
+    // -------------------------------------
     // Приближение при наведении на картинку
-    // -------------------------------
-    const $productCardImg = $(".zoom");
+    // -------------------------------------
+    // Объявляем эту переменную до if, т.к. она еще понадобится
     let ImageZoomInstance;
+
+    const $productCardImg = $(".zoom");
     if ($productCardImg.length) {
         ImageZoomInstance = new ImageZoom($productCardImg[0], {
             fillContainer: true,
@@ -75,25 +104,25 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
 
-    // -------------------------------
-    // Обработчик счетчика на товарах
-    // -------------------------------
+    // -------------------------------------
+    // Обработчик счетчика на товарах - в карточке, в листинге, везде
+    // -------------------------------------
     $(document).on('change', '.js-product .custom-counter__amount', function (e) {
         e.preventDefault();
         changeCountItemInCart($(this).closest('.js-product'), false, $(this));
     });
 
 
-    // -------------------------------
+    // -------------------------------------
     // Пересчет "В листе" при изменении кол-ва товара в карточке товара для фанеры
-    // -------------------------------
+    // -------------------------------------
     let $prod = $('.pro-fanera .product-card__top');
     if ($prod.length) {
         function changeTextDependingOnAmount($prod) {
             let m2 = $('.product-card__specs-list-item[data-opt-key="ploshad_m2"] .product-card__specs-list-item-value').text();
             let m3 = $('.product-card__specs-list-item[data-opt-key="obyem_m3"] .product-card__specs-list-item-value').text();
 
-            let amount = getActiveForm($prod)['action'].find('.custom-counter__amount').val();
+            let amount = functions.getActiveForm($prod)['action'].find('.custom-counter__amount').val();
             m2 *= amount;
             m3 *= amount;
 
@@ -109,7 +138,7 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
             if (amount == 1) {
                 val = 'В листе: ';
             } else {
-                val = 'В ' + amount + ' ' + formOfWord(amount, 'листе', 'листах', 'листах') + ': ';
+                val = 'В ' + amount + ' ' + functions.formOfWord(amount, 'листе', 'листах', 'листах') + ': ';
             }
             val += [m2, m3].join(', ');
 
@@ -124,136 +153,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
 
-    // -------------------------------
-    // Изменить кол-во товара
-    // -------------------------------
-    function changeCountItemInCart($productItem, forbidZero, $target) {
-        forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
-        $target = typeof $target !== 'undefined' ? $target : null;
-
-        // Товар в корзине?
-        let inCart = false;
-        // Счетчик с кол-вом товара
-        let $inputAmount;
-
-        // Все формы чанка
-        let $forms = getActiveForm($productItem);
-        // Системные формы, которые нужны для управления корзиной
-        let $systemForm = $forms['system'];
-        if ($productItem.hasClass('js-product-in-cart')) {
-            inCart = true;
-        }
-
-        if ($target === null) {
-            // Получаем input с количеством товара
-            $inputAmount = $forms['action'];
-            // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной
-            if ($inputAmount.length > 1) {
-                $forms['action'].each(function (i, e) {
-                    if ($(e).is(':visible')) {
-                        $inputAmount = $(e);
-                    }
-                });
-            }
-            $inputAmount = $inputAmount.find('.custom-counter__amount');
-        } else {
-            $inputAmount = $target;
-        }
-
-        // Получаем новое кол-во товара, которое будет отображено на счетчике
-        let val = $inputAmount.val();
-
-        // Устанавливаем кол-во товара всем input'ам с количеством товара. Дело в том, что их на странице может быть несколько (например, на кровле там - для мобилок одна форма, для ПК - другая. И по-хорошему, они должны быть синхронизированы)
-        $forms['action'].each(function (i, e) {
-            $(e).find('.custom-counter__amount').each(function (i, e) {
-                let valTmp = val;
-                let $checkedAmount = $(e);
-
-                // Коэффициент проверяемого счетчика
-                let koeff1 = $checkedAmount.attr('data-koeff');
-                // Коэффициент изменяемого счетчика
-                let koeff2 = $inputAmount.attr('data-koeff');
-
-                // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
-                let cond1 = typeof koeff1 !== 'undefined' && typeof koeff2 === 'undefined';
-                // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
-                let cond2 = typeof koeff1 === 'undefined' && typeof koeff2 !== 'undefined';
-
-                // Если ни одно из условий в switch не сработало, значит, коэфициента нет ни у проверяемого, ни у изменяемого счетчиков
-                switch (true) {
-                    // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
-                    case (cond1):
-                        valTmp = koeff1 * valTmp;
-                        break;
-                    // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
-                    case (cond2):
-                        valTmp = valTmp / koeff2;
-                        break;
-                }
-
-                if ($productItem.find('.custom-counter_type_fractional').length) {
-                    valTmp = Number(valTmp).toFixed(2);
-                } else {
-                    if ($('body.kirpich-m').length) {
-                        valTmp = Math.round(valTmp);
-                    } else {
-                        valTmp = Math.ceil(valTmp);
-                    }
-                }
-
-                if (!$checkedAmount.is($inputAmount)) {
-                    if (!$checkedAmount.parent().hasClass('custom-counter_type_fractional')) {
-                        valTmp = Math.ceil(valTmp);
-                    }
-
-                    // parseFloat нужен, чтобы удалить ненужные нули в конце числа
-                    valTmp = parseFloat(valTmp);
-                    $checkedAmount.val(valTmp);
-                }
-
-                if (cond2) {
-                    val = valTmp;
-                }
-            });
-        });
-
-        // Устанавливаем то количество, которое будет добавлено в корзину
-        let count = getItemCount($productItem, val);
-        if (forbidZero && count === 0) {
-            count = 1;
-        }
-
-        $systemForm.find('[name="count"]').val(count);
-
-        // Если товар в корзине, то...
-        if (inCart) {
-            // Отправка
-            $systemForm.find('[type="submit"]')[0].click();
-
-            // Если кол-во равно нулю
-            if (count === 0) {
-                let $elemsAdd = $productItem.find('.js-product__controls_action_add');
-                // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
-                $elemsAdd.find('[name="count"]').each(function(i, e) {
-                    let $e = $(e);
-                    let newVal = 1;
-                    if ($e.attr('data-koeff')) {
-                        newVal = $e.attr('data-koeff') * newVal;
-                    }
-                    $e.val(newVal).trigger('refreshInput');
-                });
-                // Удаление класса, что товар этой карточки в корзине
-                $productItem.removeClass('js-product-in-cart');
-            }
-        }
-
-        $productItem.trigger('changeAmount');
-    }
-
-
-    // -------------------------------
-    // Обработчик кнопки для добавления товара в корзину
-    // -------------------------------
+    // -------------------------------------
+    // Обработчик кнопки для добавления товара в корзину - в карточке, в листинге, везде
+    // -------------------------------------
     $(document).on('click', '.js-product .js-product__to-cart', function (e) {
         e.preventDefault();
 
@@ -312,9 +214,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     });
 
 
-    // -------------------------------
-    // Обработчик списка в карточках для смены ед. измерения
-    // -------------------------------
+    // -------------------------------------
+    // Обработчик списка для смены ед. измерения - в карточке, в листинге, везде
+    // -------------------------------------
     $(document).on('change', 'select.js-product__units-select', function (e) {
         e.preventDefault();
         let $productItem = $(this).closest('.js-product');
@@ -330,70 +232,9 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     });
 
 
-    // -------------------------------
-    // Получить кол-во товара, которое будет добавлено в корзину
-    // -------------------------------
-    function getItemCount($productItem, count) {
-        let unitVal = getActiveUnitValue($productItem);
-        count = parseFloat(count);
-
-        // Получившееся кол-во
-        count = 1 / unitVal * count;
-
-        if ($productItem.find('.custom-counter_type_fractional').length) {
-            count = Number((count).toFixed(2));
-        } else {
-            if ($('body.kirpich-m').length) {
-                count = Math.round(count);
-            } else {
-                count = Math.ceil(count);
-            }
-        }
-
-        // Результат
-        return count;
-    }
-
-
-    // -------------------------------
-    // Функция для смены цены в соответствии с ед. измерения
-    // -------------------------------
-    function calcPrice($productItem) {
-        let unitVal = getActiveUnitValue($productItem);
-        let selectors = [];
-
-        selectors.push('.js-product__price');
-        if ($productItem.hasClass('js-product_with-discount')) {
-            selectors.push('.js-product__new-price');
-        }
-
-        selectors.forEach(function(selector) {
-            let $elem = $productItem.find(selector);
-
-            if ($elem.length) {
-                let value = parseFloat($elem.attr('data-default').replace(/\s/g, ''));
-                if (isNaN(value)) {
-                    value = 0;
-                }
-
-                value = 1 / unitVal * value;
-                if ($('body.kirpich-m').length) {
-                    value = Math.round(value);
-                } else {
-                    value = Math.ceil(value);
-                }
-
-                value = Number((value).toFixed(2));
-                value = numberWithSpaces(value);
-                $elem.text(value);
-            }
-        });
-    }
-
-
-    // -------------------------------
+    // -------------------------------------
     // Обработчики Minishop2
-    // -------------------------------
+    // -------------------------------------
     // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
@@ -422,17 +263,10 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         }
     };
 
-    function checkCart(total_count) {
-        // Если товаров в корзине 0. И если мы на странице корзины. То перезагружаем страницу
-        if (total_count === 0 && $('.sect-cart').length) {
-            location.reload();
-        }
-    }
 
-
-    // -------------------------------
+    // -------------------------------------
     // Работа со страницей товара
-    // -------------------------------
+    // -------------------------------------
     if ($('.product-card').length) {
         // Переключение ед. измерения на странице товара
         $('.product-card__unit-link').on('click', function (e) {
@@ -477,47 +311,15 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
         });
     }
 
-
-    // -------------------------------
+    // -------------------------------------
     // Мини-корзина в шапке сайта
-    // -------------------------------
-    function handleMiniCart(count, cost) {
-        const $cartValueElem = $('.header__cart-value');
-        const $cartInfoCountVal = $('.header__info-val_type_count-val');
-        const $cartInfoCountText = $('.header__info-val_type_count-text');
-        const $cartInfoCostVal = $('.header__info-val_type_cost-val');
-
-        let cartValue;
-        if (typeof count !== 'undefined') {
-            count = Number((count).toFixed(2));
-            cartValue = count;
-            $cartValueElem.add($cartInfoCountVal).text(count);
-            $cartInfoCountText.text(formOfWord(count, 'товар', 'товара', 'товаров'));
-        } else {
-            cartValue = parseFloat($cartValueElem.text());
-            cartValue = Number((cartValue).toFixed(2));
-        }
-
-        let cartCost;
-        if (typeof cost !== 'undefined') {
-            cost = Number((cost).toFixed(2));
-            cartCost = numberWithSpaces(cost);
-            $cartInfoCostVal.text(cartCost);
-        }
-
-        if (cartValue > 0) {
-            $cartValueElem.removeClass('hidden');
-        } else {
-            $cartValueElem.addClass('hidden');
-        }
-    }
-
+    // -------------------------------------
     handleMiniCart();
 
 
-    // -------------------------------
+    // -------------------------------------
     // Галерея
-    // -------------------------------
+    // -------------------------------------
     let $galleryItem = $('.product-card__gallery-item');
     let $gallerySlider = $('.product-card__gallery-slider');
 
@@ -575,23 +377,413 @@ export default function funcsProduct(ImageZoom, formOfWord, getActiveUnitValue, 
     }
 
 
-    // -------------------------------
-    // Приближение при наведении на месте, а не в отдельном квадратике (js-image-zoom)
-    // -------------------------------
-    let $zoomImg = $('.zoom-here');
-    if ($zoomImg.length) {
-        $zoomImg.css('background-image', 'url(' + $zoomImg.find('img').attr('src') + ')');
-        $zoomImg.mousemove(function (e) {
-            let zoomer = e.currentTarget;
-            let offsetX, offsetY;
+    // -------------------------------------
+    // Стилизованный счетчик и стилизованный список
+    // -------------------------------------
+    initStyledCounter();
+}
 
-            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
-            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
-            let x = offsetX / zoomer.offsetWidth * 100;
-            let y = offsetY / zoomer.offsetHeight * 100;
+/**
+ * Изменение кол-ва товара.
+ */
+function changeCountItemInCart($productItem, forbidZero, $target) {
+    forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
+    $target = typeof $target !== 'undefined' ? $target : null;
 
-            zoomer.style.backgroundPosition = x + '% ' + y + '%';
-            zoomer.style.backgroundSize = 200 + '%';
+    // Товар в корзине?
+    let inCart = false;
+    // Счетчик с кол-вом товара
+    let $inputAmount;
+
+    // Все формы чанка
+    let $forms = functions.getActiveForm($productItem);
+    // Системные формы, которые нужны для управления корзиной
+    let $systemForm = $forms['system'];
+    if ($productItem.hasClass('js-product-in-cart')) {
+        inCart = true;
+    }
+
+    if ($target === null) {
+        // Получаем input с количеством товара
+        $inputAmount = $forms['action'];
+        // На странице кровли с перелинковуой 2 формы - одна для ПК, другая для мобилок. Возможно, в будущем еще где-то будет также. Получаем видимую, она будет главной
+        if ($inputAmount.length > 1) {
+            $forms['action'].each(function (i, e) {
+                if ($(e).is(':visible')) {
+                    $inputAmount = $(e);
+                }
+            });
+        }
+        $inputAmount = $inputAmount.find('.custom-counter__amount');
+    } else {
+        $inputAmount = $target;
+    }
+
+    // Получаем новое кол-во товара, которое будет отображено на счетчике
+    let val = $inputAmount.val();
+
+    // Устанавливаем кол-во товара всем input'ам с количеством товара. Дело в том, что их на странице может быть несколько (например, на кровле там - для мобилок одна форма, для ПК - другая. И по-хорошему, они должны быть синхронизированы)
+    $forms['action'].each(function (i, e) {
+        $(e).find('.custom-counter__amount').each(function (i, e) {
+            let valTmp = val;
+            let $checkedAmount = $(e);
+
+            // Коэффициент проверяемого счетчика
+            let koeff1 = $checkedAmount.attr('data-koeff');
+            // Коэффициент изменяемого счетчика
+            let koeff2 = $inputAmount.attr('data-koeff');
+
+            // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
+            let cond1 = typeof koeff1 !== 'undefined' && typeof koeff2 === 'undefined';
+            // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
+            let cond2 = typeof koeff1 === 'undefined' && typeof koeff2 !== 'undefined';
+
+            // Если ни одно из условий в switch не сработало, значит, коэфициента нет ни у проверяемого, ни у изменяемого счетчиков
+            switch (true) {
+                // Коэфициент есть у проверяемого счетчика, но нет у изменяемого
+                case (cond1):
+                    valTmp = koeff1 * valTmp;
+                    break;
+                // Коэфициент есть у изменяемого счетчика, но нет у проверяемого
+                case (cond2):
+                    valTmp = valTmp / koeff2;
+                    break;
+            }
+
+            if ($productItem.find('.custom-counter_type_fractional').length) {
+                valTmp = Number(valTmp).toFixed(2);
+            } else {
+                if ($('body.kirpich-m').length) {
+                    valTmp = Math.round(valTmp);
+                } else {
+                    valTmp = Math.ceil(valTmp);
+                }
+            }
+
+            if (!$checkedAmount.is($inputAmount)) {
+                if (!$checkedAmount.parent().hasClass('custom-counter_type_fractional')) {
+                    valTmp = Math.ceil(valTmp);
+                }
+
+                // parseFloat нужен, чтобы удалить ненужные нули в конце числа
+                valTmp = parseFloat(valTmp);
+                $checkedAmount.val(valTmp);
+            }
+
+            if (cond2) {
+                val = valTmp;
+            }
         });
+    });
+
+    // Устанавливаем то количество, которое будет добавлено в корзину
+    let count = getItemCount($productItem, val);
+    if (forbidZero && count === 0) {
+        count = 1;
+    }
+
+    $systemForm.find('[name="count"]').val(count);
+
+    // Если товар в корзине, то...
+    if (inCart) {
+        // Отправка
+        $systemForm.find('[type="submit"]')[0].click();
+
+        // Если кол-во равно нулю
+        if (count === 0) {
+            let $elemsAdd = $productItem.find('.js-product__controls_action_add');
+            // refreshInput нужен, чтобы inputFilter запомнил текущее значение. И потом, если пользователь установит меньше минимального, подставится 1
+            $elemsAdd.find('[name="count"]').each(function (i, e) {
+                let $e = $(e);
+                let newVal = 1;
+                if ($e.attr('data-koeff')) {
+                    newVal = $e.attr('data-koeff') * newVal;
+                }
+                $e.val(newVal).trigger('refreshInput');
+            });
+            // Удаление класса, что товар этой карточки в корзине
+            $productItem.removeClass('js-product-in-cart');
+        }
+    }
+
+    $productItem.trigger('changeAmount');
+}
+
+
+/**
+ * Получить кол-во товара, которое будет добавлено в корзину (зависит от выбранной единицы измерения).
+ */
+function getItemCount($productItem, count) {
+    let unitVal = functions.getActiveUnitValue($productItem);
+    count = parseFloat(count);
+
+    // Получившееся кол-во
+    count = 1 / unitVal * count;
+
+    if ($productItem.find('.custom-counter_type_fractional').length) {
+        count = Number((count).toFixed(2));
+    } else {
+        if ($('body.kirpich-m').length) {
+            count = Math.round(count);
+        } else {
+            count = Math.ceil(count);
+        }
+    }
+
+    // Результат
+    return count;
+}
+
+
+/**
+ * Смена цены в соответствии с ед. измерения.
+ */
+function calcPrice($productItem) {
+    let unitVal = functions.getActiveUnitValue($productItem);
+    let selectors = [];
+
+    selectors.push('.js-product__price');
+    if ($productItem.hasClass('js-product_with-discount')) {
+        selectors.push('.js-product__new-price');
+    }
+
+    selectors.forEach(function (selector) {
+        let $elem = $productItem.find(selector);
+
+        if ($elem.length) {
+            let value = parseFloat($elem.attr('data-default').replace(/\s/g, ''));
+            if (isNaN(value)) {
+                value = 0;
+            }
+
+            value = 1 / unitVal * value;
+            if ($('body.kirpich-m').length) {
+                value = Math.round(value);
+            } else {
+                value = Math.ceil(value);
+            }
+
+            value = Number((value).toFixed(2));
+            value = functions.numberWithSpaces(value);
+            $elem.text(value);
+        }
+    });
+}
+
+
+/**
+ * Если товаров в корзине 0. И если мы на странице корзины, то перезагружаем страницу.
+ */
+function checkCart(total_count) {
+    if (total_count === 0 && $('.sect-cart').length) {
+        location.reload();
+    }
+}
+
+
+/**
+ * Работа с миникорзиной в шапке сайта (изменить кол-во, скрыть номерок, если товаров 0, показать номерок в противном случае).
+ */
+function handleMiniCart(count, cost) {
+    const $cartValueElem = $('.header__cart-value');
+    const $cartInfoCountVal = $('.header__info-val_type_count-val');
+    const $cartInfoCountText = $('.header__info-val_type_count-text');
+    const $cartInfoCostVal = $('.header__info-val_type_cost-val');
+
+    let cartValue;
+    if (typeof count !== 'undefined') {
+        count = Number((count).toFixed(2));
+        cartValue = count;
+        $cartValueElem.add($cartInfoCountVal).text(count);
+        $cartInfoCountText.text(functions.formOfWord(count, 'товар', 'товара', 'товаров'));
+    } else {
+        cartValue = parseFloat($cartValueElem.text());
+        cartValue = Number((cartValue).toFixed(2));
+    }
+
+    let cartCost;
+    if (typeof cost !== 'undefined') {
+        cost = Number((cost).toFixed(2));
+        cartCost = functions.numberWithSpaces(cost);
+        $cartInfoCostVal.text(cartCost);
+    }
+
+    if (cartValue > 0) {
+        $cartValueElem.removeClass('hidden');
+    } else {
+        $cartValueElem.addClass('hidden');
+    }
+}
+
+
+/**
+ * Инициализация стилизованного счетчика и стилизованного списка.
+ */
+function initStyledCounter() {
+    $('.not-init.listing__products-item, .product-card .js-product, .cart-table__table-row_type_product').each(function () {
+        // Основные переменные
+        let $item = $(this);
+        let $counterInput = $item.find('.custom-counter__amount');
+
+        // Инициализируем стилизованный список для смены единиц измерения
+        let $select = $item.find('select.custom-select');
+        $select.euv_custom_select();
+        $select.on('beforeChange.euv_custom_select', function () {
+            $item.attr('data-last-unit-value', functions.getActiveUnitValue($item));
+        });
+
+        if (!$item.hasClass('cart-table__table-row_type_product')) {
+            // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
+            $item.on('changeUnit', function (e) {
+                setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
+            });
+            // Устанавливаем шаг и кол-во
+            if ($item.hasClass('js-product-in-cart')) {
+                setStepAndAmount($item, true);
+            } else {
+                setStepAndAmount($item, true);
+            }
+        }
+
+        // Инициализируем фильтры для счетчика
+        $counterInput.each(function () {
+            let filter;
+            const $this = $(this);
+            const minVal = parseFloat($this.attr('data-min'));
+
+            // Фильтр для изменения значения
+            let regexp = /(^$)|(^(0|[1-9][0-9]{0,})$)/;
+            if ($this.closest('.custom-counter_type_fractional').length) {
+                regexp = /(^$)|(^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$)/;
+            }
+            filter = function (value) {
+                let floatVal = parseFloat(value);
+                let condition = !isNaN(floatVal) && regexp.test(value);
+
+                if (!isNaN(minVal)) {
+                    condition = condition && (floatVal >= minVal);
+                }
+                return condition;
+            };
+
+            // Фильтр для изменения значения
+            $this.inputFilter(filter);
+
+            // Фильтр для ввода (input) значения
+            $this.inputFilter(function (value) {
+                return regexp.test(value);
+            }, {'event': 'input'});
+        });
+
+        // Обработчик кнопок стилизованного счетчкика
+        $item.find('.custom-counter__btn').on('click', function (e) {
+            e.preventDefault();
+
+            // Основные переменные
+            let $this = $(this);
+            let $counter = $this.closest('.custom-counter');
+            let $inputValue = $counter.find('.custom-counter__amount');
+            let step = 1;
+
+            // Установка val
+            let val = parseFloat($inputValue.val());
+            val = Math.floor(val / step);
+
+            switch (true) {
+                case $this.hasClass('custom-counter__btn_dir_less'):
+                    val -= 1;
+                    break;
+                case $this.hasClass('custom-counter__btn_dir_more'):
+                    val += 1;
+                    break;
+            }
+            val = val * step;
+
+            $inputValue.val(val);
+
+            // При щелчке по кнопкам на странице корзины и так вызывается change, поэтому повторно его вызывать здесь не надо. Я бегло посмотрел файл плагина, чтобы удалить его оттуда и убрать эти строки. Но ничего там не нашел. По-хорошему надо подправить этот момент в фале плагина. Эти строки тут выглядят как костыль
+            if (!$inputValue.closest('.ms2_form').length) {
+                $inputValue.trigger('change');
+            }
+
+            // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
+            $this.closest('.cart-table__table-row').find('.btn-sm').click();
+        });
+
+        // Удаляем у чанка класс о том, что чанк еще не инициализирован
+        $item.removeClass('not-init');
+    });
+};
+
+
+/**
+ * Конвертация кол-ва товара в корзине при смене единиц изменения.
+ */
+function setStepAndAmount($item, dontChangeAmount) {
+    dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false;
+
+    // ---------------------------------------------
+    // Определяем основные переменные
+    // ---------------------------------------------
+    // Текущий шаг
+    let step = 1;
+
+    // Поле в текущей форме
+    let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
+
+    // Значение активной ед. измерения
+    let unitVal = functions.getActiveUnitValue($item);
+
+    // ---------------------------------------------
+    // Устанавливаем новый шаг и новое число (если шаг изменился)
+    // ---------------------------------------------
+    // Получаем коэффициент. Пока что он задан только у кирпичей. Он нам нужен для установки нового шага
+    // let coeff = parseFloat($item.attr('data-coefficient'));
+    let coeff;
+    if (isNaN(coeff)) {
+        coeff = 0;
+    }
+
+    // Получаем step
+    if (coeff === 0) {
+        step = 1;
+    } else {
+        if (unitVal === 1) {
+            // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
+            step = coeff * unitVal;
+        } else {
+            // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
+            step = Math.ceil(coeff / unitVal);
+        }
+    }
+
+    // Получаем новое количество товара
+    let lastUnitValue = $item.attr('data-last-unit-value');
+    let newVal = $activeFormInput.val();
+    if (typeof lastUnitValue !== 'undefined') {
+        // Если мы с штук перешли на другую ед. измерения
+        if (lastUnitValue == 1) {
+            newVal = newVal * unitVal;
+        } else {
+            // Если мы НЕ СО ШТУК перешли на любую другую единицу измерения
+            newVal = newVal / lastUnitValue * unitVal;
+        }
+    } else {
+        // Если мы не переходили ни с каких единиц измерения - просто произошла загрузка страницы
+        newVal = newVal * step;
+    }
+
+    // Округляем новое значение в большую сторону
+    newVal = Math.ceil(newVal);
+
+    // Пересчитываем кол-во товара с учетом step
+    // newVal = functions.getCorrectValueToCounter(step, newVal);
+
+    // Устанавливаем новый шаг
+    // $item.attr('data-step', step);
+
+    // Устанавливаем новое количество
+    if (!dontChangeAmount) {
+        $activeFormInput.val(newVal);
     }
 }

@@ -1,4 +1,4 @@
-export default function modxJS() {
+export default function modxJS(getSearchParameters, catalogSortFilters, getRemainder, initStyledCounter) {
     // -------------------------------
     // Подстановка h1 на странице каталога
     // -------------------------------
@@ -34,37 +34,18 @@ export default function modxJS() {
         $('.category-header .category-header__inner-text').text(result);
     }
 
-    // -------------------------------
-    // Функции для работы с GET-параметрами.
-    // Взял их отсюда и немного улучшил:
-    // https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
-    // TODO: хорошо бы их в functions.js поместить. Вдруг еще где пригодятся
-    // -------------------------------
-    function getSearchParameters() {
-        let prmstr = window.location.search.substr(1);
-        return prmstr != null && prmstr != "" ? transformToAssocArray(decodeURI(prmstr)) : {};
-    }
-    function transformToAssocArray(prmstr) {
-        let params = {};
-        let prmarr = prmstr.split("&");
-        for (let i = 0; i < prmarr.length; i++) {
-            let tmparr = prmarr[i].split("=");
-            params[tmparr[0]] = tmparr[1];
-        }
-        return params;
-    }
 
     // -------------------------------
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
-        window.getRemainder();
-        window.initStyledCounter();
+        getRemainder();
+        initStyledCounter();
         catalogH1FromGetParams();
 
         // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
-        // window.catalogSortFilters();
+        // catalogSortFilters();
     });
 
     // -------------------------------

@@ -62,10 +62,10 @@ if (elem !== null) {
 
 $(function ($) {
     // Код с обработчиками MODX
-    modxJS();
+    modxJS(functions.getSearchParameters, funcsCatalog.catalogSortFilters, funcsCatalog.getRemainder, funcsProduct.initStyledCounter);
 
     // Lazyload для картинок
-    let lazyLoadInstance = new LazyLoad();
+    new LazyLoad();
 
     // Inputmask для ввода номера телефона
     let im = new Inputmask("+7 (999) 999-99-9{2,3}");
@@ -79,10 +79,10 @@ $(function ($) {
     // Функции страниц на JQuery
     // -------------------------------------
     // Функции для каталога
-    funcsCatalog();
+    funcsCatalog.init();
 
     // Функции для карточки товара
-    funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep, functions.getCorrectValueToCounter);
+    funcsProduct.init(ImageZoom, inputFilter);
 
     // Функции для избранного и сравнения
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
@@ -167,7 +167,9 @@ $(function ($) {
     // -------------------------------
     // Яндекс карты
     // -------------------------------
+    // TODO: мне кажется, что строку ниже можно удалить
     window.initDistrictsMap = initDistrictsMap;
+
     mapsLazyload();
 
 
@@ -284,183 +286,6 @@ $(function ($) {
                 $item.appendTo($popup);
             });
         });
-    }
-
-
-    // -------------------------------
-    // Стилизованный счетчик и стилизованный список
-    // -------------------------------
-    // Я объявил эту функцию в window, поскольку ее надо вызывать при событии mse2_load, а это событие в другом файле
-    window.initStyledCounter = function initStyledCounter() {
-        $('.not-init.listing__products-item, .product-card .js-product, .cart-table__table-row_type_product').each(function () {
-            // Основные переменные
-            let $item = $(this);
-            let $counterInput = $item.find('.custom-counter__amount');
-
-            // Инициализируем стилизованный список для смены единиц измерения
-            let $select = $item.find('select.custom-select');
-            $select.euv_custom_select();
-            $select.on('beforeChange.euv_custom_select', function () {
-                $item.attr('data-last-unit-value', functions.getActiveUnitValue($item));
-            });
-
-            if (!$item.hasClass('cart-table__table-row_type_product')) {
-                // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
-                $item.on('changeUnit', function (e) {
-                    setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
-                });
-                // Устанавливаем шаг и кол-во
-                if ($item.hasClass('js-product-in-cart')) {
-                    setStepAndAmount($item, true);
-                } else {
-                    setStepAndAmount($item, true);
-                }
-            }
-
-            // Инициализируем фильтры для счетчика
-            $counterInput.each(function () {
-                let filter;
-                const $this = $(this);
-                const minVal = parseFloat($this.attr('data-min'));
-
-                // Фильтр для изменения значения
-                let regexp = /(^$)|(^(0|[1-9][0-9]{0,})$)/;
-                if ($this.closest('.custom-counter_type_fractional').length) {
-                    regexp = /(^$)|(^((0|[1-9][0-9]{0,})(\.[0-9]{0,2}){0,1})$)/;
-                }
-                filter = function (value) {
-                    let floatVal = parseFloat(value);
-                    let condition = !isNaN(floatVal) && regexp.test(value);
-
-                    if (!isNaN(minVal)) {
-                        condition = condition && (floatVal >= minVal);
-                    }
-                    return condition;
-                };
-
-                // Фильтр для изменения значения
-                $this.inputFilter(filter);
-
-                // Фильтр для ввода (input) значения
-                $this.inputFilter(function (value) {
-                    return regexp.test(value);
-                }, {'event': 'input'});
-            });
-
-            // Обработчик кнопок стилизованного счетчкика
-            $item.find('.custom-counter__btn').on('click', function (e) {
-                e.preventDefault();
-
-                // Основные переменные
-                let $this = $(this);
-                let $counter = $this.closest('.custom-counter');
-                let $inputValue = $counter.find('.custom-counter__amount');
-                let step = functions.getStep($item);
-
-                // Установка val
-                let val = parseFloat($inputValue.val());
-                // val = Math.ceil(val / step);
-                val = Math.floor(val / step);
-
-                switch (true) {
-                    case $this.hasClass('custom-counter__btn_dir_less'):
-                        val -= 1;
-                        break;
-                    case $this.hasClass('custom-counter__btn_dir_more'):
-                        val += 1;
-                        break;
-                }
-                val = val * step;
-
-                $inputValue.val(val);
-
-                // При щелчке по кнопкам на странице корзины и так вызывается change, поэтому повторно его вызывать здесь не надо. Я бегло посмотрел файл плагина, чтобы удалить его оттуда и убрать эти строки. Но ничего там не нашел. По-хорошему надо подправить этот момент в фале плагина. Эти строки тут выглядят как костыль
-                if (!$inputValue.closest('.ms2_form').length) {
-                    $inputValue.trigger('change');
-                }
-
-                // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
-                $this.closest('.cart-table__table-row').find('.btn-sm').click();
-            });
-
-            // Удаляем у чанка класс о том, что чанк еще не инициализирован
-            $item.removeClass('not-init');
-        });
-    };
-    window.initStyledCounter();
-
-
-    /**
-     * Конвертация
-     */
-    function setStepAndAmount($item, dontChangeAmount) {
-        dontChangeAmount = (typeof dontChangeAmount !== 'undefined') ? dontChangeAmount : false;
-
-        // ---------------------------------------------
-        // Определяем основные переменные
-        // ---------------------------------------------
-        // Текущий шаг
-        // let step = functions.getStep($item);
-        let step = 1;
-
-        // Поле в текущей форме
-        let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
-
-        // Значение активной ед. измерения
-        let unitVal = functions.getActiveUnitValue($item);
-
-        // ---------------------------------------------
-        // Устанавливаем новый шаг и новое число (если шаг изменился)
-        // ---------------------------------------------
-        // Получаем коэффициент. Пока что он задан только у кирпичей. Он нам нужен для установки нового шага
-        // let coeff = parseFloat($item.attr('data-coefficient'));
-        let coeff;
-        if (isNaN(coeff)) {
-            coeff = 0;
-        }
-
-        // Получаем step
-        if (coeff === 0) {
-            step = 1;
-        } else {
-            if (unitVal === 1) {
-                // Если это 1 (штуки), то умножаем коэффициент на активную ед. измерения
-                step = coeff * unitVal;
-            } else {
-                // Если это что-то другое, то формула другая. Нужно разделить коэффициент на активную ед. измерения и округлить в большую сторону
-                step = Math.ceil(coeff / unitVal);
-            }
-        }
-
-        // Получаем новое количество товара
-        let lastUnitValue = $item.attr('data-last-unit-value');
-        let newVal = $activeFormInput.val();
-        if (typeof lastUnitValue !== 'undefined') {
-            // Если мы с штук перешли на другую ед. измерения
-            if (lastUnitValue == 1) {
-                newVal = newVal * unitVal;
-            } else {
-                // Если мы НЕ СО ШТУК перешли на любую другую единицу измерения
-                newVal = newVal / lastUnitValue * unitVal;
-            }
-        } else {
-            // Если мы не переходили ни с каких единиц измерения - просто произошла загрузка страницы
-            newVal = newVal * step;
-        }
-
-        // Округляем новое значение в большую сторону
-        newVal = Math.ceil(newVal);
-
-        // Пересчитываем кол-во товара с учетом step
-        // newVal = functions.getCorrectValueToCounter(step, newVal);
-
-        // Устанавливаем новый шаг
-        // $item.attr('data-step', step);
-
-        // Устанавливаем новое количество
-        if (!dontChangeAmount) {
-            $activeFormInput.val(newVal);
-        }
     }
 
 

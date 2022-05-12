@@ -2,7 +2,17 @@
  * Вспомогательные функции.
  */
 
-export default {formOfWord, numberWithSpaces, getActiveUnitValue, toggleText, trim, getActiveForm, getStep, getCorrectValueToCounter};
+export default {
+    formOfWord,
+    numberWithSpaces,
+    getActiveUnitValue,
+    toggleText,
+    trim,
+    getActiveForm,
+    getStep,
+    getCorrectValueToCounter,
+    getSearchParameters
+};
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
@@ -94,6 +104,10 @@ function getActiveForm($productItem) {
 }
 
 
+/**
+ * Эта функция нигде не используется.
+ * Раньше она нужна была для получения шага, чтобы изменять кол-ва товара в счетчике кратно поддонам (на кирпичах товары должны были продаваться поддонами).
+ */
 function getStep($item) {
     let step = 1;
     let dataStep = $item.attr('data-step');
@@ -112,6 +126,10 @@ function getStep($item) {
 }
 
 
+/**
+ * Эта функция нигде не используется.
+ * Раньше она нужна была для изменения кол-ва товара в счетчике кратно поддонам (на кирпичах товары должны были продаваться поддонами).
+ */
 function getCorrectValueToCounter(step, count) {
     count = parseFloat(count);
     step = parseFloat(step);
@@ -122,4 +140,31 @@ function getCorrectValueToCounter(step, count) {
     }
 
     return count;
+}
+
+
+/**
+ * Получает GET-параметры и возвращает их в виде объекта.
+ * Для работы использует функцию transformToAssocArray.
+ *
+ * Обе функции я взял их отсюда и немного улучшил:
+   https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
+ */
+function getSearchParameters() {
+    let prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(decodeURI(prmstr)) : {};
+}
+
+
+/**
+ * Преобразует строку uri в объект.
+ */
+function transformToAssocArray(prmstr) {
+    let params = {};
+    let prmarr = prmstr.split("&");
+    for (let i = 0; i < prmarr.length; i++) {
+        let tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
 }

@@ -1,12 +1,23 @@
 /**
- * Функции, относящиеся к каталогу (в основном работа с mFilter2).
+ * Функции, относящиеся к шаблону Каталог (в основном работа с mFilter2).
  */
-export default function funcsCatalog() {
-    $('.listing__reset-filters').on('click', function(e) {
+export default {
+    init,
+    catalogSortFilters,
+    getRemainder
+};
+
+
+// Инициализация
+function init() {
+    // -------------------------------------------
+    // Кнопка сброса фильтров
+    // -------------------------------------------
+    $('.listing__reset-filters').on('click', function (e) {
         $('.listing__reset-filters-action')[0].click();
     });
 
-    $('.listing__filter-option').on('click', function(e) {
+    $('.listing__filter-option').on('click', function (e) {
         // Не знаю, почему, но на арматуре (ТОЛЬКО НА НЕЙ, что очень странно. На других контекстах все хорошо) при клике по фильтру (тегу а) срабатывает переход по ссылке, а не обработчик mSearch2. А на других контекстах - обработчик mSearch2, что приводит к применению фильтра. И этот баг вызывается только на боевом сайте (на локалке и на тестовом все работает). Данная строка помогают это исправить
         e.stopPropagation();
     });
@@ -14,41 +25,9 @@ export default function funcsCatalog() {
     // -------------------------------------------
     // Сортировка фильтров - в самом верху те, у которых больше всего результатов
     // -------------------------------------------
-    window.catalogSortFilters = function () {
-        $('.listing__filter-block').each(function (index, elem) {
-            // Пропускаем фильтр по цене
-            if (index === 0) {
-                return;
-            }
-
-            let $this = $(this);
-            let $container = $($this.find('.listing__filter-option')[0]).parent();
-
-            let $items = $container.find('.listing__filter-option').sort(function (a, b) {
-                if (isNaN(parseInt($(a).attr('data-priority')))) {
-                    return -1
-                }
-
-                if (isNaN(parseInt($(b).attr('data-priority')))) {
-                    return 1
-                }
-
-                if (parseInt($(a).attr('data-priority')) > parseInt($(b).attr('data-priority'))) {
-                    return -1;
-                }
-
-                if (parseInt($(a).attr('data-priority')) < parseInt($(b).attr('data-priority'))) {
-                    return 1;
-                }
-
-                return 0;
-            });
-
-            $items.appendTo($container);
-        });
-    }
     // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
-    // window.catalogSortFilters();
+    // catalogSortFilters();
+
 
     // -------------------------------------------
     // Скрыть / показать характеристики на карточках
@@ -72,6 +51,7 @@ export default function funcsCatalog() {
         }).resize();
     }
 
+
     // -------------------------------------------
     // Раскрытие меню для фильтрации на мобилках
     // -------------------------------------------
@@ -79,6 +59,7 @@ export default function funcsCatalog() {
         let $headerBtnsWrap = $('.header__btns-wrap');
         $headerBtnsWrap.toggleClass('closed');
     });
+
 
     // -------------------------------
     // Сортировка на мобильных экранах
@@ -103,12 +84,12 @@ export default function funcsCatalog() {
             case 1:
                 $elem = $('.listing__sort-item[data-sort="tv|HitsPage"]');
                 dataDir = 'desc';
-                break
+                break;
             // По алфавиту по убыванию
             case 4:
                 $elem = $('.listing__sort-item[data-sort="ms_product|pagetitle"]');
                 dataDir = 'asc';
-                break
+                break;
         }
 
         $('.listing__sort-item.active').removeClass('active');
@@ -130,51 +111,12 @@ export default function funcsCatalog() {
     // -------------------------------
     // Расчет текста для кнопки "Показать еще"
     // -------------------------------
-    window.getRemainder = function () {
-        // Количество товаров в листинге
-        let amount = $('.listing__products-list .js-product').length;
-        let $btnMore = $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more');
-
-        // Проверка - существует ли листинг на основе pdoPage или mSearch2. И есть ли в таком листинге товары
-        if (((typeof mSearch2 !== 'undefined' && mSearch2) ||
-            (typeof pdoPage !== 'undefined' && pdoPage))
-            && amount) {
-            // Всего товаров
-            let total;
-            if (typeof mSearch2 !== 'undefined') {
-                total = parseInt(mSearch2.total.text());
-            } else {
-                total = parseInt($('#pdopage_total').text());
-            }
-
-            // Сколько осталось вывести товаров?
-            let remainder = 0;
+    getRemainder();
 
 
-            let remainderMax = 42;
-            if ($btnMore.attr('data-max')) {
-                remainderMax = $btnMore.attr('data-max');
-            }
-
-            if (total > amount) {
-                remainder = total - amount;
-            }
-            if (remainder > remainderMax) {
-                remainder = remainderMax;
-            }
-
-
-            // Установка текста для кнопки
-            $btnMore.text('Показать еще ' + remainder);
-        }
-    }
-
-    window.getRemainder();
-
-    // -------------------------------
-    // Конфликтующие фильтры
     // -------------------------------
     // Переключение конфликтующих фильтров: Длина, Ширина, Толщина и Размеры
+    // -------------------------------
     $('.listing__filter-block-content input[type="checkbox"]').on('change', function () {
         let $block = $(this).closest('.listing__filter-block');
         let $conflictingFilters;
@@ -193,7 +135,7 @@ export default function funcsCatalog() {
                 break;
 
             default:
-                dontDoAnything = true
+                dontDoAnything = true;
                 break;
         }
 
@@ -205,5 +147,77 @@ export default function funcsCatalog() {
             }
         }
     });
+}
 
+
+function catalogSortFilters() {
+    $('.listing__filter-block').each(function (index, elem) {
+        // Пропускаем фильтр по цене
+        if (index === 0) {
+            return;
+        }
+
+        let $this = $(this);
+        let $container = $($this.find('.listing__filter-option')[0]).parent();
+
+        let $items = $container.find('.listing__filter-option').sort(function (a, b) {
+            if (isNaN(parseInt($(a).attr('data-priority')))) {
+                return -1;
+            }
+
+            if (isNaN(parseInt($(b).attr('data-priority')))) {
+                return 1;
+            }
+
+            if (parseInt($(a).attr('data-priority')) > parseInt($(b).attr('data-priority'))) {
+                return -1;
+            }
+
+            if (parseInt($(a).attr('data-priority')) < parseInt($(b).attr('data-priority'))) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        $items.appendTo($container);
+    });
+}
+
+
+function getRemainder() {
+    // Количество товаров в листинге
+    let amount = $('.listing__products-list .js-product').length;
+    let $btnMore = $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more');
+
+    // Проверка - существует ли листинг на основе pdoPage или mSearch2. И есть ли в таком листинге товары
+    if (((typeof mSearch2 !== 'undefined' && mSearch2) ||
+        (typeof pdoPage !== 'undefined' && pdoPage))
+        && amount) {
+        // Всего товаров
+        let total;
+        if (typeof mSearch2 !== 'undefined') {
+            total = parseInt(mSearch2.total.text());
+        } else {
+            total = parseInt($('#pdopage_total').text());
+        }
+
+        // Сколько осталось вывести товаров?
+        let remainder = 0;
+
+        let remainderMax = 42;
+        if ($btnMore.attr('data-max')) {
+            remainderMax = $btnMore.attr('data-max');
+        }
+
+        if (total > amount) {
+            remainder = total - amount;
+        }
+        if (remainder > remainderMax) {
+            remainder = remainderMax;
+        }
+
+        // Установка текста для кнопки
+        $btnMore.text('Показать еще ' + remainder);
+    }
 }
