@@ -29,6 +29,10 @@
         transition: .3s
         position: relative
 
+        @at-root .sect-pop__slider &
+            // Переопределение
+            height: auto
+
         @media screen and (max-width: 768px)
             width: calc(50% - 9px)
 
