@@ -379,5 +379,26 @@ $(function ($) {
             $backBtnText.text('');
         });
     }
+
+
+    // -------------------------------
+    // Скрывание / раскрывание по клику
+    // -------------------------------
+    document.querySelectorAll("[data-dropdown]").forEach((function (e) {
+        if (e.getAttribute("data-dropdown")) {
+            Array.from(document.querySelectorAll(e.getAttribute("data-dropdown"))).forEach((function (e) {
+                e.addEventListener("click", (function () {
+                    e.parentElement.classList.toggle("active");
+                }));
+            }))
+        } else {
+            Array.from(e.children).forEach((function (e) {
+                e.addEventListener("click", (function () {
+                    e.classList.toggle("active");
+                }));
+            }));
+        }
+    }));
+
 });
 
