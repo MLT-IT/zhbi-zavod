@@ -17,7 +17,8 @@ module.exports = (env, args) => {
     return {
         entry: {
             // Файл "/assets/template/js/scripts.js" нельзя подключать через webpack, потому что он не будет реагировать на события плагинов MODX.
-            app: ['./_src/js/index.js', './_src/js/other/vendors.js', './_src/js/other/base.js'],
+            // app: ['./_src/js/index.js', './_src/js/other/vendors.js', './_src/js/other/base.js'],
+            app: ['./_src/js/index.js'],
         },
         performance: {
             hints: false

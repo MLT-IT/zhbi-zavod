@@ -1,8 +1,30 @@
+// -------------------------------------
+// >>> deniskasup
+// -------------------------------------
+// TODO: Надо раскидать эти строки, чтобы они не выделялись как deniskasup.
+// Styles
+import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
+import 'swiper/swiper-bundle.min.css';
+import 'animate.css';
+
+// PLUGINS
+import Inputmask from 'inputmask';
+import LazyLoad from "vanilla-lazyload";
+import '@fancyapps/fancybox';
+
+// MODULES
+import './deniskasup/js-modules/sliders.js';
+import initTabs from './deniskasup/js-modules/tabs.js';
+// -------------------------------------
+// <<< deniskasup
+// -------------------------------------
+
 // Стили
 import '../sass/styles.sass';
 
 // Библиотеки
 import ImageZoom from 'js-image-zoom';
+// Эта библиотека не вызывается, т.к. для ее работы достаточно просто подключить ее в JS
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
@@ -13,6 +35,7 @@ import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps';
 import add_cover_to_map from './modules/maps';
+import modxJS from './modxJS';
 
 window.jQuery = $;
 window.$ = $;
@@ -31,6 +54,31 @@ if (elem !== null) {
 }
 
 $(function ($) {
+    modxJS();
+
+    // -------------------------------------
+    // >>> deniskasup
+    // -------------------------------------
+    document.querySelectorAll('.burger').forEach(burger => {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+        });
+    });
+
+    var lazyLoadInstance = new LazyLoad();
+    let im = new Inputmask("+7 (999) 999-99-99");
+    im.mask(document.querySelectorAll('input[name="PHONE"]'));
+
+    // CUSTOM FUNCTIONS
+    initTabs();
+
+    // -------------------------------------
+    // <<< deniskasup
+    // -------------------------------------
+
+
+
+
     funcsCatalog();
     funcsProduct(ImageZoom, functions.formOfWord, functions.getActiveUnitValue, functions.numberWithSpaces, functions.getActiveForm, functions.getStep, functions.getCorrectValueToCounter);
     funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
