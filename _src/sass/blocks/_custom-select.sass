@@ -42,17 +42,6 @@
         padding: 3px
         left: 0
 
-        @at-root .product-card_type_relinking &
-            overflow: hidden
-            border: solid #fff
-            border-left-width: 24px
-            border-right-width: 20px
-            border-top-width: 20px
-            border-bottom-width: 20px
-            padding: 0
-            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
-            border-radius: 4px
-
     &__input
         padding: 7px 12px
         border: 0
@@ -63,9 +52,6 @@
 
     &__selected-option
         font-weight: bold
-
-        @at-root .product-card_type_relinking &
-            font-weight: normal
 
     @at-root .colors-options
         .euv-custom-select__input-value
@@ -86,27 +72,12 @@
 
             +colors_to_selector('::before')
 
-    &__input-value
-        @at-root .product-card_type_relinking &, .product-card_type_relinking .colors-options
-            display: flex
-
     &__option
         display: flex
         align-items: center
 
         &:hover
             background: #E4E4E4
-
-        @at-root .product-card_type_relinking &, .popup-select &
-            padding: 8px
-            line-height: 1
-            font-size: 14px
-            &:nth-last-of-type(n+2)
-                margin-bottom: 12px
-
-            &:hover
-                background: transparent
-                color: #C51717
 
     &_visible
         .euv-custom-select__btn
