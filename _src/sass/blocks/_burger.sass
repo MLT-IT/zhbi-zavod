@@ -9,14 +9,21 @@
             &:nth-last-of-type(1)
                 width: 10px
 
-    &__catalog.opened, &__catalog.hover
+    &__catalog.hover, &__burger.opened
         .burger__stick:nth-child(1)
             animation: top .7s ease forwards
         .burger__stick:nth-child(2)
             animation: scaled .7s ease forwards
         .burger__stick:nth-child(3)
             animation: bottom .7s ease forwards
+
+    &__catalog.hover
+        .burger__stick:nth-child(3)
             width: 100%
+
+    &__burger.opened
+        span + span
+            margin-top: 1.5px
 
     .burger
         min-width: 15px
