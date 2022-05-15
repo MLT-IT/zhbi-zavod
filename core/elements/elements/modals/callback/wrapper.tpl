@@ -48,6 +48,6 @@
     ]}
 {/if}
 
-{if ($_modx->resource.template in list [17, 20]) && ($_modx->resource.context_key === 'krovlya')}
+{if ($_modx->resource.template in list [17, 20, 22])}
     {include 'file:elements/modals/callback/popup-select.tpl'}
 {/if}

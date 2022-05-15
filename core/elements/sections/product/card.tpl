@@ -29,7 +29,7 @@
     ]}
     {set $gallery = $_modx->getPlaceholder('gallery')}
 
-    {if $_modx->resource.template in list [17, 20]}
+    {if $_modx->resource.template in list [17, 20, 22]}
         {* Кровля *}
         {include "file:sections/product/card-info-relinking-selects.tpl"}
     {elseif $_modx->resource.template == 21}
