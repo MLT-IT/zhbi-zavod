@@ -7,6 +7,10 @@
     {set $linksData = 'getRelinkingData_OttenokSurfaceThickness' | snippet}
     {set $cvet = $_modx->resource.ottenok[0]}
 {/if}
+{if $_modx->resource.template == 22}
+    {set $linksData = '!getRelinkingData_CollectionOttenokThickness' | snippet}
+    {set $cvet = $_modx->resource.ottenok[0]}
+{/if}
 
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $outputOldPrice?} js-product_with-discount{/if}"
     {* Выводим data-атрибуты *}
@@ -163,6 +167,33 @@
                 </div>
 
                 <div class="product-card__info-inner">
+                    {if $linksData.parent?}
+                        <div class="product-card__select-wrap product-card__select-wrap_type_full">
+                            <div class="product-card__select-span">Коллекция:</div>
+                            <div class="custom-select-wrap">
+                                <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                    <div class="euv-custom-select__input">
+                                        <span class="euv-custom-select__input-value">
+                                            {$_modx->resource.parent | resource : 'menutitle' ? : $_modx->resource.parent | resource : 'pagetitle'}
+                                        </span>
+                                    </div>
+                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <div class="euv-custom-select__options-wrap">
+                                        <div class="euv-custom-select__options-wrap-scroll">
+                                            {foreach $linksData.parent as $id => $val}
+                                                <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                    {$val}
+                                                </a>
+                                            {/foreach}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="custom-select-mobile-link"></div>
+                                <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                            </div>
+                        </div>
+                    {/if}
+
                     {if $linksData.pokrytie?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_full">
                             <div class="product-card__select-span">Покрытие:</div>
