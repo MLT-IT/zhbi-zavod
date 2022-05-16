@@ -9,7 +9,7 @@
 
 {block "page"}
 
-    {if $_modx->resource.template in list [17, 20]}
+    {if $_modx->resource.template in list [17, 20, 22]}
         {set $cardClass = 'product-card_type_relinking'}
     {elseif $_modx->resource.template == 21}
         {set $cardClass = 'product-card_type_relinking-btns'}

@@ -82,7 +82,7 @@
 ($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
 
 {* Дробное добавление товара в корзину *}
-{if $_modx->resource.template in list [17, 20, 6]}
+{if $_modx->resource.template in list [17, 20, 6, 21, 22]}
     {set $isFractional = $_modx->resource['isFractional']}
 {else}
     {set $isFractional = $src['isFractional']}
