@@ -64,7 +64,12 @@
 
 {* Единицы измерения для плит ОСБ и фанеры *}
 {if $src['context_key'] in list ['plitaosb', 'pro-fanera']}
-    {set $m2 = ($src['ploshad_m2'][0]) | replace : ',' : '.'}
+    {set $m2 = $src['ploshad_m2'][0] | replace : ',' : '.'}
+{/if}
+
+{* Единицы измерения для Ондулина и Ондулина Смарт *}
+{if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
+    {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}
@@ -77,9 +82,15 @@
     {set $pricePer = $unit[0]}
 {/if}
 
-{* Условие - выводить ли возможность выбирать единицу измерения для добавления товара в корзину. Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами *}
-{set $condition = ($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera']) &&
-($src['parent'] not in list [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202])}
+{*
+Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
+Условия...
+- Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами.
+  ИЛИ
+- Родитель должен быть Ондулином или Ондулином Смарт (это кровля)
+*}
+{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera']) &&
+($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
 
 {* Дробное добавление товара в корзину *}
 {if $_modx->resource.template in list [17, 20, 6, 21, 22]}

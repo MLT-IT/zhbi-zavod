@@ -36,9 +36,12 @@
                               ]
             ]}
 
+            {*
+            Это для отладки
             <div class="hidden parents">
                 {$params['parents']}
             </div>
+            *}
 
             {'!mFilter2' | snippet : $params}
         </div>
