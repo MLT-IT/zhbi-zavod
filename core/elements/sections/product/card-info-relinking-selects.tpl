@@ -133,6 +133,11 @@
                                     <span itemprop="price" class="js-product__price" data-default="{$defaultPrice}">{$outputPrice}</span>
                                     <meta itemprop="priceCurrency" content="RUB">
                                     руб
+
+                                    {if !$condition}
+                                        {set $unit = $_modx->resource.unit}
+                                        {$unit[0] ? '/ ' ~ $unit[0] : ''}
+                                    {/if}
                                 </div>
 
                                 {if $outputOldPrice?}
@@ -148,11 +153,6 @@
                                             Цена действительна до {'getTomorrowDate' | snippet}
                                         </div>
                                     </div>
-                                {/if}
-
-                                {if !$condition}
-                                    {set $unit = $_modx->resource.unit}
-                                    {$unit[0] ? '/ ' ~ $unit[0] : ''}
                                 {/if}
                             </div>
                         {/if}
