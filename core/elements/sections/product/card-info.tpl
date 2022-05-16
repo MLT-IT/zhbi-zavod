@@ -132,7 +132,7 @@
                 {if $_modx->resource.context_key == 'krovlya'}
                     Получить расчет кровли бесплатно
                 {elseif $_modx->resource.context_key == 'kirpich-m'}
-                    Получить расчет кирпича бесплатно
+                    Купить в 1 клик
                 {elseif $_modx->resource.context_key == 'fasady-pro'}
                     Получить расчет деревянных фасадов бесплатно
                 {elseif $_modx->resource.context_key == 'fasad'}
