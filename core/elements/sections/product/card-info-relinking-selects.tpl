@@ -167,20 +167,20 @@
                 </div>
 
                 <div class="product-card__info-inner">
-                    {if $linksData.parent?}
+                    {if $linksData.collection?}
                         <div class="product-card__select-wrap product-card__select-wrap_type_full">
                             <div class="product-card__select-span">Коллекция:</div>
                             <div class="custom-select-wrap">
                                 <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                     <div class="euv-custom-select__input">
                                         <span class="euv-custom-select__input-value">
-                                            {$_modx->resource.parent | resource : 'menutitle' ? : $_modx->resource.parent | resource : 'pagetitle'}
+                                            {$_modx->resource.collection[0]}
                                         </span>
                                     </div>
                                     <a href="#" class="euv-custom-select__btn"></a>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
-                                            {foreach $linksData.parent as $id => $val}
+                                            {foreach $linksData.collection as $id => $val}
                                                 <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
                                                     {$val}
                                                 </a>
@@ -225,7 +225,7 @@
                                 {if $_modx->resource.template == 17}
                                     Цвет:
                                 {/if}
-                                {if $_modx->resource.template == 20}
+                                {if $_modx->resource.template in list [20, 22]}
                                     Оттенок:
                                 {/if}
                             </div>
