@@ -1,11 +1,15 @@
-export default function modxJS(getSearchParameters, catalogSortFilters, getRemainder, initStyledCounter) {
+import functions from "./functions/functions";
+import funcsCatalog from "./functions/funcsCatalog";
+import funcsProduct from "./functions/funcsProduct";
+
+export default function modxJS(lazyLoadInstance) {
     // -------------------------------
     // Подстановка h1 на странице каталога
     // -------------------------------
     function catalogH1FromGetParams() {
         let result = [];
         let filters = {};
-        let params = getSearchParameters();
+        let params = functions.getSearchParameters();
 
         // Заполняем filters
         $('.listing__filter-block').each(function (index, elem) {
@@ -40,12 +44,14 @@ export default function modxJS(getSearchParameters, catalogSortFilters, getRemai
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
         $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
-        getRemainder();
-        initStyledCounter();
+        funcsCatalog.getRemainder();
+        funcsProduct.initStyledCounter();
         catalogH1FromGetParams();
 
         // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
-        // catalogSortFilters();
+        // funcsCatalog.catalogSortFilters();
+
+        lazyLoadInstance.update();
     });
 
     // -------------------------------

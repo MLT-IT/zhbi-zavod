@@ -61,11 +61,11 @@ if (elem !== null) {
 }
 
 $(function ($) {
-    // Код с обработчиками MODX
-    modxJS(functions.getSearchParameters, funcsCatalog.catalogSortFilters, funcsCatalog.getRemainder, funcsProduct.initStyledCounter);
-
     // Lazyload для картинок
-    new LazyLoad();
+    let lazyLoadInstance = new LazyLoad();
+
+    // Код с обработчиками MODX
+    modxJS(lazyLoadInstance);
 
     // Inputmask для ввода номера телефона
     let im = new Inputmask("+7 (999) 999-99-9{2,3}");
