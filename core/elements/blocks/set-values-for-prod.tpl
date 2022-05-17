@@ -58,8 +58,6 @@
 {if $src['context_key'] === 'kirpich-m'}
     {set $k_m3seam = (1 / $src['k_m3seam'][0]) | replace : ',' : '.'}
     {set $k_m2seam = (1 / $src['k_m2seam'][0]) | replace : ',' : '.'}
-
-    {set $coefficient = $src['pallet_num'][0] | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения для плит ОСБ и фанеры *}
@@ -67,9 +65,14 @@
     {set $m2 = $src['ploshad_m2'][0] | replace : ',' : '.'}
 {/if}
 
-{* Единицы измерения для Ондулина и Ондулина Смарт *}
+{* Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp) *}
 {if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
     {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
+{/if}
+
+{* Единицы измерения для Уголвков и Труб (armatura-178) *}
+{if ($src['parent'] in list [71769, 71770, 71768, 71767, 71766, 71771, 71772, 71774]) && ($src['metrov-v-tonne'][0] is not empty)}
+    {set $meter =  $src['metrov-v-tonne'][0] | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}
@@ -131,4 +134,7 @@
 {/if}
 {if ($k_m3seam is not empty) && ($k_m3seam > 0)}
     {set $itemUnits['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9']}
+{/if}
+{if ($meter is not empty) && ($meter > 0)}
+    {set $itemUnits['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10']}
 {/if}
