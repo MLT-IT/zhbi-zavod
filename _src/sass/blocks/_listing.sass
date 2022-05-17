@@ -782,6 +782,27 @@
         @media screen and (max-width: 550px)
             top: 24px
 
+    &__content
+        // Запрещаем применять другие фильтры, пока происходит ajax-загрузка текущих фильтров
+        &.loading
+            .filter-number__inner, .os-content
+                &::after
+                    display: block
+                    content: ""
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    top: 0
+                    left: 0
+                    z-index: 10
+
+            .filter-number__inner
+                position: relative
+
+            .os-content
+                &::after
+                    visibility: visible
+
 .sect-listing
     margin-bottom: 40px
     align-items: flex-start
