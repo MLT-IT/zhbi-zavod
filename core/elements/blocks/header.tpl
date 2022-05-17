@@ -73,7 +73,7 @@
                         <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
                         {set $menu = 'createMenu' | snippet}
 
-                        {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
+                        {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'armatura-178']}
                             {foreach $menu as $key => $menuTypes}
                                 <div class="header__catalog-menu-type">
                                     <p class="header__column-header">{$key}</p>
