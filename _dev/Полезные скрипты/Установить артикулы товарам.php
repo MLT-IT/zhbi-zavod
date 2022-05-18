@@ -65,7 +65,13 @@ foreach ($ids as $id) {
     }
     $name = mb_strtolower($name);
 
+    // Переводим в транслит
     $name = rus2translit($name);
+
+    // Убираем скобки
+    $name = str_replace(['(', ')'], '', $name);
+
+    // Разбиваем по словам
     $words = explode(' ', $name);
 
     // Составление артикула
