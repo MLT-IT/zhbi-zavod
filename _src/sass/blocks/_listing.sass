@@ -785,7 +785,7 @@
     &__content
         // Запрещаем применять другие фильтры, пока происходит ajax-загрузка текущих фильтров
         &.loading
-            .filter-number__inner, .os-content
+            .filter-number__inner, .os-content, .listing__selected
                 &::after
                     display: block
                     content: ""
@@ -796,7 +796,7 @@
                     left: 0
                     z-index: 10
 
-            .filter-number__inner
+            .filter-number__inner, .listing__selected
                 position: relative
 
             .os-content
