@@ -6597,9 +6597,13 @@ a .breadcrumbs__val:hover {
 
 .listing__products-item-photo img {
     width: auto;
+    max-width: 100%;
+
+    /*
+    Закомментировал, т.к. на IPhone картинки становятся слишком высокими. И некрасиво растягиваются по высоте
     height: 100%;
     object-fit: cover;
-    max-width: 100%
+    */
 }
 
 .listing__products-item-avail {

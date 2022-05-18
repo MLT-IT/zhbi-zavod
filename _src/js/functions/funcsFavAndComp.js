@@ -1,4 +1,5 @@
 import functions from "./functions";
+import Cookies from 'js-cookie';
 
 /**
  * Функции, относящиеся к избранному и сравнению.
@@ -21,7 +22,7 @@ function init() {
     // Если мы находимся на странице сравнения
     if ($comparison.length) {
         // Установка отступа
-        setOrRemoveIndent();
+        setOrRemoveIndent($comparison);
 
         // Установка обработчика для переключателя "Только отличающиеся"
         $('.custom-toggler__input').on('change', function () {
@@ -132,7 +133,8 @@ function actionsHandler(e) {
     // --------------------------------------------
     // Если мы находимся на странице сравнения
     // --------------------------------------------
-    if ($('.sect-comparison').length) {
+    let $comparison = $('.sect-comparison');
+    if ($comparison.length) {
         $('.title-1__sup').text(splitted.length + ' ' + functions.formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
 
         // Удаление товара из сравнения
@@ -156,7 +158,7 @@ function actionsHandler(e) {
             } else {
                 $buttons.hide();
             }
-            setOrRemoveIndent();
+            setOrRemoveIndent($comparison);
         }
     }
 
@@ -192,7 +194,7 @@ function refreshBtnsInHeader(length, cookieName) {
 /**
  * Устанавливает или удаляет отступ для кнопок, переключающих слайды
  */
-function setOrRemoveIndent() {
+function setOrRemoveIndent($comparison) {
     if ($('.comp-slide').not('.hidden').length <= 4) {
         $comparison.removeClass('with-buttons');
     } else {
@@ -232,8 +234,8 @@ function refreshOptions() {
         itemsIds.push(id);
         $this.find('.pop-slide__options-wrap_type_source .pop-slide__option').each(function () {
             let $opt = $(this);
-            let key = ($opt.find('.pop-slide__option-caption').html()).functions.trim();
-            let val = ($opt.find('.pop-slide__option-value').html()).functions.trim();
+            let key = functions.trim($opt.find('.pop-slide__option-caption').html());
+            let val = functions.trim($opt.find('.pop-slide__option-value').html());
             if (typeof options[key] === 'undefined') {
                 options[key] = [];
             }
