@@ -20,5 +20,12 @@
                 {set $params['resources'] = '-56941'}
             {/if}
 
+            {if $_modx->resource.context_key == 'fasad'}
+                {set $params['resources'] = '36783, 36784, 34819, 36793, 36807, 36806, 36804'}
+                {set $params['sortby'] = ''}
+                {set $params['sortdir'] = 'ASC'}
+                {set $params['depth'] = 100}
+            {/if}
+
             {'!pdoResources' | snippet : $params}
 </section>
