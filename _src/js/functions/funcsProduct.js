@@ -9,7 +9,7 @@ export default {
 };
 
 // Инициализация
-function init(ImageZoom, inputFilter) {
+function init(ImageZoom) {
     // -------------------------------
     // Приближение при наведении на месте, а не в отдельном квадратике (js-image-zoom)
     // -------------------------------

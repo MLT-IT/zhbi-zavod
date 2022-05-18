@@ -82,10 +82,10 @@ $(function ($) {
     funcsCatalog.init();
 
     // Функции для карточки товара
-    funcsProduct.init(ImageZoom, inputFilter);
+    funcsProduct.init(ImageZoom);
 
     // Функции для избранного и сравнения
-    funcsFavAndComp(Cookies, functions.trim, functions.formOfWord);
+    funcsFavAndComp.init(Cookies);
 
 
     // -------------------------------
