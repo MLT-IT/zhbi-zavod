@@ -696,6 +696,13 @@
             #{$property}: rgba(#EA4740, $opacity)
         @else
             #{$property}: #EA4740
+    @at-root .fasad &
+        @if $dark
+            #{$property}: darken(#deb262, $dark)
+        @else if $opacity
+            #{$property}: rgba(#deb262, $opacity)
+        @else
+            #{$property}: #deb262
 
 @mixin set_colors_2($property)
     @at-root .knauf &, .knauf
@@ -712,7 +719,8 @@
         #{$property}: #323232
     @at-root .ursa &, .ursa
         #{$property}: #232F61
-
+    @at-root .fasad &, .fasad
+        #{$property}: #323232
 
 @mixin set_colors_3($property)
     @at-root .knauf &
@@ -729,3 +737,5 @@
         #{$property}: #CE1126
     @at-root .ursa &
         #{$property}: #EA4740
+    @at-root .fasad &
+        #{$property}: #80C31C

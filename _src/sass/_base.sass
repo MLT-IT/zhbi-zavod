@@ -11,19 +11,9 @@
     position: absolute
     border-radius: 1px
 
-    // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors_1()
-    @at-root .knauf &
-        border-color:  #4f70ad
-    @at-root .rockwool &
-        border-color: #AA000F
-    @at-root .tn &
-        border-color: #ED1C24
-    @at-root .penoplex &
-        border-color: #F36F21
+    +set_colors_1(border-color)
     @at-root .isover &
         border-color: #323232
-    @at-root .paroc &
-        border-color: #CE1126
     @at-root .ursa &
         border-color: #232F61
 

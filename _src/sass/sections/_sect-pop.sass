@@ -35,53 +35,23 @@
             margin-top: 0
             transition: .3s
 
-            // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
-            @at-root .knauf &
-                border-color:  #4f70ad
-            @at-root .rockwool &
-                border-color: #AA000F
-            @at-root .tn &
-                border-color: #ED1C24
-            @at-root .penoplex &
-                border-color: #F36F21
+            +set_colors_1(border-color)
             @at-root .isover &
                 border-color: transparent
-                background-color: #FFDD00
-            @at-root .paroc &
-                border-color: #CE1126
             @at-root .ursa &
                 border-color: #232F61
 
             &:hover
-                // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
-                @at-root .knauf &
-                    background:  #4f70ad
-                    &::after
-                        border-color: #fff
-                @at-root .rockwool &
-                    background: #AA000F
-                    &::after
-                        border-color: #fff
-                @at-root .tn &
-                    background: #ED1C24
-                    &::after
-                        border-color: #fff
-                @at-root .penoplex &
-                    background: #F36F21
-                    &::after
-                        border-color: #fff
+                +set_colors_1(background-color)
                 @at-root .isover &
                     background-color: darken(#FFDD00, 10%)
-                    &::after
-                        border-color: #323232
-                @at-root .paroc &
-                    background: #CE1126
-                    &::after
-                        border-color: #fff
                 @at-root .ursa &
-                    background: #232F61
-                    &::after
-                        border-color: #fff
+                    background-color: #232F61
+
+                &::after
+                    border-color: #fff
+                    @at-root .isover &
+                        border-color: #323232
 
             &::after
                 @extend %css-arrow

@@ -48,46 +48,18 @@
         justify-content: center
         transition: .3s
 
-        // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
+        +set_colors_1(background-color)
         @at-root .knauf &
             background-color: #FFB400
-        @at-root .rockwool &
-            background-color: #AA000F
-        @at-root .tn &
-            background-color: #ED1C24
-        @at-root .penoplex &
-            background-color: #F36F21
         @at-root .isover &
-            background-color: #FFDD00
             color: #323232
-
             .icon-cart-2
                 fill: #323232
 
-        @at-root .paroc &
-            background-color: #CE1126
-        @at-root .ursa &
-            background-color: #CE1126
-
         &:hover
-            // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
+            +set_colors_1(background-color, 10%)
             @at-root .knauf &
                 background-color: darken(#FFB400, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#CE1126, 10%)
-
-        &:hover
-            background-color: #ebaf00
 
         .icon-cart-2
             fill: #fff
