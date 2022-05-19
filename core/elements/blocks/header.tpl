@@ -2,6 +2,9 @@
 <div class="mobile-sticky-header"></div>
 <div class="mobile-header"></div>
 
+{* Эта переменная используется не только тут, но и в chunks/mobileMenu.tpl. Так что повнимательнее, если захочшеь удалить ее *}
+{set $menuIsSimple = $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'armatura-178', 'plitaosb', 'fasad']}
+
 <header class="header">
     <div class="header__wrapper wrapper">
         <span class="header__burger burger">
@@ -73,7 +76,7 @@
                         <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
                         {set $menu = 'createMenu' | snippet}
 
-                        {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'armatura-178', 'plitaosb']}
+                        {if $menuIsSimple}
                             {foreach $menu as $key => $menuTypes}
                                 <div class="header__catalog-menu-type">
                                     <p class="header__column-header">{$key}</p>
