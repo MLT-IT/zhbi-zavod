@@ -43,7 +43,8 @@ $ids = $modx->runSnippet('msProducts', [
 
     'offset' => 0,
     'limit' => 10000,
-    'context' => 'fasad'
+
+    //'context' => 'fasad'
 ]);
 
 $ids = explode(',', $ids);
@@ -68,8 +69,8 @@ foreach ($ids as $id) {
     // Переводим в транслит
     $name = rus2translit($name);
 
-    // Убираем скобки
-    $name = str_replace(['(', ')'], '', $name);
+    // Убираем ненужные символы, оставляем только буквы, числа и пробелы
+    $name = preg_replace('/[^a-z0-9 ]/', '', $name);
 
     // Разбиваем по словам
     $words = explode(' ', $name);
