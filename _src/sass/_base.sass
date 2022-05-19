@@ -11,6 +11,7 @@
     position: absolute
     border-radius: 1px
 
+    // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors_1()
     @at-root .knauf &
         border-color:  #4f70ad
     @at-root .rockwool &
@@ -135,20 +136,9 @@ a.white-btn, button.white-btn
 .header
     &__callback
         &:hover
-            @at-root .knauf &
-                color: #FFB400
-            @at-root .rockwool &
-                color: #D20014
-            @at-root .tn &
-                color: #ED1C24
-            @at-root .penoplex &
-                color: #F36F21
+            +set_colors_3(color)
             @at-root .isover &
                 color: #FFDD00
-            @at-root .paroc &
-                color: #CE1126
-            @at-root .ursa &
-                color: #EA4740
 
 .stocks
     .stocks__banner-text-span

@@ -54,37 +54,10 @@
             transition: .3s
             display: flex
             align-items: center
-
-            @at-root .knauf &
-                background: #4F70AD
-            @at-root .rockwool &
-                background: #AA000F
-            @at-root .tn &
-                background: #ED1C24
-            @at-root .penoplex &
-                background: #F36F21
-            @at-root .isover &
-                background: #FFDD00
-            @at-root .paroc &
-                background: #CE1126
-            @at-root .ursa &
-                background: #EA4740
+            +set_colors_1(background-color)
 
             &:hover
-                @at-root .knauf &
-                    background-color: darken(#4f70ad, 10%)
-                @at-root .rockwool &
-                    background-color: darken(#AA000F, 10%)
-                @at-root .tn &
-                    background-color: darken(#ED1C24, 10%)
-                @at-root .penoplex &
-                    background-color: darken(#F36F21, 10%)
-                @at-root .isover &
-                    background-color: darken(#FFDD00, 10%)
-                @at-root .paroc &
-                    background-color: darken(#CE1126, 10%)
-                @at-root .ursa &
-                    background-color: darken(#EA4740, 10%)
+                +set_colors_1(background-color, 10%)
 
         &-menu
             .header__menu-item
@@ -204,20 +177,7 @@
             +set_colors_1(background-color)
 
             &:hover
-                @at-root .knauf &
-                    background-color: darken(#4f70ad, 10%)
-                @at-root .rockwool &
-                    background-color: darken(#AA000F, 10%)
-                @at-root .tn &
-                    background-color: darken(#ED1C24, 10%)
-                @at-root .penoplex &
-                    background-color: darken(#F36F21, 10%)
-                @at-root .isover &
-                    background-color: darken(#FFDD00, 10%)
-                @at-root .paroc &
-                    background-color: darken(#CE1126, 10%)
-                @at-root .ursa &
-                    background-color: darken(#EA4740, 10%)
+                +set_colors_1(background-color, 10%)
 
             @at-root .header &:hover
                 color: #fff
@@ -294,20 +254,9 @@
         margin-right: 16.5px
 
         span
-            @at-root .knauf &
-                background-color: #4F70AD
-            @at-root .rockwool &
-                background-color: #AA000F
-            @at-root .tn &
-                background-color: #ED1C24
-            @at-root .penoplex &
-                background-color: #f36f21
+            +set_colors_1(background-color)
             @at-root .isover &
                 background-color: #323232
-            @at-root .paroc &
-                background-color: #ce1126
-            @at-root .ursa &
-                background-color: #ea4740
 
         @media screen and (max-width: 768px)
             display: block
@@ -450,20 +399,7 @@
         +set_colors_1(background-color)
 
         &:hover
-            @at-root .knauf &
-                background-color: darken(#4f70ad, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#EA4740, 10%)
+            +set_colors_1(background-color, 10%)
 
         &::before, &::after
             display: block
@@ -590,21 +526,9 @@
         padding-left: 19px
         transition: .3s
         white-space: nowrap
-
-        @at-root .knauf &
-            color: #FFB400
-        @at-root .rockwool &
-            color: #D20014
-        @at-root .tn &
-            color: #ED1C24
-        @at-root .penoplex &
-            color: #F36F21
+        +set_colors_3(color)
         @at-root .isover &
             color: #FFDD00
-        @at-root .paroc &
-            color: #CE1126
-        @at-root .ursa &
-            color: #EA4740
 
         &:hover
             text-decoration: none

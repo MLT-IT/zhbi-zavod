@@ -108,17 +108,4 @@
         +set_colors_1(background-color)
 
         &:hover
-            @at-root .knauf &
-                background-color: darken(#4f70ad, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#EA4740, 10%)
+            +set_colors_1(background-color, 10%)

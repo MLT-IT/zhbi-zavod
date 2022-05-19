@@ -427,20 +427,7 @@
         justify-content: center
 
         &:hover
-            @at-root .knauf &
-                border-color: rgba(#4f70ad,.4)
-            @at-root .rockwool &
-                border-color: rgba(#AA000F,.4)
-            @at-root .tn &
-                border-color: rgba(#ED1C24,.4)
-            @at-root .penoplex &
-                border-color: rgba(#F36F21,.4)
-            @at-root .isover &
-                border-color: rgba(#FFDD00,.4)
-            @at-root .paroc &
-                border-color: rgba(#CE1126,.4)
-            @at-root .ursa &
-                border-color: rgba(#EA4740,.4)
+            +set_colors_1($property: border-color, $opacity: .4)
 
         &.active
             +set_colors_1(border-color)

@@ -35,6 +35,7 @@
             margin-top: 0
             transition: .3s
 
+            // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
             @at-root .knauf &
                 border-color:  #4f70ad
             @at-root .rockwool &
@@ -52,6 +53,7 @@
                 border-color: #232F61
 
             &:hover
+                // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
                 @at-root .knauf &
                     background:  #4f70ad
                     &::after

@@ -30,7 +30,7 @@
     {elseif $_modx->context.key == 'fasady-pro'}
         {set $site_class = 'rockwool fasady-pro'}
     {elseif $_modx->context.key == 'fasad'}
-        {set $site_class = 'rockwool fasad'}
+        {set $site_class = 'fasad'}
     {elseif $_modx->resource.context_key == 'armatura-178'}
         {set $site_class = 'rockwool armatura-178'}
     {elseif $_modx->resource.context_key == 'asconcrete'}

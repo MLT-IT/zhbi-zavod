@@ -48,6 +48,7 @@
         justify-content: center
         transition: .3s
 
+        // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
         @at-root .knauf &
             background-color: #FFB400
         @at-root .rockwool &
@@ -69,6 +70,7 @@
             background-color: #CE1126
 
         &:hover
+            // Для некоторых (> 1) контекстов цвета другие, поэтому написал вручную, а не через +set_colors
             @at-root .knauf &
                 background-color: darken(#FFB400, 10%)
             @at-root .rockwool &

@@ -271,20 +271,7 @@
             background-color: #B9B9B9
 
             &:hover
-                @at-root .knauf &
-                    background-color: rgba(#4f70ad,.4)
-                @at-root .rockwool &
-                    background-color: rgba(#AA000F,.4)
-                @at-root .tn &
-                    background-color: rgba(#ED1C24,.4)
-                @at-root .penoplex &
-                    background-color: rgba(#F36F21,.4)
-                @at-root .isover &
-                    background-color: rgba(#FFDD00,.4)
-                @at-root .paroc &
-                    background-color: rgba(#CE1126,.4)
-                @at-root .ursa &
-                    background-color: rgba(#EA4740,.4)
+                +set_colors_1($property: background-color, $opacity: .4)
 
             &.active
                 +set_colors_1(background-color)

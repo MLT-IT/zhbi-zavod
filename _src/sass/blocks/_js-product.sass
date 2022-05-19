@@ -51,20 +51,7 @@
         +set_colors_1(background-color)
 
         &:hover
-            @at-root .knauf &
-                background-color: darken(#4f70ad, 10%)
-            @at-root .rockwool &
-                background-color: darken(#AA000F, 10%)
-            @at-root .tn &
-                background-color: darken(#ED1C24, 10%)
-            @at-root .penoplex &
-                background-color: darken(#F36F21, 10%)
-            @at-root .isover &
-                background-color: darken(#FFDD00, 10%)
-            @at-root .paroc &
-                background-color: darken(#CE1126, 10%)
-            @at-root .ursa &
-                background-color: darken(#EA4740, 10%)
+            +set_colors_1(background-color, 10%)
 
     &__btn-in-cart-top-text
         font-weight: bold
@@ -184,21 +171,7 @@
             border: 6px solid transparent
             border-top: 0
             transform: rotate(0deg)
-
-            @at-root .knauf &
-                border-left-color: darken(#4f70ad, 15%)
-            @at-root .rockwool &
-                border-left-color: darken(#AA000F, 15%)
-            @at-root .tn &
-                border-left-color: darken(#ED1C24, 15%)
-            @at-root .penoplex &
-                border-left-color: darken(#F36F21, 15%)
-            @at-root .isover &
-                border-left-color: darken(#FFDD00, 15%)
-            @at-root .paroc &
-                border-left-color: darken(#CE1126, 15%)
-            @at-root .ursa &
-                border-left-color: darken(#EA4740, 15%)
+            +set_colors_1(border-left-color, 15%)
 
 .js-product-in-cart
     .js-product__controls_action_add

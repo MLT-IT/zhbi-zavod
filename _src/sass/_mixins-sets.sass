@@ -646,21 +646,56 @@
     &[data-val="черный-кристалл"]#{$selector}
         background-color: #0a0909
 
-@mixin set_colors_1($property)
+@mixin set_colors_1($property, $dark: false, $opacity: false)
     @at-root .knauf &
-        #{$property}: #4f70ad
+        @if $dark
+            #{$property}: darken(#4f70ad, $dark)
+        @else if $opacity
+            #{$property}: rgba(#4f70ad, $opacity)
+        @else
+            #{$property}: #4f70ad
     @at-root .rockwool &
-        #{$property}: #AA000F
+        @if $dark
+            #{$property}: darken(#AA000F, $dark)
+        @else if $opacity
+            #{$property}: rgba(#AA000F, $opacity)
+        @else
+            #{$property}: #AA000F
     @at-root .tn &
-        #{$property}: #ED1C24
+        @if $dark
+            #{$property}: darken(#ED1C24, $dark)
+        @else if $opacity
+            #{$property}: rgba(#ED1C24, $opacity)
+        @else
+            #{$property}: #ED1C24
     @at-root .penoplex &
-        #{$property}: #F36F21
+        @if $dark
+            #{$property}: darken(#F36F21, $dark)
+        @else if $opacity
+            #{$property}: rgba(#F36F21, $opacity)
+        @else
+            #{$property}: #F36F21
     @at-root .isover &
-        #{$property}: #FFDD00
+        @if $dark
+            #{$property}: darken(#FFDD00, $dark)
+        @else if $opacity
+            #{$property}: rgba(#FFDD00, $opacity)
+        @else
+            #{$property}: #FFDD00
     @at-root .paroc &
-        #{$property}: #CE1126
+        @if $dark
+            #{$property}: darken(#CE1126, $dark)
+        @else if $opacity
+            #{$property}: rgba(#CE1126, $opacity)
+        @else
+            #{$property}: #CE1126
     @at-root .ursa &
-        #{$property}: #EA4740
+        @if $dark
+            #{$property}: darken(#EA4740, $dark)
+        @else if $opacity
+            #{$property}: rgba(#EA4740, $opacity)
+        @else
+            #{$property}: #EA4740
 
 @mixin set_colors_2($property)
     @at-root .knauf &, .knauf
