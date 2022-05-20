@@ -268,7 +268,7 @@
                 <div class="product-card__btns-block">
                     <span class="js-product__btn-in-cart js-product__to-cart">В корзину</span>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
-                        <span class="product-card__callback-btn-main-text">Получить расчёт фанеры</span>
+                        <span class="product-card__callback-btn-main-text">Получить консультацию</span>
                         <span class="product-card__callback-btn-spec-text">Бесплатно</span>
                     </button>
                 </div>
@@ -297,7 +297,7 @@
                 <div class="product-card__btns-block">
                     <a href="/cart/" class="js-product__btn-in-cart"><span class="js-product__btn-in-cart-top-text">В корзине</span> Перейти</a>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
-                        <span class="product-card__callback-btn-main-text">Получить расчёт фанеры</span>
+                        <span class="product-card__callback-btn-main-text">Получить консультацию</span>
                         <span class="product-card__callback-btn-spec-text">Бесплатно</span>
                     </button>
                 </div>
