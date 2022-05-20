@@ -4054,22 +4054,18 @@ p, span {
 }
 
 .breadcrumbs {
-    margin: 0 auto 15px;
+    margin: -6px auto 15px;
     width: 100%;
     max-width: 1132px;
     position: relative;
     align-self: flex-start;
     display: flex;
-    align-items: center
-}
-
-.breadcrumbs_page-product .breadcrumbs__item {
-    margin-top: 6px;
-}
-
-.breadcrumbs_page-product {
-    margin-top: -6px;
+    align-items: center;
     flex-wrap: wrap;
+}
+
+.breadcrumbs__item {
+    margin-top: 6px;
 }
 
 .breadcrumbs__item {
@@ -4095,10 +4091,6 @@ p, span {
 
 @media screen and (max-width: 768px) {
     .breadcrumbs {
-        margin-top: 10px
-    }
-
-    .breadcrumbs_page-product {
         margin-top: 4px;
     }
 }
