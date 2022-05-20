@@ -9,6 +9,8 @@
 
 {block "page"}
     <div class="wrapper sect-cart">
+        {include "file:blocks/topbar-search.tpl"}
+
         {'!msCart' | snippet : [
             'tpl' => '@FILE: sections/sect-cart.tpl',
             'includeTVs' => 'isFractional'
