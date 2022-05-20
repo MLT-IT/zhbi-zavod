@@ -1,10 +1,10 @@
 <div class="product-card__top js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
-    {* Выводим data-атрибуты *}
-    {foreach $itemUnits as $key => $val}
-        data-{$key}="{$val['val']}"
-    {/foreach}
+        {* Выводим data-атрибуты *}
+        {foreach $itemUnits as $key => $val}
+            data-{$key}="{$val['val']}"
+        {/foreach}
 
-    {insert "file:blocks/get-data-attrs.tpl"}
+        {insert "file:blocks/get-data-attrs.tpl"}
 >
     <meta itemprop="brand" content="{$_modx->getPlaceholder('brand')}">
     <span class="product-card__article product-card__article_mobile">Арт. {$_modx->resource['article']}</span>
@@ -142,9 +142,9 @@
                 {elseif $_modx->resource.context_key == 'asconcrete'}
                     Получить расчет асфальтобетона бесплатно
                 {elseif $_modx->resource.context_key == 'pro-fanera'}
-                    Получить расчет фанеры бесплатно
+                    Получить консультацию бесплатно
                 {elseif $_modx->resource.context_key == 'plitaosb'}
-                    Получить расчет плит ОСБ бесплатно
+                    Получить консультацию бесплатно
                 {elseif $_modx->resource.context_key == 'plity-mdvp'}
                     Получить расчет плит МДВП бесплатно
                 {else}

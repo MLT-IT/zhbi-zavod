@@ -2,12 +2,12 @@
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
-    {* Выводим data-атрибуты *}
-    {foreach $itemUnits as $key => $val}
-        data-{$key}="{$val['val']}"
-    {/foreach}
+        {* Выводим data-атрибуты *}
+        {foreach $itemUnits as $key => $val}
+            data-{$key}="{$val['val']}"
+        {/foreach}
 
-    {insert "file:blocks/get-data-attrs.tpl"}
+        {insert "file:blocks/get-data-attrs.tpl"}
 >
 
     <div class="product-card__top-line">
@@ -119,8 +119,8 @@
 
                 <div class="product-card__main-specs">
                     {if ($_modx->resource['item_thickness'][0] is not empty) &&
-                        ($_modx->resource['item_width'][0] is not empty) &&
-                        ($_modx->resource['item_length'][0] is not empty)
+                    ($_modx->resource['item_width'][0] is not empty) &&
+                    ($_modx->resource['item_length'][0] is not empty)
                     }
                         <div class="product-card__specs-list-item" data-opt-key="unit">
                             <div class="product-card__specs-list-item-name">Размер</div>
@@ -268,7 +268,7 @@
                 <div class="product-card__btns-block">
                     <span class="js-product__btn-in-cart js-product__to-cart">В корзину</span>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
-                        <span class="product-card__callback-btn-main-text">Получить расчёт фанеры</span>
+                        <span class="product-card__callback-btn-main-text">Получить консультацию</span>
                         <span class="product-card__callback-btn-spec-text">Бесплатно</span>
                     </button>
                 </div>
@@ -297,7 +297,7 @@
                 <div class="product-card__btns-block">
                     <a href="/cart/" class="js-product__btn-in-cart"><span class="js-product__btn-in-cart-top-text">В корзине</span> Перейти</a>
                     <button data-fancybox href="#cost-fanera" class="white-btn product-card__callback-btn">
-                        <span class="product-card__callback-btn-main-text">Получить расчёт фанеры</span>
+                        <span class="product-card__callback-btn-main-text">Получить консультацию</span>
                         <span class="product-card__callback-btn-spec-text">Бесплатно</span>
                     </button>
                 </div>
