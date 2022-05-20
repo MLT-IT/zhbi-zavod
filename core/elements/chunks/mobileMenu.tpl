@@ -34,12 +34,6 @@
                 по Санкт-Петербургу и Ленинградской области
             </div>
 
-            {* Поиск *}
-            <form action="/search/" class="header__search-wrap header__search-wrap_type_mobile">
-                <input class="header__search" placeholder="Поиск по сайту" name="query">
-                <button type="submit" class="header__search-btn"></button>
-            </form>
-
             {* Кнопка Каталог *}
             <span class="header__nav-header header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_1" data-key="catalog">
                 <span class="header__nav-header-burger burger">

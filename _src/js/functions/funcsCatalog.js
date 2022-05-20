@@ -13,15 +13,24 @@ function init() {
     // -------------------------------------------
     // Обработчик для раскрытия меню с фильтрами на мобилках
     // -------------------------------------------
-    let filterButton = document.querySelector(".listing__filter-button");
+    let filterButton = document.querySelector(".listing__filters-btn");
     if (filterButton) {
         let filter = document.querySelector(".listing__filter");
 
-        filterButton.addEventListener("click", (function () {
+        filterButton.addEventListener("click", handler);
+
+        $(document).on('click', function(e) {
+            let $target = $(e.target);
+            if ($(filter).hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
+                handler();
+            }
+        });
+
+        function handler() {
             filterButton.classList.toggle("opened");
             filter.classList.toggle("active");
             document.body.classList.toggle("filter-opened");
-        }));
+        }
     }
 
 
