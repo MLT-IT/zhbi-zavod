@@ -703,6 +703,13 @@
             #{$property}: rgba(#deb262, $opacity)
         @else
             #{$property}: #deb262
+    @at-root .pro-fanera &
+        @if $dark
+            #{$property}: darken(#ee8208, $dark)
+        @else if $opacity
+            #{$property}: rgba(#ee8208, $opacity)
+        @else
+            #{$property}: #ee8208
 
 @mixin set_colors_2($property)
     @at-root .knauf &, .knauf
@@ -721,6 +728,8 @@
         #{$property}: #232F61
     @at-root .fasad &, .fasad
         #{$property}: #323232
+    @at-root .pro-fanera &, .pro-fanera
+        #{$property}: #323232
 
 @mixin set_colors_3($property)
     @at-root .knauf &
@@ -738,4 +747,6 @@
     @at-root .ursa &
         #{$property}: #EA4740
     @at-root .fasad &
-        #{$property}: #80C31C
+        #{$property}: #deb262
+    @at-root .pro-fanera &
+        #{$property}: #ee8208
