@@ -21,7 +21,7 @@ data-single-dir - запретить менять направление сор�
                 <a href="#" data-sort="tv|HitsPage" data-dir="" data-default="desc" class="listing__sort-item min{if $.get.sort == 'tv|HitsPage'} active{/if}" data-single-dir="1">по популярности</a>
                 <a href="#" data-sort="ms|price" data-dir="{if $.get.sort == ''}asc{/if}" data-default="asc" class="listing__sort-item_with-reverse-arrow listing__sort-item min{if $.get.sort == ''} active{/if}">по цене</a>
             {else}
-                <a href="#" data-sort="tv|HitsPage" data-dir="" class="listing__sort-item min{if $.get.sort == ''} active{/if}" data-single-dir="1">по популярности</a>
+                <a href="#" data-sort="" data-dir="" class="listing__sort-item min{if $.get.sort == ''} active{/if}" data-single-dir="1">по популярности</a>
                 <a href="#" data-sort="ms|price" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms|price:desc'} active{/if}">по цене</a>
             {/if}
             <a href="#" data-sort="ms_product|pagetitle" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if}">по алфавиту</a>
