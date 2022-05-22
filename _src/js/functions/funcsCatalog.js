@@ -11,6 +11,29 @@ export default {
 // Инициализация
 function init() {
     // -------------------------------------------
+    // Перенос строки в названии в чанках товаров на pro-fanera
+    // -------------------------------------------
+    if ($('.pro-fanera').length) {
+        $('.listing__products-item .listing__products-item-title a').each(function (i, e) {
+            let $e = $(e);
+            let text = $e.text();
+            let sort = $e.closest('.listing__products-item').attr('data-sort');
+            // Добавляем перенос строки после сорта
+            if (sort && text.match(new RegExp(sort)) !== null) {
+                text = text.replace(new RegExp('(' + sort + ')\\s*'), '$1<br>');
+            }
+            // Если сорта в названии нет, то перенос надо делать после названия предмета
+            else {
+                text = text.replace(/([^\s]+\s+[^\s]+)\s?/, '$1<br>');
+            }
+
+            // Устанавливаем новое значение
+            $e.html(text);
+        });
+    }
+
+
+    // -------------------------------------------
     // Обработчик для раскрытия меню с фильтрами на мобилках
     // -------------------------------------------
     let filterButton = document.querySelector(".listing__filter-button");
