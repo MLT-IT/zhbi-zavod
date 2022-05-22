@@ -4439,12 +4439,6 @@ a .breadcrumbs__val:hover {
     align-items: center
 }
 
-.listing__sort-item[data-dir=asc]:after {
-    border-top: 0;
-    border-bottom: 4px solid;
-    margin-top: 0
-}
-
 .listing__sort-item:not(:last-of-type) {
     margin-right: 45px
 }

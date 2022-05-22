@@ -258,7 +258,7 @@ var mSearch2 = {
         }
 
         $(document).on('click', this.options.sort_link, function () {
-            if ($(this).hasClass(mSearch2.options.active_class) && $(this).data('dir') == '') {
+            if ($(this).hasClass(mSearch2.options.active_class) && $(this).data('single-dir') == '1') {
                 return false;
             }
 

@@ -43,6 +43,10 @@
             </div>
             *}
 
+            {if $_modx->resource.context_key in list ['pro-fanera', 'kirpich-m', 'plitaosb', 'plity-mdvp']}
+                {set $params['sort'] = 'ms|price:asc'}
+            {/if}
+
             {'!mFilter2' | snippet : $params}
         </div>
     </div>

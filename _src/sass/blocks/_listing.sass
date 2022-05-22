@@ -382,13 +382,41 @@
             @at-root  #mse2_sort &
                 cursor: pointer
 
-        &_with-arrow
+        // Отличие with-arrow от with-reverse-arrow в том, что с пустым data-dir у with-arrow стили, как у desc, а у with-reverse-arrow - как у asc
+        &_with-arrow, &_with-reverse-arrow
             &::after
-                margin-top: 5px
-                margin-left: 5px
                 content: ""
+                margin-left: 5px
                 border: 4px solid transparent
+
+            &[data-dir=asc]:after
+                margin-top: 0
+                border-top: 0
+                border-bottom: 4px solid
+
+            &[data-dir=desc]:after
+                margin-top: 5px
                 border-top: 4px solid
+                border-bottom-color: transparent
+
+        &_with-arrow::after
+            margin-top: 5px
+            border-top: 4px solid
+            border-bottom-color: transparent
+
+        &_with-reverse-arrow::after
+            margin-top: 0
+            border-top: 0
+            border-bottom: 4px solid
+
+        //&_with-arrow
+        //    &::after
+
+
+        //&_with-reverse-arrow
+        //    &::after
+        //        margin-top: 0
+        //        border-bottom: 4px solid
 
     &__products-item-remove
         $block: &
