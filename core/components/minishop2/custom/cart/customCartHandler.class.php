@@ -142,4 +142,37 @@ class customCartHandler extends msCartHandler implements msCartInterface {
         }
     }
 
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    public function status($data = array()) {
+        $status = array(
+            'total_count' => 0,
+            'total_cost' => 0,
+            'total_weight' => 0,
+            'unique_products' => count($this->cart)
+        );
+        foreach ($this->cart as $item) {
+            if (empty($item['ctx']) || $item['ctx'] == $this->ctx) {
+                $status['total_count'] += $item['count'];
+                $status['total_cost'] += $item['price'] * $item['count'];
+                $status['total_weight'] += $item['weight'] * $item['count'];
+            }
+        }
+        $status = array_merge($data, $status);
+
+        $response = $this->ms2->invokeEvent('msOnGetStatusCart', array(
+            'status' => $status,
+            'cart' => $this,
+        ));
+        if ($response['success']) {
+            $status = $response['data']['status'];
+        }
+
+        return $status;
+    }
+
 }

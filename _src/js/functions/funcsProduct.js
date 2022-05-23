@@ -239,7 +239,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
         }
     };
 
@@ -247,7 +247,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
 
             checkCart(response.data.total_cost);
         }
@@ -257,7 +257,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
 
             checkCart(response.data.total_cost);
         }
@@ -584,7 +584,7 @@ function checkCart(total_count) {
 /**
  * Работа с миникорзиной в шапке сайта (изменить кол-во, скрыть номерок, если товаров 0, показать номерок в противном случае).
  */
-function handleMiniCart(count, cost) {
+function handleMiniCart(unique_products, count, cost) {
     const $cartValueElem = $('.header__cart-value');
     const $cartInfoCountVal = $('.header__info-val_type_count-val');
     const $cartInfoCountText = $('.header__info-val_type_count-text');
@@ -593,8 +593,9 @@ function handleMiniCart(count, cost) {
     let cartValue;
     if (typeof count !== 'undefined') {
         count = Number((count).toFixed(2));
-        cartValue = count;
-        $cartValueElem.add($cartInfoCountVal).text(count);
+        cartValue = Number((unique_products).toFixed(2));
+        $cartValueElem.text(cartValue);
+        $cartInfoCountVal.text(count);
         $cartInfoCountText.text(functions.formOfWord(count, 'товар', 'товара', 'товаров'));
     } else {
         cartValue = parseFloat($cartValueElem.text());

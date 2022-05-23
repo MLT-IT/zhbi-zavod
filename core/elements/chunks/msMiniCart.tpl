@@ -5,7 +5,7 @@
                  version="1.1">
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-cart-2"></use>
             </svg>
-            <div class="header__cart-value hidden">{$total_count | round}</div>
+            <div class="header__cart-value hidden">{$unique_products | round}</div>
         </div>
         <span class="header__cart-text">Корзина</span>
     </a>
@@ -16,7 +16,7 @@
             <span class="header__info-val header__info-val_type_count-val">{$total_count | round}</span>
             <span class="header__info-val header__info-val_type_count-text">
                 {'@FILE snippets/formOfWord.php' | snippet : [
-                'n' => $total_count,
+                'n' => $total_count | round,
                 'f1' => 'товар',
                 'f2' => 'товара',
                 'f5' => 'товаров'
