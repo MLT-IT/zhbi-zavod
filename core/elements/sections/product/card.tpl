@@ -6,10 +6,7 @@
     {insert "file:blocks/set-values-for-prod.tpl"}
 
     {* Бренд / Производитель *}
-    {set $itemVendor = $_modx->resource['brand'][0]}
-    {if $itemVendor is empty}
-        {set $itemVendor = $_modx->resource['proizvoditel'][0]}
-    {/if}
+    {set $itemVendor = $_modx->resource['proizvoditel'][0]}
 
     {* Данные для добавления / изменения товара в корзине *}
     {set $prodId = $_modx->resource['id']}
