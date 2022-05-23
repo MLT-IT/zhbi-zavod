@@ -57,6 +57,10 @@
 {/block}
 
 {block "page"}
+    <div class="wrapper">
+        {include "file:blocks/topbar-search.tpl"}
+    </div>
+
     {include "file:sections/main/banner.tpl"}
 
     <div class="wrapper">

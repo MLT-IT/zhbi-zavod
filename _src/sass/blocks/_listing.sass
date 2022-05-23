@@ -114,6 +114,29 @@
         @at-root .ursa &
             background-image: url(/assets/template/img/catalog/icons/ursa.png)
 
+    &__filters-btn
+        display: none
+        justify-content: space-between
+        padding: 0
+        min-width: 120px
+        color: rgb(1, 92, 165)
+        font-size: 12px
+        font-family: "Arial", sans-serif
+        text-align: center
+        font-weight: bold
+        line-height: 0.9
+        margin-left: auto
+
+        @media screen and (max-width: 768px)
+            display: flex
+
+    &__filters-btn-icon
+        display: block
+        width: 23px
+        height: 20px
+        background: url(/assets/template/img/icon-filter-catalog-btn-toggle-controls.png) no-repeat center / contain
+        margin-left: 4px
+
     &__filter
         width: 260px
         transition: right .3s

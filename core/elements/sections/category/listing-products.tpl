@@ -12,10 +12,7 @@ data-single-dir - запретить менять направление сор�
     </div>
 
     <div class="listing__sort">
-        {*
-        <span class="listing__reset-filters">Сбросить фильтры</span>
-        *}
-
+        {* <span class="listing__reset-filters">Сбросить фильтры</span> *}
         <div id="mse2_sort" class="listing__sort-list"><span>Сортировать: </span>
             {if $_modx->resource.context_key in list ['pro-fanera', 'kirpich-m', 'plitaosb', 'plity-mdvp']}
                 <a href="#" data-sort="tv|HitsPage" data-dir="" data-default="desc" class="listing__sort-item min{if $.get.sort == 'tv|HitsPage'} active{/if}" data-single-dir="1">по популярности</a>
@@ -26,7 +23,7 @@ data-single-dir - запретить менять направление сор�
             {/if}
             <a href="#" data-sort="ms_product|pagetitle" data-dir="" data-default="desc" class="listing__sort-item_with-arrow listing__sort-item min{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if}">по алфавиту</a>
         </div>
-        <div class="listing__sort-select-container"> <span>Сортировать: </span>
+        <div class="listing__sort-select-container">{*<span>Сортировать: </span>*}
             <div class="listing__sort-select">
                 <select class="listing__sort-select-elem" name="sort">
                     <option value="1">по популярности</option>
@@ -46,6 +43,10 @@ data-single-dir - запретить менять направление сор�
             </svg>
         </div>
         *}
+
+        <button class="listing__filters-btn">
+            Выбор<br>по параметрам <span class="listing__filters-btn-icon"></span>
+        </button>
     </div>
     <div class="listing__products-list rows grid" id="mse2_results">
         {$results}

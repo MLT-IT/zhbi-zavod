@@ -49,7 +49,7 @@ function init(ImageZoom) {
             // Установка цены
             let price = $productItem.find('.js-product__price').attr('data-default');
             let priceNewVal = Number(amount * price).toFixed(2);
-            $('.product-card__price-val').text(functions.numberWithSpaces(priceNewVal));
+            $('.product-card__price-val_type_total').text(functions.numberWithSpaces(priceNewVal));
 
             if ($productItem.hasClass('js-product_with-discount')) {
                 let newPrice = $productItem.find('.js-product__new-price').attr('data-default');
@@ -68,7 +68,7 @@ function init(ImageZoom) {
         // Если товар есть в корзине, то надо пересчитать кол-во м2
         if ($proFaneraCard.find('.js-product-in-cart')) {
             let $amountM2 = $('.custom-counter__amount[data-purpose="m2"]');
-            $amountM2.val($amountM2.val() * $amountM2.attr('data-koeff'));
+            $amountM2.val(($amountM2.val() * $amountM2.attr('data-koeff')).toFixed(2));
         }
     }
 
@@ -96,8 +96,8 @@ function init(ImageZoom) {
     const $productCardImg = $(".zoom");
     if ($productCardImg.length) {
         ImageZoomInstance = new ImageZoom($productCardImg[0], {
-            fillContainer: true,
             height: 260,
+            width: 260,
             zoomWidth: 500,
             offset: {vertical: 0, horizontal: 10},
         });

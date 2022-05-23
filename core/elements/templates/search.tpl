@@ -9,6 +9,8 @@
 
 {block "page"}
     <div class="wrapper sect-search">
+        {include "file:blocks/topbar-search.tpl"}
+
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
         {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [

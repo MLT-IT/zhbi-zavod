@@ -91,6 +91,9 @@
         padding-bottom: 16px
         white-space: nowrap
 
+    &__topbar
+        width: 100%
+        align-self: flex-start
 
     &__nav
         margin-top: 0
@@ -369,7 +372,14 @@
 
         &_type
             &_mobile
+                display: none
                 margin-bottom: 10px
+
+                @media screen and (max-width: 768px)
+                    display: flex
+
+                .header__search
+                    flex-basis: 100%
 
     &__search
         flex-basis: 513px

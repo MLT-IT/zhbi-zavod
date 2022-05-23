@@ -261,6 +261,12 @@
                             <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
                         </div>
                     </div>
+                    {if $_modx->resource['massa'][0] > 0}
+                        <div class="product-card__controls-elem">
+                            <div class="product-card__side-panel-text">Вес, кг</div>
+                            <div class="product-card__controls-elem-input product-card__weight-val">{$_modx->resource['massa'][0]}</div>
+                        </div>
+                    {/if}
                 </div>
 
                 {include "file:chunks/card-info-relinking-btns-info.tpl"}
@@ -290,6 +296,12 @@
                             <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
                         </div>
                     </div>
+                    {if $_modx->resource['massa'][0] > 0}
+                        <div class="product-card__controls-elem">
+                            <div class="product-card__side-panel-text">Вес, кг</div>
+                            <div class="product-card__controls-elem-input product-card__weight-val">{$_modx->resource['massa'][0]}</div>
+                        </div>
+                    {/if}
                 </div>
 
                 {include "file:chunks/card-info-relinking-btns-info.tpl"}

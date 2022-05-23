@@ -1,15 +1,4 @@
 <div class="product-card__info-block">
-    {if $_modx->resource['massa'][0] > 0}
-        <div class="product-card__info-block-elem">
-            <div class="product-card__info-elem">
-                <div class="product-card__side-panel-text">Вес</div>
-            </div>
-            <div class="product-card__info-val">
-                <span class="product-card__weight-val">{$_modx->resource['massa'][0]}</span>
-                <span class="product-card__weight-unit">кг</span>
-            </div>
-        </div>
-    {/if}
     <div class="product-card__info-block-elem">
         <div class="product-card__info-elem">
             <div class="product-card__side-panel-text">Цена</div>
@@ -36,4 +25,34 @@
             {/if}
         </div>
     </div>
+
+
+    <div class="product-card__info-block-elem">
+        <div class="product-card__info-elem">
+            <div class="product-card__side-panel-text">Цена за м<sup>2</sup></div>
+        </div>
+        <div class="product-card__info-val product-card__info-val_content_price">
+            <div class="product-card__info-price js-product__price-wrap">
+                <span class="product-card__price-val">
+                    {($defaultPrice / $m2) | round | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
+                </span>
+                <span class="product-card__price-unit">руб</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card__info-block-elem">
+        <div class="product-card__info-elem">
+            <div class="product-card__side-panel-text">Общая сумма</div>
+        </div>
+        <div class="product-card__info-val product-card__info-val_content_price">
+            <div class="product-card__info-price js-product__price-wrap">
+                <span class="product-card__price-val product-card__price-val_type_total">
+                    {$outputPrice}
+                </span>
+                <span class="product-card__price-unit">руб</span>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -2,8 +2,9 @@
 
 {block "page"}
     <div class="wrapper">
-{include "file:blocks/breadcrumbs.tpl"}
-</div>
+        {include "file:blocks/breadcrumbs.tpl"}
+    </div>
+
     {insert "file:sections/contacts/contacts.tpl"}
     {* {include "file:sections/contacts/requisites.tpl"} *}
 

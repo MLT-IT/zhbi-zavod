@@ -29,8 +29,10 @@
             @media only screen and (max-width: 550px)
                 margin-bottom: 16px
 
+        &__specs-list-item
+            max-width: none
+
         &__main-specs
-            //flex-basis: 332px
             flex-basis: 100%
 
             #{$block}__specs-list-item
@@ -51,7 +53,7 @@
             padding: 16px 20px 16px 20px
             margin-top: -24px
 
-            @media only screen and (max-width: 810px)
+            @media only screen and (max-width: 1040px)
                 margin-top: 10px
                 margin-left: auto
                 margin-right: auto
@@ -101,6 +103,9 @@
             color: #323232
             font-weight: 500
 
+            sup
+                position: absolute
+
         &__relinking-items-wrap
             display: flex
             flex-wrap: wrap
@@ -127,8 +132,19 @@
                 margin-bottom: 10px
 
         &__controls-elem
+            margin-bottom: 10px
+
             &:nth-last-of-type(n+2)
-                margin-right: 16px
+                @media only screen and (min-width: 401px)
+                    margin-right: 16px
+
+            &:nth-of-type(1)
+                @media only screen and (max-width: 400px)
+                    margin-right: 16px
+
+            &:nth-of-type(3)
+                @media only screen and (max-width: 400px)
+                    width: 100%
 
             #{$block}__side-panel-text
                 margin-bottom: 8px
@@ -139,19 +155,24 @@
 
         &__controls-block
             display: flex
-            margin-bottom: 10px
+            flex-wrap: wrap
 
             .js-product__custom-counter
                 height: 40px
 
         &__info-block
             display: flex
-            margin-bottom: 28px
+            margin-bottom: 18px
+            flex-wrap: wrap
 
         &__info-block-elem
-            flex-basis: 50%
+            flex-basis: 33.33%
             flex-grow: 0
             flex-shrink: 0
+            margin-bottom: 10px
+
+            @media only screen and (max-width: 400px)
+                flex-basis: 50%
 
             #{$block}__info-elem
                 margin-bottom: 10px
@@ -159,7 +180,7 @@
         &__info-val
             font-weight: 800
             color: #3C3C3B
-            font-size: 24px
+            font-size: 16px
 
             &_content
                 &_price
@@ -208,7 +229,7 @@
             flex-direction: column
             flex-basis: 668px
 
-            @media only screen and (max-width: 810px)
+            @media only screen and (max-width: 1040px)
                 flex-basis: auto
 
         &__main-content-top
@@ -221,7 +242,7 @@
             width: 100%
 
         &__top
-            @media only screen and (max-width: 810px)
+            @media only screen and (max-width: 1040px)
                 flex-direction: column
 
         &__right-info

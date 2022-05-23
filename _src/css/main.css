@@ -6584,6 +6584,7 @@ a .breadcrumbs__val:hover {
 .listing__products-item-photo img {
     width: auto;
     max-width: 100%;
+    max-height: 100%;
 
     /*
     Закомментировал, т.к. на IPhone картинки становятся слишком высокими. И некрасиво растягиваются по высоте
@@ -7093,7 +7094,7 @@ a .breadcrumbs__val:hover {
     margin-bottom: 10px
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     .listing__sort-select-container {
         display: none
     }
