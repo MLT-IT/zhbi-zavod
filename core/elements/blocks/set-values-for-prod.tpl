@@ -75,6 +75,13 @@
     {set $meter =  $src['metrov-v-tonne'][0] | replace : ',' : '.'}
 {/if}
 
+{* Единицы измерения fasady-pro *}
+{if $src['context_key'] === 'fasady-pro'}
+    {set $m2 = ($src['obschaya-ploshad'][0] | replace : ',' : '.' | replace : ' ' : '') | replace : ',' : '.'}
+    {set $m3 =  (1 / ($src['kol-vokub-sh'][0] | replace : ',' : '.' | replace : ' ' : '')) | replace : ',' : '.'}
+    {set $upakovka = (1 / $src['v_upakovke'][0]) | replace : ',' : '.'}
+{/if}
+
 {* Цена за ... *}
 {set $unit = $src['unit']}
 {if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
@@ -92,7 +99,7 @@
   ИЛИ
 - Родитель должен быть Ондулином или Ондулином Смарт (это кровля)
 *}
-{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera']) &&
+{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro']) &&
 ($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
 
 {* Дробное добавление товара в корзину *}
@@ -137,4 +144,7 @@
 {/if}
 {if ($meter is not empty) && ($meter > 0)}
     {set $itemUnits['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10']}
+{/if}
+{if ($upakovka is not empty) && ($upakovka > 0)}
+    {set $itemUnits['upakovka'] = ['val' => $upakovka, 'title' => 'упаковка', 'id' => '11']}
 {/if}

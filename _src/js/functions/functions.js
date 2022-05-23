@@ -5,7 +5,6 @@
 export default {
     formOfWord,
     numberWithSpaces,
-    getActiveUnitValue,
     toggleText,
     trim,
     getActiveForm,
@@ -37,35 +36,6 @@ function numberWithSpaces(x) {
     x = parseFloat(x);
 
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-}
-
-// Получить значение активного unit
-function getActiveUnitValue($productItem) {
-    // Все единицы измерения
-    let unitValues = {
-        '1': 1,
-        '2': $productItem.attr('data-m2'),
-        '3': $productItem.attr('data-m3'),
-        '4': $productItem.attr('data-pm'),
-        '5': $productItem.attr('data-list'),
-        '6': $productItem.attr('data-thing'),
-        '7': $productItem.attr('data-pilomat_thing'),
-        '8': $productItem.attr('data-k_m2seam'),
-        '9': $productItem.attr('data-k_m3seam'),
-        '10': $productItem.attr('data-meter'),
-    };
-
-    // Обработка кол-ва единиц измерения
-    for (let key in unitValues) {
-        unitValues[key] = parseFloat(unitValues[key]);
-        if (isNaN(unitValues[key])) {
-            unitValues[key] = 0;
-        }
-    }
-
-    const unit = $productItem.find('*[name="unit"]').val();
-
-    return unitValues[unit];
 }
 
 // Поменять местами текст внутри тега с текстом внутри атрибута attr_1

@@ -275,7 +275,7 @@ function init(ImageZoom) {
             let $productItem = $this.closest('.js-product');
             let val = $this.attr('data-val');
             let $unit = $('[name="unit"]');
-            $productItem.attr('data-last-unit-value', functions.getActiveUnitValue($productItem));
+            $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
             $('.product-card__unit-link.active').removeClass('active');
             $this.addClass('active');
             $unit.val(val);
@@ -514,7 +514,7 @@ function changeCountItemInCart($productItem, forbidZero, $target) {
  * Получить кол-во товара, которое будет добавлено в корзину (зависит от выбранной единицы измерения).
  */
 function getItemCount($productItem, count) {
-    let unitVal = functions.getActiveUnitValue($productItem);
+    let unitVal = getActiveUnitValue($productItem);
     count = parseFloat(count);
 
     // Получившееся кол-во
@@ -539,7 +539,7 @@ function getItemCount($productItem, count) {
  * Смена цены в соответствии с ед. измерения.
  */
 function calcPrice($productItem) {
-    let unitVal = functions.getActiveUnitValue($productItem);
+    let unitVal = getActiveUnitValue($productItem);
     let selectors = [];
 
     selectors.push('.js-product__price');
@@ -630,7 +630,7 @@ function initStyledCounter() {
         let $select = $item.find('select.custom-select');
         $select.euv_custom_select();
         $select.on('beforeChange.euv_custom_select', function () {
-            $item.attr('data-last-unit-value', functions.getActiveUnitValue($item));
+            $item.attr('data-last-unit-value', getActiveUnitValue($item));
         });
 
         if (!$item.hasClass('cart-table__table-row_type_product')) {
@@ -714,7 +714,40 @@ function initStyledCounter() {
         // Удаляем у чанка класс о том, что чанк еще не инициализирован
         $item.removeClass('not-init');
     });
-};
+}
+
+
+/**
+ * Получить значение активного unit
+ */
+function getActiveUnitValue($productItem) {
+    // Все единицы измерения
+    let unitValues = {
+        '1': 1,
+        '2': $productItem.attr('data-m2'),
+        '3': $productItem.attr('data-m3'),
+        '4': $productItem.attr('data-pm'),
+        '5': $productItem.attr('data-list'),
+        '6': $productItem.attr('data-thing'),
+        '7': $productItem.attr('data-pilomat_thing'),
+        '8': $productItem.attr('data-k_m2seam'),
+        '9': $productItem.attr('data-k_m3seam'),
+        '10': $productItem.attr('data-meter'),
+        '11': $productItem.attr('data-upakovka'),
+    };
+
+    // Обработка кол-ва единиц измерения
+    for (let key in unitValues) {
+        unitValues[key] = parseFloat(unitValues[key]);
+        if (isNaN(unitValues[key])) {
+            unitValues[key] = 0;
+        }
+    }
+
+    const unit = $productItem.find('*[name="unit"]').val();
+
+    return unitValues[unit];
+}
 
 
 /**
@@ -733,7 +766,7 @@ function setStepAndAmount($item, dontChangeAmount) {
     let $activeFormInput = functions.getActiveForm($item)['action'].find('.custom-counter__amount');
 
     // Значение активной ед. измерения
-    let unitVal = functions.getActiveUnitValue($item);
+    let unitVal = getActiveUnitValue($item);
 
     // ---------------------------------------------
     // Устанавливаем новый шаг и новое число (если шаг изменился)
