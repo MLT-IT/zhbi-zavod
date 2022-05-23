@@ -761,6 +761,14 @@
             #{$property}: rgba(#ee8208, $opacity)
         @else
             #{$property}: #ee8208
+    @at-root .fasady-pro &
+        @if $dark
+            #{$property}: darken(#0b703e, $dark)
+        @else if $opacity
+            #{$property}: rgba(#0b703e, $opacity)
+        @else
+            #{$property}: #0b703e
+
 
 @mixin set_colors_2($property)
     @at-root .knauf &, .knauf
@@ -780,6 +788,8 @@
     @at-root .fasad &, .fasad
         #{$property}: #323232
     @at-root .pro-fanera &, .pro-fanera
+        #{$property}: #323232
+    @at-root .fasady-pro &, .fasady-pro
         #{$property}: #323232
 
 @mixin set_colors_3($property)
@@ -801,3 +811,5 @@
         #{$property}: #deb262
     @at-root .pro-fanera &
         #{$property}: #ee8208
+    @at-root .fasady-pro &
+        #{$property}: #0b703e

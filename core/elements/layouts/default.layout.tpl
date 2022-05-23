@@ -28,7 +28,7 @@
     {elseif $_modx->context.key == 'kirpich-m'}
         {set $site_class = 'rockwool kirpich-m'}
     {elseif $_modx->context.key == 'fasady-pro'}
-        {set $site_class = 'rockwool fasady-pro'}
+        {set $site_class = 'fasady-pro'}
     {elseif $_modx->context.key == 'fasad'}
         {set $site_class = 'fasad'}
     {elseif $_modx->resource.context_key == 'armatura-178'}
