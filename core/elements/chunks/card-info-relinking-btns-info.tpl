@@ -1,7 +1,7 @@
 <div class="product-card__info-block">
     <div class="product-card__info-block-elem">
         <div class="product-card__info-elem">
-            <div class="product-card__side-panel-text">Цена</div>
+            <div class="product-card__side-panel-text">Цена за лист</div>
         </div>
         <div class="product-card__info-val product-card__info-val_content_price">
             <div class="product-card__info-price js-product__price-wrap">
