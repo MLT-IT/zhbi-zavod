@@ -65,7 +65,7 @@
     {set $m2 = $src['ploshad_m2'][0] | replace : ',' : '.'}
 {/if}
 
-{* Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp) *}
+{* Единицы измерения для Ондулина и Ондулина Смарт (krovlya) *}
 {if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
     {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
 {/if}
@@ -80,6 +80,16 @@
     {set $m2 = ($src['obschaya-ploshad'][0] | replace : ',' : '.' | replace : ' ' : '') | replace : ',' : '.'}
     {set $m3 =  (1 / ($src['kol-vokub-sh'][0] | replace : ',' : '.' | replace : ' ' : '')) | replace : ',' : '.'}
     {set $upakovka = (1 / $src['v_upakovke'][0]) | replace : ',' : '.'}
+{/if}
+
+{* Единицы измерения krovlya *}
+{* Для Цементно-песчаная черепица (22596) и Керамическая черепица (22599) нужно вывести цену за м2 *}
+{if $src['context_key'] === 'krovlya' && $src['parent'] in list [22596,22599,66808,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66793,66809,66810,66811,66812,66813,66814,66857,66858,66859,66860,66861,66862,66865,66873,64851,22598,22600,64676,64679,64683,64690,64693,64768,64773,64780,64785,64797,64822,64846,22597,64854,64859,64868,66724,66725,66740,66747,66748,66768,66769,66770,66771,66772,66773]}
+    {set $length = $src['item_length'][0]}
+    {set $width = $src['item_width'][0]}
+    {if ($length is not empty) && ($width is not empty)}
+        {set $m2 = $length * $width / 1000000 | replace : ',' : '.'}
+    {/if}
 {/if}
 
 {* Цена за ... *}
@@ -99,7 +109,7 @@
   ИЛИ
 - Родитель должен быть Ондулином или Ондулином Смарт (это кровля)
 *}
-{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro']) &&
+{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya']) &&
 ($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
 
 {* Дробное добавление товара в корзину *}
