@@ -7,8 +7,15 @@
     <div class="assort__tabs">
         <div class="assort__sidebar">
             {set $isFirst = true}
+
             {foreach $items as $key => $val}
-                <span data-tab="{$val['id']}" class="assort__sidebar-item{if $isFirst?} active{/if}">
+                {if $val['svg-class'] ?}
+                    {set $svgClass = $val['svg-class']}
+                {else}
+                    {set $svgClass = 'svg-color-stroke'}
+                {/if}
+
+                <span data-tab="{$val['id']}" class="assort__sidebar-item{if $isFirst?} active{/if} {$svgClass}">
                     <svg class="assort__svg">
                         <use xlink:href="/assets/template/img/svg-sprite.svg#{$val['id']}"></use>
                     </svg>

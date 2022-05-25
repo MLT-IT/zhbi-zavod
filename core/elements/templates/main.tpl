@@ -75,7 +75,7 @@
 
     {include "file:sections/popular/sect-pop-main.tpl"}
 
-    {if $_modx->resource.context_key === 'kirpich-m'}
+    {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
         {include "file:sections/main/assort.tpl"}
     {else}
         {include "file:sections/main/catalog.tpl"}

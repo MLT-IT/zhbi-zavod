@@ -116,9 +116,26 @@
         &[data-tab="кладочные-смеси"]::before
             background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
 
-        &.active
+        &.svg-color-fill
             .assort__svg
-                stroke: #fff
+                fill: #3e3b3b
+                stroke: transparent
+                width: 35px
+                height: 35px
+
+        &.svg-color-stroke
+            .assort__svg
+                stroke: #B9B9B9
+                fill: transparent
+
+        &.active
+            &.svg-color-fill
+                .assort__svg
+                    fill: #fff
+
+            &.svg-color-stroke
+                .assort__svg
+                    stroke: #fff
 
         &:hover
             +set-colors_1(color)
@@ -237,7 +254,5 @@
     &__svg
         width: 24px
         height: 25px
-        stroke: #B9B9B9
-        fill: transparent
         margin-right: 12px
         transition: .3s
