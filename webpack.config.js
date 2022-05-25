@@ -122,7 +122,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://fasad.local/",
+                    target: "http://kirpich-m.local/",
                     secure: false,
                     changeOrigin: true
                 }
