@@ -200,7 +200,7 @@ switch ($modx->resource->context_key) {
             ],
             'Водосточная система' => [
                 'svg-class' => 'svg-color-fill',
-                'id' => 'assort-vodostoki',
+                'id' => 'assort-vodostoch',
                 'items' => [
                     'Водосточная система' => [
                         'uri' => '/vodostochnaya-sistema/',
