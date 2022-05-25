@@ -2,6 +2,12 @@
     <div class="wrapper">
         <div class="listing__content" id="mse2_mfilter">
 
+            {if $_modx->getPlaceholder('mspcs.option') ? || $_modx->getPlaceholder('mspcs.where') ?}
+                {set $isSeoPage = 1}
+            {else}
+                {set $isSeoPage = 0}
+            {/if}
+
             {set $params = [
                 'element' => 'msProducts',
                 'suggestionsMaxFilters' => 2000,
@@ -31,8 +37,7 @@
                 'setMeta' => 0,
 
                 'parents' => 'excludeIds' | snippet : [
-                                'optionVal' => $_modx->getPlaceholder('mspcs.option'),
-                                'whereVal' => $_modx->getPlaceholder('mspcs.where')
+                                'isSeoPage' => $isSeoPage,
                               ]
             ]}
 
