@@ -107,7 +107,6 @@ switch ($modx->resource->context_key) {
     case 'krovlya':
         $items = [
             'Черепица' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-cerepica',
                 'items' => [
                     'Ондулин' => [
@@ -142,7 +141,6 @@ switch ($modx->resource->context_key) {
                 ]
             ],
             'Натуральная черепица' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-natur-cerepica',
                 'items' => [
                     'Цементно-песчаная черепица' => [
@@ -164,7 +162,6 @@ switch ($modx->resource->context_key) {
                 ]
             ],
             'Кровельное покрытие' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-krovelnoepokrytie',
                 'items' => [
                     'Фальцевая кровля' => [
@@ -185,7 +182,6 @@ switch ($modx->resource->context_key) {
                 ]
             ],
             'Профнастил' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-proflist',
                 'items' => [
                     'Профилированный лист' => [
@@ -199,7 +195,6 @@ switch ($modx->resource->context_key) {
                 ]
             ],
             'Водосточная система' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-vodostoch',
                 'items' => [
                     'Водосточная система' => [
@@ -216,7 +211,6 @@ switch ($modx->resource->context_key) {
                 ]
             ],
             'Сопутствующие товары' => [
-                'svg-class' => 'svg-color-fill',
                 'id' => 'assort-soputtovary',
                 'items' => [
                     'Сопутствующие товары' => [
