@@ -40,7 +40,7 @@
     {elseif $_modx->resource.context_key == 'pro-fanera'}
         {set $site_class = 'pro-fanera'}
     {elseif $_modx->resource.context_key == 'plity-mdvp'}
-        {set $site_class = 'rockwool plity-mdvp'}
+        {set $site_class = 'fasady-pro plity-mdvp'}
     {/if}
 
     {* >>> favicon *}
