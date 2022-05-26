@@ -1,37 +1,20 @@
+import functions from "./functions";
+
 /**
  * Функции, относящиеся к шаблону Каталог (в основном работа с mFilter2).
  */
 export default {
     init,
     catalogSortFilters,
-    getRemainder
+    getRemainder,
+    wrapTitle
 };
 
 
 // Инициализация
 function init() {
-    // -------------------------------------------
-    // Перенос строки в названии в чанках товаров на pro-fanera
-    // -------------------------------------------
-    if ($('.pro-fanera').length) {
-        $('.listing__products-item .listing__products-item-title a').each(function (i, e) {
-            let $e = $(e);
-            let text = $e.text();
-            let sort = $e.closest('.listing__products-item').attr('data-sort');
-            // Добавляем перенос строки после сорта
-            if (sort && text.match(new RegExp(sort)) !== null) {
-                text = text.replace(new RegExp('(' + sort + ')\\s*'), '$1<br>');
-            }
-            // Если сорта в названии нет, то перенос надо делать после названия предмета
-            else {
-                text = text.replace(/([^\s]+\s+[^\s]+)\s?/, '$1<br>');
-            }
-
-            // Устанавливаем новое значение
-            $e.html(text);
-        });
-    }
-
+    // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
+    wrapTitle();
 
     // -------------------------------------------
     // Обработчик для раскрытия меню с фильтрами на мобилках
@@ -42,7 +25,7 @@ function init() {
 
         filterButton.addEventListener("click", handler);
 
-        $(document).on('click', function(e) {
+        $(document).on('click', function (e) {
             let $target = $(e.target);
             if ($(filter).hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
                 handler();
@@ -280,5 +263,34 @@ function getRemainder() {
 
         // Установка текста для кнопки
         $btnMore.text('Показать еще ' + remainder);
+    }
+}
+
+
+/**
+ * Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
+ */
+function wrapTitle() {
+    if ($('.pro-fanera, .plitaosb').length) {
+        $('.listing__products-item .listing__products-item-title a').each(function (i, e) {
+            let $e = $(e);
+            let text = $e.text();
+            let sort = $e.closest('.listing__products-item').attr('data-sort');
+            // Добавляем перенос строки после сорта
+            if (sort) {
+                sort = functions.escapeRegExp(sort);
+                if (text.match(new RegExp(sort)) !== null) {
+                    text = text.replace(new RegExp('(' + sort + ')\\s*'), '$1<br>');
+                }
+            }
+            // Если сорта в названии нет, то перенос надо делать после названия предмета
+            // Как вытащить из названия товара название продаваемого предмета? Как правило, название товара состоит из {Название предмета} {Сорт} {Размер}. Получается, перенос надо делать перед {Размер}. А размер - это следующее сочетание: числоХчисло или числоХчислоХчисло. Число может быть дробным. В качестве разделителя целой и дробной частей может быть как точка, так и запятая. В качестве разделителя чисел может быть как русская Х, так и английская X.
+            else {
+                text = text.replace(/(([0-9]+[.,])?[0-9]+[хx]([0-9]+[.,])?[0-9]+([хx]([0-9]+[.,])?[0-9]+)?)/, '<br>$1');
+            }
+
+            // Устанавливаем новое значение
+            $e.html(text);
+        });
     }
 }

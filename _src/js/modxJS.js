@@ -47,6 +47,7 @@ export default function modxJS(lazyLoadInstance) {
         funcsCatalog.getRemainder();
         funcsProduct.initStyledCounter();
         catalogH1FromGetParams();
+        funcsCatalog.wrapTitle();
 
         // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
         // funcsCatalog.catalogSortFilters();

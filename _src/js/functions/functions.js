@@ -10,7 +10,8 @@ export default {
     getActiveForm,
     getStep,
     getCorrectValueToCounter,
-    getSearchParameters
+    getSearchParameters,
+    escapeRegExp
 };
 
 // Склонение по числам
@@ -138,4 +139,15 @@ function transformToAssocArray(prmstr) {
         params[tmparr[0]] = tmparr[1];
     }
     return params;
+}
+
+/**
+ * Экранирует строку, чтобы сделать ее частью регулярного выражения
+ * https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+ *
+ * @param string
+ * @returns {*}
+ */
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
