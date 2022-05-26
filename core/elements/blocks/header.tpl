@@ -60,7 +60,17 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
+                {if $_modx->resource.context_key === 'plitaosb'}
+                    {*
+                    <picture>
+                        <source srcset="/assets/template/img/logos/plitaosb-mobile.png" media="(max-width: 768px)">
+                        <img class="header__logo" src="/assets/template/img/logos/plitaosb.png">
+                    </picture>
+                    *}
+                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
+                {else}
+                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
+                {/if}
             </a>
             <div class="header__catalog">
                 <div class="header__catalog-btn">
