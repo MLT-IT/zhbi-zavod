@@ -79,7 +79,7 @@
 {if $src['context_key'] === 'fasady-pro'}
     {set $m2 = ($src['obschaya-ploshad'][0] | replace : ',' : '.' | replace : ' ' : '') | replace : ',' : '.'}
     {set $m3 =  (1 / ($src['kol-vokub-sh'][0] | replace : ',' : '.' | replace : ' ' : '')) | replace : ',' : '.'}
-    {set $upakovka = (1 / $src['v_upakovke'][0]) | replace : ',' : '.'}
+    {set $upk = (1 / $src['v_upakovke'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения krovlya *}
@@ -155,6 +155,6 @@
 {if ($meter is not empty) && ($meter > 0)}
     {set $itemUnits['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10']}
 {/if}
-{if ($upakovka is not empty) && ($upakovka > 0)}
-    {set $itemUnits['upakovka'] = ['val' => $upakovka, 'title' => 'упаковка', 'id' => '11']}
+{if ($upk is not empty) && ($upk > 0)}
+    {set $itemUnits['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11']}
 {/if}

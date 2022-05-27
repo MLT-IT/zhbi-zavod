@@ -35,7 +35,7 @@ new Swiper(".product-card_type_relinking .product-card__gallery-slider", {
 });
 
 // Слайдер с популярными товарами и слайдер на странице сравнения
-new Swiper(".product-slider-1 .swiper-container", {
+let sliderPopCompare = new Swiper(".product-slider-1 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
@@ -47,7 +47,7 @@ new Swiper(".product-slider-1 .swiper-container", {
 });
 
 // Слайдер с недавно просмотренными товарами
-new Swiper(".product-slider-2 .swiper-container", {
+let sliderRecentlyViewed = new Swiper(".product-slider-2 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
@@ -59,7 +59,7 @@ new Swiper(".product-slider-2 .swiper-container", {
 });
 
 // Слайдер "Распродажа" на новой странице каталога
-new Swiper(".product-slider-3 .swiper-container", {
+let sliderSales = new Swiper(".product-slider-3 .swiper-container", {
     loop: false,
     slidesPerView: "auto",
     lazy: {loadPrevNext: true},
@@ -94,3 +94,23 @@ new Swiper(".listing__tags", {
         el: ".listing__tags .swiper-scrollbar"
     }
 });
+
+/**
+ * В браузерах на мобилках есть баг. См. скриншот:
+ * _dev/screenshots/photo_2022-05-26_17-55-36.jpg
+ *
+ * Данный код исправляет его.
+ */
+$(sliderPopCompare, sliderRecentlyViewed, sliderSales).each(function (i, e) {
+    if (e.slides) {
+        e.on('slideChange', setZIndexToSlides);
+        setZIndexToSlides(e);
+    }
+});
+
+function setZIndexToSlides(slider) {
+    let amount = slider.slides.length + 10;
+    slider.slides.each(function (e, i) {
+        $(e).css('z-index', amount - i);
+    });
+}

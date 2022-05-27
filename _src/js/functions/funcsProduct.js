@@ -733,7 +733,7 @@ function getActiveUnitValue($productItem) {
         '8': $productItem.attr('data-k_m2seam'),
         '9': $productItem.attr('data-k_m3seam'),
         '10': $productItem.attr('data-meter'),
-        '11': $productItem.attr('data-upakovka'),
+        '11': $productItem.attr('data-upk'),
     };
 
     // Обработка кол-ва единиц измерения
