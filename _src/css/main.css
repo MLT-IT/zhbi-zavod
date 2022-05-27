@@ -4940,6 +4940,16 @@ a .breadcrumbs__val:hover {
     object-fit: cover
 }
 
+.plity-mdvp .catalog__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plity-mdvp .catalog__card-img {
+    height: auto;
+}
+
 .catalog__card-title {
     display: flex;
     align-items: center;

@@ -119,7 +119,7 @@
         justify-content: space-between
         padding: 0
         min-width: 120px
-        color: rgb(1, 92, 165)
+        +set_colors_1(color)
         font-size: 12px
         font-family: "Arial", sans-serif
         text-align: center
@@ -134,8 +134,8 @@
         display: block
         width: 23px
         height: 20px
-        background: url(/assets/template/img/icon-filter-catalog-btn-toggle-controls.png) no-repeat center / contain
         margin-left: 4px
+        +set_colors_1(fill)
 
     &__filter
         width: 260px

@@ -45,7 +45,12 @@ data-single-dir - запретить менять направление сор�
         *}
 
         <button class="listing__filters-btn">
-            Выбор<br>по параметрам <span class="listing__filters-btn-icon"></span>
+            Выбор<br>по параметрам
+            <svg class="svg listing__filters-btn-icon" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 32 32" width="32"
+                 height="32">
+                <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-filter-catalog-btn-toggle-controls"></use>
+            </svg>
         </button>
     </div>
     <div class="listing__products-list rows grid" id="mse2_results">
