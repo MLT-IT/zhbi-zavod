@@ -577,8 +577,10 @@
         &:hover
             .listing__products-item-btns-wrap-inner
                 opacity: 1
-                max-height: 100px
-                padding: 21px 23px 21px 26px
+
+                @media screen and (max-width: 550px)
+                    max-height: 100px
+                    padding: 21px 23px 21px 26px
 
         @media screen and (max-width: 550px)
             width: auto

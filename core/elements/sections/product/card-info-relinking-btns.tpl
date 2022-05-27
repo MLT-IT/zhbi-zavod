@@ -1,6 +1,12 @@
 {* Данные для перелинковки *}
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
+{if $_modx->resource.context_key === 'plity-mdvp'}
+    {set $coeff = $list}
+{else}
+    {set $coeff = $m2}
+{/if}
+
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
         {* Выводим data-атрибуты *}
         {foreach $itemUnits as $key => $val}
@@ -258,7 +264,7 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$coeff}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
@@ -293,7 +299,7 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
+                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$coeff}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
