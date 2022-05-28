@@ -6,11 +6,7 @@
         <div class="product-card__info-val product-card__info-val_content_price">
             <div class="product-card__info-price js-product__price-wrap">
                 <span class="product-card__price-val">
-                    {if $_modx->resource.context_key === 'plity-mdvp'}
-                        {($defaultPrice / $coeff) | ceil | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
-                    {else}
-                        {$outputPrice}
-                    {/if}
+                    {$outputPrice}
                 </span>
                 <span class="product-card__price-unit">руб</span>
             </div>
@@ -38,11 +34,7 @@
         <div class="product-card__info-val product-card__info-val_content_price">
             <div class="product-card__info-price js-product__price-wrap">
                 <span class="product-card__price-val">
-                    {if $_modx->resource.context_key === 'plity-mdvp'}
-                        {$outputPrice}
-                    {else}
-                        {($defaultPrice / $coeff) | ceil | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
-                    {/if}
+                    {($defaultPrice / $m2) | ceil | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
                 </span>
                 <span class="product-card__price-unit">руб</span>
             </div>
