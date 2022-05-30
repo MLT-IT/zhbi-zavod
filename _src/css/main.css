@@ -5542,11 +5542,6 @@ a .breadcrumbs__val:hover {
     margin-bottom: 44px
 }
 
-.clients .swiper-buttons {
-    opacity: 0;
-    visibility: hidden
-}
-
 .clients__list {
     width: 100%;
     margin: 36px 0 0
@@ -5555,7 +5550,6 @@ a .breadcrumbs__val:hover {
 .clients__list-img {
     width: -webkit-max-content;
     width: max-content;
-    margin-bottom: 16px;
     max-width: 100%
 }
 
@@ -7131,6 +7125,11 @@ a .breadcrumbs__val:hover {
 }
 
 @media screen and (min-width: 1350px) {
+    .clients .swiper-buttons {
+        opacity: 0;
+        visibility: hidden
+    }
+
     .clients__list {
         overflow: visible;
         overflow: initial
@@ -7141,6 +7140,10 @@ a .breadcrumbs__val:hover {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-around
+    }
+
+    .clients__list-img {
+        margin-bottom: 16px;
     }
 }
 
@@ -7471,11 +7474,6 @@ a .breadcrumbs__val:hover {
         line-height: 130%;
         text-align: center;
         font-size: 20px
-    }
-
-    .clients .swiper-buttons {
-        opacity: 1;
-        visibility: visible
     }
 
     .map__container {

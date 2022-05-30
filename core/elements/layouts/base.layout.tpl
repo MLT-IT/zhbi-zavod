@@ -1,6 +1,7 @@
 {$_modx->runSnippet('@FILE snippets/pushViewedProduct.php')}
 
 {switch $_modx->context.key}
+    {* Утеплители *}
     {case 'web'}
         {set $brand = 'Кнауф'}
     {case 'rockwool'}
@@ -15,6 +16,27 @@
         {set $brand = 'Парок'}
     {case 'ursa'}
         {set $brand = 'Урса'}
+    {* Остальное *}
+    {case 'krovlya'}
+        {set $brand = 'Кровельная компания №1'}
+    {case 'kirpich-m'}
+        {set $brand = 'КирпичПро'}
+    {case 'fasady-pro'}
+        {set $brand = 'ЛЕССНАБСТРОЙ'}
+    {case 'fasad'}
+        {set $brand = 'Мир Фасада'}
+    {case 'armatura-178'}
+        {set $brand = 'АрматураПРО'}
+    {case 'asconcrete'}
+        {set $brand = 'АсфальтПРО'}
+    {case 'pilomat'}
+        {set $brand = 'ЛЕССНАБСТРОЙ'}
+    {case 'plitaosb'}
+        {set $brand = 'OSB здесь!'}
+    {case 'pro-fanera'}
+        {set $brand = 'Фанера ПРО'}
+    {case 'plity-mdvp'}
+        {set $brand = 'Плиты МДВП'}
 {/switch}
 
 {$_modx->setPlaceholder('brand', $brand)}
