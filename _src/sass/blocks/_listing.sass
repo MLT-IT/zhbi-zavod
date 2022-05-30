@@ -129,7 +129,7 @@
         line-height: 0.9
         margin-left: auto
 
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 1200px)
             display: flex
 
     &__filters-btn-icon
@@ -187,9 +187,6 @@
                 margin-bottom: 16px
 
         &.active
-            @media screen and (max-width: 1200px)
-                padding-bottom: 16px
-
             .listing__filter-block-content
                 max-height: 344px
                 opacity: 1
@@ -197,6 +194,7 @@
 
                 @media screen and (max-width: 1200px)
                     padding-bottom: 0
+                    max-height: 3000px
 
 
             .listing__filter-block-arrow
@@ -248,6 +246,9 @@
         padding: 16px
         transition: .3s
         border-radius: 8px
+
+        @media screen and (max-width: 1999px)
+            border-radius: 0
 
         &:hover
             background-color: #f0f0f0

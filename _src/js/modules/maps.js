@@ -21,6 +21,8 @@ export default function add_cover_to_map(map_container)
 		if (!is_cover_visible)
 		{
 			mapScrollCover.innerText    = MAP_COVER_TEXT;
+
+			/*
 			mapScrollCover.style.width  = map_container.offsetWidth + 'px';
 			mapScrollCover.style.height = map_container.offsetHeight + 'px';
 
@@ -34,6 +36,7 @@ export default function add_cover_to_map(map_container)
 				mapScrollCover.style.left = map_container.offsetLeft + 'px';
 				mapScrollCover.style.top  = map_container.offsetTop + 'px';
 			}
+            */
 
 			mapScrollCover.classList.add(MAP_COVER_CLASS_VISIBLE);
 		}
