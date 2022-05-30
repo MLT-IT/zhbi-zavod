@@ -5,34 +5,37 @@
 
         {* Первая вкладка (Основная) *}
         <div class="header__nav-content header__nav-content_type_main active" data-key="home">
-            {* Заголовок *}
-            <div class="header__nav-text">
-                Поставка
-                {if $_modx->context.key == 'krovlya'}
-                    кровли
-                {elseif $_modx->context.key == 'pilomat'}
-                    пиломатериалов
-                {elseif $_modx->context.key == 'kirpich-m'}
-                    кирпича
-                {elseif $_modx->context.key == 'fasady-pro'}
-                    деревянных фасадов
-                {elseif $_modx->context.key == 'fasad'}
-                    фасадов
-                {elseif $_modx->context.key == 'armatura-178'}
-                    арматуры
-                {elseif $_modx->context.key == 'asconcrete'}
-                    асфальтобетона
-                {elseif $_modx->context.key == 'plitaosb'}
-                    плит ОСБ
-                {elseif $_modx->context.key == 'pro-fanera'}
-                    фанеры
-                {elseif $_modx->context.key == 'plity-mdvp'}
-                    плит МДВП
-                {else}
-                    утеплителя {$brand}
-                {/if}
-                по Санкт-Петербургу и Ленинградской области
-            </div>
+
+            {if $_modx->getPlaceholder('utm_city') is empty}
+                {* Заголовок *}
+                <div class="header__nav-text">
+                    Поставка
+                    {if $_modx->context.key == 'krovlya'}
+                        кровли
+                    {elseif $_modx->context.key == 'pilomat'}
+                        пиломатериалов
+                    {elseif $_modx->context.key == 'kirpich-m'}
+                        кирпича
+                    {elseif $_modx->context.key == 'fasady-pro'}
+                        деревянных фасадов
+                    {elseif $_modx->context.key == 'fasad'}
+                        фасадов
+                    {elseif $_modx->context.key == 'armatura-178'}
+                        арматуры
+                    {elseif $_modx->context.key == 'asconcrete'}
+                        асфальтобетона
+                    {elseif $_modx->context.key == 'plitaosb'}
+                        плит ОСБ
+                    {elseif $_modx->context.key == 'pro-fanera'}
+                        фанеры
+                    {elseif $_modx->context.key == 'plity-mdvp'}
+                        плит МДВП
+                    {else}
+                        утеплителя {$brand}
+                    {/if}
+                    по Санкт-Петербургу и Ленинградской области
+                </div>
+            {/if}
 
             {* Кнопка Каталог *}
             <span class="header__nav-header header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_1" data-key="catalog">

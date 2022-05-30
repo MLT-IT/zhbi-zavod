@@ -15,41 +15,56 @@
         <div class="header__line header__line_type_about">
             <div class="header__about">
                 <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
-                <div class="header__about-text">
-                    Поставка
-                    {if $_modx->context.key == 'krovlya'}
-                        кровли
-                    {elseif $_modx->context.key == 'pilomat'}
-                        пиломатериалов
-                    {elseif $_modx->context.key == 'kirpich-m'}
-                        кирпича
-                    {elseif $_modx->context.key == 'fasady-pro'}
-                        деревянных фасадов
-                    {elseif $_modx->context.key == 'fasad'}
-                        фасадов
-                    {elseif $_modx->context.key == 'armatura-178'}
-                        арматуры
-                    {elseif $_modx->context.key == 'asconcrete'}
-                        асфальтобетона
-                    {elseif $_modx->context.key == 'plitaosb'}
-                        плит ОСБ
-                    {elseif $_modx->context.key == 'pro-fanera'}
-                        фанеры
-                    {elseif $_modx->context.key == 'plity-mdvp'}
-                        плит МДВП
-                    {else}
-                        утеплителя {$brand}
-                    {/if}
-                    по Санкт-Петербургу и Ленинградской области
-                </div>
+
+                {if $_modx->getPlaceholder('utm_city') is empty}
+                    <div class="header__about-text">
+                        Поставка
+                        {if $_modx->context.key == 'krovlya'}
+                            кровли
+                        {elseif $_modx->context.key == 'pilomat'}
+                            пиломатериалов
+                        {elseif $_modx->context.key == 'kirpich-m'}
+                            кирпича
+                        {elseif $_modx->context.key == 'fasady-pro'}
+                            деревянных фасадов
+                        {elseif $_modx->context.key == 'fasad'}
+                            фасадов
+                        {elseif $_modx->context.key == 'armatura-178'}
+                            арматуры
+                        {elseif $_modx->context.key == 'asconcrete'}
+                            асфальтобетона
+                        {elseif $_modx->context.key == 'plitaosb'}
+                            плит ОСБ
+                        {elseif $_modx->context.key == 'pro-fanera'}
+                            фанеры
+                        {elseif $_modx->context.key == 'plity-mdvp'}
+                            плит МДВП
+                        {else}
+                            утеплителя {$brand}
+                        {/if}
+                        по Санкт-Петербургу и Ленинградской области
+                    </div>
+                {/if}
+
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
             <div class="header__contacts">
-                <div class="header__contacts-city">{'address' | option}</div>
+                <div class="header__contacts-city">
+                    {if $_modx->getPlaceholder('utm_city')['icase'] ?}
+                        {$_modx->getPlaceholder('utm_city')['icase']}
+                    {else}
+                        {'address' | option}
+                    {/if}
+                </div>
                 <div class="header__contacts-time">Часы работы: с 8:00 до 21:00</div>
             </div>
             <div class="header__callback-wrap">
-                <a class="header__phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
+                {if $_modx->getPlaceholder('utm_city')['icase'] ?}
+                    {set $phone = '+7 (812) 200-48-39'}
+                {else}
+                    {set $phone = '!utm' | snippet : ['val' => 'phone']}
+                {/if}
+                <a class="header__phone" href="tel:{$phone}">{$phone}</a>
                 <a data-btn-key="header-link" class="header__callback" data-fancybox="" href="#callback">
                     <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>

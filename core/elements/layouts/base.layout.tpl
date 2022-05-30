@@ -21,6 +21,7 @@
 
 {'!checkHost' | snippet}
 {'!checkItems' | snippet}
+{$_modx->setPlaceholder('utm_city', '!utm' | snippet : ['val' => 'city'])}
 
 <!doctype html>
 <html lang="ru">
