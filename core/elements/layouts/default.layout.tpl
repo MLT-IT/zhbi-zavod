@@ -38,7 +38,7 @@
     {elseif $_modx->resource.context_key == 'plitaosb'}
         {set $site_class = 'rockwool plitaosb'}
     {elseif $_modx->resource.context_key == 'pro-fanera'}
-        {set $site_class = 'pro-fanera'}
+        {set $site_class = 'knauf pro-fanera'}
     {elseif $_modx->resource.context_key == 'plity-mdvp'}
         {set $site_class = 'fasady-pro plity-mdvp'}
     {/if}
