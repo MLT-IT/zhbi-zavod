@@ -42,10 +42,10 @@ WHERE `key` = 'http_host' AND context_key = 'fasady-pro';
 
 -- fasad
 UPDATE modx_context_setting
-SET `value` = 'http://fasad.skderdom.beget.tech/'
+SET `value` = 'http://www-fasad.skderdom.beget.tech/'
 WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'fasad');
 UPDATE modx_context_setting
-SET `value` = 'fasad.skderdom.beget.tech'
+SET `value` = 'www-fasad.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'fasad';
 
 -- armatura-178
