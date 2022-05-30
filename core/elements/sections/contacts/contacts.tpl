@@ -1,6 +1,6 @@
 <section class="contacts">
     <div class="wrapper">
-        <div class="contacts__left" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div class="contacts__left{if $_modx->resource.context_key === 'pilomat'} contacts__left_width_full{/if}" itemscope itemtype="http://schema.org/LocalBusiness">
             <h1 class="title-1 contacts__title">Контакты</h1>
 
             {* >>> meta *}
@@ -48,10 +48,12 @@
                 <a class="contacts__callback custom-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
             </div>
         </div>
-        <div class="contacts__map">
-            <div class="map__container">
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abfd296294102bdce3e6b7d6aa53834630ca08e070f70374c9375fe45b57664ba&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        {if $_modx->resource.context_key !== 'pilomat'}
+            <div class="contacts__map">
+                <div class="map__container">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abfd296294102bdce3e6b7d6aa53834630ca08e070f70374c9375fe45b57664ba&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
             </div>
-        </div>
+        {/if}
     </div>
 </section>
