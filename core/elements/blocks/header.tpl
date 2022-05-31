@@ -16,35 +16,33 @@
             <div class="header__about">
                 <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
 
-                {if $_modx->getPlaceholder('utm_city') is empty}
-                    <div class="header__about-text">
-                        Поставка
-                        {if $_modx->context.key == 'krovlya'}
-                            кровли
-                        {elseif $_modx->context.key == 'pilomat'}
-                            пиломатериалов
-                        {elseif $_modx->context.key == 'kirpich-m'}
-                            кирпича
-                        {elseif $_modx->context.key == 'fasady-pro'}
-                            деревянных фасадов
-                        {elseif $_modx->context.key == 'fasad'}
-                            фасадов
-                        {elseif $_modx->context.key == 'armatura-178'}
-                            арматуры
-                        {elseif $_modx->context.key == 'asconcrete'}
-                            асфальтобетона
-                        {elseif $_modx->context.key == 'plitaosb'}
-                            плит ОСБ
-                        {elseif $_modx->context.key == 'pro-fanera'}
-                            фанеры
-                        {elseif $_modx->context.key == 'plity-mdvp'}
-                            плит МДВП
-                        {else}
-                            утеплителя {$brand}
-                        {/if}
-                        по Санкт-Петербургу и Ленинградской области
-                    </div>
-                {/if}
+                <div class="header__about-text">
+                    Поставка
+                    {if $_modx->context.key == 'krovlya'}
+                        кровли
+                    {elseif $_modx->context.key == 'pilomat'}
+                        пиломатериалов
+                    {elseif $_modx->context.key == 'kirpich-m'}
+                        кирпича
+                    {elseif $_modx->context.key == 'fasady-pro'}
+                        деревянных фасадов
+                    {elseif $_modx->context.key == 'fasad'}
+                        фасадов
+                    {elseif $_modx->context.key == 'armatura-178'}
+                        арматуры
+                    {elseif $_modx->context.key == 'asconcrete'}
+                        асфальтобетона
+                    {elseif $_modx->context.key == 'plitaosb'}
+                        плит ОСБ
+                    {elseif $_modx->context.key == 'pro-fanera'}
+                        фанеры
+                    {elseif $_modx->context.key == 'plity-mdvp'}
+                        плит МДВП
+                    {else}
+                        утеплителя {$brand}
+                    {/if}
+                    по Санкт-Петербургу и Ленинградской области
+                </div>
 
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
@@ -186,18 +184,28 @@
         </div>
 
         <div class="header__nav-list">
-            <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
-
+            {set $about = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'o-kompanii']}
+            {set $garantii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'garantii']}
             {set $certs = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'certs']}
             {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
             {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
-            {if $certs->hidemenu == 0}
+
+            {if $about->hidemenu == 0 && $about->published == 1}
+                <span class="header__nav-item"><a class="header__nav-link" href="/o-kompanii/">О компании</a></span>
+            {/if}
+
+            <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
+
+            {if $certs->hidemenu == 0 && $certs->published == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
             {/if}
-            {if $faq->hidemenu == 0}
+            {if $faq->hidemenu == 0 && $faq->published == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/faq/">Вопросы-ответы</a></span>
             {/if}
-            {if $akcii->hidemenu == 0}
+            {if $garantii->hidemenu == 0 && $garantii->published == 1}
+                <span class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></span>
+            {/if}
+            {if $akcii->hidemenu == 0 && $akcii->published == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
             {/if}
 
