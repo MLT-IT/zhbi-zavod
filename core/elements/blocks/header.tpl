@@ -50,8 +50,8 @@
             </div>
             <div class="header__contacts">
                 <div class="header__contacts-city">
-                    {if $_modx->getPlaceholder('utm_city')['icase'] ?}
-                        {$_modx->getPlaceholder('utm_city')['icase']}
+                    {if $_modx->getPlaceholder('utm_city')['address'] ?}
+                        {$_modx->getPlaceholder('utm_city')['address']}
                     {else}
                         {'address' | option}
                     {/if}

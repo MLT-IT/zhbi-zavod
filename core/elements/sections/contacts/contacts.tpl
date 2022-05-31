@@ -34,8 +34,8 @@
                 <li class="contacts__item contacts__item_content_address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <div class="contacts__item-key"><span>Адрес</span></div>
                     <div class="contacts__item-value" itemprop="streetAddress">
-                        {if $_modx->getPlaceholder('utm_city')['icase'] ?}
-                            {$_modx->getPlaceholder('utm_city')['icase']}
+                        {if $_modx->getPlaceholder('utm_city')['address'] ?}
+                            {$_modx->getPlaceholder('utm_city')['address']}
                         {else}
                             {'address' | option}
                         {/if}

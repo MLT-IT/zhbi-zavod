@@ -20,7 +20,7 @@
         <div class="wrapper">
             <article class="content-block">
                 {if $_modx->getPlaceholder('utm_city')['dcase'] ?}
-                    {$_modx->resource.content | replace : 'Санкт-Петербургу и Ленинградской области' : ($_modx->getPlaceholder('utm_city')['dcase'] ~ ' району')}
+                    {$_modx->resource.content | replace : 'Санкт-Петербургу и Ленинградской области' : ($_modx->getPlaceholder('utm_city')['dcase'])}
                 {else}
                     {$_modx->resource.content}
                 {/if}
