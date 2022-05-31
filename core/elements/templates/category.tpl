@@ -10,14 +10,24 @@
     </div>
     <div class="wrapper">
         <h1 class="title-1 category-header asfs">
-            {if $_modx->getPlaceholder('utm_city')['pcase'] ?}
-                {set $catalogTitle = $_modx->resource.pagetitle | replace : 'Санкт-Петербурге' : ($_modx->getPlaceholder('utm_city')['pcase'])}
-                {$catalogTitle}
-                {if $catalogTitle === $_modx->resource.pagetitle}
-                    {* Замены не произошло, следовательно, нужно добавить текст про район *}
-                    в {$_modx->getPlaceholder('utm_city')['pcase']}
+
+            {* В каталоге для utm с городом нужно выводить другой h1 *}
+            {if $_modx->resource.template === 4}
+                {set $utm_city = '!utm' | snippet : ['val' => 'city']}
+
+                {if $utm_city['pcase'] ?}
+                    {set $catalogTitle = $_modx->resource.pagetitle | replace : 'Санкт-Петербурге' : $utm_city['pcase']}
+                    {$catalogTitle | replace : 'Каталог' : 'Продажа'}
+                    {if $catalogTitle === $_modx->resource.pagetitle}
+                        {* Замены не произошло, следовательно, нужно добавить текст про город *}
+                        в {$utm_city['pcase']}
+                    {/if}
+                {else}
+                    {* utm_city нет, выводим как есть *}
+                    {$_modx->resource.pagetitle}
                 {/if}
             {else}
+                {* Это не каталог, а категория (или что-то еще), выводим как есть *}
                 {$_modx->resource.pagetitle}
             {/if}
 

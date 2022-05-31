@@ -2,7 +2,7 @@
 <div class="mobile-sticky-header"></div>
 <div class="mobile-header"></div>
 
-{* Эта переменная используется не только тут, но и в chunks/mobileMenu.tpl. Так что повнимательнее, если захочшеь удалить ее *}
+{* Эта переменная используется не только тут, но и в chunks/mobileMenu.tpl. Так что повнимательнее, если захочешь удалить ее *}
 {set $menuIsSimple = $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'armatura-178', 'plitaosb', 'fasad']}
 
 <header class="header">
@@ -14,7 +14,7 @@
         </span>
         <div class="header__line header__line_type_about">
             <div class="header__about">
-                <a class="header__about-phone" href="tel:{'!utm' | snippet : ['val' => 'phone']}">{'!utm' | snippet : ['val' => 'phone']}</a>
+                <a class="header__about-phone" href="tel:{'phone' | option}">{'phone' | option}</a>
 
                 <div class="header__about-text">
                     Поставка
@@ -48,21 +48,12 @@
             </div>
             <div class="header__contacts">
                 <div class="header__contacts-city">
-                    {if $_modx->getPlaceholder('utm_city')['address'] ?}
-                        {$_modx->getPlaceholder('utm_city')['address']}
-                    {else}
-                        {'address' | option}
-                    {/if}
+                    {'address' | option}
                 </div>
                 <div class="header__contacts-time">Часы работы: с 8:00 до 21:00</div>
             </div>
             <div class="header__callback-wrap">
-                {if $_modx->getPlaceholder('utm_city')['icase'] ?}
-                    {set $phone = '+7 (812) 200-48-39'}
-                {else}
-                    {set $phone = '!utm' | snippet : ['val' => 'phone']}
-                {/if}
-                <a class="header__phone" href="tel:{$phone}">{$phone}</a>
+                <a class="header__phone" href="tel:{'phone' | option}">{'phone' | option}</a>
                 <a data-btn-key="header-link" class="header__callback" data-fancybox="" href="#callback">
                     <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>
@@ -211,8 +202,8 @@
 
             <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
 
-            <a class="header__email" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
-                {'!utm' | snippet : ['val' => 'email']}
+            <a class="header__email" href="mailto:{'email' | option}">
+                {'email' | option}
             </a>
         </div>
 

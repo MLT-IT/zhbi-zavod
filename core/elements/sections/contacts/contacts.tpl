@@ -1,6 +1,8 @@
+{set $utm_city = '!utm' | snippet : ['val' => 'city']}
+
 <section class="contacts">
     <div class="wrapper">
-        <div class="contacts__left{if $_modx->getPlaceholder('utm_city') ?} contacts__left_width_full{/if}" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div class="contacts__left{if $utm_city['icase'] ?} contacts__left_width_full{/if}" itemscope itemtype="http://schema.org/LocalBusiness">
             <h1 class="title-1 contacts__title">Контакты</h1>
 
             {* >>> meta *}
@@ -13,8 +15,8 @@
             <ul class="contacts__list">
                 <li class="contacts__item">
                     <div class="contacts__item-key"><span>Отдел продаж</span></div>
-                    <a class="contacts__item-value" href="tel:{'!utm' | snippet : ['val' => 'phone']}">
-                        <span itemprop="telephone">{'!utm' | snippet : ['val' => 'phone']}</span>
+                    <a class="contacts__item-value" href="tel:{'phone' | option}">
+                        <span itemprop="telephone">{'phone' | option}</span>
                     </a>
                 </li>
                 <li class="contacts__item">
@@ -27,18 +29,14 @@
                 </li>
                 <li class="contacts__item">
                     <div class="contacts__item-key"><span>E-mail для заявок</span></div>
-                    <a class="contacts__item-value" href="mailto:{'!utm' | snippet : ['val' => 'email']}">
-                        <span itemprop="email">{'!utm' | snippet : ['val' => 'email']}</span>
+                    <a class="contacts__item-value" href="mailto:{'email' | option}">
+                        <span itemprop="email">{'email' | option}</span>
                     </a>
                 </li>
                 <li class="contacts__item contacts__item_content_address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <div class="contacts__item-key"><span>Адрес</span></div>
                     <div class="contacts__item-value" itemprop="streetAddress">
-                        {if $_modx->getPlaceholder('utm_city')['address'] ?}
-                            {$_modx->getPlaceholder('utm_city')['address']}
-                        {else}
-                            {'address' | option}
-                        {/if}
+                        {'address' | option}
                     </div>
                 </li>
             </ul>
@@ -54,7 +52,7 @@
                 <a class="contacts__callback custom-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
             </div>
         </div>
-        {if $_modx->getPlaceholder('utm_city') is empty}
+        {if $utm_city['icase'] is empty}
             <div class="contacts__map">
                 <div class="map__container">
                     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abfd296294102bdce3e6b7d6aa53834630ca08e070f70374c9375fe45b57664ba&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>

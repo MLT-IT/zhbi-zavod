@@ -10,16 +10,7 @@
     </div>
     <div class="wrapper">
         <h1 class="title-1 category-header asfs">
-            {if $_modx->getPlaceholder('utm_city')['pcase'] ?}
-                {set $catalogTitle = $_modx->resource.pagetitle | replace : 'Санкт-Петербурге' : ($_modx->getPlaceholder('utm_city')['pcase'])}
-                {$catalogTitle}
-                {if $catalogTitle === $_modx->resource.pagetitle}
-                    {* Замены не произошло, следовательно, нужно добавить текст про район *}
-                    в {$_modx->getPlaceholder('utm_city')['pcase']}
-                {/if}
-            {else}
-                {$_modx->resource.pagetitle}
-            {/if}
+            {$_modx->resource.pagetitle}
 
             <span class="category-header__inner-text">{'!textFromGetParams' | snippet}</span>
         </h1>
