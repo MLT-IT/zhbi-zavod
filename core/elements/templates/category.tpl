@@ -33,7 +33,10 @@
             </article>
         </div>
     {/if}
-    {include "file:sections/certs.tpl"}
+
+    {if $_modx->resource.template === 5}
+        {include "file:sections/certs.tpl"}
+    {/if}
     {include "file:sections/faq.tpl"}
     {include "file:sections/payment.tpl"}
     {include "file:sections/advantages.tpl"}

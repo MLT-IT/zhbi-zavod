@@ -50,7 +50,6 @@
             </article>
         </div>
     {/if}
-    {include "file:sections/certs.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/payment.tpl"}
     {include "file:sections/advantages.tpl"}

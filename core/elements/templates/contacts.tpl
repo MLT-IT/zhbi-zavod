@@ -16,7 +16,6 @@
         </div>
     {/if}
 
-    {include "file:sections/certs.tpl"}
     {include "file:sections/districts-map.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/steps.tpl"}

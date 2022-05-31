@@ -1,4 +1,4 @@
-{set $certs = $_modx->resource.mainCerts}
+{set $certs = ('site_start' | option) | resource: 'mainCerts'}
 {set $certs = json_decode($certs, true)}
 
 {if $certs | count > 0}
