@@ -121,18 +121,28 @@
             <div class="sect-cart__footer">
                 <div class="sect-cart__footer-content">
                     <a href="#" class="sect-cart__btn-print">Распечатать смету</a>
-                    <p class="sect-cart__total-count-wrap">Всего <span class="sect-cart__total-count ms2_total_count">{$total.count | replace : ',' : '.'}</span> товара на сумму:</p>
-
+                    <p class="sect-cart__total-count-wrap">
+                        {set $count = $total.count | replace : ',' : '.'}
+                        Всего
+                        <span class="sect-cart__total-count ms2_total_count">{$count}</span>
+                        <span class="ms2_total_count_text">
+                            {'formOfWord' | snippet : [
+                                'n' => $count,
+                                'f1' => 'товар',
+                                'f2' => 'товара',
+                                'f5' => 'товаров'
+                            ]}
+                        </span>
+                        на сумму:
+                    </p>
                     <p class="sect-cart__cost">
                         <span class="ms2_total_cost">{$total.cost}</span>
                         <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
-
                     <p class="sect-cart__old-cost">
-                        <span class="ms2_total_cost">{$total.old_cost}</span>
+                        <span class="ms2_total_old_cost">{$total.old_cost}</span>
                         <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
-
                     <p class="sect-cart__delivery">Без учёта стоимости доставки</p>
                 </div>
             </div>

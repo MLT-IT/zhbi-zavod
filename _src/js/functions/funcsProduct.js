@@ -239,7 +239,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
         }
     };
 
@@ -247,7 +247,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
 
             checkCart(response.data.total_cost);
         }
@@ -257,7 +257,7 @@ function init(ImageZoom) {
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost);
+            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
 
             checkCart(response.data.total_cost);
         }
@@ -584,12 +584,14 @@ function checkCart(total_count) {
 /**
  * Работа с миникорзиной в шапке сайта (изменить кол-во, скрыть номерок, если товаров 0, показать номерок в противном случае).
  */
-function handleMiniCart(unique_products, count, cost) {
+function handleMiniCart(unique_products, count, cost, old_cost) {
     const $cartValueElem = $('.header__cart-value');
     const $cartInfoCountVal = $('.header__info-val_type_count-val');
     const $cartInfoCountText = $('.header__info-val_type_count-text');
     const $cartInfoCostVal = $('.header__info-val_type_cost-val');
+    const $cartInfoCostOldVal = $('.header__info-val_type_old-cost-val');
 
+    // Кол-во товаров в корзине
     let cartValue;
     if (typeof count !== 'undefined') {
         count = Number((count).toFixed(2));
@@ -602,11 +604,20 @@ function handleMiniCart(unique_products, count, cost) {
         cartValue = Number((cartValue).toFixed(2));
     }
 
+    // Цена
     let cartCost;
     if (typeof cost !== 'undefined') {
         cost = Number((cost).toFixed(2));
         cartCost = functions.numberWithSpaces(cost);
         $cartInfoCostVal.text(cartCost);
+    }
+
+    // Старая цена
+    let cartOldCost;
+    if (typeof old_cost !== 'undefined') {
+        old_cost = Number((old_cost).toFixed(2));
+        cartOldCost = functions.numberWithSpaces(old_cost);
+        $cartInfoCostOldVal.text(cartOldCost);
     }
 
     if (cartValue > 0) {
