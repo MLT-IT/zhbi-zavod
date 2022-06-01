@@ -50,7 +50,7 @@
                 <div class="header__contacts-city">
                     {'address' | option}
                 </div>
-                <div class="header__contacts-time">Часы работы: с 8:00 до 21:00</div>
+                <div class="header__contacts-time">Часы работы: ежедневно с 8:00 до 21:00</div>
             </div>
             <div class="header__callback-wrap">
                 <a class="header__phone" href="tel:{'phone' | option}">{'phone' | option}</a>
