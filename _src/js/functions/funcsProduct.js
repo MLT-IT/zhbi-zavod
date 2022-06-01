@@ -590,6 +590,7 @@ function handleMiniCart(unique_products, count, cost, old_cost) {
     const $cartInfoCountText = $('.header__info-val_type_count-text');
     const $cartInfoCostVal = $('.header__info-val_type_cost-val');
     const $cartInfoCostOldVal = $('.header__info-val_type_old-cost-val');
+    const $cartInfoCostOld = $('.header__info-old-cost');
 
     // Кол-во товаров в корзине
     let cartValue;
@@ -618,6 +619,12 @@ function handleMiniCart(unique_products, count, cost, old_cost) {
         old_cost = Number((old_cost).toFixed(2));
         cartOldCost = functions.numberWithSpaces(old_cost);
         $cartInfoCostOldVal.text(cartOldCost);
+
+        if (cost === old_cost) {
+            $cartInfoCostOld.hide();
+        } else {
+            $cartInfoCostOld.show();
+        }
     }
 
     if (cartValue > 0) {

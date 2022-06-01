@@ -170,7 +170,7 @@
                     <span class="header__comparison-text">Сравнение</span>
                 </a>
 
-                {'!msMiniCart' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
+                {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
             </div>
         </div>
 

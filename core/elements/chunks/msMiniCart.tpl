@@ -27,7 +27,7 @@
             <span class="header__info-text">Итого: </span>
             <span class="header__info-val header__info-val_type_cost-val">{$total_cost | beautifulNum}</span>
             <span class="header__info-val"> руб</span>
-            <span class="header__info-old-cost">
+            <span class="header__info-old-cost"{if $total_old_cost === $total_cost} style="display: none;"{/if}>
                 <span class="header__info-val header__info-val_type_old-cost-val">{$total_old_cost | beautifulNum}</span>
                 <span class="header__info-val"> руб</span>
             </span>

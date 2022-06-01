@@ -242,6 +242,7 @@
             miniShop2.Cart.totalCountText = '.ms2_total_count_text';
             miniShop2.Cart.totalCost = '.ms2_total_cost';
             miniShop2.Cart.totalOldCost = '.ms2_total_old_cost';
+            miniShop2.Cart.totalOldCostBlock = '.ms2_total_old_cost_block';
         },
         initialize: function () {
             miniShop2.Cart.setup();
@@ -295,8 +296,13 @@
                 $(miniShop2.Cart.totalWeight).text(miniShop2.Utils.formatWeight(status['total_weight']));
                 $(miniShop2.Cart.totalCount).text(status['total_count']);
                 $(miniShop2.Cart.totalCost).text(miniShop2.Utils.formatPrice(status['total_cost']));
+                $(miniShop2.Cart.totalCountText).text(miniShop2.Utils.formOfWord(status['total_count'], 'товар', 'товара', 'товаров'));
                 $(miniShop2.Cart.totalOldCost).text(miniShop2.Utils.formatPrice(status['total_old_cost']));
-                $(miniShop2.Cart.totalCountText).text(miniShop2.Utils.formOfWord(status['total_count'], 'товар', 'товара', 'товаров'))
+                if (status['total_old_cost'] === status['total_cost']) {
+                    $(miniShop2.Cart.totalOldCostBlock).hide();
+                } else {
+                    $(miniShop2.Cart.totalOldCostBlock).show();
+                }
 
                 // Перерасчитываем сумму за данный товар
                 let itemSelector = '#' + status['key'];

@@ -139,7 +139,8 @@
                         <span class="ms2_total_cost">{$total.cost}</span>
                         <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
-                    <p class="sect-cart__old-cost">
+
+                    <p class="sect-cart__old-cost ms2_total_old_cost_block"{if $total.old_cost === $total.cost} style="display: none;"{/if}>
                         <span class="ms2_total_old_cost">{$total.old_cost}</span>
                         <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
