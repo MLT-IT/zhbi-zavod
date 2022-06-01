@@ -56,6 +56,8 @@
                     <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="">
                     <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="">
                 </div>
-            </div><a class="footer__policy" data-fancybox data-type="ajax" data-src="/confidential/" href="javascript:;">Политика конфиденциальности</a> </div>
+            </div>
+            <span class="footer__policy" data-fancybox data-type="ajax" data-src="/confidential/">Политика конфиденциальности</span>
+        </div>
     </div>
 </footer>

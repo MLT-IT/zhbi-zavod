@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 *}
-                <a class="contacts__callback custom-btn" href="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</a>
+                <span class="contacts__callback custom-btn" data-src="#callback" data-fancybox="">ЗАДАТЬ ВОПРОС</span>
             </div>
         </div>
         {if $utm_city['icase'] is empty}

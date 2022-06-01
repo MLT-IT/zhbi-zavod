@@ -47,12 +47,12 @@
             </a>
             *}
 
-            <a data-btn-key="{$dataBtnKey?:'banner-main'}" data-fancybox="" href="#cost-delivery" class="banner__slide-link delivery__banner-btn yellow-btn">
+            <span data-btn-key="{$dataBtnKey?:'banner-main'}" data-fancybox="" data-src="#cost-delivery" class="banner__slide-link delivery__banner-btn yellow-btn">
                 <svg viewBox="0 0 235 50">
                     <text x="0" y="21">Оставить заявку и получить</text>
                     <text x="16" y="40">скидку 30% на доставку</text>
                 </svg>
-            </a>
+            </span>
 
         </div>
     {if $dontNeedWrapper != true}

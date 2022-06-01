@@ -33,6 +33,6 @@
             </span>
         </span>
         <a class="header__info-btn header__info-btn_to-cart custom-btn" href="/cart">Перейти в корзину</a>
-        <a class="header__info-btn custom-btn" data-fancybox href="#order">Перейти к оформлению</a>
+        <span class="header__info-btn custom-btn" data-fancybox data-src="#order">Перейти к оформлению</span>
     </div>
 </div>
