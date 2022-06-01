@@ -59,7 +59,6 @@
         display: block
         font-size: 14px
         color: #b1b2b3
-        width: 100%
 
     &__table-row
         display: flex
@@ -112,7 +111,6 @@
 
                 span
                     font-size: inherit
-                    padding-right: 5px
 
                     @media screen and (max-width: 600px)
                         padding-right: 2px
@@ -241,3 +239,17 @@
     &__img
         width: 100%
         height: auto
+
+    &__old-price
+        color: #b9b9b9
+        +stroke()
+        font-size: 14px
+
+    &__block
+        line-height: 1.2
+
+        &_type_units-wrap
+            width: 100%
+
+    &__sum-value
+        padding-right: 5px

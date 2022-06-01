@@ -25,8 +25,12 @@
         </span>
         <span class="header__info-line">
             <span class="header__info-text">Итого: </span>
-            <span class="header__info-val header__info-val_type_cost-val">{$total_cost | round}</span>
+            <span class="header__info-val header__info-val_type_cost-val">{$total_cost | beautifulNum}</span>
             <span class="header__info-val"> руб</span>
+            <span class="header__info-old-cost">
+                <span class="header__info-val header__info-val_type_old-cost-val header__info-val_ml_10">{$total_old_cost | beautifulNum}</span>
+                <span class="header__info-val header__info-val_type_old-cost-val"> руб</span>
+            </span>
         </span>
         <a class="header__info-btn header__info-btn_to-cart custom-btn" href="/cart">Перейти в корзину</a>
         <a class="header__info-btn custom-btn" data-fancybox href="#order">Перейти к оформлению</a>

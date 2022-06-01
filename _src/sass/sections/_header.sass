@@ -865,12 +865,20 @@
     &__info-val
         color: #3C3C3B
 
+    &__info-old-cost
+        margin-left: 10px
+        +stroke()
+
+        & > *, &
+            color: #b9b9b9
+
     &__info-btn
         border-radius: 4px
         font-weight: bold
         font-size: 14px
         height: 40px
-        width: 237px
+        width: 100%
+        min-width: 237px
         padding: 0
 
         &_to-cart

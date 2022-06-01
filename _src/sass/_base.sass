@@ -249,3 +249,19 @@ a.white-btn, button.white-btn
         transition: opacity .5s
         display: block
         width: 100%
+
+
+// -----------------------------------
+// mixin stroke
+// -----------------------------------
+@mixin stroke()
+    position: relative
+
+    &::after
+        content: ""
+        border-bottom: 1px solid currentColor
+        position: absolute
+        width: 100%
+        height: 50%
+        left: 0
+        top: 0

@@ -69,6 +69,10 @@ class customCartHandler extends msCartHandler implements msCartInterface {
                 return $this->error($response['message']);
             }
             $price = $product->getPrice();
+            $oldPrice = $product->get('old_price');
+            if (empty($oldPrice)) {
+                $oldPrice = $price;
+            }
             $weight = $product->getWeight();
             $count = $response['data']['count'];
             $options = $response['data']['options'];
@@ -80,6 +84,7 @@ class customCartHandler extends msCartHandler implements msCartInterface {
                 $this->cart[$key] = [
                     'id' => $id,
                     'price' => $price,
+                    'old_price' => $oldPrice,
                     'weight' => $weight,
                     'count' => $count,
                     'options' => $options,
@@ -153,12 +158,16 @@ class customCartHandler extends msCartHandler implements msCartInterface {
             'total_count' => 0,
             'total_cost' => 0,
             'total_weight' => 0,
+            'total_old_cost' => 0,
             'unique_products' => count($this->cart)
         );
         foreach ($this->cart as $item) {
             if (empty($item['ctx']) || $item['ctx'] == $this->ctx) {
+                $oldPrice = $item['old_price'];
+
                 $status['total_count'] += $item['count'];
                 $status['total_cost'] += $item['price'] * $item['count'];
+                $status['total_old_cost'] += $oldPrice * $item['count'];
                 $status['total_weight'] += $item['weight'] * $item['count'];
             }
         }

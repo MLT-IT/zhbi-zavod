@@ -19,16 +19,7 @@
 
     &_with-discount
         .js-product__new-price-val
-            position: relative
-
-            &::after
-                content: ""
-                border-bottom: 1px solid currentColor
-                position: absolute
-                width: 100%
-                height: 50%
-                left: 0
-                top: 0
+            +stroke()
 
         .js-product__price-wrap
             +set_colors_1(color)

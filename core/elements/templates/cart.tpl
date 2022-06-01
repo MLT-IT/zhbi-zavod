@@ -11,7 +11,7 @@
     <div class="wrapper sect-cart">
         {include "file:blocks/topbar-search.tpl"}
 
-        {'!msCart' | snippet : [
+        {'!msCartCustom' | snippet : [
             'tpl' => '@FILE: sections/sect-cart.tpl',
             'includeTVs' => 'isFractional'
         ]}

@@ -71,9 +71,21 @@
                             </div>
                         </td>
                         <td class="cart-table__table-cell price cart-table__table-cell_content_num">
-                            <span class="cart-table__price-value">{$product.price}</span>
-                            <span class="cart-table__currency cart-table__currency">руб</span>
-                            <div class="cart-table__units">за {$pricePer}</div>
+                            <div class="cart-table__block">
+                                <span class="cart-table__price-value">{$product.price}</span>
+                                <span class="cart-table__currency cart-table__currency">руб</span>
+                            </div>
+
+                            {if $product.old_price ?}
+                                <div class="cart-table__block cart-table__old-price">
+                                    <span class="cart-table__price-value">{$product.old_price}</span>
+                                    <span class="cart-table__currency cart-table__currency">руб</span>
+                                </div>
+                            {/if}
+
+                            <div class="cart-table__block cart-table__block_type_units-wrap">
+                                <div class="cart-table__units">за {$pricePer}</div>
+                            </div>
                         </td>
                         <td class="count cart-table__table-cell">
                             <form method="post" class="cart-table__form ms2_form" role="form">
@@ -91,7 +103,7 @@
                             <span class="cart-table__sum-value">
                                 {$product.cost}
                             </span>
-                            <span class="cart-table__currency cart-table__currency">руб</span>
+                            <span class="cart-table__currency cart-table__currency"> руб</span>
                         </td>
                         <td class="remove cart-table__table-cell">
                             <form method="post" class="ms2_form text-md-right">
@@ -110,10 +122,17 @@
                 <div class="sect-cart__footer-content">
                     <a href="#" class="sect-cart__btn-print">Распечатать смету</a>
                     <p class="sect-cart__total-count-wrap">Всего <span class="sect-cart__total-count ms2_total_count">{$total.count | replace : ',' : '.'}</span> товара на сумму:</p>
-                    <p class=" sect-cart__cost">
+
+                    <p class="sect-cart__cost">
                         <span class="ms2_total_cost">{$total.cost}</span>
                         <span class="cart-table__currency cart-table__currency">руб</span>
                     </p>
+
+                    <p class="sect-cart__old-cost">
+                        <span class="ms2_total_cost">{$total.old_cost}</span>
+                        <span class="cart-table__currency cart-table__currency">руб</span>
+                    </p>
+
                     <p class="sect-cart__delivery">Без учёта стоимости доставки</p>
                 </div>
             </div>
