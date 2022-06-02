@@ -3,7 +3,7 @@
 {if $recentlyViewed ?}
     <section class="product-slider product-slider-2 sect-recent">
         <div class="wrapper">
-            <span class="title-2">Вы недавно смотрели</span>
+            <h2 class="title-2">Вы недавно смотрели</h2>
             <div class="swiper-buttons sect-pop__swiper-buttons" style="display: none;">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>

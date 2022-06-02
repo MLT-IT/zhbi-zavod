@@ -1,6 +1,6 @@
 <section class="steps">
     <div class="wrapper">
-        <div class="title-2">Схема работы</div>
+        <h2 class="title-2">Схема работы</h2>
         <div class="steps__cards">
             <div class="steps__card">
                 <div class="steps__card-img">

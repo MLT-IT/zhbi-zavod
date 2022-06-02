@@ -38,7 +38,7 @@
 
 <section class="advantages">
     <div class="wrapper">
-        <div class="title-2">Преимущества компании</div>
+        <h2 class="title-2">Преимущества компании</h2>
         <div class="advantages__cards">
             <div class="advantages__card">
                 <div class="advantages__card-img">

@@ -16,6 +16,14 @@ SET thumb = (CONCAT('https://www-knauf.ru', thumb))
 WHERE thumb LIKE '/assets/%';
 
 -- Обновление настроек контекстов
+-- web
+UPDATE modx_context_setting
+SET `value` = 'http://skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'web');
+UPDATE modx_context_setting
+SET `value` = 'skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'web';
+
 -- krovlyasp
 UPDATE modx_context_setting
 SET `value` = 'http://krovlyasp.skderdom.beget.tech/'
