@@ -304,9 +304,10 @@
                     $(miniShop2.Cart.totalOldCostBlock).show();
                 }
 
-                // Перерасчитываем сумму за данный товар
                 let itemSelector = '#' + status['key'];
                 let amount = parseFloat($('.custom-counter__amount', itemSelector).val());
+
+                // Перерасчитываем сумму за данный товар
                 let cost = parseFloat($('.cart-table__price .cart-table__price-value', itemSelector).text().replace(' ', ''));
                 cost = cost * amount;
                 let costInt = parseInt(cost);
@@ -317,6 +318,20 @@
                 }
                 cost = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
                 $('.cart-table__sum-value', itemSelector).text(cost);
+
+                // Перерасчитываем старую сумму за данный товар
+                if ($(itemSelector).hasClass('cart-table__table-row_with-discount')) {
+                    let oldCost = parseFloat($('.cart-table__old-price .cart-table__price-value', itemSelector).text().replace(' ', ''));
+                    oldCost = oldCost * amount;
+                    let oldCostInt = parseInt(oldCost);
+                    if (oldCostInt == oldCost) {
+                        oldCost = oldCostInt;
+                    } else {
+                        oldCost = oldCost.toFixed(2);
+                    }
+                    oldCost = oldCost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                    $('.cart-table__old-sum-value', itemSelector).text(oldCost);
+                }
             }
         },
         clean: function () {

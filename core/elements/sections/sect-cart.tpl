@@ -98,10 +98,18 @@
                             </form>
                         </td>
                         <td class="cart-table__table-cell sum cart-table__table-cell_content_num">
-                            <span class="cart-table__sum-value">
-                                {$product.cost}
-                            </span>
-                            <span class="cart-table__currency cart-table__currency"> руб</span>
+                            <div class="cart-table__sum">
+                                <span class="cart-table__sum-value">
+                                    {$product.cost}
+                                </span>
+                                <span class="cart-table__currency cart-table__currency"> руб</span>
+                            </div>
+                            <div class="cart-table__old-sum">
+                                <span class="cart-table__old-sum-value">
+                                    {$product.old_cost}
+                                </span>
+                                <span class="cart-table__currency cart-table__currency"> руб</span>
+                            </div>
                         </td>
                         <td class="remove cart-table__table-cell">
                             <form method="post" class="ms2_form text-md-right">

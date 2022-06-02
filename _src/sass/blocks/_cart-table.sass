@@ -240,7 +240,7 @@
         width: 100%
         height: auto
 
-    &__old-price
+    &__old-price, &__old-sum
         display: none
         color: #b9b9b9
         +stroke()
@@ -258,8 +258,9 @@
     &__sum-value
         padding-right: 5px
 
-    &__price
+    &__price, &__sum
         color: inherit
+        width: 100%
 
         @at-root .cart-table__table-row_with-discount &
             +set_colors_1(color)
