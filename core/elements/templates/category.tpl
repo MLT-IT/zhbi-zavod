@@ -9,29 +9,29 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper">
-        <h1 class="title-1 category-header asfs">
+        {* В каталоге для utm с городом нужно выводить другой h1. *}
+        {set $outputTitle = ''}
+        {if $_modx->resource.template === 4}
+            {set $utm_city = '!utm' | snippet : ['val' => 'city']}
 
-            {* В каталоге для utm с городом нужно выводить другой h1 *}
-            {if $_modx->resource.template === 4}
-                {set $utm_city = '!utm' | snippet : ['val' => 'city']}
-
-                {if $utm_city['pcase'] ?}
-                    {set $catalogTitle = $_modx->resource.pagetitle | replace : 'Санкт-Петербурге' : $utm_city['pcase']}
-                    {$catalogTitle | replace : 'Каталог' : 'Продажа'}
-                    {if $catalogTitle === $_modx->resource.pagetitle}
-                        {* Замены не произошло, следовательно, нужно добавить текст про город *}
-                        в {$utm_city['pcase']}
-                    {/if}
-                {else}
-                    {* utm_city нет, выводим как есть *}
-                    {$_modx->resource.pagetitle}
+            {if $utm_city['pcase'] ?}
+                {set $catalogTitle = $_modx->resource.pagetitle | replace : 'Санкт-Петербурге' : $utm_city['pcase']}
+                {set $outputTitle = $catalogTitle | replace : 'Каталог' : 'Продажа'}
+                {if $catalogTitle === $_modx->resource.pagetitle}
+                    {* Замены не произошло, следовательно, нужно добавить текст про город *}
+                    {set $outputTitle = $outputTitle ~ ' в ' ~ $utm_city["pcase"]}
                 {/if}
             {else}
-                {* Это не каталог, а категория (или что-то еще), выводим как есть *}
-                {$_modx->resource.pagetitle}
+                {* utm_city нет, выводим как есть *}
+                {set $outputTitle = $_modx->resource.pagetitle}
             {/if}
+        {else}
+            {* Это не каталог, а категория (или что-то еще), выводим как есть *}
+            {set $outputTitle = $_modx->resource.pagetitle}
+        {/if}
 
-            <span class="category-header__inner-text">{'!textFromGetParams' | snippet}</span>
+        <h1 class="title-1 category-header asfs" data-title="{$outputTitle}">
+            {$outputTitle}{'!textFromGetParams' | snippet}
         </h1>
     </div>
     {include "file:sections/category/listing.tpl"}

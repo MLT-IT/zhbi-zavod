@@ -35,7 +35,8 @@ export default function modxJS(lazyLoadInstance) {
             result = '';
         }
 
-        $('.category-header .category-header__inner-text').text(result);
+        const $categoryHeader = $('.category-header');
+        $categoryHeader.text($categoryHeader.attr('data-title') + result);
     }
 
 
@@ -43,16 +44,18 @@ export default function modxJS(lazyLoadInstance) {
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
-        $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
-        funcsCatalog.getRemainder();
-        funcsProduct.initStyledCounter();
-        catalogH1FromGetParams();
-        funcsCatalog.wrapTitle();
+        if ($('.category-header').length) {
+            $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
+            funcsCatalog.getRemainder();
+            funcsProduct.initStyledCounter();
+            catalogH1FromGetParams();
+            funcsCatalog.wrapTitle();
 
-        // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
-        // funcsCatalog.catalogSortFilters();
+            // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
+            // funcsCatalog.catalogSortFilters();
 
-        lazyLoadInstance.update();
+            lazyLoadInstance.update();
+        }
     });
 
     // -------------------------------
