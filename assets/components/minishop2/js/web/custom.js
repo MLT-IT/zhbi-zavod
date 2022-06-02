@@ -307,7 +307,7 @@
                 // Перерасчитываем сумму за данный товар
                 let itemSelector = '#' + status['key'];
                 let amount = parseFloat($('.custom-counter__amount', itemSelector).val());
-                let cost = parseFloat($('.cart-table__price-value', itemSelector).text().replace(' ', ''));
+                let cost = parseFloat($('.cart-table__price .cart-table__price-value', itemSelector).text().replace(' ', ''));
                 cost = cost * amount;
                 let costInt = parseInt(cost);
                 if (costInt == cost) {
