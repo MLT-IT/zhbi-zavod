@@ -8,9 +8,13 @@
  * files found in the top-level directory of this distribution.
  */
 
-$modxStart = true;
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/components/additional-redirects/additional-redirects.php';
-unset($modxStart);
+// >>> Дополнительные редиректы. Это немного тормозит сайт, но зато позволяет удобно делать редиректы с закодированных ссылок. Если таких редиректов нет, то надо закомментировать этот код
+if (php_sapi_name() !== 'cli') {
+    $modxStart = true;
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/core/components/additional-redirects/additional-redirects.php';
+    unset($modxStart);
+}
+// <<<
 
 if ($_GET['q'] === 'test/') {
     ini_set('display_errors', '1');

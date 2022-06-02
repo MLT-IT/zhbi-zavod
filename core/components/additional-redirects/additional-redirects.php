@@ -39,17 +39,23 @@ function additionalRedirects() {
         return false;
     });
 
-    // Заранее устанавливаем результат - первый попавшийся редирект. Дальше мы будем уточнять результат по нужным критериям. Если уточнений не будет, то результат уже установлен
-    $redirectIndex = reset($indexes);
-
-    // Ищем тот редирект, который чувствителен к регистру
-    if (count($indexes) > 1) {
-        foreach ($indexes as $index) {
-            if (!empty($data[$index]['case_sensitive']) && ($currentUrl === $data[$index]['from'])) {
-                $redirectIndex = $index;
-                break;
-            }
+    $redirectIndex = false;
+    foreach ($indexes as $index) {
+        // Ищем редирект нечувствительный к регистру
+        if (empty($data[$index]['case_sensitive']) && empty($redirectIndex)) {
+            $redirectIndex = $index;
         }
+
+        // Ищем тот редирект, который чувствителен к регистру
+        if (!empty($data[$index]['case_sensitive']) && ($currentUrl === $data[$index]['from'])) {
+            $redirectIndex = $index;
+            break;
+        }
+    }
+
+    // Если редирект не нашли, то выходим из функции
+    if (empty($redirectIndex)) {
+        return;
     }
 
     //header("HTTP/1.1 301 Moved Permanently");
