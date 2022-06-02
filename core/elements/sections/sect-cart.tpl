@@ -52,7 +52,7 @@
                         {/if}
                     {/var}
 
-                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product">
+                    <tr id="{$product.key}" data-product-id="{$product.id}" class="cart-table__table-row cart-table__table-row_type_product{if $product.old_price?} cart-table__table-row_with-discount{/if}">
                         <td class="title cart-table__table-cell">
                                 {if $product.id?}
                                     <a class="cart-table__img-wrap" href="{$product.id | url}">{$image}</a>
@@ -71,17 +71,15 @@
                             </div>
                         </td>
                         <td class="cart-table__table-cell price cart-table__table-cell_content_num">
-                            <div class="cart-table__block">
+                            <div class="cart-table__block cart-table__price">
                                 <span class="cart-table__price-value">{$product.price}</span>
                                 <span class="cart-table__currency cart-table__currency">руб</span>
                             </div>
 
-                            {if $product.old_price ?}
-                                <div class="cart-table__block cart-table__old-price">
-                                    <span class="cart-table__price-value">{$product.old_price}</span>
-                                    <span class="cart-table__currency cart-table__currency">руб</span>
-                                </div>
-                            {/if}
+                            <div class="cart-table__block cart-table__old-price">
+                                <span class="cart-table__price-value">{$product.old_price}</span>
+                                <span class="cart-table__currency cart-table__currency">руб</span>
+                            </div>
 
                             <div class="cart-table__block cart-table__block_type_units-wrap">
                                 <div class="cart-table__units">за {$pricePer}</div>

@@ -241,9 +241,13 @@
         height: auto
 
     &__old-price
+        display: none
         color: #b9b9b9
         +stroke()
         font-size: 14px
+
+        @at-root .cart-table__table-row_with-discount &
+            display: block
 
     &__block
         line-height: 1.2
@@ -253,3 +257,9 @@
 
     &__sum-value
         padding-right: 5px
+
+    &__price
+        color: inherit
+
+        @at-root .cart-table__table-row_with-discount &
+            +set_colors_1(color)
