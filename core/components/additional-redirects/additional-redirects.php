@@ -1,5 +1,11 @@
 <?php
 
+/*
+TODO: добавь возможность в конец автоматически дописывать "/", так как это разные редиректы:
+RewriteRule ^kirpich/braer\/$ https://kirpich-m.ru/braer/ [R=301,L]
+RewriteRule ^kirpich/braer?$ https://kirpich-m.ru/braer/ [R=301,L]
+*/
+
 !empty($modxStart) or die('No direct script access.');
 
 function additionalRedirects() {
@@ -13,7 +19,7 @@ function additionalRedirects() {
     // Получаем значение в нижнем регистре, это нужно для поиска редиректа
     $currentUrlLower = mb_strtolower($currentUrl);
     // Получаем массив со всеми редиректами
-    $data = require_once __DIR__ . '\data.php';
+    $data = require_once __DIR__ . '/data.php';
     if (empty($data)) {
         return;
     }
@@ -26,7 +32,13 @@ function additionalRedirects() {
     }, $dataFrom);
 
     // Ищем все соответствия
-    $indexes = array_keys($dataFromLower, $currentUrlLower);
+    $indexes = [];
+    foreach ($dataFromLower as $i => $val) {
+        if ($val === $currentUrlLower) {
+            $indexes[] = $i;
+        }
+    }
+
     if (empty($indexes)) {
         return;
     }
@@ -41,12 +53,12 @@ function additionalRedirects() {
 
     $redirectIndex = false;
     foreach ($indexes as $index) {
-        // Ищем редирект нечувствительный к регистру
+        // Ищем первый редирект нечувствительный к регистру
         if (empty($data[$index]['case_sensitive']) && empty($redirectIndex)) {
             $redirectIndex = $index;
         }
 
-        // Ищем тот редирект, который чувствителен к регистру
+        // Ищем первый редирект, который чувствителен к регистру
         if (!empty($data[$index]['case_sensitive']) && ($currentUrl === $data[$index]['from'])) {
             $redirectIndex = $index;
             break;
@@ -54,15 +66,14 @@ function additionalRedirects() {
     }
 
     // Если редирект не нашли, то выходим из функции
-    if (empty($redirectIndex)) {
+    if ($redirectIndex === false) {
         return;
     }
 
-    //header("HTTP/1.1 301 Moved Permanently");
-    header("HTTP/1.1 303 See Other");
+    header("HTTP/1.1 301 Moved Permanently");
+    //header("HTTP/1.1 303 See Other");
     header('Location: ' . $data[$redirectIndex]['to']);
     exit();
 }
 
 additionalRedirects();
-
