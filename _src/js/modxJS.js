@@ -81,7 +81,9 @@ export default function modxJS(lazyLoadInstance) {
             // Форма из баннера в каталоге
             if ($form.hasClass('catalog-banner__form')) {
                 console.log('banner-catalog');
-                ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                if (typeof ym !== 'undefined') {
+                    ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                }
             }
 
             // Форма для оформления заказа
@@ -103,23 +105,33 @@ export default function modxJS(lazyLoadInstance) {
                 switch (currentPopupKey) {
                     case 'banner-delivery':
                         console.log('banner-delivery');
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
+                        if (typeof ym !== 'undefined') {
+                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
+                        }
                         break;
                     case 'banner-main':
                         console.log('banner-main');
-                        ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                        if (typeof ym !== 'undefined') {
+                            ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                        }
                         break;
                     case 'header-link':
                         console.log('header-link');
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
+                        if (typeof ym !== 'undefined') {
+                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
+                        }
                         break;
                     case 'cart':
                         console.log('cart');
-                        ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
+                        if (typeof ym !== 'undefined') {
+                            ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
+                        }
                         break;
                     case 'turnkey':
                         console.log('turnkey');
-                        ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
+                        if (typeof ym !== 'undefined') {
+                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
+                        }
                         break;
                 }
             }
