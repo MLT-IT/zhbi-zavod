@@ -58,6 +58,7 @@ export default function modxJS(lazyLoadInstance) {
         }
     });
 
+
     // -------------------------------
     // Работа с ajaxForm
     // -------------------------------
@@ -85,7 +86,12 @@ export default function modxJS(lazyLoadInstance) {
 
             // Форма для оформления заказа
             if ($form.hasClass('popup-order__form')) {
-                document.location.href = "/";
+                if (location.pathname === '/cart/') {
+                    document.location.href = "/";
+                } else {
+                    funcsProduct.handleMiniCart(0, 0, 0, 0);
+                    funcsProduct.resetCountProductsOnPage();
+                }
             }
 
             // Далее идут повторяющиеся формы, где важен не класс формы, а элемент, которым вызвали форму

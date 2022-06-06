@@ -5,7 +5,9 @@ import functions from "./functions";
  */
 export default {
     init,
-    initStyledCounter
+    initStyledCounter,
+    handleMiniCart,
+    resetCountProductsOnPage
 };
 
 // Инициализация
@@ -14,7 +16,7 @@ function init(ImageZoom) {
     // Запретить дергать слайды за кнопку добавления товара в корзину / перехода в корзину
     // -------------------------------
     // Если быстро добавлять разные товары в корзину в слайдере, то можно случайно сделать небольшой свайп (немного дергнуть слайд). Из-за этого клик не сработает, и товар не добавится. Данный код исправляет это
-    $('.swiper-slide .js-product__btn-in-cart').bind('pointerdown', function(event) {
+    $('.swiper-slide .js-product__btn-in-cart').bind('pointerdown', function (event) {
         event.stopPropagation();
     });
 
@@ -391,6 +393,22 @@ function init(ImageZoom) {
     // -------------------------------------
     initStyledCounter();
 }
+
+
+/**
+ * Сбросить кол-во товара в 0 у всех товаров на странице.
+ */
+function resetCountProductsOnPage() {
+    $('.js-product-in-cart').each(function (e) {
+        let $e = $(this);
+        $e.removeClass('js-product-in-cart');
+        $e.find('.js-product__controls_action_change .custom-counter__amount').val(0);
+        $e.find('.js-product__controls_action_add .custom-counter__amount').val(1);
+        $e.find('.js-product__form-add input[name="count"]').val(0);
+        $e.find('.js-product__form-change input[name="count"]').val(0);
+    });
+}
+
 
 /**
  * Изменение кол-ва товара.
