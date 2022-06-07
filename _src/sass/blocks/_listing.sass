@@ -140,11 +140,11 @@
         +set_colors_1(fill)
 
     &__filter
+        position: relative
         width: 260px
         transition: right .3s
         background: #fff
         margin-right: 10px
-        position: relative
         max-height: none
         z-index: 35
         margin-bottom: 20px
@@ -158,18 +158,22 @@
 
         @media screen and (max-width: 1200px)
             height: 100%
-            overflow-y: scroll
-            box-shadow: 0 0 5px #eaeaea
             z-index: 20
             position: fixed
             right: -260px
             margin-right: 0
             top: 0
-            max-height: 100vh
 
         @media screen and (max-width: 768px)
             top: 66px
             max-height: calc(100vh - 66px)
+
+    &__filter-form
+        @media screen and (max-width: 1200px)
+            overflow-y: scroll
+            box-shadow: 0 0 5px #eaeaea
+            max-height: 100vh
+            max-width: 100%
 
     &__filter-block
         display: flex
@@ -320,38 +324,38 @@
             &::before
                 background-color: #ffbe00
 
-    //&__filter-btn
-    //    width: 15px
-    //    height: 40px
-    //    background-color: #fff
-    //    position: fixed
-    //    top: 50%
-    //    transform: translateX(calc(-100% + 1px))
-    //    border-top-left-radius: 5px
-    //    border-bottom-left-radius: 5px
-    //    box-shadow: 0 0 5px #eaeaea
-    //
-    //    &::after, &::before
-    //        display: block
-    //        content: ""
-    //
-    //    // Убираем тень, которая заходит на меню с фильтрами
-    //    &::after
-    //        background-color: #fff
-    //        height: 100%
-    //        position: absolute
-    //        width: 6px
-    //        right: -3px
-    //        top: 0
-    //
-    //    &::before
-    //        position: absolute
-    //        height: calc(100% - 10px)
-    //        width: 3px
-    //        top: 5px
-    //        left: 6px
-    //        border-radius: 5px
-    //        background-color: #dad9d9
+    &__filter-btn
+        width: 15px
+        height: 40px
+        background-color: #fff
+        position: absolute
+        top: calc(50% - 40px)
+        transform: translateX(calc(-100% + 1px))
+        border-top-left-radius: 5px
+        border-bottom-left-radius: 5px
+        box-shadow: 0 0 5px #eaeaea
+
+        &::after, &::before
+            display: block
+            content: ""
+
+        // Убираем тень, которая заходит на меню с фильтрами
+        &::after
+            background-color: #fff
+            height: 100%
+            position: absolute
+            width: 6px
+            right: -3px
+            top: 0
+
+        &::before
+            position: absolute
+            height: calc(100% - 10px)
+            width: 3px
+            top: 5px
+            left: 6px
+            border-radius: 5px
+            background-color: #dad9d9
     // ---------------------------------------------------
 
     &__products-item-actions

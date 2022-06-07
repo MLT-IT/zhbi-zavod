@@ -23,10 +23,10 @@
         father = '-f', passive = {passive: false},
         isDrog = '-d', data = '[data-drog]', elmnt, that,
         optionsDefault = {
-            swapX: true,
-            swapY: true,
-            directionX: 'both',
-            directionY: 'both'
+            swapMinX: false,
+            swapMaxX: false,
+            swapMinY: false,
+            swapMaxY: false,
         };
 
     // Инициализация
@@ -78,10 +78,9 @@
         options = extend(optionsDefault, options);
 
         // Установка опций для элемента
-        element.swapX = options.swapX;
-        element.swapY = options.swapY;
-        element.directionX = options.directionX;
-        element.directionY = options.directionY;
+        for (let opt in options) {
+            element[opt] = options[opt];
+        }
 
         let target = element.querySelector(data) || element;
 
@@ -182,7 +181,8 @@
      * @param e
      */
     function drogMove(e) {
-        e.preventDefault();
+        // Я закомментировал, т.к. не работает скроллинг панели с фильтрами
+        // e.preventDefault();
 
         if (e.type === touchmove) {
             elmnt = this[father];
@@ -193,25 +193,22 @@
 
         // Xt - разница между предыдущей позицией (Xi) и текущей позицией (Xf) курсора по x (новая позиция элемента по x)
         // Yt - разница между предыдущей позицией (Yi) и текущей позицией (Yf) курсора по y (новая позиция элемента по y)
-        if (this.swapX) {
-            elmnt[Xt] -= elmnt[Xi] - elmnt[Xf];
-        }
-        if (this.swapY) {
-            elmnt[Yt] -= elmnt[Yi] - elmnt[Yf];
-        }
+        elmnt[Xt] -= elmnt[Xi] - elmnt[Xf];
+        elmnt[Yt] -= elmnt[Yi] - elmnt[Yf];
 
-        // Валидация Xt и Yt
-        if (this.directionX === 'right' && elmnt[Xt] < 0) {
-            elmnt[Xt] = 0;
+        // Валидация Xt
+        if (this.swapMinX !== false && elmnt[Xt] < this.swapMinX) {
+            elmnt[Xt] = this.swapMinX;
         }
-        if (this.directionX === 'left' && elmnt[Xt] > 0) {
-            elmnt[Xt] = 0;
+        if (this.swapMaxX !== false && elmnt[Xt] > this.swapMaxX) {
+            elmnt[Xt] = this.swapMaxX;
         }
-        if (this.directionY === 'right' && elmnt[Yt] < 0) {
-            elmnt[Yt] = 0;
+        // Валидация Yt
+        if (this.swapMinY !== false && elmnt[Yt] < this.swapMinY) {
+            elmnt[Yt] = this.swapMinY;
         }
-        if (this.directionY === 'left' && elmnt[Yt] > 0) {
-            elmnt[Yt] = 0;
+        if (this.swapMaxY !== false && elmnt[Yt] > this.swapMaxY) {
+            elmnt[Yt] = this.swapMaxY;
         }
 
         elmnt[Xi] = elmnt[Xf];

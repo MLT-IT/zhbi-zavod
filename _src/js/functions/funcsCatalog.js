@@ -22,12 +22,25 @@ function init() {
     // -------------------------------------------
     let $filterButton = $(".listing__filters-btn");
     if ($filterButton.length) {
+        // Основные переменные
         let $filter = $(".listing__filter");
+        let filterPanelWidth = $filter.outerWidth();
 
         function toggleFiltersbar() {
             $filter.toggleClass("opened");
             $filter.toggleClass("active");
             $('body').toggleClass("filter-opened");
+
+            // Шторка открылась
+            if ($filter.hasClass('opened')) {
+                $filter[0]['swapMinX'] = 0;
+                $filter[0]['swapMaxX'] = filterPanelWidth;
+            }
+            // Шторка закрылась
+            else {
+                $filter[0]['swapMinX'] = -filterPanelWidth;
+                $filter[0]['swapMaxX'] = 0;
+            }
         }
 
         // Обработчик для раскрытия панели с фильтрами на мобилках
@@ -39,43 +52,56 @@ function init() {
             }
         });
 
+        // ----------------------------
         // Эффект шторки для панели с фильтрами на мобилках
-        let $filterPanel = $('.listing__filter');
-        if ($filterPanel.length) {
-            Drog.on($filterPanel[0], {
-                swapY: false,
-                directionX: 'right'
-            });
+        // ----------------------------
+        Drog.on($filter[0], {
+            swapMinY: 0,
+            swapMaxY: 0,
+            swapMaxX: 0,
+            swapMinX: -filterPanelWidth
+        });
 
-            let filterPanelWidth = $filterPanel.outerWidth();
-            $filterPanel.on('drogEnd', function () {
-                let translateX = 0;
+        $filter.on('drogEnd', function () {
+            let translateX = 0;
 
-                // Если достаточно сильно свайпнули панель с фильтрами, то необходимо закрыть ее. В противном случае наоборот - открыть
-                if ($filterPanel[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
+            // Если фильтры открыты
+            if ($filter.hasClass('active')) {
+                // Если достаточно сильно свайпнули панель с фильтрами, то необходимо закрыть ее
+                if ($filter[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
                     translateX = filterPanelWidth;
                 }
+            }
+            // Если фильтры закрыты
+            else {
+                // Если достаточно сильно свайпнули панель с фильтрами, то необходимо открыть ее
+                if ($filter[0]['-x'] <= (0 - (filterPanelWidth / 2 - 20))) {
+                    translateX = -filterPanelWidth;
+                }
+            }
 
-                $filterPanel.css({
-                    transform: 'translateX(' + translateX + 'px)',
-                    transition: ".3s"
-                });
-                setTimeout(function () {
-                    // Убираем transition (в стилях он прописан для right, из-за этого будет ненужный скачок, когда мы выполним toggleFiltersbar)
-                    $filterPanel.css('transition', 'all 0s');
-
-                    if ($filterPanel[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
-                        toggleFiltersbar();
-                    }
-
-                    setTimeout(function () {
-                        $filterPanel.removeAttr('style');
-                        // Сбрасываем Drog
-                        Drog.move($filterPanel[0], 0, 0);
-                    }, 0);
-                }, 300);
+            // Возвращение шторки (с анимацией). Либо возвращаем шторку в исходное положение (какой она была до того, как пользователь начал ее тянуть). Либо помогаем пользователю открыть / закрыть ее
+            $filter.css({
+                transform: 'translateX(' + translateX + 'px)',
+                transition: ".3s"
             });
-        }
+            setTimeout(function () {
+                // Убираем transition (в стилях он прописан для right, из-за этого будет ненужный скачок, когда мы выполним toggleFiltersbar)
+                $filter.css('transition', 'all 0s');
+
+                if (translateX !== 0) {
+                    toggleFiltersbar();
+                }
+
+                // Сбрасываем Drog
+                Drog.move($filter[0], 0, 0);
+
+                // Между отменой transition и удалением style необходимо подождать 1 тик
+                setTimeout(function () {
+                    $filter.removeAttr('style');
+                }, 0);
+            }, 300);
+        });
     }
 
 
