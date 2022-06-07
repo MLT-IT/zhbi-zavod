@@ -6,5 +6,9 @@
             {$filters}
         {/if}
         <button type="reset" style="display: none;" class="listing__reset-filters-action">Сбросить</button>
+
+        {*
+        <div class="listing__filter-btn"></div>
+        *}
     </form>
 </div>

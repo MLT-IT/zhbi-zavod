@@ -19,6 +19,7 @@ import ImageZoom from 'js-image-zoom';
 import overlayScrollbars from 'overlayscrollbars/js/jquery.overlayScrollbars.min'; // Эта библиотека не вызывается (PHPStorm подсвечивает ее серым, как неиспользуемую), но она используется - просто для ее работы достаточно подключить ее в JS, вызывать не надо
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import euv_custom_select from '../libs/euv_custom_select/js/euv_custom_select';
+import '../libs/Drog.js/Drog.js';
 import Cookies from 'js-cookie';
 
 
@@ -398,7 +399,7 @@ $(function ($) {
                 e.addEventListener("click", (function () {
                     e.parentElement.classList.toggle("active");
                 }));
-            }))
+            }));
         } else {
             Array.from(e.children).forEach((function (e) {
                 e.addEventListener("click", (function () {
@@ -418,6 +419,5 @@ $(function ($) {
             $h1.css('font-size', 18);
         }
     }
-
 });
 

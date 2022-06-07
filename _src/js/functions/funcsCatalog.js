@@ -16,26 +16,65 @@ function init() {
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
 
-    // -------------------------------------------
-    // Обработчик для раскрытия меню с фильтрами на мобилках
-    // -------------------------------------------
-    let filterButton = document.querySelector(".listing__filters-btn");
-    if (filterButton) {
-        let filter = document.querySelector(".listing__filter");
 
-        filterButton.addEventListener("click", handler);
+    // -------------------------------------------
+    // Панель с фильтрами на мобилках
+    // -------------------------------------------
+    let $filterButton = $(".listing__filters-btn");
+    if ($filterButton.length) {
+        let $filter = $(".listing__filter");
 
+        function toggleFiltersbar() {
+            $filter.toggleClass("opened");
+            $filter.toggleClass("active");
+            $('body').toggleClass("filter-opened");
+        }
+
+        // Обработчик для раскрытия панели с фильтрами на мобилках
+        $filterButton.on("click", toggleFiltersbar);
         $(document).on('click', function (e) {
             let $target = $(e.target);
-            if ($(filter).hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
-                handler();
+            if ($filter.hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
+                toggleFiltersbar();
             }
         });
 
-        function handler() {
-            filterButton.classList.toggle("opened");
-            filter.classList.toggle("active");
-            document.body.classList.toggle("filter-opened");
+        // Эффект шторки для панели с фильтрами на мобилках
+        let $filterPanel = $('.listing__filter');
+        if ($filterPanel.length) {
+            Drog.on($filterPanel[0], {
+                swapY: false,
+                directionX: 'right'
+            });
+
+            let filterPanelWidth = $filterPanel.outerWidth();
+            $filterPanel.on('drogEnd', function () {
+                let translateX = 0;
+
+                // Если достаточно сильно свайпнули панель с фильтрами, то необходимо закрыть ее. В противном случае наоборот - открыть
+                if ($filterPanel[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
+                    translateX = filterPanelWidth;
+                }
+
+                $filterPanel.css({
+                    transform: 'translateX(' + translateX + 'px)',
+                    transition: ".3s"
+                });
+                setTimeout(function () {
+                    // Убираем transition (в стилях он прописан для right, из-за этого будет ненужный скачок, когда мы выполним toggleFiltersbar)
+                    $filterPanel.css('transition', 'all 0s');
+
+                    if ($filterPanel[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
+                        toggleFiltersbar();
+                    }
+
+                    setTimeout(function () {
+                        $filterPanel.removeAttr('style');
+                        // Сбрасываем Drog
+                        Drog.move($filterPanel[0], 0, 0);
+                    }, 0);
+                }, 300);
+            });
         }
     }
 
@@ -283,7 +322,7 @@ function wrapTitle() {
                     text = text.replace(new RegExp('(' + sort + ')\\s*'), '$1<br>');
                 }
             }
-            // Если сорта в названии нет, то перенос надо делать после названия предмета
+                // Если сорта в названии нет, то перенос надо делать после названия предмета
             // Как вытащить из названия товара название продаваемого предмета? Как правило, название товара состоит из {Название предмета} {Сорт} {Размер}. Получается, перенос надо делать перед {Размер}. А размер - это следующее сочетание: числоХчисло или числоХчислоХчисло. Число может быть дробным. В качестве разделителя целой и дробной частей может быть как точка, так и запятая. В качестве разделителя чисел может быть как русская Х, так и английская X.
             else {
                 text = text.replace(/(([0-9]+[.,])?[0-9]+[хx]([0-9]+[.,])?[0-9]+([хx]([0-9]+[.,])?[0-9]+)?)/, '<br>$1');

@@ -320,6 +320,38 @@
             &::before
                 background-color: #ffbe00
 
+    //&__filter-btn
+    //    width: 15px
+    //    height: 40px
+    //    background-color: #fff
+    //    position: fixed
+    //    top: 50%
+    //    transform: translateX(calc(-100% + 1px))
+    //    border-top-left-radius: 5px
+    //    border-bottom-left-radius: 5px
+    //    box-shadow: 0 0 5px #eaeaea
+    //
+    //    &::after, &::before
+    //        display: block
+    //        content: ""
+    //
+    //    // Убираем тень, которая заходит на меню с фильтрами
+    //    &::after
+    //        background-color: #fff
+    //        height: 100%
+    //        position: absolute
+    //        width: 6px
+    //        right: -3px
+    //        top: 0
+    //
+    //    &::before
+    //        position: absolute
+    //        height: calc(100% - 10px)
+    //        width: 3px
+    //        top: 5px
+    //        left: 6px
+    //        border-radius: 5px
+    //        background-color: #dad9d9
     // ---------------------------------------------------
 
     &__products-item-actions
@@ -335,6 +367,7 @@
 
     &__products-item-title
         padding-top: 8px
+
         a
             color: #1a0dab
 
@@ -435,14 +468,14 @@
             border-top: 0
             border-bottom: 4px solid
 
-        //&_with-arrow
-        //    &::after
+    //&_with-arrow
+    //    &::after
 
 
-        //&_with-reverse-arrow
-        //    &::after
-        //        margin-top: 0
-        //        border-bottom: 4px solid
+    //&_with-reverse-arrow
+    //    &::after
+    //        margin-top: 0
+    //        border-bottom: 4px solid
 
     &__products-item-remove
         $block: &
@@ -508,7 +541,7 @@
         position: relative
 
     &__products-item-chars-span, &__products-item-chars-val
-        color: rgba(0,0,0,.6)
+        color: rgba(0, 0, 0, .6)
         font-size: .750rem
 
         @media screen and (max-width: 768px)
