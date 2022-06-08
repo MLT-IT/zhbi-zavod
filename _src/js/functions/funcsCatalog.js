@@ -26,13 +26,16 @@ function init() {
         let $filter = $(".listing__filter");
         let filterPanelWidth = $filter.outerWidth();
 
-        function toggleFiltersbar() {
-            $filter.toggleClass("opened");
-            $filter.toggleClass("active");
-            $('body').toggleClass("filter-opened");
+        function toggleFiltersbar(skipChangeClasses) {
+            skipChangeClasses = (typeof skipChangeClasses !== 'undefined') ? skipChangeClasses : false;
+
+            if (!skipChangeClasses) {
+                $filter.toggleClass("active");
+                $('body').toggleClass("filter-opened");
+            }
 
             // Шторка открылась
-            if ($filter.hasClass('opened')) {
+            if ($filter.hasClass('active')) {
                 $filter[0]['swapMinX'] = 0;
                 $filter[0]['swapMaxX'] = filterPanelWidth;
             }
@@ -44,7 +47,9 @@ function init() {
         }
 
         // Обработчик для раскрытия панели с фильтрами на мобилках
-        $filterButton.on("click", toggleFiltersbar);
+        $filterButton.on("click", function () {
+            toggleFiltersbar();
+        });
         $(document).on('click', function (e) {
             let $target = $(e.target);
             if ($filter.hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
@@ -68,14 +73,14 @@ function init() {
             // Если фильтры открыты
             if ($filter.hasClass('active')) {
                 // Если достаточно сильно свайпнули панель с фильтрами, то необходимо закрыть ее
-                if ($filter[0]['-x'] >= (filterPanelWidth / 2 - 20)) {
+                if ($filter[0]['-x'] >= (filterPanelWidth / 2 - 10)) {
                     translateX = filterPanelWidth;
                 }
             }
             // Если фильтры закрыты
             else {
                 // Если достаточно сильно свайпнули панель с фильтрами, то необходимо открыть ее
-                if ($filter[0]['-x'] <= (0 - (filterPanelWidth / 2 - 20))) {
+                if ($filter[0]['-x'] <= (0 - (filterPanelWidth / 2 - 10))) {
                     translateX = -filterPanelWidth;
                 }
             }
@@ -85,21 +90,34 @@ function init() {
                 transform: 'translateX(' + translateX + 'px)',
                 transition: ".3s"
             });
+
+            if (translateX !== 0) {
+                // Сразу делаем затемнение для body
+                $('body').toggleClass("filter-opened");
+            }
+
+            // Ждем выполнения анимации
             setTimeout(function () {
-                // Убираем transition (в стилях он прописан для right, из-за этого будет ненужный скачок, когда мы выполним toggleFiltersbar)
-                $filter.css('transition', 'all 0s');
-
-                if (translateX !== 0) {
-                    toggleFiltersbar();
-                }
-
                 // Сбрасываем Drog
                 Drog.move($filter[0], 0, 0);
 
-                // Между отменой transition и удалением style необходимо подождать 1 тик
-                setTimeout(function () {
-                    $filter.removeAttr('style');
-                }, 0);
+                // Отменяем transition для шторки, т.к. она уже переместилась
+                $filter.removeAttr('style');
+
+                if (translateX !== 0) {
+                    // Делаем transition мгновенным (в css он прописан для right, из-за этого будет ненужный скачок)
+                    $filter.css('transition', 'all 0s');
+                    // Меняется right в стилях
+                    $filter.toggleClass("active");
+                    // ВАЖНО! Функция toggleFiltersbar обязательно должна идти ПОСЛЕ установки класса active, потому что в ней он проверяется
+                    toggleFiltersbar(true);
+
+                    // Между отменой мгновенного transition и действиями со стилями необходимо подождать немного
+                    setTimeout(function () {
+                        // Отменяем мгновенный transition
+                        $filter.removeAttr('style');
+                    }, 20);
+                }
             }, 300);
         });
     }
