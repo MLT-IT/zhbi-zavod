@@ -168,9 +168,7 @@ $(function ($) {
     // -------------------------------
     // Яндекс карты
     // -------------------------------
-    // TODO: мне кажется, что строку ниже можно удалить
     window.initDistrictsMap = initDistrictsMap;
-
     mapsLazyload();
 
 
@@ -419,5 +417,23 @@ $(function ($) {
             $h1.css('font-size', 18);
         }
     }
+
+
+    // --------------------------------
+    // Кнопка для скролла вверх
+    // --------------------------------
+    let $btn = $('.scroll-top');
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > window.innerHeight) {
+            $btn.addClass('active');
+        } else {
+            $btn.removeClass('active');
+        }
+    });
+
+    $btn.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 300);
+    });
 });
 

@@ -147,9 +147,9 @@
     {/block}
 {/block}
 {block "end-body"}
-    <a class="scroll-top active" href="javascript:;" onclick="document.getElementById('body').scrollIntoView();">
+    <div class="scroll-top">
         <img src="{$_modx->config['template_path']}img/scroll-top.png">
-    </a>
+    </div>
     <script src="{$_modx->config['template_path']}js/main.js?v=14"></script>
 
     {*

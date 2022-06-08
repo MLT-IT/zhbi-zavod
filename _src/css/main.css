@@ -3962,13 +3962,17 @@ p, span {
     position: fixed;
     bottom: 80px;
     right: 80px;
-    max-width: 54px
+    max-width: 54px;
+    cursor: pointer;
+    border-radius: 100px;
+    overflow: hidden;
 }
 
 .scroll-top img {
     width: 100%;
     height: 100%;
-    object-fit: cover
+    object-fit: cover;
+    display: block;
 }
 
 .scroll-top:hover:after, .scroll-top:hover:before {
@@ -3978,7 +3982,7 @@ p, span {
 .scroll-top:before {
     opacity: 0;
     transition: opacity .3s;
-    content: " Прокрутить наверх";
+    content: "Прокрутить наверх";
     font-size: 12px;
     padding: 2px 4px;
     border-radius: 1px;
@@ -3986,7 +3990,6 @@ p, span {
     position: absolute;
     top: -20px;
     right: 0;
-    width: -webkit-max-content;
     width: max-content
 }
 
