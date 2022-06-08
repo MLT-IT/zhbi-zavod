@@ -78,20 +78,24 @@ function actionsHandler(e) {
 
     // Основные переменные и константы
     let $this = $(this);
-
     let pageUri;
     let targetText1;
     let targetText2;
     let splitted;
     let cookieName;
+    let $product = $this.closest('.js-product');
 
     switch (true) {
+        // TODO: зачем по 2-3 класса? Подправь стили и скрипты, чтобы для JS был один класс
         case ($this.hasClass('js-product__btn-fav') || $this.hasClass('listing__products-item-btn-fav')):
             pageUri = '/favorites/';
             targetText1 = 'избранное';
             targetText2 = 'избранного';
             cookieName = 'favIds';
             splitted = getSplitted(cookieName);
+
+            // Переключение класса. Кнопок в $product может быть несколько. На странице товара с перелинковкой это так - одна для ПК, другая для мобилок. Поэтому ищем все и переключаем у них класс
+            $product.find('.js-product__btn-fav, .listing__products-item-btn-fav').toggleClass('active');
             break;
         case $this.hasClass('js-product__btn-compare') || $this.hasClass('js-product__actions-compare') || $this.hasClass('listing__products-item-btn-compare'):
             pageUri = '/comparison/';
@@ -99,15 +103,15 @@ function actionsHandler(e) {
             targetText2 = 'сравнения';
             cookieName = 'compIds';
             splitted = getSplitted(cookieName);
+
+            // Переключение класса
+            $product.find('.js-product__actions-compare, .listing__products-item-btn-compare, .js-product__btn-compare').toggleClass('active');
             break;
     }
 
     // Дополнительные переменные
-    let id = $this.closest('.js-product').find('input[name="id"]').val();
+    let id = $product.find('input[name="id"]').val();
     let message = '<br><a href="' + window.location.origin + pageUri + '">Посмотреть</a>';
-
-    // Переключение класса
-    $this.toggleClass('active');
 
     // Добавляем или удаляем новый элемент в массив с куки
     if (($this.prop("tagName") === 'INPUT' && $this.is(':checked')) || ($this.prop("tagName") !== 'INPUT' && $this.hasClass('active'))) {
