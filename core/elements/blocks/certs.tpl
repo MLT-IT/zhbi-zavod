@@ -29,7 +29,7 @@
                 {/if}
 
                 {if $previewSrc is empty}
-                    {if $lastElem in list ['dwg','xls','doc', 'rfa', 'odt']}
+                    {if $lastElem in list ['dwg','xls','doc', 'rfa', 'odt', 'zip']}
                         {set $previewClass = 'certs-block__preview-download'}
                     {else}
                         {set $previewClass = 'certs-block__preview-view'}
