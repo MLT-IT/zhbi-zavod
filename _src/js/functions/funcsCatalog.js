@@ -24,9 +24,10 @@ function init() {
     if ($openFiltersBtn.length) {
         // Основные переменные
         let $filter = $(".listing__filter");
-        let filterPanelWidth = $filter.outerWidth();
 
         function toggleFiltersbar(skipChangeClasses) {
+            let filterPanelWidth = $filter.outerWidth();
+
             skipChangeClasses = (typeof skipChangeClasses !== 'undefined') ? skipChangeClasses : false;
 
             if (!skipChangeClasses) {
@@ -74,11 +75,12 @@ function init() {
             swapMinY: 0,
             swapMaxY: 0,
             swapMaxX: 0,
-            swapMinX: -filterPanelWidth,
+            swapMinX: -$filter.outerWidth(),
             elem: $('.listing__filter-btn')[0]
         });
 
         $filter.on('drogEnd', function () {
+            let filterPanelWidth = $filter.outerWidth();
             let translateX = 0;
 
             // Если фильтры открыты

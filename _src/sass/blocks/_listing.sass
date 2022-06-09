@@ -149,10 +149,6 @@
         z-index: 35
         margin-bottom: 20px
 
-        @media screen and (max-width: 768px)
-            top: 66px
-            height: calc(100vh - 66px)
-
         &.active
             right: 0
 
@@ -160,21 +156,23 @@
             height: 100%
             z-index: 20
             position: fixed
-            right: -260px
+            width: 280px
+            right: -280px
             margin-right: 0
             top: 0
 
         @media screen and (max-width: 768px)
             top: 66px
-            max-height: calc(100vh - 66px)
+            height: calc(100vh - 66px)
 
     &__filters-header
         display: none
         position: fixed
-        width: 260px
+        width: 280px
         height: 52px
         font-weight: bold
         margin-top: -52px
+        margin-left: -20px
         align-items: center
         justify-content: center
         font-size: 16px
@@ -186,14 +184,19 @@
 
     &__filter-form
         @media screen and (max-width: 1200px)
+            position: relative
+            padding-left: 20px
             margin-top: 52px
             overflow-y: scroll
             box-shadow: 0 0 5px #eaeaea
-            max-height: calc(100vh - 174px)
             max-width: 100%
+            height: calc(100% - 52px) 
 
             // Ширина родителя - 260px. Ширина этого элемента - по содержимому. Но максимум - 260 (100%). Если откроем на ПК, то появится вертикальный скроллбар. И он забирает часть ширины. Из-за этого перестает вмещаться фильтр по цене и появляется горизонтальный скроллбар. Скрываем его этой строчкой
             overflow-x: hidden
+
+        @media screen and (max-width: 768px)
+            height: calc(100vh - 174px)
 
     &__filter-block
         display: flex
@@ -205,6 +208,7 @@
 
         @media screen and (max-width: 1200px)
             border-radius: 0
+            border-left: 0
 
         &:nth-last-of-type(n+2)
             @media screen and (min-width: 1201px)
@@ -322,37 +326,33 @@
                 background-color: #ffbe00
 
     &__filter-btn
+        display: none
         width: 20px
-        height: 40px
         background-color: #fff
         position: absolute
-        top: calc(50% - 40px)
-        transform: translateX(calc(-100% + 1px))
-        border-top-left-radius: 5px
-        border-bottom-left-radius: 5px
-        box-shadow: 0 0 5px #eaeaea
+        top: 0
+        left: 0
+        z-index: 10
+        height: 100%
 
-        &::after, &::before
+        @media screen and (max-width: 1200px)
             display: block
-            content: ""
 
-        // Убираем тень, которая заходит на меню с фильтрами
-        &::after
-            background-color: #fff
-            height: 100%
-            position: absolute
-            width: 6px
-            right: -3px
-            top: 0
+        @media screen and (max-width: 768px)
+            height: calc(100% - 56px)
+
 
         &::before
+            display: block
+            content: ""
             position: absolute
-            height: calc(100% - 10px)
+            height: 30px
+            top: calc(50% - 15px)
             width: 3px
-            top: 5px
             left: 6px
             border-radius: 5px
             background-color: #dad9d9
+
     // ---------------------------------------------------
 
     &__products-item-actions
