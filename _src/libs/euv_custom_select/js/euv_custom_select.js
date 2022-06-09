@@ -1,9 +1,8 @@
-/*
+/*!
  * euv_custom_select
  * https://github.com/ulin-evgeny/
- * Плагин для вызова кроссбраузерного стилизованного списка. За счет своей простоты плагин можно легко подстроить под свои нужды.
+ * Плагин для вызова кроссбраузерного стилизованного списка
  */
-
 (function ($) {
     // ===================================
     // Приватные функции
@@ -42,6 +41,7 @@
                 }
 
                 $this.removeClass(custom_select_visible_class);
+                $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
             }
         });
     }
@@ -72,7 +72,7 @@
                 // Удаляем созданные плагином элементы
                 let $custom_select = $this.closest('.' + custom_select_class);
                 $custom_select.find('.' + custom_select_input_class).remove();
-                $custom_select.find('.euv-custom-select__options-wrap').remove();
+                $custom_select.find('.' + custom_select_options_wrap_class).remove();
                 $custom_select.find('.euv-custom-select__btn').remove();
 
                 // Удаляем ненужную обертку
@@ -136,7 +136,7 @@
                 }
 
                 if (disabled) {
-                    $custom_select.addClass('disabled')
+                    $custom_select.addClass('disabled');
                 }
 
                 $custom_select.append($custom_select_input);
@@ -145,7 +145,7 @@
                 let $custom_select_btn = $('<a href="#" class="euv-custom-select__btn"></a>');
                 $custom_select_btn.on('click.' + plugin_name, function (e) {
                     e.preventDefault();
-                })
+                });
                 $custom_select.append($custom_select_btn);
 
                 // -----------------------------------------------
@@ -173,6 +173,8 @@
 
                     $custom_select_btn.on('click.' + plugin_name, function () {
                         $custom_select.toggleClass(custom_select_visible_class);
+                        $custom_select.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
+
                         if ($custom_select.hasClass(custom_select_visible_class)) {
                             $(document).off('click.' + plugin_name, close_select);
                             $(document).on('click.' + plugin_name, close_select);
@@ -185,7 +187,7 @@
                 // -----------------------------------------------
                 // Создаем wrap для опций
                 // -----------------------------------------------
-                let $custom_select_options_wrap = $('<div class="euv-custom-select__options-wrap"></div>');
+                let $custom_select_options_wrap = $('<div class="' + custom_select_options_wrap_class + '"></div>');
                 $custom_select.append($custom_select_options_wrap);
 
                 // -----------------------------------------------
@@ -202,7 +204,7 @@
                     $custom_option.attr('data-' + plugin_name + '_value', $option.val());
 
                     if ($option.val() == $this.val()) {
-                        $custom_option.addClass(custom_select_selected_option_class)
+                        $custom_option.addClass(custom_select_selected_option_class);
                     }
 
                     $custom_option.html($option.html());
@@ -269,7 +271,7 @@
                 $this.trigger(plugin_name + '_init');
             });
         }
-    }
+    };
 
     // ===================================
     // Логика вызова функций
@@ -277,13 +279,15 @@
     let plugin_name = 'euv_custom_select';
 
     // Вынес повторяющиеся классы в переменные, чтобы избежать опечаток
-    let custom_select_class = 'euv-custom-select';
-    let custom_select_input_class = 'euv-custom-select__input';
-    let custom_select_visible_class = 'euv-custom-select_visible';
-    let custom_select_selected_option_class = 'euv-custom-select__selected-option';
-    let custom_select_option_class = 'euv-custom-select__option';
-    let custom_select_label_class = 'euv-custom-select__label';
-    let custom_select_input_value_class = 'euv-custom-select__input-value'
+    let custom_select_class = 'euv-custom-select',
+        custom_select_input_class = 'euv-custom-select__input',
+        custom_select_visible_class = 'euv-custom-select_visible',
+        custom_select_selected_option_class = 'euv-custom-select__selected-option',
+        custom_select_option_class = 'euv-custom-select__option',
+        custom_select_label_class = 'euv-custom-select__label',
+        custom_select_input_value_class = 'euv-custom-select__input-value',
+        custom_select_options_wrap_class = 'euv-custom-select__options-wrap';
+    let toggleDuration = 200;
 
     $.fn.euv_custom_select = function (method) {
         if (methods[method]) {
@@ -313,6 +317,6 @@
         } else {
             $.error('Функция с именем ' + method + ' не существует для jQuery.' + plugin_name + '.');
         }
-    }
+    };
 
 })(jQuery);

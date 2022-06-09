@@ -13,9 +13,6 @@
     }
     &_visible {
         z-index: 11;
-        #{$parent}__options-wrap {
-            display: block;
-        }
     }
     &__input {
         width: 100%;
