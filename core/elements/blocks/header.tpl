@@ -116,7 +116,7 @@
                                         <div class="header__column">
                                             <p class="header__column-header">
                                                 {if $items.uri ?}
-                                                    <a href="{$items.uri}">{$items.name}</a>
+                                                    <a class="header__column-header-link" href="{$items.uri}">{$items.name}</a>
                                                 {else}
                                                     <span>{$items.name}</span>
                                                 {/if}

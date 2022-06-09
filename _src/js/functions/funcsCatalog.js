@@ -20,8 +20,8 @@ function init() {
     // -------------------------------------------
     // Панель с фильтрами на мобилках
     // -------------------------------------------
-    let $filterButton = $(".listing__filters-btn");
-    if ($filterButton.length) {
+    let $openFiltersBtn = $(".listing__open-filters-btn");
+    if ($openFiltersBtn.length) {
         // Основные переменные
         let $filter = $(".listing__filter");
         let filterPanelWidth = $filter.outerWidth();
@@ -34,28 +34,38 @@ function init() {
                 $('body').toggleClass("filter-opened");
             }
 
-            // Шторка открылась
+            // Панель открылась
             if ($filter.hasClass('active')) {
                 $filter[0]['swapMinX'] = 0;
                 $filter[0]['swapMaxX'] = filterPanelWidth;
             }
-            // Шторка закрылась
+            // Панель закрылась
             else {
                 $filter[0]['swapMinX'] = -filterPanelWidth;
                 $filter[0]['swapMaxX'] = 0;
             }
         }
 
+
+        // ----------------------------
+        // Основные обработчики для открытия и закрытия панели с фильтрами
+        // ----------------------------
+        // Обработчик кнопки внутри панели с фильтрами для закрытия фильтров
+        $('.listing__close-filter-btn').on('click', function () {
+            toggleFiltersbar();
+        });
+
         // Обработчик для раскрытия панели с фильтрами на мобилках
-        $filterButton.on("click", function () {
+        $openFiltersBtn.on("click", function () {
             toggleFiltersbar();
         });
         $(document).on('click', function (e) {
             let $target = $(e.target);
-            if ($filter.hasClass('active') && !$target.closest('.listing__filter, .listing__filters-btn').length && !$target.hasClass('listing__filter, listing__filters-btn')) {
+            if ($filter.hasClass('active') && !$target.closest('.listing__filter, .listing__open-filters-btn').length && !$target.hasClass('listing__filter, listing__open-filters-btn')) {
                 toggleFiltersbar();
             }
         });
+
 
         // ----------------------------
         // Эффект шторки для панели с фильтрами на мобилках
@@ -64,7 +74,8 @@ function init() {
             swapMinY: 0,
             swapMaxY: 0,
             swapMaxX: 0,
-            swapMinX: -filterPanelWidth
+            swapMinX: -filterPanelWidth,
+            elem: $('.listing__filter-btn')[0]
         });
 
         $filter.on('drogEnd', function () {

@@ -44,9 +44,9 @@ data-single-dir - запретить менять направление сор�
         </div>
         *}
 
-        <button class="listing__filters-btn">
+        <button class=" listing__open-filters-btn">
             Выбор<br>по параметрам
-            <svg class="svg listing__filters-btn-icon" xmlns="http://www.w3.org/2000/svg"
+            <svg class="svg  listing__open-filters-btn-icon" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 32 32" width="32"
                  height="32">
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-filter-catalog-btn-toggle-controls"></use>

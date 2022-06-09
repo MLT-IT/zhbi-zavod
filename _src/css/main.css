@@ -5318,7 +5318,7 @@ a .breadcrumbs__val:hover {
     margin-top: 8px;
     display: flex;
     align-items: center;
-    transition: border-bottom-color .3s;
+    transition: .3s;
     border-bottom: 1px dashed rgba(60, 60, 59, .5);
     padding-bottom: 3px
 }
@@ -5369,7 +5369,7 @@ a .breadcrumbs__val:hover {
 
 .product-card__reviews-quantity {
     padding-bottom: 3px;
-    transition: border-bottom-color .3s;
+    transition: .3s;
     border-bottom: 1px dashed rgba(60, 60, 59, .5)
 }
 
@@ -7107,7 +7107,7 @@ a .breadcrumbs__val:hover {
 
 .footer__nav-item a {
     border-bottom: 1px dashed;
-    transition: border-bottom-color .3s
+    transition: .3s
 }
 
 .footer__nav-item:hover a {

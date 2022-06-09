@@ -21,7 +21,7 @@
         mousemove = 'mousemove', touchmove = 'touchmove',
         mouseup = 'mouseup', touchend = 'touchend',
         father = '-f', passive = {passive: false},
-        isDrog = '-d', data = '[data-drog]', elmnt, that,
+        isDrog = '-d', elmnt, that,
         optionsDefault = {
             swapMinX: false,
             swapMaxX: false,
@@ -82,7 +82,10 @@
             element[opt] = options[opt];
         }
 
-        let target = element.querySelector(data) || element;
+        let target = element;
+        if (typeof options.elem !== 'undefined') {
+            target = options.elem;
+        }
 
         // Save reference original element into target
         target[father] = element;
@@ -111,7 +114,10 @@
             return;
         }
 
-        let target = element.querySelector(data) || element;
+        let target = element;
+        if (typeof options.elem !== 'undefined') {
+            target = options.elem;
+        }
 
         element.style.zIndex = '';
         element.style.transform = '';
@@ -181,8 +187,10 @@
      * @param e
      */
     function drogMove(e) {
-        // Я закомментировал, т.к. не работает скроллинг панели с фильтрами
-        // e.preventDefault();
+        // На мобилках не надо, т.к. не будет работать скроллинг панели с фильтрами. На компах надо, т.к. в противном случае будет срабатывать выделение или перетаскивание (если зажали по тегу a)
+        if (e.type === mousemove) {
+            e.preventDefault();
+        }
 
         if (e.type === touchmove) {
             elmnt = this[father];
@@ -197,18 +205,18 @@
         elmnt[Yt] -= elmnt[Yi] - elmnt[Yf];
 
         // Валидация Xt
-        if (this.swapMinX !== false && elmnt[Xt] < this.swapMinX) {
-            elmnt[Xt] = this.swapMinX;
+        if (elmnt.swapMinX !== false && elmnt[Xt] < elmnt.swapMinX) {
+            elmnt[Xt] = elmnt.swapMinX;
         }
-        if (this.swapMaxX !== false && elmnt[Xt] > this.swapMaxX) {
-            elmnt[Xt] = this.swapMaxX;
+        if (elmnt.swapMaxX !== false && elmnt[Xt] > elmnt.swapMaxX) {
+            elmnt[Xt] = elmnt.swapMaxX;
         }
         // Валидация Yt
-        if (this.swapMinY !== false && elmnt[Yt] < this.swapMinY) {
-            elmnt[Yt] = this.swapMinY;
+        if (elmnt.swapMinY !== false && elmnt[Yt] < elmnt.swapMinY) {
+            elmnt[Yt] = elmnt.swapMinY;
         }
-        if (this.swapMaxY !== false && elmnt[Yt] > this.swapMaxY) {
-            elmnt[Yt] = this.swapMaxY;
+        if (elmnt.swapMaxY !== false && elmnt[Yt] > elmnt.swapMaxY) {
+            elmnt[Yt] = elmnt.swapMaxY;
         }
 
         elmnt[Xi] = elmnt[Xf];
@@ -232,7 +240,7 @@
 
         let event = document.createEvent('HTMLEvents');
         event.initEvent('drogEnd', true, false);
-        that.dispatchEvent(event);
+        elmnt.dispatchEvent(event);
     }
 
 

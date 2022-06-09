@@ -10,5 +10,6 @@
     </form>
 
     <div class="listing__filter-btn"></div>
+    <div class="listing__close-filter-btn"></div>
 
 </div>
