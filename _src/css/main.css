@@ -3680,6 +3680,7 @@ p, span {
     transform: none
 }
 
+/*
 .sidebar {
     position: -webkit-sticky;
     position: sticky;
@@ -3839,6 +3840,7 @@ p, span {
     font-size: 12px;
     line-height: 120%
 }
+*/
 
 .burger {
     width: 17px;

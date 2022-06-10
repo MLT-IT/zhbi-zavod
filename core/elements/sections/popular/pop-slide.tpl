@@ -113,12 +113,14 @@
         {if $condition}
             <div class="js-product__selprice">
                 <span class="js-product__selprice-span">Цена за</span>
-                <select name="unit" class="custom-select js-product__units-select">
-                    <option value="1" selected>{$pricePer}</option>
-                    {foreach $itemUnits as $key => $val}
-                        <option value="{$val['id']}">{$val['title']}</option>
-                    {/foreach}
-                </select>
+                <div class="js-product__units-select-wrap">
+                    <select name="unit" class="custom-select js-product__units-select">
+                        <option value="1" selected>{$pricePer}</option>
+                        {foreach $itemUnits as $key => $val}
+                            <option value="{$val['id']}">{$val['title']}</option>
+                        {/foreach}
+                    </select>
+                </div>
             </div>
         {else}
             <input type="hidden" name="unit" value="1">
