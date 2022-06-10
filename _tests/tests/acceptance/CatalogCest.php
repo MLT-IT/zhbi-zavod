@@ -115,7 +115,8 @@ class CatalogCest {
         // Не знаю, почему, но без скролла не срабатывает клик
         $I->scrollTo($this->btnMoreSelector, 0, 0);
         $I->click($this->btnMoreSelector);
-        // Подождем загрузку новых карточек - не более 10 секунд
+        // Подождем загрузку новых карточек. Сначала ждем, когда начнется AJAX-запрос. Потом ждем, когда он закончится. Подробности здесь: https://github.com/Codeception/Codeception/issues/5607#issuecomment-515060739
+        $I->waitForJS("return $.active > 0;", 5);
         $I->waitForJS("return $.active == 0;", 10);
     }
 
@@ -129,27 +130,23 @@ class CatalogCest {
         // Попробуем увеличить кол-во товара для добавления в корзину
         for ($i = 0; $i < $val; $i++) {
             $I->click($itemAddSelector . $this->btnPlusSelector);
-            $I->waitForJS("return $.active == 0;", 5);
         }
         // Проверяем
-        $I->seeInField($itemAddSelector . $this->amountSelector, $val + 1);
+        $I->seeInField($itemAddSelector . $this->amountSelector, strval($val + 1));
 
         // Попробуем уменьшить кол-во товара для добавления в корзину
         $I->click($itemAddSelector . $this->btnMinusSelector);
-        $I->waitForJS("return $.active == 0;", 5);
         // Проверяем
-        $I->seeInField($itemAddSelector . $this->amountSelector, $val);
+        $I->seeInField($itemAddSelector . $this->amountSelector, strval($val));
 
         // Добавляем
         $I->click($itemAddBtnSelector);
-        $I->waitForJS("return $.active == 0;", 5);
         // После добавления должна измениться кнопка. Проверяем это
         $I->dontSeeElement($itemAddBtnSelector);
 
         // Попробуем удалить товар из корзины за счет изменения количества до нуля
         for ($i = 0; $i < $val; $i++) {
             $I->click($itemChangeSelector . $this->btnMinusSelector);
-            $I->waitForJS("return $.active == 0;", 5);
         }
         // После удаления должна измениться кнопка. Проверяем это
         $I->seeElement($itemAddBtnSelector);
@@ -158,10 +155,8 @@ class CatalogCest {
         // Хотелось бы протестировать изменение $this->amountSelector. Но там JS, который мешает Codeception правильно заполнить это поле. Поэтому снова через плюсики
         for ($i = 0; $i < $val; $i++) {
             $I->click($itemAddSelector . $this->btnPlusSelector);
-            $I->waitForJS("return $.active == 0;", 5);
         }
         $I->click($itemAddBtnSelector);
-        $I->waitForJS("return $.active == 0;", 5);
     }
 
 
@@ -210,31 +205,36 @@ class CatalogCest {
         }
 
         // Проверка на странице корзины
+        // Перед изменением страницы лучше чуть-чуть подождать
+        $I->wait(2);
         $I->amOnPage('/cart/');
+
         foreach ($arrayForLoop as $val) {
             // Откроем страницу корзины и посмотрим, действительно ли товары добавились. И в нужном ли количестве
             $basketItemSelector = '//tr[contains(@class, "cart-table__table-row_type_product")][@data-product-id="' . $val['id'] . '"]';
             $I->seeElement($basketItemSelector);
-            $I->seeInField($basketItemSelector . '//input[contains(@class, "custom-counter__amount")]', $val['amount']);
+            $I->seeInField($basketItemSelector . '//input[contains(@class, "custom-counter__amount")]', strval($val['amount']));
         }
 
         // Возвращаемся обратно на страницу каталога. Был баг, когда я вызвал msProducts кешированным. Сначала все работало, а после перезагрузки страницы - нет. Проверим его
+        $I->wait(2);
         $I->amOnPage('/catalog/');
         $this->clickToBtnMore($I);
 
         // Меняем кол-во товаров в корзине
         $I->click($item1 . $this->changeSelector . $this->btnMinusSelector);
-        $I->waitForJS("return $.active == 0;", 5);
+        // Опытным путем я подобрал, что здесь нужен скролл, иначе иногда не устанавливается количество
+        $I->scrollTo($item2);
         $I->click($item2 . $this->changeSelector . $this->btnMinusSelector);
-        $I->waitForJS("return $.active == 0;", 5);
 
         // Перезагружаем страницу
+        $I->wait(2);
         $I->reloadPage();
         $this->clickToBtnMore($I);
 
         // Смотрим кол-во добавленных товаров
-        $I->seeInField($item1 . $this->changeSelector . $this->amountSelector, $rand1);
-        $I->seeInField($item2 . $this->changeSelector . $this->amountSelector, $rand2);
+        $I->seeInField($item1 . $this->changeSelector . $this->amountSelector, strval($rand1));
+        $I->seeInField($item2 . $this->changeSelector . $this->amountSelector, strval($rand2));
     }
 
 }

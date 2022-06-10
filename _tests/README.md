@@ -7,7 +7,7 @@
 composer update
 ```
 
-Шаг 2. Перейти в папку `_tests`:
+Шаг 2. Перейти в папку `_tests`. Это необходимо, т.к. дальше мы будем устанавливать codeception. И codeception создаст свои файлы в той папке, из которой мы запустим команду. Нам не нужны лишние файлы в корне:
 ```
 cd _tests
 ```
@@ -29,6 +29,13 @@ selenium-standalone install
     url: 'домен сайта на локалке'
 ```
 
+Шаг 6. Если после установкой и запуском прошло некоторое время, то Google Chrome на ПК мог обновиться. А драйвер для него — нет.
+Команда для обновления драйвера такая же, как для установки Selenium, т.к. Selenium включает в себя этот драйвер:
+```
+npm install selenium-standalone -g
+selenium-standalone install && selenium-standalone start
+```
+
 ### Запуск
 
 Шаг 1. Запускаем Selenium:
@@ -36,7 +43,7 @@ selenium-standalone install
 selenium-standalone start
 ```
 
-Шаг 2. Запускаем все тесты. Важно, чтобы Chrome был версии, которая соответствует WebDriver (его мы установили командой composer update):
+Шаг 2. Запускаем все тесты:
 ```
 "../vendor/bin/codecept" run acceptance --steps
 ```

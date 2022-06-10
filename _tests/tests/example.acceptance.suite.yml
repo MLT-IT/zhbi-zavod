@@ -8,29 +8,30 @@ actor: AcceptanceTester
 modules:
   enabled:
     #    - PhpBrowser:
-    #        url: http://knauf.local/
+    #        url: https://minvata-78.ru/
 
     - \Helper\Acceptance
     - \Codeception\Module\Asserts
 
     - WebDriver:
-        url: 'http://knauf.local/'
+        url: 'https://minvata-78.ru/'
         browser: chrome
         capabilities:
           chromeOptions:
             args: ["--headless", "--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
+#            args: ["--disable-gpu", "--no-sandbox", "--start-maximized", "--window-size=1920x1080"]
 
 env:
   krovlyasp:
     modules:
       config:
         WebDriver:
-          url: 'http://krovlyasp.local'
+          url: 'https://krovlyasp.ru'
 
   armatura-178:
     modules:
       config:
         WebDriver:
-          url: 'http://armatura-178.local'
+          url: 'https://armatura-178.ru'
 
 step_decorators: ~
