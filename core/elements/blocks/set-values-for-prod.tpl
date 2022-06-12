@@ -30,7 +30,6 @@
     {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
     {if $src['v_upakovke'][0]? && $defaultPrice? && $src['context_key'] == 'penoplex'}
         {set $list = $defaultPrice * $src['v_upakovke'][0]}
-        {set $list = $list | round}
     {/if}
 {/if}
 
@@ -41,13 +40,13 @@
 
 {* Единицы измерения для арматуры *}
 {if $src['context_key'] === 'armatura-178'}
-    {set $metrov_v_tonne = $src['kolichestvo-metrov-v-1-tonne'][0] | floatval}
-    {set $dlina_m = $src['dlina-m'][0] | floatval}
+    {set $metrov_v_tonne = $src['kolichestvo-metrov-v-1-tonne'][0] | replace : ',' : '.'}
+    {set $dlina_m = $src['dlina-m'][0] | replace : ',' : '.'}
     {if $metrov_v_tonne > 0}
         {if $dlina_m > 0}
-            {set $thing = ($metrov_v_tonne / $dlina_m) | replace : ',' : '.'}
+            {set $thing = $metrov_v_tonne / $dlina_m}
         {/if}
-        {set $pm = $metrov_v_tonne | replace : ',' : '.'}
+        {set $pm = $metrov_v_tonne}
     {/if}
 {/if}
 
@@ -64,12 +63,12 @@
 
 {* Единицы измерения для плит ОСБ и фанеры *}
 {if $src['context_key'] in list ['plitaosb', 'pro-fanera']}
-    {set $m2 = $src['ploshad_m2'][0] | replace : ',' : '.'}
+    {set $m2 = $src['ploshad_m2'][0]}
 {/if}
 
 {* Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp) *}
 {if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
-    {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
+    {set $list = 1 / $src['ploshad_m2'][0]}
 {/if}
 
 {* Единицы измерения для Уголвков и Труб (armatura-178) *}
