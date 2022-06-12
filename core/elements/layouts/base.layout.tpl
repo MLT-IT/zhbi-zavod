@@ -43,6 +43,7 @@
 
 {'!checkHost' | snippet}
 {'!checkItems' | snippet}
+{'!checkFloatTrouble' | snippet}
 
 <!doctype html>
 <html lang="ru">

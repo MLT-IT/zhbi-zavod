@@ -2,10 +2,9 @@
 {set $prodId = $src['id']}
 
 {* Ключ товара, нужен для изменения товара в корзине *}
-{* Если запускать сайт на Windows, то дробные числа должны быть с запятой, иначе ключ рассчитается неправильно и будет невозможно изменить кол-во товара (на неглавных контекстах). Если на Linux, то с точкой. Дело в настройках локали *}
-{set $productKey = ($src['id'] ~ $src['price'] ~ $src['weight'] ~ '[]') | replace : ',' : '.' | replace : ' ' : '' | md5}
+{set $productKey = ($src['id'] ~ $src['price'] ~ $src['weight'] ~ '[]') | replace : ' ' : ''}
 
-{* Цена по умолчанию - нужна для расчета других цен на JS. Тут наоборот нужна точка, т.к. функция parseFloat неправильно распарсит число с запятой *}
+{* Цена по умолчанию - нужна для расчета других цен на JS *}
 {set $defaultPrice = $src['price'] | replace : ',' : '.' | replace : ' ' : ''}
 {* Цена для красивого вывода *}
 {set $outputPrice = $src['price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
@@ -15,6 +14,10 @@
     {set $outputOldPrice = $src['old_price'] | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
 {/if}
 
+{*
+Для некоторых опций применяется модификатор replace : ',' : '.', а для некоторых - нет. Потому что у некоторых опций тип - числовое поле, а у некоторых - текстовое. Что может быть в текстовом - неизвестно. Но значение используется для вычислений. Поэтому надо применить replace : ',' : '.'.
+*}
+
 {* Информация о кол-ве товара в корзине, есть ли товар в избранном, в сравнении *}
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 {* Кол-во товара в корзине *}
@@ -22,19 +25,18 @@
 
 {* Единицы измерения для утеплителей *}
 {if $src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
-    {set $pm = $src['kolvo-pm'][0]}
+    {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
     {set $m2 = $src['ploshad_m2'][0]}
-    {set $m3 = $src['obyem_m3'][0]}
-    {if $src['v_upakovke'][0]? && $price? && $src['context_key'] == 'penoplex'}
-        {set $list = $price * $src['v_upakovke'][0]}
+    {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
+    {if $src['v_upakovke'][0]? && $defaultPrice? && $src['context_key'] == 'penoplex'}
+        {set $list = $defaultPrice * $src['v_upakovke'][0]}
         {set $list = $list | round}
     {/if}
 {/if}
 
 {* Единицы измерения - дополнительные рассчеты для web и penoplex *}
-{if $src['v_upakovke']? && $src['context_key'] in list ['web', 'penoplex']}
+{if $src['v_upakovke'][0]? && $src['context_key'] in list ['web', 'penoplex']}
     {set $m2 = $m2 * $src['v_upakovke'][0]}
-    {set $m2 = $m2 | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения для арматуры *}
@@ -56,8 +58,8 @@
 
 {* Единицы измерения для кирпича *}
 {if $src['context_key'] === 'kirpich-m'}
-    {set $k_m3seam = (1 / $src['k_m3seam'][0]) | replace : ',' : '.'}
-    {set $k_m2seam = (1 / $src['k_m2seam'][0]) | replace : ',' : '.'}
+    {set $k_m3seam = 1 / ($src['k_m3seam'][0] | replace : ',' : '.')}
+    {set $k_m2seam = 1 / ($src['k_m2seam'][0] | replace : ',' : '.')}
 {/if}
 
 {* Единицы измерения для плит ОСБ и фанеры *}
@@ -65,7 +67,7 @@
     {set $m2 = $src['ploshad_m2'][0] | replace : ',' : '.'}
 {/if}
 
-{* Единицы измерения для Ондулина и Ондулина Смарт (krovlya) *}
+{* Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp) *}
 {if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
     {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
 {/if}
@@ -99,13 +101,13 @@
 {/if}
 
 {* Цена за ... *}
-{set $unit = $src['unit']}
-{if ($unit[0] is empty) || ($unit[0] == 'упаковка')}
+{set $unit = $src['unit'][0]}
+{if ($unit is empty) || ($unit == 'упаковка')}
     {set $pricePer = 'упаковку'}
-{elseif $unit[0] == 'тонна'}
+{elseif $unit == 'тонна'}
     {set $pricePer = 'тонну'}
 {else}
-    {set $pricePer = $unit[0]}
+    {set $pricePer = $unit}
 {/if}
 
 {*
@@ -113,7 +115,7 @@
 Условия...
 - Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами.
   ИЛИ
-- Родитель должен быть Ондулином или Ондулином Смарт (это кровля)
+- Родитель должен быть Ондулином или Ондулином Смарт (krovlyasp)
 *}
 {set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya', 'plity-mdvp']) &&
 ($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
@@ -164,3 +166,27 @@
 {if ($upk is not empty) && ($upk > 0)}
     {set $itemUnits['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11']}
 {/if}
+
+
+{*
+Fenom на Windows неправильно выводит float числа. Именно выводит неправильно. И именно числа. При выводе он меняет точку на запятую. Пример кода:
+{set $p = 3.14}
+{$p}
+Выведет 3,14
+Поэтому перед выводом нужно число превратить в строку, а у строки заменить запятую на точку.
+
+Ключ товара. Если запускать сайт на Windows, то дробные числа должны быть с запятой, иначе ключ рассчитается неправильно и будет невозможно изменить кол-во товара (на неглавных контекстах - это все, кроме web). Если на Linux, то с точкой.
+*}
+{if $_modx->getPlaceholder('checkFloatTrouble') ?}
+    {foreach $itemUnits as $key => $val}
+        {* Здесь происходит неявное приведение типов - числа в строку (функция replace ведь работает со строками). И замена запятой на точку *}
+        {set $itemUnits[$key] = $val | replace : ',' : '.'}
+    {/foreach}
+    {set $productKey = $productKey | replace : '.' : ','}
+{/if}
+
+{if $itemUnits | length < 2}
+    {set $condition = false}
+{/if}
+
+{set $productKey = $productKey | md5}
