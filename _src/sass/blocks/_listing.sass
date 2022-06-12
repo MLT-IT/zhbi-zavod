@@ -190,7 +190,7 @@
             overflow-y: scroll
             box-shadow: 0 0 5px #eaeaea
             max-width: 100%
-            height: calc(100% - 52px) 
+            height: calc(100% - 52px)
 
             // Ширина родителя - 260px. Ширина этого элемента - по содержимому. Но максимум - 260 (100%). Если откроем на ПК, то появится вертикальный скроллбар. И он забирает часть ширины. Из-за этого перестает вмещаться фильтр по цене и появляется горизонтальный скроллбар. Скрываем его этой строчкой
             overflow-x: hidden
@@ -232,15 +232,15 @@
             .listing__filter-block-content
                 padding-top: 8px
 
-    &__filter-clear
-        align-self: flex-end
-        border-bottom: 1px dashed #ffbe00
-        color: #ffbe00
-        margin-bottom: 15px
-        transition: border-bottom-color .3s
-
-        &:hover
-            border-bottom-color: transparent
+    //&__filter-clear
+    //    align-self: flex-end
+    //    border-bottom: 1px dashed #ffbe00
+    //    color: #ffbe00
+    //    margin-bottom: 15px
+    //    transition: border-bottom-color .3s
+    //
+    //    &:hover
+    //        border-bottom-color: transparent
 
     &__filter-block-header
         position: relative
@@ -306,7 +306,7 @@
         position: relative
         font-weight: 700
         border-bottom: 1px solid #eaeaea
-        transition: background-color .3s
+        transition: .3s
 
         &::before
             position: absolute

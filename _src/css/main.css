@@ -6383,7 +6383,6 @@ a .breadcrumbs__val:hover {
     align-items: center;
     margin-right: 10px;
     fill: #b1b2b3;
-    transition: fill .3s
 }
 
 .reviews__button-stars > svg:hover, .reviews__button-stars > svg:hover ~ svg {
@@ -6392,7 +6391,8 @@ a .breadcrumbs__val:hover {
 
 .reviews__button-stars svg {
     width: 11px;
-    height: 11px
+    height: 11px;
+    transition: .3s
 }
 
 .reviews__button-stars svg:not(:last-of-type) {
