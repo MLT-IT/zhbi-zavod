@@ -4,27 +4,38 @@ if (empty($alias)) {
     return;
 }
 
-$result = [];
+$cacheName = 'getIdByAlias.' . $alias;
+$cacheOptions = [
+    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheName . '/' . $modx->context->key . '/',
+];
 
-$alias = explode(',', $alias);
+if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
+    $result = [];
 
-foreach ($alias as $al) {
-    $al = trim($al);
-    $obj = $modx->getObject('modResource', [
-        'alias' => $al,
-        'context_key' => $modx->resource->context_key
-    ]);
+    $alias = explode(',', $alias);
 
-    if (empty($obj)) {
-        continue;
+    foreach ($alias as $al) {
+        $al = trim($al);
+        $obj = $modx->getObject('modResource', [
+            'alias' => $al,
+            'context_key' => $modx->resource->context_key
+        ]);
+
+        if (empty($obj)) {
+            continue;
+        }
+
+        $val = '';
+        if (!empty($addMinus) && $addMinus) {
+            $val = '-';
+        }
+
+        $result[] = $val . $obj->id;
     }
 
-    $val = '';
-    if (!empty($addMinus) && $addMinus) {
-        $val = '-';
-    }
+    $result = implode(',', $result);
 
-    $result[] = $val . $obj->id;
+    $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
 }
 
-return implode(',', $result);
+return $result;
