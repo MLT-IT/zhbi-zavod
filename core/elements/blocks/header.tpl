@@ -181,22 +181,22 @@
             {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
             {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
 
-            {if $about->hidemenu == 0 && $about->published == 1}
+            {if $about['hidemenu'] == 0 && $about['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/o-kompanii/">О компании</a></span>
             {/if}
 
             <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
 
-            {if $certs->hidemenu == 0 && $certs->published == 1}
+            {if $certs['hidemenu'] == 0 && $certs['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
             {/if}
-            {if $faq->hidemenu == 0 && $faq->published == 1}
+            {if $faq['hidemenu'] == 0 && $faq['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/faq/">Вопросы-ответы</a></span>
             {/if}
-            {if $garantii->hidemenu == 0 && $garantii->published == 1}
+            {if $garantii['hidemenu'] == 0 && $garantii['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></span>
             {/if}
-            {if $akcii->hidemenu == 0 && $akcii->published == 1}
+            {if $akcii['hidemenu'] == 0 && $akcii['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
             {/if}
 

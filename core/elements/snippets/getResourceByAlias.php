@@ -4,9 +4,10 @@ if (empty($alias)) {
     return;
 }
 
-$cacheName = 'getResourceByAlias.' . $alias;
+$cacheFolder = 'getResourceByAlias';
+$cacheName = $cacheFolder . '.' . $alias;
 $cacheOptions = [
-    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheName . '/' . $modx->context->key . '/',
+    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder . '/' . $modx->context->key . '/',
 ];
 
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
@@ -16,6 +17,9 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         'alias' => $alias,
         'context_key' => $modx->resource->context_key
     ]);
+
+    // Важный момент. Сниппет кешируется. Но из кеша будет доставаться массив, а не объект. И в чанке нужно будет обращаться к значению, как к массиву, а не как к объекту. Из-за этого будет баг. Нужно привести к одному виду. Приводим к массиву
+    $result = $result->toArray();
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
 }
