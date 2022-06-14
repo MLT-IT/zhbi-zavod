@@ -1,7 +1,7 @@
 <?php
 
 $cacheFolder = 'getReviews';
-$cacheName = $cacheFolder . '.' . $modx->resource->id;
+$cacheName = 'resource-' . $modx->resource->id;
 $cacheOptions = [
     xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder . '/' . $modx->context->key . '/',
 ];

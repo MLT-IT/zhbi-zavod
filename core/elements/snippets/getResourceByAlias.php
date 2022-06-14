@@ -5,7 +5,7 @@ if (empty($alias)) {
 }
 
 $cacheFolder = 'getResourceByAlias';
-$cacheName = $cacheFolder . '.' . $alias;
+$cacheName = $alias;
 $cacheOptions = [
     xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder . '/' . $modx->context->key . '/',
 ];
