@@ -184,7 +184,8 @@ Fenom на Windows неправильно выводит float числа. Им�
     {set $productKey = $productKey | replace : '.' : ','}
 {/if}
 
-{if $itemUnits | length < 2}
+{* Если нет доп. цен, то и не надо выводить список с выбором цен *}
+{if $itemUnits | length < 1}
     {set $condition = false}
 {/if}
 
