@@ -134,35 +134,36 @@
 {/if}
 
 {* Установка itemUnits *}
+{set $inf = 999999999999999999}
 {set $itemUnits = []}
-{if ($m2 is not empty) && ($m2 > 0)}
+{if ($m2 is not empty) && ($m2 > 0) && ($m2 < $inf)}
     {set $itemUnits['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2']}
 {/if}
-{if ($m3 is not empty) && ($m3 > 0)}
+{if ($m3 is not empty) && ($m3 > 0) && ($m3 < $inf)}
     {set $itemUnits['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3']}
 {/if}
-{if ($pm is not empty) && ($pm > 0)}
+{if ($pm is not empty) && ($pm > 0) && ($pm < $inf)}
     {set $itemUnits['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4']}
 {/if}
-{if ($list is not empty) && ($list > 0)}
+{if ($list is not empty) && ($list > 0) && ($list < $inf)}
     {set $itemUnits['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5']}
 {/if}
-{if ($thing is not empty) && ($thing > 0)}
+{if ($thing is not empty) && ($thing > 0) && ($thing < $inf)}
     {set $itemUnits['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6']}
 {/if}
-{if ($pilomat_thing is not empty) && ($pilomat_thing > 0)}
+{if ($pilomat_thing is not empty) && ($pilomat_thing > 0) && ($pilomat_thing < $inf)}
     {set $itemUnits['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7']}
 {/if}
-{if ($k_m2seam is not empty) && ($k_m2seam > 0)}
+{if ($k_m2seam is not empty) && ($k_m2seam > 0) && ($k_m2seam < $inf)}
     {set $itemUnits['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8']}
 {/if}
-{if ($k_m3seam is not empty) && ($k_m3seam > 0)}
+{if ($k_m3seam is not empty) && ($k_m3seam > 0) && ($k_m3seam < $inf)}
     {set $itemUnits['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9']}
 {/if}
-{if ($meter is not empty) && ($meter > 0)}
+{if ($meter is not empty) && ($meter > 0) && ($meter < $inf)}
     {set $itemUnits['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10']}
 {/if}
-{if ($upk is not empty) && ($upk > 0)}
+{if ($upk is not empty) && ($upk > 0) && ($upk < $inf)}
     {set $itemUnits['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11']}
 {/if}
 
