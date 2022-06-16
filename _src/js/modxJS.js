@@ -51,8 +51,10 @@ export default function modxJS(lazyLoadInstance) {
             catalogH1FromGetParams();
             funcsCatalog.wrapTitle();
 
+            // TODO: я забыл, а зачем здесь сортировка? Разве при загрузке страницы не хватает? Напиши комментарий, когда разберешься
             // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
             // funcsCatalog.catalogSortFilters();
+            funcsCatalog.catalogSortColorless();
 
             lazyLoadInstance.update();
         }

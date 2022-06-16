@@ -6,6 +6,7 @@ import functions from "./functions";
 export default {
     init,
     catalogSortFilters,
+    catalogSortColorless,
     getRemainder,
     wrapTitle
 };
@@ -167,6 +168,7 @@ function init() {
     // -------------------------------------------
     // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
     // catalogSortFilters();
+    catalogSortColorless();
 
 
     // -------------------------------------------
@@ -315,6 +317,25 @@ function catalogSortFilters() {
 
             if (parseInt($(a).attr('data-priority')) < parseInt($(b).attr('data-priority'))) {
                 return 1;
+            }
+
+            return 0;
+        });
+
+        $items.appendTo($container);
+    });
+}
+
+
+function catalogSortColorless() {
+    // TODO: хорошо бы проверку написать - есть ли "Бесцветный" или нет. Чтобы за зря не сортировать, это же время отнимает
+    $('#mse2_msoption\\|ottenok,#mse2_msoption\\|cvet').each(function (index, elem) {
+        let $this = $(this);
+        let $container = $($this.find('.listing__filter-option')[0]).parent();
+
+        let $items = $container.find('.listing__filter-option').sort(function (a, b) {
+            if ($(a).attr('data-val') === 'бесцветный' || $(a).attr('data-val') === 'бц-бесцветный') {
+                return -1;
             }
 
             return 0;
