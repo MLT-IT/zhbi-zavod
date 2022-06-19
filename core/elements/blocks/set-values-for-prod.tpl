@@ -28,7 +28,7 @@
     {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
     {set $m2 = $src['ploshad_m2'][0]}
     {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
-    {if $src['v_upakovke'][0]? && $defaultPrice? && $src['context_key'] == 'penoplex'}
+    {if $src['v_upakovke'][0]? && $src['context_key'] == 'penoplex'}
         {set $list = $defaultPrice * $src['v_upakovke'][0]}
     {/if}
 {/if}
@@ -71,9 +71,23 @@
     {set $list = 1 / $src['ploshad_m2'][0]}
 {/if}
 
-{* Единицы измерения для Уголвков и Труб (armatura-178) *}
-{if ($src['parent'] in list [71769, 71770, 71768, 71767, 71766, 71771, 71772, 71774]) && ($src['metrov-v-tonne'][0] is not empty)}
+{* Единицы измерения для Уголвков (armatura-178) *}
+{if ($src['parent'] in list [71771, 71772, 71774]) && ($src['metrov-v-tonne'][0] is not empty)}
     {set $meter =  $src['metrov-v-tonne'][0] | replace : ',' : '.'}
+{/if}
+
+{* Единицы измерения для Труб (armatura-178) *}
+{if ($src['parent'] in list [79636, 71768, 79637, 79638, 79639, 71769, 71770, 71766, 71767]) && ($src['massa-1-m-profilya-kg'][0] is not empty)}
+    {set $pm = ($src['massa-1-m-profilya-kg'][0] | replace : ',' : '.') / 1000}
+
+    {if $src['dlina-m'][0] is not empty}
+        {set $tmp = $src['dlina-m'][0] | replace : ',' : '.'}
+        {if $tmp > 0}
+            {set $thing = 1 / ($pm * $tmp)}
+        {/if}
+    {/if}
+
+    {set $pm = 1 / $pm}
 {/if}
 
 {* Единицы измерения fasady-pro *}
@@ -112,9 +126,8 @@
 {*
 Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
 Условия...
-- Должен быть правильный контекст. Родитель не должен быть сопутствующими товарами.
-  ИЛИ
-- Родитель должен быть Ондулином или Ондулином Смарт (krovlyasp)
+- Должен быть правильный контекст.
+- Родитель не должен быть сопутствующими товарами ИЛИ Родитель должен быть Ондулином или Ондулином Смарт (krovlyasp)
 *}
 {set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya', 'plity-mdvp']) &&
 ($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
