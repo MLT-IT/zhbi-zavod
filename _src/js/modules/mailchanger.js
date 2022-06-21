@@ -1,6 +1,15 @@
 export default function mailChange () {
     const TIMEOUT = 0;
     let links = document.querySelectorAll('a[href*="mailto"]');
+
+    /*
+    TODO: Убери timeout, сделай подмену через document.location.host
+    links.forEach(n => {
+        n.innerText = n.innerText.replace('zakaz@' + document.location.host, 'sz@' + document.location.host);
+        n.href = n.href.replace('zakaz@' + document.location.host, 'sz@' + document.location.host);
+    })
+    */
+
     setTimeout(() => {
         links.forEach(n => {
             n.innerText = n.innerText.replace('mail@minvata-78.ru', 'tsk@minvata-78.ru');
