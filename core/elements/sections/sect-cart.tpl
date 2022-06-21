@@ -19,7 +19,7 @@
             <p class="sect-cart__empty-text">
                 Корзина пока пуста
             </p>
-            <a class="sect-cart__btn-back custom-btn" href="/">Вернуться к покупкам</a>
+            <a class="sect-cart__btn-back custom-btn" href="/catalog/">Вернуться к покупкам</a>
         </div>
     {else}
         <div class="table-responsive">
