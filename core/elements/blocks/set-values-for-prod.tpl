@@ -77,8 +77,8 @@
 {/if}
 
 {* Единицы измерения для Труб (armatura-178) *}
-{if ($src['parent'] in list [79636, 71768, 79637, 79638, 79639, 71769, 71770, 71766, 71767]) && ($src['massa-1-m-profilya-kg'][0] is not empty)}
-    {set $pm = ($src['massa-1-m-profilya-kg'][0] | replace : ',' : '.') / 1000}
+{if ($src['parent'] in list [79636, 71768, 79637, 79638, 79639, 71769, 71770, 71766, 71767]) && ($src['massa-1m-kg'][0] is not empty)}
+    {set $pm = ($src['massa-1m-kg'][0] | replace : ',' : '.') / 1000}
 
     {if $src['dlina-m'][0] is not empty}
         {set $tmp = $src['dlina-m'][0] | replace : ',' : '.'}
