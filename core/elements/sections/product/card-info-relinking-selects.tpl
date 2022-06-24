@@ -150,7 +150,7 @@
                                         </div>
 
                                         <div class="js-product__new-price-text">
-                                            Цена действительна до {'getTomorrowDate' | snippet}
+                                            Цена действительна до {'!getTomorrowDate' | snippet}
                                         </div>
                                     </div>
                                 {/if}

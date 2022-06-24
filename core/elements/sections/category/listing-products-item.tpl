@@ -116,7 +116,7 @@
 
             {if $outputOldPrice?}
                 <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
-                    Цена действительна до {'getTomorrowDate' | snippet}
+                    Цена действительна до {'!getTomorrowDate' | snippet}
                 </div>
             {/if}
         </div>
