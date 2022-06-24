@@ -122,7 +122,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "https://pilomat-pro.ru/",
+                    target: "http://minvata-178.local/",
                     secure: false,
                     changeOrigin: true
                 }

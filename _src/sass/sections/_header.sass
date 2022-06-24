@@ -56,8 +56,14 @@
             align-items: center
             +set_colors_1(background-color)
 
+            @at-root .isover &
+                background-color: #FFDD00
+
             &:hover
                 +set_colors_1(background-color, 10%)
+
+                @at-root .isover &
+                    background-color: darken(#FFDD00, 10%)
 
         &-menu
             .header__menu-item
@@ -547,9 +553,6 @@
         cursor: pointer
         margin-left: 19px
         +set_colors_3(color)
-
-        @at-root .isover &
-            color: #FFDD00
 
         &:hover
             border-bottom-color: transparent
