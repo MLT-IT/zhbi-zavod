@@ -74,10 +74,32 @@ class myCustomFilter extends mse2FiltersHandler {
                         $sorted = $this->sortByCustomOrder($sorted, $results, ['Керамический кирпич', 'Клинкерный кирпич', 'Кирпич ручной формовки', 'Печной кирпич']);
                         break;
                     case 19859:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Строительный кирпич', 'Керамический кирпич', 'Клинкерный кирпич', 'Керамический блок', 'Печной кирпич']);
+                        $sorted = $this->sortByCustomOrder($sorted, $results, []);
                         break;
                 }
             }
+
+
+            if ($options['name'] === 'produktovaya-lineyka') {
+                switch ($GLOBALS['modx']->resource->context_key) {
+                    case 'rockwool':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Лайт Баттс', 'Руф Баттс', 'Фасад Баттс', 'Флор Баттс', 'Венти Баттс', 'Каркас Баттс', 'Эконом', 'Акустик Баттс', 'Кавити Баттс', 'Арктик', 'Рокфасад']);
+                        break;
+                    case 'tn':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Техноплекс', 'Техноруф', 'Техноблок', 'Техновент', 'LOGICPIR', 'Технолайт', 'Технофлор', 'Техноакустик', 'Технофас', 'Техно ОЗМ']);
+                        break;
+                    case 'ursa':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Terra', 'Geo', 'XPS', 'Pureone', 'Seco']);
+                        break;
+                    case 'web':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Терм', 'ТеплоКНАУФ', 'АкустиКНАУФ', 'Инсулейшн', 'GreenTERM']);
+                        break;
+                    case 'isover':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Теплый Дом', 'Фасад', 'Руф', 'Звукозащита', 'Скатная Кровля', 'Плавающий пол', 'Профи', 'Тёплые Стены']);
+                        break;
+                }
+            }
+
         }
 
         if (!empty($sorted)) {
