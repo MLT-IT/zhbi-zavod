@@ -3,6 +3,7 @@ START TRANSACTION;
 
 -- Обновление картинок для товаров
 -- Если перенести сайт на локалку или еще куда, то придется переносить еще и картинки. А они очень много весят. Куда проще подправить ссылки у товаров, чтобы картинки брались с боевого сайта. Данный код это и делает.
+-- Важно! Я заметил, что из-за этого дольше открываются страницы. А в информации о загрузке страницы написано, что требуется больше ОЗУ.
 UPDATE modx_ms2_product_files
 SET url = (CONCAT('https://www-knauf.ru', url))
 WHERE url LIKE '/assets/%';
@@ -103,5 +104,13 @@ WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'plity-mdvp'
 UPDATE modx_context_setting
 SET `value` = 'plity-mdvp.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'plity-mdvp';
+
+-- tn
+UPDATE modx_context_setting
+SET `value` = 'http://pro-minvata.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'tn');
+UPDATE modx_context_setting
+SET `value` = 'pro-minvata.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'tn';
 
 COMMIT;

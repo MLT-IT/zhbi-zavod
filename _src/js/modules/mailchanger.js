@@ -8,6 +8,8 @@ export default function mailChange () {
         n.innerText = n.innerText.replace('zakaz@' + document.location.host, 'sz@' + document.location.host);
         n.href = n.href.replace('zakaz@' + document.location.host, 'sz@' + document.location.host);
     })
+
+    TODO: Замени replace на replaceAll.
     */
 
     setTimeout(() => {
