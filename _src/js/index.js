@@ -33,7 +33,7 @@ import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps';
 import add_cover_to_map from './modules/maps';
 import modxJS from './modxJS';
-
+import initTableFilter from './modules/pricelist_table_filter'
 
 // -------------------------------------
 // Подключение JQuery
@@ -337,7 +337,7 @@ $(function($) {
     // --------------------------------
     // Создает фильтр на прайс таблицы в контенте
     // --------------------------------
-    // document.querySelectorAll('.content-block table').forEach((table, table_count) => {
-    //     initTableFilter(table, table_count)
-    // })
+    document.querySelectorAll('.content-block table').forEach((table, table_count) => {
+        initTableFilter(table, table_count)
+    })
 });
