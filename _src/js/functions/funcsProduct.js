@@ -42,6 +42,17 @@ function init(ImageZoom) {
 
 
     // -------------------------------
+    // Выполнение цели Яндекс.Метрики при добавлении товара в корзину
+    // -------------------------------
+    $(document).on('click', '.js-product__to-cart', function () {
+        if (typeof ym !== 'undefined') {
+            ym(86220330, 'reachGoal', 'korzina');
+        }
+        console.log('korzina');
+    });
+
+
+    // -------------------------------
     // Работа со страницей товара с перелинковкой со списками
     // -------------------------------
     if ($('.product-card_type_relinking').length) {
