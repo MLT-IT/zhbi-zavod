@@ -35,6 +35,7 @@ import add_cover_to_map from './modules/maps';
 import modxJS from './modxJS';
 import initTableFilter from './modules/pricelist_table_filter'
 
+
 // -------------------------------------
 // Подключение JQuery
 // -------------------------------------
@@ -62,11 +63,14 @@ if (elem !== null) {
 }
 
 $(function($) {
+    // id для целей Яндекс.Метрики
+    const yandexMetrikaId = getYandexMetrikaId();
+
     // Lazyload для картинок
     let lazyLoadInstance = new LazyLoad();
 
     // Код с обработчиками MODX
-    modxJS(lazyLoadInstance);
+    modxJS(lazyLoadInstance, yandexMetrikaId);
 
     // Inputmask для ввода номера телефона
     let im = new Inputmask("+7 (999) 999-99-9{2,3}");
@@ -83,10 +87,10 @@ $(function($) {
     funcsCatalog.init();
 
     // Функции для карточки товара
-    funcsProduct.init(ImageZoom);
+    funcsProduct.init(yandexMetrikaId);
 
     // Функции для избранного и сравнения
-    funcsFavAndComp.init(Cookies);
+    funcsFavAndComp.init();
 
 
     // -------------------------------
@@ -341,3 +345,43 @@ $(function($) {
         initTableFilter(table, table_count)
     })
 });
+
+
+function getYandexMetrikaId() {
+    switch (location.host) {
+        case 'armatura-178.ru':
+            return 87592591;
+        case 'asfalt-prof.ru':
+            return 87877840;
+        case 'fasady-pro.ru':
+            return 87550456;
+        case 'minvata-178.ru':
+            return 86222127;
+        case 'kirpich-m.ru':
+            return 87468541;
+        case 'minvata-78.ru':
+            return 86221747;
+        case 'krovlyasp.ru':
+            return 86936986;
+        case 'www-fasad.ru':
+            return 88306051;
+        case 'minvata-pro.ru':
+            return 86222192;
+        case 'plity-epps.ru':
+            return 86222030;
+        case 'pilomat-pro.ru':
+            return 87877411;
+        case 'plitaosb.ru':
+            return 88179338;
+        case 'plity-mdvp.ru':
+            return 88305740;
+        case 'www-minvata.ru':
+            return 86220330;
+        case 'pro-minvata.ru':
+            return 86221954;
+        case 'minvata-spb.ru':
+            return 86222209;
+        case 'pro-fanera.ru':
+            return 88180782;
+    }
+}

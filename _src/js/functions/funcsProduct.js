@@ -1,4 +1,5 @@
 import functions from "./functions";
+import ImageZoom from 'js-image-zoom';
 
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
@@ -11,7 +12,7 @@ export default {
 };
 
 // Инициализация
-function init(ImageZoom) {
+function init(yandexMetrikaId) {
     // -------------------------------
     // При фокусе по полю с количеством товара содержимое поля должно очищаться. При сбросе фокуса - восстанавливаться. Как на Петровиче.
     // -------------------------------
@@ -46,7 +47,7 @@ function init(ImageZoom) {
     // -------------------------------
     $(document).on('click', '.js-product__to-cart', function () {
         if (typeof ym !== 'undefined') {
-            ym(86220330, 'reachGoal', 'korzina');
+            ym(yandexMetrikaId, 'reachGoal', 'korzina');
         }
         console.log('korzina');
     });

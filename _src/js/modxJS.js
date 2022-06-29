@@ -2,7 +2,7 @@ import functions from "./functions/functions";
 import funcsCatalog from "./functions/funcsCatalog";
 import funcsProduct from "./functions/funcsProduct";
 
-export default function modxJS(lazyLoadInstance) {
+export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // -------------------------------
     // Подстановка h1 на странице каталога
     // -------------------------------
@@ -84,7 +84,7 @@ export default function modxJS(lazyLoadInstance) {
             if ($form.hasClass('catalog-banner__form')) {
                 console.log('banner-catalog');
                 if (typeof ym !== 'undefined') {
-                    ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                    ym(yandexMetrikaId, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
                 }
             }
 
@@ -108,31 +108,31 @@ export default function modxJS(lazyLoadInstance) {
                     case 'banner-delivery':
                         console.log('banner-delivery');
                         if (typeof ym !== 'undefined') {
-                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
+                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
                         }
                         break;
                     case 'banner-main':
                         console.log('banner-main');
                         if (typeof ym !== 'undefined') {
-                            ym(86220330, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
                         }
                         break;
                     case 'header-link':
                         console.log('header-link');
                         if (typeof ym !== 'undefined') {
-                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
+                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
                         }
                         break;
                     case 'cart':
                         console.log('cart');
                         if (typeof ym !== 'undefined') {
-                            ym(86220330, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
+                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
                         }
                         break;
                     case 'turnkey':
                         console.log('turnkey');
                         if (typeof ym !== 'undefined') {
-                            ym(86220330, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
+                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
                         }
                         break;
                 }
