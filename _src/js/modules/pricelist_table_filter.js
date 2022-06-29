@@ -1,3 +1,7 @@
+import { jsPDF } from "jspdf";
+import autoTable from 'jspdf-autotable';
+import xlsx from 'json-as-xlsx';
+
 export default function initTableFilter(table, table_count) {
     const init = () => {
         //Обернул старую таблицу в контейнер и вывел ее на страницу
@@ -268,9 +272,9 @@ export default function initTableFilter(table, table_count) {
                 innerHTML: `
                 <button class="${utils.classes.export_btn}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#3a3a3a"><path d="M480 352h-133.5l-45.25 45.25C289.2 409.3 273.1 416 256 416s-33.16-6.656-45.25-18.75L165.5 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456zM233.4 374.6C239.6 380.9 247.8 384 256 384s16.38-3.125 22.62-9.375l128-128c12.49-12.5 12.49-32.75 0-45.25c-12.5-12.5-32.76-12.5-45.25 0L288 274.8V32c0-17.67-14.33-32-32-32C238.3 0 224 14.33 224 32v242.8L150.6 201.4c-12.49-12.5-32.75-12.5-45.25 0c-12.49 12.5-12.49 32.75 0 45.25L233.4 374.6z"/></svg></button>
                 <ul class="${utils.classes.select_list}" select-list>
-                <li select-format data-value="json">JSON</li>
+                <li select-format data-value="excel">EXCEL</li>
                 <li select-format data-value="csv">CSV</li>
-                <li select-format data-value="xml">XML</li>
+                <li select-format data-value="pdf">PDF</li>
                 </ul>
                 `
             })
@@ -327,14 +331,14 @@ export default function initTableFilter(table, table_count) {
         changeFormat(e) {
             this.getData()
             switch (e.target.getAttribute('data-value')) {
-                case 'json':
-                    this.formatJSON()
+                case 'excel':
+                    this.formatEXCEL()
                     break;
                 case 'csv':
                     this.formatCSV()
                     break;
-                case 'xml':
-                    this.formatXML()
+                case 'pdf':
+                    this.formatPDF()
                     break;
             }
         },
@@ -377,10 +381,6 @@ export default function initTableFilter(table, table_count) {
 
             utils.export_table.data = result
         },
-        formatJSON() {
-            let data = JSON.stringify(utils.export_table.data);
-            this.export(data, 'export.json')
-        },
         formatCSV() {
             const keys = Object.keys(utils.export_table.data.data[1]);
             let data = keys.join(";") + "\n";
@@ -395,29 +395,37 @@ export default function initTableFilter(table, table_count) {
 
             this.export(data, 'export.csv')
         },
-        formatXML() {
-            function OBJtoXML(obj) {
-                var xml = '';
-                for (var prop in obj) {
-                    xml += obj[prop] instanceof Array ? '' : "<" + prop + ">";
-                    if (obj[prop] instanceof Array) {
-                        for (var array in obj[prop]) {
-                            xml += "<" + prop + ">";
-                            xml += OBJtoXML(new Object(obj[prop][array]));
-                            xml += "</" + prop + ">";
-                        }
-                    } else if (typeof obj[prop] == "object") {
-                        xml += OBJtoXML(new Object(obj[prop]));
-                    } else {
-                        xml += obj[prop];
-                    }
-                    xml += obj[prop] instanceof Array ? '' : "</" + prop + ">";
-                }
-                var xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
-                return xml
+        formatEXCEL() {
+            const new_data = [{}]
+            new_data[0].columns = []
+            new_data[0].content = utils.export_table.data.data
+
+            utils.export_table.data.header.forEach(column_title => {
+                new_data[0].columns.push({ label: column_title, value: column_title })
+            })
+
+            let settings = {
+                fileName: "export",
+                extraLength: 3,
+                writeOptions: {},
             }
 
-            this.export('<?xml version="1.0" encoding="utf-8"?> <tabledata>' + OBJtoXML(utils.export_table.data) + '</tabledata>', 'export.xml')
+            xlsx(new_data, settings)
+        },
+        formatPDF() {
+            const body = []
+            utils.export_table.data.data.forEach(object_elem => {
+                body.push(Object.values(object_elem))
+            })
+            const doc = new jsPDF()
+
+            autoTable(doc, {
+                head: [
+                    utils.export_table.data.header
+                ],
+                body
+            })
+            doc.save('export.pdf')
         },
         export (data, file_name) {
             let a = document.createElement("a");
@@ -425,7 +433,35 @@ export default function initTableFilter(table, table_count) {
             a.href = URL.createObjectURL(file);
             a.download = file_name;
             a.click();
-        }
+        },
+        // formatXML() {
+        //     function OBJtoXML(obj) {
+        //         var xml = '';
+        //         for (var prop in obj) {
+        //             xml += obj[prop] instanceof Array ? '' : "<" + prop + ">";
+        //             if (obj[prop] instanceof Array) {
+        //                 for (var array in obj[prop]) {
+        //                     xml += "<" + prop + ">";
+        //                     xml += OBJtoXML(new Object(obj[prop][array]));
+        //                     xml += "</" + prop + ">";
+        //                 }
+        //             } else if (typeof obj[prop] == "object") {
+        //                 xml += OBJtoXML(new Object(obj[prop]));
+        //             } else {
+        //                 xml += obj[prop];
+        //             }
+        //             xml += obj[prop] instanceof Array ? '' : "</" + prop + ">";
+        //         }
+        //         var xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
+        //         return xml
+        //     }
+
+        //     this.export('<?xml version="1.0" encoding="utf-8"?> <tabledata>' + OBJtoXML(utils.export_table.data) + '</tabledata>', 'export.xml')
+        // },
+        // formatJSON() {
+        //     let data = JSON.stringify(utils.export_table.data);
+        //     this.export(data, 'export.json')
+        // }
     }
 
     const startFilter = () => {
