@@ -48,8 +48,19 @@
             </div>
             *}
 
+            {* На определенных контекстах сортировка по умолчанию должна быть другой *}
             {if $_modx->resource.context_key in list ['pro-fanera', 'kirpich-m', 'plitaosb', 'plity-mdvp']}
                 {set $params['sort'] = 'ms|price:asc'}
+            {/if}
+
+            {* Страница "Продажа досок" на Пиломатериалах *}
+            {if $_modx->resource.id == 80986}
+                {if $params['parents'] ?}
+                    {set $params['parents'] = $params['parents'] ~ ','}
+                {else}
+                    {set $params['parents'] = ''}
+                {/if}
+                {set $params['parents'] = $params['parents'] ~ '-48823,-56923,-48824,-80318'}
             {/if}
 
             {'!mFilter2' | snippet : $params}

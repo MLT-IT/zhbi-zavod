@@ -5,7 +5,7 @@ data-single-dir - запретить менять направление сор�
 *}
 
 <div class="listing__products">
-    {include "file:sections/category/listing-tags.tpl"}
+    {'getTags' | snippet}
 
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">
         <div class="listing__selected" id="mse2_selected" style="display: none;"></div>
