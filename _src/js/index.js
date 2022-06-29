@@ -338,9 +338,9 @@ $(function($) {
 
 
     // --------------------------------
-    // Если на странице есть таблица подгрузить module_filter_table
+    // Если на странице есть таблица.table-filter подгрузить module_filter_table
     // --------------------------------
-    if (document.querySelector('.content-block table')) {
+    if (document.querySelector('.content-block table.table-filter')) {
         var script = document.createElement("script")
         script.type = "text/javascript";
         script.src = '/assets/template/js/module_filter_table.js';
