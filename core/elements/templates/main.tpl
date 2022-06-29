@@ -63,7 +63,7 @@
 
     {include "file:sections/main/banner.tpl"}
 
-    <div class="wrapper">
+    <div class="wrapper main-page-content">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
         {if $_modx->resource.introtext | length > 0}
