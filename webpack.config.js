@@ -18,14 +18,14 @@ module.exports = (env, args) => {
         entry: {
             // Файл "/assets/template/js/scripts.js" нельзя подключать через webpack, потому что он не будет реагировать на события плагинов MODX.
             // app: ['./_src/js/index.js', './_src/js/other/vendors.js', './_src/js/other/base.js'],
-            app: ['./_src/js/index.js'],
+            main: './_src/js/index.js',
+            module_filter_table: './_src/js/module_filter_table.js'
         },
         performance: {
             hints: false
         },
         module: {
-            rules: [
-                {
+            rules: [{
                     test: /\.(js)$/,
                     exclude: /node_modules/,
                     use: {
@@ -73,15 +73,13 @@ module.exports = (env, args) => {
                 },
                 {
                     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[ext]',
-                                outputPath: 'fonts/'
-                            }
+                    use: [{
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
                         }
-                    ]
+                    }]
                 }
             ]
         },
@@ -101,7 +99,7 @@ module.exports = (env, args) => {
             minimizer: [
                 new OptimizeCSSAssetsPlugin({
                     cssProcessorPluginOptions: {
-                        preset: ['default', {discardComments: {removeAll: true}}],
+                        preset: ['default', { discardComments: { removeAll: true } }],
                     }
                 })
             ],
@@ -113,7 +111,7 @@ module.exports = (env, args) => {
         output: {
             path: __dirname + '/assets/template/',
             publicPath: '/assets/template/',
-            filename: 'js/main.js'
+            filename: 'js/[name].js'
         },
         devServer: {
             contentBase: './',
