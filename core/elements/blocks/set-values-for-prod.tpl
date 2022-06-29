@@ -29,7 +29,7 @@
     {set $m2 = $src['ploshad_m2'][0]}
     {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
     {if $src['v_upakovke'][0]? && $src['context_key'] == 'penoplex'}
-        {set $list = $defaultPrice * $src['v_upakovke'][0]}
+        {set $list = $src['v_upakovke'][0]}
     {/if}
 {/if}
 
