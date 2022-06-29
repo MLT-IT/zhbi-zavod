@@ -195,81 +195,81 @@ export default function initTableFilter(table, table_count) {
 
 
     const table_actions = {
-        wrapContainer() {
-            const wrapper = dom_actions.create('div', {
-                className: utils.classes.table_wrapper,
-                innerHTML: `<table id="${utils.ids.new_table}">${table.innerHTML}</table>`
-            })
+            wrapContainer() {
+                const wrapper = dom_actions.create('div', {
+                    className: utils.classes.table_wrapper,
+                    innerHTML: `<table id="${utils.ids.new_table}">${table.innerHTML}</table>`
+                })
 
-            table.before(wrapper)
-        },
-        removeOldTable() {
-            table.remove()
-        },
-        initNewTable() {
-            table = document.getElementById(utils.ids.new_table)
-        },
-        createCheckbox() {
-            utils.all_trs.forEach((tr, index) => {
-                const select_chekbox = dom_actions.create('td', {
-                    className: utils.classes.row_checkbox,
-                    innerHTML: `<div class="th-inner">
+                table.before(wrapper)
+            },
+            removeOldTable() {
+                table.remove()
+            },
+            initNewTable() {
+                table = document.getElementById(utils.ids.new_table)
+            },
+            createCheckbox() {
+                utils.all_trs.forEach((tr, index) => {
+                    const select_chekbox = dom_actions.create('td', {
+                        className: utils.classes.row_checkbox,
+                        innerHTML: `<div class="th-inner">
                               <input type="checkbox" tabindex=${index} ${index === 0}/>
                             </div>`
-                }, {
-                    table_checkbox: true
+                    }, {
+                        table_checkbox: true
+                    })
+                    if (tr.getAttribute('tr-id') === '0')
+                        select_chekbox.onclick = () => element_events.selectLineAll()
+                    else
+                        tr.onclick = () => element_events.selectLine(tr, select_chekbox)
+
+                    tr.prepend(select_chekbox)
                 })
-                if (tr.getAttribute('tr-id') === '0')
-                    select_chekbox.onclick = () => element_events.selectLineAll()
-                else
-                    tr.onclick = () => element_events.selectLine(tr, select_chekbox)
 
-                tr.prepend(select_chekbox)
-            })
+            },
+            createSortBtn(child, index) {
+                const sort_btn = dom_actions.create('div', {
+                    className: utils.classes.sort_btn,
+                    innerHTML: child.textContent,
+                    onclick: () => element_events.sortRow(index, sort_btn)
+                }, {
+                    rowindex: index,
+                    header: true
+                })
 
-        },
-        createSortBtn(child, index) {
-            const sort_btn = dom_actions.create('div', {
-                className: utils.classes.sort_btn,
-                innerHTML: child.textContent,
-                onclick: () => element_events.sortRow(index, sort_btn)
-            }, {
-                rowindex: index,
-                header: true
-            })
+                child.innerHTML = ''
+                child.append(sort_btn)
+            },
+            createSelectBtn(child, index) {
+                const select = dom_actions.create('select', {
+                    className: utils.classes.select,
+                    innerHTML: '<option value="">Выбрать</option>',
+                    id: 'select_' + index,
+                    onchange: (e) => element_events.selectChange(index, e),
+                    onclick: () => element_events.selectClick(index, select) //Заполнил селект значениями
+                })
 
-            child.innerHTML = ''
-            child.append(sort_btn)
-        },
-        createSelectBtn(child, index) {
-            const select = dom_actions.create('select', {
-                className: utils.classes.select,
-                innerHTML: '<option value="">Выбрать</option>',
-                id: 'select_' + index,
-                onchange: (e) => element_events.selectChange(index, e),
-                onclick: () => element_events.selectClick(index, select) //Заполнил селект значениями
-            })
+                child.append(select)
+            },
+            createTopControlBlock() {
+                const input = dom_actions.create('input', {
+                    className: utils.classes.search_input,
+                    placeholder: 'Найти...',
+                    type: 'text',
+                    oninput: (e) => element_events.inputSearch(e)
+                })
 
-            child.append(select)
-        },
-        createTopControlBlock() {
-            const input = dom_actions.create('input', {
-                className: utils.classes.search_input,
-                placeholder: 'Найти...',
-                type: 'text',
-                oninput: (e) => element_events.inputSearch(e)
-            })
-
-            const select_list = dom_actions.create('select', {
-                innerHTML: `
+                const select_list = dom_actions.create('select', {
+                    innerHTML: `
                 <option value="all">Скачать все</option>
                 <option value="selected">Скачать выбранные</option>`,
-                onchange: (e) => export_actions.changeList(e)
-            })
+                    onchange: (e) => export_actions.changeList(e)
+                })
 
-            const export_btn = dom_actions.create('div', {
-                className: utils.classes.export_btn_block,
-                innerHTML: `
+                const export_btn = dom_actions.create('div', {
+                    className: utils.classes.export_btn_block,
+                    innerHTML: `
                 <button class="${utils.classes.export_btn}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#3a3a3a"><path d="M480 352h-133.5l-45.25 45.25C289.2 409.3 273.1 416 256 416s-33.16-6.656-45.25-18.75L165.5 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456zM233.4 374.6C239.6 380.9 247.8 384 256 384s16.38-3.125 22.62-9.375l128-128c12.49-12.5 12.49-32.75 0-45.25c-12.5-12.5-32.76-12.5-45.25 0L288 274.8V32c0-17.67-14.33-32-32-32C238.3 0 224 14.33 224 32v242.8L150.6 201.4c-12.49-12.5-32.75-12.5-45.25 0c-12.49 12.5-12.49 32.75 0 45.25L233.4 374.6z"/></svg></button>
                 <ul class="${utils.classes.select_list}" select-list>
                 <li select-format data-value="excel">EXCEL</li>
@@ -277,56 +277,56 @@ export default function initTableFilter(table, table_count) {
                 <li select-format data-value="pdf">PDF</li>
                 </ul>
                 `
-            })
-
-            export_btn.querySelector('button').onclick = () => {
-                export_btn.querySelector('[select-list]').classList.toggle('opened')
-            }
-
-            export_btn.querySelectorAll('[select-format]').forEach(select_format => {
-                select_format.onclick = (e) => {
-                    export_actions.changeFormat(e)
-                    export_btn.querySelector('[select-list]').classList.remove('opened')
-                }
-            })
-
-            const download_wrapper = dom_actions.create('div', {
-                className: utils.classes.download_wrapper,
-            })
-
-            const wrapper = dom_actions.create('div', {
-                className: utils.classes.table_control_top,
-            })
-
-            download_wrapper.append(select_list)
-            download_wrapper.append(export_btn)
-
-            wrapper.append(download_wrapper)
-            wrapper.append(input)
-
-            table.parentNode.before(wrapper)
-        },
-        setTrIds() {
-            utils.all_trs.forEach((tr, index) => tr.setAttribute('tr-id', index))
-        },
-        filterNotFound: {
-            create() {
-                if (utils.elems.not_found) return
-                const not_found = dom_actions.create('tr', {
-                    className: utils.classes.not_found,
-                    innerHTML: '<td colspan="100">По выбранным фильтрам ничего не найдено</td>'
                 })
-                utils.elems.not_found = not_found
-                table.querySelector('tbody').append(not_found)
+
+                export_btn.querySelector('button').onclick = () => {
+                    export_btn.querySelector('[select-list]').classList.toggle('opened')
+                }
+
+                export_btn.querySelectorAll('[select-format]').forEach(select_format => {
+                    select_format.onclick = (e) => {
+                        export_actions.changeFormat(e)
+                        export_btn.querySelector('[select-list]').classList.remove('opened')
+                    }
+                })
+
+                const download_wrapper = dom_actions.create('div', {
+                    className: utils.classes.download_wrapper,
+                })
+
+                const wrapper = dom_actions.create('div', {
+                    className: utils.classes.table_control_top,
+                })
+
+                download_wrapper.append(select_list)
+                download_wrapper.append(export_btn)
+
+                wrapper.append(download_wrapper)
+                wrapper.append(input)
+
+                table.parentNode.before(wrapper)
             },
-            remove() {
-                if (!utils.elems.not_found) return
-                utils.elems.not_found.remove()
-                utils.elems.not_found = null
+            setTrIds() {
+                utils.all_trs.forEach((tr, index) => tr.setAttribute('tr-id', index))
+            },
+            filterNotFound: {
+                create() {
+                    if (utils.elems.not_found) return
+                    const not_found = dom_actions.create('tr', {
+                        className: utils.classes.not_found,
+                        innerHTML: '<td colspan="100">По выбранным фильтрам ничего не найдено</td>'
+                    })
+                    utils.elems.not_found = not_found
+                    table.querySelector('tbody').append(not_found)
+                },
+                remove() {
+                    if (!utils.elems.not_found) return
+                    utils.elems.not_found.remove()
+                    utils.elems.not_found = null
+                }
             }
         }
-    }
-
+        //
     const export_actions = {
         changeFormat(e) {
             this.getData()
