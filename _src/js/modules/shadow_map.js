@@ -11,13 +11,7 @@ export default function addShadowMap(selector) {
         shadow.textContent = 'Нажмите для прокрутки';
         shadow.classList.add('map-scroll-cover')
 
-        // Обработчики для shadow
-        shadow.addEventListener('mouseover', e => {
-            shadow.classList.add("map-scroll-cover--visible");
-        });
-        shadow.addEventListener('mouseout', e => {
-            shadow.classList.remove("map-scroll-cover--visible");
-        });
+        // Обработчик для shadow
         shadow.addEventListener('click', _ => {
             shadow.classList.add("hidden");
         });
