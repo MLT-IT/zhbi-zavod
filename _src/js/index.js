@@ -137,7 +137,7 @@ $(function($) {
     // $map_containers.each((idx, map_container) => {
     //     add_cover_to_map(map_container);
     // });
-    shadow_map(['.map__container']);
+    shadow_map('.map__container');
 
 
     // -------------------------------
