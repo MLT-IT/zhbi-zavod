@@ -31,7 +31,8 @@ import initTabs from './modules/tabs.js';
 import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps';
-import add_cover_to_map from './modules/maps';
+// import add_cover_to_map from './modules/maps';
+import shadow_map from './modules/shadow_map';
 import modxJS from './modxJS';
 
 
@@ -132,10 +133,11 @@ $(function($) {
     // -------------------------------
     // Запрет прокрутки карты до клика
     // -------------------------------
-    let $map_containers = $('.map__container');
-    $map_containers.each((idx, map_container) => {
-        add_cover_to_map(map_container);
-    });
+    // let $map_containers = $('.map__container');
+    // $map_containers.each((idx, map_container) => {
+    //     add_cover_to_map(map_container);
+    // });
+    shadow_map(['.map__container']);
 
 
     // -------------------------------
