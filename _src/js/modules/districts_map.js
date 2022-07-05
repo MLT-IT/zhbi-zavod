@@ -2,7 +2,7 @@ export default function initDistrictsMap() {
     let districtsMap = new ymaps.Map("districts_map", {
         center: [59.94313797002322, 30.3010448956483],
         zoom: 6
-    })
+    });
 
     $.getJSON('assets/template/json/districts.json', function (data) {
         addPolygonsToMap(data);
@@ -78,102 +78,162 @@ export default function initDistrictsMap() {
         iconImageHref: 'assets/template/img/icons/warehouse-1.png',
         iconImageSize: [42, 42], // Размеры метки.
         iconImageOffset: [-21, -21] // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
-    }
+    };
+
+    let phoneNumber = $('.header__phone').text().trim();
+    let balloonContentHTML = '<div style="text-align: center;">Часы работы: ежедневно с 8:00 до 21:00<br>Стоимость доставки до 30 км: 990 рублей<br>Телефон склада: <a href="tel:' + phoneNumber + '">' + phoneNumber + '</a></div>';
 
     districtsMap.geoObjects
         .add(new ymaps.Placemark(
             [60.095437, 30.302033],
-            {balloonContent: 'Склад СПБ Север'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад СПБ Север</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.888841, 30.507709],
-            {balloonContent: 'Склад СПБ Восток'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад СПБ Восток</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.809960, 30.164158],
-            {balloonContent: 'Склад СПБ ЮГ'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад СПБ ЮГ</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [61.034092, 30.118767],
-            {balloonContent: 'Склад Приозерск'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Приозерск</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [60.704906, 28.781041],
-            {balloonContent: 'Склад Выборг'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Выборг</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [60.560001, 30.218770],
-            {balloonContent: 'Склад Сосново'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Сосново</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.572289, 30.154513],
-            {balloonContent: 'Склад Гатчина'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Гатчина</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.403185, 28.477475],
-            {balloonContent: 'Склад Кингисепп'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Кингисепп</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.105408, 28.080176],
-            {balloonContent: 'Склад Сланцы'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Сланцы</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [58.751428, 29.852831],
-            {balloonContent: 'Склад Луга'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Луга</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.552136, 30.833349],
-            {balloonContent: 'Склад Тосно'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Тосно</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [60.254115, 29.575553],
-            {balloonContent: 'Склад Рощино'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Рощино</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.728510, 30.100380],
-            {balloonContent: 'Склад Красное Село'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Красное Село</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.882822, 29.101508],
-            {balloonContent: 'Сосновый Бор'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Сосновый Бор</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.460055, 29.498431],
-            {balloonContent: 'Склад Волосово'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Волосово</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.915849, 32.348457],
-            {balloonContent: 'Склад Волхов'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Волхов</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.449051, 32.041397],
-            {balloonContent: 'Склад Кириши'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Кириши</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [60.728961, 33.593527],
-            {balloonContent: 'Лодейное Поле'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Лодейное Поле</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
         ))
         .add(new ymaps.Placemark(
             [59.669877, 33.499404],
-            {balloonContent: 'Склад Тихвин'},
+            {
+                balloonContentHeader: '<div style="text-align: center;">Склад Тихвин</div>',
+                balloonContent: balloonContentHTML,
+            },
             options
-        ))
+        ));
 }
