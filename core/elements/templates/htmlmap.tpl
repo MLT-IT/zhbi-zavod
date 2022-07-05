@@ -14,19 +14,9 @@
     <div class="wrapper sect-htmlmap">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
         <div class="sect-htmlmap__content">
-            {'pdoMenu' | snippet : [
-                'resources' => '-' ~ $_modx->resource.id,
-                'parents' => 0,
-                'depth' => 1000,
-                'limit' => 0,
-                'tplOuter' => '@INLINE <ul>{$wrapper}</ul>',
-                'tplInner' => '@INLINE {$wrapper}',
-                'tpl' => '@FILE chunks/sitemapItem.tpl',
-                'tplCategoryFolder' => '@FILE chunks/sitemapCategoryItem.tpl',
-                'showHidden' => '1',
-                'context' => $_modx->resource.context_key,
-                'where' => '{"searchable:=":1}'
-            ]}
+
+            {'@FILE snippets/htmlMap.php' | snippet}
+
         </div>
     </div>
 {/block}

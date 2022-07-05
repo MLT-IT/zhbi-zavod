@@ -35,7 +35,11 @@
                     {*<li class="footer__nav-item"><a href="#">О нас</a></li>*}
                     {*<li class="footer__nav-item"><a href="#">Отзывы</a></li>*}
                     {*<li class="footer__nav-item"><a href="#">Вопрос-ответ</a></li>*}
-                    <li class="footer__nav-item"><a href="/sitemap/">Карта сайта</a></li>
+
+                    {if $_modx->resource.template === 1}
+                        <li class="footer__nav-item"><a href="/sitemap/">Карта сайта</a></li>
+                    {/if}
+
                     <li class="footer__nav-item"><a href="/contacts/">Контакты</a></li>
                 </ul>
             </div>
