@@ -1,6 +1,37 @@
 {* Данные для перелинковки *}
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
+{* Данные для блока посередине *}
+{set $mc = $_modx->resource.middleContent}
+{if $mc >= 2}
+    {set $bottomText = 'Мы хотим помочь построить Ваш дом. <a href="tel:' ~ ('phone' | option) ~ '">Звоните</a> или <span data-fancybox data-src="#callback">оставляйте заявку</span>, будем рады Вам помочь!'}
+    {set $textItem1 = 'Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.'}
+    {set $textItem2 = '4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.'}
+    {set $textItem3 = 'Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.'}
+    {set $textItem4 = 'Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!'}
+
+    {if $mc == 8}
+        {set $textItem2 = '4000 наименований в наличии на складе. Вы можете приехать и выбрать нужный размер листа, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.'}
+    {/if}
+
+    {switch $mc}
+        {case 2}
+            {set $topText = '4 причины купить ОСБ плиту у нас'}
+        {case 3}
+            {set $topText = '4 причины купить гипсокартон у нас'}
+        {case 4}
+            {set $topText = '4 причины купить ГВЛ плиту у нас'}
+        {case 5}
+            {set $topText = '4 причины купить ДСП плиту у нас'}
+        {case 6}
+            {set $topText = '4 причины купить ЦСП плиту у нас'}
+        {case 7}
+            {set $topText = '4 причины купить фибролитовую плиту у нас'}
+        {case 8}
+            {set $topText = '4 причины купить лист фанеры у нас'}
+    {/switch}
+{/if}
+
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
         {* Выводим data-атрибуты *}
         {foreach $itemUnits as $key => $val}
@@ -117,35 +148,84 @@
                     <meta itemprop="ratingCount" content="82">
                 </div>
 
-                <div class="product-card__main-specs">
-                    {if ($_modx->resource['item_thickness'][0] is not empty) &&
-                    ($_modx->resource['item_width'][0] is not empty) &&
-                    ($_modx->resource['item_length'][0] is not empty)
-                    }
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Размер</div>
-                            <div class="product-card__specs-list-item-value">
-                                {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : ' мм х '} мм
+                {if ($_modx->resource.middleContent is empty) || ($_modx->resource.middleContent == 1)}
+                    <div class="product-card__main-specs">
+                        {if ($_modx->resource['item_thickness'][0] is not empty) &&
+                            ($_modx->resource['item_width'][0] is not empty) &&
+                            ($_modx->resource['item_length'][0] is not empty)}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Размер</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : ' мм х '} мм
+                                </div>
                             </div>
-                        </div>
-                    {/if}
-                    {if $_modx->resource['strana'][0]?}
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Страна</div>
-                            <div class="product-card__specs-list-item-value">
-                                {$_modx->resource['strana'][0]}
+                        {/if}
+                        {if $_modx->resource['strana'][0]?}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Страна</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {$_modx->resource['strana'][0]}
+                                </div>
                             </div>
-                        </div>
-                    {/if}
-                    {if $_modx->resource['ploshad_m2'][0]?}
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Площадь</div>
-                            <div class="product-card__specs-list-item-value">
-                                {$_modx->resource['ploshad_m2'][0]} м2
+                        {/if}
+                        {if $_modx->resource['ploshad_m2'][0]?}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Площадь</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {$_modx->resource['ploshad_m2'][0]} м2
+                                </div>
                             </div>
-                        </div>
-                    {/if}
-                </div>
+                        {/if}
+                    </div>
+                {elseif $_modx->resource.middleContent >= 2}
+                    <div class="product-card__reasons">
+                        <p class="product-card__reasons-header">{$topText}</p>
+                        <ul class="product-card__reasons-items-wrap">
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_label"></span>
+                                Оптовая цена
+                                <span class="product-card__reasons-tip">
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem1}</span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_availability"></span>
+                                Наличие на складе
+                                <span class="product-card__reasons-tip">
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem2}</span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_heart"></span>
+                                Качество
+                                <span class="product-card__reasons-tip">
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem3}</span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_money"></span>
+                                Оплата "по факту"
+                                <span class="product-card__reasons-tip">
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem4}</span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="product-card__reasons-text">{$bottomText}</div>
+                    </div>
+                {/if}
+
             </div>
             {include 'file:sections/product/card-content-tab.tpl'}
         </div>
