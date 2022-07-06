@@ -46,7 +46,7 @@
 'successMessage' => 'Спасибо, ваш отзыв отправлен на модерацию'
 ]}
 
-{if ($_modx->resource.template === 21) && ($_modx->resource.context_key === 'pro-fanera')}
+{if ($_modx->resource.template === 21)}
     {'!AjaxForm' | snippet : [
     'snippet' => 'FormIt',
     'form' => '@FILE elements/modals/callback/popup-cost-fanera.tpl',
