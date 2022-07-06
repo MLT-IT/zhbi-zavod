@@ -371,6 +371,11 @@
                 </button>
             </div>
 
+            <div class="product-card__discount-block product-card__discount-block_screen_pc">
+                <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
+                <span class="product-card__discount-block-link" data-fancybox data-src="#discount">Подробнее</span>
+            </div>
+
             <div class="product-card__delivery">
                 <span class="product-card__delivery-title">Доставка</span>
                 <div class="product-card__delivery-content">
@@ -428,6 +433,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="product-card__discount-block product-card__discount-block_screen_mobile">
+        <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
+        <span class="product-card__discount-block-link" data-fancybox data-src="#discount">Подробнее</span>
     </div>
 
     <div class="product-card__mobile-btns">

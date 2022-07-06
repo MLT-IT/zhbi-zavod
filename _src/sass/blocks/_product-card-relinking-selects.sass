@@ -1,4 +1,23 @@
 .product-card_type_relinking
+    .js-product
+        &__controls
+            width: auto
+
+        &__btn-in-cart
+            font-size: 16px
+            width: 167px
+            margin-left: 12px
+            margin-right: 12px
+
+            @media screen and (max-width: 500px)
+                margin-right: 0
+
+        .custom-counter__amount
+            width: 64px
+
+    .product-card_with-gallery .product-card__gallery
+        padding-left: 72px
+
     .euv-custom-select
         &__options-wrap
             overflow: hidden
@@ -131,6 +150,9 @@
             @media screen and (max-width: 768px)
                 padding: 16px
 
+            @media screen and (max-width: 500px)
+                margin-bottom: 16px
+
         &__article
             width: auto
             margin-right: 24px
@@ -174,25 +196,6 @@
         &__delivery-title
             font-size: 16px
             font-weight: 900
-
-        .js-product
-            &__controls
-                width: auto
-
-            &__btn-in-cart
-                font-size: 16px
-                width: 167px
-                margin-left: 12px
-                margin-right: 12px
-
-                @media screen and (max-width: 500px)
-                    margin-right: 0
-
-            .custom-counter__amount
-                width: 64px
-
-        .product-card_with-gallery .product-card__gallery
-            padding-left: 72px
 
         &__gallery
             flex-basis: 578px
@@ -289,3 +292,24 @@
         &__gallery-item-img
             @media screen and (max-width: 480px)
                 display: none
+
+        &__discount-block
+            &_screen
+                &_pc
+                    margin-top: 16px
+
+                    @media screen and (max-width: 880px)
+                        margin: 0 16px 16px
+
+                    @media screen and (max-width: 768px)
+                        margin: 16px 0 0
+
+                    @media screen and (max-width: 500px)
+                        display: none
+
+                &_mobile
+                    display: none
+                    margin-bottom: 16px
+
+                    @media screen and (max-width: 500px)
+                        display: flex
