@@ -517,3 +517,108 @@
         color: #b1b1b1
         font-size: 13.3333px
         font-weight: normal !important
+
+    &__reasons-header
+        margin-bottom: 24px
+        font-weight: 600
+        font-size: 16px
+
+    &__reasons-items-wrap
+        padding-bottom: 8px
+
+    &__reasons-tip
+        border-radius: 100px
+        background-color: #DBDBDB
+        width: 13.33px
+        height: 13.33px
+        display: flex
+        align-items: center
+        justify-content: center
+        color: #fff
+        font-size: 10px
+        margin-left: 5.33px
+        margin-top: 4px
+        position: relative
+
+        &::after
+            content: ""
+            display: none
+            width: 30px
+            height: 15px
+            position: absolute
+            left: 0
+            top: 10px
+
+        &:hover
+            &::after
+                display: block
+
+            .product-card__reasons-tip-text
+                padding-top: 8px
+                padding-bottom: 8px
+                max-height: 600px
+                width: 300px
+                opacity: 1
+
+    &__reasons-tip-text
+        overflow: hidden
+        position: absolute
+        max-height: 0
+        width: 300px
+        padding-left: 8px
+        padding-right: 8px
+        transition: .3s
+        border-radius: 10px
+        background-color: gray
+        z-index: 1
+        top: 20px
+        left: 0
+        opacity: 0
+
+    &__reasons-item
+        display: flex
+        align-items: center
+        margin-bottom: 16px
+        font-weight: 500
+        font-size: 14px
+        line-height: 100%
+
+    &__reasons-item-img
+        margin-right: 16px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 4px
+        width: 32px
+        height: 32px
+        border-radius: 8px
+        background: #FBFBFB no-repeat center center
+        position: relative
+
+        &_icon
+            &_label
+                background-image: url(/assets/template/img/svg-sprite/icon-label.svg)
+
+            &_heart
+                background-image: url(/assets/template/img/svg-sprite/icon-heart-2.svg)
+
+            &_availability
+                background-image: url(/assets/template/img/svg-sprite/icon-availability.svg)
+
+            &_money
+                background-image: url(/assets/template/img/svg-sprite/icon-money-2.svg)
+
+    &__reasons-text
+        font-weight: 500
+        max-width: 312px
+
+        @media screen and (max-width: 1200px)
+            max-width: none
+
+        a, span
+            +set_colors_1(color)
+
+        span
+            cursor: pointer
+
+

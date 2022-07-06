@@ -120,7 +120,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://minvata-178.local/",
+                    target: "http://plitaosb.local/",
                     secure: false,
                     changeOrigin: true
                 }

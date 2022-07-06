@@ -117,35 +117,135 @@
                     <meta itemprop="ratingCount" content="82">
                 </div>
 
-                <div class="product-card__main-specs">
-                    {if ($_modx->resource['item_thickness'][0] is not empty) &&
-                    ($_modx->resource['item_width'][0] is not empty) &&
-                    ($_modx->resource['item_length'][0] is not empty)
-                    }
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Размер</div>
-                            <div class="product-card__specs-list-item-value">
-                                {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : ' мм х '} мм
+                {if ($_modx->resource.middleContent is empty) || ($_modx->resource.middleContent == 1)}
+                    <div class="product-card__main-specs">
+                        {if ($_modx->resource['item_thickness'][0] is not empty) &&
+                            ($_modx->resource['item_width'][0] is not empty) &&
+                            ($_modx->resource['item_length'][0] is not empty)}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Размер</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {[$_modx->resource['item_thickness'][0], $_modx->resource['item_width'][0], $_modx->resource['item_length'][0]] | join : ' мм х '} мм
+                                </div>
                             </div>
-                        </div>
-                    {/if}
-                    {if $_modx->resource['strana'][0]?}
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Страна</div>
-                            <div class="product-card__specs-list-item-value">
-                                {$_modx->resource['strana'][0]}
+                        {/if}
+                        {if $_modx->resource['strana'][0]?}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Страна</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {$_modx->resource['strana'][0]}
+                                </div>
                             </div>
-                        </div>
-                    {/if}
-                    {if $_modx->resource['ploshad_m2'][0]?}
-                        <div class="product-card__specs-list-item" data-opt-key="unit">
-                            <div class="product-card__specs-list-item-name">Площадь</div>
-                            <div class="product-card__specs-list-item-value">
-                                {$_modx->resource['ploshad_m2'][0]} м2
+                        {/if}
+                        {if $_modx->resource['ploshad_m2'][0]?}
+                            <div class="product-card__specs-list-item" data-opt-key="unit">
+                                <div class="product-card__specs-list-item-name">Площадь</div>
+                                <div class="product-card__specs-list-item-value">
+                                    {$_modx->resource['ploshad_m2'][0]} м2
+                                </div>
                             </div>
+                        {/if}
+                    </div>
+                {elseif $_modx->resource.middleContent == 2}
+                    <div class="product-card__reasons">
+                        <p class="product-card__reasons-header">4 причины купить ОСБ плиту у нас</p>
+                        <ul class="product-card__reasons-items-wrap">
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_label"></span>
+                                Оптовая цена
+                                <span class="product-card__reasons-tip">
+                                    i
+                                    <span class="product-card__reasons-tip-text">
+                                        Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_availability"></span>
+                                Наличие на складе
+                                <span class="product-card__reasons-tip">
+                                    i
+                                    <span class="product-card__reasons-tip-text">
+                                        4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_heart"></span>
+                                Качество
+                                <span class="product-card__reasons-tip">
+                                    i
+                                    <span class="product-card__reasons-tip-text">
+                                        Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_money"></span>
+                                Оплата "по факту"
+                                <span class="product-card__reasons-tip">
+                                    i
+                                    <span class="product-card__reasons-tip-text">
+                                        Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="product-card__reasons-text">
+                            Мы хотим помочь построить Ваш дом. <a href="tel:{'phone' | option}">Звоните</a> или <span data-fancybox data-src="#callback">оставляйте заявку</span>, будем рады Вам помочь!
                         </div>
-                    {/if}
-                </div>
+                    </div>
+                {elseif $_modx->resource.middleContent == 3}
+                    <div class="product-card__reasons">
+                        <p class="product-card__reasons-header">Какие-то другие данные</p>
+                        <ul class="product-card__reasons-items-wrap">
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_money"></span>
+                                Элемент 1
+                                <span class="product-card__reasons-tip">
+                                        i
+                                        <span class="product-card__reasons-tip-text">
+                                            Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!
+                                        </span>
+                                    </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_label"></span>
+                                Элемент 2
+                                <span class="product-card__reasons-tip">
+                                        i
+                                        <span class="product-card__reasons-tip-text">
+                                            Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.
+                                        </span>
+                                    </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_availability"></span>
+                                Элемент 3
+                                <span class="product-card__reasons-tip">
+                                        i
+                                        <span class="product-card__reasons-tip-text">
+                                            4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.
+                                        </span>
+                                    </span>
+                            </li>
+                            <li class="product-card__reasons-item">
+                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_heart"></span>
+                                Элемент 4
+                                <span class="product-card__reasons-tip">
+                                        i
+                                        <span class="product-card__reasons-tip-text">
+                                            Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.
+                                        </span>
+                                    </span>
+                            </li>
+                        </ul>
+                        <div class="product-card__reasons-text">
+                            Какой-то текст.
+                        </div>
+                    </div>
+                {/if}
+
             </div>
             {include 'file:sections/product/card-content-tab.tpl'}
         </div>
