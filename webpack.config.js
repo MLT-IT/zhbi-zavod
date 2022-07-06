@@ -120,7 +120,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://plitaosb.local/",
+                    target: "http://knauf.local/",
                     secure: false,
                     changeOrigin: true
                 }

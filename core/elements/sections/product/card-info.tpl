@@ -162,6 +162,11 @@
                     </svg>
                     Узнать стоимость с доставкой</a>
             </div>
+
+            {if $_modx->resource.context_key in ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa']}
+                <div class="product-card__return">Возможность возврата товара</div>
+            {/if}
+
             <div class="product-card__availability">
                 <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
