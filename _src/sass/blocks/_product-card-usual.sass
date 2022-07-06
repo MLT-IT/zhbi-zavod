@@ -1,5 +1,11 @@
 .product-card_type_usual
     .product-card
+        &__delivery
+            @media screen and (max-width: 1200px)
+                grid-column: span 4
+            @media screen and (max-width: 540px)
+                grid-column: span 3
+
         &__discount-block
             grid-column: span 2
             max-width: 319px
