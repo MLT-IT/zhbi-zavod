@@ -52,10 +52,15 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             funcsCatalog.wrapTitle();
 
             // TODO: я забыл, а зачем здесь сортировка? Разве при загрузке страницы не хватает? Напиши комментарий, когда разберешься
-            // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
-            // funcsCatalog.catalogSortFilters();
             funcsCatalog.catalogSortColorless();
 
+            // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
+            // funcsCatalog.catalogSortFilters();
+
+            // Изменить позицию блока "Снизим цену"
+            funcsCatalog.discountBlockPosition();
+
+            // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
         }
     });

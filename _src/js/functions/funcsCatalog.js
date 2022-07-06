@@ -8,14 +8,24 @@ export default {
     catalogSortFilters,
     catalogSortColorless,
     getRemainder,
-    wrapTitle
+    wrapTitle,
+    discountBlockPosition
 };
 
+let $discountBlock = $('.listing__catalog-discount');
+if (!$discountBlock.length) {
+    $discountBlock = null;
+}
 
 // Инициализация
 function init() {
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
+
+    // -------------------------------------------
+    // Изменить позицию блока "Снизим цену"
+    // -------------------------------------------
+    discountBlockPosition();
 
 
     // -------------------------------------------
@@ -417,4 +427,30 @@ function wrapTitle() {
             $e.html(text);
         });
     }
+}
+
+
+/**
+ * Изменить позицию блока "Снизим цену"
+ */
+function discountBlockPosition() {
+    if ($discountBlock === null) {
+        return;
+    }
+
+    let $items = $('.listing__products-list .listing__products-item');
+    let afterPosition = 1;
+
+    if ($items.length === 0) {
+        $discountBlock.hide();
+        return;
+    }
+
+    $discountBlock.show();
+
+    if ($items.length === 1) {
+        afterPosition = 0;
+    }
+
+    $discountBlock.insertAfter($items.eq(afterPosition));
 }
