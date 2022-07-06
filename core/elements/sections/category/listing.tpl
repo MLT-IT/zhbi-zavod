@@ -38,7 +38,9 @@
 
                 'parents' => 'excludeIds' | snippet : [
                                 'isSeoPage' => $isSeoPage,
-                              ]
+                              ],
+
+                'totalVar' => 'total'
             ]}
 
             {*

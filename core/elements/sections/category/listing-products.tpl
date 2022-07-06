@@ -54,14 +54,6 @@ data-single-dir - запретить менять направление сор�
         </button>
     </div>
     <div class="listing__products-list rows grid" id="mse2_results">
-        {if $_modx->resource.context_key === 'isover'}
-            <div class="listing__catalog-discount">
-                <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
-                <div class="listing__catalog-discount-text-2">Снизим цену!</div>
-                <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#">Подробнее</span>
-            </div>
-        {/if}
-
         {$results}
     </div>
 
