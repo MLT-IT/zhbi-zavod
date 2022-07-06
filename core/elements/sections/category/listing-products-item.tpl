@@ -141,8 +141,7 @@
 
 {* Выводим блок "Нашли дешевле?" *}
 {set $total = $_modx->getPlaceholder('total')}
-{if ($_modx->resource.context_key === 'isover') &&
-($_modx->resource.template in list [4, 19, 5]) &&
+{if ($_modx->resource.template in list [4, 19, 5]) &&
 (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
     <div class="listing__catalog-discount">
         <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
