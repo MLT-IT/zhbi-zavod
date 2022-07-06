@@ -250,9 +250,9 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
-                            <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
+                            <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
                             <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
-                            <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
+                            <span class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
@@ -285,9 +285,9 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
-                            <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
+                            <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
                             <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
-                            <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
+                            <span class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">

@@ -290,6 +290,31 @@
         &__weight-unit
             font: inherit
 
+        &__discount-block
+            height: 56px
+            border-radius: 4px
+            font-weight: 500
+            font-size: 14px
+            background: #FFE19A url(/assets/template/img/svg-sprite/fire.svg) no-repeat left 23px center
+            padding-left: 64px
+            margin-bottom: 16px
+            padding-right: 10px
+            display: flex
+            flex-wrap: wrap
+            align-content: center
+            align-items: center
+
+            @media only screen and (max-width: 1040px)
+                padding-left: 44px
+                background-position: 9px center
+
+        &__discount-block-proposal
+            margin-right: 4px
+
+        &__discount-block-link
+            cursor: pointer
+            +set_colors_1(color)
+
     .content-block
         margin-top: 4px
 

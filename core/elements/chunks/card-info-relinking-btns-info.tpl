@@ -54,5 +54,9 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="product-card__discount-block">
+    <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
+    <span class="product-card__discount-block-link" data-fancybox data-src="#discount">Подробнее</span>
 </div>
