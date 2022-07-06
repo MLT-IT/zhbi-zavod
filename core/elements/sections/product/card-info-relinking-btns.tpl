@@ -1,6 +1,37 @@
 {* Данные для перелинковки *}
 {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
 
+{* Данные для блока посередине *}
+{set $mc = $_modx->resource.middleContent}
+{if $mc >= 2}
+    {set $bottomText = 'Мы хотим помочь построить Ваш дом. <a href="tel:' ~ ('phone' | option) ~ '">Звоните</a> или <span data-fancybox data-src="#callback">оставляйте заявку</span>, будем рады Вам помочь!'}
+    {set $textItem1 = 'Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.'}
+    {set $textItem2 = '4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.'}
+    {set $textItem3 = 'Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.'}
+    {set $textItem4 = 'Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!'}
+
+    {if $mc == 8}
+        {set $textItem2 = '4000 наименований в наличии на складе. Вы можете приехать и выбрать нужный размер листа, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.'}
+    {/if}
+
+    {switch $mc}
+        {case 2}
+            {set $topText = '4 причины купить ОСБ плиту у нас'}
+        {case 3}
+            {set $topText = '4 причины купить гипсокартон у нас'}
+        {case 4}
+            {set $topText = '4 причины купить ГВЛ плиту у нас'}
+        {case 5}
+            {set $topText = '4 причины купить ДСП плиту у нас'}
+        {case 6}
+            {set $topText = '4 причины купить ЦСП плиту у нас'}
+        {case 7}
+            {set $topText = '4 причины купить фибролитовую плиту у нас'}
+        {case 8}
+            {set $topText = '4 причины купить лист фанеры у нас'}
+    {/switch}
+{/if}
+
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
         {* Выводим data-атрибуты *}
         {foreach $itemUnits as $key => $val}
@@ -146,103 +177,52 @@
                             </div>
                         {/if}
                     </div>
-                {elseif $_modx->resource.middleContent == 2}
+                {elseif $_modx->resource.middleContent >= 2}
                     <div class="product-card__reasons">
-                        <p class="product-card__reasons-header">4 причины купить ОСБ плиту у нас</p>
+                        <p class="product-card__reasons-header">{$topText}</p>
                         <ul class="product-card__reasons-items-wrap">
                             <li class="product-card__reasons-item">
                                 <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_label"></span>
                                 Оптовая цена
                                 <span class="product-card__reasons-tip">
-                                    i
-                                    <span class="product-card__reasons-tip-text">
-                                        Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.
-                                    </span>
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem1}</span>
                                 </span>
                             </li>
                             <li class="product-card__reasons-item">
                                 <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_availability"></span>
                                 Наличие на складе
                                 <span class="product-card__reasons-tip">
-                                    i
-                                    <span class="product-card__reasons-tip-text">
-                                        4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.
-                                    </span>
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem2}</span>
                                 </span>
                             </li>
                             <li class="product-card__reasons-item">
                                 <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_heart"></span>
                                 Качество
                                 <span class="product-card__reasons-tip">
-                                    i
-                                    <span class="product-card__reasons-tip-text">
-                                        Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.
-                                    </span>
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem3}</span>
                                 </span>
                             </li>
                             <li class="product-card__reasons-item">
                                 <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_money"></span>
                                 Оплата "по факту"
                                 <span class="product-card__reasons-tip">
-                                    i
-                                    <span class="product-card__reasons-tip-text">
-                                        Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!
-                                    </span>
+                                    <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-info"></use>
+                                    </svg>
+                                    <span class="product-card__reasons-tip-text">{$textItem4}</span>
                                 </span>
                             </li>
                         </ul>
-                        <div class="product-card__reasons-text">
-                            Мы хотим помочь построить Ваш дом. <a href="tel:{'phone' | option}">Звоните</a> или <span data-fancybox data-src="#callback">оставляйте заявку</span>, будем рады Вам помочь!
-                        </div>
-                    </div>
-                {elseif $_modx->resource.middleContent == 3}
-                    <div class="product-card__reasons">
-                        <p class="product-card__reasons-header">Какие-то другие данные</p>
-                        <ul class="product-card__reasons-items-wrap">
-                            <li class="product-card__reasons-item">
-                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_money"></span>
-                                Элемент 1
-                                <span class="product-card__reasons-tip">
-                                        i
-                                        <span class="product-card__reasons-tip-text">
-                                            Получаете товар, проверяете качество и ТОЛЬКО после этого оплачиваете. Никакой предоплаты! Наше главное правило - понятные условия и порядок работы с заказчиком!
-                                        </span>
-                                    </span>
-                            </li>
-                            <li class="product-card__reasons-item">
-                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_label"></span>
-                                Элемент 2
-                                <span class="product-card__reasons-tip">
-                                        i
-                                        <span class="product-card__reasons-tip-text">
-                                            Прямой дилерский договор с заводом-производителем позволяет держать цены ниже среднерыночных.
-                                        </span>
-                                    </span>
-                            </li>
-                            <li class="product-card__reasons-item">
-                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_availability"></span>
-                                Элемент 3
-                                <span class="product-card__reasons-tip">
-                                        i
-                                        <span class="product-card__reasons-tip-text">
-                                            4000 плит в наличии на складе. Вы можете приехать и выбрать нужный размер плит, а также убедиться в качестве наших изделий. При срочных заказах доставим заказ в течение 3 часов с момента подачи заявки.
-                                        </span>
-                                    </span>
-                            </li>
-                            <li class="product-card__reasons-item">
-                                <span class="product-card__reasons-item-img product-card__reasons-item-img_icon_heart"></span>
-                                Элемент 4
-                                <span class="product-card__reasons-tip">
-                                        i
-                                        <span class="product-card__reasons-tip-text">
-                                            Гарантируем качество продукции. Каждое штучное изделие проходит повторную проверку.
-                                        </span>
-                                    </span>
-                            </li>
-                        </ul>
-                        <div class="product-card__reasons-text">
-                            Какой-то текст.
-                        </div>
+                        <div class="product-card__reasons-text">{$bottomText}</div>
                     </div>
                 {/if}
 
