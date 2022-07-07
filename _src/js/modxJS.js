@@ -57,9 +57,6 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
             // funcsCatalog.catalogSortFilters();
 
-            // Изменить позицию блока "Снизим цену"
-            funcsCatalog.discountBlockPosition();
-
             // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
         }

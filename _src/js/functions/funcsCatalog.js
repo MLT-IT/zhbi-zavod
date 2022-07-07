@@ -9,7 +9,7 @@ export default {
     catalogSortColorless,
     getRemainder,
     wrapTitle,
-    discountBlockPosition
+    // discountBlockPosition
 };
 
 let $discountBlock = $('.listing__catalog-discount');
@@ -427,25 +427,29 @@ function wrapTitle() {
 
 /**
  * Изменить позицию блока "Снизим цену"
+ *
+ * Не используется, поскольку позиция блока теперь расчитывается на back-end.
+ * Можно удалять, но я пока решил оставить - вдруг пригодится.
+ * Я вызывал эту функцию в modxJS и при загрузке страницы.
  */
-function discountBlockPosition() {
-    if ($discountBlock === null) {
-        return;
-    }
-
-    let $items = $('.listing__products-list .listing__products-item');
-    let afterPosition = 1;
-
-    if ($items.length === 0) {
-        $discountBlock.hide();
-        return;
-    }
-
-    $discountBlock.show();
-
-    if ($items.length === 1) {
-        afterPosition = 0;
-    }
-
-    $discountBlock.insertAfter($items.eq(afterPosition));
-}
+// function discountBlockPosition() {
+//     if ($discountBlock === null) {
+//         return;
+//     }
+//
+//     let $items = $('.listing__products-list .listing__products-item');
+//     let afterPosition = 1;
+//
+//     if ($items.length === 0) {
+//         $discountBlock.hide();
+//         return;
+//     }
+//
+//     $discountBlock.show();
+//
+//     if ($items.length === 1) {
+//         afterPosition = 0;
+//     }
+//
+//     $discountBlock.insertAfter($items.eq(afterPosition));
+// }
