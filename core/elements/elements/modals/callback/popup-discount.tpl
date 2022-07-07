@@ -12,8 +12,13 @@
                 <input type="tel" placeholder="Укажите номер телефона*" name="PHONE">
                 <span class="error_PHONE">[[!+fi.error.PHONE]]</span>
             </label>
+
+            <label>
+                <input type="tel" placeholder="Ссылка на товар со скидкой" name="DISCOUNTLINK">
+                <span class="error_PHONE">[[!+fi.error.DISCOUNTLINK]]</span>
+            </label>
         </div>
-        <button type="submit" class="form__button custom-btn">Перезвоните мне</button>
+        <button type="submit" class="form__button custom-btn" id="nashli_deshevle">Перезвоните мне</button>
         <label class="form__checkbox">
             <input id="callback-policy" type="checkbox" name="callback-policy" checked>
             <span>
