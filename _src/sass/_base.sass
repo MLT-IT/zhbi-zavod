@@ -73,8 +73,14 @@ a:hover
 .payment__item-top:hover, .catalog-page__card-content:hover, .questions__item-top:hover
     +set_colors_3(border-color)
 
-.sect-inner__content
-    margin-bottom: 60px
+
+.sect-inner
+    &__content
+        margin-bottom: 60px
+
+    &__content.sect-inner__content_type_reduced
+        margin-top: -18px
+        margin-bottom: 56px
 
 .form
     &__error
@@ -216,7 +222,6 @@ a.white-btn, button.white-btn
 
         +brands_to_selector('')
 
-
 .main-page-content
     margin-top: -25px
     margin-bottom: -39px
@@ -224,7 +229,8 @@ a.white-btn, button.white-btn
     @media screen and (max-width: 480px)
         margin-top: 7px
 
-
+.bold
+    font-weight: 700
 
 // -----------------------------------
 // btn_more

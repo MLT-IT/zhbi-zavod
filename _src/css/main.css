@@ -3649,6 +3649,11 @@ p, span {
     font-size: 24px
 }
 
+.title-1_align_left {
+    text-align: left;
+    width: 100%;
+}
+
 .title-1__sup {
     font-size: 14px;
     color: #B9B9B9;

@@ -3,7 +3,7 @@
 <section class="contacts">
     <div class="wrapper">
         <div class="contacts__left{if $utm_city['icase'] ?} contacts__left_width_full{/if}" itemscope itemtype="http://schema.org/LocalBusiness">
-            <h1 class="title-1 contacts__title">Контакты</h1>
+            <h1 class="title-1 title-1_align_left">Контакты</h1>
 
             {* >>> meta *}
             <meta itemprop="name" content="Комплексная поставка строительных материалов {$brand}">
