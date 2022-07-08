@@ -12,10 +12,10 @@
         {include "file:blocks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper sect-inner">
-        <h1 class="title-1 title-1_align_left bold">{$_modx->resource.pagetitle}</h1>
+        <h1 class="title-1 title-1_align_left">{$_modx->resource.pagetitle}</h1>
 
         {if $_modx->resource.content | length > 0}
-            <article class="sect-inner__content content-block sect-inner__content_type_reduced">
+            <article class="sect-inner__content content-block">
                 {$_modx->resource.content}
             </article>
         {/if}
@@ -58,7 +58,7 @@
     {* <<< SVG градиент *}
 
     <section class="wrapper sect-segment">
-        <h2 class="title-2 title-2_align_left bold">Основной сегмент наших клиентов</h2>
+        <h2 class="title-2 title-2_align_left">Основной сегмент наших клиентов</h2>
         <ul class="sect-segment__items-wrap">
             <li class="sect-segment__item">
                 <div class="sect-segment__item-svg-wrap">
@@ -91,7 +91,7 @@
     </section>
 
     <section class="wrapper sect-benefits">
-        <h2 class="title-2 title-2_align_left bold">Какие выгоды вы получите, обратившись к нам</h2>
+        <h2 class="title-2 title-2_align_left">Какие выгоды вы получите, обратившись к нам</h2>
         <ul class="sect-benefits__items-wrap">
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
