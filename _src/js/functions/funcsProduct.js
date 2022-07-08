@@ -178,7 +178,7 @@ function init(yandexMetrikaId) {
 
 
     // -------------------------------
-    // Приближение при наведении на месте, а не в отдельном квадратике (js-image-zoom)
+    // Приближение фотки при наведении на странице товара
     // -------------------------------
     let $zoomImg = $('.zoom-here');
     if ($zoomImg.length) {
@@ -195,6 +195,27 @@ function init(yandexMetrikaId) {
             zoomer.style.backgroundPosition = x + '% ' + y + '%';
             zoomer.style.backgroundSize = 200 + '%';
         });
+    }
+
+    const settingsDefault = {
+        width: 260,
+        height: 260,
+        zoomWidth: 500,
+        offset: {vertical: 0, horizontal: 10}
+    };
+
+    // Обычный zoom
+    const zoomDefault = document.getElementsByClassName("zoom-default");
+    if (zoomDefault.length) {
+        new ImageZoom(zoomDefault[0], settingsDefault);
+    }
+
+    // Узкий zoom
+    const zoomNarrow = document.getElementsByClassName("zoom-narrow");
+    if (zoomNarrow.length) {
+        let settingsNarrow = settingsDefault;
+        settingsNarrow['zoomWidth'] = 430;
+        new ImageZoom(zoomNarrow[0], settingsNarrow);
     }
 
 
