@@ -22,10 +22,10 @@
     </div>
 
     {* >>> SVG градиент *}
-    {if $_modx->resource.context_key == 'web'}
+    {if $_modx->resource.context_key in list ['web', 'pilomat', 'pro-fanera']}
         {set $colorStart = '#5892FC'}
         {set $colorEnd = '#4F70AD'}
-    {elseif $_modx->resource.context_key in list ['rockwool', 'krovlya', 'kirpich-m']}
+    {elseif $_modx->resource.context_key in list ['rockwool', 'krovlya', 'kirpich-m', 'armatura-178', 'asconcrete', 'plitaosb']}
         {set $colorStart = '#e90115'}
         {set $colorEnd = '#aa000f'}
     {elseif $_modx->resource.context_key == 'tn'}
@@ -43,8 +43,13 @@
     {elseif $_modx->resource.context_key == 'ursa'}
         {set $colorStart = '#ea4740'}
         {set $colorEnd = '#c81d16'}
+    {elseif $_modx->resource.context_key in list ['fasady-pro', 'plity-mdvp']}
+        {set $colorStart = '#109654'}
+        {set $colorEnd = '#08532e'}
+    {elseif $_modx->resource.context_key == 'fasad'}
+        {set $colorStart = '#deb262'}
+        {set $colorEnd = '#c9912a'}
     {/if}
-
     <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
         <defs>
             <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
