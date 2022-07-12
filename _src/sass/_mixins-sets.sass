@@ -1742,3 +1742,24 @@
     //    #{$property}: #ee8208
     @at-root .fasady-pro &
         #{$property}: #0b703e
+
+@mixin filter-shadow()
+    // TODO: Попробуй сделать это через box-shadow - чтобы поддерживалось другими браузерами
+    @at-root .knauf &
+        filter: drop-shadow(0px 4px 16px rgba(85, 133, 222, 0.64))
+    @at-root .rockwool &
+        filter: drop-shadow(0px 4px 16px rgba(235, 0, 21, 0.64))
+    @at-root .tn &
+        filter: drop-shadow(0px 4px 16px rgba(237, 28, 36, 0.64))
+    @at-root .penoplex &
+        filter: drop-shadow(0px 4px 16px rgba(243, 111, 33, 0.64))
+    @at-root .isover &
+        filter: drop-shadow(0px 4px 16px rgba(131, 195, 32, 0.64))
+    @at-root .paroc &
+        filter: drop-shadow(0px 4px 16px rgba(206, 17, 38, 0.64))
+    @at-root .ursa &
+        filter: drop-shadow(0px 4px 16px rgba(234, 71, 64, 0.64))
+    @at-root .fasad &
+        filter: drop-shadow(0px 4px 16px rgba(222, 178, 98, 0.64))
+    @at-root .fasady-pro &
+        filter: drop-shadow(0px 4px 16px rgba(11, 112, 62, 0.64))
