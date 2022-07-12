@@ -15,7 +15,7 @@
 
             <label>
                 <input type="tel" placeholder="Ссылка на товар со скидкой" name="DISCOUNTLINK">
-                <span class="error_PHONE">[[!+fi.error.DISCOUNTLINK]]</span>
+                <span class="error_DISCOUNTLINK">[[!+fi.error.DISCOUNTLINK]]</span>
             </label>
         </div>
         <button type="submit" class="form__button custom-btn" id="nashli_deshevle">Перезвоните мне</button>
