@@ -92,51 +92,76 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
 
             // Форма для оформления заказа
             if ($form.hasClass('popup-order__form')) {
+                console.log('succesbuyingform');
+                if (typeof ym !== 'undefined') {
+                    ym(yandexMetrikaId, 'reachGoal', 'succesbuyingform');
+                }
+
                 if (location.pathname === '/cart/') {
-                    document.location.href = "/";
-                } else {
                     funcsProduct.handleMiniCart(0, 0, 0, 0);
                     funcsProduct.resetCountProductsOnPage();
                 }
-            }
 
-            // Далее идут повторяющиеся формы, где важен не класс формы, а элемент, которым вызвали форму
-            let currentPopupKey;
-            if (typeof parent.$.fancybox.getInstance().$trigger !== 'undefined') {
-                currentPopupKey = parent.$.fancybox.getInstance().$trigger.attr('data-btn-key');
-            }
-            if (currentPopupKey) {
-                switch (currentPopupKey) {
-                    case 'banner-delivery':
-                        console.log('banner-delivery');
-                        if (typeof ym !== 'undefined') {
-                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
-                        }
-                        break;
-                    case 'banner-main':
-                        console.log('banner-main');
-                        if (typeof ym !== 'undefined') {
-                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
-                        }
-                        break;
-                    case 'header-link':
-                        console.log('header-link');
-                        if (typeof ym !== 'undefined') {
-                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
-                        }
-                        break;
-                    case 'cart':
-                        console.log('cart');
-                        if (typeof ym !== 'undefined') {
-                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
-                        }
-                        break;
-                    case 'turnkey':
-                        console.log('turnkey');
-                        if (typeof ym !== 'undefined') {
-                            ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
-                        }
-                        break;
+                let phone = $('.header__phone').text();
+                let html = `<div class="wrapper">
+                              <section class="sect-thanks">
+                                <div class="sect-thanks__svg-wrap">
+                                    <svg class="svg sect-thanks__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="55" height="54" viewBox="0 0 55 54">
+                                        <use xlink:href="/assets/template/img/svg-sprite.svg#success"></use>
+                                    </svg>
+                                </div>
+                                <h1 class="sect-thanks__header">Спасибо за заявку</h1>
+                                <p class="sect-thanks__text">В ближайшее время менеджер свяжется с вами!</p>
+                                <a href="/" class="sect-thanks__btn custom-btn">Вернуться на главную</a>
+                                <div class="sect-thanks__info">
+                                  <a href="tel:` + phone + `" class="sect-thanks__info-phone">` + phone + `</a>
+                                  <p class="sect-thanks__info-text">
+                                    Вы также можете связаться с нами по контактному номеру телефона
+                                  </p>  
+                                </div>
+                              </section> 
+                            </div>`;
+                $('.current-page').html(html);
+
+            } else {
+                // Далее идут повторяющиеся формы, где важен не класс формы, а элемент, которым вызвали форму
+                let currentPopupKey;
+                if (typeof parent.$.fancybox.getInstance().$trigger !== 'undefined') {
+                    currentPopupKey = parent.$.fancybox.getInstance().$trigger.attr('data-btn-key');
+                }
+                if (currentPopupKey) {
+                    switch (currentPopupKey) {
+                        case 'banner-delivery':
+                            console.log('banner-delivery');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-na-stranice-dostavka');
+                            }
+                            break;
+                        case 'banner-main':
+                            console.log('banner-main');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'Otpravka-iz-bannera-na-glavnoj-stranice--30%');
+                            }
+                            break;
+                        case 'header-link':
+                            console.log('header-link');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-zakazat-zvonok');
+                            }
+                            break;
+                        case 'cart':
+                            console.log('cart');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'Otpravka-zajavki-iz-korziny');
+                            }
+                            break;
+                        case 'turnkey':
+                            console.log('turnkey');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
+                            }
+                            break;
+                    }
                 }
             }
 

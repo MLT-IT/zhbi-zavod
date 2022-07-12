@@ -137,7 +137,9 @@
         {block "header"}
             {insert "file:blocks/header.tpl"}
         {/block}
-        {block "page"}{/block}
+        <div class="current-page">
+            {block "page"}{/block}
+        </div>
         {block "footer"}
             {include "file:blocks/footer.tpl"}
         {/block}
