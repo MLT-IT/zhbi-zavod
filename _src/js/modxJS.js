@@ -48,7 +48,11 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
             funcsCatalog.getRemainder();
             funcsProduct.initStyledCounter();
-            catalogH1FromGetParams();
+
+            if ($('#mse2_filters').length) {
+                catalogH1FromGetParams();
+            }
+
             funcsCatalog.wrapTitle();
 
             // TODO: я забыл, а зачем здесь сортировка? Разве при загрузке страницы не хватает? Напиши комментарий, когда разберешься

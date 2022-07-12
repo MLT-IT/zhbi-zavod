@@ -378,7 +378,7 @@ function getRemainder() {
         // Сколько осталось вывести товаров?
         let remainder = 0;
 
-        let remainderMax = 42;
+        let remainderMax = 44;
         if ($btnMore.attr('data-max')) {
             remainderMax = $btnMore.attr('data-max');
         }
