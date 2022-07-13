@@ -16,10 +16,13 @@ export default function initTableFilter(table, table_count) {
         table_actions.createCheckbox()
         table_actions.createTopControlBlock()
 
-
         Array.from(table.querySelector('tr').children).forEach((child, index) => {
             if (child.className === utils.classes.row_checkbox) return
-            table_actions.createSortBtn(child, index)
+
+            if (!child.classList.contains('no-sort')) {
+                table_actions.createSortBtn(child, index)
+            }
+
             table_actions.createSelectBtn(child, index)
         })
     }
@@ -498,7 +501,7 @@ export default function initTableFilter(table, table_count) {
         let search_ids = []
         const keys_select_elems = Object.keys(utils.filters.select_elems)
 
-        //Если ничего не выбрано 
+        //Если ничего не выбрано
         if (!keys_select_elems.length && !utils.filters.search_elems.length) {
             utils.all_trs.forEach(tr => {
                 if (tr.getAttribute('tr-id') === '0') return
