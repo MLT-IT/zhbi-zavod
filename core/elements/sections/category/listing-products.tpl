@@ -65,11 +65,11 @@ data-single-dir - запретить менять направление сор�
     </div>
 
     {'!AjaxForm' | snippet : [
-        'hooks' => 'create_bitrix_lead',
+        'hooks' => 'create_request,create_bitrix_lead',
         'snippet' => 'FormIt',
         'form' => '@FILE sections/catalog/catalog-banner.tpl',
-        'customValidators' => 'checkPhone',
-        'validate' => 'PHONE:required:checkPhone',
+        'customValidators' => 'checkPhone,check_request',
+        'validate' => 'PHONE:required:checkPhone:check_request',
         'validationErrorMessage' => 'В форме содержатся ошибки!',
         'successMessage' => 'Сообщение успешно отправлено',
     ]}

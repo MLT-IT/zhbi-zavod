@@ -1,9 +1,9 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-callback.tpl',
-'hooks' => 'create_bitrix_lead',
-'customValidators' => 'checkPhone',
-'validate' => 'PHONE:required:checkPhone',
+'hooks' => 'create_request,create_bitrix_lead',
+'customValidators' => 'checkPhone,check_request',
+'validate' => 'PHONE:required:checkPhone:check_request',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -11,9 +11,9 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-discount.tpl',
-'hooks' => 'create_bitrix_lead',
-'customValidators' => 'checkPhone',
-'validate' => 'PHONE:required:checkPhone',
+'hooks' => 'create_request,create_bitrix_lead',
+'customValidators' => 'checkPhone,check_request',
+'validate' => 'PHONE:required:checkPhone:check_request',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -21,9 +21,9 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-cost-delivery.tpl',
-'hooks' => 'create_bitrix_lead',
-'customValidators' => 'checkPhone',
-'validate' => 'PHONE:required:checkPhone',
+'hooks' => 'create_request,create_bitrix_lead',
+'customValidators' => 'checkPhone,check_request',
+'validate' => 'PHONE:required:checkPhone:check_request',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -31,9 +31,9 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-order.tpl',
-'hooks' => 'create_bitrix_lead',
-'customValidators' => 'checkPhone',
-'validate' => 'PHONE:required:checkPhone',
+'hooks' => 'create_request,create_bitrix_lead',
+'customValidators' => 'checkPhone,check_request',
+'validate' => 'PHONE:required:checkPhone:check_request',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -50,9 +50,9 @@
     {'!AjaxForm' | snippet : [
     'snippet' => 'FormIt',
     'form' => '@FILE elements/modals/callback/popup-cost-fanera.tpl',
-    'hooks' => 'create_bitrix_lead',
-    'customValidators' => 'checkPhone',
-    'validate' => 'PHONE:required:checkPhone',
+    'hooks' => 'create_request,create_bitrix_lead',
+    'customValidators' => 'checkPhone,check_request',
+    'validate' => 'PHONE:required:checkPhone:check_request',
     'validationErrorMessage' => 'В форме содержатся ошибки!',
     'successMessage' => 'Сообщение успешно отправлено'
     ]}
