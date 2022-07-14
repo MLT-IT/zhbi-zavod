@@ -373,7 +373,7 @@
 
             <div class="product-card__discount-block product-card__discount-block_screen_pc">
                 <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
-                <span class="product-card__discount-block-link" data-fancybox data-src="#discount">Подробнее</span>
+                <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
             </div>
 
             <div class="product-card__delivery">
@@ -437,7 +437,7 @@
 
     <div class="product-card__discount-block product-card__discount-block_screen_mobile">
         <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
-        <span class="product-card__discount-block-link" data-fancybox data-src="#discount">Подробнее</span>
+        <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
     </div>
 
     <div class="product-card__mobile-btns">

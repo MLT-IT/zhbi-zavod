@@ -146,6 +146,6 @@
     <div class="listing__catalog-discount">
         <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
         <div class="listing__catalog-discount-text-2">Снизим цену!</div>
-        <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#">Подробнее</span>
+        <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#" data-btn-key="discount">Подробнее</span>
     </div>
 {/if}

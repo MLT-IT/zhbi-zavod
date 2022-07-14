@@ -165,6 +165,12 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
                                 ym(yandexMetrikaId, 'reachGoal', 'Otpravka-formy-iz-bannera-poluchit-skidku-na-stroitelstvo-pod-kljuch');
                             }
                             break;
+                        case 'discount':
+                            console.log('discount');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'nashli_deshevle');
+                            }
+                            break;
                     }
                 }
             }

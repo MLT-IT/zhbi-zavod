@@ -1,5 +1,5 @@
 <div class="popup" id="discount">
-    <form method="POST" action class="popup__form form">
+    <form method="POST" action class="popup__form form ">
         <h2 class="title-2 form__title">Нашли дешевле?</h2>
         <div class="form__text">СНИЗИМ ЦЕНУ!</div>
         <div class="form__inputs">
@@ -18,7 +18,7 @@
                 <span class="error_DISCOUNTLINK">[[!+fi.error.DISCOUNTLINK]]</span>
             </label>
         </div>
-        <button type="submit" class="form__button custom-btn" id="nashli_deshevle">Перезвоните мне</button>
+        <button type="submit" class="form__button custom-btn">Перезвоните мне</button>
         <label class="form__checkbox">
             <input id="callback-policy" type="checkbox" name="callback-policy" checked>
             <span>
