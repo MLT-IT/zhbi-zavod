@@ -69,7 +69,7 @@ data-single-dir - запретить менять направление сор�
         'snippet' => 'FormIt',
         'form' => '@FILE sections/catalog/catalog-banner.tpl',
         'customValidators' => 'checkPhone,check_request',
-        'validate' => 'PHONE:required:checkPhone:check_request',
+        'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
         'validationErrorMessage' => 'В форме содержатся ошибки!',
         'successMessage' => 'Сообщение успешно отправлено',
     ]}

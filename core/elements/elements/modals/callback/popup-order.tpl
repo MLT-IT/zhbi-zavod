@@ -18,8 +18,9 @@
             <div class="js-tabs-contents-wrap popup-order__tab-contents">
                 <div class="js-tabs-content active" data-tab="fiz">
                     <form method="POST" action class="popup-order__form">
-                        <input type="hidden" name="CUSTOMER-TYPE" value="Физическое лицо">
+                        <input type="text" name="mobilephone" class="fmobilephone">
 
+                        <input type="hidden" name="CUSTOMER-TYPE" value="Физическое лицо">
                         <div class="popup-order__inputs">
                             <label class="popup-order__label popup-order__label_width_full">
                                 <input name="CUSTOMER" placeholder="Получатель"
@@ -99,8 +100,9 @@
 
                 <div class="js-tabs-content" data-tab="yur">
                     <form method="POST" action class="popup-order__form">
-                        <input type="hidden" name="CUSTOMER-TYPE" value="Юридическое лицо">
+                        <input type="text" name="mobilephone" class="fmobilephone">
 
+                        <input type="hidden" name="CUSTOMER-TYPE" value="Юридическое лицо">
                         <div class="popup-order__inputs">
                             <label class="popup-order__label popup-order__label_width_full">
                                 <input name="CUSTOMER" placeholder="Название компании"

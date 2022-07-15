@@ -3,7 +3,7 @@
 'form' => '@FILE elements/modals/callback/popup-callback.tpl',
 'hooks' => 'create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
-'validate' => 'PHONE:required:checkPhone:check_request',
+'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -13,7 +13,7 @@
 'form' => '@FILE elements/modals/callback/popup-discount.tpl',
 'hooks' => 'create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
-'validate' => 'PHONE:required:checkPhone:check_request',
+'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -23,7 +23,7 @@
 'form' => '@FILE elements/modals/callback/popup-cost-delivery.tpl',
 'hooks' => 'create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
-'validate' => 'PHONE:required:checkPhone:check_request',
+'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -33,7 +33,7 @@
 'form' => '@FILE elements/modals/callback/popup-order.tpl',
 'hooks' => 'create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
-'validate' => 'PHONE:required:checkPhone:check_request',
+'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
@@ -52,7 +52,7 @@
     'form' => '@FILE elements/modals/callback/popup-cost-fanera.tpl',
     'hooks' => 'create_request,create_bitrix_lead',
     'customValidators' => 'checkPhone,check_request',
-    'validate' => 'PHONE:required:checkPhone:check_request',
+    'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
     'validationErrorMessage' => 'В форме содержатся ошибки!',
     'successMessage' => 'Сообщение успешно отправлено'
     ]}

@@ -1,5 +1,7 @@
 <div class="popup" id="discount">
-    <form method="POST" action class="popup__form form ">
+    <form method="POST" action class="popup__form form">
+        <input type="text" name="mobilephone" class="fmobilephone">
+
         <h2 class="title-2 form__title">Нашли дешевле?</h2>
         <div class="form__text">СНИЗИМ ЦЕНУ!</div>
         <div class="form__inputs">

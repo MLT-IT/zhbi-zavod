@@ -1,5 +1,6 @@
 <div class="popup popup-reviews" id="reviews">
     <form method="POST" action class="popup__form form popup-reviews__form">
+        <input type="text" name="mobilephone" class="fmobilephone">
 
         <h2 class="title-2 form__title popup-reviews__title">Оставить отзыв</h2>
         <div class="popup-reviews__subtitle">

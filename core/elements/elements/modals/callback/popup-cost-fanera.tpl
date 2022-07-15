@@ -1,5 +1,7 @@
 <div class="popup" id="cost-fanera">
     <form method="POST" action class="popup__form form">
+        <input type="text" name="mobilephone" class="fmobilephone">
+
         <h2 class="title-2 form__title">Оставьте свои контакты ниже</h2>
         <div class="form__text">и получите расчет фанеры бесплатно.<br>Мы перезвоним Вам в течение 15 минут.</div>
         <div class="form__inputs">
