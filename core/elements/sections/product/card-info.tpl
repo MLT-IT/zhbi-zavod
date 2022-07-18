@@ -212,6 +212,12 @@
                 <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
                 <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
             </div>
+
+            {if $_modx->resource.context_key === 'pilomat'}
+                <div class="product-card__discount-block">
+                    <span class="product-card__discount-block-proposal">При заказе от 10 м3, доставка и разгрузка <b>БЕСПЛАТНО</b</span>
+                </div>
+            {/if}
         </div>
     </div>
 </div>
