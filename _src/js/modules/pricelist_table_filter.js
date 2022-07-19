@@ -19,11 +19,13 @@ export default function initTableFilter(table, table_count) {
         Array.from(table.querySelector('tr').children).forEach((child, index) => {
             if (child.className === utils.classes.row_checkbox) return
 
-            if (!child.classList.contains('no-sort')) {
+            // if (!child.classList.contains('no-sort')) {
                 table_actions.createSortBtn(child, index)
-            }
+            // }
 
-            table_actions.createSelectBtn(child, index)
+            if (!child.classList.contains('no-sort')) {
+                table_actions.createSelectBtn(child, index)
+            }
         })
     }
 
