@@ -28,8 +28,6 @@
             {/if}
             под Ваши требования</p>
         <form class="catalog-banner__form" method="post">
-            <input type="text" name="mobilephone" class="fmobilephone">
-
             <input type="text" class="catalog-banner__input" name="NAME" placeholder="Ваше имя">
             <input type="tel" class="catalog-banner__input" name="PHONE" placeholder="Укажите номер телефона*">
 
@@ -44,6 +42,7 @@
             </label>
 
             <button class="catalog-banner__btn-submit">Отправить</button>
+            <input type="text" name="mobilephone" class="fmobilephone">
         </form>
     </div>
 
