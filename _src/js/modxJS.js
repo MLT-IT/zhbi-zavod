@@ -44,7 +44,7 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
-        if ($('.category-header').length) {
+        if ($('.js-catalog').length) {
             $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
             funcsCatalog.getRemainder();
             funcsProduct.initStyledCounter();

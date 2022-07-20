@@ -1,7 +1,7 @@
 <section class="sect-listing wrapper">
     <h2 class="sect-listing__title title-2">Все товары</h2>
     <div id="pdopage" class="sect-listing__content">
-        <div class="listing__products-list rows grid">
+        <div class="listing__products-list rows grid js-catalog">
             {set $params = [
                 'element' => 'msProducts',
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",

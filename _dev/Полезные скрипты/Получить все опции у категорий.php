@@ -20,7 +20,7 @@ $ids .= ',' . $rootResource;
 // ------------------------------------
 // Получаем все опции для каждой категории
 // ------------------------------------
-$sql = 'SELECT o.id, o.key
+$sql = 'SELECT o.id, o.key, o.caption
         FROM modx_ms2_category_options as co
         JOIN modx_ms2_options AS o ON co.option_id = o.id
         WHERE co.category_id IN (' . $ids . ')

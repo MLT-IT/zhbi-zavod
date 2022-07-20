@@ -53,7 +53,7 @@ data-single-dir - запретить менять направление сор�
             </svg>
         </button>
     </div>
-    <div class="listing__products-list rows grid" id="mse2_results">
+    <div class="listing__products-list rows grid js-catalog" id="mse2_results">
         {$results}
     </div>
 

@@ -120,7 +120,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://pilomat-pro.local/",
+                    target: "http://armatura-178.local/",
                     secure: false,
                     changeOrigin: true
                 }

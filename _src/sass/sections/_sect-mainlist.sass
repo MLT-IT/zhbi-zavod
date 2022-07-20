@@ -1,0 +1,47 @@
+.sect-mainlist
+    $block: &
+
+    &__sort
+        align-self: flex-start
+
+    &__content
+        width: 100%
+
+    &__fblock
+        display: flex
+        align-items: center
+
+    &__fblock-title
+        margin-right: 10px
+        margin-top: -8px
+
+    &__filter
+        margin-right: 10px
+        margin-bottom: 8px
+
+    &__filter-label
+        cursor: pointer
+        position: relative
+        height: 28px
+        display: inline-block
+
+    &__chips
+        transition: color .3s, background-color .3s
+        +set_colors_1(color)
+        height: 28px
+        display: inline-block
+        margin-bottom: 0
+
+        &:hover
+            color: #fff
+
+    &__filter-input
+        &:checked ~ #{$block}__chips
+            color: #fff
+            +set_colors_1(background-color)
+
+        @at-root .wrap .wrapper &[disabled] ~ #{$block}__chips
+            color: #b1b2b3
+            background-color: transparent
+            border-color: #b1b2b3
+            cursor: not-allowed

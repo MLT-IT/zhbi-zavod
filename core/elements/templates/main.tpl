@@ -73,6 +73,14 @@
         {/if}
     </div>
 
+    {if $_modx->resource.template === 25}
+        {include "file:sections/main/listing.tpl" title="Цены на арматуру"}
+
+        {if $_modx->resource.additionalContent ?}
+            {include "file:sections/additional-content.tpl"}
+        {/if}
+    {/if}
+
     {include "file:sections/popular/sect-pop-main.tpl"}
 
     {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}

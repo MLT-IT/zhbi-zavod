@@ -17,8 +17,10 @@
     white-space: nowrap
     +set_colors_1(background-color)
 
-    &:hover
-        +set_colors_1(background-color, 10%)
+    // Переопределение
+    @at-root .wrap .wrapper &
+        &:hover
+            +set_colors_1(background-color, 10%)
 
     &:nth-last-of-type(n+2)
         margin-right: 8px
@@ -33,7 +35,8 @@
             &:hover
                 +set_colors_1(border-color, 10%)
 
-            @at-root .listing__selected &
+            // Переопределение
+            @at-root .wrapper &
                 background-color: transparent
 
                 &:hover
