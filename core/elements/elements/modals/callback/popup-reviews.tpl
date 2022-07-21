@@ -1,4 +1,4 @@
-<div class="popup popup-reviews" id="reviews">
+<div class="popup js-thanks popup-reviews" id="reviews">
     <form method="POST" action class="popup__form form popup-reviews__form">
         <input type="text" name="mobilephone" class="fmobilephone">
 

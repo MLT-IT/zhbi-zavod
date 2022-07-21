@@ -175,8 +175,20 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
                 }
             }
 
-            // Закрываем fancybox
-            parent.$.fancybox.close();
+            // Закрываем fancybox / выводим сообщение о благодарности
+            let $popup = $form.closest('.popup');
+            if ($popup.hasClass('js-thanks')) {
+                let html = '';
+                if ($popup.hasClass('popup-reviews')) {
+                    html = '<div class="js-thanks__message popup__form form"><h2 class="title-2 form__title">Спасибо за отзыв</h2><p class="form__text js-thanks__text">Как только модератор его проверит он сразу будет опубликован</p></div>';
+                } else {
+                    html = '<div class="js-thanks__message popup__form form"><h2 class="title-2 form__title">Спасибо за заявку!</h2><p class="form__text js-thanks__text">С вами свяжется в ближайшее время наш менеджер</p></div>';
+                }
+                $popup.find('form').remove();
+                $popup.prepend(html);
+            } else {
+                parent.$.fancybox.close();
+            }
         }
     });
 }
