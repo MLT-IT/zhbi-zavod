@@ -94,7 +94,7 @@ export default function initTableFilter(table, table_count) {
             })
         },
         sortRow(row_index, sort_btn) {
-            //сделал чекрез таймаут для синхронности
+            //сделал через таймаут для синхронности
             table.classList.add('loading')
 
             if (utils.active_sort_index !== row_index && utils.active_sort_index) {
@@ -119,8 +119,8 @@ export default function initTableFilter(table, table_count) {
                 })
                 const values_unique = [...new Set(values)]
                 values_unique.sort((a, b) => {
-                    const num_a = +a.replace(',', '.').replace('-', '.')
-                    const num_b = +b.replace(',', '.').replace('-', '.')
+                    const num_a = +a.replace(',', '.').replace('-', '.').replace(/[^0-9.]/g, '')
+                    const num_b = +b.replace(',', '.').replace('-', '.').replace(/[^0-9.]/g, '')
                     if (num_a || num_b)
                         return num_a - num_b
                     else
