@@ -62,7 +62,7 @@ if (elem !== null) {
     elem.innerHTML = 'Подходящих результатов не найдено.';
 }
 
-$(function($) {
+$(function ($) {
     // --------------------------------
     // Копируем форму для шапки
     // --------------------------------
@@ -107,14 +107,14 @@ $(function($) {
     // -------------------------------
     // Меню на ПК
     // -------------------------------
-    $('.header__catalog').on('click', function(e) {
+    $('.header__catalog').on('click', function (e) {
         let $target = $(e.target);
         if (!$target.closest('.header__catalog-menu').length) {
             $(this).toggleClass('hover');
         }
     });
 
-    $(document).on('click', function(e) {
+    $(document).on('click', function (e) {
         let $target = $(e.target);
 
         if (!$target.hasClass('header__catalog') && !$target.closest('.header__catalog').length) {
@@ -126,14 +126,14 @@ $(function($) {
     // -------------------------------
     // Меню на мобилках
     // -------------------------------
-    $('.header__mobile-menu-link').on('click', function(e) {
+    $('.header__mobile-menu-link').on('click', function (e) {
         e.preventDefault();
 
         let $this = $(this);
         let $headerNav = $this.closest('.header__nav-contents-wrap');
 
         $headerNav.addClass('fade');
-        setTimeout(function() {
+        setTimeout(function () {
             $this.closest('.header__nav-content.active').removeClass('active');
             $this.closest('.header__nav-contents-wrap').find('.header__nav-content[data-key="' + $this.attr('data-key') + '"]').addClass('active');
             $headerNav.removeClass('fade');
@@ -154,10 +154,10 @@ $(function($) {
     // -------------------------------
     // Вкладки
     // -------------------------------
-    $('.js-tabs').each(function() {
+    $('.js-tabs').each(function () {
         let $this = $(this);
         let $headers = $this.find('.js-tabs-header');
-        $headers.on('click', function(e) {
+        $headers.on('click', function (e) {
             e.preventDefault();
             $this.find('.js-tabs-content, .js-tabs-header').removeClass('active');
 
@@ -172,7 +172,7 @@ $(function($) {
     // -------------------------------
     // Скрыть / показать кнопки слайдера
     // -------------------------------
-    $('.swiper-buttons').each(function() {
+    $('.swiper-buttons').each(function () {
         let $this = $(this);
         let $sliders = $(this).parent().find('.swiper-wrapper').find('.swiper-slide');
         if ($sliders.length > 4) {
@@ -211,7 +211,7 @@ $(function($) {
     // });
 
     // На телефонах
-    $('.header__burger').on('click', function(e) {
+    $('.header__burger').on('click', function (e) {
         e.preventDefault();
         let $this = $(this);
         $this.toggleClass('opened');
@@ -222,7 +222,7 @@ $(function($) {
     // -------------------------------
     // Звездочки во всплывашке для рейтинга
     // -------------------------------
-    $('.popup-reviews__stars svg').on('click', function(e) {
+    $('.popup-reviews__stars svg').on('click', function (e) {
         e.preventDefault();
 
         $('.popup-reviews__stars svg').removeClass('active');
@@ -235,12 +235,12 @@ $(function($) {
     // -------------------------------
     // faq
     // -------------------------------
-    $('.questions__item-top').on('click', function(e) {
+    $('.questions__item-top').on('click', function (e) {
         e.preventDefault();
         $(this).parent().toggleClass('active');
     });
 
-    $('.questions__btn-more').on('click', function(e) {
+    $('.questions__btn-more').on('click', function (e) {
         e.preventDefault();
         const $this = $(this);
         $this.parent().find('.questions__list-hidden').slideToggle();
@@ -272,12 +272,12 @@ $(function($) {
             }
             let newHeight = $assort.height();
             $assort.height(oldHeight);
-            $assort.animate({ 'height': newHeight }, 300, function() {
+            $assort.animate({'height': newHeight}, 300, function () {
                 $assort.css('height', '');
             });
         }
 
-        $assort.find('.assort__sidebar-item').on('click', function(e) {
+        $assort.find('.assort__sidebar-item').on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
 
@@ -293,7 +293,7 @@ $(function($) {
             $backBtnText.text($this.text());
         });
 
-        $assort.find('.assort__back').on('click', function(e) {
+        $assort.find('.assort__back').on('click', function (e) {
             e.preventDefault();
             toggleClasses(sidebar, $assort.height());
             $backBtnText.text('');
@@ -304,16 +304,16 @@ $(function($) {
     // -------------------------------
     // Скрывание / раскрывание по клику
     // -------------------------------
-    document.querySelectorAll("[data-dropdown]").forEach((function(e) {
+    document.querySelectorAll("[data-dropdown]").forEach((function (e) {
         if (e.getAttribute("data-dropdown")) {
-            Array.from(document.querySelectorAll(e.getAttribute("data-dropdown"))).forEach((function(e) {
-                e.addEventListener("click", (function() {
+            Array.from(document.querySelectorAll(e.getAttribute("data-dropdown"))).forEach((function (e) {
+                e.addEventListener("click", (function () {
                     e.parentElement.classList.toggle("active");
                 }));
             }));
         } else {
-            Array.from(e.children).forEach((function(e) {
-                e.addEventListener("click", (function() {
+            Array.from(e.children).forEach((function (e) {
+                e.addEventListener("click", (function () {
                     e.classList.toggle("active");
                 }));
             }));
@@ -336,7 +336,7 @@ $(function($) {
     // Кнопка для скролла вверх
     // --------------------------------
     let $btn = $('.scroll-top');
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(window).scrollTop() > window.innerHeight) {
             $btn.addClass('active');
         } else {
@@ -344,9 +344,19 @@ $(function($) {
         }
     });
 
-    $btn.on('click', function(e) {
+    $btn.on('click', function (e) {
         e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 300);
+        $('html, body').animate({scrollTop: 0}, 300);
+    });
+
+
+    // --------------------------------
+    // Главная с фильтрами
+    // --------------------------------
+    $('.sect-mainlist__btn-more').on('click', function () {
+        let $btn = $(this);
+        $btn.parent().find('.sect-mainlist__filter:nth-of-type(n+7)').toggleClass('hidden');
+        functions.toggleText($btn, 'data-text');
     });
 
 
@@ -354,7 +364,29 @@ $(function($) {
     // Если на странице есть таблица.table-filter подгрузить module_filter_table
     // --------------------------------
     if (document.querySelector('.content-block table.table-filter')) {
-        var script = document.createElement("script")
+        // Запрещаем перенос строки в ячейках с ценой
+        $('.table-filter').each(function () {
+            let $table = $(this);
+            let index = $table.find('td.no-sort').index();
+            if (index === -1) {
+                return;
+            }
+            $table.find('tr').each(function (i) {
+                if (i === 0) {
+                    return;
+                }
+                let $tr = $(this);
+                let $td = $tr.find('td').eq(index);
+                if (!$td.length) {
+                    return;
+                }
+                $td.css('white-space', 'nowrap');
+            });
+        });
+
+
+        // Подгружаем module_filter_table
+        let script = document.createElement("script");
         script.type = "text/javascript";
         script.src = '/assets/template/js/module_filter_table.js';
         document.getElementsByTagName("head")[0].appendChild(script);

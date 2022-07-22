@@ -1,6 +1,6 @@
 {set $key = $table ~ $delimeter ~ $filter}
 
-<a href="{$_modx->resource.id | url}?{$filter_key}={$value}" class="sect-mainlist__filter{if $disabled?} {$disabled}{/if}" {if $dataVal?}data-val="{$dataVal}"{/if}>
+<a href="{$_modx->resource.id | url}?{$filter_key}={$value}" class="sect-mainlist__filter{if $disabled?} {$disabled}{/if}{if $idx > 5} hidden{/if}" {if $dataVal?}data-val="{$dataVal}"{/if}>
     <label for="mse2_{$key}_{$idx}" class="sect-mainlist__filter-label">
         <input class="hidden sect-mainlist__filter-input" type="checkbox" name="{$filter_key}" id="mse2_{$key}_{$idx}"
                value="{$value}" {$checked} {$disabled} />

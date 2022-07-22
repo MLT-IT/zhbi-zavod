@@ -46,6 +46,7 @@ function toggleText(elem, attr_1) {
     elem.text(text);
 }
 
+
 // Strip whitespace (or other characters) from the beginning and end of a string
 // +   original by: Ilia Kantor (http://javascript.ru)
 function trim(str, charlist) {

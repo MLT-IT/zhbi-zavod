@@ -1,5 +1,6 @@
 .sect-mainlist
     $block: &
+    margin-bottom: 40px
 
     &__sort
         align-self: flex-start
@@ -10,12 +11,16 @@
     &__fblock
         display: flex
         align-items: center
+        flex-wrap: wrap
+
+        &:nth-of-type(n+2)
+            margin-top: 8px
 
     &__fblock-title
         margin-right: 10px
         margin-top: -8px
 
-    &__filter
+    &__filter, &__btn-more
         margin-right: 10px
         margin-bottom: 8px
 
@@ -45,3 +50,15 @@
             background-color: transparent
             border-color: #b1b2b3
             cursor: not-allowed
+
+    &__btn-more
+        height: 28px
+        display: inline-block
+        cursor: pointer
+        padding: 4px 16px 6px 16px
+        +set_colors_1(color)
+        border-radius: 16px
+        transition: .3s
+
+        &:hover
+            box-shadow: 0 0 3px #000
