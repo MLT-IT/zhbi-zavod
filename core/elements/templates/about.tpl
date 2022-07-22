@@ -21,53 +21,14 @@
         {/if}
     </div>
 
-    {* >>> SVG градиент *}
-    {if $_modx->resource.context_key in list ['web', 'pilomat', 'pro-fanera']}
-        {set $colorStart = '#5892FC'}
-        {set $colorEnd = '#4F70AD'}
-    {elseif $_modx->resource.context_key in list ['rockwool', 'krovlya', 'kirpich-m', 'armatura-178', 'asconcrete', 'plitaosb']}
-        {set $colorStart = '#e90115'}
-        {set $colorEnd = '#aa000f'}
-    {elseif $_modx->resource.context_key == 'tn'}
-        {set $colorStart = '#ed1c24'}
-        {set $colorEnd = '#af0e14'}
-    {elseif $_modx->resource.context_key == 'penoplex'}
-        {set $colorStart = '#f36f21'}
-        {set $colorEnd = '#bd4d0a'}
-    {elseif $_modx->resource.context_key == 'isover'}
-        {set $colorStart = '#83c320'}
-        {set $colorEnd = '#578115'}
-    {elseif $_modx->resource.context_key == 'paroc'}
-        {set $colorStart = '#ce1126'}
-        {set $colorEnd = '#870b19'}
-    {elseif $_modx->resource.context_key == 'ursa'}
-        {set $colorStart = '#ea4740'}
-        {set $colorEnd = '#c81d16'}
-    {elseif $_modx->resource.context_key in list ['fasady-pro', 'plity-mdvp']}
-        {set $colorStart = '#109654'}
-        {set $colorEnd = '#08532e'}
-    {elseif $_modx->resource.context_key == 'fasad'}
-        {set $colorStart = '#deb262'}
-        {set $colorEnd = '#c9912a'}
-    {/if}
-    <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
-        <defs>
-            <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <linearGradient id="about-svg-gradient" gradientTransform="rotate(90)" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="{$colorStart}"/>
-                    <stop offset="1" stop-color="{$colorEnd}"/>
-                </linearGradient>
-            </svg>
-        </defs>
-    </div>
-    {* <<< SVG градиент *}
+    {include "file:chunks/svg-gradient.tpl" w=48 h=48}
 
     <section class="wrapper sect-segment">
         <h2 class="title-2 title-2_align_left">Основной сегмент наших клиентов</h2>
         <ul class="sect-segment__items-wrap">
             <li class="sect-segment__item">
                 <div class="sect-segment__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#fizlic"></use>
                     </svg>
@@ -76,7 +37,7 @@
             </li>
             <li class="sect-segment__item">
                 <div class="sect-segment__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="38" height="37">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#snab"></use>
                     </svg>
@@ -85,7 +46,7 @@
             </li>
             <li class="sect-segment__item">
                 <div class="sect-segment__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-segment__item-svg" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="36" height="38">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#zastroy"></use>
                     </svg>
@@ -137,7 +98,7 @@
         <ul class="sect-benefits__items-wrap">
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-benefits__item-svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-benefits__item-svg"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="36">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#rouble"></use>
@@ -152,7 +113,7 @@
             </li>
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-benefits__item-svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-benefits__item-svg"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="44" height="32">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#truck"></use>
@@ -167,7 +128,7 @@
             </li>
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-benefits__item-svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-benefits__item-svg"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#smile"></use>
@@ -182,7 +143,7 @@
             </li>
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-benefits__item-svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-benefits__item-svg"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="36" height="38">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#warranty"></use>
@@ -194,7 +155,7 @@
             </li>
             <li class="sect-benefits__item">
                 <div class="sect-benefits__item-svg-wrap">
-                    <svg fill="url(#about-svg-gradient)" class="svg sect-benefits__item-svg"
+                    <svg fill="url(#svg-gradient)" class="svg sect-benefits__item-svg"
                          xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="36" height="38">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#complex-supply"></use>
