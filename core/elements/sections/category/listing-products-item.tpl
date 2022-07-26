@@ -140,12 +140,14 @@
 </div>
 
 {* Выводим блок "Нашли дешевле?" *}
-{set $total = $_modx->getPlaceholder('total')}
-{if ($_modx->resource.template in list [4, 19, 5]) &&
-(($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
-    <div class="listing__catalog-discount">
-        <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
-        <div class="listing__catalog-discount-text-2">Снизим цену!</div>
-        <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#" data-btn-key="discount">Подробнее</span>
-    </div>
+{if !$_modx->getPlaceholder('utm_source')}
+    {set $total = $_modx->getPlaceholder('total')}
+    {if ($_modx->resource.template in list [4, 19, 5]) &&
+    (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
+        <div class="listing__catalog-discount">
+            <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
+            <div class="listing__catalog-discount-text-2">Снизим цену!</div>
+            <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#" data-btn-key="discount">Подробнее</span>
+        </div>
+    {/if}
 {/if}

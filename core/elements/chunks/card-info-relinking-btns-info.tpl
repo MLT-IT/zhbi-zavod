@@ -56,7 +56,9 @@
     </div>
 </div>
 
-<div class="product-card__discount-block">
-    <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
-    <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
-</div>
+{if !$_modx->getPlaceholder('utm_source')}
+    <div class="product-card__discount-block">
+        <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
+        <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
+    </div>
+{/if}

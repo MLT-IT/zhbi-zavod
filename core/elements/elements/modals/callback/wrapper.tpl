@@ -8,15 +8,17 @@
 'successMessage' => 'Сообщение успешно отправлено'
 ]}
 
-{'!AjaxForm' | snippet : [
-'snippet' => 'FormIt',
-'form' => '@FILE elements/modals/callback/popup-discount.tpl',
-'hooks' => 'create_request,create_bitrix_lead',
-'customValidators' => 'checkPhone,check_request',
-'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
-'validationErrorMessage' => 'В форме содержатся ошибки!',
-'successMessage' => 'Сообщение успешно отправлено'
-]}
+{if !$_modx->getPlaceholder('utm_source')}
+    {'!AjaxForm' | snippet : [
+    'snippet' => 'FormIt',
+    'form' => '@FILE elements/modals/callback/popup-discount.tpl',
+    'hooks' => 'create_request,create_bitrix_lead',
+    'customValidators' => 'checkPhone,check_request',
+    'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
+    'validationErrorMessage' => 'В форме содержатся ошибки!',
+    'successMessage' => 'Сообщение успешно отправлено'
+    ]}
+{/if}
 
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
