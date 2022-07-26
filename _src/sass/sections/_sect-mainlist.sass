@@ -27,13 +27,12 @@
     &__filter-label
         cursor: pointer
         position: relative
-        height: 28px
+        height: 26px
         display: inline-block
 
     &__chips
         transition: color .3s, background-color .3s
         +set_colors_1(color)
-        height: 28px
         display: inline-block
         margin-bottom: 0
 
@@ -51,13 +50,15 @@
             border-color: #b1b2b3
             cursor: not-allowed
 
+    &__chips, &__btn-more
+        border-radius: 0
+        height: 26px
+        padding: 4px 15px 6px
+
     &__btn-more
-        height: 28px
         display: inline-block
         cursor: pointer
-        padding: 4px 16px 6px 16px
         +set_colors_1(color)
-        border-radius: 16px
         transition: .3s
 
         &:hover
