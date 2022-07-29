@@ -353,11 +353,71 @@ $(function ($) {
     // --------------------------------
     // Главная с фильтрами
     // --------------------------------
-    $('.sect-mainlist__btn-more').on('click', function () {
-        let $btn = $(this);
-        $btn.parent().find('.sect-mainlist__filter:nth-of-type(n+7)').toggleClass('hidden');
-        functions.toggleText($btn, 'data-text');
-    });
+    let $mainList = $('.sect-mainlist');
+    if ($mainList.length) {
+        $(window).on('resize', function () {
+            recalculateMainlist();
+        });
+        recalculateMainlist();
+
+        $('.sect-mainlist__btn-more').on('click', function () {
+            let $btn = $(this);
+            let $fblock = $btn.parent();
+
+            functions.toggleText($btn, 'data-text');
+            $btn.toggleClass('sect-mainlist__btn-more_toggled');
+
+            // Показать
+            if ($btn.hasClass('sect-mainlist__btn-more_toggled')) {
+                $fblock.find('.sect-mainlist__filter').removeClass('hidden');
+                $fblock.removeClass('sect-mainlist__fblock_visible-filters');
+            }
+            // Скрыть
+            else {
+                addHiddenToFilters($fblock);
+                $fblock.addClass('sect-mainlist__fblock_visible-filters');
+            }
+        });
+
+        function recalculateMainlist() {
+            $('.sect-mainlist__fblock').each(function () {
+                let $fblock = $(this);
+                let $filters = $fblock.find('.sect-mainlist__filter');
+                let $btnMore = $fblock.find('.sect-mainlist__btn-more');
+
+                // Сначала удаляем hidden у фильтров, чтобы правильно рассчитать и понять, надо ли добавлять hidden
+                $filters.removeClass('hidden');
+                if ($btnMore.hasClass('sect-mainlist__btn-more_toggled')) {
+                    functions.toggleText($btnMore, 'data-text');
+                    $btnMore.removeClass('sect-mainlist__btn-more_toggled');
+                }
+                $btnMore.addClass('hidden');
+
+                // Добавляем hidden, если это необходимо
+                addHiddenToFilters($fblock);
+
+                $fblock.removeClass('sect-mainlist__fblock_visible-filters');
+            });
+        }
+
+        function addHiddenToFilters($fblock) {
+            let $filters = $fblock.find('.sect-mainlist__filter');
+            let $btnMore = $fblock.find('.sect-mainlist__btn-more');
+
+            if ($fblock.height() > 34) {
+                $btnMore.removeClass('hidden');
+
+                let fblockOffsetTop = $fblock.offset().top;
+                $filters.each(function () {
+                    let $fltr = $(this);
+                    if (Math.abs($fltr.offset().top - fblockOffsetTop) > 30) {
+                        $fltr.addClass('hidden');
+                    }
+                });
+
+            }
+        }
+    }
 
 
     // --------------------------------
