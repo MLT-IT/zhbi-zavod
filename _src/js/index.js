@@ -354,67 +354,95 @@ $(function ($) {
     // Главная с фильтрами
     // --------------------------------
     let $mainList = $('.sect-mainlist');
+    // TODO: можно этот функционал чуть переписать, чтобы его легче было понимать и менять - добавить принцип DRY
     if ($mainList.length) {
+        // Перерасчет фильтров на главной при изменении ширины браузера
         $(window).on('resize', function () {
             recalculateMainlist();
         });
+
+        // Перерасчет фильтров на главной при загрузке страницы
         recalculateMainlist();
 
+        // Щелчок по кнопке для показа фильтров
         $('.sect-mainlist__btn-more').on('click', function () {
+            // Основные переменные
             let $btn = $(this);
-            let $fblock = $btn.parent();
+            let $fblockwrap = $btn.closest('.sect-mainlist__fblock-wrap');
+            let $fblock = $fblockwrap.find('.sect-mainlist__fblock');
 
-            functions.toggleText($btn, 'data-text');
+            // Переключение класса для кнопки, от которого будет зависеть, что делать дальше
             $btn.toggleClass('sect-mainlist__btn-more_toggled');
+            // Переключение текста, здесь тоже toggle, поэтому класс не влияет
+            functions.toggleText($btn, 'data-text');
+            // Показываем фильтры, это нужно в том числе и для скрытия фильтров, чтобы узнать, какие именно скрыть
+            $fblock.find('.sect-mainlist__filter').removeClass('hidden');
 
-            // Показать
+            // Класс только что добавился - показать фильтры
             if ($btn.hasClass('sect-mainlist__btn-more_toggled')) {
-                $fblock.find('.sect-mainlist__filter').removeClass('hidden');
-                $fblock.removeClass('sect-mainlist__fblock_visible-filters');
+                $fblock.addClass('sect-mainlist__fblock_show-filters');
+                $btn.appendTo($fblock);
             }
-            // Скрыть
+            // Класс только что убрался - скрыть фильтры
             else {
-                addHiddenToFilters($fblock);
-                $fblock.addClass('sect-mainlist__fblock_visible-filters');
+                $fblock.removeClass('sect-mainlist__fblock_show-filters');
+                // Добавим для кнопки hidden, чтобы она не занимала места
+                $btn.addClass('hidden');
+
+                addHiddenToFilters($fblockwrap);
+
+                // Уберем у кнопки hidden
+                $btn.removeClass('hidden');
             }
         });
 
+        /**
+         * Перерасчет фильтров (какие скрыты, какие показаны)
+         */
         function recalculateMainlist() {
             $('.sect-mainlist__fblock').each(function () {
+                // Основные переменные
                 let $fblock = $(this);
+                let $fblockwrap = $fblock.parent();
+                let $btnMore = $fblockwrap.find('.sect-mainlist__btn-more');
                 let $filters = $fblock.find('.sect-mainlist__filter');
-                let $btnMore = $fblock.find('.sect-mainlist__btn-more');
 
-                // Сначала удаляем hidden у фильтров, чтобы правильно рассчитать и понять, надо ли добавлять hidden
-                $filters.removeClass('hidden');
+                // Сначала показываем фильтры и скрываем кнопку "Показать еще" (т.к. она занимает место), чтобы правильно рассчитать и понять, надо ли добавлять hidden
                 if ($btnMore.hasClass('sect-mainlist__btn-more_toggled')) {
                     functions.toggleText($btnMore, 'data-text');
-                    $btnMore.removeClass('sect-mainlist__btn-more_toggled');
+                    $btnMore.toggleClass('sect-mainlist__btn-more_toggled');
                 }
-                $btnMore.addClass('hidden');
+                $btnMore.addClass('hidden').appendTo($fblock);
+                $fblock.removeClass('sect-mainlist__fblock_show-filters');
+                $filters.removeClass('hidden');
 
                 // Добавляем hidden, если это необходимо
-                addHiddenToFilters($fblock);
-
-                $fblock.removeClass('sect-mainlist__fblock_visible-filters');
+                addHiddenToFilters($fblockwrap);
             });
         }
 
-        function addHiddenToFilters($fblock) {
-            let $filters = $fblock.find('.sect-mainlist__filter');
-            let $btnMore = $fblock.find('.sect-mainlist__btn-more');
+        function addHiddenToFilters($fblockwrap) {
+            // Основные переменные
+            let $filters = $fblockwrap.find('.sect-mainlist__filter');
+            let $fblock = $fblockwrap.find('.sect-mainlist__fblock');
+            let filtersNotFit = false;
+            let fblockOffsetTop = $fblock.offset().top;
+            let $btnMore = $fblockwrap.find('.sect-mainlist__btn-more');
 
-            if ($fblock.height() > 34) {
-                $btnMore.removeClass('hidden');
-
-                let fblockOffsetTop = $fblock.offset().top;
-                $filters.each(function () {
-                    let $fltr = $(this);
-                    if (Math.abs($fltr.offset().top - fblockOffsetTop) > 30) {
-                        $fltr.addClass('hidden');
+            $filters.each(function () {
+                let $fltr = $(this);
+                // 30 - на всякий случай, вдруг в каких браузерах будут отображаться чуть ниже / чуть выше
+                if (Math.abs($fltr.offset().top - fblockOffsetTop) > 30) {
+                    $fltr.addClass('hidden');
+                    if (!filtersNotFit) {
+                        filtersNotFit = true;
                     }
-                });
+                }
+            });
 
+            if (filtersNotFit) {
+                $btnMore.removeClass('hidden');
+                $btnMore.appendTo($fblockwrap);
             }
         }
     }
