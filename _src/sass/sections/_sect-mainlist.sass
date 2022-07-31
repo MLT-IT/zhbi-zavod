@@ -22,9 +22,14 @@
         &:nth-of-type(n+2)
             margin-top: 8px
 
+    &__fblock-wrap
+        // Чтобы кнопка "Показать еще" не переносилась от фильтров на след. строку
+        display: flex
+
     &__fblock-title
         margin-right: 10px
         margin-top: -8px
+        white-space: nowrap
 
     &__filter, &__btn-more
         margin-bottom: 8px
@@ -69,6 +74,7 @@
         +set_colors_1(color)
         transition: .3s
         margin-right: 0
+        white-space: nowrap
 
         &:hover
             box-shadow: 0 0 3px #000

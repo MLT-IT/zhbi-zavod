@@ -354,8 +354,11 @@ $(function ($) {
     // Главная с фильтрами
     // --------------------------------
     let $mainList = $('.sect-mainlist');
-    // TODO: можно этот функционал чуть переписать, чтобы его легче было понимать и менять - добавить принцип DRY
     if ($mainList.length) {
+        // Если я буду смотреть, каким фильтрам добавлять hidden, когда все фильтры показаны и ширина блока с фильтрами не ограничена, может быть такое, что фильтры перенесутся на след. строку, но будут видны.
+        // Если я буду смотреть, каким фильтрам добавлять hidden, когда все фильтры скрыты и ширина блока с фильтрами ограничена, может быть такое, что я нажму кнопку "Показать еще", а фильтры на след. строку не переносятся.
+        // Я выбрал второй вариант.
+
         // Перерасчет фильтров на главной при изменении ширины браузера
         $(window).on('resize', function () {
             recalculateMainlist();
@@ -364,7 +367,7 @@ $(function ($) {
         // Перерасчет фильтров на главной при загрузке страницы
         recalculateMainlist();
 
-        // Щелчок по кнопке для показа фильтров
+        // Щелчок по кнопке для скрытия / показа фильтров
         $('.sect-mainlist__btn-more').on('click', function () {
             // Основные переменные
             let $btn = $(this);
@@ -373,77 +376,72 @@ $(function ($) {
 
             // Переключение класса для кнопки, от которого будет зависеть, что делать дальше
             $btn.toggleClass('sect-mainlist__btn-more_toggled');
-            // Переключение текста, здесь тоже toggle, поэтому класс не влияет
             functions.toggleText($btn, 'data-text');
-            // Показываем фильтры, это нужно в том числе и для скрытия фильтров, чтобы узнать, какие именно скрыть
-            $fblock.find('.sect-mainlist__filter').removeClass('hidden');
 
-            // Класс только что добавился - показать фильтры
-            if ($btn.hasClass('sect-mainlist__btn-more_toggled')) {
-                $fblock.addClass('sect-mainlist__fblock_show-filters');
-                $btn.appendTo($fblock);
-            }
-            // Класс только что убрался - скрыть фильтры
-            else {
-                $fblock.removeClass('sect-mainlist__fblock_show-filters');
-                // Добавим для кнопки hidden, чтобы она не занимала места
-                $btn.addClass('hidden');
-
-                addHiddenToFilters($fblockwrap);
-
-                // Уберем у кнопки hidden
-                $btn.removeClass('hidden');
-            }
+            recalculateMainlist($fblock);
         });
 
         /**
-         * Перерасчет фильтров (какие скрыты, какие показаны)
+         * Перерасчет фильтров
          */
-        function recalculateMainlist() {
-            $('.sect-mainlist__fblock').each(function () {
+        function recalculateMainlist($fblockArray) {
+            let strictReset = false;
+            if (typeof $fblockArray === 'undefined') {
+                strictReset = true;
+                $fblockArray = $('.sect-mainlist__fblock');
+            }
+
+            $fblockArray.each(function () {
                 // Основные переменные
                 let $fblock = $(this);
+                let filtersNotFit = false;
+                let fblockOffsetTop = $fblock.offset().top;
                 let $fblockwrap = $fblock.parent();
                 let $btnMore = $fblockwrap.find('.sect-mainlist__btn-more');
                 let $filters = $fblock.find('.sect-mainlist__filter');
+                let needHideFilters = true;
 
-                // Сначала показываем фильтры и скрываем кнопку "Показать еще" (т.к. она занимает место), чтобы правильно рассчитать и понять, надо ли добавлять hidden
-                if ($btnMore.hasClass('sect-mainlist__btn-more_toggled')) {
+                // Сбрасываем кнопку "Показать еще" в вид по умолчанию
+                if (strictReset && $btnMore.hasClass('sect-mainlist__btn-more_toggled')) {
                     functions.toggleText($btnMore, 'data-text');
                     $btnMore.toggleClass('sect-mainlist__btn-more_toggled');
+                    $btnMore.appendTo($fblock);
+                    needHideFilters = false;
                 }
-                $btnMore.addClass('hidden').appendTo($fblock);
-                $fblock.removeClass('sect-mainlist__fblock_show-filters');
-                $filters.removeClass('hidden');
-
-                // Добавляем hidden, если это необходимо
-                addHiddenToFilters($fblockwrap);
-            });
-        }
-
-        function addHiddenToFilters($fblockwrap) {
-            // Основные переменные
-            let $filters = $fblockwrap.find('.sect-mainlist__filter');
-            let $fblock = $fblockwrap.find('.sect-mainlist__fblock');
-            let filtersNotFit = false;
-            let fblockOffsetTop = $fblock.offset().top;
-            let $btnMore = $fblockwrap.find('.sect-mainlist__btn-more');
-
-            $filters.each(function () {
-                let $fltr = $(this);
-                // 30 - на всякий случай, вдруг в каких браузерах будут отображаться чуть ниже / чуть выше
-                if (Math.abs($fltr.offset().top - fblockOffsetTop) > 30) {
-                    $fltr.addClass('hidden');
-                    if (!filtersNotFit) {
-                        filtersNotFit = true;
+                // Или в вид, соответствующий предназначению кнопки
+                else if (!strictReset) {
+                    if ($btnMore.hasClass('sect-mainlist__btn-more_toggled')) {
+                        $btnMore.appendTo($fblock);
+                        needHideFilters = false;
+                    } else {
+                        $btnMore.appendTo($fblockwrap);
                     }
                 }
-            });
 
-            if (filtersNotFit) {
-                $btnMore.removeClass('hidden');
-                $btnMore.appendTo($fblockwrap);
-            }
+                // Показываем все фильтры, скрываем кнопку "Показать еще" (т.к. она занимает место), убираем у блока с фильтрами класс, который убирает ограничение по ширине. Все это, чтобы правильно рассчитать, какие фильтры скрыть, а какие оставить
+                $filters.removeClass('hidden');
+                $btnMore.addClass('hidden');
+                $fblock.removeClass('sect-mainlist__fblock_show-filters');
+
+                // Скрываем лишние фильтры
+                $filters.each(function () {
+                    let $fltr = $(this);
+                    // 2 - на всякий случай, вдруг в каких браузерах будут отображаться чуть ниже / чуть выше
+                    if (Math.abs($fltr.offset().top - fblockOffsetTop) > 2) {
+                        if (needHideFilters) {
+                            $fltr.addClass('hidden');
+                        }
+                        if (!filtersNotFit) {
+                            filtersNotFit = true;
+                        }
+                    }
+                });
+
+                if (filtersNotFit) {
+                    $btnMore.removeClass('hidden');
+                    $fblock.addClass('sect-mainlist__fblock_show-filters');
+                }
+            });
         }
     }
 
