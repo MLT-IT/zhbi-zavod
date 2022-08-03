@@ -21,7 +21,7 @@
             <section class="listing">
                 <div class="listing__content">
                     <div class="listing__products listing__products_full">
-                        <div class="listing__products-list rows grid" id="mse2_results">
+                        <div class="listing__products-list rows grid">
                             {'!msProducts' | snippet : [
                             'tpl' => "@FILE sections/category/listing-products-item.tpl",
                             'ajaxMode' => 'button',

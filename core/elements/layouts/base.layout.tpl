@@ -45,6 +45,8 @@
 {'!checkItems' | snippet}
 {'!checkFloatTrouble' | snippet}
 
+{$_modx->setPlaceholder('utm_source', '!utm' | snippet : ['val' => 'source'])}
+
 <!doctype html>
 <html lang="ru">
 <head>

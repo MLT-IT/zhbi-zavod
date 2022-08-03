@@ -1,0 +1,86 @@
+.sect-mainlist
+    $block: &
+    margin-bottom: 40px
+
+    &__sort
+        align-self: flex-start
+
+    &__content
+        width: 100%
+
+    &__fblock
+        display: inline-flex
+        align-items: center
+        flex-wrap: wrap
+        min-height: 34px
+        position: relative
+        max-width: calc(100% - 120px)
+
+        &_show-filters
+            max-width: none
+
+        &:nth-of-type(n+2)
+            margin-top: 8px
+
+    &__fblock-wrap
+        // Чтобы кнопка "Показать еще" не переносилась от фильтров на след. строку
+        display: flex
+
+    &__fblock-title
+        margin-right: 10px
+        margin-top: -8px
+        white-space: nowrap
+
+    &__filter, &__btn-more
+        margin-bottom: 8px
+
+    &__filter
+        margin-right: 10px
+
+    &__filter-label
+        cursor: pointer
+        position: relative
+        height: 26px
+        display: inline-block
+
+    &__chips
+        transition: color .3s, background-color .3s
+        +set_colors_1(color)
+        display: inline-block
+        margin-bottom: 0
+
+        &:hover
+            color: #fff
+
+    &__filter-input
+        &:checked ~ #{$block}__chips
+            color: #fff
+            +set_colors_1(background-color)
+
+        @at-root .wrap .wrapper &[disabled] ~ #{$block}__chips
+            color: #b1b2b3
+            background-color: transparent
+            border-color: #b1b2b3
+            cursor: not-allowed
+
+    &__chips, &__btn-more
+        border-radius: 2px
+        height: 26px
+        padding: 4px 15px 6px
+
+    &__btn-more
+        display: inline-block
+        cursor: pointer
+        +set_colors_1(color)
+        transition: .3s
+        margin-right: 0
+        white-space: nowrap
+
+        &:hover
+            box-shadow: 0 0 3px #000
+
+        &_toggled
+            position: static
+
+    &__filters-wrap
+        margin-bottom: 8px
