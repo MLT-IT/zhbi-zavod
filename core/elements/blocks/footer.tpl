@@ -3,7 +3,7 @@
         <div class="footer__left">
             <a class="footer__logo" href="/">
 
-                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro']}
+                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro', 'pro-fanera']}
                     {*
                     <picture>
                         <source srcset="/assets/template/img/logos/plitaosb-mobile.png" media="(max-width: 768px)">
