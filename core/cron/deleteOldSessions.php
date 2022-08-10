@@ -20,7 +20,7 @@ if (file_exists($index_php)) {
 }
 
 if (!is_object($modx)) {
-    exit('ERROR: Не удалось подгрузить MODX');
+    exit('ERROR: Не удалось подгрузить MODX.');
 }
 
 
@@ -30,16 +30,16 @@ if (!is_object($modx)) {
 $maxlifetime = $modx->getOption('session_gc_maxlifetime');
 $maxlifetime = abs(intval($maxlifetime));
 if ($maxlifetime === 0) {
-    exit('Некорректное значение $maxlifetime. Пропускается удаление старых сессий.');
+    exit('ERROR: Некорректное значение $maxlifetime.');
 }
 
 // Данный запрос УДАЛЯЕТ все записи из таблицы с сессиями, кроме записей за последнее время ($maxlifetime)
-$query = "DELETE FROM " . $modx->getOption('table_prefix') . "session
+$query = "DELETE FROM `" . $modx->getOption('table_prefix') . "session`
           WHERE access < (UNIX_TIMESTAMP() - " . $maxlifetime . ")";
 $result = $modx->query($query);
 
 if ($result === false) {
-    exit('ERROR: Произошла ошибка при попытке удалить старые сессии');
+    exit('ERROR: Произошла ошибка при попытке удалить старые сессии.');
 }
 
-exit('Старые сессии успешно удалены!');
+exit('SUCCESS: Старые сессии успешно удалены!');
