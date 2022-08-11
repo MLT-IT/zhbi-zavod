@@ -1,4 +1,6 @@
 <form method="post" class="sect-delcost__form">
+    <input type="text" name="mobilephone" class="fmobilephone">
+
     <label class="sect-delcost__label">
         <input type="text" class="custom-input sect-delcost__input" placeholder="Адрес доставки" name="ADDRESS">
         <span class="error_ADDRESS"></span>
