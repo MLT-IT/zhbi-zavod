@@ -10,18 +10,36 @@
 
     &__nav-block
         @media screen and (max-width: 420px)
+            margin-right: 0
             &:nth-of-type(1)
                 margin-bottom: 27px
 
-    .footer__nav-block
-        @media screen and (max-width: 420px)
-            margin-right: 0
+    &__logo-img
+        width: 162px
+        @media screen and (max-width: 850px)
+            margin: auto
 
     &__logo
         height: auto
         width: 100%
-        max-width: 162px
-        margin-bottom: 10px
+        // max-width: 162px
+        margin-bottom: 16px
 
     &__policy
         cursor: pointer
+
+    &__right
+        max-width: 220px
+
+    &__contacts-list
+        display: grid
+        gap: 16px
+
+    &__about-phone,&__email
+        +set_colors_1(color)
+        transition: .3s
+        &:hover
+            +set_colors_2(color)
+
+    &__nav-list
+        width: 100%
