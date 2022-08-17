@@ -17,7 +17,7 @@ module.exports = (env, args) => {
     return {
         entry: {
             main: './_src/js/index.js',
-            module_filter_table: './_src/js/module_filter_table.js'
+            // module_filter_table: './_src/js/module_filter_table.js'
         },
         performance: {
             hints: false
