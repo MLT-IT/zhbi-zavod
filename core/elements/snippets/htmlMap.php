@@ -14,11 +14,15 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'depth' => 1000,
                 'limit' => 0,
                 'tplOuter' => '@INLINE {[[+wrapper]]}',
-                'tpl' => '@INLINE "[[+alias]]": { "id": "[[+id]]", "menutitle": "[[+menutitle]]", "uri": "[[+uri]]" [[+wrapper:is=``:then=``:else=`,"children":[[+wrapper]]`]] },',
+                'tpl' => '@INLINE "[[+alias]]": { "id": "[[+id]]", "menutitle": "[[+menutitle:replace=`"==\"`]]", "uri": "[[+uri]]" [[+wrapper:is=``:then=``:else=`,"children":[[+wrapper]]`]] },',
                 'showHidden' => '1',
                 'context' => $modx->resource->context_key,
                 'where' => '{"searchable:=":1}'
             ];
+
+            if (in_array($modx->resource->context_key, ['krovlya', 'kirpich-m', 'fasad'])) {
+                $params['where'] = '{"searchable:=":1, "template:NOT IN": [6,21,22,20,17]}';
+            }
 
             if (!empty($paramsUser)) {
                 $params = array_merge($params, $paramsUser);
