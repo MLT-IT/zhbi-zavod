@@ -51,7 +51,8 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                                 'Керамогранит' => '/keramogranit/',
                                 'Плитка для навесных фасадов' => '/fasadnaya-plitka/',
-                                'Плитка для печей и каминов' => '/plitka-dlya-pechej-i-kaminov/'
+                                'Плитка для печей и каминов' => '/plitka-dlya-pechej-i-kaminov/',
+                                'Клинкерная брусчатка' => '/klinkernaya-bruschatka/'
                             ]
                         ],
                         'Плитка под кирпич' => [
