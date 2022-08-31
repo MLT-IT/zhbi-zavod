@@ -6,7 +6,7 @@
                 'options' => '&w=100&h=69&far=1&bg=ffffff'
             ]}
         {else}
-            {set $src = 'assets/images/no_image_small.jpg'}
+            {set $src = 'assets/images/no_image.jpg'}
         {/if}
         <img src="{$src}" alt="{$menutitle}">
     </div>

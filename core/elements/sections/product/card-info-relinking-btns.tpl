@@ -118,7 +118,7 @@
                         {if $outputOldPrice?}
                             <div class="js-product__discount product-card__discount">Скидка {'!calculateDiscount' | snippet}%</div>
                         {/if}
-                        <a href="{$image}" data-fancybox class="product-card__img-link zoom-narrow">
+                        <a href="{$image ?: '/assets/images/no_image.jpg'}" data-fancybox class="product-card__img-link zoom-narrow">
                             <img class="product-card__img" itemprop="image" src="{$_modx->resource['thumb'] ?: '/assets/images/no_image.jpg'}" alt="{$_modx->resource.pagetitle}">
                         </a>
                     </div>
