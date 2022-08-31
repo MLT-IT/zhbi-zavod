@@ -64,7 +64,7 @@
         </div>
         <div class="header__line header__line_type_elems">
             <a href="/" class="header__logo-wrap">
-                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro', 'pro-fanera']}
+                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro', 'pro-fanera', 'fasad']}
                     {*
                     <picture>
                         <source srcset="/assets/template/img/logos/plitaosb-mobile.png" media="(max-width: 768px)">
