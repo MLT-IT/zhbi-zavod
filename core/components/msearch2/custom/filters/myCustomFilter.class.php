@@ -104,7 +104,8 @@ class myCustomFilter extends mse2FiltersHandler
 						$sorted = $this->sortByCustomOrder($sorted, $results, ['Лайт Баттс', 'Руф Баттс', 'Фасад Баттс', 'Флор Баттс', 'Венти Баттс', 'Каркас Баттс', 'Эконом', 'Акустик Баттс', 'Кавити Баттс', 'Арктик', 'Рокфасад']);
 						break;
 					case 'tn':
-						$sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Теплоролл', '35 250 Стандарт', 'Технофас', 'Технолайт', 'Технофлор', 'Техноруф', 'Техновент', 'Техноблок', 'Изобокс', 'GreenGuard', 'Базалит', 'Техносэндвич', 'Сэндвич Ц-XPS', 'Техноплекс', 'LOGICPIR', 'Плиты PIR', 'Техноакустик', 'Техно ОЗБ', 'Техно ОЗД', 'Техно ОЗМ', 'Техно Т', 'Мат Техно', 'Цилиндр Техно', 'LOGICROOF', 'Штукатурный фасад', 'Master Звукозащита', 'Техноэласт', 'ECOBASE', 'ECOPLAST', 'LOGICBASE', 'LOGICPOOL',  'Sintofoil']);
+					//	$sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Теплоролл', '35 250 Стандарт', 'Технофас', 'Технолайт', 'Технофлор', 'Техноруф', 'Техновент', 'Техноблок', 'Изобокс', 'GreenGuard', 'Базалит', 'Техносэндвич', 'Сэндвич Ц-XPS', 'Техноплекс', 'LOGICPIR', 'Плиты PIR', 'Техноакустик', 'Техно ОЗБ', 'Техно ОЗД', 'Техно ОЗМ', 'Техно Т', 'Мат Техно', 'Цилиндр Техно', 'LOGICROOF', 'Штукатурный фасад', 'Master Звукозащита', 'Техноэласт', 'ECOBASE', 'ECOPLAST', 'LOGICBASE', 'LOGICPOOL',  'Sintofoil']);
+				    	$sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Техноплекс', 'Техноруф', 'Техноблок', 'Техновент', 'LOGICPIR', 'Технолайт', 'Технофлор', 'Техноакустик', 'Технофас', 'Техно ОЗМ']);
 						break;
 					case 'ursa':
 						$sorted = $this->sortByCustomOrder($sorted, $results, ['Terra', 'Geo', 'XPS', 'Pureone', 'Seco']);
