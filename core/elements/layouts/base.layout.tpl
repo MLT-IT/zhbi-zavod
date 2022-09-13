@@ -76,6 +76,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="canonical" href="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}">
+        
+        {if 'script_chat' | option}
+           {'script_chat' | option}
+        {/if}
     {/block}
 </head>
 <body id="body" class="{$site_class}" data-ctx="{$_modx->resource.context_key}">
