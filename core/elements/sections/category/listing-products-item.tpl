@@ -140,7 +140,9 @@
 </div>
 
 {* Выводим блок "Нашли дешевле?" *}
-{if !$_modx->getPlaceholder('utm_source')}
+
+{* {if !$_modx->getPlaceholder('utm_source')} *}
+{if true}
     {set $total = $_modx->getPlaceholder('total')}
     {if ($_modx->resource.template in list [4, 19, 5]) &&
     (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
