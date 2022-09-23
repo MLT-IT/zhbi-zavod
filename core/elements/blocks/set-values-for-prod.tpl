@@ -34,9 +34,9 @@
 {/if}
 
 {* Единицы измерения - дополнительные рассчеты для web и penoplex *}
-{if $src['v_upakovke'][0]? && $src['context_key'] in list ['web', 'penoplex']}
-    {set $m2 = $m2 * $src['v_upakovke'][0]}
-{/if}
+{*{if $src['v_upakovke'][0]? && $src['context_key'] in list ['web', 'penoplex']}*}
+{*    {set $m2 = $m2 * $src['v_upakovke'][0]}*}
+{*{/if}*}
 
 {* Единицы измерения для арматуры *}
 {if $src['context_key'] === 'armatura-178'}
