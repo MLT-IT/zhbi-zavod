@@ -294,3 +294,8 @@ a.white-btn, button.white-btn
 
     .table-sort
         padding-right: 10px
+
+// На мобильных устройствах кнопка JivoSite перекрывает ссылку на корзину внизу. Этот код поднимает кнопку выше
+.__jivoMobileButton
+    @media only screen and (max-width: 600px)
+        bottom: 52px !important
