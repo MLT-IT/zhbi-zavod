@@ -12,7 +12,7 @@
         'tplFilter.outer.default' => '@FILE sections/main/tpl.filter.outer.tpl',
         'ajaxMode' => 'button',
         'showEmptyFilters' => 1,
-        'limit' => 44,
+        'limit' => 42,
 
         'tplFilter.row.default' => '@FILE chunks/mainListFilter.tpl',
 
