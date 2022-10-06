@@ -175,7 +175,7 @@
                                     <div class="euv-custom-select__input">
                                         <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}</span>
                                     </div>
-                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             {foreach $linksData.pokrytie as $id => $val}
@@ -207,7 +207,7 @@
                                     <div class="euv-custom-select__input">
                                         <span data-val="{$cvet | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$cvet}</span>
                                     </div>
-                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             <div class="euv-custom-select__options-wrap-scroll-inner">
@@ -241,7 +241,7 @@
                                             {$_modx->resource.collection[0]}
                                         </span>
                                     </div>
-                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             {foreach $linksData.collection as $id => $val}
@@ -266,7 +266,7 @@
                                     <div class="euv-custom-select__input">
                                         <span class="euv-custom-select__input-value">{$_modx->resource.item_thickness[0]}</span>
                                     </div>
-                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             {foreach $linksData.item_thickness as $id => $val}
@@ -291,7 +291,7 @@
                                     <div class="euv-custom-select__input">
                                         <span class="euv-custom-select__input-value">{$_modx->resource.tip[0]}</span>
                                     </div>
-                                    <a href="#" class="euv-custom-select__btn"></a>
+                                    <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
                                         <div class="euv-custom-select__options-wrap-scroll">
                                             {foreach $linksData.tip as $id => $val}
