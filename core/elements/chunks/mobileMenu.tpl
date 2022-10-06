@@ -129,6 +129,13 @@
                         {* Кнопка назад *}
                         <span class="header__nav-item"><span data-key="catalog" class="header__nav-link header__mobile-menu-link header__mobile-menu-arrow header__mobile-menu-arrow_color_2 header__mobile-menu-arrow_reverse">Назад</span></span>
 
+                        {* Пункт за текущий раздел *}
+                        {if $items.uri ?}
+                          <a class="header__nav-header" href="{$items.uri}">
+                            Перейти в {$items.name}
+                          </a>
+                        {/if}
+
                         {* Пункты меню *}
                         {foreach $items.children as $item}
                             <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
