@@ -38,7 +38,7 @@
                 {'pdoResources' | snippet : [
                 'parents' => $_modx->getPlaceholder('catalog_id'),
                 'resources'=> $_modx->getPlaceholder('footer_nav_ids'),
-                'tpl' => '@INLINE <li class="footer__nav-item"><a href="[[~[[+id]]]]">{$menutitle}</a></li>',
+                'tpl' => '@INLINE <li class="footer__nav-item"><a href="{$_modx->makeUrl($id)}">{$menutitle}</a></li>',
                 'where' => '{"template":5}',
                 'limit' => '0',
                 ]}
