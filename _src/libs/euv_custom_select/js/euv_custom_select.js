@@ -142,7 +142,7 @@
                 $custom_select.append($custom_select_input);
 
                 // Кнопка
-                let $custom_select_btn = $('<a href="#" class="euv-custom-select__btn"></a>');
+                let $custom_select_btn = $('<span class="euv-custom-select__btn"></span>');
                 $custom_select_btn.on('click.' + plugin_name, function (e) {
                     e.preventDefault();
                 });
