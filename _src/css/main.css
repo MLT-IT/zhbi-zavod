@@ -3641,12 +3641,12 @@ body.fancybox-active {
   overflow: hidden;
 }
 
-body.filter-opened {
+body.freeze-page {
   position: relative;
   overflow: hidden;
 }
 
-body.filter-opened:after {
+body.freeze-page:after {
   animation-name: fadeIn;
   animation-duration: 0.5s;
   animation-fill-mode: both;

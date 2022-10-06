@@ -38,7 +38,7 @@ function init() {
 
             if (!skipChangeClasses) {
                 $filter.toggleClass("active");
-                $('body').toggleClass("filter-opened");
+                $('body').toggleClass("freeze-page");
             }
 
             // Панель открылась
@@ -112,7 +112,7 @@ function init() {
 
             if (translateX !== 0) {
                 // Сразу делаем затемнение для body
-                $('body').toggleClass("filter-opened");
+                $('body').toggleClass("freeze-page");
             }
 
             // Ждем выполнения анимации

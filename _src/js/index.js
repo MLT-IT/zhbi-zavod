@@ -216,6 +216,7 @@ $(function ($) {
         let $this = $(this);
         $this.toggleClass('opened');
         $this.closest('.header__wrapper').find('.header__nav').toggleClass('opened');
+        $('body').toggleClass('freeze-page')
     });
 
 
