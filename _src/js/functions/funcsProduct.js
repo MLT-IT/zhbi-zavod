@@ -197,6 +197,8 @@ function init(yandexMetrikaId) {
         });
     }
 
+    let ImageZoomInstance;
+
     const settingsDefault = {
         width: 260,
         height: 260,
@@ -204,18 +206,15 @@ function init(yandexMetrikaId) {
         offset: {vertical: 0, horizontal: 10}
     };
 
-    // Обычный zoom
     const zoomDefault = document.getElementsByClassName("zoom-default");
-    if (zoomDefault.length) {
-        new ImageZoom(zoomDefault[0], settingsDefault);
-    }
-
-    // Узкий zoom
     const zoomNarrow = document.getElementsByClassName("zoom-narrow");
-    if (zoomNarrow.length) {
+
+    if (zoomDefault.length) {
+        ImageZoomInstance = new ImageZoom(zoomDefault[0], settingsDefault);
+    } else if (zoomNarrow.length) {
         let settingsNarrow = settingsDefault;
         settingsNarrow['zoomWidth'] = 430;
-        new ImageZoom(zoomNarrow[0], settingsNarrow);
+        ImageZoomInstance = new ImageZoom(zoomNarrow[0], settingsNarrow);
     }
 
 
@@ -273,23 +272,6 @@ function init(yandexMetrikaId) {
             scrollTop: $(".product-card__tabs").offset().top
         }, 300);
     });
-
-
-    // -------------------------------------
-    // Приближение при наведении на картинку
-    // -------------------------------------
-    // Объявляем эту переменную до if, т.к. она еще понадобится
-    let ImageZoomInstance;
-
-    const $productCardImg = $(".zoom");
-    if ($productCardImg.length) {
-        ImageZoomInstance = new ImageZoom($productCardImg[0], {
-            height: 260,
-            width: 260,
-            zoomWidth: 500,
-            offset: {vertical: 0, horizontal: 10},
-        });
-    }
 
 
     // -------------------------------------
