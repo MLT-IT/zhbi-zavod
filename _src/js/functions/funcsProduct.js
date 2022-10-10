@@ -8,8 +8,12 @@ export default {
     init,
     initStyledCounter,
     handleMiniCart,
-    resetCountProductsOnPage
+    resetCountProductsOnPage,
+    getLastKirpichUnit
 };
+
+// Последняя выбранная единица измерения. На кирпичах при клике по единице измерения в одном месте меняются единицы измерения на всей странице. Но при загрузке товаров по AJAX (например, в каталоге) единица измерения выводится та, что по умолчанию. Данная переменная нужна, чтобы при загрузке менять единицу измерения на последнюю выбранную.
+var lastKirpichUnit = 1;
 
 // Инициализация
 function init(yandexMetrikaId) {
@@ -424,6 +428,8 @@ function init(yandexMetrikaId) {
 
         // Пересчитываем кол-во товара в корзине
         changeCountItemInCart($productItem, true);
+
+
     }
 
     $(document).on('click', '.product-card__unit-link', function (e) {
@@ -432,9 +438,11 @@ function init(yandexMetrikaId) {
 
         // Если контекст - кирпич, то меняем единицы измерения на всей странице
         if ($('body.kirpich-m').length) {
-            $('.product-card__unit-link[data-val="' + $this.attr('data-val') + '"]').each(function (i, e) {
+            let val = $this.attr('data-val');
+            $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
                 handleUnitLink($(e));
             });
+            lastKirpichUnit = val;
         }
         // В противном случае меняем только в текущем месте
         else {
@@ -1043,4 +1051,8 @@ function setStepAndAmount($item, dontChangeAmount) {
     if (!dontChangeAmount) {
         $activeFormInput.val(newVal);
     }
+}
+
+function getLastKirpichUnit() {
+    return lastKirpichUnit;
 }
