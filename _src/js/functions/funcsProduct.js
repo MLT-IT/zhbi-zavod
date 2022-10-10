@@ -403,6 +403,47 @@ function init(yandexMetrikaId) {
 
 
     // -------------------------------------
+    // Обработчик кнопок для смены ед. измерения - в карточке, в листинге, везде
+    // -------------------------------------
+    function handleUnitLink($unitLink) {
+        let $productItem = $unitLink.closest('.js-product');
+        let $unit = $productItem.find('[name="unit"]');
+        let val = $unitLink.attr('data-val');
+
+        $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
+        $productItem.find('.product-card__unit-link.active').removeClass('active');
+        $unitLink.addClass('active');
+        $unit.val(val);
+
+        // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара (на самом деле уже не особо важно, т.к. step теперь не используется)
+        // Вызываем событие о том, что у товара изменилась ед. измерения
+        $productItem.trigger('changeUnit');
+
+        // Обработчик кнопки на странице товара для смены ед. измерения
+        calcPrice($productItem);
+
+        // Пересчитываем кол-во товара в корзине
+        changeCountItemInCart($productItem, true);
+    }
+
+    $(document).on('click', '.product-card__unit-link', function (e) {
+        e.preventDefault();
+        let $this = $(this);
+
+        // Если контекст - кирпич, то меняем единицы измерения на всей странице
+        if ($('body.kirpich-m').length) {
+            $('.product-card__unit-link[data-val="' + $this.attr('data-val') + '"]').each(function (i, e) {
+                handleUnitLink($(e));
+            });
+        }
+        // В противном случае меняем только в текущем месте
+        else {
+            handleUnitLink($(this));
+        }
+    });
+
+
+    // -------------------------------------
     // Обработчики Minishop2
     // -------------------------------------
     // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
@@ -433,33 +474,10 @@ function init(yandexMetrikaId) {
         }
     };
 
-
     // -------------------------------------
     // Работа со страницей товара
     // -------------------------------------
     if ($('.product-card').length) {
-        // Переключение ед. измерения на странице товара
-        $('.product-card__unit-link').on('click', function (e) {
-            e.preventDefault();
-            let $this = $(this);
-            let $productItem = $this.closest('.js-product');
-            let val = $this.attr('data-val');
-            let $unit = $('[name="unit"]');
-            $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
-            $('.product-card__unit-link.active').removeClass('active');
-            $this.addClass('active');
-            $unit.val(val);
-
-            // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
-            // Вызываем событие о том, что у товара изменилась ед. измерения
-            $productItem.trigger('changeUnit');
-
-            // Обработчик кнопки на странице товара для смены ед. измерения
-            calcPrice($productItem);
-            // Пересчитываем кол-во товара в корзине
-            changeCountItemInCart($productItem, true);
-        });
-
         // Вкладки на мобилках
         // Расставляем data-tab-page. Он нужен для кода в base.js. Это не только для мобилок, но и для ПК. Важно делать это через JS, т.к. некоторые вкладки могут не выводиться. А index должен быть по порядку
         $('.product-card__tabs-button').each(function (i, e) {
@@ -480,6 +498,7 @@ function init(yandexMetrikaId) {
             $('.product-card__tabs-button:nth-child(' + index + ')').addClass('active');
         });
     }
+
 
     // -------------------------------------
     // Мини-корзина в шапке сайта
