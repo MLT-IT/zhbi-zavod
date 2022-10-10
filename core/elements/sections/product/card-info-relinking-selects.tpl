@@ -118,9 +118,9 @@
                             <div class="product-card__units-wrap">
                                 <input type="hidden" name="unit" value="1">
                                 <span class="product-card__unit-span">Цена за</span>
-                                <a class="product-card__unit-link active" href="#" data-val="1">{$pricePer}</a>
+                                <span class="product-card__unit-link active" data-val="1">{$pricePer}</span>
                                 {foreach $itemUnits as $val}
-                                    <a class="product-card__unit-link" href="#" data-val="{$val['id']}">{$val['title']}</a>
+                                    <span class="product-card__unit-link" data-val="{$val['id']}">{$val['title']}</span>
                                 {/foreach}
                             </div>
                         {else}
