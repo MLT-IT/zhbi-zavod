@@ -57,8 +57,8 @@
 
 {* Единицы измерения для кирпича *}
 {if $src['context_key'] === 'kirpich-m'}
-    {set $k_m3seam = 1 / ($src['k_m3seam'][0] | replace : ',' : '.')}
-    {set $k_m2seam = 1 / ($src['k_m2seam'][0] | replace : ',' : '.')}
+    {set $k_m3seam = (1 / $src['k_m3seam'][0]) | replace : ',' : '.'}
+    {set $k_m2seam = (1 / $src['k_m2seam'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения для плит ОСБ и фанеры *}
@@ -68,7 +68,7 @@
 
 {* Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp) *}
 {if ($src['parent'] in list [16805, 36871]) && ($src['ploshad_m2'][0] is not empty)}
-    {set $list = 1 / $src['ploshad_m2'][0]}
+    {set $list = (1 / $src['ploshad_m2'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения для Уголвков (armatura-178) *}
@@ -83,18 +83,18 @@
     {if $src['dlina-m'][0] is not empty}
         {set $tmp = $src['dlina-m'][0] | replace : ',' : '.'}
         {if $tmp > 0}
-            {set $thing = 1 / ($pm * $tmp)}
+            {set $thing = (1 / ($pm * $tmp)) | replace : ',' : '.'}
         {/if}
     {/if}
 
-    {set $pm = 1 / $pm}
+    {set $pm = (1 / $pm) | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения fasady-pro *}
 {if $src['context_key'] === 'fasady-pro'}
     {set $m2 = $src['obschaya-ploshad'][0] | replace : ',' : '.' | replace : ' ' : ''}
-    {set $m3 =  1 / ($src['kol-vokub-sh'][0] | replace : ',' : '.' | replace : ' ' : '')}
-    {set $upk = 1 / $src['v_upakovke'][0]}
+    {set $m3 =  (1 / ($src['kol-vokub-sh'][0] | replace : ' ' : '')) | replace : ',' : '.'}
+    {set $upk = (1 / $src['v_upakovke'][0]) | replace : ',' : '.'}
 {/if}
 
 {* Единицы измерения krovlya *}
@@ -110,7 +110,7 @@
 {* Единицы измерения для plity-mdvp *}
 {if $src['context_key'] === 'plity-mdvp'}
     {* round нужен, т.к. на странице с перелинковкой через fenom выводится (расчитывается) цена за м2. А в каталоге, например, при смене единицы измерения рассчеты происходят через JS. И результат расчета на fenom отличается от результата на JS. А если округлить, то все норм *}
-    {set $m2 = (1 / $src['ploshad_m2'][0]) | round}
+    {set $m2 = (1 / $src['ploshad_m2'][0]) | round | replace : ',' : '.'}
 {/if}
 
 {* Цена за ... *}
