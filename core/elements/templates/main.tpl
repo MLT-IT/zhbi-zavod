@@ -63,15 +63,17 @@
 
     {include "file:sections/main/banner.tpl"}
 
-    <div class="wrapper main-page-content">
-        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
+    {if $_modx->resource.context_key !== 'krovlya'}
+        <div class="wrapper main-page-content">
+            <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
-        {if $_modx->resource.introtext | length > 0}
-            <div class="content-block">
-                {$_modx->resource.introtext}
-            </div>
-        {/if}
-    </div>
+            {if $_modx->resource.introtext | length > 0}
+                <div class="content-block">
+                    {$_modx->resource.introtext}
+                </div>
+            {/if}
+        </div>
+    {/if}
 
     {if $_modx->resource.template === 25}
         {include "file:sections/main/listing.tpl" title="Цены на арматуру"}
@@ -81,12 +83,18 @@
         {/if}
     {/if}
 
-    {include "file:sections/popular/sect-pop-main.tpl"}
+    {if $_modx->resource.context_key !== 'krovlya'}
+      {include "file:sections/popular/sect-pop-main.tpl"}
+    {/if}
 
     {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
         {include "file:sections/main/assort.tpl"}
     {else}
         {include "file:sections/main/catalog.tpl"}
+    {/if}
+
+    {if $_modx->resource.context_key === 'krovlya'}
+        {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
     {include "file:sections/main/promo.tpl"}
@@ -97,6 +105,17 @@
     {include "file:sections/appeal.tpl"}
     {include "file:sections/advantages.tpl"}
 
+    {if $_modx->resource.context_key === 'krovlya'}
+      <div class="wrapper main-page-content">
+        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
+
+          {if $_modx->resource.introtext | length > 0}
+            <div class="content-block">
+                {$_modx->resource.introtext}
+            </div>
+          {/if}
+      </div>
+    {/if}
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
             <article class="content-block">
