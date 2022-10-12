@@ -159,7 +159,8 @@ class customCartHandler extends msCartHandler implements msCartInterface {
             'total_cost' => 0,
             'total_weight' => 0,
             'total_old_cost' => 0,
-            'unique_products' => count($this->cart)
+            'unique_products' => count($this->cart),
+            'dont_show_message' => !empty($_POST['dont_show_message']) ? $_POST['dont_show_message'] : 0
         );
         foreach ($this->cart as $item) {
             if (empty($item['ctx']) || $item['ctx'] == $this->ctx) {

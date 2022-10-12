@@ -69,7 +69,7 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             // Изменить единицы измерения у появившихся карточек, если контекст - кирпич
             if ($('body.kirpich-m').length) {
                 let lastKirpichUnit = funcsProduct.getLastKirpichUnit();
-                $catalog.find('.product-card__unit-link[data-val="' + lastKirpichUnit + '"]').eq(0).click();
+                $catalog.find('.product-card__unit-link[data-val="' + lastKirpichUnit + '"]').eq(0).trigger('click_without_message');
             }
         }
     });

@@ -409,7 +409,9 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     // Обработчик кнопок для смены ед. измерения - в карточке, в листинге, везде
     // -------------------------------------
-    function handleUnitLink($unitLink) {
+    function handleUnitLink($unitLink, dontShowMessage) {
+        dontShowMessage = (typeof dontShowMessage !== 'undefined') ? dontShowMessage : false;
+
         let $productItem = $unitLink.closest('.js-product');
         let $unit = $productItem.find('[name="unit"]');
         let val = $unitLink.attr('data-val');
@@ -427,20 +429,18 @@ function init(yandexMetrikaId) {
         calcPrice($productItem);
 
         // Пересчитываем кол-во товара в корзине
-        changeCountItemInCart($productItem, true);
-
-
+        changeCountItemInCart($productItem, true, null, dontShowMessage);
     }
 
-    $(document).on('click', '.product-card__unit-link', function (e) {
-        e.preventDefault();
+    $(document).on('click click_without_message', '.product-card__unit-link', function (event) {
+        event.preventDefault();
         let $this = $(this);
 
         // Если контекст - кирпич, то меняем единицы измерения на всей странице
         if ($('body.kirpich-m').length) {
             let val = $this.attr('data-val');
             $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
-                handleUnitLink($(e));
+                handleUnitLink($(e), event.type == 'click_without_message');
             });
             lastKirpichUnit = val;
         }
@@ -599,7 +599,8 @@ function resetCountProductsOnPage() {
 /**
  * Изменение кол-ва товара.
  */
-function changeCountItemInCart($productItem, forbidZero, $target) {
+function changeCountItemInCart($productItem, forbidZero, $target, dontShowMessage) {
+    dontShowMessage = (typeof dontShowMessage !== 'undefined') ? dontShowMessage : false;
     forbidZero = typeof forbidZero !== 'undefined' ? forbidZero : false;
     $target = typeof $target !== 'undefined' ? $target : null;
 
@@ -635,7 +636,7 @@ function changeCountItemInCart($productItem, forbidZero, $target) {
     // Получаем новое кол-во товара, которое будет отображено на счетчике
     let val = $inputAmount.val();
 
-    // Устанавливаем кол-во товара всем input'ам с количеством товара. Дело в том, что их на странице может быть несколько (например, на кровле там - для мобилок одна форма, для ПК - другая. И по-хорошему, они должны быть синхронизированы)
+    // Устанавливаем кол-во товара всем input'ам данного товара. Дело в том, что input'ов на странице может быть несколько (например, на кровле в карточке товара для мобилок одна форма, для ПК - другая. И они должны быть синхронизированы)
     $forms['action'].each(function (i, e) {
         $(e).find('.custom-counter__amount').each(function (i, e) {
             let valTmp = val;
@@ -699,6 +700,12 @@ function changeCountItemInCart($productItem, forbidZero, $target) {
 
     // Если товар в корзине, то...
     if (inCart) {
+        // Если не нужно показывать сообщение о результате отправки формы, то...
+        let $dontShowMessageInput;
+        if (dontShowMessage) {
+            $dontShowMessageInput = $('<input name="dont_show_message" value="1">').appendTo($systemForm);
+        }
+
         // Отправка
         $systemForm.find('[type="submit"]')[0].click();
 
@@ -716,6 +723,10 @@ function changeCountItemInCart($productItem, forbidZero, $target) {
             });
             // Удаление класса, что товар этой карточки в корзине
             $productItem.removeClass('js-product-in-cart');
+        }
+
+        if (typeof $dontShowMessageInput !== 'undefined' && $dontShowMessageInput.length) {
+            $dontShowMessageInput.remove();
         }
     }
 

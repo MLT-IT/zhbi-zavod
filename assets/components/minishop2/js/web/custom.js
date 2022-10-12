@@ -201,7 +201,7 @@
         var xhr = function (callbacks, userCallbacks) {
             return $[method](url, data, function (response) {
                 if (response.success) {
-                    if (response.message) {
+                    if (!response.data.dont_show_message && response.message) {
                         miniShop2.Message.success(response.message);
                     }
                     runCallback(callbacks.response.success, miniShop2, response);
