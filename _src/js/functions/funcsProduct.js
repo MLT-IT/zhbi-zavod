@@ -440,7 +440,7 @@ function init(yandexMetrikaId) {
         if ($('body.kirpich-m').length) {
             let val = $this.attr('data-val');
             $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
-                handleUnitLink($(e), event.type == 'click_without_message');
+                handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
             });
             lastKirpichUnit = val;
         }
