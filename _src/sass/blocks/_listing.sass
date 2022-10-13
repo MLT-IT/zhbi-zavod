@@ -895,47 +895,49 @@
     &__catalog-discount
         display: flex
         align-items: center
-        flex-direction: column
         justify-content: center
-        position: relative
-        +set_colors_1(background-color)
+        flex-direction: column
+        +set_colors_1(background-color, false, 0.04)
+        font-size: Helvetica, sans-serif
+        letter-spacing: -1px
+        padding: 16px
 
-        &::before
-            content: ""
-            display: block
-            position: absolute
-            width: 100%
-            height: 100%
-            top: 0
-            left: 0
-            background: #fff
-            opacity: .95
+        @media screen and (max-width: 550px)
+            padding: 6px
 
-    &__catalog-discount-text-1, &__catalog-discount-text-2
+    &__catalog-discount-img
+        max-width: 100%
+        height: auto
+
+    &__catalog-discount-text
+        +set_colors_1(color)
         text-transform: uppercase
         text-align: center
-        +set_colors_1(color)
+        margin-top: auto
+        margin-bottom: auto
 
-        // position нужен, чтобы переопределить &::before
-        position: relative
+        .text-normal, .text-bold, .text-big
+            line-height: 1.4
 
-    &__catalog-discount-text-1
-        font-size: 24px
-
-        @media screen and (max-width: 580px)
+        .text-normal, .text-bold
             font-size: 20px
+            @media screen and (max-width: 550px)
+                font-size: 16px
 
-    &__catalog-discount-text-2
-        font-weight: 600
-        font-size: 32px
+        .text-bold, .text-big
+            font-weight: 900
 
-        @media screen and (max-width: 580px)
+        .text-big
             font-size: 22px
 
+            @media screen and (max-width: 550px)
+                font-size: 18px
+
     &__catalog-discount-btn-more
-        position: absolute
-        bottom: 0
-        left: 0
+        font-size: 16px
+        position: relative
+        border-radius: 8px
+        letter-spacing: normal
         width: 100%
         text-transform: uppercase
         height: 48px
@@ -947,8 +949,41 @@
         cursor: pointer
         +set_colors_1(background-color)
 
+        @media screen and (max-width: 550px)
+            height: 50px
+            border-radius: 6px
+            font-size: 14px
+
         &:hover
             +set_colors_1(background-color, 10%)
+
+    &__catalog-discount-btn-more-arrow
+        position: relative
+        top: 20px
+        width: 8px
+        height: 1px
+        background-color: currentColor
+        top: 0px
+        right: -6px
+
+        @media screen and (max-width: 550px)
+            display: none
+
+        &:after, &:before
+            content: ''
+            position: absolute
+            width: 8px
+            height: 1px
+            right: -3px
+            background-color: currentColor
+
+        &::before
+            top: 2.5px
+            transform: rotate(-45deg)
+
+        &::after
+            top: -2.5px
+            transform: rotate(45deg)
 
 .sect-listing
     margin-bottom: 40px

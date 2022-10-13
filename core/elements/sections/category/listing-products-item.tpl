@@ -127,18 +127,30 @@
 </div>
 
 {* Выводим блок "Нашли дешевле?" *}
-
-{* {if !$_modx->getPlaceholder('utm_source')} *}
 {*
-{if true}
+{if !$_modx->getPlaceholder('utm_source')}
+*}
+
+{if $_modx->resource.context_key == 'kirpich-m'}
     {set $total = $_modx->getPlaceholder('total')}
     {if ($_modx->resource.template in list [4, 19, 5]) &&
     (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
         <div class="listing__catalog-discount">
-            <div class="listing__catalog-discount-text-1">Нашли дешевле?</div>
-            <div class="listing__catalog-discount-text-2">Снизим цену!</div>
-            <span data-fancybox="" data-src="#discount" class="listing__catalog-discount-btn-more" href="#" data-btn-key="discount">Подробнее</span>
+            <div class="listing__catalog-discount-img-wrap">
+                <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-discount-img">
+            </div>
+            <p class="listing__catalog-discount-text">
+              <span class="text-big">Запишитесь</span>
+              <br>
+              <span class="text-normal">на посещение<br>нашего</span>
+              <br>
+              <span class="text-bold">шоурума</span>
+            </p>
+            <span data-fancybox="" data-src="#showroom" class="listing__catalog-discount-btn-more" data-btn-key="showroom">Записаться
+              <div class="listing__catalog-discount-btn-more-arrow">
+                <div></div>
+              </div>
+            </span>
         </div>
     {/if}
 {/if}
-*}
