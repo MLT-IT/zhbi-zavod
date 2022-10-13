@@ -44,7 +44,8 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
-        if ($('.js-catalog').length) {
+        let $catalog = $('.js-catalog');
+        if ($catalog.length) {
             $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
             funcsCatalog.getRemainder();
             funcsProduct.initStyledCounter();
@@ -55,7 +56,8 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
 
             funcsCatalog.wrapTitle();
 
-            // TODO: я забыл, а зачем здесь сортировка? Разве при загрузке страницы не хватает? Напиши комментарий, когда разберешься
+            // TODO: я забыл, а зачем здесь сортировка? Разве при загрузке страницы не хватает? Напиши комментарий, когда разберешься.
+            // Наверно, при применении какого-либо фильтра / обнулении всех фильтров блок с фильтрами тоже обновляется (помимо листинга товаров). А если так, то, очевидно, сортировка нужна.
             funcsCatalog.catalogSortColorless();
 
             // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
@@ -63,6 +65,12 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
 
             // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
+
+            // Изменить единицы измерения у появившихся карточек, если контекст - кирпич
+            if ($('body.kirpich-m').length) {
+                let lastKirpichUnit = funcsProduct.getLastKirpichUnit();
+                $catalog.find('.product-card__unit-link[data-val="' + lastKirpichUnit + '"]').eq(0).trigger('click_without_message');
+            }
         }
     });
 

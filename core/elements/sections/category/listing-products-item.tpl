@@ -121,20 +121,7 @@
             {/if}
         </div>
 
-        {if $condition}
-            <div class="js-product__selprice listing__products-item-selprice">
-                <span class="js-product__selprice-span">Цена за</span>
-                <select name="unit" class="custom-select js-product__units-select">
-                    <option value="1" selected>{$pricePer}</option>
-                    {foreach $itemUnits as $val}
-                        <option value="{$val['id']}">{$val['title']}</option>
-                    {/foreach}
-                </select>
-            </div>
-        {else}
-            <input type="hidden" name="unit" value="1">
-        {/if}
-
+        {include "file:chunks/productsItemUnits.tpl"}
         {include "file:chunks/productElems.tpl" prodId=$id}
     </div>
 </div>
