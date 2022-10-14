@@ -179,6 +179,12 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
                                 ym(yandexMetrikaId, 'reachGoal', 'nashli_deshevle');
                             }
                             break;
+                        case 'showroom':
+                            console.log('showroom');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'posehenie shouryma');
+                            }
+                            break;
                     }
                 }
             }
