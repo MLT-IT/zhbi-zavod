@@ -31,8 +31,9 @@ import initTabs from './modules/tabs.js';
 import mailChange from './modules/mailchanger';
 import initDistrictsMap from './modules/districts_map';
 import mapsLazyload from './modules/lazyload_maps';
+import youtubePlayer from './modules/youtube_player';
 // import add_cover_to_map from './modules/maps';
-import shadow_map from './modules/shadow_map';
+import shadowMap from './modules/shadow_map';
 import modxJS from './modxJS';
 
 
@@ -148,7 +149,7 @@ $(function ($) {
     // $map_containers.each((idx, map_container) => {
     //     add_cover_to_map(map_container);
     // });
-    shadow_map('.map__container');
+    shadowMap('.map__container');
 
 
     // -------------------------------
@@ -489,6 +490,12 @@ $(function ($) {
         $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
         $('body').delay(350).css({'overflow': 'visible'});
     });
+
+
+    // --------------------------------
+    // Ленивая загрузка видео
+    // --------------------------------
+    youtubePlayer();
 });
 
 
