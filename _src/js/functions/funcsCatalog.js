@@ -9,7 +9,7 @@ export default {
     catalogSortColorless,
     getRemainder,
     wrapTitle,
-    // discountBlockPosition
+    alignPrices
 };
 
 let $discountBlock = $('.listing__catalog-discount');
@@ -300,6 +300,68 @@ function init() {
                 $conflictingFilters.css('display', '');
             }
         }
+    });
+
+
+    // -------------------------------------------
+    // Выравнивание цены по одному уровню
+    // -------------------------------------------
+    if ($('.listing__products-item').length) {
+        // document ready
+        alignPrices();
+        // window on load
+        $(window).on('load', alignPrices)
+
+        // window on resize (with throttling)
+        let timeoutAction;
+        $(window).on('resize', function() {
+            clearTimeout(timeoutAction);
+            timeoutAction = setTimeout(alignPrices, 1000);
+        });
+    }
+}
+
+
+function alignPrices() {
+    let group = [];
+    let lastPriceElemTop = 0;
+    let currPriceElemTop = 0;
+
+    let $items = $('.listing__products-item');
+    $items.each(function (i, e) {
+        let $priceElem = $(e).find('.listing__products-item-price-and-logo');
+        $priceElem.css('margin-top', '');
+        currPriceElemTop = $priceElem.offset().top;
+
+        if (lastPriceElemTop === 0) {
+            lastPriceElemTop = currPriceElemTop;
+        }
+
+        if (Math.abs(currPriceElemTop - lastPriceElemTop) > 300 || i === $items.length - 1) {
+            if (i === $items.length - 1) {
+                group.push({
+                    'elem': $priceElem,
+                    'value': currPriceElemTop
+                });
+            }
+
+            let arrayOfTops = group.map(a => a.value);
+            let maxKey = arrayOfTops.indexOf(Math.max.apply(window, arrayOfTops));
+            let maxVal = arrayOfTops[maxKey];
+
+            group.forEach(function (item, index) {
+                item['elem'].css('margin-top', maxVal - item['value']);
+            });
+
+            group = [];
+        }
+
+        group.push({
+            'elem': $priceElem,
+            'value': currPriceElemTop
+        });
+
+        lastPriceElemTop = currPriceElemTop;
     });
 }
 
