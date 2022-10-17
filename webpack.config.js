@@ -10,13 +10,14 @@ module.exports = (env, args) => {
     let styleLoader = {
         loader: ExtractTextPlugin.loader,
         options: {
-            hmr: !isProd
+            hmr: !isProd,
         }
     }
 
     return {
         entry: {
-            main: './_src/js/index.js',
+            main: ['./_src/js/index.js'],
+            preloader: ['./_src/js/preloader.js']
             // module_filter_table: './_src/js/module_filter_table.js'
         },
         performance: {
@@ -84,7 +85,7 @@ module.exports = (env, args) => {
         plugins: [
             new uglifyJsPlugin(),
             new ExtractTextPlugin({
-                filename: 'css/styles.css'
+                filename: 'css/[name].css'
             }),
             new webpack.ProvidePlugin({
                 $: "jquery",
@@ -92,7 +93,6 @@ module.exports = (env, args) => {
             }),
             new webpack.HotModuleReplacementPlugin()
         ],
-
         optimization: {
             minimizer: [
                 new OptimizeCSSAssetsPlugin({
@@ -102,7 +102,6 @@ module.exports = (env, args) => {
                 })
             ],
         },
-
         resolve: {
             extensions: ['*', '.js']
         },
@@ -118,7 +117,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://krovlyasp.local/",
+                    target: "http://kirpich-m.local/",
                     secure: false,
                     changeOrigin: true
                 }

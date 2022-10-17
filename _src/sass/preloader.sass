@@ -1,3 +1,12 @@
+body.have-preloader
+    overflow: hidden
+
+#preloader, #preloader-status
+    transition: opacity 350ms
+
+    &.hide
+        opacity: 0
+
 #preloader
     position: fixed
     top: 0
@@ -8,20 +17,22 @@
     background-color: #fff
 
 #preloader-status
+    opacity: 1
     position: absolute
     top: 50%
     left: 50%
     background-repeat: no-repeat
     background-position: center center
+    transition: opacity 350ms
 
     @at-root .kirpich-m &
-        width: 220px
-        height: 220px
+        width: 200px
+        height: 200px
         background-image: url(/assets/template/img/preloader/preloader-kirpich-m.gif)
         transform: translate(-50%, -50%)
 
     @at-root .krovlya &
-        width: 342px
-        height: 224px
+        width: 200px
+        height: 200px
         background-image: url(/assets/template/img/preloader/preloader-krovlya.gif)
         transform: translate(-50%, -50%)

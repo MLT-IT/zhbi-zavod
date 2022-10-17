@@ -52,7 +52,7 @@
 {/switch}
 
 {$_modx->setPlaceholder('catalog_id', 'getCatalogId' | snippet : [
-'context' => $_modx->context.key
+    'context' => $_modx->context.key
 ])}
 
 {$_modx->setPlaceholder('footer_nav_ids', $footer_nav_ids)}
@@ -76,11 +76,15 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="canonical" href="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}">
+
+        {* Прелоадер *}
+        <script src="{$_modx->config['template_path']}js/preloader.js"></script>
+        <link rel="stylesheet" href="{$_modx->config['template_path']}css/preloader.css">
     {/block}
-    
+
     <script src="//code.jivo.ru/widget/9J1gSPDmWh" async></script>
 </head>
-<body id="body" class="{$site_class}" data-ctx="{$_modx->resource.context_key}">
+<body id="body" class="{$site_class} have-preloader" data-ctx="{$_modx->resource.context_key}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
 </body>

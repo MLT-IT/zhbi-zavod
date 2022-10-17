@@ -34,7 +34,6 @@ import mapsLazyload from './modules/lazyload_maps';
 import youtubePlayer from './modules/youtube_player';
 // import add_cover_to_map from './modules/maps';
 import shadowMap from './modules/shadow_map';
-import modxJS from './modules/modxJS';
 
 
 // -------------------------------------
@@ -47,11 +46,12 @@ window.$ = $;
 // -------------------------------------
 // Импорт функций на JQuery
 // -------------------------------------
+import modxJS from './functions/modxJS';
 import functions from './functions/functions.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
-import inputFilter from './functions/inputFilter.js';
+import inputFilter from '../libs/inputFilter/inputFilter.js';
 
 
 // -------------------------------------
@@ -480,16 +480,6 @@ $(function ($) {
         script.src = '/assets/template/js/module_filter_table.js';
         document.getElementsByTagName("head")[0].appendChild(script);
     }
-
-
-    // --------------------------------
-    // Прелоадер
-    // --------------------------------
-    $(window).on('load', function () { // makes sure the whole site is loaded
-        $('#preloader-status').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({'overflow': 'visible'});
-    });
 
 
     // --------------------------------

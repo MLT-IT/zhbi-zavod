@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=1">
     *}
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/styles.css?v=16">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=16">
     {include 'file:elements/metrika.tpl'}
 
     {if $_modx->context.key == 'web'}

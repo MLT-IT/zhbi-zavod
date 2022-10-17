@@ -1,6 +1,6 @@
-import functions from "./functions/functions";
-import funcsCatalog from "./functions/funcsCatalog";
-import funcsProduct from "./functions/funcsProduct";
+import functions from "./functions";
+import funcsCatalog from "./funcsCatalog";
+import funcsProduct from "./funcsProduct";
 
 export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // -------------------------------
