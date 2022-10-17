@@ -123,7 +123,13 @@
 {/block}
 
 {block 'body'}
-    {if $_modx->getPlaceholder('checkHost') === 'prod'}
+    {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
+        <div id="preloader">
+          <div id="preloader-status">&nbsp;</div>
+        </div>
+    {/if}
+
+    {if $_modx->getPlaceholder('checkHost') == 'prod'}
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={$_modx->config.gtm_id}"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
