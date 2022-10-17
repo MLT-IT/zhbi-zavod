@@ -34,7 +34,7 @@ import mapsLazyload from './modules/lazyload_maps';
 import youtubePlayer from './modules/youtube_player';
 // import add_cover_to_map from './modules/maps';
 import shadowMap from './modules/shadow_map';
-import modxJS from './modxJS';
+import modxJS from './modules/modxJS';
 
 
 // -------------------------------------
