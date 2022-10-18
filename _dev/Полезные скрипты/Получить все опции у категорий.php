@@ -1,6 +1,6 @@
 <?php
 
-$rootResource = 48793;
+$rootResource = 18986;
 
 // ------------------------------------
 // Получаем все дочерние категории
@@ -25,5 +25,9 @@ $sql = 'SELECT o.id, o.key, o.caption
         JOIN modx_ms2_options AS o ON co.option_id = o.id
         WHERE co.category_id IN (' . $ids . ')
         GROUP BY o.key';
-$data = $modx->query($query);
-$data = $data2->fetchAll(PDO::FETCH_ASSOC);
+$data = $modx->query($sql);
+$data = $data->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($data as $item) {
+    echo $item['id'] . ' ' . $item['key'] . ' ' . $item['caption'] . '<br>';
+}
