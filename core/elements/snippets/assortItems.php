@@ -8,6 +8,7 @@ $cacheOptions = [
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     switch ($modx->resource->context_key) {
         case 'kirpich-m':
+            /*
             $result = [
                 'Кирпич' => [
                     'id' => 'assort-kirpich',
@@ -110,6 +111,184 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 ],
             ];
             break;
+            */
+
+            $result = [
+                'Строительный кирпич' => [
+                    'id' => 'assort-kirpich',
+                    'items' => [
+                        'Рядовой кирпич' => [
+                            'uri' => '/stroitelnye/',
+                            'img' => '/assets/template/img/assort/kirpich.jpg',
+                            'links' => [
+                                'Полнотелый' => '/stroitelnye/?msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                                'Пустотелый' => '/stroitelnye/?msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                            ]
+                        ],
+                        'Крупноформатные блоки' => [
+                            'uri' => '/keramobloki/',
+                            'img' => '/assets/template/img/assort/oblic-kirpich.jpg',
+                            'links' => [
+                                'Керамоблоки ЛСР' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
+                                'Керамоблоки Porotherm' => '/keramobloki/?msoption|proizvoditel=Porotherm',
+                                'Керамоблоки Wienerberger' => '/keramobloki/?msoption|proizvoditel=Wienerberger',
+                                'Керамоблоки ВКЗ' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
+                                'Керамоблоки BRAER' => '/keramobloki/?msoption|proizvoditel=BRAER',
+                                'Керамоблоки Гжельск' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
+                                'Керамоблоки Forati' => '/keramobloki/?msoption|proizvoditel=Forati',
+                            ]
+                        ],
+                    ]
+                ],
+                'Облицовочный кирпич' => [
+                    'id' => 'assort-plitka',
+                    'items' => [
+                        'Пустотелый' => [
+                            'uri' => '/oblicovochnye/?msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                            'img' => '/assets/template/img/assort/fasadnaya-plitka-otdelka.jpg',
+                            'links' => [
+                                'Клинкерный' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%BB%D0%B8%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                                'Керамический' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                            ]
+                        ],
+                        'Полнотелый' => [
+                            'uri' => '/oblicovochnye/?msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                            'img' => '/assets/template/img/assort/fasadnaya-plitka-otdelka.jpg',
+                            'links' => [
+                                'Клинкерный' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%BB%D0%B8%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                                'Керамический' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                                'Ручной формовки' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B8%D1%80%D0%BF%D0%B8%D1%87%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B9%20%D1%84%D0%BE%D1%80%D0%BC%D0%BE%D0%B2%D0%BA%D0%B8&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
+                            ]
+                        ],
+                        'Силикатный' => [
+                            'uri' => '/silikatnyj/',
+                            'img' => '/assets/template/img/assort/fasadnaya-plitka-otdelka.jpg',
+                            'links' => []
+                        ],
+                    ]
+                ],
+                'Фасадная плитка' => [
+                    'id' => 'assort-kamen',
+                    'items' => [
+                        'Фасадная плитка' => [
+                            'uri' => '/fasadnaya-plitka/',
+                            'img' => '/assets/template/img/assort/kamen.jpg',
+                            'links' => [
+                                'Керамогранит' => '/keramogranit/',
+                                'Плитка для навесных фасадов' => '/plitka-dlya-navesnyh-fasadov/'
+                            ]
+                        ],
+                        'Плитка под кирпич' => [
+                            'uri' => '/plitka-pod-kirpich/',
+                            'img' => '/assets/template/img/assort/kamen.jpg',
+                            'links' => [
+                                'Клинкерная плитка' => '/klinkernaya-plitka/',
+                                'Керамическая плитка' => '/keramicheskaya-plitka/'
+                            ]
+                        ],
+                    ]
+                ],
+                'Искусственный и натуральный камень' => [
+                    'id' => 'assort-dekor',
+                    'items' => [
+                        'Декоративный камень для внутренней отделки' => [
+                            'uri' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => [
+                                'Redstone' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=REDSTONE',
+                                'White Hills' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=White%20Hills',
+                                'БАЛТФАСАД' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=%D0%91%D0%90%D0%9B%D0%A2%D0%A4%D0%90%D0%A1%D0%90%D0%94',
+                                'Идеальный камень' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=%D0%98%D0%B4%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D1%8C'
+                            ]
+                        ],
+                        'Искусственный камень для фасада' => [
+                            'uri' => '/iskusstvennyj-kamen-dlya-fasada/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => [
+                                'White Hills' => '/iskusstvennyj-kamen-dlya-fasada/?msoption|proizvoditel=White%20Hills',
+                                'БАЛТФАСАД' => '/iskusstvennyj-kamen-dlya-fasada/?msoption|proizvoditel=%D0%91%D0%90%D0%9B%D0%A2%D0%A4%D0%90%D0%A1%D0%90%D0%94'
+                            ]
+                        ],
+                    ]
+                ],
+                'Фасадный декор' => [
+                    'id' => 'assort-dekor2',
+                    'items' => [
+                        'Фасадный декор' => [
+                            'uri' => '/fasadnyj-dekor/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => [
+                                'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
+                                'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/'
+                            ]
+                        ]
+                    ]
+                ],
+                'Печной кирпич' => [
+                    'id' => 'assort-dekor3',
+                    'items' => [
+                        'Шамотный кирпич' => [
+                            'uri' => '/shamotnye/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => [
+                            ]
+                        ],
+                        'Керамический кирпич для печей' => [
+                            'uri' => '/keramicheskie-kirpichi-dlya-pechej/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => [
+                            ]
+                        ]
+                    ]
+                ],
+                'Кладочные смеси' => [
+                    'id' => 'assort-dekor4',
+                    'items' => [
+                        'Кладочные смеси' => [
+                            'uri' => '/kladochnye-smesi/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                        'Цветные кладочные растворы' => [
+                            'uri' => '/cvetnye-kladochnye-rastvory/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                        'Нецветные смеси' => [
+                            'uri' => '/necvetnye-smesi/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                        'Огнеупорные смеси' => [
+                            'uri' => '/ogneupornye-smesi/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                        'Легкие, теплые растворы' => [
+                            'uri' => '/legkie-teplye-rastvory/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                        'Клей для газобетона' => [
+                            'uri' => '/klej-dlya-gazobetona/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                    ]
+                ],
+                'Брусчатка' => [
+                    'id' => 'assort-dekor5',
+                    'items' => [
+                        'Тротуарный клинкер' => [
+                            'uri' => '/klinkernaya-bruschatka/',
+                            'img' => '/assets/template/img/assort/dekor.jpg',
+                            'links' => []
+                        ],
+                    ]
+                ],
+            ];
+            break;
+
 
         case 'krovlya':
             $result = [
