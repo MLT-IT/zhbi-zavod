@@ -1,2 +1,3 @@
 -- Иногда при импорте через msImportExport в базе появляются пустые опции. Их нужно удалять с помощью этого запроса. Выполять его в СУБД (phpMyAdmin, HeidiSQL и т.д). В противном случае эти опции будут выводиться на странице товара.
-DELETE FROM `modx_ms2_product_options` WHERE `value` = ' '
+
+DELETE FROM `modx_ms2_product_options` WHERE `value` = ' ' OR `value` is null
