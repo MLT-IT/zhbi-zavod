@@ -1,11 +1,11 @@
 <section class="promo">
     <div class="wrapper">
         <div class="promo__top">
-            <a class="promo__top-card" href="/garantii/">
+            <a class="promo__top-card promo__top-card_type_guarantees" href="/garantii/">
                 <div class="promo__top-card-img"><img src="{$_modx->config['template_path']}img/promo-garant.png" alt=""></div>
                 <div class="promo__top-card-text">Узнайте о наших <span class="promo__top-card-text-span">гарантиях</span></div>
             </a>
-            <a class="promo__top-card" href="/dostavka-i-oplata/">
+            <a class="promo__top-card promo__top-card_type_delivery" href="/dostavka-i-oplata/">
                 {if $_modx->resource.context_key in list ['krovlya', 'armatura-178', 'kirpich-m', 'pro-fanera', 'plitaosb', 'plity-mdvp']}
                     {set $promoImg = 'kran.png'}
                 {else}
