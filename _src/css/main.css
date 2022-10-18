@@ -5315,6 +5315,10 @@ a .breadcrumbs__val:hover {
   top: 0;
 }
 
+.promo__top-card_type_guarantees img {
+    margin-right: 35px;
+}
+
 .promo__top-card-text {
   font-weight: 700;
   font-size: 24px;
