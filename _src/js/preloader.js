@@ -1,6 +1,12 @@
 import '../sass/preloader.sass';
 
 window.addEventListener("load", function (event) {
+    let preloaderStatus = document.querySelector('#preloader-status');
+    if (!preloaderStatus) {
+        document.querySelector('body').classList.remove('have-preloader');
+        return;
+    }
+
     // Сначала убираем анимацию посередине прелоадера
     document.querySelector('#preloader-status').classList.add('hide');
 
