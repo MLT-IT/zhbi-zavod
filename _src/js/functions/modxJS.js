@@ -188,6 +188,12 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
                                 ym(yandexMetrikaId, 'reachGoal', 'posehenie shouryma');
                             }
                             break;
+                        case 'help-in-choice':
+                            console.log('help-in-choice');
+                            if (typeof ym !== 'undefined') {
+                                ym(yandexMetrikaId, 'reachGoal', 'pomosh_v_podbore');
+                            }
+                            break;
                     }
                 }
             }

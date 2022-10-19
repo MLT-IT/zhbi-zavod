@@ -26,7 +26,7 @@
     //    display: flex
 
 
-    &__products-item, &__catalog-discount
+    &__products-item, &__catalog-promo
         @media screen and (max-width: 768px)
             width: calc(50% - 9px)
 
@@ -892,48 +892,86 @@
                 &::after
                     visibility: visible
 
-    &__catalog-discount
+    &__catalog-promo
         display: flex
         align-items: center
         justify-content: center
         flex-direction: column
-        +set_colors_1(background-color, false, 0.04)
-        font-size: Helvetica, sans-serif
-        letter-spacing: -1px
-        padding: 16px
 
-        @media screen and (max-width: 550px)
-            padding: 6px
+        &_type
+            &_tight
+                letter-spacing: -1px
+                +set_colors_1(background-color, false, 0.04)
+                padding: 16px
 
-    &__catalog-discount-img
+                @media screen and (max-width: 550px)
+                    padding: 6px
+
+                .listing__catalog-promo-btn-more
+                    width: 100%
+
+                .listing__catalog-promo-text
+                    +set_colors_1(color)
+                    text-transform: uppercase
+                    text-align: center
+                    margin-top: auto
+                    margin-bottom: auto
+
+                    .text-normal, .text-bold, .text-big
+                        line-height: 1.4
+
+                    .text-normal, .text-bold
+                        font-size: 20px
+                        @media screen and (max-width: 550px)
+                            font-size: 16px
+
+                    .text-bold, .text-big
+                        font-weight: 900
+
+                    .text-big
+                        font-size: 22px
+
+                        @media screen and (max-width: 550px)
+                            font-size: 18px
+
+            &_full
+                background: no-repeat center center
+                background-size: cover
+                padding: 32px 16px 16px
+
+                @media screen and (max-width: 550px)
+                    padding: 16px 6px 6px
+
+                .listing__catalog-promo-btn-more
+                    width: 100%
+                    margin-top: auto
+
+                .listing__catalog-promo-text
+                    color: #fff
+                    line-height: 1.2
+
+                    .text-big, .text-normal
+                        display: block
+
+                    .text-big
+                        font-size: 26px
+                        font-weight: 900
+
+                        @media screen and (max-width: 550px)
+                            font-size: 20px
+
+                    .text-normal
+                        font-size: 20px
+                        margin-top: 12px
+
+                        @media screen and (max-width: 550px)
+                            font-size: 16px
+
+    &__catalog-promo-img
         max-width: 100%
         height: auto
 
-    &__catalog-discount-text
-        +set_colors_1(color)
-        text-transform: uppercase
-        text-align: center
-        margin-top: auto
-        margin-bottom: auto
-
-        .text-normal, .text-bold, .text-big
-            line-height: 1.4
-
-        .text-normal, .text-bold
-            font-size: 20px
-            @media screen and (max-width: 550px)
-                font-size: 16px
-
-        .text-bold, .text-big
-            font-weight: 900
-
-        .text-big
-            font-size: 22px
-
-            @media screen and (max-width: 550px)
-                font-size: 18px
-
-    &__catalog-discount-btn-more
+    &__catalog-promo-btn-more
         font-size: 16px
         position: relative
         border-radius: 8px
@@ -949,15 +987,21 @@
         cursor: pointer
         +set_colors_1(background-color)
 
+        &:hover
+            +set_colors_1(background-color, 10%)
+
+        @at-root .krovlya &
+            background-color: #FF2437
+
+            &:hover
+                background-color: #AA000F
+
         @media screen and (max-width: 550px)
             height: 50px
             border-radius: 6px
             font-size: 14px
 
-        &:hover
-            +set_colors_1(background-color, 10%)
-
-    &__catalog-discount-btn-more-arrow
+    &__catalog-promo-btn-more-arrow
         position: relative
         top: 20px
         width: 8px

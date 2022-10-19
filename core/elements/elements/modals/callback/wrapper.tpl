@@ -52,6 +52,16 @@
 
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
+'form' => '@FILE elements/modals/callback/help-in-choice.tpl',
+'hooks' => 'create_request,create_bitrix_lead',
+'customValidators' => 'checkPhone,check_request',
+'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
+'validationErrorMessage' => 'В форме содержатся ошибки!',
+'successMessage' => 'Сообщение успешно отправлено'
+]}
+
+{'!AjaxForm' | snippet : [
+'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-reviews.tpl',
 'validate' => 'NAME:required,TEXT:required',
 'validationErrorMessage' => 'В форме содержатся ошибки!',

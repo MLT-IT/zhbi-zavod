@@ -12,7 +12,7 @@ export default {
     alignPrices
 };
 
-let $discountBlock = $('.listing__catalog-discount');
+let $discountBlock = $('.listing__catalog-promo');
 if (!$discountBlock.length) {
     $discountBlock = null;
 }
