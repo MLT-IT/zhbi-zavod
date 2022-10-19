@@ -337,8 +337,10 @@ function alignPrices() {
             lastPriceElemTop = currPriceElemTop;
         }
 
-        if (Math.abs(currPriceElemTop - lastPriceElemTop) > 300 || i === $items.length - 1) {
-            if (i === $items.length - 1) {
+        let event1 = Math.abs(currPriceElemTop - lastPriceElemTop) > 300;
+        let event2 = i === $items.length - 1;
+        if (event1 || event2) {
+            if (!event1) {
                 group.push({
                     'elem': $priceElem,
                     'value': currPriceElemTop

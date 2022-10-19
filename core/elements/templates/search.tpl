@@ -17,37 +17,43 @@
             'alias' => 'catalog'
         ]}
 
+        {set $mSearch2Ids = 'mSearch2' | snippet : ['returnIds' => 1]}
+
         {'!pdoPage' | snippet : [
-        'element' => 'mSearch2',
-        'tpl' => '@FILE chunks/mSearchRow.tpl',
+            'element' => 'msProducts',
+            'resources' => $mSearch2Ids,
+            'tpl' => "@FILE sections/category/listing-products-item.tpl",
 
-        'pageVarKey' => 'page',
-        'pageNavVar' => 'page.nav',
+            'includeTVs' => 'priority1,HitsPage,isFractional',
 
-        'parents' => $parents,
-        'depth' => '100',
+            'pageVarKey' => 'page',
+            'pageNavVar' => 'page.nav',
 
-        'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
-        'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
-        'tplPageActive' => '@INLINE <span class="active spag__item spag__item_type_num">{$pageNo}</span>',
-        'tplPageFirst' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge"><<</a>',
-        'tplPageLast' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge">>></a>',
-        'tplPagePrev' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step"><</a>',
-        'tplPageNext' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step">></a>',
-        'tplPageFirstEmpty' => '@INLINE ',
-        'tplPageLastEmpty' => '@INLINE ',
-        'tplPagePrevEmpty' => '@INLINE ',
-        'tplPageNextEmpty' => '@INLINE ',
+            'parents' => 0,
+            'depth' => '10000',
 
-        'toPlaceholder' => 'mSearchResults',
-        'totalVar' => 'mSearchAmount',
+            'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
+            'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
+            'tplPageActive' => '@INLINE <span class="active spag__item spag__item_type_num">{$pageNo}</span>',
+            'tplPageFirst' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge"><<</a>',
+            'tplPageLast' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge">>></a>',
+            'tplPagePrev' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step"><</a>',
+            'tplPageNext' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step">></a>',
+            'tplPageFirstEmpty' => '@INLINE ',
+            'tplPageLastEmpty' => '@INLINE ',
+            'tplPagePrevEmpty' => '@INLINE ',
+            'tplPageNextEmpty' => '@INLINE ',
 
-        'ajaxElemWrapper' => '.ajax-content',
-        'ajaxElemRows' => '.ajax-content__items-wrap',
-        'ajaxElemLink' => '.spag__item',
-        'ajaxElemPagination' => '.sect-search__pagination',
-        'ajax' => '1',
-        'ajaxMode' => 'default'
+            'toPlaceholder' => 'mSearchResults',
+            'totalVar' => 'mSearchAmount',
+
+            'ajaxElemLink' => '.spag__item',
+            'ajaxElemPagination' => '.sect-search__pagination',
+            'ajax' => '1',
+            'ajaxMode' => 'default',
+
+            'limit' => 40,
+            'setMeta' => 0,
         ]}
 
         <div class="sect-search__content ajax-content">
@@ -76,14 +82,17 @@
                     по фразе "{$.get.query}".
                 </p>
             {/if}
-            <div class="sect-search__results ajax-content__items-wrap">
-                {$_modx->getPlaceholder('mSearchResults')}
+
+            <div id="pdopage" class="sect-listing__content">
+              <div class="listing__products-list rows grid js-catalog">
+                  {$_modx->getPlaceholder('mSearchResults')}
+              </div>
+                {if $_modx->getPlaceholder('page.nav') ?}
+                  <div class="sect-search__pagination spag">
+                      {$_modx->getPlaceholder('page.nav')}
+                  </div>
+                {/if}
             </div>
-            {if $_modx->getPlaceholder('pageCount') > 0}
-                <div class="sect-search__pagination spag">
-                    {$_modx->getPlaceholder('page.nav')}
-                </div>
-            {/if}
         </div>
 
     </div>
