@@ -141,7 +141,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Облицовочный кирпич' => [
-                    'id' => 'assort-plitka',
+                    'id' => 'assort-brickwall',
                     'items' => [
                         'Пустотелый' => [
                             'uri' => '/oblicovochnye/?msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
@@ -163,7 +163,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Фасадная плитка' => [
-                    'id' => 'assort-kamen',
+                    'id' => 'assort-plitka',
                     'items' => [
                         'Фасадная плитка' => [
                             'uri' => '/fasadnaya-plitka/',
@@ -184,7 +184,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Искусственный и натуральный камень' => [
-                    'id' => 'assort-dekor',
+                    'id' => 'assort-kamen',
                     'items' => [
                         'Декоративный камень для внутренней отделки' => [
                             'uri' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/',
@@ -207,7 +207,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Фасадный декор' => [
-                    'id' => 'assort-dekor2',
+                    'id' => 'assort-dekor',
                     'items' => [
                         'Архитектурные элементы фасада' => [
                             'uri' => '/arhitekturnye-elementy-fasada/',
@@ -224,7 +224,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Печной кирпич' => [
-                    'id' => 'assort-dekor3',
+                    'id' => 'assort-stoneoven',
                     'items' => [
                         'Шамотный кирпич' => [
                             'uri' => '/shamotnye/',
@@ -257,7 +257,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Брусчатка' => [
-                    'id' => 'assort-dekor5',
+                    'id' => 'assort-paving',
                     'items' => [
                         'Тротуарный клинкер' => [
                             'uri' => '/klinkernaya-bruschatka/',

@@ -116,6 +116,40 @@
         &[data-tab="кладочные-смеси"]::before
             background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
 
+        &[data-tab="assort-kirpich"],
+        &[data-tab="assort-plitka"],
+        &[data-tab="assort-kamen"],
+        &[data-tab="assort-dekor"],
+        &[data-tab="assort-smesi"],
+        &[data-tab="assort-paving"]
+            .assort__svg
+                stroke: #B9B9B9
+                fill: transparent
+
+        &.active
+            &[data-tab="assort-kirpich"],
+            &[data-tab="assort-plitka"],
+            &[data-tab="assort-kamen"],
+            &[data-tab="assort-dekor"],
+            &[data-tab="assort-smesi"],
+            &[data-tab="assort-paving"]
+                .assort__svg
+                    stroke: #ffffff
+
+        &[data-tab="assort-brickwall"],
+        &[data-tab="assort-stoneoven"],
+        &[data-tab="assort-paving"]
+            .assort__svg
+                fill: #B9B9B9
+                stroke: none
+
+        &.active
+            &[data-tab="assort-brickwall"],
+            &[data-tab="assort-stoneoven"],
+            &[data-tab="assort-paving"]
+                .assort__svg
+                    fill: #ffffff
+
         .assort__svg
             @at-root .krovlya &
                 fill: #3e3b3b
@@ -123,17 +157,10 @@
                 width: 35px
                 height: 35px
 
-            @at-root .kirpich-m &
-                stroke: #B9B9B9
-                fill: transparent
-
         &.active
             .assort__svg
                 @at-root .krovlya &
                     fill: #fff
-
-                @at-root .kirpich-m &
-                    stroke: #fff
 
         &:hover
             +set-colors_1(color)
