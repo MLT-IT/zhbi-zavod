@@ -131,26 +131,39 @@
 {if !$_modx->getPlaceholder('utm_source')}
 *}
 
-{if $_modx->resource.context_key == 'kirpich-m'}
+{if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
     {set $total = $_modx->getPlaceholder('total')}
     {if ($_modx->resource.template in list [4, 19, 5]) &&
     (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
-        <div class="listing__catalog-discount">
-            <div class="listing__catalog-discount-img-wrap">
-                <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-discount-img">
-            </div>
-            <p class="listing__catalog-discount-text">
-              <span class="text-big">Запишитесь</span>
-              <br>
-              <span class="text-normal">на посещение<br>нашего</span>
-              <br>
-              <span class="text-bold">шоурума</span>
-            </p>
-            <span data-fancybox="" data-src="#showroom" class="listing__catalog-discount-btn-more" data-btn-key="showroom">Записаться
-              <div class="listing__catalog-discount-btn-more-arrow">
-                <div></div>
+
+      {switch $_modx->resource.context_key}
+          {case 'kirpich-m'}
+              <div class="listing__catalog-promo listing__catalog-promo_type_tight">
+                  <div class="listing__catalog-promo-img-wrap">
+                      <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-promo-img">
+                  </div>
+                  <p class="listing__catalog-promo-text">
+                    <span class="text-big">Запишитесь</span>
+                    <br>
+                    <span class="text-normal">на посещение<br>нашего</span>
+                    <br>
+                    <span class="text-bold">шоурума</span>
+                  </p>
+                  <span data-fancybox="" data-src="#showroom" class="listing__catalog-promo-btn-more" data-btn-key="showroom">Записаться
+                    <div class="listing__catalog-promo-btn-more-arrow">
+                      <div></div>
+                    </div>
+                  </span>
               </div>
-            </span>
-        </div>
+
+          {case 'krovlya'}
+              <div class="listing__catalog-promo listing__catalog-promo_type_full" style="background-image: url(/assets/template/img/help-in-choice.jpg)" id="pomosh_v_podbore">
+                <p class="listing__catalog-promo-text">
+                  <span class="text-big">Не знаете,<br>что выбрать?</span>
+                  <span class="text-normal">Поможем подобрать материал!</span>
+                </p>
+                <span data-fancybox="" data-src="#help-in-choice" class="listing__catalog-promo-btn-more" data-btn-key="help-in-choice">Позвонить</span>
+              </div>
+      {/switch}
     {/if}
 {/if}
