@@ -54,6 +54,8 @@
 
             'limit' => 40,
             'setMeta' => 0,
+
+            'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
         ]}
 
         <div class="sect-search__content ajax-content">
