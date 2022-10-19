@@ -48,7 +48,7 @@
             </div>
             <div class="header__contacts">
 
-                <select class="header__select-address" name="select-address">
+                <select class="header__select-address select-address" name="select-address">
                   <option value="1">Мурино, Кооперативная 20б</option>
                   <option value="2">{'address' | option}</option>
                 </select>
