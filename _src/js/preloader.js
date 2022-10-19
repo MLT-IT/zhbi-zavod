@@ -3,7 +3,6 @@ import '../sass/preloader.sass';
 window.addEventListener("load", function (event) {
     let preloaderStatus = document.querySelector('#preloader-status');
     if (!preloaderStatus) {
-        document.querySelector('body').classList.remove('have-preloader');
         return;
     }
 

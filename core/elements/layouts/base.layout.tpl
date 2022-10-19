@@ -78,13 +78,15 @@
         <link rel="canonical" href="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}">
 
         {* Прелоадер *}
-        <script src="{$_modx->config['template_path']}js/preloader.js"></script>
-        <link rel="stylesheet" href="{$_modx->config['template_path']}css/preloader.css">
+        {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
+          <script src="{$_modx->config['template_path']}js/preloader.js"></script>
+          <link rel="stylesheet" href="{$_modx->config['template_path']}css/preloader.css">
+        {/if}
     {/block}
 
     <script src="//code.jivo.ru/widget/9J1gSPDmWh" async></script>
 </head>
-<body id="body" class="{$site_class} have-preloader" data-ctx="{$_modx->resource.context_key}">
+<body id="body" class="{$site_class}{if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']} have-preloader{/if}" data-ctx="{$_modx->resource.context_key}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
 </body>
