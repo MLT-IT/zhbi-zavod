@@ -306,7 +306,7 @@ function init() {
     // -------------------------------------------
     // Выравнивание цены по одному уровню
     // -------------------------------------------
-    if ($('.listing__products-item').length) {
+    if ($('.listing__products-item-price-and-logo').length) {
         // document ready
         alignPrices();
         // window on load
