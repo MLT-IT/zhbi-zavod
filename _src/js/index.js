@@ -483,9 +483,13 @@ $(function ($) {
 
 
     // -------------------------------
-    // Стилизованный список для адреса в шапке
+    // Стилизованный список для адреса
     // -------------------------------
     $('.select-address').euv_custom_select();
+
+    // Работа со списком в шапке
+    let $headerSelect = $('div.header__select-address');
+    $headerSelect.find('.euv-custom-select__btn').appendTo($headerSelect.find('.euv-custom-select__input'));
 
 
     // --------------------------------
