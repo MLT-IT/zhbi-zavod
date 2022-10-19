@@ -167,31 +167,6 @@
                 </div>
 
                 <div class="product-card__info-inner">
-                    {if $linksData.pokrytie?}
-                        <div class="product-card__select-wrap product-card__select-wrap_type_full">
-                            <div class="product-card__select-span">Покрытие:</div>
-                            <div class="custom-select-wrap">
-                                <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                    <div class="euv-custom-select__input">
-                                        <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}</span>
-                                    </div>
-                                    <span class="euv-custom-select__btn"></span>
-                                    <div class="euv-custom-select__options-wrap">
-                                        <div class="euv-custom-select__options-wrap-scroll">
-                                            {foreach $linksData.pokrytie as $id => $val}
-                                                <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                    {$val}
-                                                </a>
-                                            {/foreach}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="custom-select-mobile-link"></div>
-                                <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                            </div>
-                        </div>
-                    {/if}
-
                     {if $linksData.cvet?}
                         <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
                             <div class="product-card__select-span">
@@ -281,6 +256,31 @@
                                 <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
                             </div>
                         </div>
+                    {/if}
+
+                    {if $linksData.pokrytie?}
+                      <div class="product-card__select-wrap product-card__select-wrap_type_full mt">
+                        <div class="product-card__select-span">Покрытие:</div>
+                        <div class="custom-select-wrap">
+                          <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                            <div class="euv-custom-select__input">
+                              <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}</span>
+                            </div>
+                            <span class="euv-custom-select__btn"></span>
+                            <div class="euv-custom-select__options-wrap">
+                              <div class="euv-custom-select__options-wrap-scroll">
+                                  {foreach $linksData.pokrytie as $id => $val}
+                                    <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                        {$val}
+                                    </a>
+                                  {/foreach}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="custom-select-mobile-link"></div>
+                          <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                        </div>
+                      </div>
                     {/if}
 
                     {if $linksData.tip?}
