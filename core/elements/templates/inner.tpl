@@ -26,5 +26,4 @@
         {/if}
     </div>
 
-    {include "file:sections/appeal.tpl"}
 {/block}
