@@ -310,13 +310,25 @@ function init() {
         // document ready
         alignPrices();
         // window on load
-        $(window).on('load', alignPrices)
+        $(window).on('load', alignPrices);
 
         // window on resize (with throttling)
         let timeoutAction;
-        $(window).on('resize', function() {
+        $(window).on('resize', function () {
             clearTimeout(timeoutAction);
             timeoutAction = setTimeout(alignPrices, 1000);
+        });
+    }
+
+
+    // -------------------------------------------
+    // Смена карты при смене адреса на странице с контактами
+    // -------------------------------------------
+    let $selectAddress = $('.contacts__select-address');
+    if ($selectAddress.length) {
+        $selectAddress.on('change', function (e) {
+            $('.map__container').hide();
+            $('.map__container[data-map="' + $selectAddress.val() + '"]').show();
         });
     }
 }

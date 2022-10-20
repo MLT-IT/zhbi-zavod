@@ -117,7 +117,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "https://www-minvata.ru/",
+                    target: "http://knauf.local/",
                     secure: false,
                     changeOrigin: true
                 }

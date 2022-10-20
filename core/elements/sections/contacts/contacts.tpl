@@ -56,7 +56,10 @@
         </div>
         {if $utm_city['icase'] is empty}
             <div class="contacts__map">
-                <div class="map__container">
+                <div class="map__container" data-map="1">
+                  <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31df190eea88679967ae35e35e6dcc4126648da41068891dbc7988e304baa628&amp;width=460&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                <div class="map__container" data-map="2" style="display: none;">
                     <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um={'yandex_map_contacts' | get_option}&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
                 </div>
             </div>
