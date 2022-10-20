@@ -171,7 +171,9 @@
                         $custom_select_btn = $custom_select_btn.add($custom_select_input);
                     }
 
-                    $custom_select_btn.on('click.' + plugin_name, function () {
+                    $custom_select_btn.on('click.' + plugin_name, function (e) {
+                        e.stopPropagation();
+
                         $custom_select.toggleClass(custom_select_visible_class);
                         $custom_select.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
 
