@@ -487,9 +487,24 @@ $(function ($) {
     // -------------------------------
     $('.select-address').euv_custom_select();
 
-    // Работа со списком в шапке
+    // Перемещаем стрелочку в списке, чтобы она была сразу после текста
     let $headerSelect = $('div.header__select-address');
     $headerSelect.find('.euv-custom-select__btn').appendTo($headerSelect.find('.euv-custom-select__input'));
+
+    // Задаем ширину списка равной самому длинному адресу, чтобы при смене адреса не было скачков
+    let headerSelectMaxWidth = 0;
+    $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option').each(function(i, e) {
+        let $e = $(e);
+        $e.click();
+        let width = $headerSelect.outerWidth();
+        if (headerSelectMaxWidth < width) {
+            headerSelectMaxWidth = width;
+        }
+    });
+
+    // Самый длинный адрес нашли, максимальную ширину получили, теперь возвращаем список в значение по умолчанию (кликаем по самому первому значению)
+    $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option:first-child').click();
+    $headerSelect.width(headerSelectMaxWidth);
 
 
     // --------------------------------
