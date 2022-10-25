@@ -318,8 +318,15 @@ function init() {
             clearTimeout(timeoutAction);
             timeoutAction = setTimeout(alignPrices, 1000);
         });
+
+        // Почему-то после загрузки страницы цены не всегда становятся выравненными. Я решил добавить дополнительное выравнивание с помощью интервалов
+        for (let i = 0; i < 10; i++) {
+            setTimeout(function () {
+                alignPrices();
+            }, i * 300);
+        }
     }
-    
+
 
     // -------------------------------------------
     // Раскрывашка для фильтров (если их много)
@@ -346,7 +353,7 @@ function init() {
                 // Ставим transition для анимации
                 $extraFiltersBlock.css('transition', '.3s');
                 // Убираем высоту - чтобы начала работать анимация
-                setTimeout(function() {
+                setTimeout(function () {
                     $extraFiltersBlock.css('max-height', newH);
                 }, 20);
             }

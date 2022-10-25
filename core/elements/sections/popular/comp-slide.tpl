@@ -20,7 +20,7 @@
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
         <a class="listing__products-item-photo" href="{$uri}">
-            <img class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+            <img src="/assets/images/no_image.jpg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
         </a>
         <div class="listing__products-item-title">
             <a href="{$uri}">{$pagetitle}</a>
