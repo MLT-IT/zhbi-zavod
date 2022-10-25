@@ -17,7 +17,13 @@
             'alias' => 'catalog'
         ]}
 
-        {set $mSearch2Ids = 'mSearch2' | snippet : ['returnIds' => 1]}
+        {set $mSearch2Ids = '!mSearch2' | snippet : ['returnIds' => 1, 'context' => $_modx->resource.context_key]}
+
+        {*
+         TODO: кажется, поиск нерелевантный. Я пытался подправить:
+            'sortby' => '"FIELD(modResource.id, '~$mSearch2Ids~')"'
+         Но не получилось. Нужно больше времени.
+        *}
 
         {'!pdoPage' | snippet : [
             'element' => 'msProducts',
@@ -54,8 +60,6 @@
 
             'limit' => 40,
             'setMeta' => 0,
-
-            'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
         ]}
 
         <div class="sect-search__content ajax-content">
