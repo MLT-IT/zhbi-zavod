@@ -45,6 +45,11 @@
     {set $dontActive = true}
 {/if}
 
+{* Если это 6-ой фильтр, то открываем специальный контейнер, в котором фильтры изначально будут скрыты. Они будут открываться при нажатии на специальную кнопку *}
+{if $_modx->getPlaceholder('filter_iterator') == 6}
+  <div class="listing__additional-filters">
+{/if}
+
 <div class="listing__filter-block{if $keyClass?} filter_type_{$keyClass}{/if}{if $dontActive?}{else} active{/if}" id="mse2_{$key}">
     <div class="listing__filter-block-header">
         <div class="listing__filter-block-title filter_title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}</div>

@@ -1,4 +1,45 @@
 .listing
+    @media screen and (min-width: 1201px)
+        &__additional-filters
+            // Если меняешь здесь max-height, то поменяй и в js - в файле funcsCatalog.js
+            max-height: 40px
+
+            overflow: hidden
+            position: relative
+            margin-bottom: 10px
+
+            &.open
+                max-height: none
+
+                &::after
+                    content: none
+
+            &::after
+                content: ""
+                display: block
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                height: 40px
+                background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), #fff)
+
+    &__reset-filters-action
+        display: block
+        padding: 0
+
+    &__btn
+        margin-left: 10px
+        margin-top: 12px
+
+    &__more-filters-btn
+        cursor: pointer
+        display: inline-block
+
+        @media screen and (max-width: 1200px)
+            display: none
+
+
     &__tags-item
         transition: .3s
 

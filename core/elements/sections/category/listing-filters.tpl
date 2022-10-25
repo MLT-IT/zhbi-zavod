@@ -14,7 +14,15 @@
         {if $filters != 'Нечего фильтровать'}
             {$filters}
         {/if}
-        <button type="reset" style="display: none;" class="listing__reset-filters-action">Сбросить</button>
+
+        {* Если фильтров было больше 5, значит, контейнер со скрытыми фильтрами открыт. Надо закрыть его *}
+        {if $_modx->getPlaceholder('filter_iterator') > 5}
+          </div>
+          <span class="listing__btn listing__more-filters-btn" data-text="Скрыть">Показать больше</span>
+        {/if}
+
+        <button type="reset" style="display: none;" class="listing__btn listing__reset-filters-action">Сбросить</button>
     </form>
+
     <div class="listing__filter-btn"></div>
 </div>

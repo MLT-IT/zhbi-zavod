@@ -331,6 +331,42 @@ function init() {
             $('.map__container[data-map="' + $selectAddress.val() + '"]').show();
         });
     }
+
+    // -------------------------------------------
+    // Раскрывашка для фильтров (если их много)
+    // -------------------------------------------
+    // Получаем блок с дополнительными фильтрами, которые раскрываются по кнопке
+    let $extraFiltersBlock = $('.listing__additional-filters');
+
+    if ($extraFiltersBlock.length) {
+        // Высота блока с фильтрами, когда он свернут. Если меняешь это значение, то поменяй и в CSS. Можно было бы прочитать здесь CSS значение. Но на мобилках оно другое
+        let startH = 40;
+
+        $('.listing__more-filters-btn').on('click', function () {
+            // Переключаем класс - открыто / закрыто
+            $extraFiltersBlock.toggleClass('open');
+            // И текст заодно
+            functions.toggleText($(this), 'data-text');
+
+            // Если блок открылся, то...
+            if ($extraFiltersBlock.hasClass('open')) {
+                // Получаем высоту раскрывшегося блока
+                let newH = $extraFiltersBlock.outerHeight();
+                // Ставим высоту, которая была при загрузке страницы. Чтобы не было резкого скачка
+                $extraFiltersBlock.css('max-height', startH);
+                // Ставим transition для анимации
+                $extraFiltersBlock.css('transition', '.3s');
+                // Убираем высоту - чтобы начала работать анимация
+                setTimeout(function() {
+                    $extraFiltersBlock.css('max-height', newH);
+                }, 20);
+            }
+            // Если блок закрылся, то...
+            else {
+                $extraFiltersBlock.css('max-height', '');
+            }
+        });
+    }
 }
 
 
