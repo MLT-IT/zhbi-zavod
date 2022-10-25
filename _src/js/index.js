@@ -217,7 +217,7 @@ $(function ($) {
         let $this = $(this);
         $this.toggleClass('opened');
         $this.closest('.header__wrapper').find('.header__nav').toggleClass('opened');
-        $('body').toggleClass('freeze-page')
+        $('body').toggleClass('freeze-page');
     });
 
 
@@ -483,7 +483,17 @@ $(function ($) {
 
 
     // -------------------------------
-    // Стилизованный список для адреса
+    // Заменяем div на стилизованный список для адреса в шапке (Кирилл сказал сделать так)
+    // -------------------------------
+    let $headerAddressDiv = $('.header__contacts-city');
+    let address1 = $headerAddressDiv.text();
+    let address2 = $headerAddressDiv.attr('data-address-2');
+    $('<select class="header__select-address select-address" name="select-address"><option value="1">' + address1 + '</option><option value="2">' + address2 + '</option></select>').insertAfter($headerAddressDiv);
+    $headerAddressDiv.remove();
+
+
+    // -------------------------------
+    // Стилизованный список для адреса (есть в шапке и отдельно на странице с контактами)
     // -------------------------------
     $('.select-address').euv_custom_select();
 
@@ -493,7 +503,7 @@ $(function ($) {
 
     // Задаем ширину списка равной самому длинному адресу, чтобы при смене адреса не было скачков
     let headerSelectMaxWidth = 0;
-    $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option').each(function(i, e) {
+    $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option').each(function (i, e) {
         let $e = $(e);
         $e.click();
         let width = $headerSelect.outerWidth();
@@ -505,6 +515,18 @@ $(function ($) {
     // Самый длинный адрес нашли, максимальную ширину получили, теперь возвращаем список в значение по умолчанию (кликаем по самому первому значению)
     $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option:first-child').click();
     $headerSelect.width(headerSelectMaxWidth);
+
+
+    // -------------------------------------------
+    // Смена карты при смене адреса на странице с контактами
+    // -------------------------------------------
+    let $selectAddress = $('.contacts__select-address');
+    if ($selectAddress.length) {
+        $selectAddress.on('change', function (e) {
+            $('.map__container').hide();
+            $('.map__container[data-map="' + $selectAddress.val() + '"]').show();
+        });
+    }
 
 
     // --------------------------------

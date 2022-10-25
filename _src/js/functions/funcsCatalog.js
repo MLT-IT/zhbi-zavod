@@ -319,18 +319,7 @@ function init() {
             timeoutAction = setTimeout(alignPrices, 1000);
         });
     }
-
-
-    // -------------------------------------------
-    // Смена карты при смене адреса на странице с контактами
-    // -------------------------------------------
-    let $selectAddress = $('.contacts__select-address');
-    if ($selectAddress.length) {
-        $selectAddress.on('change', function (e) {
-            $('.map__container').hide();
-            $('.map__container[data-map="' + $selectAddress.val() + '"]').show();
-        });
-    }
+    
 
     // -------------------------------------------
     // Раскрывашка для фильтров (если их много)
