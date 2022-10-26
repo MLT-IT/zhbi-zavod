@@ -1,29 +1,26 @@
-<section class="product-slider product-slider-1 sect-pop">
-    <div class="wrapper sect-pop__wrapper">
-        <h2 class="sect-pop__title title-2">{$title ?: "Популярные товары"}</h2>
-        <div class="swiper-buttons sect-pop__swiper-buttons" style="display: none;">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-        <div class="swiper-container">
-            <div class="swiper-wrapper sect-pop__slider">
-                {if $resources is empty}
-                    {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
-                    {set $resources = $_modx->config['popular_ids']}
-                {/if}
-                {'!msProducts' | snippet : [
-                    'parents' => 0,
-                    'depth' => 50,
-                    'limit' => 42,
-                    'sortby' => '',
-                    'sortdir' => '',
-                    'resources' => $resources,
-                    'tpl' => '@FILE sections/popular/pop-slide.tpl',
-                    'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
-                    'includeTVs' => 'isFractional',
-                ]}
-            </div>
-            <div class="swiper-scrollbar"></div>
-        </div>
-    </div>
-</section>
+{set $params = [
+    'parents' => 0,
+    'depth' => 50,
+    'limit' => 42,
+    'sortby' => '',
+    'sortdir' => '',
+    'tpl' => '@FILE sections/popular/pop-slide.tpl',
+    'includeTVs' => 'isFractional',
+    'context' => $_modx->resource.context_key,
+    'tplWrapper' => '@FILE sections/popular/sect-pop-wrapper.tpl',
+    'wrapIfEmpty' => 0
+]}
+
+{if '@FILE snippets/checkProductCategory.php' | snippet : ['catIds' => '37609,19851,19852,37610']}
+    {set $params['parents'] = 37609}
+    {set $params['resources'] = '-' ~ $_modx->resource.id}
+    {'@FILE snippets/getPopularProductsKirpich.php' | snippet : ['params' => $params]}
+{else}
+    {if $resources is empty}
+        {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
+        {set $resources = $_modx->config['popular_ids']}
+    {/if}
+
+    {set $params['resources'] = $resources}
+    {'!msProducts' | snippet : $params}
+{/if}
