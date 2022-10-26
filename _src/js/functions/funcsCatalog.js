@@ -339,6 +339,8 @@ function init() {
         let startH = 40;
 
         $('.listing__more-filters-btn').on('click', function () {
+            let heightBeforeToggleClass = $extraFiltersBlock.outerHeight();
+
             // Переключаем класс - открыто / закрыто
             $extraFiltersBlock.toggleClass('open');
             // И текст заодно
@@ -355,11 +357,25 @@ function init() {
                 // Убираем высоту - чтобы начала работать анимация
                 setTimeout(function () {
                     $extraFiltersBlock.css('max-height', newH);
+
+                    setTimeout(function () {
+                        $extraFiltersBlock.css('max-height', '');
+                        $extraFiltersBlock.css('transition', '');
+                    }, 300);
                 }, 20);
             }
             // Если блок закрылся, то...
             else {
-                $extraFiltersBlock.css('max-height', '');
+                $extraFiltersBlock.css('max-height', heightBeforeToggleClass);
+                $extraFiltersBlock.css('transition', '.3s');
+
+                setTimeout(function () {
+                    $extraFiltersBlock.css('max-height', '');
+
+                    setTimeout(function () {
+                        $extraFiltersBlock.css('transition', '');
+                    }, 300);
+                }, 0);
             }
         });
     }
