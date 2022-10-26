@@ -15,7 +15,7 @@
 
     <div class="lazy-video">
       <a class="lazy-video__link" href="https://youtu.be/{$src}">
-        <img src="/assets/images/no_image.jpg"
+        <img src="/assets/images/placeholder.png"
              data-src="https://i.ytimg.com/vi/{$src}/maxresdefault.jpg"
              class="lazy lazy-video__media" alt="">
       </a>
