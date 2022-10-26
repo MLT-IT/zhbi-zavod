@@ -4,9 +4,6 @@ body.have-preloader
 #preloader, #preloader-status
     transition: opacity 350ms
 
-    &.hide
-        opacity: 0
-
 #preloader
     position: fixed
     top: 0
@@ -15,18 +12,23 @@ body.have-preloader
     left: 0
     z-index: 999900
     background-color: #fff
+    transition-delay: 350ms
+
+    &.hide
+        opacity: 0
+
+        #preloader-status
+            opacity: 0
 
     &.disable-zindex
         z-index: -1
 
 #preloader-status
-    opacity: 1
     position: absolute
     top: 50%
     left: 50%
     background-repeat: no-repeat
     background-position: center center
-    transition: opacity 350ms
 
     @at-root .kirpich-m &
         width: 200px

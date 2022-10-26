@@ -1,23 +1,26 @@
 import '../sass/preloader.sass';
 
 window.addEventListener("load", function (event) {
-    let preloaderStatus = document.querySelector('#preloader-status');
-    if (!preloaderStatus) {
+    // Прелоадер
+    let preloader = document.querySelector('#preloader');
+
+    // Если прелоадера нет, то выходим из функции
+    if (!preloader) {
         return;
     }
 
-    // Сначала убираем анимацию посередине прелоадера
-    document.querySelector('#preloader-status').classList.add('hide');
+    // Картинка-анимация в прелоадере
+    let preloaderStatus = document.querySelector('#preloader-status');
 
+    // Страница загрузилась - скрываем прелоадер (сделано через transition)
+    preloader.classList.add('hide');
+
+    // Ждем немного (сначала исчезнет картинка прелоадера)
     setTimeout(function () {
-        let preloader = document.querySelector('#preloader');
-
-        // Затем убираем фон у анимации
-        preloader.classList.add('hide');
-        // И добавляем для body скроллбар, если он нужен
+        // Открываем для body скроллбар
         document.querySelector('body').classList.remove('have-preloader');
 
-        // Убираем z-index у прелоадера
+        // Езе ждем немного и убираем z-index у прелоадера
         setTimeout(function () {
             preloader.classList.add('disable-zindex');
         }, 350);
