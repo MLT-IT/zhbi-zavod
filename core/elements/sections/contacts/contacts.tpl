@@ -35,11 +35,7 @@
                 </li>
                 <li class="contacts__item contacts__item_content_address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <div class="contacts__item-key"><span>Адрес</span></div>
-
-                    <select class="contacts__select-address select-address" name="select-address">
-                      <option value="1">Мурино, Кооперативная 20б</option>
-                      <option value="2">{'address' | option}</option>
-                    </select>
+                    <div class="contacts__item-value" data-address-2="Мурино, Кооперативная 20б">{'address' | option}</div>
                 </li>
             </ul>
             <div class="contacts__left-bottom">

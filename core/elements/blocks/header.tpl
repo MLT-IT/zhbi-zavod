@@ -47,8 +47,8 @@
                 {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
             </div>
             <div class="header__contacts">
-                <div class="header__contacts-city" data-address-2="{'address' | option}">
-                  Мурино, Кооперативная 20б
+                <div class="header__contacts-city" data-address-2="Мурино, Кооперативная 20б">
+                    {'address' | option}
                 </div>
                 <div class="header__contacts-time">Часы работы: ежедневно с 8:00 до 21:00</div>
             </div>

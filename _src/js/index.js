@@ -483,13 +483,20 @@ $(function ($) {
 
 
     // -------------------------------
-    // Заменяем div на стилизованный список для адреса в шапке (Кирилл сказал сделать так)
+    // Заменяем div на стилизованный список для адреса
     // -------------------------------
-    let $headerAddressDiv = $('.header__contacts-city');
-    let address1 = $headerAddressDiv.text();
-    let address2 = $headerAddressDiv.attr('data-address-2');
-    $('<select class="header__select-address select-address" name="select-address"><option value="1">' + address1 + '</option><option value="2">' + address2 + '</option></select>').insertAfter($headerAddressDiv);
-    $headerAddressDiv.remove();
+    // В шапке
+    let $headerAddressNode = $('.header__contacts-city');
+    let address1 = $headerAddressNode.attr('data-address-2');
+    let address2 = $headerAddressNode.text();
+    $('<select class="header__select-address select-address" name="select-address"><option value="1">' + address1 + '</option><option value="2">' + address2 + '</option></select>').insertAfter($headerAddressNode);
+    $headerAddressNode.remove();
+
+    // На странице с контактами
+    let $contactsAddressNode = $('.contacts__item_content_address');
+    let $contactsAddressVal = $contactsAddressNode.find('.contacts__item-value');
+    $('<select class="contacts__select-address select-address" name="select-address"><option value="1">' + address1 + '</option><option value="2">' + address2 + '</option></select>').insertAfter($contactsAddressVal);
+    $contactsAddressVal.remove();
 
 
     // -------------------------------
@@ -497,11 +504,11 @@ $(function ($) {
     // -------------------------------
     $('.select-address').euv_custom_select();
 
-    // Перемещаем стрелочку в списке, чтобы она была сразу после текста
+    // Перемещаем стрелочку в списке в шапке, чтобы она была сразу после текста
     let $headerSelect = $('div.header__select-address');
     $headerSelect.find('.euv-custom-select__btn').appendTo($headerSelect.find('.euv-custom-select__input'));
 
-    // Задаем ширину списка равной самому длинному адресу, чтобы при смене адреса не было скачков
+    // Задаем ширину списка в шапке равной самому длинному адресу, чтобы при смене адреса не было скачков
     let headerSelectMaxWidth = 0;
     $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option').each(function (i, e) {
         let $e = $(e);
@@ -511,7 +518,6 @@ $(function ($) {
             headerSelectMaxWidth = width;
         }
     });
-
     // Самый длинный адрес нашли, максимальную ширину получили, теперь возвращаем список в значение по умолчанию (кликаем по самому первому значению)
     $headerSelect.find('.euv-custom-select__options-wrap .euv-custom-select__option:first-child').click();
     $headerSelect.width(headerSelectMaxWidth);
@@ -520,7 +526,7 @@ $(function ($) {
     // -------------------------------------------
     // Смена карты при смене адреса на странице с контактами
     // -------------------------------------------
-    let $selectAddress = $('.contacts__select-address');
+    let $selectAddress = $('select.contacts__select-address');
     if ($selectAddress.length) {
         $selectAddress.on('change', function (e) {
             $('.map__container').hide();
