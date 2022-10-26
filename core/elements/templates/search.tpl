@@ -25,42 +25,46 @@
          Но не получилось. Нужно больше времени.
         *}
 
-        {'!pdoPage' | snippet : [
-            'element' => 'msProducts',
-            'resources' => $mSearch2Ids,
-            'tpl' => "@FILE sections/category/listing-products-item.tpl",
+        {if $mSearch2Ids?}
+            {'!pdoPage' | snippet : [
+                'element' => 'msProducts',
+                'resources' => $mSearch2Ids,
+                'tpl' => "@FILE sections/category/listing-products-item.tpl",
 
-            'includeTVs' => 'priority1,HitsPage,isFractional',
+                'includeTVs' => 'priority1,HitsPage,isFractional',
 
-            'pageVarKey' => 'page',
-            'pageNavVar' => 'page.nav',
+                'pageVarKey' => 'page',
+                'pageNavVar' => 'page.nav',
 
-            'parents' => 0,
-            'depth' => '10000',
+                'parents' => 0,
+                'depth' => '10000',
 
-            'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
-            'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
-            'tplPageActive' => '@INLINE <span class="active spag__item spag__item_type_num">{$pageNo}</span>',
-            'tplPageFirst' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge"><<</a>',
-            'tplPageLast' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge">>></a>',
-            'tplPagePrev' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step"><</a>',
-            'tplPageNext' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step">></a>',
-            'tplPageFirstEmpty' => '@INLINE ',
-            'tplPageLastEmpty' => '@INLINE ',
-            'tplPagePrevEmpty' => '@INLINE ',
-            'tplPageNextEmpty' => '@INLINE ',
+                'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
+                'tplPage' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_num">{$pageNo}</a>',
+                'tplPageActive' => '@INLINE <span class="active spag__item spag__item_type_num">{$pageNo}</span>',
+                'tplPageFirst' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge"><<</a>',
+                'tplPageLast' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_edge">>></a>',
+                'tplPagePrev' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step"><</a>',
+                'tplPageNext' => '@INLINE <a href="{$href}" class="spag__item spag__item_type_step">></a>',
+                'tplPageFirstEmpty' => '@INLINE ',
+                'tplPageLastEmpty' => '@INLINE ',
+                'tplPagePrevEmpty' => '@INLINE ',
+                'tplPageNextEmpty' => '@INLINE ',
 
-            'toPlaceholder' => 'mSearchResults',
-            'totalVar' => 'mSearchAmount',
+                'toPlaceholder' => 'mSearchResults',
+                'totalVar' => 'mSearchAmount',
 
-            'ajaxElemLink' => '.spag__item',
-            'ajaxElemPagination' => '.sect-search__pagination',
-            'ajax' => '1',
-            'ajaxMode' => 'default',
+                'ajaxElemLink' => '.spag__item',
+                'ajaxElemPagination' => '.sect-search__pagination',
+                'ajax' => '1',
+                'ajaxMode' => 'default',
 
-            'limit' => 40,
-            'setMeta' => 0,
-        ]}
+                'limit' => 40,
+                'setMeta' => 0,
+            ]}
+        {else}
+            Ничего не найдено.
+        {/if}
 
         <div class="sect-search__content ajax-content">
             {if $_modx->getPlaceholder('mSearchAmount') > 0}
