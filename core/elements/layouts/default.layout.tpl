@@ -81,9 +81,9 @@
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{$micro_title}" />
+    <meta property="og:title" content="{$_modx->resource.longtitle}" />
     <meta property="og:description" content="{$_modx->resource.description}" />
-    <meta property="og:url" content="{'site_url' | option}" />
+    <meta property="og:url" content="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}" />
     <meta property="og:image" content="{'site_url' | option}{$micro_img}" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="{$_modx->resource.description}" />
