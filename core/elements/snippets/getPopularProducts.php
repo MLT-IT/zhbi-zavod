@@ -1,36 +1,7 @@
 <?php
 
-if (!function_exists('getSqlQuery')) {
-    function getSqlQuery($where, $prodId) {
-        return "SELECT `msProduct`.id, `Options`.`value` as format
-                FROM `modx_site_content` AS `msProduct`
-                -- Присоединяем опции
-                JOIN `modx_ms2_product_options` `Options` ON `msProduct`.`id` =  `Options`.`product_id`
-                -- Присоединяем поля товара
-                LEFT JOIN `modx_ms2_products` `Data` ON `msProduct`.`id` =  `Data`.`id`
-                
-                -- Выбираем только товары
-                WHERE `msProduct`.`class_key` = 'msProduct'
-                -- И не просто товары, а определенные...
-                -- Товары с таким же форматом и родителем 'Строительный кирпич'. Или с форматом 2.1НФ и родителем 'Поризованный кирпич'
-                AND " . $where . "
-
-                -- А еще, чтобы они были опубликованы. И не удалены
-                AND `msProduct`.`published` = 1
-                AND `msProduct`.`deleted` = 0
-                AND `msProduct`.`id` <> $prodId
-                
-                GROUP BY msProduct.id
-                ORDER BY `msProduct`.menuindex
-                
-                -- 40, а не 42, потому что потом в самое начало добаляются 2 товара из кладочных смесей
-                LIMIT 40";
-    }
-}
-
-function getPopularProductsParams() {
+function getPopularProductsParams($scriptProperties) {
     // Определение основных переменных
-    global $scriptProperties;
     global $debug;
     global $modx;
     $product = $modx->resource;
@@ -76,7 +47,7 @@ function getPopularProductsParams() {
         $debug[] = 'В $scriptProperties отсутствует параметр resources.';
 
         // Если в сниппет не отправили строку с id популярных товаров (resources), то попробуем получить это значение из настроек контекста
-        $popularIds = $modx->getOption('popular_ids');
+        $popularIds = $scriptProperties['popular_ids'];
         if (empty($popularIds)) {
             $debug[] = 'Не удалось получить значение popular_ids из настроек контекста (или оно пустое).';
         } else {
@@ -155,33 +126,46 @@ function getPopularProductsParams() {
     // Определение параметров в зависимости от группы
     switch ($group) {
         case 1:
-            // Группа 1 - товары с таким же цветом, оттенком, поверхностью. Если какая-либо опция у текущего товара не задана, то она выпадет из условия "И". Сортировка - чем больше полей заполнено, тем выше приоритет
+            // TODO: тут надо IN, а не = [0]
+            // Группа 1 - товары с таким же цветом, оттенком, поверхностью. Сортировка - чем больше полей заполнено, тем выше приоритет
             $cvet = $product->get('cvet');
             $ottenok = $product->get('ottenok');
             $surface = $product->get('surface');
 
-            $optionFilters = [];
-
+            $where = [];
             if (!empty($cvet)) {
-                $optionFilters['cvet:IN'] = $cvet;
+                $where[] = "(`cvet`.`value` = '$cvet[0]')";
             }
             if (!empty($ottenok)) {
-                $optionFilters['ottenok:IN'] = $ottenok;
+                $where[] = "(`ottenok`.`value` = '$ottenok[0]')";
             }
-            if (!empty($factura)) {
-                $optionFilters['surface:IN'] = $surface;
+            if (!empty($surface)) {
+                $where[] = "(`surface`.`value` = '$surface[0]')";
             }
 
-            if (!empty($optionFilters)) {
-                $optionFilters = json_encode($optionFilters, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-                $resultSpecial['optionFilters'] = $optionFilters;
-
-                $debug[] = "Возвращено $textSpecial.";
-                return $resultSpecial;
+            if (!empty($where)) {
+                $where = implode(' OR ', $where);
+                $where = "AND ($where)";
+                $debug[] = "У товара заполнена хотя бы одна из этих опций: цвет, оттенок, поверхность, составлено where: \"$where\".";
             } else {
-                $debug[] = "Не удалось составить optionFilters, возвращено $textStd.";
-                return $resultStd;
+                $debug[] = "У товара не заполнен ни цвет, ни оттенок, ни поверхность, дополнительное where не составлено.";
             }
+
+            $query = "SELECT `msProduct`.`id`, `cvet`.`value` as cvet, `ottenok`.`value` as ottenok, `surface`.`value` as surface
+
+                      FROM `modx_site_content` AS `msProduct`
+                          
+                      -- Присоединяем поля товара
+                      LEFT JOIN `modx_ms2_products` `Data` ON `msProduct`.`id` = `Data`.`id`
+                      -- Присоединяем опции
+                      LEFT JOIN `modx_ms2_product_options` `cvet` ON `cvet`.product_id = Data.id AND `cvet`.key = 'cvet'
+                      LEFT JOIN `modx_ms2_product_options` `ottenok` ON `ottenok`.product_id = Data.id AND `ottenok`.key = 'ottenok'
+                      LEFT JOIN `modx_ms2_product_options` `surface` ON `surface`.product_id = Data.id AND `surface`.key = 'surface'
+                      
+                      -- Выбираем только товары
+                      WHERE `msProduct`.`class_key` = 'msProduct'
+                      -- И не просто товары, а определенные...
+                      $where";
 
             break;
         case 2:
@@ -212,7 +196,7 @@ function getPopularProductsParams() {
                 if (empty($formatNum)) {
                     $debug[] = "Не удалось получить число из текстового значения опции format ($formatString), чтобы найти товары, которые отличаются на 1 от format текущего товара. Либо это число равно 0.";
 
-                    $where = "(`Options`.`key` = 'format' AND `Options`.`value` = '$format[0]') AND `msProduct`.parent = 19848)";
+                    $where = "(`Options`.`key` = 'format' AND (`Options`.`value` = '$format[0]' OR `Options`.`value` = '2.1НФ') AND `msProduct`.parent = 19848)";
                 } else {
                     //$formatNum = $formatNum[0];
                     $debug[] = "Удалось получить число ($formatNum) из текстового значения опции format ($formatString).";
@@ -220,7 +204,7 @@ function getPopularProductsParams() {
                     $formatNumPlus = str_replace(',', '.', $formatNum + 1);
                     $formatNumMinus = str_replace(',', '.', $formatNum - 1);
 
-                    $where = "(`Options`.`key` = 'format' AND ((`Options`.`value` = '2.1НФ') OR ((CAST(`Options`.`value` AS DECIMAL(4,2)) >= $formatNumMinus)) AND (CAST(`Options`.`value` AS DECIMAL(4,2)) <= $formatNumPlus))) AND `msProduct`.parent = 19848";
+                    $where = "(`Options`.`key` = 'format' AND (`Options`.`value` = '2.1НФ' OR `Options`.`value` = '$format[0]' OR ((CAST(`Options`.`value` AS DECIMAL(4,2)) >= $formatNumMinus) AND (CAST(`Options`.`value` AS DECIMAL(4,2)) <= $formatNumPlus)))) AND `msProduct`.parent = 19848";
                 }
             }
 
@@ -228,17 +212,48 @@ function getPopularProductsParams() {
     }
 
     if (in_array($group, [2, 3])) {
-        $query = getSqlQuery($where, $prodId);
+        $query = "SELECT `msProduct`.id, `Options`.`value` as format
 
-        // Запуск SQL запроса и обработка результатов
-        $resources = $modx->query($query);
-        if ($resources === false) {
-            $debug[] = "Во время SQL запроса произошла ошибка, возвращено $textStd.";
-            return $resultStd;
-        }
-        $resources = $resources->fetchAll(PDO::FETCH_ASSOC);
+                  FROM `modx_site_content` AS `msProduct`
+                    
+                  -- Присоединяем опции
+                  JOIN `modx_ms2_product_options` `Options` ON `msProduct`.`id` =  `Options`.`product_id`
+                  -- Присоединяем поля товара
+                  LEFT JOIN `modx_ms2_products` `Data` ON `msProduct`.`id` =  `Data`.`id`
+                
+                  -- Выбираем только товары
+                  WHERE `msProduct`.`class_key` = 'msProduct'
+                  -- И не просто товары, а определенные...
+                  -- Товары с таким же форматом и родителем 'Строительный кирпич'. Или с форматом 2.1НФ и родителем 'Поризованный кирпич'
+                  AND " . $where;
+    }
 
-        // Сортировка
+    $query .= "-- Проверяем, чтобы товары были опубликованы, не удалены, чтобы не было выбора текущего товара
+               AND `msProduct`.`published` = 1
+               AND `msProduct`.`deleted` = 0
+               AND `msProduct`.`id` <> $prodId
+                
+               GROUP BY msProduct.id
+               ORDER BY `msProduct`.menuindex
+                
+               -- 40, а не 42, потому что потом в самое начало добаляются 2 товара из кладочных смесей
+               LIMIT 40";
+
+    // Запуск SQL запроса и обработка результатов
+    $resources = $modx->query($query);
+    if ($resources === false) {
+        $debug[] = "Во время SQL запроса произошла ошибка, возвращено $textStd.";
+        return $resultStd;
+    }
+    $resources = $resources->fetchAll(PDO::FETCH_ASSOC);
+
+    // Сортировка
+    if ($group == 1) {
+        // TODO: напиши сортировку:
+        // Выше всего идут товары с тремя одинаковыми опциями
+        // Далее идут товары с двумя одинаковыми опциями
+        // В конце идут товары с одной одинаковой опцией
+    } else {
         // Сначала - с таким же форматом
         $resourcesWithSameFormat = [];
         foreach ($resources as $key => $val) {
@@ -251,7 +266,7 @@ function getPopularProductsParams() {
         // Потом - с форматом 2.1 НФ
         $resources2_1NF = [];
         foreach ($resources as $key => $val) {
-            if ($val['format'] == '2.1НФ') {
+            if ($val['format'] === '2.1НФ') {
                 $resources2_1NF[] = $val;
                 unset($resources[$key]);
             }
@@ -282,24 +297,28 @@ function getPopularProductsParams() {
 
                 break;
         }
+    }
 
-        $resources = array_column($resources, 'id');
+    $resources = array_column($resources, 'id');
+
+    if (in_array($group, [2, 3])) {
         // Добавление к отсортированным товарам двух товаров из кладочных смесей
         $resources = array_merge(['68082', '68083'], $resources);
-        // Объединение массива в строку
-        $resources = implode(',', $resources);
-
-        // Добавление в параметры строки с ресурсами
-        $resultSpecial['resources'] = $resources;
-        // Добавление в параметры сортировки - как в строке с ресурсами
-        $resultSpecial['sortby'] = "FIELD(msProduct.id, $resources)";
-
-        return $resultSpecial;
     }
+
+    // Объединение массива в строку
+    $resources = implode(',', $resources);
+
+    // Добавление строки с ресурсами в параметры
+    $resultSpecial['resources'] = $resources;
+    // Добавление в параметры сортировки - как в строке с ресурсами
+    $resultSpecial['sortby'] = "FIELD(msProduct.id, $resources)";
+
+    $debug[] = "Возвращено $textSpecial";
+    return $resultSpecial;
 }
 
 $debug = [];
-$params = getPopularProductsParams();
-
+$params = getPopularProductsParams($scriptProperties);
 $result = $modx->runSnippet('msProducts', $params);
 echo $result;
