@@ -1,8 +1,8 @@
 <?php
 
 if (!function_exists('getSqlQuery')) {
-    function getSqlQuery($where) {
-        return "SELECT `msProduct`.id
+    function getSqlQuery($where, $prodId) {
+        return "SELECT `msProduct`.id, `Options`.`value` as format
                 FROM `modx_site_content` AS `msProduct`
                 -- Присоединяем опции
                 JOIN `modx_ms2_product_options` `Options` ON `msProduct`.`id` =  `Options`.`product_id`
@@ -18,9 +18,12 @@ if (!function_exists('getSqlQuery')) {
                 -- А еще, чтобы они были опубликованы. И не удалены
                 AND `msProduct`.`published` = 1
                 AND `msProduct`.`deleted` = 0
+                AND `msProduct`.`id` <> $prodId
                 
                 GROUP BY msProduct.id
                 ORDER BY `msProduct`.menuindex
+                
+                -- 40, а не 42, потому что потом в самое начало добаляются 2 товара из кладочных смесей
                 LIMIT 40";
     }
 }
@@ -152,7 +155,7 @@ function getPopularProductsParams() {
     // Определение параметров в зависимости от группы
     switch ($group) {
         case 1:
-            // Группа 1 - товары с таким же цветом, оттенком, поверхностью. Если какая-либо опция у текущего товара не задана, то она выпадет из условия "И"
+            // Группа 1 - товары с таким же цветом, оттенком, поверхностью. Если какая-либо опция у текущего товара не задана, то она выпадет из условия "И". Сортировка - чем больше полей заполнено, тем выше приоритет
             $cvet = $product->get('cvet');
             $ottenok = $product->get('ottenok');
             $surface = $product->get('surface');
@@ -169,20 +172,6 @@ function getPopularProductsParams() {
                 $optionFilters['surface:IN'] = $surface;
             }
 
-            /*
-            $count = 0;
-            foreach ($optionFilters as $key => $val) {
-                $count++;
-                if ($count == 1) {
-                    continue;
-                }
-
-                // Вроде бы "AND" не работает в optionFilters. Нужно переписывать на обычном where. Но пока это не требуется
-                $optionFilters['AND:' . $key] = $val;
-                unset($optionFilters[$key]);
-            }
-            */
-
             if (!empty($optionFilters)) {
                 $optionFilters = json_encode($optionFilters, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                 $resultSpecial['optionFilters'] = $optionFilters;
@@ -196,37 +185,42 @@ function getPopularProductsParams() {
 
             break;
         case 2:
-            // Группа 2 - два товара из кладочных смесей; товары с таким же форматом и товары с форматом "2.1 НФ", но из категорий для группы 5 (т.к. в группе 4 нет товаров с таким форматом)
+            // Группа 2 - два товара из кладочных смесей; товары с таким же форматом и товары с форматом "2.1 НФ", но из категорий для группы 3 (т.к. в группе 4 нет товаров с таким форматом)
             if (!empty($format)) {
                 $where = "(
-                          (`Options`.`key` = 'format' AND `Options`.`value` IN ('$format[0]') AND `msProduct`.parent = 37608)
+                          (`Options`.`key` = 'format' AND `Options`.`value` = '$format[0]' AND `msProduct`.parent = 37608)
                           OR
-                          (`Options`.`key` = 'format' AND `Options`.`value` IN ('2.1НФ') AND `msProduct`.parent = 19848)
+                          (`Options`.`key` = 'format' AND `Options`.`value` = '2.1НФ' AND `msProduct`.parent = 19848)
                           )";
             } else {
-                $where = "(`Options`.`key` = 'format' AND `Options`.`value` IN ('2.1НФ') AND `msProduct`.parent = 19848)";
+                $where = "(`Options`.`key` = 'format' AND `Options`.`value` = '2.1НФ' AND `msProduct`.parent = 19848)";
             }
 
             break;
         case 3:
-            // Группа 3 - два товара из кладочных смесей; товары с таким же форматом и товары с форматом, который отличается на 1 от формата текущего товара
+            // Группа 3 - два товара из кладочных смесей; товары с таким же форматом, товары с форматом "2.1 НФ" и товары с форматом, который отличается на 1 от формата текущего товара
             if (!empty($format)) {
                 // Вся работа будет с самым первым элементом format
                 $formatString = $format[0];
                 // Заменяем запятые на точки, если запятые есть
                 $formatString = str_replace(',', '.', $formatString);
-                // Получаем число из текстового значения опции format
-                preg_match('/[0-9]+((\.[0-9])?[0-9]*)?/', $formatString, $formatNum);
-                if (empty($formatNum)) {
-                    $debug[] = "Не удалось получить число из текстового значения опции format ($formatString), чтобы найти товары, которые отличаются на 1 от текущего товара.";
 
-                    $where = "(`Options`.`key` = 'format' AND `Options`.`value` IN ('$format[0]', '$formatNumPlusText', '$formatNumMinusText') AND `msProduct`.parent = 19848)";
+                // Получаем число из текстового значения опции format
+                //preg_match('/[0-9]+((\.[0-9])?[0-9]*)?/', $formatString, $formatNum);
+                $formatNum = floatval($formatString);
+
+                if (empty($formatNum)) {
+                    $debug[] = "Не удалось получить число из текстового значения опции format ($formatString), чтобы найти товары, которые отличаются на 1 от format текущего товара. Либо это число равно 0.";
+
+                    $where = "(`Options`.`key` = 'format' AND `Options`.`value` = '$format[0]') AND `msProduct`.parent = 19848)";
                 } else {
-                    $formatNum = $formatNum[0];
+                    //$formatNum = $formatNum[0];
                     $debug[] = "Удалось получить число ($formatNum) из текстового значения опции format ($formatString).";
-                    $formatNumPlus = $formatNum + 1;
-                    $formatNumMinus = $formatNum - 1;
-                    $where = "((`Options`.`key` = 'format' AND ((CAST(`Options`.`value` AS DECIMAL(4,3) >= ) >= '$formatNumMinus') AND (CAST(`Options`.`value` AS DECIMAL(4,3) <= '$formatNumPlus') AND `msProduct`.parent = 19848)";
+
+                    $formatNumPlus = str_replace(',', '.', $formatNum + 1);
+                    $formatNumMinus = str_replace(',', '.', $formatNum - 1);
+
+                    $where = "(`Options`.`key` = 'format' AND ((`Options`.`value` = '2.1НФ') OR ((CAST(`Options`.`value` AS DECIMAL(4,2)) >= $formatNumMinus)) AND (CAST(`Options`.`value` AS DECIMAL(4,2)) <= $formatNumPlus))) AND `msProduct`.parent = 19848";
                 }
             }
 
@@ -234,7 +228,7 @@ function getPopularProductsParams() {
     }
 
     if (in_array($group, [2, 3])) {
-        $query = getSqlQuery($where);
+        $query = getSqlQuery($where, $prodId);
 
         // Запуск SQL запроса и обработка результатов
         $resources = $modx->query($query);
@@ -243,14 +237,61 @@ function getPopularProductsParams() {
             return $resultStd;
         }
         $resources = $resources->fetchAll(PDO::FETCH_ASSOC);
-        $resources = array_column($resources, 'id');
 
-        // Добавление к полученным товарам 2 кладочные смеси
+        // Сортировка
+        // Сначала - с таким же форматом
+        $resourcesWithSameFormat = [];
+        foreach ($resources as $key => $val) {
+            if ($val['format'] === $format[0]) {
+                $resourcesWithSameFormat[] = $val;
+                unset($resources[$key]);
+            }
+        }
+
+        // Потом - с форматом 2.1 НФ
+        $resources2_1NF = [];
+        foreach ($resources as $key => $val) {
+            if ($val['format'] == '2.1НФ') {
+                $resources2_1NF[] = $val;
+                unset($resources[$key]);
+            }
+        }
+
+        // Далее - зависит от группы
+        switch ($group) {
+            case 2:
+                // Для группы 2 сортировка больше не нужна. Добавляем $resources2_1NF в конец массива $resourcesWithSameFormat
+                $resources = array_merge($resourcesWithSameFormat, $resources2_1NF);
+
+                break;
+            case 3:
+                // Далее - с наиболее близким форматом
+                // Получаем разницу по модулю
+                $resourcesAbs = [];
+                foreach ($resources as $key => $val) {
+                    $resourcesAbs[$key] = $val;
+                    $resourcesAbs[$key]['abs'] = abs($formatNum - floatval($val['format']));
+                }
+                // Сортируем по разнице по модулю
+                usort($resourcesAbs, function ($a, $b) {
+                    return strcmp($a['abs'], $b['abs']);
+                });
+
+                // Объединяем массивы
+                $resources = array_merge($resourcesWithSameFormat, $resources2_1NF, $resourcesAbs);
+
+                break;
+        }
+
+        $resources = array_column($resources, 'id');
+        // Добавление к отсортированным товарам двух товаров из кладочных смесей
         $resources = array_merge(['68082', '68083'], $resources);
+        // Объединение массива в строку
         $resources = implode(',', $resources);
 
-        // Сортировка так, чтобы кладочные смеси были в самом начале
-        $resultSpecial['resources'] = $resources . ',-' . $prodId;
+        // Добавление в параметры строки с ресурсами
+        $resultSpecial['resources'] = $resources;
+        // Добавление в параметры сортировки - как в строке с ресурсами
         $resultSpecial['sortby'] = "FIELD(msProduct.id, $resources)";
 
         return $resultSpecial;
