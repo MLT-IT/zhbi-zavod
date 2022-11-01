@@ -40,8 +40,8 @@
         ]}
     {/if}
 
+    {include "file:sections/popular/sect-pop.tpl" resources=$resources}
     {include "file:sections/districts-map.tpl"}
-    {include "file:sections/popular/sect-pop.tpl" title="Рекомендуем также" resources=$resources}
     {include "file:sections/recent.tpl"}
     {include "file:sections/faq.tpl"}
     {include "file:sections/payment.tpl"}
