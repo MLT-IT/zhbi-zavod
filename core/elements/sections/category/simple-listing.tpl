@@ -27,7 +27,7 @@
     </div>
 
     {'!AjaxForm' | snippet : [
-        'hooks' => 'create_request,create_bitrix_lead',
+        'hooks' => 'create_request,create_bitrix_lead,create_calltouch_lead',
         'snippet' => 'FormIt',
         'form' => '@FILE sections/catalog/catalog-banner.tpl',
         'customValidators' => 'checkPhone,check_request',
