@@ -1,5 +1,7 @@
 <?php
 
+// TODO: напиши кеширование
+
 function getPopularProductsParams($scriptProperties) {
     // Определение основных переменных
     global $debug;
@@ -126,21 +128,19 @@ function getPopularProductsParams($scriptProperties) {
     // Определение параметров в зависимости от группы
     switch ($group) {
         case 1:
-            // TODO: тут надо IN, а не = [0]
             // Группа 1 - товары с таким же цветом, оттенком, поверхностью. Сортировка - чем больше полей заполнено, тем выше приоритет
-            $cvet = $product->get('cvet');
-            $ottenok = $product->get('ottenok');
-            $surface = $product->get('surface');
-
             $where = [];
-            if (!empty($cvet)) {
-                $where[] = "(`cvet`.`value` = '$cvet[0]')";
-            }
-            if (!empty($ottenok)) {
-                $where[] = "(`ottenok`.`value` = '$ottenok[0]')";
-            }
-            if (!empty($surface)) {
-                $where[] = "(`surface`.`value` = '$surface[0]')";
+            $optionsValues = ['cvet' => $product->get('cvet'), 'ottenok' => $product->get('ottenok'), 'surface' => $product->get('surface')];
+            foreach ($optionsValues as $key => $val) {
+                if (!empty($val)) {
+                    // Добавляем кавычки в каждый элемент конкретной опции
+                    $tmpValue = array_map(function ($v) {
+                        return "'$v'";
+                    }, $val);
+
+                    // Добавляем элементы в where
+                    $where[] = "(`$key`.`value` IN (" . implode(',', $tmpValue) . "))";
+                }
             }
 
             if (!empty($where)) {
@@ -253,6 +253,37 @@ function getPopularProductsParams($scriptProperties) {
         // Выше всего идут товары с тремя одинаковыми опциями
         // Далее идут товары с двумя одинаковыми опциями
         // В конце идут товары с одной одинаковой опцией
+        // Товаров без одинаковых опций здесь не может быть (они бы не выбрались из БД)
+
+        // Многомерный массив с отсортированными ресурсами
+        $resourcesSorted = [1 => [], 2 => [], 3 => []];
+
+        // Цикл для сортировки ресурсов
+        // TODO: Опции текущего товара выбираются из БД все. А вот опции популярных товаров - не все. Но пока можно и без всех обойтись
+        foreach ($resources as $resValues) {
+            // Приоритет. Чем ниже значение, тем ближе к началу будет ресурс
+            $priorityCounter = 4;
+
+            // Определяем приоритет по кол-ву соответствий в опциях
+            foreach ($optionsValues as $key => $val) {
+                // Конвертируем все в нижний регистр
+                $tmpVal = mb_strtolower($resValues[$key]);
+                $tmpArr = array_map(function($val) {
+                    return mb_strtolower($val);
+                }, $optionsValues[$key]);
+
+                // Проверяем
+                if (in_array($tmpVal, $tmpArr)) {
+                    $priorityCounter--;
+                }
+            }
+
+            // Заносим в массив с соответствующим приоритетом
+            $resourcesSorted[$priorityCounter][] = $resValues;
+        }
+
+        // Объединяем массив с приоритетами в один
+        $resources = array_merge($resourcesSorted[1], $resourcesSorted[2], $resourcesSorted[3]);
     } else {
         // Сначала - с таким же форматом
         $resourcesWithSameFormat = [];
