@@ -186,18 +186,26 @@ function init(yandexMetrikaId) {
     // -------------------------------
     let $zoomImg = $('.zoom-here');
     if ($zoomImg.length) {
-        $zoomImg.css('background-image', 'url(' + $zoomImg.find('img').attr('src') + ')');
+        $zoomImg.css('background-image', 'url("' + $zoomImg.find('img').attr('src') + '")');
         $zoomImg.mousemove(function (e) {
             let zoomer = e.currentTarget;
             let offsetX, offsetY;
+            let x, y = null;
 
-            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
-            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
-            let x = offsetX / zoomer.offsetWidth * 100;
-            let y = offsetY / zoomer.offsetHeight * 100;
+            if (e.offsetX) {
+                offsetX = e.offsetX;
+                x = offsetX / zoomer.offsetWidth * 100;
+            }
 
-            zoomer.style.backgroundPosition = x + '% ' + y + '%';
-            zoomer.style.backgroundSize = 200 + '%';
+            if (e.offsetY) {
+                offsetY = e.offsetY;
+                y = offsetY / zoomer.offsetHeight * 100;
+            }
+
+            if (x !== null && y !== null) {
+                zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                zoomer.style.backgroundSize = 200 + '%';
+            }
         });
     }
 
