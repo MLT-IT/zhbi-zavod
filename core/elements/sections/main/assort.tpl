@@ -25,16 +25,29 @@
             </div>
             {set $isFirst = true}
             {foreach $items as $key => $val}
-                <div data-tab="{$val['id']}" class="assort__content{if $isFirst?} active{/if}">
+                {if $val['id'] in list ['assort-soputtovary']}
+                    {set $contentAdditionalClass = ' columns-3'}
+                {else}
+                    {set $contentAdditionalClass = ' columns-2'}
+                {/if}
+
+                <div data-tab="{$val['id']}" class="assort__content{$contentAdditionalClass}{if $isFirst?} active{/if}">
                     {foreach $val['items'] as $title => $item}
+                        {set $titleAdditionalClass = ''}
+                        {if !$item['img']}
+                            {set $titleAdditionalClass = ' equal-margins'}
+                        {/if}
+
                         <div class="assort__item">
-                            <div class="assort__item-img-wrap">
-                                <img class="assort__item-img" src="{$item['img']}" alt="">
-                            </div>
+                            {if $item['img']?}
+                                <div class="assort__item-img-wrap">
+                                    <img class="assort__item-img" src="{$item['img']}" alt="">
+                                </div>
+                            {/if}
                             {if $item['uri']?}
-                                <a href="{$item['uri']}" class="assort__item-title">{$title}</a>
+                                <a href="{$item['uri']}" class="assort__item-title{$titleAdditionalClass}">{$title}</a>
                             {else}
-                                <span class="assort__item-title">{$title}</span>
+                                <span class="assort__item-title{$titleAdditionalClass}">{$title}</span>
                             {/if}
                             <div class="assort__item-links-wrap">
                                 {foreach $item['links'] as $linkTitle => $linkUri}

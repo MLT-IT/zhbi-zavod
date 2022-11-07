@@ -73,9 +73,6 @@
             top: 50%
             +set-colors_1(border-color)
 
-    &__content
-        margin-bottom: -16px
-
     &__sidebar
         flex-grow: 1
         max-width: 288px
@@ -226,11 +223,22 @@
         color: #323232
         transition: .3s
 
+        &.equal-margins
+            margin-top: 4px
+
     &__item-links-wrap
         display: flex
         flex-wrap: wrap
         flex-direction: column
         align-items: flex-start
+
+    &__content
+        margin-bottom: -16px
+
+        &.columns-3
+            @media screen and (min-width: 881px)
+                margin-left: -6px
+                width: calc(100% + 12px)
 
     &__item
         padding: 8px 8px 4px
@@ -239,20 +247,38 @@
         width: calc(50% - 12px)
         margin-bottom: 16px
 
-        @media screen and (max-width: 992px)
-            width: calc(50% - 8px)
+        @at-root .columns-3 &
+            // 3 столбца
+            @media screen and (min-width: 881px)
+                width: calc(33.33% - 8px)
+
+                &:nth-child(3n), &:nth-child(3n - 2)
+                    margin-left: 6px
+                    margin-right: 6px
+
+            // 2 столбца
+            @media screen and (max-width: 880px) and (min-width: 701px)
+                width: calc(50% - 8px)
+
+                &:nth-of-type(odd)
+                    margin-right: 15px
+
+        @at-root .columns-2 &
+            // 2 столбца
+            @media screen and (min-width: 993px)
+                width: calc(50% - 12px)
+
+                &:nth-of-type(odd)
+                    margin-right: 24px
+
+            @media screen and (max-width: 992px) and (min-width: 701px)
+                width: calc(50% - 8px)
+
+                &:nth-of-type(odd)
+                    margin-right: 15px
 
         @media screen and (max-width: 700px)
             width: 100%
-
-        &:nth-of-type(odd)
-            margin-right: 24px
-
-            @media screen and (max-width: 992px)
-                margin-right: 15px
-
-            @media screen and (max-width: 700px)
-                margin-right: 0
 
     &__item-img
         width: 100%
@@ -276,6 +302,8 @@
 
         @media screen and (max-width: 500px)
             width: 100%
+
+
 
     &__svg
         width: 24px

@@ -362,7 +362,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     'items' => [
                         'Комплектующие для кровли' => [
                             'uri' => '/komplektuyushhie/',
-                            'img' => '/assets/images/products/65536/small/3df873b3018cca70330c984108f948af.jpg',
+                            //'img' => '/assets/images/products/65536/small/3df873b3018cca70330c984108f948af.jpg',
                             'links' => [
                                 'Дымоходы' => '/dymohody-v-sankt-peterburge/',
                                 'Корректор для ремонта царапин' => '/korrektor-dlya-remonta-carapin-v-sankt-peterburge/',
@@ -379,43 +379,43 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Саморезы' => [
                             'uri' => '/samorezyi-grand-line-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58387/small/1e171498dc0619851e4d8d45ed3d9711.jpg',
+                            //'img' => '/assets/images/products/58387/small/1e171498dc0619851e4d8d45ed3d9711.jpg',
                             'links' => [
                             ]
                         ],
                         'Доборные элементы' => [
                             'uri' => '/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58386/small/f9b858e208bab99b98588745a0f1a670.jpg',
+                            //'img' => '/assets/images/products/58386/small/f9b858e208bab99b98588745a0f1a670.jpg',
                             'links' => [
                             ]
                         ],
                         'Элементы безопасности кровли' => [
                             'uri' => '/ehlementy-bezopasnosti-krovli-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/66075/small/270a21edc6d1c19e822252c295a16a70.jpg',
+                            //'img' => '/assets/images/products/66075/small/270a21edc6d1c19e822252c295a16a70.jpg',
                             'links' => [
                             ]
                         ],
                         'Кожух на трубу' => [
                             'uri' => '/kozhuh-na-trubu-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/59982/small/71b31bd229d16cfb1d2055fcc54e96f5.jpg',
+                            //'img' => '/assets/images/products/59982/small/71b31bd229d16cfb1d2055fcc54e96f5.jpg',
                             'links' => [
                             ]
                         ],
                         'Дымники (флюгарка)' => [
                             'uri' => '/dyimniki-flyugarka-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58927/small/1f5dbb9457863b3a49ebd41a933c31e3.jpg',
+                            //'img' => '/assets/images/products/58927/small/1f5dbb9457863b3a49ebd41a933c31e3.jpg',
                             'links' => [
                             ]
                         ],
                         'Софиты' => [
                             'uri' => '/sofity-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58479/small/e5d77003d8487e484bb300f40c300d19.jpg',
+                            //'img' => '/assets/images/products/58479/small/e5d77003d8487e484bb300f40c300d19.jpg',
                             'links' => [
                             ]
                         ],
                         'Окна' => [
                             'uri' => '/okna-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58755/small/0bd368ace23ae89283137faabb0d6f5a.jpg',
+                            //'img' => '/assets/images/products/58755/small/0bd368ace23ae89283137faabb0d6f5a.jpg',
                             'links' => [
                             ]
                         ],
@@ -427,13 +427,13 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Входные двери' => [
                             'uri' => '/vhodnye-dveri-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/58837/small/4f0c3cad6b68f81ca2ba2ad3e8c6bf4a.jpg',
+                            //'img' => '/assets/images/products/58837/small/4f0c3cad6b68f81ca2ba2ad3e8c6bf4a.jpg',
                             'links' => [
                             ]
                         ],
                         'Лестницы чердачные' => [
                             'uri' => '/lestnicy-cherdachnye-v-sankt-peterburge/',
-                            'img' => '/assets/images/products/61660/small/0181db1486eac483deae4b5d60ec1e49.jpg',
+                            //'img' => '/assets/images/products/61660/small/0181db1486eac483deae4b5d60ec1e49.jpg',
                             'links' => [
                                 'Деревянные лестницы' => '/derevyannye-lestnicy-fakro/',
                                 'Металлические лестницы' => '/metallicheskie-lestnicy-fakro/',
@@ -445,13 +445,13 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Козырьки Krovent из поликарбоната' => [
                             'uri' => '/kozyrki-iz-polikarbonata-krovent/',
-                            'img' => '/assets/template/tpl-imgs/krovent.jpg',
+                            //'img' => '/assets/template/tpl-imgs/krovent.jpg',
                             'links' => [
                             ]
                         ],
                         'Флюгеры DUCK & DOG' => [
                             'uri' => '/flyugery-duck-dog/',
-                            'img' => '/assets/template/tpl-imgs/DuckDog.png',
+                            //'img' => '/assets/template/tpl-imgs/DuckDog.png',
                             'links' => [
                             ]
                         ]
