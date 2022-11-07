@@ -228,15 +228,23 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Технониколь Шинглас' => '/myagkaya-cherepica-tehnonikol-shinglas/',
                             ]
                         ],
-
-                        'Рулонная кровля' => [
-                            'uri' => '/rulonnaya-krovlya/',
-                            'img' => '/assets/template/img/assort/krovlya/rulonnayakrovlya.jpg',
+                    ]
+                ],
+                'Рулонная кровля' => [
+                    'id' => 'assort-rulon-krovlya',
+                    'items' => [
+                        'Наплавляемая кровля' => [
+                            'uri' => '/rulonnaya-krovlya-tehnonikol/',
+                            'img' => '/assets/template/img/assort/rulonnayakrovlya.jpg',
                             'links' => [
-                                'Наплавляемая кровля' => '/rulonnaya-krovlya-tehnonikol/',
-                                'ПВХ мембраны' => '/pvh-membrany/',
                             ]
                         ],
+                        'ПВХ мембраны' => [
+                            'uri' => '/pvh-membrany/',
+                            'img' => '/assets/template/img/assort/krovlya/pvh-membrany.jpg',
+                            'links' => [
+                            ]
+                        ]
                     ]
                 ],
                 'ЦПЧ и натуральная черепица' => [
@@ -288,7 +296,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Профнастил для кровли Металл-Профиль' => '/proflist-metall-profil/',
                             ]
                         ],
-
                         'Профилированный лист для забора' => [
                             'uri' => '/profilirovannyy-list-dlya-zabora/',
                             'img' => '/assets/template/img/assort/krovlya/profnastil-dlya-zabora.jpg',
@@ -297,7 +304,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Профнастил для забора Металл-Профиль' => '/profilirovannyj-list-dlya-zabora-metall-profil/',
                             ]
                         ],
-
                         'Штакетник' => [
                             'uri' => '/shtaketnik/',
                             'img' => '/assets/template/img/assort/krovlya/shtaketnik.jpg',
@@ -323,7 +329,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Металлические водосточные системы' => [
                             'uri' => '/vodostochnaya-sistema/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB',
-                            'img' => '/assets/template/img/assort/krovlya/plastikovye-truby.jpg',
+                            'img' => '/assets/template/img/assort/krovlya/vodostochnayasistema.jpg',
                             'links' => [
                                 'Aquasystem' => '/vodostochnaya-sistema/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB&msoption|proizvoditel=Aquasystem',
                                 'Braas' => '/vodostochnaya-sistema/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB&msoption|proizvoditel=Braas',
