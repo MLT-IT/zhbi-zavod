@@ -83,8 +83,6 @@
           <link rel="stylesheet" href="{$_modx->config['template_path']}css/preloader.css">
         {/if}
     {/block}
-
-    <script src="//code.jivo.ru/widget/9J1gSPDmWh" async></script>
 </head>
 <body id="body" class="{$site_class}{if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']} have-preloader{/if}" data-ctx="{$_modx->resource.context_key}">
     {block 'body'}{/block}
