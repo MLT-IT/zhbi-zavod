@@ -264,14 +264,14 @@
                         <div class="custom-select-wrap">
                           <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                             <div class="euv-custom-select__input">
-                              <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}</span>
+                              <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}<span class="euv-custom-select__small-text">{$_modx->resource['vid-poverhnosti'][0]}</span></span>
                             </div>
                             <span class="euv-custom-select__btn"></span>
                             <div class="euv-custom-select__options-wrap">
                               <div class="euv-custom-select__options-wrap-scroll">
                                   {foreach $linksData.pokrytie as $id => $val}
                                     <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                        {$val}
+                                        {$val} <span class="euv-custom-select__small-text">{$linksData['vid-poverhnosti'][$id]}</span>
                                     </a>
                                   {/foreach}
                               </div>
