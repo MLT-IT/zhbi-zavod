@@ -407,9 +407,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                             ]
                         ],
-
-
-
                         'Саморезы' => [
                             'uri' => '/samorezyi-grand-line-v-sankt-peterburge/',
                             //'img' => '/assets/images/products/58387/small/1e171498dc0619851e4d8d45ed3d9711.jpg',
@@ -422,11 +419,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                             ]
                         ],
-
-
-
-
-
                         'Антисептик и огнебиозащита древесины' => [
                             'uri' => '/antiseptik-i-ognebiozashhita-drevesinyi/',
                             'img' => '/assets/images/products/58821/small/117a70a48d0bdf186ee2f00de68dca5a.jpg',

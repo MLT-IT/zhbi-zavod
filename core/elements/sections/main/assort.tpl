@@ -26,9 +26,9 @@
             {set $isFirst = true}
             {foreach $items as $key => $val}
                 {if $val['id'] in list ['assort-soputtovary']}
-                    {set $contentAdditionalClass = ' columns-3'}
+                    {set $contentAdditionalClass = ' columns-css'}
                 {else}
-                    {set $contentAdditionalClass = ' columns-2'}
+                    {set $contentAdditionalClass = ' columns-flex'}
                 {/if}
 
                 <div data-tab="{$val['id']}" class="assort__content{$contentAdditionalClass}{if $isFirst?} active{/if}">

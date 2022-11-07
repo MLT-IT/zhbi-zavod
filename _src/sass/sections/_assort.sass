@@ -102,16 +102,8 @@
         transition: .3s
         font-size: 16px
 
-        &[data-tab="фасадный-декор"]::before
-            background-image: url(/assets/template/img/svg-sprite/assort-dekor.svg)
-        &[data-tab="искусственный-и-натуральный-камень"]::before
-            background-image: url(/assets/template/img/svg-sprite/assort-kamen.svg)
-        &[data-tab="кирпич"]::before
-            background-image: url(/assets/template/img/svg-sprite/assort-kirpich.svg)
-        &[data-tab="фасадная-плитка--отделка"]::before
-            background-image: url(/assets/template/img/svg-sprite/assort-plitka.svg)
-        &[data-tab="кладочные-смеси"]::before
-            background-image: url(/assets/template/img/svg-sprite/assort-smesi.svg)
+        @media screen and (max-width: 700px) and (min-width: 501px)
+            font-size: 12px
 
         &[data-tab="assort-kirpich"],
         &[data-tab="assort-plitka"],
@@ -235,13 +227,19 @@
     &__content
         margin-bottom: -16px
 
-        &.columns-3
+        &.columns-css
+            @media screen and (min-width: 701px)
+                column-gap: 8px
+                margin-bottom: 0
+
             @media screen and (min-width: 881px)
                 column-count: 3
-                column-gap: 8px
 
-        &.columns-3.active
-            @media screen and (min-width: 881px)
+            @media screen and (max-width: 880px) and (min-width: 701px)
+                column-count: 2
+
+        &.columns-css.active
+            @media screen and (min-width: 701px)
                 display: block
 
     &__item
@@ -250,20 +248,13 @@
         border-radius: 8px
         margin-bottom: 16px
 
-        @at-root .columns-3 &
-            @media screen and (min-width: 881px)
+        @at-root .columns-css &
+            @media screen and (min-width: 701px)
                 // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element
                 page-break-inside: avoid
                 break-inside: avoid-column
 
-            // 2 столбца
-            @media screen and (max-width: 880px) and (min-width: 701px)
-                width: calc(50% - 8px)
-
-                &:nth-of-type(odd)
-                    margin-right: 15px
-
-        @at-root .columns-2 &
+        @at-root .columns-flex &
             // 2 столбца
             @media screen and (min-width: 993px)
                 width: calc(50% - 12px)
