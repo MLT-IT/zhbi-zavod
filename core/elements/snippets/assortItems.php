@@ -377,18 +377,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Плоский лист' => '/ploskiy-list-v-sankt-peterburge/',
                             ]
                         ],
-                        'Саморезы' => [
-                            'uri' => '/samorezyi-grand-line-v-sankt-peterburge/',
-                            //'img' => '/assets/images/products/58387/small/1e171498dc0619851e4d8d45ed3d9711.jpg',
-                            'links' => [
-                            ]
-                        ],
-                        'Доборные элементы' => [
-                            'uri' => '/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/',
-                            //'img' => '/assets/images/products/58386/small/f9b858e208bab99b98588745a0f1a670.jpg',
-                            'links' => [
-                            ]
-                        ],
                         'Элементы безопасности кровли' => [
                             'uri' => '/ehlementy-bezopasnosti-krovli-v-sankt-peterburge/',
                             //'img' => '/assets/images/products/66075/small/270a21edc6d1c19e822252c295a16a70.jpg',
@@ -419,6 +407,26 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                             ]
                         ],
+
+
+
+                        'Саморезы' => [
+                            'uri' => '/samorezyi-grand-line-v-sankt-peterburge/',
+                            //'img' => '/assets/images/products/58387/small/1e171498dc0619851e4d8d45ed3d9711.jpg',
+                            'links' => [
+                            ]
+                        ],
+                        'Доборные элементы' => [
+                            'uri' => '/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/',
+                            //'img' => '/assets/images/products/58386/small/f9b858e208bab99b98588745a0f1a670.jpg',
+                            'links' => [
+                            ]
+                        ],
+
+
+
+
+
                         'Антисептик и огнебиозащита древесины' => [
                             'uri' => '/antiseptik-i-ognebiozashhita-drevesinyi/',
                             'img' => '/assets/images/products/58821/small/117a70a48d0bdf186ee2f00de68dca5a.jpg',

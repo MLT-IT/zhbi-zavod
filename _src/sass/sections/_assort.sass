@@ -237,24 +237,24 @@
 
         &.columns-3
             @media screen and (min-width: 881px)
-                margin-left: -6px
-                width: calc(100% + 12px)
+                column-count: 3
+                column-gap: 8px
+
+        &.columns-3.active
+            @media screen and (min-width: 881px)
+                display: block
 
     &__item
         padding: 8px 8px 4px
         border: 1px solid #F0F0F0
         border-radius: 8px
-        width: calc(50% - 12px)
         margin-bottom: 16px
 
         @at-root .columns-3 &
-            // 3 столбца
             @media screen and (min-width: 881px)
-                width: calc(33.33% - 8px)
-
-                &:nth-child(3n), &:nth-child(3n - 2)
-                    margin-left: 6px
-                    margin-right: 6px
+                // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element
+                page-break-inside: avoid
+                break-inside: avoid-column
 
             // 2 столбца
             @media screen and (max-width: 880px) and (min-width: 701px)
