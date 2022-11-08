@@ -170,7 +170,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     'id' => 'assort-ondulin',
                     'items' => [
                         'Черепица Ондулин' => [
-                            'uri' => '/ondulin/',
+                            'uri' => '/cherepica-ondulin/',
                             'img' => '/assets/template/img/assort/krovlya/ondulin-cerepica.jpg',
                             'links' => [
                             ]
@@ -421,7 +421,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Антисептик и огнебиозащита древесины' => [
                             'uri' => '/antiseptik-i-ognebiozashhita-drevesinyi/',
-                            'img' => '/assets/images/products/58821/small/117a70a48d0bdf186ee2f00de68dca5a.jpg',
+                            //'img' => '/assets/images/products/58821/small/117a70a48d0bdf186ee2f00de68dca5a.jpg',
                             'links' => [
                             ]
                         ],
