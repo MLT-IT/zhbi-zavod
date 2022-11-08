@@ -395,12 +395,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                             ]
                         ],
-                        'Софиты' => [
-                            'uri' => '/sofity-v-sankt-peterburge/',
-                            //'img' => '/assets/images/products/58479/small/e5d77003d8487e484bb300f40c300d19.jpg',
-                            'links' => [
-                            ]
-                        ],
                         'Окна' => [
                             'uri' => '/okna-v-sankt-peterburge/',
                             //'img' => '/assets/images/products/58755/small/0bd368ace23ae89283137faabb0d6f5a.jpg',
