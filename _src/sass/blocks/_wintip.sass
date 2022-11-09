@@ -1,0 +1,27 @@
+.wintip
+    position: absolute
+    background-color: #f0f0f0
+    padding: 10px
+    padding-top: 6px
+    margin-left: -10px
+    margin-top: 30px
+    z-index: 100
+    max-width: 308px
+    transition: opacity .350s
+
+    opacity: 0
+    top: -99999px
+    left: -99999px
+
+    &.visible
+        opacity: 1
+
+    &::after
+        display: block
+        content: ""
+        border-left: 8px solid transparent
+        border-right: 8px solid transparent
+        border-bottom: 8px solid #f0f0f0
+        top: 0
+        position: absolute
+        transform: translateY(-100%)

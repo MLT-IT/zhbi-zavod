@@ -116,17 +116,13 @@
             line-height: 1.2
             transition: 0.3s
 
-            @at-root .filter-option__tip.open &, &:hover
+            @at-root .filter-option__tip.active &, &:hover
                 +set_colors_1(background-color)
                 +set_colors_1(border-color)
                 color: #fff
 
             &::before
                 content: '?'
-                display: block
-
-        &.open
-            .filter-option__tip-text
                 display: block
 
         &-text

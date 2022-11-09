@@ -10,9 +10,7 @@
     {set $dataVal = $title | toLowerAndRemoveChars}
 {/if}
 
-{insert "file:/chunks/filterOptionsTips.tpl"}
-
-<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}" {if $dataVal?}data-val="{$dataVal}"{/if}>
+<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
   <a href="{$_modx->resource.id | url}?[[+filter_key]]=[[+value]]" class="filter-option__link">
       <label for="mse2_{$key}_{$idx}" class="filter-option__label">
           <span class="custom-checkbox filter-option__checkbox">
@@ -25,18 +23,11 @@
           </span>
       </label>
   </a>
-    {if $text ?}
-        <div class="filter-option__tip">
-            <span class="filter-option__tip-icon"></span>
-            <div class="filter-option__tip-text">{$text}</div>
-        </div>
-    {/if}
-
-    {*
-    <sup class="filter-option__num">
-        {if $num?}
-            ({$num})
-        {/if}
-    </sup>
-    *}
+  {*
+  <sup class="filter-option__num">
+      {if $num?}
+          ({$num})
+      {/if}
+  </sup>
+  *}
 </div>

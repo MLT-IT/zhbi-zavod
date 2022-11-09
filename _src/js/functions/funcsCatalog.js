@@ -384,27 +384,78 @@ function init() {
     // -------------------------------------------
     // Подсказка в чекбоксах в фильтрах
     // -------------------------------------------
-    $(document).on('click', '.filter-option__tip', function (e) {
-        let $this = $(this);
-        $('.filter-option__tip.open').not($this).removeClass('active');
-        $this.toggleClass('active');
+    // Они есть только на кровле
+    if ($('body[data-ctx="krovlya"]').length) {
+        // Пытаемся загрузить JSON с подсказками из файла
+        $.getJSON('/assets/template/json/filters-tips.json', [], function (tipsData) {
+            // В анимации используется setTimeout. Анимация активируется при клике. Если быстро покликать, то могут быть глюки в анимации. Чтобы их не было, нужно очищать timeout. Чтобы очищать timeout, нужно где-то его хранить. Данная переменная нужна для этой цели
+            let animationTimeout = null;
 
-        let $winTip = $('.wintip');
-        if (!$winTip.length) {
-            $winTip = $('<div class="wintip"></div>').appendTo('body');
-        }
+            // Ищем фильтр с нужным ключом
+            for (const keyFilter in tipsData) {
+                let $fltr = $('.listing__filter-block[data-key="' + keyFilter + '"]');
+                // Если нашли, то...
+                if ($fltr.length) {
+                    for (const value in tipsData[keyFilter]) {
+                        // Ищем опцию с нужным ключом
+                        let $fltrVal = $fltr.find('.filter-option[data-value="' + value + '"]');
+                        // Если нашли, то...
+                        if ($fltrVal.length) {
+                            // Добавляем подсказку
+                            let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-text">' + tipsData[keyFilter][value] + '</div></div>');
+                            $fltrVal.append($tip);
+                        }
+                    }
+                }
+            }
 
-        if ($this.hasClass('active')) {
-            // TODO: замени текст
-            $winTip.text('Ну привет');
+            // Устанавливаем $winTip и добавляем его на страницу
+            let $winTip = $('<div class="wintip"></div>').appendTo('body');
 
-            $winTip.css('top', $this.offset().top);
-            $winTip.css('left', $this.offset().left);
-            $winTip.show();
-        } else {
-            $winTip.hide();
-        }
-    });
+            // Добавляем обработчик для клика по подсказке
+            $(document).on('click', '.filter-option__tip', function (e) {
+                let $this = $(this);
+                clearTimeout(animationTimeout);
+
+                $('.filter-option__tip.active').not(this).removeClass('active');
+                $this.toggleClass('active');
+
+                if ($this.hasClass('active')) {
+                    $winTip.text($this.find('.filter-option__tip-text').text());
+
+                    $winTip.css({
+                        'top': $this.offset().top,
+                        'left': $this.offset().left,
+                    });
+                    $winTip.addClass('visible');
+                } else {
+                    hideTip();
+                }
+            });
+
+            // Функция для скрывания подсказки
+            function hideTip() {
+                $winTip.removeClass('visible');
+                animationTimeout = setTimeout(function () {
+                        $winTip.css({
+                            'top': '',
+                            'left': '',
+                        });
+                    },
+                    // Если будешь менять это значение, то поменяй еще и у transition в SASS
+                    350);
+            }
+
+            // Вешаем обработчик на документ - клик по пустому месту должен скрывать подсказку
+            $(document).on('click', function (e) {
+                let $target = $(e.target);
+                if ($winTip.hasClass('visible') && !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip')) {
+                    $('.filter-option__tip.active').removeClass('active');
+                    hideTip();
+                }
+            });
+        });
+    }
 }
 
 
