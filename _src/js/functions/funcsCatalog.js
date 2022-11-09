@@ -169,7 +169,7 @@ function init() {
         $('.listing__reset-filters-action')[0].click();
     });
 
-    $('.listing__filter-option').on('click', function (e) {
+    $('.filter-option__link').on('click', function (e) {
         // Не знаю, почему, но на арматуре (ТОЛЬКО НА НЕЙ, что очень странно. На других контекстах все хорошо) при клике по фильтру (тегу а) срабатывает переход по ссылке, а не обработчик mSearch2. А на других контекстах - обработчик mSearch2, что приводит к применению фильтра. И этот баг вызывается только на боевом сайте (на локалке и на тестовом все работает). Данная строка помогают это исправить
         e.stopPropagation();
     });
@@ -379,6 +379,32 @@ function init() {
             }
         });
     }
+
+
+    // -------------------------------------------
+    // Подсказка в чекбоксах в фильтрах
+    // -------------------------------------------
+    $(document).on('click', '.filter-option__tip', function (e) {
+        let $this = $(this);
+        $('.filter-option__tip.open').not($this).removeClass('active');
+        $this.toggleClass('active');
+
+        let $winTip = $('.wintip');
+        if (!$winTip.length) {
+            $winTip = $('<div class="wintip"></div>').appendTo('body');
+        }
+
+        if ($this.hasClass('active')) {
+            // TODO: замени текст
+            $winTip.text('Ну привет');
+
+            $winTip.css('top', $this.offset().top);
+            $winTip.css('left', $this.offset().left);
+            $winTip.show();
+        } else {
+            $winTip.hide();
+        }
+    });
 }
 
 
