@@ -398,6 +398,7 @@ function init() {
         $.getJSON('/assets/template/json/filters-tips.json', [], function (tipsData) {
             // В анимации используется setTimeout. Анимация активируется при клике. Если быстро покликать, то могут быть глюки в анимации. Чтобы их не было, нужно очищать timeout. Чтобы очищать timeout, нужно где-то его хранить. Данная переменная нужна для этой цели
             let animationTimeout = null;
+            let positionTimeout = null;
 
             // Ищем фильтр с нужным ключом
             for (const keyFilter in tipsData) {
@@ -424,7 +425,6 @@ function init() {
                                 tipContent = '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' + cssBgValue + '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' + value + '</strong><span class="wintip__text">' + tipsData[keyFilter][value]['text'] + '</span></div></div>';
                             } else {
                                 tipContent = tipsData[keyFilter][value];
-                                console.log('tipsData[keyFilter]', tipsData[keyFilter][value]);
                             }
 
                             // Добавляем подсказку
@@ -447,17 +447,34 @@ function init() {
                 $this.toggleClass('active');
 
                 if ($this.hasClass('active')) {
+                    clearTimeout(positionTimeout);
                     $winTip.find('.wintip__content').html($this.find('.filter-option__tip-content').html());
 
-                    $winTip.css({
-                        'top': $this.offset().top,
-                        'left': $this.offset().left,
-                    });
                     $winTip.addClass('visible');
+                    // Я заметил, что если делать без timeout'а, то иногда неправильно определяется ширина winTip. Из-за этого неправильно выставляется положение на странице
+                    // Я вызываю setWinTipPosition 2 раза, чтобы пользователь не ждал 350 ms, чтобы увидеть winTip
+                    setWinTipPosition($this);
+                    positionTimeout = setTimeout(function () {
+                        setWinTipPosition($this)
+                    }, 350);
                 } else {
                     hideTip();
                 }
             });
+
+            // Функция для установки позиции подсказки
+            function setWinTipPosition($tip) {
+                let positionTop = $tip.offset().top;
+                let positionLeft = $tip.offset().left;
+                if (window.innerWidth <= 1200) {
+                    let winTipWidth = $winTip.outerWidth();
+                    positionLeft = positionLeft - winTipWidth + 60;
+                }
+                $winTip.css({
+                    'top': positionTop,
+                    'left': positionLeft,
+                });
+            }
 
             // Функция для скрывания подсказки
             function hideTip() {
