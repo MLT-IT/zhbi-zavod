@@ -12,6 +12,23 @@
     top: -99999px
     left: -99999px
 
+    & *
+        font-size: inherit
+
+    @media screen and (max-width: 1200px)
+        margin-left: -250px
+
+        &::after
+            right: 41px
+
+    @media screen and (max-width: 450px)
+        margin-left: -80px
+        max-width: 200px
+        font-size: 12px
+
+        &::after
+            right: 104px
+
     &__visual-text
         display: flex
 
