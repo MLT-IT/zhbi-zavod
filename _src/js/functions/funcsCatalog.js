@@ -66,9 +66,17 @@ function init() {
         $openFiltersBtn.on("click", function () {
             toggleFiltersbar();
         });
+        // Обработчик на документ - клик по пустому месту должен скрывать панель с фильтрами
         $(document).on('click', function (e) {
             let $target = $(e.target);
-            if ($filter.hasClass('active') && !$target.closest('.listing__filter, .listing__open-filters-btn').length && !$target.hasClass('listing__filter, listing__open-filters-btn')) {
+            if (
+                // Панель с фильтрами должна быть видна
+                $filter.hasClass('active') &&
+                // Клик должен быть за пределами панели с фильтрами
+                !$target.closest('.listing__filter, .listing__open-filters-btn').length && !$target.hasClass('listing__filter, listing__open-filters-btn') &&
+                // Клик не должен быть по подсказке (или ее содержимых элементов
+                !$target.closest('.wintip').length && !$target.hasClass('wintip')
+            ) {
                 toggleFiltersbar();
             }
         });
