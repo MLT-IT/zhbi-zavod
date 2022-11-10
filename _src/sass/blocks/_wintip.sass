@@ -8,10 +8,25 @@
     z-index: 100
     max-width: 308px
     transition: opacity .350s
-
     opacity: 0
     top: -99999px
     left: -99999px
+
+    &__visual-text
+        display: flex
+
+    &__visual
+        width: 50px
+        height: 32px
+        border-radius: 5px
+
+    &__text-wrap
+        margin-left: 10px
+        display: flex
+        flex-direction: column
+
+    &__text
+        font-size: 12px
 
     &.visible
         opacity: 1

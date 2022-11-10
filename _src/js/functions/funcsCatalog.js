@@ -401,8 +401,26 @@ function init() {
                         let $fltrVal = $fltr.find('.filter-option[data-value="' + value + '"]');
                         // Если нашли, то...
                         if ($fltrVal.length) {
+                            // Определяем внутренний контент подсказки: это либо текст, либо (в некоторых случаях, например, для опции цвет) html-код
+                            let tipContent;
+                            if (keyFilter == 'msoption|cvet') {
+                                // Тут может быть либо путь к картинке, либо hex-код цвета
+                                let cssBgValue;
+
+                                if (Array.from(tipsData[keyFilter][value]['visual'])[0] == '#') {
+                                    cssBgValue = tipsData[keyFilter][value]['visual'];
+                                } else {
+                                    cssBgValue = 'url(\'' + tipsData[keyFilter][value]['visual'] + '\')';
+                                }
+
+                                tipContent = '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' + cssBgValue + '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' + value + '</strong><span class="wintip__text">' + tipsData[keyFilter][value]['text'] + '</span></div></div>';
+                            } else {
+                                tipContent = tipsData[keyFilter][value];
+                                console.log('tipsData[keyFilter]', tipsData[keyFilter][value]);
+                            }
+
                             // Добавляем подсказку
-                            let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-text">' + tipsData[keyFilter][value] + '</div></div>');
+                            let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-content">' + tipContent + '</div></div>');
                             $fltrVal.append($tip);
                         }
                     }
@@ -421,7 +439,7 @@ function init() {
                 $this.toggleClass('active');
 
                 if ($this.hasClass('active')) {
-                    $winTip.text($this.find('.filter-option__tip-text').text());
+                    $winTip.html($this.find('.filter-option__tip-content').html());
 
                     $winTip.css({
                         'top': $this.offset().top,
@@ -442,14 +460,21 @@ function init() {
                             'left': '',
                         });
                     },
-                    // Если будешь менять это значение, то поменяй еще и у transition в SASS
+                    // Если будешь менять это значение, то поменяй еще и у transition opacity в SASS
                     350);
             }
 
             // Вешаем обработчик на документ - клик по пустому месту должен скрывать подсказку
             $(document).on('click', function (e) {
                 let $target = $(e.target);
-                if ($winTip.hasClass('visible') && !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip')) {
+                if (
+                    // Подсказка должна быть видна
+                    $winTip.hasClass('visible') &&
+                    // Клик должен быть не по кнопке для вызова подсказки
+                    !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip') &&
+                    // Клик должен быть не по самой подсказке
+                    !$target.closest('.wintip').length && !$target.hasClass('wintip')
+                ) {
                     $('.filter-option__tip.active').removeClass('active');
                     hideTip();
                 }
