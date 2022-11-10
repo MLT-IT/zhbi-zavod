@@ -1,7 +1,6 @@
 .wintip
     position: absolute
     background-color: #f0f0f0
-    padding: 10px
     padding-top: 6px
     margin-left: -10px
     margin-top: 30px
@@ -11,9 +10,7 @@
     opacity: 0
     top: -99999px
     left: -99999px
-
-    & *
-        font-size: inherit
+    padding: 6px 18px 10px 10px
 
     @media screen and (max-width: 1200px)
         margin-left: -250px
@@ -28,6 +25,17 @@
 
         &::after
             right: 104px
+
+    &__content
+        font-size: 13px
+        line-height: 1.2
+
+        @media screen and (max-width: 450px)
+            font-size: 11px
+
+        & *
+            font-size: inherit
+            line-height: inherit
 
     &__visual-text
         display: flex
@@ -45,10 +53,35 @@
     &__text
         font-size: 12px
 
-    &.visible
-        opacity: 1
+    &__btn-close
+        position: absolute
+        right: 5px
+        top: 5px
+        width: 16px
+        height: 16px
+        opacity: 0.3
+        cursor: pointer
+        transition: .3s
+
+        &:hover
+            opacity: 1
+
+        &::before, &::after
+            content: ""
+            position: absolute
+            height: 16px
+            width: 2px
+            background-color: #333
+            left: 8px
+
+        &::before
+            transform: rotate(45deg)
+
+        &::after
+            transform: rotate(-45deg)
 
     &::after
+        transition: .3s
         display: block
         content: ""
         border-left: 8px solid transparent
@@ -57,3 +90,7 @@
         top: 0
         position: absolute
         transform: translateY(-100%)
+        opacity: 0
+
+    &.visible, &::after
+        opacity: 1

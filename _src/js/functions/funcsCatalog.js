@@ -428,7 +428,7 @@ function init() {
             }
 
             // Устанавливаем $winTip и добавляем его на страницу
-            let $winTip = $('<div class="wintip"></div>').appendTo('body');
+            let $winTip = $('<div class="wintip"><span class="wintip__btn-close"></span><div class="wintip__content"></div></div>').appendTo('body');
 
             // Добавляем обработчик для клика по подсказке
             $(document).on('click', '.filter-option__tip', function (e) {
@@ -439,7 +439,7 @@ function init() {
                 $this.toggleClass('active');
 
                 if ($this.hasClass('active')) {
-                    $winTip.html($this.find('.filter-option__tip-content').html());
+                    $winTip.find('.wintip__content').html($this.find('.filter-option__tip-content').html());
 
                     $winTip.css({
                         'top': $this.offset().top,
@@ -470,10 +470,10 @@ function init() {
                 if (
                     // Подсказка должна быть видна
                     $winTip.hasClass('visible') &&
-                    // Клик должен быть не по кнопке для вызова подсказки
+                    // Клик не должен быть по кнопке для вызова подсказки (или ее содержимых элементов)
                     !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip') &&
-                    // Клик должен быть не по самой подсказке
-                    !$target.closest('.wintip').length && !$target.hasClass('wintip')
+                    // Клик не должен быть по самой подсказке (или ее содержимых элементов, исключение - кнопка для закрытия подсказки (крестик))
+                    (!$target.closest('.wintip').length || $target.hasClass('wintip__btn-close')) && !$target.hasClass('wintip')
                 ) {
                     $('.filter-option__tip.active').removeClass('active');
                     hideTip();
