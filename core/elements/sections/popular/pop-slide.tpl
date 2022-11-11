@@ -15,7 +15,7 @@
             {if $outputOldPrice?}
                 <div class="listing__discount js-product__discount">Скидка {'!calculateDiscount' | snippet : ['id' => $id]}%</div>
             {/if}
-            <img src="/assets/images/no_image.jpg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+            <img src="/assets/images/loader.svg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
         </a>
         <div class="listing__products-item-title">
             <a href="{$uri}">{$pagetitle}</a>
