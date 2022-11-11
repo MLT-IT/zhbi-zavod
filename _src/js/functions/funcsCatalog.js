@@ -506,6 +506,82 @@ function init() {
             });
         });
     }
+
+
+    // -------------------------------
+    // Полуфиксированный сайдбар
+    // -------------------------------
+    // Сайдбар есть только на странице каталога. Проверяем, действительно ли открыта страница каталога
+    if ($('.listing').length) {
+        // Объявление переменных
+        // Классы для сайдбара
+        let classTop = 'aside-limit-top';
+        let classBottom = 'aside-limit-bottom';
+        let classRelative = 'aside-relative';
+
+        // Последний отступ до окна от начала страницы
+        let lastOffsetTopWindow = 0;
+        // Текущий отступ до окна от начала страницы
+        let currentOffsetTopWindow = $(window).scrollTop();
+        // Текущий отступ до сайдбара от начала страницы
+        let currentOffsetTopAside = 0;
+
+        // Сайдбар
+        let $aside = $('.listing__filter');
+        // Высота сайдбара
+        let heightAside = 0;
+
+        // Нижняя граница, на которой сайдбар должен прекратить быть фиксированным
+        let limitBottom = 0;
+        // Верхняя граница, на которой сайдбар должен прекратить быть фиксированным
+        let limitTop = 0;
+
+        $(window).on('resize scroll', function () {
+            // На ширине <= 1200 нет сайдбара. Поэтому никаких действий не надо
+            if (window.innerWidth <= 1200) {
+                return;
+            }
+
+            // Обновляем переменные
+            lastOffsetTopWindow = currentOffsetTopWindow;
+            currentOffsetTopWindow = $(window).scrollTop();
+            currentOffsetTopAside = $aside.offset().top;
+            heightAside = $aside.height();
+            limitBottom = heightAside + currentOffsetTopAside - window.innerHeight;
+            limitTop = currentOffsetTopAside;
+
+            // Скролл вверх
+            if (lastOffsetTopWindow > currentOffsetTopWindow) {
+                // Если сайдбар прокручен вниз полностью
+                if ($aside.hasClass(classBottom)) {
+                    $aside.removeClass(classBottom);
+                    $aside.css('top', limitBottom - heightAside + 10);
+                }
+            }
+            // Скролл вниз
+            else if (lastOffsetTopWindow < currentOffsetTopWindow) {
+                // Если сайдбар прокручен вверх полностью
+                if ($aside.hasClass(classTop)) {
+                    $aside.removeClass(classTop);
+                    $aside.css('top', limitBottom + 10);
+                }
+            }
+
+            // Максимум внизу
+            if (currentOffsetTopWindow >= limitBottom) {
+                $aside.addClass(classBottom);
+                $aside.css('top', -heightAside + window.innerHeight + 20);
+            } else {
+
+            }
+            // Максимум вверху
+            // else if (currentOffsetTopWindow <= limitTop) {
+            //     $aside.addClass(classTop);
+            // }
+
+        });
+    }
+
 }
 
 
