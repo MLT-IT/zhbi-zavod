@@ -455,7 +455,7 @@ function init() {
                     // Я вызываю setWinTipPosition 2 раза, чтобы пользователь не ждал 350 ms, чтобы увидеть winTip
                     setWinTipPosition($this);
                     positionTimeout = setTimeout(function () {
-                        setWinTipPosition($this)
+                        setWinTipPosition($this);
                     }, 350);
                 } else {
                     hideTip();
@@ -513,30 +513,22 @@ function init() {
     // -------------------------------
     // Сайдбар есть только на странице каталога. Проверяем, действительно ли открыта страница каталога
     if ($('.listing').length) {
-        // Объявление переменных
-        // Классы для сайдбара
+        // Последний отступ от начала страницы до окна
+        let lastOffsetTopWindow = 0;
+        // Текущий отступ от начала страницы до окна
+        let currentOffsetTopWindow = 0;
+
+        // Классы, которые будут добавляться / удаляться у сайдбара
         let classTop = 'aside-limit-top';
         let classBottom = 'aside-limit-bottom';
         let classRelative = 'aside-relative';
 
-        // Последний отступ до окна от начала страницы
-        let lastOffsetTopWindow = 0;
-        // Текущий отступ до окна от начала страницы
-        let currentOffsetTopWindow = $(window).scrollTop();
-        // Текущий отступ до сайдбара от начала страницы
-        let currentOffsetTopAside = 0;
-
+        // Блок с товарами
+        let $listingContent = $('.listing__content');
         // Сайдбар
         let $aside = $('.listing__filter');
-        // Высота сайдбара
-        let heightAside = 0;
 
-        // Нижняя граница, на которой сайдбар должен прекратить быть фиксированным
-        let limitBottom = 0;
-        // Верхняя граница, на которой сайдбар должен прекратить быть фиксированным
-        let limitTop = 0;
-
-        $(window).on('resize scroll', function () {
+        function handleAside() {
             // На ширине <= 1200 нет сайдбара. Поэтому никаких действий не надо
             if (window.innerWidth <= 1200) {
                 return;
@@ -545,7 +537,20 @@ function init() {
             // Обновляем переменные
             lastOffsetTopWindow = currentOffsetTopWindow;
             currentOffsetTopWindow = $(window).scrollTop();
-            currentOffsetTopAside = $aside.offset().top;
+
+            // Текущий отступ от начала страницы до сайдбара
+            let currentOffsetTopAside = $aside.offset().top;
+            // Отступ от начала страницы до блока с товарами
+            let listingContentOffsetTop = $listingContent.offset().top;
+            // Высота сайдбара
+            let heightAside = $aside.outerHeight();
+
+            // Расчет limitBottom. Это нижняя граница, на которой сайдбар должен прекратить быть фиксированным
+            let limitBottom = listingContentOffsetTop + ($listingContent.outerHeight() - $('.catalog-banner').outerHeight(true) - heightAside);
+            // Расчет limitTop. Это верхняя граница, на которой сайдбар должен прекратить быть фиксированным
+            let limitTop = listingContentOffsetTop;
+
+            // Обновляем переменные
             heightAside = $aside.height();
             limitBottom = heightAside + currentOffsetTopAside - window.innerHeight;
             limitTop = currentOffsetTopAside;
@@ -578,10 +583,11 @@ function init() {
             // else if (currentOffsetTopWindow <= limitTop) {
             //     $aside.addClass(classTop);
             // }
+        }
 
-        });
+        handleAside();
+        $(window).on('resize scroll', handleAside);
     }
-
 }
 
 
