@@ -600,25 +600,31 @@ function init() {
             }
             // Скролл вниз
             else if (lastOffsetTopWindow < currentOffsetTopWindow) {
-                console.log('Скролл вниз, поскольку lastOffsetTopWindow < currentOffsetTopWindow', lastOffsetTopWindow, currentOffsetTopWindow)
+                if (currentOffsetTopListing > currentOffsetTopWindow) {
+                    return;
+                }
 
-                let newAsideTopCSSVal = 0 - (currentOffsetTopWindow - currentOffsetTopListing);
+                newAsideTopCSSVal = (sidebarScrollValue + (lastOffsetTopWindow - currentOffsetTopWindow));
+
+                console.log('Текущее значение top у сайдбара', sidebarScrollValue);
+                console.log('Новое значение top для сайдбара', newAsideTopCSSVal);
 
                 if (newAsideTopCSSVal > asideTopCSS) {
-                    console.log('[БЕЗДЕЙСТВИЕ] Новое значение для сайдбара больше, чем значение по умолчанию - выходим из функции handleAside');
-                    $aside.css('top', asideTopCSS);
-                    return;
+                    newAsideTopCSSVal = asideTopCSS;
+
+                    console.log('Новое значение оказалось > asideTopCSS. Поэтому устанавливаем его равным asideTopCSS', newAsideTopCSSVal);
                 }
 
                 if (newAsideTopCSSVal < sidebarScrollValueMax) {
                     newAsideTopCSSVal = sidebarScrollValueMax;
                 }
 
-                if (currentOffsetTopListing < currentOffsetTopWindow) {
-                    console.log('[ДЕЙСТВИЕ] Установлено новое значение для сайдбара', newAsideTopCSSVal);
-                    $aside.css('top', newAsideTopCSSVal);
-                    return;
-                }
+                console.log('[Действие] Установка нового значения', newAsideTopCSSVal);
+                $aside.css('top', newAsideTopCSSVal);
+                return;
+
+
+
             }
 
 
