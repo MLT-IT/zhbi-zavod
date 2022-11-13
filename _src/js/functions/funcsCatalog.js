@@ -515,23 +515,11 @@ function init() {
     if ($('.listing').length) {
         // Объявление перепенных. В большинстве случаев я ставлю 0, т.к. на момент объявления значения неважны
 
-        // Если меняешь это значение, то поменяй и top в SASS
+        // Если меняешь это значение, то поменяй и top в SASS. Это отступ от сайдбара до верхней грани окна
         const asideTopCSS = 20;
 
         // Текущий отступ от начала страницы до окна
         let currentOffsetTopWindow = $(window).scrollTop();
-        // Последний отступ от начала страницы до окна. Нужен, чтобы понять, куда пользователь скроллит - вверх страницы или вниз. Если это значение меньше текущего отступа, то пользователь скроллит вниз. Если больше, то вверх
-        let lastOffsetTopWindow = currentOffsetTopWindow;
-
-        // Классы, которые будут добавляться / удаляться у сайдбара
-        // Сайдбар находится в самом верху плитки с товарами
-        let classPositionTop = 'sidebar-position-top';
-        // Сайдбар находится в самом низу плитки с товарами
-        let classPositionBottom = 'sidebar-position-bottom';
-        // Сайдбар проскроллен в самый верх
-        let classScrollTop = 'sidebar-scroll-top';
-        // Сайдбар проскроллен в самый низ
-        let classScrollBottom = 'sidebar-scroll-bottom';
 
         // Элемент - плитка с товарами
         let $listingContent = $('.listing__content');
@@ -556,52 +544,44 @@ function init() {
 
         // Функция для расчета сайдбара
         function handleAside() {
-            console.log('work 1');
-
             // На ширине <= 1200 нет сайдбара. Поэтому никаких действий не надо делать, выходим из функции
             if (window.innerWidth <= 1200) {
+                console.log('[БЕЗДЕЙСТВИЕ] Ширина <= 1200 - выходим из функции handleAside');
                 return;
             }
-
-            console.log('work 2');
 
             heightAside = $aside.outerHeight();
             // Никаких действий делать не надо, если высота aside меньше, чем высота окна - все сделает CSS свойство "position: sticky"
             if (heightAside < window.innerHeight) {
+                console.log('[БЕЗДЕЙСТВИЕ] Сайдбар по высоте меньше окна - выходим из функции handleAside');
                 return;
             }
 
-            console.log('work 3');
-
             // Обновляем переменные
-            lastOffsetTopWindow = currentOffsetTopWindow;
             currentOffsetTopWindow = $(window).scrollTop();
             currentOffsetTopAside = $aside.offset().top;
             currentOffsetTopListing = $listingContent.offset().top;
-            sidebarEdgeBottom = currentOffsetTopListing + ($listingContent.outerHeight() - heightAside);
-            sidebarEdgeTop = currentOffsetTopListing;
 
             sidebarScrollValue = parseInt($aside.css('top'));
-            sidebarScrollValueMax = heightAside - window.innerHeight + asideTopCSS;
+            sidebarScrollValueMax = 0 - (heightAside - window.innerHeight + asideTopCSS);
 
-            let newAsideTopCSSVal = currentOffsetTopWindow - currentOffsetTopListing;
+            let newAsideTopCSSVal = 0 - (currentOffsetTopWindow - currentOffsetTopListing);
 
-            console.log('newAsideTopCSSVal', newAsideTopCSSVal)
-
-            if (newAsideTopCSSVal < asideTopCSS) {
-                console.log('newAsideTopCSSVal < asideTopCSS', newAsideTopCSSVal, asideTopCSS)
+            if (newAsideTopCSSVal > asideTopCSS) {
+                console.log('[БЕЗДЕЙСТВИЕ] Новое значение для сайдбара больше, чем значение по умолчанию - выходим из функции handleAside');
                 $aside.css('top', asideTopCSS);
                 return;
             }
 
-            console.log('work 4');
+            if (newAsideTopCSSVal < sidebarScrollValueMax) {
+                newAsideTopCSSVal = sidebarScrollValueMax;
+            }
 
-            if (newAsideTopCSSVal <= sidebarScrollValueMax && currentOffsetTopListing > currentOffsetTopWindow) {
+            if (currentOffsetTopListing < currentOffsetTopWindow) {
+                console.log('[ДЕЙСТВИЕ] Установлено новое значение для сайдбара', newAsideTopCSSVal);
                 $aside.css('top', newAsideTopCSSVal);
                 return;
             }
-
-            console.log('work 5');
         }
 
         handleAside();
