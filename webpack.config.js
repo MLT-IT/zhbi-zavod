@@ -117,7 +117,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://krovlyasp.local/",
+                    target: "http://kirpich-m.local/",
                     secure: false,
                     changeOrigin: true
                 }

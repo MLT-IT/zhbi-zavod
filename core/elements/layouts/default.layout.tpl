@@ -141,6 +141,7 @@
         </script>
         *}
 
+        {*
         <!-- calltouch -->
         {if $_modx->resource.context_key in list ['krovlya','pro-fanera','fasady-pro','rockwool','paroc','tn','ursa','penoplex','isover','web','pilomat','plitaosb','kirpich-m']}
             <script type="text/javascript">
@@ -148,6 +149,7 @@
             </script>
         {/if}
         <!-- calltouch -->
+        *}
     {/if}
 
     {block 'schema'}{/block}
