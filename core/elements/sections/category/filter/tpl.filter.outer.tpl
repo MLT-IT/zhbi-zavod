@@ -57,7 +57,9 @@
         <div class="listing__filter-block-title filter_title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}</div>
         <div class="listing__filter-block-arrow"></div>
     </div>
-    <div class="listing__filter-block-content js-custom-scrollbar">
-        {$rows}
+    <div class="listing__filter-block-content">
+        <div class="listing__filter-block-content-inner js-custom-scrollbar">
+          {$rows}
+        </div>
     </div>
 </div>

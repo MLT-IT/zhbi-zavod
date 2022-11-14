@@ -10,7 +10,7 @@
     {set $dataVal = $title | toLowerAndRemoveChars}
 {/if}
 
-<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
+<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}{if $idx >= 5} filter-option_excess{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
   <a href="{$_modx->resource.id | url}?[[+filter_key]]=[[+value]]" class="filter-option__link">
       <label for="mse2_{$key}_{$idx}" class="filter-option__label">
           <span class="custom-checkbox filter-option__checkbox">

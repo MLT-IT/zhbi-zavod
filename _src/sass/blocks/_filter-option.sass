@@ -77,8 +77,23 @@
 .filter-option
     display: flex
 
+    &_excess
+        display: none
+
+        @at-root .listing__filter-block_show-excess &
+            display: flex
+
+        @media screen and (max-width: 1200px)
+            display: flex
+
     &:nth-last-of-type(n+2)
         margin-bottom: 16px
+
+    @at-root .listing__filter-block_with-excess-elems &:nth-last-child(1)
+        margin-bottom: 16px
+
+        @media screen and (max-width: 1200px)
+            margin-bottom: 0
 
     &__label
         display: flex

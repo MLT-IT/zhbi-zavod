@@ -21,7 +21,8 @@ if (!$discountBlock.length) {
 function init() {
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
-
+    // Мы находимся на странице каталога?
+    let $isCatalogPage = $('.listing').length;
 
     // -------------------------------------------
     // Панель с фильтрами на мобилках
@@ -188,6 +189,7 @@ function init() {
     // -------------------------------------------
     // Кирилл сказал отменить сортировку, поэтому я закомментировал ее вызов
     // catalogSortFilters();
+    // TODO: Разве это нельзя сделать на PHP? В классе, с которым работает mFilter2, есть методы для фильтрации
     catalogSortColorless();
 
 
@@ -199,7 +201,7 @@ function init() {
         $(this).closest('.listing__products-item-chars-wrap').toggleClass('active');
     });
 
-    if ($('.listing').length) {
+    if ($isCatalogPage) {
         let lastW = 0;
 
         $(window).resize(function () {
@@ -279,7 +281,7 @@ function init() {
     // -------------------------------
     // Переключение конфликтующих фильтров: Длина, Ширина, Толщина и Размеры
     // -------------------------------
-    $('.listing__filter-block-content input[type="checkbox"]').on('change', function () {
+    $('.listing__filter-block-content-inner input[type="checkbox"]').on('change', function () {
         let $block = $(this).closest('.listing__filter-block');
         let $conflictingFilters;
         let dontDoAnything = false;
@@ -509,12 +511,33 @@ function init() {
 
 
     // -------------------------------
+    // Кнопка "Показать все" в фильтрах
+    // -------------------------------
+    if ($isCatalogPage) {
+        $('.listing__filter-block').each(function (i, e) {
+            let $e = $(e);
+            if ($e.find('.filter-option').length > 5) {
+                $e.addClass('listing__filter-block_with-excess-elems');
+                let $btnMore = $('<span class="listing__filter-block-btn-more" data-text="Свернуть все">Показать все</span>').appendTo($e.find('.listing__filter-block-content'));
+                $btnMore.on('click', function (event) {
+                    event.preventDefault();
+                    $e.toggleClass('listing__filter-block_show-excess');
+                    $e.find('.js-custom-scrollbar').overlayScrollbars().update();
+                    functions.toggleText($(this), 'data-text');
+                });
+            }
+        });
+    }
+
+
+    // -------------------------------
     // Фиксированный сайдбар
     // -------------------------------
     // Сайдбар есть только на странице каталога. Проверяем, действительно ли открыта страница каталога
-    if ($('.listing').length) {
-        // Объявление переменных
+    if ($isCatalogPage) {
+        // TODO: удали ненужные переменные, тут их много. Подчисть код
 
+        // Объявление переменных
         // Если меняешь это значение, то поменяй и top в SASS. Это отступ от сайдбара до верхней грани окна
         const asideTopCSS = 20;
 
@@ -574,11 +597,11 @@ function init() {
 
             // Скролл вверх
             if (lastOffsetTopWindow > currentOffsetTopWindow) {
-                console.log('Скролл вверх, поскольку lastOffsetTopWindow > currentOffsetTopWindow', lastOffsetTopWindow, currentOffsetTopWindow)
+                console.log('Скролл вверх, поскольку lastOffsetTopWindow > currentOffsetTopWindow', lastOffsetTopWindow, currentOffsetTopWindow);
 
                 // Сайдбар - это sticky, поэтому никакие расчеты не нужны, если нижняя грань окна браузера ниже нижней грани контейнера sticky
                 if ((currentOffsetTopWindow + window.innerHeight) > (currentOffsetTopListing + $listingContent.outerHeight())) {
-                    console.log('[БЕЗДЕЙСТВИЕ] окно ниже, чем sticky контейнер')
+                    console.log('[БЕЗДЕЙСТВИЕ] окно ниже, чем sticky контейнер');
                     return;
                 }
 
@@ -622,7 +645,6 @@ function init() {
                 console.log('[Действие] Установка нового значения', newAsideTopCSSVal);
                 $aside.css('top', newAsideTopCSSVal);
                 return;
-
 
 
             }

@@ -244,6 +244,18 @@
         @media screen and (max-width: 768px)
             height: calc(100vh - 174px)
 
+    &__filter-block-content
+        padding-left: 16px
+        padding-right: 16px
+        transition: .3s
+        opacity: 0
+        height: auto
+        max-height: 0
+        overflow: hidden
+
+    &__filter-block-content-inner
+        overflow: auto
+
     &__filter-block
         display: flex
         flex-direction: column
@@ -268,8 +280,20 @@
 
                 @media screen and (max-width: 1200px)
                     padding-bottom: 0
-                    max-height: 3000px
+                    max-height: none
 
+            .listing__filter-block-content-inner
+                max-height: calc(344px - 30px)
+
+                @media screen and (max-width: 1200px)
+                    max-height: none
+
+            &.listing__filter-block_with-excess-elems
+                .listing__filter-block-content-inner
+                    border-bottom: 10px solid transparent
+
+                    @media screen and (max-width: 1200px)
+                        border-bottom: 0
 
             .listing__filter-block-arrow
                 transform: rotate(315deg)
@@ -324,14 +348,17 @@
         top: 22px
         left: 13px
 
-    &__filter-block-content
-        padding-left: 16px
-        padding-right: 16px
+    &__filter-block-btn-more
+        cursor: pointer
+        position: relative
+        z-index: 5
         transition: .3s
-        opacity: 0
-        height: auto
-        max-height: 0
-        overflow: auto
+
+        &:hover
+            +set-colors_1(color)
+
+        @media screen and (max-width: 1200px)
+            display: none
 
     &__filter-list
         margin: 0 0 30px
@@ -388,7 +415,6 @@
         @media screen and (max-width: 768px)
             height: calc(100% - 56px)
 
-
         &::before
             display: block
             content: ""
@@ -399,8 +425,6 @@
             left: 6px
             border-radius: 5px
             background-color: #dad9d9
-
-    // ---------------------------------------------------
 
     &__products-item-actions
         display: none

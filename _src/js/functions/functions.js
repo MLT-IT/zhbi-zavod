@@ -40,10 +40,10 @@ function numberWithSpaces(x) {
 }
 
 // Поменять местами текст внутри тега с текстом внутри атрибута attr_1
-function toggleText(elem, attr_1) {
-    var text = elem.attr(attr_1);
-    elem.attr(attr_1, elem.text());
-    elem.text(text);
+function toggleText($elem, attr_1) {
+    var text = $elem.attr(attr_1);
+    $elem.attr(attr_1, $elem.text());
+    $elem.text(text);
 }
 
 
