@@ -514,9 +514,18 @@ function init() {
     // Кнопка "Показать все" в фильтрах
     // -------------------------------
     if ($isCatalogPage) {
+        let resourceId = $('body').attr('data-resource-id');
+
         $('.listing__filter-block').each(function (i, e) {
             let $e = $(e);
-            if ($e.find('.filter-option').length > 5) {
+
+            let limit = 5;
+            // На кирпиче в некотрых категориях нужно выводить не 5, а 6 производителей. Если будешь это менять / убирать, подправь и в filterCheckboxNew.tpl
+            if ([37609,19847,37478].indexOf(resourceId) !== -1 && $e.attr('data-key') == 'msoption|proizvoditel') {
+                limit = 6;
+            }
+
+            if ($e.find('.filter-option').length > limit) {
                 $e.addClass('listing__filter-block_with-excess-elems');
                 let $btnMore = $('<span class="listing__filter-block-btn-more" data-text="Свернуть все">Показать все</span>').appendTo($e.find('.listing__filter-block-content'));
                 $btnMore.on('click', function (event) {

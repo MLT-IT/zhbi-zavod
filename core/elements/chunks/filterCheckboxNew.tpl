@@ -10,7 +10,13 @@
     {set $dataVal = $title | toLowerAndRemoveChars}
 {/if}
 
-<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}{if $idx >= 5} filter-option_excess{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
+{set $limit = 5}
+{* На кирпиче в некотрых категориях нужно выводить не 5, а 6 производителей. Если будешь это менять / убирать, подправь и в funcsCatalog.js *}
+{if ($_modx->resource.id in list [37609,19847,37478]) && ($key == 'msoption|proizvoditel')}
+    {set $limit = 6}
+{/if}
+
+<div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}{if $idx >= $limit} filter-option_excess{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
   <a href="{$_modx->resource.id | url}?[[+filter_key]]=[[+value]]" class="filter-option__link">
       <label for="mse2_{$key}_{$idx}" class="filter-option__label">
           <span class="custom-checkbox filter-option__checkbox">
