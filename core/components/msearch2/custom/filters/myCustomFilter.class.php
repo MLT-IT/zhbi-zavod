@@ -132,8 +132,26 @@ class myCustomFilter extends mse2FiltersHandler {
             // Сортировка опции "Производитель" на кирпичах
             if ($GLOBALS['modx']->resource->context_key == 'kirpich-m') {
                 if ($options['name'] == 'proizvoditel') {
-                    switch ($GLOBALS['modx']->resource->context_key) {
-                        case 'kirpich-m':
+                    // Сортировка производителя на разных кирпичах
+                    switch ($GLOBALS['modx']->resource->id) {
+                        // Облицовочные
+                        case 37609:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Wienerberger', 'Roben', 'Эталон ЗСМ']);
+                            break;
+                        // Клинкерные
+                        case 19852:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Wienerberger', 'Roben']);
+                            break;
+                        // Керамоблоки
+                        case 19847:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Wienerberger', 'BRAER', 'Гжельский кирпичный завод', 'ВКЗ', 'Porotherm']);
+                            break;
+                        // Фасадная плитка
+                        case 37478:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['Feldhaus Klinker', 'Roben', 'Terca', 'Wienerberger', 'ESTIMA', 'Nelissen']);
+                            break;
+                        // Остальные кирпичи
+                        default:
                             $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Roben', 'Эталон ЗСМ']);
                             break;
                     }
