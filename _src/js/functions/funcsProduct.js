@@ -76,7 +76,14 @@ function init(yandexMetrikaId) {
         let $select = $('.product-card_type_relinking .euv-custom-select');
 
         // Обработчик на клик по списку
-        $select.on('click', function () {
+        $select.on('click', function (e) {
+            // Исключаем клик по подсказке или по кнопке для вызова подсказки
+            let $target = $(e.target);
+            if ($target.hasClass('filter-option__tip') ||
+                $target.closest('.filter-option__tip').length) {
+                return;
+            }
+
             function close_select(e) {
                 let $target = $(e.target);
                 let $target_select = $target.closest('.' + custom_select_class);
@@ -97,7 +104,14 @@ function init(yandexMetrikaId) {
             $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
             if ($this.hasClass('euv-custom-select_visible')) {
                 $(document).off('click.' + plugin_name, close_select);
-                $(document).on('click.' + plugin_name, close_select);
+                $(document).on('click.' + plugin_name, function (e) {
+                    let $target = $(e.target);
+                    if ($target.hasClass('wintip') ||
+                        $target.closest('.wintip').length) {
+                        return;
+                    }
+                    close_select(e);
+                });
             } else {
                 $(document).off('click.' + plugin_name, close_select);
             }
@@ -162,17 +176,17 @@ function init(yandexMetrikaId) {
                 let $child = $(this);
 
                 // Установка текста
-                $item.text($child.text());
+                $item.html($child.html());
                 // Установка href
                 $item.attr('href', $child.attr('href'));
                 // Установка атрибут для цвета
                 $item.attr('data-val', $child.attr('data-val'));
 
                 // Добавление обработчика
-                $item.on('click', function (e) {
-                    // Закрываем всплывашку
-                    // $('.popup-select .fancybox-button').click();
-                });
+                // $item.on('click', function (e) {
+                //     // Закрываем всплывашку
+                //     $('.popup-select .fancybox-button').click();
+                // });
 
                 // Добавление айтема во всплывашку
                 $item.appendTo($popup);

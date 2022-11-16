@@ -396,117 +396,172 @@ function init() {
     // -------------------------------------------
     // Они есть только на кровле
     if ($('body[data-ctx="krovlya"]').length) {
+        const PAGE_TYPE_CATALOG = 1;
+        const PAGE_TYPE_PRODUCT = 2;
+
+        let pageType;
+        if ($('.colors-options .euv-custom-select__option').length) {
+            pageType = PAGE_TYPE_PRODUCT;
+        } else if ($('.listing__filter').length) {
+            pageType = PAGE_TYPE_CATALOG;
+        } else {
+            return;
+        }
+
         // Пытаемся загрузить JSON с подсказками из файла
         $.getJSON('/assets/template/json/filters-tips.json', [], function (tipsData) {
-            // В анимации используется setTimeout. Анимация активируется при клике. Если быстро покликать, то могут быть глюки в анимации. Чтобы их не было, нужно очищать timeout. Чтобы очищать timeout, нужно где-то его хранить. Данная переменная нужна для этой цели
-            let animationTimeout = null;
-            let positionTimeout = null;
+                // В анимации используется setTimeout. Анимация активируется при клике. Если быстро покликать, то могут быть глюки в анимации. Чтобы их не было, нужно очищать timeout. Чтобы очищать timeout, нужно где-то его хранить. Данная переменная нужна для этой цели
+                let animationTimeout = null;
+                let positionTimeout = null;
 
-            // Ищем фильтр с нужным ключом
-            for (const keyFilter in tipsData) {
-                let $fltr = $('.listing__filter-block[data-key="' + keyFilter + '"]');
-                // Если нашли, то...
-                if ($fltr.length) {
-                    for (const value in tipsData[keyFilter]) {
-                        // Ищем опцию с нужным ключом
-                        let $fltrVal = $fltr.find('.filter-option[data-value="' + value + '"]');
-                        // Если нашли, то...
-                        if ($fltrVal.length) {
-                            // Определяем внутренний контент подсказки: это либо текст, либо (в некоторых случаях, например, для опции цвет) html-код
-                            let tipContent;
-                            if (keyFilter == 'msoption|cvet') {
-                                // Тут может быть либо путь к картинке, либо hex-код цвета
-                                let cssBgValue;
+                switch (pageType) {
+                    case PAGE_TYPE_PRODUCT:
+                        let key = 'msoption|cvet';
+                        // Для страницы товара нужны именно цвета
+                        if (!tipsData[key]
+                            || Object.keys(tipsData[key]).length === 0
+                            || Object.getPrototypeOf(tipsData[key]) !== Object.prototype) {
+                            return;
+                        } else {
+                            for (const value in tipsData[key]) {
+                                // Ищем опцию с нужным ключом
+                                let $fltrVal = $('.colors-options .euv-custom-select__option[data-value="' + value + '"]');
 
-                                if (Array.from(tipsData[keyFilter][value]['visual'])[0] == '#') {
-                                    cssBgValue = tipsData[keyFilter][value]['visual'];
-                                } else {
-                                    cssBgValue = 'url(\'' + tipsData[keyFilter][value]['visual'] + '\')';
+                                // Если нашли, то...
+                                if ($fltrVal.length) {
+                                    let tipContent;
+
+                                    // Тут может быть либо путь к картинке, либо hex-код цвета
+                                    let cssBgValue;
+
+                                    if (Array.from(tipsData[key][value]['visual'])[0] == '#') {
+                                        cssBgValue = tipsData[key][value]['visual'];
+                                    } else {
+                                        cssBgValue = 'url(\'' + tipsData[key][value]['visual'] + '\')';
+                                    }
+
+                                    tipContent = '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' + cssBgValue + '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' + value + '</strong><span class="wintip__text">' + tipsData[key][value]['text'] + '</span></div></div>';
+
+                                    // Добавляем подсказку
+                                    let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-content">' + tipContent + '</div></div>');
+                                    $fltrVal.append($tip);
                                 }
-
-                                tipContent = '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' + cssBgValue + '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' + value + '</strong><span class="wintip__text">' + tipsData[keyFilter][value]['text'] + '</span></div></div>';
-                            } else {
-                                tipContent = tipsData[keyFilter][value];
                             }
-
-                            // Добавляем подсказку
-                            let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-content">' + tipContent + '</div></div>');
-                            $fltrVal.append($tip);
                         }
-                    }
+
+                        break;
+                    case PAGE_TYPE_CATALOG:
+                        // Ищем фильтр с нужным ключом
+                        for (const keyFilter in tipsData) {
+                            let $fltr = $('.listing__filter-block[data-key="' + keyFilter + '"]');
+                            // Если нашли, то...
+                            if ($fltr.length) {
+                                for (const value in tipsData[keyFilter]) {
+                                    // Ищем опцию с нужным ключом
+                                    let $fltrVal = $fltr.find('.filter-option[data-value="' + value + '"]');
+                                    // Если нашли, то...
+                                    if ($fltrVal.length) {
+                                        // Определяем внутренний контент подсказки: это либо текст, либо (в некоторых случаях, например, для опции цвет) html-код
+                                        let tipContent;
+                                        if (keyFilter == 'msoption|cvet') {
+                                            // Тут может быть либо путь к картинке, либо hex-код цвета
+                                            let cssBgValue;
+
+                                            if (Array.from(tipsData[keyFilter][value]['visual'])[0] == '#') {
+                                                cssBgValue = tipsData[keyFilter][value]['visual'];
+                                            } else {
+                                                cssBgValue = 'url(\'' + tipsData[keyFilter][value]['visual'] + '\')';
+                                            }
+
+                                            tipContent = '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' + cssBgValue + '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' + value + '</strong><span class="wintip__text">' + tipsData[keyFilter][value]['text'] + '</span></div></div>';
+                                        } else {
+                                            tipContent = tipsData[keyFilter][value];
+                                        }
+
+                                        // Добавляем подсказку
+                                        let $tip = $('<div class="filter-option__tip"><span class="filter-option__tip-icon"></span><div class="filter-option__tip-content">' + tipContent + '</div></div>');
+                                        $fltrVal.append($tip);
+                                    }
+                                }
+                            }
+                        }
+                        break;
                 }
-            }
 
-            // Устанавливаем $winTip и добавляем его на страницу
-            let $winTip = $('<div class="wintip"><span class="wintip__btn-close"></span><div class="wintip__content"></div></div>').appendTo('body');
+                // Устанавливаем $winTip и добавляем его на страницу
+                let $winTip = $('<div class="wintip"><span class="wintip__btn-close"></span><div class="wintip__content"></div></div>').appendTo('body');
 
-            // Добавляем обработчик для клика по подсказке
-            $(document).on('click', '.filter-option__tip', function (e) {
-                let $this = $(this);
-                clearTimeout(animationTimeout);
+                // Добавляем обработчик для клика по подсказке
+                $(document).on('click', '.filter-option__tip', function (e) {
+                    // На странице товара есть стилизованный список с цветами, там тоже подсказки. Но элементы списка - ссылки. И если нажать на вызов подсказки, будет переход по ссылке. preventDefault отменяет переход
+                    e.preventDefault();
 
-                $('.filter-option__tip.active').not(this).removeClass('active');
-                $this.toggleClass('active');
+                    let $this = $(this);
+                    clearTimeout(animationTimeout);
 
-                if ($this.hasClass('active')) {
-                    clearTimeout(positionTimeout);
-                    $winTip.find('.wintip__content').html($this.find('.filter-option__tip-content').html());
+                    $('.filter-option__tip.active').not(this).removeClass('active');
+                    $this.toggleClass('active');
 
-                    $winTip.addClass('visible');
-                    // Я заметил, что если делать без timeout'а, то иногда неправильно определяется ширина winTip. Из-за этого неправильно выставляется положение на странице
-                    // Я вызываю setWinTipPosition 2 раза, чтобы пользователь не ждал 350 ms, чтобы увидеть winTip
-                    setWinTipPosition($this);
-                    positionTimeout = setTimeout(function () {
+                    if ($this.hasClass('active')) {
+                        clearTimeout(positionTimeout);
+                        $winTip.find('.wintip__content').html($this.find('.filter-option__tip-content').html());
+
+                        $winTip.addClass('visible');
+                        // Я заметил, что если делать без timeout'а, то иногда неправильно определяется ширина winTip. Из-за этого неправильно выставляется положение на странице
+                        // Я вызываю setWinTipPosition 2 раза, чтобы пользователь не ждал 350 ms, чтобы увидеть winTip
                         setWinTipPosition($this);
-                    }, 350);
-                } else {
-                    hideTip();
-                }
-            });
+                        positionTimeout = setTimeout(function () {
+                            setWinTipPosition($this);
+                        }, 350);
+                    } else {
+                        hideTip();
+                    }
+                });
 
-            // Функция для установки позиции подсказки
-            function setWinTipPosition($tip) {
-                let positionTop = $tip.offset().top;
-                let positionLeft = $tip.offset().left;
-                if (window.innerWidth <= 1200) {
-                    let winTipWidth = $winTip.outerWidth();
-                    positionLeft = positionLeft - winTipWidth + 60;
+                // Функция для установки позиции подсказки
+                function setWinTipPosition($tip) {
+                    let positionTop = $tip.offset().top;
+                    let positionLeft = $tip.offset().left;
+                    if (window.innerWidth <= 1200) {
+                        let winTipWidth = $winTip.outerWidth();
+                        positionLeft = positionLeft - winTipWidth + 60;
+                    }
+                    $winTip.css({
+                        'top': positionTop,
+                        'left': positionLeft,
+                    });
                 }
-                $winTip.css({
-                    'top': positionTop,
-                    'left': positionLeft,
+
+                // Функция для скрывания подсказки
+                function hideTip() {
+                    $winTip.removeClass('visible');
+                    animationTimeout = setTimeout(function () {
+                            $winTip.css({
+                                'top': '',
+                                'left': '',
+                            });
+                        },
+                        // Если будешь менять это значение, то поменяй еще и у transition opacity в SASS
+                        350);
+                }
+
+                // Вешаем обработчик на документ - клик по пустому месту должен скрывать подсказку
+                $(document).on('click', function (e) {
+                    let $target = $(e.target);
+                    if (
+                        // Подсказка должна быть видна
+                        $winTip.hasClass('visible') &&
+                        // Клик не должен быть по кнопке для вызова подсказки (или ее содержимых элементов)
+                        !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip') &&
+                        // Клик не должен быть по самой подсказке (или ее содержимых элементов, исключение - кнопка для закрытия подсказки (крестик))
+                        (!$target.closest('.wintip').length || $target.hasClass('wintip__btn-close')) && !$target.hasClass('wintip')
+                    ) {
+                        $('.filter-option__tip.active').removeClass('active');
+                        hideTip();
+                    }
                 });
             }
-
-            // Функция для скрывания подсказки
-            function hideTip() {
-                $winTip.removeClass('visible');
-                animationTimeout = setTimeout(function () {
-                        $winTip.css({
-                            'top': '',
-                            'left': '',
-                        });
-                    },
-                    // Если будешь менять это значение, то поменяй еще и у transition opacity в SASS
-                    350);
-            }
-
-            // Вешаем обработчик на документ - клик по пустому месту должен скрывать подсказку
-            $(document).on('click', function (e) {
-                let $target = $(e.target);
-                if (
-                    // Подсказка должна быть видна
-                    $winTip.hasClass('visible') &&
-                    // Клик не должен быть по кнопке для вызова подсказки (или ее содержимых элементов)
-                    !$target.closest('.filter-option__tip').length && !$target.hasClass('filter-option__tip') &&
-                    // Клик не должен быть по самой подсказке (или ее содержимых элементов, исключение - кнопка для закрытия подсказки (крестик))
-                    (!$target.closest('.wintip').length || $target.hasClass('wintip__btn-close')) && !$target.hasClass('wintip')
-                ) {
-                    $('.filter-option__tip.active').removeClass('active');
-                    hideTip();
-                }
-            });
-        });
+        );
     }
 
 
@@ -522,7 +577,7 @@ function init() {
             let limit = 5;
 
             // В некотрых категориях нужно выводить не 5, а 6 или больше значений некоторых фильтров. Если будешь это менять / убирать, подправь и в filterCheckboxNew.tpl
-            if (([37609,19847,37478].indexOf(resourceId) !== -1 && dataKey == 'msoption|proizvoditel') ||
+            if (([37609, 19847, 37478].indexOf(resourceId) !== -1 && dataKey == 'msoption|proizvoditel') ||
                 ((resourceId == 86214) && dataKey == 'msoption|profil') ||
                 ([16788, 86214, 22594].indexOf(resourceId) !== -1 && dataKey == 'msoption|pokrytie')
             ) {

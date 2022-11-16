@@ -190,7 +190,7 @@
                                                     <div class="euv-custom-select__options-col">
                                                         {foreach $data as $id => $val}
                                                             {set $v = $val | toLowerAndRemoveChars}
-                                                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}">
+                                                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
                                                                 {$val}
                                                             </a>
                                                         {/foreach}
