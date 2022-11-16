@@ -518,11 +518,17 @@ function init() {
 
         $('.listing__filter-block').each(function (i, e) {
             let $e = $(e);
-
+            let dataKey = $e.attr('data-key');
             let limit = 5;
-            // На кирпиче в некотрых категориях нужно выводить не 5, а 6 производителей. Если будешь это менять / убирать, подправь и в filterCheckboxNew.tpl
-            if ([37609,19847,37478].indexOf(resourceId) !== -1 && $e.attr('data-key') == 'msoption|proizvoditel') {
+
+            // В некотрых категориях нужно выводить не 5, а 6 или больше значений некоторых фильтров. Если будешь это менять / убирать, подправь и в filterCheckboxNew.tpl
+            if (([37609,19847,37478].indexOf(resourceId) !== -1 && dataKey == 'msoption|proizvoditel') ||
+                ((resourceId == 86214) && dataKey == 'msoption|profil') ||
+                ([16788, 86214, 22594].indexOf(resourceId) !== -1 && dataKey == 'msoption|pokrytie')
+            ) {
                 limit = 6;
+            } else if ((resourceId == 16788 && dataKey == 'msoption|collection') || ([16788, 86214, 22594].indexOf(resourceId) !== -1 && dataKey == 'msoption|cvet')) {
+                limit = 8;
             }
 
             if ($e.find('.filter-option').length > limit) {

@@ -132,7 +132,6 @@ class myCustomFilter extends mse2FiltersHandler {
             // Сортировка опции "Производитель" на кирпичах
             if ($GLOBALS['modx']->resource->context_key == 'kirpich-m') {
                 if ($options['name'] == 'proizvoditel') {
-                    // Сортировка производителя на разных кирпичах
                     switch ($GLOBALS['modx']->resource->id) {
                         // Облицовочные
                         case 37609:
@@ -155,6 +154,27 @@ class myCustomFilter extends mse2FiltersHandler {
                             $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Roben', 'Эталон ЗСМ']);
                             break;
                     }
+                }
+            }
+
+            // Сортировка некоторых опций на кровле
+            if ($GLOBALS['modx']->resource->context_key == 'krovlya') {
+                switch (true) {
+                    case $options['name'] == 'collection' && $GLOBALS['modx']->resource->id == 16788:
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Монтеррей', 'Супермонтеррей', 'Classic', 'Ламонтерра', 'Ламонтерра X', 'Kvinta Uno', 'Ламонтерра XL', 'Kvinta plus']);
+                        break;
+
+                    case $options['name'] == 'cvet' && in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 3005', 'RAL 6005', 'RAL 8004', 'RAL 8017', 'RR 32', 'RAL 7024', 'RAL 3009', 'RAL 5002']);
+                        break;
+
+                    case $options['name'] == 'pokrytie' && in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Полиэстер', 'Satin', 'Drap', 'PurLite Мatt', 'PURMAN®', 'Rooftop Matte']);
+                        break;
+
+                    case $options['name'] == 'profil' && $GLOBALS['modx']->resource->id == 86214:
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['C20', 'C8', 'HC35', 'C10', 'C21', 'H75']);
+                        break;
                 }
             }
         }

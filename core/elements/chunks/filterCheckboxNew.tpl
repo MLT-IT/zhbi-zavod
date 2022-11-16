@@ -11,9 +11,16 @@
 {/if}
 
 {set $limit = 5}
-{* На кирпиче в некотрых категориях нужно выводить не 5, а 6 производителей. Если будешь это менять / убирать, подправь и в funcsCatalog.js *}
-{if ($_modx->resource.id in list [37609,19847,37478]) && ($key == 'msoption|proizvoditel')}
+
+{* В некотрых категориях нужно выводить не 5, а 6 или больше значений некоторых фильтров. Если будешь это менять / убирать, подправь и в funcsCatalog.js *}
+{if (($_modx->resource.id in list [37609,19847,37478]) && ($key == 'msoption|proizvoditel')) ||
+(($_modx->resource.id == 86214) && ($key == 'msoption|profil')) ||
+(($_modx->resource.id in list [16788, 86214, 22594]) && ($key == 'msoption|pokrytie'))
+}
     {set $limit = 6}
+{elseif (($_modx->resource.id == 16788) && ($key == 'msoption|collection')) ||
+(($_modx->resource.id in list [16788, 86214, 22594]) && ($key == 'msoption|cvet'))}
+    {set $limit = 8}
 {/if}
 
 <div {*data-priority="{$priority}"*} class="filter-option listing__filter-option{if $disabled?} {$disabled}{/if}{if $idx >= $limit} filter-option_excess{/if}" {if $dataVal?}data-val="{$dataVal}" {/if}data-value="{$value}">
