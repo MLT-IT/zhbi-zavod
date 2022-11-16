@@ -63,7 +63,7 @@
 
     {include "file:sections/main/banner.tpl"}
 
-    {if $_modx->resource.context_key !== 'krovlya'}
+    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
         <div class="wrapper main-page-content">
             <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
@@ -83,17 +83,17 @@
         {/if}
     {/if}
 
-    {if $_modx->resource.context_key !== 'krovlya'}
+    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m']}
       {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
-    {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m']}
         {include "file:sections/main/assort.tpl"}
     {else}
         {include "file:sections/main/catalog.tpl"}
     {/if}
 
-    {if $_modx->resource.context_key === 'krovlya'}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m']}
         {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
@@ -105,7 +105,7 @@
     {include "file:sections/appeal.tpl"}
     {include "file:sections/advantages.tpl"}
 
-    {if $_modx->resource.context_key === 'krovlya'}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m']}
       <div class="wrapper main-page-content">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
