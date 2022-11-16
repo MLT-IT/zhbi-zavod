@@ -1,10 +1,8 @@
 {var $key = $table ~ $delimeter ~ $filter}
-{*с данными контекстами открытых фильтров будет 5... с другими 4... хз так сказали сделать*}
-{set $limitActive = $_modx->context.key | in : ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa'] ? 4 : 3}
 
 {if $_modx->getPlaceholder('filter_iterator') ?}
     {$_modx->setPlaceholder('filter_iterator', $_modx->getPlaceholder('filter_iterator') + 1)}
-    {if $_modx->getPlaceholder('filter_iterator') > $limitActive}
+    {if $_modx->getPlaceholder('filter_iterator') > 5}
         {set $dontActive = true}
     {/if}
 {else}
