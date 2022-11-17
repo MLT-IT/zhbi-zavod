@@ -40,9 +40,9 @@
 
                         <div class="assort__item">
                             {if $item['img']?}
-                                <div class="assort__item-img-wrap">
+                                <a href="{$item['uri']}" class="assort__item-img-wrap">
                                     <img class="assort__item-img" src="{$item['img']}" alt="">
-                                </div>
+                                </a>
                             {/if}
                             {if $item['uri']?}
                                 <a href="{$item['uri']}" class="assort__item-title{$titleAdditionalClass}">{$title}</a>
