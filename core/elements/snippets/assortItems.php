@@ -369,7 +369,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Аэроэлементы и вентиляционные ленты' => '/aehroehlementy-i-ventilyacionnye-lenty-v-sankt-peterburge/',
                                 'Брусок' => '/brusok-v-sankt-peterburge/',
                                 'Лента примыкания' => '/lenta-primykaniya-v-sankt-peterburge/',
-                                'Плита OSB' => '/plita-osb/',
                                 'Строительный крепёж' => '/stroitelnyy-krepyozh-v-sankt-peterburge/',
                                 'Уплотнитель' => '/uplotnitel-v-sankt-peterburge/',
                                 'Шумоизолирующая лента под фальц' => '/shumoizoliruyushchaya-lenta-pod-falc-v-sankt-peterburge/',
