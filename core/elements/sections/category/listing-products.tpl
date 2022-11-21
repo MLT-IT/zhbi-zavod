@@ -65,7 +65,7 @@ data-single-dir - запретить менять направление сор�
     </div>
 
     {'!AjaxForm' | snippet : [
-        'hooks' => 'create_request,create_bitrix_lead,create_calltouch_lead',
+        'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
         'snippet' => 'FormIt',
         'form' => '@FILE sections/catalog/catalog-banner.tpl',
         'customValidators' => 'checkPhone,check_request',
