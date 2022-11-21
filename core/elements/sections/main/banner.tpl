@@ -1,27 +1,69 @@
+{set $ctx = $_modx->context.key}
+{set $banner_ctxs = [
+    "kirpich-m" => [
+        "image" => "/assets/template/img/banners-small/kirpich-m-small.png",
+        "content" => ["text" => "Оставьте заявку на кирпич сейчас и<br> получите скидку 30% на доставку 👍", "class_names" => "color-white font-weight-500"]
+        "button" => ["text" => "Получить скидку", "class_names" => "color-white bg-green"]
+    ],
+    "fasad" => [
+        "image" => "/assets/template/img/banners-small/fasad-small.png",
+        "content" => ["text" => " Бесплатно рассчитаем фасады под ключ", "class_names" => "color-black font-weight-500"]
+        "button" => ["text" => "Получить бесплатный расчет", "class_names" => "color-white bg-green"]
+    ],
+    "krovlya" => [
+        "image" => "/assets/template/img/banners-small/krovlya-small.png",
+        "content" => ["text" => "Бесплатно рассчитаем комплект кровли ", "class_names" => "color-black font-weight-700"]
+        "button" => ["text" => "Получить скидку", "class_names" => "color-white bg-green"]
+    ],
+]}
+
+{* Массив контекстов с маленькими баннерами *}
+{if $ctx in $banner_ctxs}
+{set $content = $banner_ctxs[$ctx]["content"]}
+{set $button = $banner_ctxs[$ctx]["button"]}
+{set $image = $banner_ctxs[$ctx]["image"]}
+
+<section class="banner-small" >
+     <div class="wrapper">
+         <div class="banner-small__slide" style="background:url({$image})">
+            <div class="banner-small__content">
+                <div class="banner-small__content-text {$content["class_names"]}">
+                    {$content["text"]}
+                </div>
+                <button data-btn-key="banner-main" data-fancybox data-src="#cost-delivery" class="banner-small__content-button {$button["class_names"]}" >
+                    <span>{$button["text"]}</span>
+                    <span>&#129122;</span>
+                </button>
+            </div>
+         </div>
+     </div>
+</section>
+{else}
+
 <section class="banner">
     {if $dontNeedWrapper != true}
         <div class="wrapper">
     {/if}
         <div class="banner__slide">
-            {if $_modx->context.key == 'krovlya'}
+            {if $ctx == 'krovlya'}
                 <img src="/assets/template/img/banners-full/krovlya.jpg" class="banner__slide-img">
-            {elseif $_modx->context.key == 'kirpich-m'}
+            {elseif $ctx == 'kirpich-m'}
                 <img src="/assets/template/img/banners-full/kirpich-m.jpg" class="banner__slide-img">
-            {elseif $_modx->context.key == 'pilomat'}
+            {elseif $ctx == 'pilomat'}
                 <img src="/assets/template/img/banners-full/pilomat.jpg" class="banner__slide-img">
-            {elseif $_modx->context.key == 'fasady-pro'}
+            {elseif $ctx == 'fasady-pro'}
                 <img src="/assets/template/img/banners-full/fasady-pro.jpg" class="banner__slide-img">
-            {elseif $_modx->context.key == 'fasad'}
+            {elseif $ctx == 'fasad'}
                 <img src="/assets/template/img/banners-full/fasad.jpg" class="banner__slide-img">
-            {elseif $_modx->resource.context_key == 'armatura-178'}
+            {elseif $ctx == 'armatura-178'}
                 <img src="/assets/template/img/banners-full/armatura-178.jpg" class="banner__slide-img">
-            {elseif $_modx->resource.context_key == 'asconcrete'}
+            {elseif $ctx == 'asconcrete'}
                 <img src="/assets/template/img/banners-full/asconcrete.jpg" class="banner__slide-img">
-            {elseif $_modx->resource.context_key == 'pro-fanera'}
+            {elseif $ctx == 'pro-fanera'}
                 <img src="/assets/template/img/banners-full/pro-fanera.jpg" class="banner__slide-img">
-            {elseif $_modx->resource.context_key == 'plitaosb'}
+            {elseif $ctx == 'plitaosb'}
                 <img src="/assets/template/img/banners-full/plitaosb.jpg" class="banner__slide-img">
-            {elseif $_modx->resource.context_key == 'plity-mdvp'}
+            {elseif $ctx == 'plity-mdvp'}
                 <img src="/assets/template/img/banners-full/plity-mdvp.jpg" class="banner__slide-img">
             {else}
                 <img src="/assets/template/img/banners-full/{$site_context}.jpg" class="banner__slide-img">
@@ -48,7 +90,7 @@
             *}
 
             <span data-btn-key="{$dataBtnKey?:'banner-main'}" data-fancybox="" data-src="#cost-delivery" class="banner__slide-link delivery__banner-btn-text yellow-btn">
-                {if $_modx->resource.context_key == 'plitaosb'}
+                {if $ctx == 'plitaosb'}
                     <svg class="svg banner__text-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#main-banner-btn"></use>
                     </svg>
@@ -67,3 +109,4 @@
         </div>
     {/if}
 </section>
+{/if}
