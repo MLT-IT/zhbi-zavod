@@ -19,8 +19,8 @@
 <div class="not-init pop-slide comp-slide swiper-slide js-product listing__products-item{if $itemInCart?} js-product-in-cart{/if}">
     <input type="hidden" name="id" value="{$id}">
     <div class="listing__products-item-left">
-        <a class="listing__products-item-photo" href="{$uri}">
-            <img src="/assets/images/loader.svg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+        <a class="listing__products-item-photo" href="{$uri}" itemscope itemtype="http://schema.org/ImageObject">
+            <img src="/assets/images/loader.svg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}" itemprop="contentUrl">
         </a>
         <div class="listing__products-item-title">
             <a href="{$uri}">{$pagetitle}</a>
