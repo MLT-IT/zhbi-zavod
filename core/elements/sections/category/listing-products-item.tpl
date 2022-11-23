@@ -139,8 +139,8 @@
       {switch $_modx->resource.context_key}
           {case 'kirpich-m'}
               <div class="listing__catalog-promo listing__catalog-promo_type_tight">
-                  <div class="listing__catalog-promo-img-wrap">
-                      <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-promo-img">
+                  <div class="listing__catalog-promo-img-wrap" itemscope itemtype="http://schema.org/ImageObject">
+                      <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-promo-img" itemprop="contentUrl">
                   </div>
                   <p class="listing__catalog-promo-text">
                     <span class="text-big">Запишитесь</span>
