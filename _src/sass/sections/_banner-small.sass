@@ -1,0 +1,54 @@
+.banner-small
+    margin-bottom: 50px
+    text-align: center
+
+    .color-white
+        color: #fff
+    .color-black
+        color: #000
+    .bg-green
+        background: linear-gradient(88.68deg, #1EC661 0%, #1BB763 98.87%)
+        &:hover
+            box-shadow: 0px 16px 32px rgba(27, 183, 99, 0.16), 0px 8px 16px rgba(27, 183, 99, 0.56)
+    .font-weight-500
+        font-weight: 500
+    .font-weight-700
+        font-weight: 700
+
+    &__slide
+        position: relative
+        width: 100%
+        min-height: 205px
+        border-radius: 24px
+        @media screen and (max-width: 520px)
+            background-position-x: -500px!important
+
+    &__content
+        position: absolute
+        top: 30px
+        left: 48px
+        display: flex
+        flex-direction: column
+        gap: 16px
+        @media screen and (max-width: 520px)
+            left: 20px
+
+        &-button
+            padding: 18px 24px
+            width: max-content
+            border-radius: 8px
+            display: flex
+            align-items: center
+            gap: 10px
+            transition: .3s
+            span
+                font-size: 24px
+                line-height: 100%
+                @media screen and (max-width: 520px)
+                    font-size: 18px
+        &-text
+            font-size: 24px
+            line-height: 140%
+            text-align: left
+            @media screen and (max-width: 520px)
+                font-size: 18px
