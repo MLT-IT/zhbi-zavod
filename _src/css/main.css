@@ -5142,6 +5142,12 @@ a .breadcrumbs__val:hover {
   margin-bottom: 70px;
 }
 
+@media screen and (min-width: 920px) {
+    .catalog__cards {
+        width: calc(100% - 16%);
+    }
+}
+
 .pro-fanera .catalog__cards {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
