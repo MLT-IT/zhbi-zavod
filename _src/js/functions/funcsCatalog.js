@@ -725,6 +725,17 @@ function init() {
         handleAside();
         $(window).on('resize scroll', handleAside);
     }
+
+
+    // -------------------------------------------
+    // Уменьшение текста в тегах, если он слишком длинный
+    // -------------------------------------------
+    $('.selections__btn').on('click', function(e) {
+        e.preventDefault();
+        let $this = $(this);
+        functions.toggleText($this, 'data-text');
+        $this.closest('.selections').find('.selections__items-wrap').slideToggle({duration: 200});
+    });
 }
 
 

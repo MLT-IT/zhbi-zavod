@@ -1,0 +1,43 @@
+.selections
+    margin-bottom: 10px
+
+    &__items-wrap
+        display: flex
+        flex-wrap: wrap
+        margin-bottom: 21px
+        margin-top: 5px
+
+    &__item
+        padding: 5px
+        width: min-content
+        min-width: 195px
+        height: 50px
+        display: flex
+        align-items: center
+        background: #fff
+        border: 1px solid #eaeaea
+        border-radius: 2px
+        transition: .3s
+        margin-right: 15px
+        margin-top: 10px
+
+        &:hover
+            box-shadow: 0px 4px 32px rgba(51, 51, 51, 0.08)
+
+    &__item-title
+        align-self: center
+        font-size: .875rem
+
+    &__item-media
+        margin-right: 16px
+        width: 55px
+        height: 38px
+        +colors_to_selector(&)
+
+    &__btn
+        display: inline-block
+        cursor: pointer
+        transition: .3s
+
+        &:hover
+            +set_colors_1(color)

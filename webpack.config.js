@@ -117,7 +117,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://plity-mdvp.local/",
+                    target: "http://krovlyasp.skderdom.beget.tech/",
                     secure: false,
                     changeOrigin: true
                 }

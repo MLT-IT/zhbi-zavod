@@ -7,6 +7,18 @@ data-single-dir - запретить менять направление сор�
 <div class="listing__products">
     {'getTags' | snippet}
 
+    {$_modx->runSnippet('pdoResources', [
+        'tpl' => '@FILE chunks/selectionsItem.tpl',
+        'depth' => 0,
+        'limit' => 0,
+        'sortby' => 'menuindex',
+        'sortdir' => 'ASC',
+        'tplWrapper' => '@FILE chunks/selections.tpl',
+
+        'includeTVs' => 'showInDropdownPanel',
+        'where' => '{"template:=":"5", "AND:showInDropdownPanel:=":"1"}',
+    ])}
+
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">
         <div class="listing__selected" id="mse2_selected" style="display: none;"></div>
     </div>
