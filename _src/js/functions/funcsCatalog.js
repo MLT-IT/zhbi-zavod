@@ -728,14 +728,21 @@ function init() {
 
 
     // -------------------------------------------
-    // Уменьшение текста в тегах, если он слишком длинный
+    // Раскрывашка с цветами
     // -------------------------------------------
-    $('.selections__btn').on('click', function(e) {
-        e.preventDefault();
-        let $this = $(this);
-        functions.toggleText($this, 'data-text');
-        $this.closest('.selections').find('.selections__items-wrap').slideToggle({duration: 200});
-    });
+    let $selectionsBtn = $('.selections__btn');
+    if ($selectionsBtn.length) {
+        if ($('.selections__item').length > 5) {
+            $selectionsBtn.show();
+        }
+
+        $selectionsBtn.on('click', function(e) {
+            e.preventDefault();
+            let $this = $(this);
+            $this.closest('.selections').toggleClass('show-all');
+            functions.toggleText($this, 'data-text');
+        });
+    }
 }
 
 

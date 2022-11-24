@@ -17,6 +17,9 @@ data-single-dir - запретить менять направление сор�
 
         'includeTVs' => 'showInDropdownPanel',
         'where' => '{"template:=":"5", "AND:showInDropdownPanel:=":"1"}',
+
+        'totalVar' => 'total',
+        'setTotal' => 1
     ])}
 
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">
