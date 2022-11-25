@@ -16,7 +16,7 @@ data-single-dir - запретить менять направление сор�
         'tplWrapper' => '@FILE chunks/selections.tpl',
 
         'includeTVs' => 'showInDropdownPanel',
-        'where' => '{"template:=":"5", "AND:showInDropdownPanel:=":"1"}',
+        'where' => '{"template:=":"27"}',
 
         'totalVar' => 'total',
         'setTotal' => 1
@@ -88,5 +88,4 @@ data-single-dir - запретить менять направление сор�
         'validationErrorMessage' => 'В форме содержатся ошибки!',
         'successMessage' => 'Сообщение успешно отправлено',
     ]}
-
 </div>
