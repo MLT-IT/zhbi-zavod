@@ -29,7 +29,7 @@ data-single-dir - запретить менять направление сор�
     <div class="listing__sort">
         {* <span class="listing__reset-filters">Сбросить фильтры</span> *}
         <div id="mse2_sort" class="listing__sort-list"><span>Сортировать: </span>
-            {if $_modx->resource.context_key in list ['pro-fanera', 'kirpich-m', 'plitaosb', 'plity-mdvp']}
+            {if $_modx->resource.context_key in list ['pro-fanera', 'plitaosb']}
                 <a href="#" data-sort="tv|HitsPage" data-dir="" data-default="desc" class="listing__sort-item min{if $.get.sort == 'tv|HitsPage'} active{/if}" data-single-dir="1">по популярности</a>
                 <a href="#" data-sort="ms|price" data-dir="{if $.get.sort == ''}asc{/if}" data-default="asc" class="listing__sort-item_with-reverse-arrow listing__sort-item min{if $.get.sort == ''} active{/if}">по цене</a>
             {else}

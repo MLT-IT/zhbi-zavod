@@ -51,7 +51,7 @@
             *}
 
             {* На определенных контекстах сортировка по умолчанию должна быть другой *}
-            {if $_modx->resource.context_key in list ['pro-fanera', 'kirpich-m', 'plitaosb', 'plity-mdvp']}
+            {if $_modx->resource.context_key in list ['pro-fanera', 'plitaosb']}
                 {set $params['sort'] = 'ms|price:asc'}
             {/if}
 
