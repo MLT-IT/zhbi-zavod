@@ -185,7 +185,7 @@ if (($modx->resource->context_key === 'krovlya') &&
                 'returnIds' => 1,
             ]);
         } else {
-            $resourcesIds = '';
+            $resourcesIds = $params['resources'];
         }
 
         if (!empty($resourcesIds)) {
