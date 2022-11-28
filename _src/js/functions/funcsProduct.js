@@ -278,10 +278,10 @@ function init(yandexMetrikaId) {
             }
         }
 
-        // Если товар есть в корзине, то надо пересчитать кол-во м2
+        // Если товар есть в корзине, то надо пересчитать кол-во листов
         if ($proFaneraCard.find('.js-product-in-cart')) {
-            let $amountM2 = $('.custom-counter__amount[data-purpose="m2"]');
-            $amountM2.val(($amountM2.val() * $amountM2.attr('data-koeff')).toFixed(2));
+            let $amountList = $('.custom-counter__amount[data-purpose="list"]');
+            $amountList.val(($amountList.val() * $amountList.attr('data-koeff')).toFixed(2));
         }
     }
 

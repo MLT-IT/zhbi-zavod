@@ -1,12 +1,26 @@
 <div class="product-card__info-block">
     <div class="product-card__info-block-elem">
+      <div class="product-card__info-elem">
+        <div class="product-card__side-panel-text">Цена за м<sup>2</sup></div>
+      </div>
+      <div class="product-card__info-val product-card__info-val_content_price">
+        <div class="product-card__info-price js-product__price-wrap">
+          <span class="product-card__price-val">
+              {$outputPrice}
+          </span>
+          <span class="product-card__price-unit">руб</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card__info-block-elem">
         <div class="product-card__info-elem">
             <div class="product-card__side-panel-text">Цена за лист</div>
         </div>
         <div class="product-card__info-val product-card__info-val_content_price">
             <div class="product-card__info-price js-product__price-wrap">
                 <span class="product-card__price-val">
-                    {$outputPrice}
+                    {($defaultPrice / $list) | ceil | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
                 </span>
                 <span class="product-card__price-unit">руб</span>
             </div>
@@ -23,21 +37,6 @@
                     </div>
                 </div>
             {/if}
-        </div>
-    </div>
-
-
-    <div class="product-card__info-block-elem">
-        <div class="product-card__info-elem">
-            <div class="product-card__side-panel-text">Цена за м<sup>2</sup></div>
-        </div>
-        <div class="product-card__info-val product-card__info-val_content_price">
-            <div class="product-card__info-price js-product__price-wrap">
-                <span class="product-card__price-val">
-                    {($defaultPrice / $m2) | ceil | preg_replace : '/\B(?=(\d{3})+(?!\d))/': ' ' | replace : ',' : '.'}
-                </span>
-                <span class="product-card__price-unit">руб</span>
-            </div>
         </div>
     </div>
 

@@ -330,7 +330,7 @@
             <div class="js-product__controls js-product__controls_action_add">
                 <div class="product-card__controls-block">
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">Лист</div>
+                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
                             <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
                             <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
@@ -338,9 +338,9 @@
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
+                        <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
+                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$list}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
@@ -365,7 +365,7 @@
             <div class="js-product__controls js-product__controls_action_change">
                 <div class="product-card__controls-block">
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">Лист</div>
+                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
                             <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
                             <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
@@ -373,9 +373,9 @@
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
+                        <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="m2" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$m2}" data-min="0.01">
+                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$list}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
