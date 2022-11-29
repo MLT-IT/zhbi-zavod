@@ -51,10 +51,10 @@ WHERE `key` = 'http_host' AND context_key = 'fasady-pro';
 
 -- fasad
 UPDATE modx_context_setting
-SET `value` = 'http://www-fasad.skderdom.beget.tech/'
+SET `value` = 'http://fasad.skderdom.beget.tech/'
 WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'fasad');
 UPDATE modx_context_setting
-SET `value` = 'www-fasad.skderdom.beget.tech'
+SET `value` = 'fasad.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'fasad';
 
 -- armatura-178
@@ -112,5 +112,45 @@ WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'tn');
 UPDATE modx_context_setting
 SET `value` = 'pro-minvata.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'tn';
+
+-- ursa
+UPDATE modx_context_setting
+SET `value` = 'http://ursa.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'ursa');
+UPDATE modx_context_setting
+SET `value` = 'ursa.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'ursa';
+
+-- rockwool
+UPDATE modx_context_setting
+SET `value` = 'http://rockwool.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'rockwool');
+UPDATE modx_context_setting
+SET `value` = 'rockwool.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'rockwool';
+
+-- penoplex
+UPDATE modx_context_setting
+SET `value` = 'http://penoplex.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'penoplex');
+UPDATE modx_context_setting
+SET `value` = 'penoplex.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'penoplex';
+
+-- isover
+UPDATE modx_context_setting
+SET `value` = 'http://isover.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'isover');
+UPDATE modx_context_setting
+SET `value` = 'isover.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'isover';
+
+-- paroc
+UPDATE modx_context_setting
+SET `value` = 'http://paroc.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'paroc');
+UPDATE modx_context_setting
+SET `value` = 'paroc.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'paroc';
 
 COMMIT;
