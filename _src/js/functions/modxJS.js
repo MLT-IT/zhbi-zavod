@@ -44,6 +44,13 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
+        let title1OffsetTop = $(".title-1").offset().top;
+        if ($(window).scrollTop() > title1OffsetTop + 200 && e.type == 'mse2_load' && $(e.target.activeElement).is('.custom-checkbox__input, .ui-slider-handle')) {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: title1OffsetTop
+            }, 300);
+        }
+
         let $catalog = $('.js-catalog');
         if ($catalog.length) {
             $('.listing__content .msearch2message').text('Подходящих результатов не найдено.');
