@@ -3,6 +3,8 @@
     <div id="pdopage" class="sect-listing__content">
         <div class="listing__products-list rows grid js-catalog">
             {set $params = [
+                'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
+
                 'element' => 'msProducts',
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
                 'ajax' => 1,

@@ -97,6 +97,10 @@
         {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
+    {if $_modx->resource.context_key == 'krovlya'}
+        {include "file:sections/category/simple-listing.tpl"}
+    {/if}
+
     {include "file:sections/main/promo.tpl"}
     {include "file:sections/main/stocks.tpl"}
     {include "file:sections/certs.tpl"}
