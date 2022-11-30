@@ -31,7 +31,7 @@
                 'resources' => $mSearch2Ids,
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
 
-                'includeTVs' => 'priority1,HitsPage,isFractional',
+                'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable',
 
                 'pageVarKey' => 'page',
                 'pageNavVar' => 'page.nav',

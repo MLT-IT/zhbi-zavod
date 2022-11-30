@@ -48,14 +48,15 @@
                 <div class="swiper-container sect-comparison__slider">
                     <div class="swiper-wrapper sect-pop__slider">
                         {'!msProducts' | snippet : [
-                        'parents' => 0,
-                        'depth' => 50,
-                        'limit' => 42,
-                        'sortby' => '',
-                        'sortdir' => '',
-                        'resources' => $resources,
-                        'tpl' => '@FILE sections/popular/comp-slide.tpl',
-                        'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}'
+                          'parents' => 0,
+                          'depth' => 50,
+                          'limit' => 42,
+                          'sortby' => '',
+                          'sortdir' => '',
+                          'resources' => $resources,
+                          'tpl' => '@FILE sections/popular/comp-slide.tpl',
+                          'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
+                          'includeTVs' => 'productNotAvailable',
                         ]}
                     </div>
                     <div class="swiper-scrollbar"></div>

@@ -26,7 +26,7 @@ if (!function_exists('getPopularProductsParams')) {
             'depth' => 50,
             'limit' => 42,
             'tpl' => '@FILE sections/popular/pop-slide.tpl',
-            'includeTVs' => 'isFractional',
+            'includeTVs' => 'isFractional,productNotAvailable',
             'context' => $modx->resource->context_key,
             'tplWrapper' => '@FILE sections/popular/sect-pop-wrapper.tpl',
             'wrapIfEmpty' => 0

@@ -10,7 +10,7 @@
                 'ajax' => 1,
                 'limit' => 42,
                 'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
-                'includeTVs' => 'priority1,HitsPage,isFractional',
+                'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable',
                 'context' => $_modx->resource.context_key,
 
                 'optionFilters' => $_modx->getPlaceholder('mspcs.option'),
