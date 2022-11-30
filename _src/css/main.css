@@ -5143,7 +5143,7 @@ a .breadcrumbs__val:hover {
 }
 
 @media screen and (min-width: 920px) {
-    .catalog__cards {
+    .plity-mdvp .catalog__cards {
         width: calc(100% - 16%);
     }
 }
