@@ -187,6 +187,14 @@
 
             <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
 
+            {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya', 'fasady-pro', 'fasad']}
+                {set $showroom = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'show-room']}
+
+                {if $showroom['hidemenu'] == 0 && $showroom['published'] == 1}
+                  <span class="header__nav-item"><a class="header__nav-link" href="/show-room/">Шоурум</a></span>
+                {/if}
+            {/if}
+
             {if $certs['hidemenu'] == 0 && $certs['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
             {/if}
