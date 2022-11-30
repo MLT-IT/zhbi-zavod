@@ -167,13 +167,21 @@
                 <div class="product-card__return">Возможность возврата товара</div>
             {/if}
 
-            <div class="product-card__availability">
-                <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                    <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
-                </svg>
-                В наличии
-            </div>
+            {if $_modx->resource.productNotAvailable == 1}
+                <div class="product-card__availability negative">
+                    <span class="product-card__availability-cross"></span>
+                    Нет в наличии
+                </div>
+            {else}
+                <div class="product-card__availability">
+                    <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
+                    </svg>
+                    В наличии
+                </div>
+            {/if}
+
             <div class="product-card__reviews">
                 <div class="product-card__reviews-stars five">
                     <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"

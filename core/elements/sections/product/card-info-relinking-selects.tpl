@@ -20,15 +20,22 @@
 
     {insert "file:blocks/get-data-attrs.tpl"}
 >
+
     <div class="product-card__top-line">
         <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
         <div class="product-card__availability">
-            <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+            {if $_modx->resource.productNotAvailable == 1}
+              <span class="product-card__availability-cross"></span>
+              Нет в наличии
+            {else}
+              <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
+                   xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
-            </svg>
-            В наличии
+              </svg>
+              В наличии
+            {/if}
         </div>
+
         <div class="product-card__reviews">
             <div class="product-card__reviews-stars five">
                 <svg class="svg icon-star" xmlns="http://www.w3.org/2000/svg"
@@ -392,13 +399,21 @@
 
             <div class="product-card__aux-info">
                 <span class="product-card__article product-card__article_pc">Арт. {$_modx->resource['article']}</span>
-                <div class="product-card__availability">
+
+                {if $_modx->resource.productNotAvailable == 1}
+                  <div class="product-card__availability negative">
+                    <span class="product-card__availability-cross"></span>
+                    Нет в наличии
+                  </div>
+                {else}
+                  <div class="product-card__availability">
                     <svg class="svg icon-available" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
+                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-available"></use>
                     </svg>
                     В наличии
-                </div>
+                  </div>
+                {/if}
 
                 <div class="product-card__reviews">
                     <div class="product-card__reviews-stars five">
