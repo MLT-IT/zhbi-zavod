@@ -40,7 +40,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Керамический широкоформатный блок' => [
-                    'id' => 'assort-blocks',
+                    'id' => 'assort-brick',
                     'items' => [
                         'Керамоблок ЛСР' => [
                             'uri' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
