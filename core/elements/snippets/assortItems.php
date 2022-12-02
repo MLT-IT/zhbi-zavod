@@ -42,29 +42,18 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Керамический широкоформатный блок' => [
                     'id' => 'assort-brick',
                     'items' => [
-                        'Керамоблок ЛСР' => [
-                            'uri' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
-                        ],
-                        'Керамоблок Porotherm (Wienerberger)' => [
-                            'uri' => '/keramobloki/?msoption|proizvoditel=Porotherm%20(Wienerberger)',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
-                        ],
-                        'Керамоблок Braer' => [
-                            'uri' => '/keramobloki/?msoption|proizvoditel=BRAER',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
-                        ],
-                        'Керамоблок Радошковичи' => [
-                            'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
-                        ],
-                        'Керамоблок Гжельск' => [
-                            'uri' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
-                        ],
-                        'Керамоблок ВКЗ' => [
-                            'uri' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
-                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
+                        'Крупноформатные блоки' => [
+                            'uri' => '/keramobloki/',
+                            'img' => '/assets/template/img/assort/kirpich-m/krupnoformatnye-bloki.jpg',
+                            'links' => [
+                                'Керамоблоки ЛСР' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
+                                'Керамоблоки Porotherm' => '/keramobloki/?msoption|proizvoditel=Porotherm',
+                                'Керамоблоки Wienerberger' => '/keramobloki/?msoption|proizvoditel=Wienerberger',
+                                'Керамоблоки ВКЗ' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
+                                'Керамоблоки BRAER' => '/keramobloki/?msoption|proizvoditel=BRAER',
+                                'Керамоблоки Гжельск' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
+                                'Керамоблоки Forati' => '/keramobloki/?msoption|proizvoditel=Forati',
+                            ]
                         ],
                     ]
                 ],
@@ -73,7 +62,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     'items' => [
                         'Плитка под кирпич' => [
                             'uri' => '/plitka-pod-kirpich/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
                             'links' => [
                                 'Клинкерная плитка' => '/klinkernaya-plitka/',
                                 'Керамическая плитка' => '/keramicheskaya-plitka/',
@@ -86,15 +75,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Искусственный камень для фасада' => [
                             'uri' => '/iskusstvennyj-kamen-dlya-fasada/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/is-kamen-fasad.jpg',
                         ],
                         'Декоративный камень для внутренней отделки' => [
                             'uri' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
-                        ],
-                        'Керамогранит для фасада' => [
-                            'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/dek-kamen-vn-otdelka.jpg',
                         ],
                         'Плитка для навесных фасадов' => [
                             'uri' => '/plitka-dlya-navesnyh-fasadov/',
@@ -107,21 +92,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
                                 'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/',
                             ]
-                        ],
-                        'Сайдинг' => [
-                            'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
-                            'links' => [
-                                'Фасадные панели' => '#',
-                            ]
-                        ],
-                        'Стеклоблоки' => [
-                            'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
-                        ],
-                        'Природный натуральный камень' => [
-                            'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
                         ],
                     ]
                 ],
@@ -143,7 +113,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     'items' => [
                         'Брусчатка' => [
                             'uri' => '/bruschatka-i-plitka-dlya-mosheniya/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/trotyarniy-kliner.jpg',
                             'links' => [
                                 'Клинкерная брусчатка' => '/klinkernaya-bruschatka/',
                                 'Бетонная тротуарная плитка' => '#'
@@ -151,7 +121,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Бордюры' => [
                             'uri' => '#',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/bordury.jpg',
                             'links' => [
                                 'Дорожные' => '#',
                                 'Тротуарные' => '#',
