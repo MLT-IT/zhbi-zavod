@@ -47,9 +47,8 @@
             <span>
                 <span>
                      Нажимая кнопку «Отправить», Вы потверждаете, что ознакомились с
-                    <a data-fancybox data-type="ajax"
-                       data-src="/confidential/"
-                       href="javascript:;">Условиями обработки персональных данных </a>
+                    <span data-fancybox data-type="ajax"
+                       data-src="/confidential/" class="privacy-link">Условиями обработки персональных данных </span>
                     и принимаете их
                 </span>
             </span>

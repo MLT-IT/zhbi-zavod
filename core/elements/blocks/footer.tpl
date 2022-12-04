@@ -25,7 +25,7 @@
                 </div>
             </div>
             <ul class="footer__nav-list">
-                <li class="footer__nav-item"><a data-fancybox data-type="ajax" data-src="/confidential/">Политика конфиденциальности</a></li>
+                <li class="footer__nav-item"><span class="footer__link" data-fancybox data-type="ajax" data-src="/confidential/">Политика конфиденциальности</span></li>
                 {if $_modx->resource.template === 1}
                 <li class="footer__nav-item"><a href="/sitemap/">Карта сайта</a></li>
                 {/if}

@@ -155,12 +155,13 @@
 
         <div class="product-card__info-right">
             <div class="product-card__delivery"><b>Доставка в Санкт-Петербург и Лен. область</b>
-                <a data-fancybox href="#cost-delivery">
+                <span data-fancybox data-src="#cost-delivery" class="product-card__delivery-link">
                     <svg class="svg icon-delivery" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-delivery"></use>
                     </svg>
-                    Узнать стоимость с доставкой</a>
+                    Узнать стоимость с доставкой
+                </span>
             </div>
 
             {if $_modx->resource.context_key in ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa']}
@@ -206,14 +207,14 @@
                     </svg>
                 </div>
                 {set $countReviews = count($reviews)}
-                <a class="product-card__reviews-quantity" href="#">{$countReviews}
+                <span class="product-card__reviews-quantity">{$countReviews}
                     {'@FILE snippets/formOfWord.php' | snippet : [
                     'n' => $countReviews,
                     'f1' => 'отзыв',
                     'f2' => 'отзыва',
                     'f5' => 'отзывов'
                     ]}
-                </a>
+                </span>
             </div>
 
             {if !$_modx->getPlaceholder('utm_source')}

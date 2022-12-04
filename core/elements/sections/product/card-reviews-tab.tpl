@@ -37,7 +37,7 @@
         *}
 
     </div>
-    <a class="reviews__button" href="#reviews" data-fancybox="">
+    <a class="reviews__button" data-src="#reviews" data-fancybox>
         <span>
             <svg class="svg icon-pen" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">

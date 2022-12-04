@@ -81,14 +81,14 @@
                 </svg>
             </div>
             {set $countReviews = count($reviews)}
-            <a class="product-card__reviews-quantity" href="#">{$countReviews}
+            <span class="product-card__reviews-quantity">{$countReviews}
                 {'@FILE snippets/formOfWord.php' | snippet : [
                 'n' => $countReviews,
                 'f1' => 'отзыв',
                 'f2' => 'отзыва',
                 'f5' => 'отзывов'
                 ]}
-            </a>
+            </span>
         </div>
 
         <div class="product-card__right-info">

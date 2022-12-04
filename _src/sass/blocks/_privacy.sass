@@ -8,11 +8,15 @@
         line-height: 100%
         margin-left: 9px
 
-    .privacy__link
-        color: currentColor
-        transition: .3s
-        border-bottom: 1px dashed currentColor
+.privacy-link, .privacy__link
+    cursor: pointer
+    transition: .3s
+    color: currentColor
+    border-bottom: 1px dashed currentColor
 
-        &:hover
-            color: currentColor
-            border-bottom-color: transparent
+    &:hover
+        border-bottom-color: transparent
+
+.privacy-link
+    &:hover
+        +set_colors_1(color)

@@ -1,4 +1,11 @@
 .footer
+    &__link
+        cursor: pointer
+        transition: .3s
+
+        &:hover
+            +set_colors_1(color)
+
     &__nav-block-title
         @media screen and (max-width: 420px)
             margin-bottom: 11px
@@ -37,9 +44,15 @@
 
     &__about-phone,&__email
         +set_colors_1(color)
-        transition: .3s
+
         &:hover
             +set_colors_2(color)
 
     &__nav-list
         width: 100%
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+
+        @media screen and (max-width: 850px)
+            align-items: center

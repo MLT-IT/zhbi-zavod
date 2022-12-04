@@ -87,10 +87,9 @@
                                 <input class="custom-checkbox__input" type="checkbox" checked="" name="privacy">
                                 <span class="custom-checkbox__checkmark"></span>
                             </span>
-                                <span class="privacy__text">согласен(на) с <a
-                                            class="privacy__link" data-fancybox="" data-type="ajax"
-                                            data-src="/confidential/"
-                                            href="javascript:;">политикой конфиденциальности</a> сайта</span>
+                                <span class="privacy__text">согласен(на) с <span
+                                            class="privacy-link" data-fancybox data-type="ajax"
+                                            data-src="/confidential/">политикой конфиденциальности</span> сайта</span>
                             </label>
 
                             <button type="submit" class="popup-order__submit custom-btn">Оформить заказ</button>

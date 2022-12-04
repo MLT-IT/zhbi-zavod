@@ -373,11 +373,33 @@
         @media screen and (max-width: 500px)
             display: block
 
-    a.product-card__delivery-link
-        margin-top: 1px
-        background: url(/assets/template/img/svg-sprite/icon-delivery-2.svg) no-repeat left top 1px
-        padding-left: 16px
-        font-weight: 600
+    &__delivery-link
+        cursor: pointer
+        font-size: 12px
+        color: #b1b2b3
+        display: flex
+        align-items: center
+        transition: 0.3s
+        border-bottom: 1px dashed rgba(60, 60, 59, 0.5)
+        padding-bottom: 3px
+
+        @at-root .product-card_type_usual &
+            margin-top: 8px
+            font-weight: 700
+
+            svg
+                width: 13px
+                height: 13px
+                margin-right: 10px
+
+        @at-root .product-card_type_relinking &
+            font-weight: 600
+            background: url(/assets/template/fonts/icon-delivery-2.svg) no-repeat left top 1px
+            margin-top: 1px
+            padding-left: 16px
+
+        &:hover
+            border-bottom-color: transparent
 
     &__delivery-text
         margin-right: 12px

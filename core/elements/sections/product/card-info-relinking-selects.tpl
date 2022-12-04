@@ -60,14 +60,14 @@
                 </svg>
             </div>
             {set $countReviews = count($reviews)}
-            <a class="product-card__reviews-quantity" href="#">{$countReviews}
+            <span class="product-card__reviews-quantity">{$countReviews}
                 {'@FILE snippets/formOfWord.php' | snippet : [
                 'n' => $countReviews,
                 'f1' => 'отзыв',
                 'f2' => 'отзыва',
                 'f5' => 'отзывов'
                 ]}
-            </a>
+            </span>
         </div>
         <div class="product-card__right-info">
             <span class="js-product__btn product-card__btn-compare js-product__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"
@@ -391,9 +391,9 @@
                     <span class="product-card__delivery-text">
                         в Санкт-Петербург и Лен. область
                     </span>
-                    <a class="product-card__delivery-link" data-fancybox href="#cost-delivery">
+                    <span class="product-card__delivery-link" data-fancybox data-src="#cost-delivery">
                         Узнать стоимость с доставкой
-                    </a>
+                    </span>
                 </div>
             </div>
 
@@ -439,14 +439,14 @@
                         </svg>
                     </div>
                     {set $countReviews = count($reviews)}
-                    <a class="product-card__reviews-quantity" href="#">{$countReviews}
+                    <span class="product-card__reviews-quantity">{$countReviews}
                         {'@FILE snippets/formOfWord.php' | snippet : [
                         'n' => $countReviews,
                         'f1' => 'отзыв',
                         'f2' => 'отзыва',
                         'f5' => 'отзывов'
                         ]}
-                    </a>
+                    </span>
                 </div>
             </div>
         </div>
