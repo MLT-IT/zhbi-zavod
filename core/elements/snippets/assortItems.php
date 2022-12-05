@@ -25,6 +25,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Облицовочный (лицевой) кирпич' => [
                     'id' => 'assort-brickwall',
                     'items' => [
+                        'Облицовочные кирпичи' => [
+                            'uri' => '/oblicovochnye/',
+                            'fullwidth' => true,
+                        ],
                         'Керамический лицевой кирпич' => [
                             'uri' => '/keramicheskie/',
                             'img' => '/assets/template/img/assort/kirpich-m/pustotelyj.jpg',
