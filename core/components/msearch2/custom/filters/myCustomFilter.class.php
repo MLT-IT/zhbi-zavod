@@ -141,13 +141,17 @@ class myCustomFilter extends mse2FiltersHandler {
                         case 19852:
                             $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Wienerberger', 'Roben']);
                             break;
-                        // Керамоблоки
-                        case 19847:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Wienerberger', 'BRAER', 'Гжельский кирпичный завод', 'ВКЗ', 'Porotherm']);
-                            break;
                         // Фасадная плитка
                         case 37478:
                             $sorted = $this->sortByCustomOrder($sorted, $results, ['Feldhaus Klinker', 'Roben', 'Terca', 'Wienerberger', 'ESTIMA', 'Nelissen']);
+                            break;
+                        // Строительные
+                        case 37608:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Радошковичи (Ceglar)', 'БКСМ', 'ВКЗ', 'Витебск цех-1', 'ЗСМ Эталон', 'Псковский КЗ']);
+                            break;
+                        // Керамоблоки
+                        case 19847:
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Радошковичи (Ceglar)', 'BRAER', 'Гжельский кирпичный завод', 'ВКЗ', 'Forati', 'Porotherm (Wienerberger)']);
                             break;
                         // Остальные кирпичи
                         default:
