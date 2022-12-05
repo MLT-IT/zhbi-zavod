@@ -20,11 +20,18 @@
      data-priority2="{$src['HitsPage']}"
 >
     <div class="listing__products-item-left">
-        <a class="listing__products-item-photo" href="{$uri}"  itemscope itemtype="http://schema.org/ImageObject">
+        {*микроразметка только для первого товара*}
+        <a class="listing__products-item-photo" href="{$uri}"  {if $idx == 1}itemscope itemtype="http://schema.org/ImageObject"{/if}>
             {if $outputOldPrice?}
                 <div class="listing__discount js-product__discount">Скидка {'!calculateDiscount' | snippet : ['id' => $id]}%</div>
             {/if}
-            <img src="/assets/images/loader.svg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}"  itemprop="contentUrl">
+            
+            {*Если это первый ресурс тогда только ему присвоить картинку с микроразметкой и отключить лоадер*}
+            {if $idx == 1}
+                <img src="{'site_url' | option}{$thumb ?: 'assets/images/no_image.jpg'}" alt="{$pagetitle}"  itemprop="contentUrl">
+            {else}
+                <img src="/assets/images/loader.svg" class="lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+            {/if}
         </a>
         <div class="listing__products-item-title">
             <a href="{$uri}">{$pagetitle}</a>
@@ -144,8 +151,8 @@
       {switch $_modx->resource.context_key}
           {case 'kirpich-m'}
               <div class="listing__catalog-promo listing__catalog-promo_type_tight">
-                  <div class="listing__catalog-promo-img-wrap" itemscope itemtype="http://schema.org/ImageObject">
-                      <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-promo-img" itemprop="contentUrl">
+                  <div class="listing__catalog-promo-img-wrap">
+                      <img src="/assets/template/img/showroom.jpg" alt="" class="listing__catalog-promo-img">
                   </div>
                   <p class="listing__catalog-promo-text">
                     <span class="text-big">Запишитесь</span>
