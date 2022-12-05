@@ -41,7 +41,7 @@
                         <div class="assort__item">
                             {if $item['img']?}
                                 <a href="{$item['uri']}" class="assort__item-img-wrap">
-                                    <img class="assort__item-img" src="{$item['img']}" alt="">
+                                    <img class="assort__item-img" src="{$item['img']}">
                                 </a>
                             {/if}
                             {if $item['uri']?}
