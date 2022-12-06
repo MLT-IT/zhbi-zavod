@@ -31,7 +31,7 @@
                 {/if}
             </ul>
         </div>
-       {if $_modx->getPlaceholder('footer_nav_ids') | length > 1}
+        {if $_modx->getPlaceholder('footer_nav_ids') | length > 1}
         <div class="footer__nav-block">
             <div class="footer__nav-block-title">Категории</div>
             <ul class="footer__nav-list">
@@ -50,11 +50,20 @@
             <ul class="footer__nav-list">
                 <li class="footer__nav-item"><a href="/o-kompanii/">О компании</a></li>
                 <li class="footer__nav-item"><a href="/contacts/">Контакты</a></li>
-                 <li class="footer__nav-item"><a href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-                 <li class="footer__nav-item"><a href="/faq/">Вопросы-ответы</a></li>
-                 <li class="footer__nav-item"><a href="/akcii/">Акции</a></li>
-                 <li class="footer__nav-item"><a href="/certs/">Сертификаты</a></li>
-                 <li class="footer__nav-item"><a href="/garantii/">Гарантии</a></li>
+                <li class="footer__nav-item"><a href="/dostavka-i-oplata/">Доставка и оплата</a></li>
+
+                {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya', 'fasady-pro', 'fasad']}
+                    {set $showroom = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'show-room']}
+
+                    {if $showroom['hidemenu'] == 0 && $showroom['published'] == 1}
+                      <li class="footer__nav-item"><a href="/show-room/">Шоурум</a></li>
+                    {/if}
+                {/if}
+
+                <li class="footer__nav-item"><a href="/faq/">Вопросы-ответы</a></li>
+                <li class="footer__nav-item"><a href="/akcii/">Акции</a></li>
+                <li class="footer__nav-item"><a href="/certs/">Сертификаты</a></li>
+                <li class="footer__nav-item"><a href="/garantii/">Гарантии</a></li>
             </ul>
         </div>
         <div class="footer__right">
