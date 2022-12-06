@@ -123,16 +123,16 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'img' => '/assets/template/img/assort/kirpich-m/trotyarniy-kliner.jpg',
                             'links' => [
                                 'Клинкерная брусчатка' => '/klinkernaya-bruschatka/',
-                                'Бетонная тротуарная плитка' => '#'
+                                'Бетонная тротуарная плитка' => '/betonnaya-trotuarnaya-plitka/'
                             ],
                         ],
                         'Бордюры' => [
-                            'uri' => '#',
+                            'uri' => '/bordury/',
                             'img' => '/assets/template/img/assort/kirpich-m/bordury.jpg',
                             'links' => [
-                                'Дорожные' => '#',
-                                'Тротуарные' => '#',
-                                'Садовые' => '#'
+                                'Дорожные' => '/bordury-dorozhnyie/',
+                                'Тротуарные' => '/bordury-trotuarnyie/',
+                                'Садовые' => '/bordury-sadovyie/'
                             ],
                         ]
                     ]
