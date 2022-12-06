@@ -31,15 +31,15 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Керамический лицевой кирпич' => [
                             'uri' => '/keramicheskie/',
-                            'img' => '/assets/template/img/assort/kirpich-m/pustotelyj.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/licevoj-kirpich-keramicheskij.jpg',
                         ],
                         'Клинкерный лицевой кирпич' => [
                             'uri' => '/klinkernye/',
-                            'img' => '/assets/template/img/assort/kirpich-m/polnotelyj.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/klinkernyj-licevoj-kirpich.jpg',
                         ],
                         'Кирпич ручной формовки' => [
                             'uri' => '/ruchnoj-formovki',
-                            'img' => '/assets/template/img/assort/kirpich-m/polnotelyj.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/oblichovochnye-kirpichi-ruchnoj-formovki.jpg',
                         ],
                     ]
                 ],
@@ -75,7 +75,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Плитка для печей и каминов' => [
                             'uri' => '/plitka-dlya-pechej-i-kaminov/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/plitka-dlya-pechej-i-kaminov.jpg',
                         ],
                         'Искусственный камень для фасада' => [
                             'uri' => '/iskusstvennyj-kamen-dlya-fasada/',
@@ -87,11 +87,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                         'Плитка для навесных фасадов' => [
                             'uri' => '/plitka-dlya-navesnyh-fasadov/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/plita-dlya-navesnyh-fasadov.jpg',
                         ],
                         'Фасадный декор' => [
                             'uri' => '/fasadnyj-dekor/',
-                            'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
+                            'img' => '/assets/template/img/assort/kirpich-m/fasadnyj-dekor.jpg',
                             'links' => [
                                 'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
                                 'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/',
