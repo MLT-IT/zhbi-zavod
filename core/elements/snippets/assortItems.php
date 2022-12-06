@@ -9,10 +9,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     switch ($modx->resource->context_key) {
         case 'kirpich-m':
             $result = [
-                'Строительный кирпич' => [
+                'Строительный (рядовой) кирпич' => [
                     'id' => 'assort-kirpich',
                     'items' => [
-                        'Рядовой' => [
+                        'Рядовой кирпич' => [
                             'uri' => '/stroitelnye/',
                             'img' => '/assets/template/img/assort/kirpich.jpg',
                             'links' => [
@@ -20,100 +20,84 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Пустотелый' => '/stroitelnye/?msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
                             ]
                         ],
+                    ]
+                ],
+                'Облицовочный (лицевой) кирпич' => [
+                    'id' => 'assort-brickwall',
+                    'items' => [
+                        'Облицовочные кирпичи' => [
+                            'uri' => '/oblicovochnye/',
+                            'fullwidth' => true,
+                        ],
+                        'Керамический лицевой кирпич' => [
+                            'uri' => '/keramicheskie/',
+                            'img' => '/assets/template/img/assort/kirpich-m/licevoj-kirpich-keramicheskij.jpg',
+                        ],
+                        'Клинкерный лицевой кирпич' => [
+                            'uri' => '/klinkernye/',
+                            'img' => '/assets/template/img/assort/kirpich-m/klinkernyj-licevoj-kirpich.jpg',
+                        ],
+                        'Кирпич ручной формовки' => [
+                            'uri' => '/ruchnoj-formovki',
+                            'img' => '/assets/template/img/assort/kirpich-m/oblichovochnye-kirpichi-ruchnoj-formovki.jpg',
+                        ],
+                    ]
+                ],
+                'Керамический широкоформатный блок' => [
+                    'id' => 'assort-brick',
+                    'items' => [
                         'Крупноформатные блоки' => [
                             'uri' => '/keramobloki/',
                             'img' => '/assets/template/img/assort/kirpich-m/krupnoformatnye-bloki.jpg',
                             'links' => [
                                 'Керамоблоки ЛСР' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
-                                'Керамоблоки Porotherm' => '/keramobloki/?msoption|proizvoditel=Porotherm',
-                                'Керамоблоки Wienerberger' => '/keramobloki/?msoption|proizvoditel=Wienerberger',
+                                'Радошковичи (Ceglar)' => '/keramobloki/?msoption|proizvoditel=Радошковичи%20(Ceglar)',
+                                'Керамоблоки Porotherm (Wienerberger)' =>  '/keramobloki/?msoption|proizvoditel=Porotherm%20(Wienerberger)',
                                 'Керамоблоки ВКЗ' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
                                 'Керамоблоки BRAER' => '/keramobloki/?msoption|proizvoditel=BRAER',
                                 'Керамоблоки Гжельск' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
-                                'Керамоблоки Forati' => '/keramobloki/?msoption|proizvoditel=Forati',
                             ]
                         ],
                     ]
                 ],
-                'Облицовочный кирпич' => [
-                    'id' => 'assort-brickwall',
-                    'items' => [
-                        'Пустотелый' => [
-                            'uri' => '/oblicovochnye/?msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                            'img' => '/assets/template/img/assort/kirpich-m/pustotelyj.jpg',
-                            'links' => [
-                                'Клинкерный' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%BB%D0%B8%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                                'Керамический' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D1%83%D1%81%D1%82%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                            ]
-                        ],
-                        'Полнотелый' => [
-                            'uri' => '/oblicovochnye/?msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                            'img' => '/assets/template/img/assort/kirpich-m/polnotelyj.jpg',
-                            'links' => [
-                                'Клинкерный' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%BB%D0%B8%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                                'Керамический' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                                'Ручной формовки' => '/oblicovochnye/?msoption|tip=%D0%9A%D0%B8%D1%80%D0%BF%D0%B8%D1%87%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B9%20%D1%84%D0%BE%D1%80%D0%BC%D0%BE%D0%B2%D0%BA%D0%B8&msoption|voidness=%D0%9F%D0%BE%D0%BB%D0%BD%D0%BE%D1%82%D0%B5%D0%BB%D1%8B%D0%B9',
-                            ]
-                        ],
-                    ]
-                ],
-                'Фасадная плитка' => [
+                'Фасадная плитка, камень, декор' => [
                     'id' => 'assort-plitka',
                     'items' => [
                         'Фасадная плитка' => [
                             'uri' => '/fasadnaya-plitka/',
-                            'img' => '/assets/template/img/assort/kirpich-m/fasadnaya-plitka.jpg',
-                            'links' => [
-                                'Керамогранит' => '/keramogranit/',
-                                'Плитка для навесных фасадов' => '/plitka-dlya-navesnyh-fasadov/'
-                            ]
+                            'fullwidth' => true,
                         ],
                         'Плитка под кирпич' => [
                             'uri' => '/plitka-pod-kirpich/',
                             'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
                             'links' => [
                                 'Клинкерная плитка' => '/klinkernaya-plitka/',
-                                'Керамическая плитка' => '/keramicheskaya-plitka/'
+                                'Керамическая плитка' => '/keramicheskaya-plitka/',
+                                'Декоративный кирпич' => '/dekorativnyj-kirpich/'
                             ]
                         ],
-                    ]
-                ],
-                'Искусственный и натуральный камень' => [
-                    'id' => 'assort-kamen',
-                    'items' => [
-                        'Декоративный камень для внутренней отделки' => [
-                            'uri' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/',
-                            'img' => '/assets/template/img/assort/kirpich-m/dek-kamen-vn-otdelka.jpg',
-                            'links' => [
-                                'Redstone' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=REDSTONE',
-                                'White Hills' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=White%20Hills',
-                                'БАЛТФАСАД' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=%D0%91%D0%90%D0%9B%D0%A2%D0%A4%D0%90%D0%A1%D0%90%D0%94',
-                                'Идеальный камень' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/?msoption|proizvoditel=%D0%98%D0%B4%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D1%8C'
-                            ]
+                        'Плитка для печей и каминов' => [
+                            'uri' => '/plitka-dlya-pechej-i-kaminov/',
+                            'img' => '/assets/template/img/assort/kirpich-m/plitka-dlya-pechej-i-kaminov.jpg',
                         ],
                         'Искусственный камень для фасада' => [
                             'uri' => '/iskusstvennyj-kamen-dlya-fasada/',
                             'img' => '/assets/template/img/assort/kirpich-m/is-kamen-fasad.jpg',
-                            'links' => [
-                                'White Hills' => '/iskusstvennyj-kamen-dlya-fasada/?msoption|proizvoditel=White%20Hills',
-                                'БАЛТФАСАД' => '/iskusstvennyj-kamen-dlya-fasada/?msoption|proizvoditel=%D0%91%D0%90%D0%9B%D0%A2%D0%A4%D0%90%D0%A1%D0%90%D0%94'
-                            ]
                         ],
-                    ]
-                ],
-                'Фасадный декор' => [
-                    'id' => 'assort-dekor',
-                    'items' => [
-                        'Архитектурные элементы фасада' => [
-                            'uri' => '/arhitekturnye-elementy-fasada/',
-                            'img' => '/assets/template/img/assort/dekor.jpg',
-                            'links' => [
-                            ]
+                        'Декоративный камень для внутренней отделки' => [
+                            'uri' => '/dekorativnyij-kamen-dlya-vnutrennej-otdelki/',
+                            'img' => '/assets/template/img/assort/kirpich-m/dek-kamen-vn-otdelka.jpg',
                         ],
-                        'Клинкерные подоконники и водоотливы' => [
-                            'uri' => '/arhitekturnye-elementy-fasada/',
-                            'img' => '/assets/template/img/assort/kirpich-m/klinkernye-podokonniki-i-vodootlivy.jpg',
+                        'Плитка для навесных фасадов' => [
+                            'uri' => '/plitka-dlya-navesnyh-fasadov/',
+                            'img' => '/assets/template/img/assort/kirpich-m/plita-dlya-navesnyh-fasadov.jpg',
+                        ],
+                        'Фасадный декор' => [
+                            'uri' => '/fasadnyj-dekor/',
+                            'img' => '/assets/template/img/assort/kirpich-m/fasadnyj-dekor.jpg',
                             'links' => [
+                                'Архитектурные элементы фасада' => '/arhitekturnye-elementy-fasada/',
+                                'Клинкерные подоконники и водоотливы' => '/klinkernye-podokonniki-i-vodootlivy/',
                             ]
                         ],
                     ]
@@ -124,14 +108,32 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         'Шамотный кирпич' => [
                             'uri' => '/shamotnye/',
                             'img' => '/assets/template/img/assort/kirpich-m/shamotniy.jpg',
-                            'links' => [
-                            ]
                         ],
                         'Керамический кирпич для печей' => [
                             'uri' => '/keramicheskie-kirpichi-dlya-pechej/',
                             'img' => '/assets/template/img/assort/kirpich-m/keramich-kirpich-dlya-pechej.jpg',
+                        ]
+                    ]
+                ],
+                'Брусчатка и мощение' => [
+                    'id' => 'assort-paving',
+                    'items' => [
+                        'Брусчатка' => [
+                            'uri' => '/bruschatka-i-plitka-dlya-mosheniya/',
+                            'img' => '/assets/template/img/assort/kirpich-m/trotyarniy-kliner.jpg',
                             'links' => [
-                            ]
+                                'Клинкерная брусчатка' => '/klinkernaya-bruschatka/',
+                                'Бетонная тротуарная плитка' => '#'
+                            ],
+                        ],
+                        'Бордюры' => [
+                            'uri' => '#',
+                            'img' => '/assets/template/img/assort/kirpich-m/bordury.jpg',
+                            'links' => [
+                                'Дорожные' => '#',
+                                'Тротуарные' => '#',
+                                'Садовые' => '#'
+                            ],
                         ]
                     ]
                 ],
@@ -142,23 +144,13 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'uri' => '/kladochnye-smesi/',
                             'img' => '/assets/template/img/assort/smesi.jpg',
                             'links' => [
+                                'Клей для газобетона' => '/klej-dlya-gazobetona/',
                                 'Цветные кладочные растворы' => '/cvetnye-kladochnye-rastvory/',
-                                'Нецветные смеси' => '/necvetnye-smesi/',
-                                'Огнеупорные смеси' => '/ogneupornye-smesi/',
                                 'Легкие, теплые растворы' => '/legkie-teplye-rastvory/',
-                                'Клей для газобетона' => '/klej-dlya-gazobetona/'
+                                'Огнеупорные смеси' => '/ogneupornye-smesi/',
+                                'Нецветные смеси' => '/necvetnye-smesi/',
                             ]
                         ]
-                    ]
-                ],
-                'Брусчатка' => [
-                    'id' => 'assort-paving',
-                    'items' => [
-                        'Тротуарный клинкер' => [
-                            'uri' => '/klinkernaya-bruschatka/',
-                            'img' => '/assets/template/img/assort/kirpich-m/trotyarniy-kliner.jpg',
-                            'links' => []
-                        ],
                     ]
                 ],
             ];

@@ -127,7 +127,8 @@
 
         &[data-tab="assort-brickwall"],
         &[data-tab="assort-stoneoven"],
-        &[data-tab="assort-paving"]
+        &[data-tab="assort-paving"],
+        &[data-tab="assort-brick"],
             .assort__svg
                 fill: #B9B9B9
                 stroke: none
@@ -135,7 +136,8 @@
         &.active
             &[data-tab="assort-brickwall"],
             &[data-tab="assort-stoneoven"],
-            &[data-tab="assort-paving"]
+            &[data-tab="assort-paving"],
+            &[data-tab="assort-brick"]
                 .assort__svg
                     fill: #ffffff
 
@@ -245,6 +247,12 @@
         border-radius: 8px
         margin-bottom: 16px
 
+        &_fullwidth
+            // Такой селектор нужен для переопределения
+            @at-root .assort .assort__contents-wrap &
+                width: 100%
+                margin-right: 0
+
         @at-root .columns-css &
             @media screen and (min-width: 701px)
                 // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element
@@ -293,8 +301,6 @@
 
         @media screen and (max-width: 500px)
             width: 100%
-
-
 
     &__svg
         width: 24px

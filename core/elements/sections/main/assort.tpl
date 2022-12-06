@@ -37,8 +37,12 @@
                         {if !$item['img']}
                             {set $titleAdditionalClass = ' equal-margins'}
                         {/if}
+                        {set $itemAdditionalClass = ''}
+                        {if $item['fullwidth']}
+                            {set $itemAdditionalClass = ' assort__item_fullwidth'}
+                        {/if}
 
-                        <div class="assort__item">
+                        <div class="assort__item{$itemAdditionalClass}">
                             {if $item['img']?}
                                 <a href="{$item['uri']}" class="assort__item-img-wrap">
                                     <img class="assort__item-img" src="{$item['img']}">
