@@ -51,12 +51,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'img' => '/assets/template/img/assort/kirpich-m/krupnoformatnye-bloki.jpg',
                             'links' => [
                                 'Керамоблоки ЛСР' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
-                                'Керамоблоки Porotherm' => '/keramobloki/?msoption|proizvoditel=Porotherm',
-                                'Керамоблоки Wienerberger' => '/keramobloki/?msoption|proizvoditel=Wienerberger',
+                                'Радошковичи (Ceglar)' => '/keramobloki/?msoption|proizvoditel=Радошковичи%20(Ceglar)',
+                                'Керамоблоки Porotherm (Wienerberger)' =>  '/keramobloki/?msoption|proizvoditel=Porotherm%20(Wienerberger)',
                                 'Керамоблоки ВКЗ' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
                                 'Керамоблоки BRAER' => '/keramobloki/?msoption|proizvoditel=BRAER',
                                 'Керамоблоки Гжельск' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
-                                'Керамоблоки Forati' => '/keramobloki/?msoption|proizvoditel=Forati',
                             ]
                         ],
                     ]
@@ -64,6 +63,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Фасадная плитка, камень, декор' => [
                     'id' => 'assort-plitka',
                     'items' => [
+                        'Фасадная плитка' => [
+                            'uri' => '/fasadnaya-plitka/',
+                            'fullwidth' => true,
+                        ],
                         'Плитка под кирпич' => [
                             'uri' => '/plitka-pod-kirpich/',
                             'img' => '/assets/template/img/assort/kirpich-m/plitka-pod-kirpich.jpg',
