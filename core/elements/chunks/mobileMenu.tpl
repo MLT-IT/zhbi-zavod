@@ -50,6 +50,8 @@
             {set $certs = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'certs']}
             {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
             {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
+            {set $rezka = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'rezka']}
+            
             {if $certs->hidemenu == 0}
                 <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
             {/if}
@@ -59,7 +61,10 @@
             {if $akcii->hidemenu == 0}
                 <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
             {/if}
-
+            {if $rezka->hidemenu == 0}
+                <span class="header__nav-item"><a class="header__nav-link" href="/rezka/">Резка</a></span>
+            {/if}
+            
             <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
         </div>
 
