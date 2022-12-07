@@ -1,13 +1,18 @@
 <?php
 
+// Взял отсюда и немного улучшил:
 // https://docs.modx.pro/komponentyi/minishop2/poleznyie-vyiborki/vyivod-ssyilok-na-dopolnitelnyie-kategorii-tovara
 
 if (empty($id)) {
     $id = $modx->resource->id;
 }
 if (empty($tpl)) {
-    $tpl = '@INLINE <a href="[[~[[+id]]]]">[[+pagetitle]]</a>';
+    $tpl = '@INLINE [[+id]]';
 }
+if (empty($separator)) {
+    $separator = ',';
+}
+
 $pdo = $modx->getService('pdoFetch');
 
 $conditions = ['product_id' => $id];
@@ -20,9 +25,9 @@ $options = [
 ];
 $rows = $pdo->getCollection('msCategoryMember', $conditions, $options);
 
-$output = '';
+$output = [];
 foreach ($rows as $row) {
-    $output .= $pdo->getChunk($tpl, $row);
+    $output[] = $pdo->getChunk($tpl, $row);
 }
 
-return $output;
+return implode($separator, $output);
