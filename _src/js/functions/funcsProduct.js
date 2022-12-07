@@ -562,6 +562,10 @@ function init(yandexMetrikaId) {
             if (typeof ImageZoomInstance !== 'undefined') {
                 ImageZoomInstance.setup();
             }
+            // А еще обновить самописный скрипт
+            if ($zoomImg.length) {
+                $zoomImg.css('background-image', 'url("' + $zoomImg.find('img').attr('src') + '")');
+            }
         });
 
         // Если шаблон с перелинковкой, то вешаем обработчик для показа / скрытия стрелок в слайдере галереи
