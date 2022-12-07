@@ -234,6 +234,13 @@
                                     <span class="product-card__reasons-tip-text">{$textItem4}</span>
                                 </span>
                             </li>
+                            
+                            {* Иконки услуг для фанеры *}
+	                        {if $_modx->context.key === 'pro-fanera'}
+                                    <li>
+			                          {include "file:chunks/fanera-service-icons.tpl"}
+			                        </li>
+			                {/if}
                         </ul>
                         <div class="product-card__reasons-text">{$bottomText}</div>
                     </div>
