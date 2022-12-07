@@ -34,6 +34,12 @@
     {/switch}
 {/if}
 
+{if $_modx->resource.context_key == 'plity-mdvp'}
+    {set $variable = $list}
+{elseif $_modx->resource.context_key == 'plitaosb'}
+    {set $variable = $m2}
+{/if}
+
 <div class="js-product{if $itemInCart?} js-product-in-cart{/if}{if $gallery?} product-card_with-gallery{/if}{if $_modx->resource.old_price?} js-product_with-discount{/if}"
         {* Выводим data-атрибуты *}
         {foreach $itemUnits as $key => $val}
@@ -345,7 +351,7 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$list}" data-min="0.01">
+                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
@@ -380,7 +386,7 @@
                     <div class="product-card__controls-elem">
                         <div class="product-card__side-panel-text">Лист</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$list}" data-min="0.01">
+                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
