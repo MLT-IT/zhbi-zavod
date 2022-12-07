@@ -38,7 +38,16 @@ module.exports = (env, args) => {
                     test: /\.(sass)$/,
                     use: [
                         styleLoader,
+
                         'css-loader',
+                        // Если хочется отключить проверку наличия картинок по указанным в CSS путям через webpack, то нужно раскомментировать этот код и закомментировать строку выше
+                        // {
+                        //     loader: 'css-loader',
+                        //     options: {
+                        //         url: false,
+                        //     }
+                        // },
+
                         'postcss-loader',
                         {
                             loader: 'sass-loader',
