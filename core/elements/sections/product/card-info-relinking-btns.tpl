@@ -36,7 +36,7 @@
 
 {if $_modx->resource.context_key == 'plity-mdvp'}
     {set $variable = $list}
-{elseif $_modx->resource.context_key == 'plitaosb'}
+{else}
     {set $variable = $m2}
 {/if}
 
@@ -234,7 +234,7 @@
                                     <span class="product-card__reasons-tip-text">{$textItem4}</span>
                                 </span>
                             </li>
-                            
+
                             {* Иконки услуг для фанеры *}
 	                        {if $_modx->context.key === 'pro-fanera'}
                                     <li>
@@ -345,20 +345,29 @@
                 </form>
             </div>
 
+            {* На плитах МДВП главная цена - за м2, вторая цена - за лист *}
+            {if $_modx->resource.context_key == 'plity-mdvp'}
+                {set $title1 = 'м<sup>2</sup>'}
+                {set $title2 = 'Лист'}
+            {else}
+                {set $title1 = 'Лист'}
+                {set $title2 = 'м<sup>2</sup>'}
+            {/if}
+
             <div class="js-product__controls js-product__controls_action_add">
                 <div class="product-card__controls-block">
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
+                        <div class="product-card__side-panel-text">{$title1}</div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
                             <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
+                            <input name="count" data-purpose="first" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}" data-min="{$dataMin}">
                             <span class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">Лист</div>
+                        <div class="product-card__side-panel-text">{$title2}</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
+                            <input name="count" data-purpose="second" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}
@@ -383,17 +392,17 @@
             <div class="js-product__controls js-product__controls_action_change">
                 <div class="product-card__controls-block">
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">м<sup>2</sup></div>
+                        <div class="product-card__side-panel-text">{$title1}</div>
                         <div class="custom-counter js-product__custom-counter{$extraClass}">
                             <span class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-                            <input name="count" data-purpose="pcs" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
+                            <input name="count" data-purpose="first" class="custom-counter__amount product-card__amount_style_default" value="{$itemInCart?:1}">
                             <span class="custom-counter__btn custom-counter__btn_dir_more">+</span>
                         </div>
                     </div>
                     <div class="product-card__controls-elem">
-                        <div class="product-card__side-panel-text">Лист</div>
+                        <div class="product-card__side-panel-text">{$title2}</div>
                         <div class="custom-counter js-product__custom-counter custom-counter_type_fractional">
-                            <input name="count" data-purpose="list" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
+                            <input name="count" data-purpose="second" class="product-card__amount_style_bordered custom-counter__amount" value="{$itemInCart?:1}" data-koeff="{$variable}" data-min="0.01">
                         </div>
                     </div>
                     {if $_modx->resource['massa'][0] > 0}

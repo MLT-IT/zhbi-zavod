@@ -278,9 +278,9 @@ function init(yandexMetrikaId) {
             }
         }
 
-        // Если товар есть в корзине, то надо пересчитать кол-во листов
+        // Если товар есть в корзине, значит, у него может быть не "1" в кол-ве, а другое число. Поэтому надо пересчитать и второе кол-во
         if ($proFaneraCard.find('.js-product-in-cart')) {
-            let $amountList = $('.custom-counter__amount[data-purpose="list"]');
+            let $amountList = $('.custom-counter__amount[data-purpose="second"]');
             $amountList.val(($amountList.val() * $amountList.attr('data-koeff')).toFixed(2));
         }
     }
