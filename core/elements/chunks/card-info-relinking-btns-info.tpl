@@ -43,19 +43,6 @@
             </span>
             <span class="product-card__price-unit">руб</span>
           </div>
-          {if $outputOldPrice?}
-            <div class="product-card__new-price-wrap js-product__new-price-wrap">
-              <div class="js-product__new-price-val">
-                          <span class="js-product__new-price-output product-card__new-price">
-                              {$outputOldPrice}
-                          </span>
-                руб
-              </div>
-              <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
-                Цена действительна до {'!getTomorrowDate' | snippet}
-              </div>
-            </div>
-          {/if}
         </div>
       </div>
       <div class="product-card__info-block-elem">
