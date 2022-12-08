@@ -130,6 +130,26 @@
                 'Общая ширина, мм',
                 'Полезная ширина, мм',
             ]}
+        {* Ондулин на кровле *}
+        {elseif $src['parent'] in list [16783,18186,18189,18193,18181,16805,36871,16784,16786]}
+            {set $charsValues = [
+                $src['ottenok'][0],
+                $src['kolichestvo-voln'][0],
+                $src['vysota-volny'],
+                $src['item_thickness'][0],
+                $src['item_width'][0],
+                $src['item_length'][0],
+                $src['ploshad_m2'][0],
+            ]}
+            {set $charsHeaders = [
+                'Оттенок',
+                'Количество волн',
+                'Высота волны, мм'
+                'Толщина, мм',
+                'Ширина, мм',
+                'Длина, мм'
+                'Площадь, м2'
+            ]}
         {* В остальных случаях *}
         {else}
             {set $charsValues = [

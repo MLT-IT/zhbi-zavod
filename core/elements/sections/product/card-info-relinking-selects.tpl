@@ -164,7 +164,8 @@
                             </div>
                         {/if}
 
-                        {if $_modx->resource.context_key not in list ['kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete']}
+                        {* Помимо некоторых контекстов, данный блок не надо выводить для Ондулина и Металлочерепицы *}
+                        {if ($_modx->resource.context_key not in list ['kirpich-m', 'fasady-pro', 'fasad', 'armatura-178', 'asconcrete']) && ($_modx->resource.parent not in list [16783,18186,18189,18193,18181,16805,36871,16784,16786,11760,12069,12070,12071,12073,12074,16789,37621,44676,44677,44678,44679,44680,44681,76923,16788])}
                             {set $upakovka = 'getPackageNew' | snippet}
                             {if $upakovka | length > 0}
                                 <div class="product-card__package">В упаковке: {$upakovka}</div>

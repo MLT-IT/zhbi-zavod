@@ -9,9 +9,14 @@
             {set $isFirst = true}
 
             {foreach $items as $key => $val}
+                {set $svg = $val['id']}
+                {if $svg in list ['assort-natur-cerepica-1', 'assort-natur-cerepica-2']}
+                    {set $svg = 'assort-natur-cerepica'}
+                {/if}
+
                 <span data-tab="{$val['id']}" class="assort__sidebar-item{if $isFirst?} active{/if}">
                     <svg class="assort__svg">
-                        <use xlink:href="/assets/template/img/svg-sprite.svg#{$val['id']}"></use>
+                        <use xlink:href="/assets/template/img/svg-sprite.svg#{$svg}"></use>
                     </svg>
                     {$key}
                 </span>

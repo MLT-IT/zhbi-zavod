@@ -52,7 +52,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                                 'Керамоблоки ЛСР' => '/keramobloki/?msoption|proizvoditel=%D0%9B%D0%A1%D0%A0',
                                 'Радошковичи (Ceglar)' => '/keramobloki/?msoption|proizvoditel=Радошковичи%20(Ceglar)',
-                                'Керамоблоки Porotherm (Wienerberger)' =>  '/keramobloki/?msoption|proizvoditel=Porotherm%20(Wienerberger)',
+                                'Керамоблоки Porotherm (Wienerberger)' => '/keramobloki/?msoption|proizvoditel=Porotherm%20(Wienerberger)',
                                 'Керамоблоки ВКЗ' => '/keramobloki/?msoption|proizvoditel=%D0%92%D0%9A%D0%97',
                                 'Керамоблоки BRAER' => '/keramobloki/?msoption|proizvoditel=BRAER',
                                 'Керамоблоки Гжельск' => '/keramobloki/?msoption|proizvoditel=%D0%93%D0%B6%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4',
@@ -239,8 +239,9 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ]
                     ]
                 ],
-                'ЦПЧ и натуральная черепица' => [
-                    'id' => 'assort-natur-cerepica',
+
+                'Цементно-песчаная черепица' => [
+                    'id' => 'assort-natur-cerepica-1',
                     'items' => [
                         'Цементно-песчаная черепица' => [
                             'uri' => '/cementno-peschanaya-cherepica/',
@@ -250,7 +251,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                                 'Цементно-песчаная черепица Braas' => '/cementno-peschanaya-cherepica-braas/',
                                 'Комплектующие Braas' => '/komplektuyushchie-braas/',
                             ]
-                        ],
+                        ]
+                    ]
+                ],
+                'Натуральная керамическая черепица' => [
+                    'id' => 'assort-natur-cerepica-2',
+                    'items' => [
                         'Керамическая черепица' => [
                             'uri' => '/keramicheskaya-cherepica/',
                             'img' => '/assets/template/img/assort/krovlya/kermaicheskaya-cerepica.jpg',
@@ -260,19 +266,22 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                     ]
                 ],
+
                 'Фальцевая кровля' => [
                     'id' => 'assort-falc-krovlya',
                     'items' => [
-                        'Клик-фальц' => [
-                            'uri' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86~%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Line~%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20mini~%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro~%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro%20Gofr~%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro%20Line/',
-                            'img' => '/assets/template/img/assort/krovlya/klikfalc.jpg',
-                            'links' => [
-                            ]
-                        ],
-                        'Фальц двойной стоячий' => [
-                            'uri' => '/falcevaya-krovlya/?msoption|collection=%D0%A4%D0%B0%D0%BB%D1%8C%D1%86%20%D0%B4%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B9%20%D1%81%D1%82%D0%BE%D1%8F%D1%87%D0%B8%D0%B9~%D0%A4%D0%B0%D0%BB%D1%8C%D1%86%20%D0%B4%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B9%20%D1%81%D1%82%D0%BE%D1%8F%D1%87%D0%B8%D0%B9%20Line/',
+                        'Фальцевая кровля' => [
+                            'uri' => '/falcevaya-krovlya/',
                             'img' => '/assets/template/img/assort/krovlya/falcevaya-krovlya.jpg',
                             'links' => [
+                                'Кликфальц' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86',
+                                'Кликфальц Line' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Line',
+                                'Кликфальц mini' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20mini',
+                                'Кликфальц Pro' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro',
+                                'Кликфальц Pro Gofr' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro%20Gofr',
+                                'Кликфальц Pro Line' => '/falcevaya-krovlya/?msoption|collection=%D0%9A%D0%BB%D0%B8%D0%BA%D1%84%D0%B0%D0%BB%D1%8C%D1%86%20Pro%20Line',
+                                'Фальц двойной стоячий' => '/falcevaya-krovlya/?msoption|collection=%D0%A4%D0%B0%D0%BB%D1%8C%D1%86%20%D0%B4%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B9%20%D1%81%D1%82%D0%BE%D1%8F%D1%87%D0%B8%D0%B9',
+                                'Фальц двойной стоячий Line' => '/falcevaya-krovlya/?msoption|collection=%D0%A4%D0%B0%D0%BB%D1%8C%D1%86%20%D0%B4%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B9%20%D1%81%D1%82%D0%BE%D1%8F%D1%87%D0%B8%D0%B9%20Line',
                             ]
                         ],
                     ]
