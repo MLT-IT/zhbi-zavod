@@ -1,15 +1,8 @@
 <section class="sect-map">
     <div class="map{if $classToMap?} {$classToMap}{/if}">
         <div class="wrapper{if $classToWrapper?} {$classToWrapper}{/if}">
-            {if $_modx->context.key === 'pro-fanera'}
-                <h2 class="title-2">География работы</h2>
-                <div class="map__container">
-                    <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=54568639872" width="560" height="400" frameborder="0"></iframe>
-                </div> 
-            {else}
                 <h2 class="title-2">Склады с которых мы возим</h2>
                 <div class="map__container" id="districts_map" data-map-script="districts_map"></div>
-            {/if}
         </div>
     </div>
 </section>
