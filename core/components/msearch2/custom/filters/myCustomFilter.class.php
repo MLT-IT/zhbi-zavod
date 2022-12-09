@@ -179,6 +179,10 @@ class myCustomFilter extends mse2FiltersHandler {
                     case $options['name'] == 'profil' && $GLOBALS['modx']->resource->id == 86214:
                         $sorted = $this->sortByCustomOrder($sorted, $results, ['C20', 'C8', 'HC35', 'C10', 'C21', 'H75']);
                         break;
+
+                    case $options['name'] == 'proizvoditel' && $GLOBALS['modx']->resource->id == 15428:
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Технониколь', 'Katepal', 'Тегола', 'Icopal', 'CertainTeed']);
+                        break;
                 }
             }
         }

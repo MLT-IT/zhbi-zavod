@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "https://plity-mdvp.ru/",
+                    target: "http://krovlyasp.local/",
                     secure: false,
                     changeOrigin: true
                 }
