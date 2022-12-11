@@ -172,7 +172,19 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'img' => '/assets/template/img/assort/krovlya/ondulin-smart.jpg',
                             'links' => [
                             ]
-                        ]
+                        ],
+                        'Ондутисс' => [
+                            'uri' => '/ondutiss/',
+                            'img' => '/assets/template/img/assort/krovlya/ondutis.jpg',
+                            'links' => [
+                            ]
+                        ],
+                        'Комплектующие для Ондулина' => [
+                            'uri' => '/komplektuyushhie-dlya-ondulina/',
+                            'img' => '/assets/template/img/assort/krovlya/komplektujushie-ondulin.jpg',
+                            'links' => [
+                            ]
+                        ],
                     ]
                 ],
                 'Металлочерепица' => [
@@ -239,7 +251,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ]
                     ]
                 ],
-
                 'Цементно-песчаная черепица' => [
                     'id' => 'assort-natur-cerepica-1',
                     'items' => [
@@ -266,7 +277,6 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                     ]
                 ],
-
                 'Фальцевая кровля' => [
                     'id' => 'assort-falc-krovlya',
                     'items' => [
