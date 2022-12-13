@@ -161,6 +161,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Ондулин' => [
                     'id' => 'assort-ondulin',
                     'items' => [
+                        'Ондулин' => [
+                            'uri' => '/ondulin/',
+                            'fullwidth' => true,
+                        ],
                         'Черепица Ондулин' => [
                             'uri' => '/cherepica-ondulin/',
                             'img' => '/assets/template/img/assort/krovlya/ondulin-cerepica.jpg',
@@ -190,6 +194,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Металлочерепица' => [
                     'id' => 'assort-cerepica',
                     'items' => [
+                        'Металлочерепица' => [
+                            'uri' => '/metallocherepica/',
+                            'fullwidth' => true,
+                        ],
                         'Металлочерепица Grand Line' => [
                             'uri' => '/metallocherepitsya-grand-line/',
                             'img' => '/assets/template/img/assort/krovlya/grandline.jpg',
@@ -237,6 +245,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Рулонная кровля' => [
                     'id' => 'assort-rulon-krovlya',
                     'items' => [
+                        'Рулонная кровля' => [
+                            'uri' => '/rulonnaya-krovlya/',
+                            'fullwidth' => true,
+                        ],
                         'Наплавляемая кровля' => [
                             'uri' => '/rulonnaya-krovlya-tehnonikol/',
                             'img' => '/assets/template/img/assort/rulonnayakrovlya.jpg',
@@ -299,6 +311,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Профнастил и штакетник' => [
                     'id' => 'assort-proflist',
                     'items' => [
+                        'Профнастил' => [
+                            'uri' => '/proflist/',
+                            'fullwidth' => true,
+                        ],
                         'Профилированный лист для кровли' => [
                             'uri' => '/proflist-dlya-krovli/',
                             'img' => '/assets/template/img/assort/krovlya/profnastil.jpg',
@@ -328,8 +344,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Водосточные системы' => [
                     'id' => 'assort-vodostoch',
                     'items' => [
+                        'Водостоки' => [
+                            'uri' => '/vodostochnaya-sistema/',
+                            'fullwidth' => true,
+                        ],
                         'ПВХ водосточные системы' => [
-                            'uri' => '/vodostochnaya-sistema/?msoption|material=%D0%9F%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA',
+                            'uri' => '/pvh-plastikovye-vodostochnye-sistemy/',
                             'img' => '/assets/template/img/assort/krovlya/plastikovye-truby.jpg',
                             'links' => [
                                 'Braas' => '/vodostochnaya-sistema/?msoption|material=%D0%9F%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA&msoption|proizvoditel=Braas',
@@ -339,7 +359,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             ]
                         ],
                         'Металлические водосточные системы' => [
-                            'uri' => '/vodostochnaya-sistema/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB',
+                            'uri' => '/metallicheskie-vodostoki/',
                             'img' => '/assets/template/img/assort/krovlya/vodostochnayasistema.jpg',
                             'links' => [
                                 'Aquasystem' => '/vodostochnaya-sistema/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB&msoption|proizvoditel=Aquasystem',
@@ -354,14 +374,18 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Софиты' => [
                     'id' => 'assort-sofity',
                     'items' => [
+                        'Софиты' => [
+                            'uri' => '/sofity-v-sankt-peterburge/',
+                            'fullwidth' => true,
+                        ],
                         'ПВХ софиты' => [
-                            'uri' => '/sofity-v-sankt-peterburge/?msoption|material=%D0%9F%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA',
+                            'uri' => '/pvh-sofity/',
                             'img' => '/assets/template/img/assort/krovlya/sofity-plastikovye.jpg',
                             'links' => [
                             ]
                         ],
                         'Металлические софиты' => [
-                            'uri' => '/sofity-v-sankt-peterburge/?msoption|material=%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB',
+                            'uri' => '/metallicheskie-sofity/',
                             'img' => '/assets/template/img/assort/krovlya/sofity-metallicheskie.jpg',
                             'links' => [
                             ]

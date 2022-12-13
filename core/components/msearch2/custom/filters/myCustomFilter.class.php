@@ -52,7 +52,9 @@ class myCustomFilter extends mse2FiltersHandler {
         $sorted = [];
 
         if ($type === 'options') {
+            // -------------------------------------------------------
             // Сортировка float значений по возрастанию (из-за точки они сортируются неправильно)
+            // -------------------------------------------------------
             if (!empty($options) && !empty($options['name'])) {
                 // Если есть хоть одно значение типа float
                 $hasFloat = false;
@@ -95,7 +97,9 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
+            // -------------------------------------------------------
             // Сортировка опции "Тип" на некоторых ресурсах
+            // -------------------------------------------------------
             if ($options['name'] === 'tip') {
                 switch ($GLOBALS['modx']->resource->id) {
                     case 37609:
@@ -107,7 +111,9 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
+            // -------------------------------------------------------
             // Сортировка опции "Продуктовая линейка"
+            // -------------------------------------------------------
             if ($options['name'] === 'produktovaya-lineyka') {
                 switch ($GLOBALS['modx']->resource->context_key) {
                     case 'rockwool':
@@ -129,7 +135,9 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
+            // -------------------------------------------------------
             // Сортировка опции "Производитель" на кирпичах
+            // -------------------------------------------------------
             if ($GLOBALS['modx']->resource->context_key == 'kirpich-m') {
                 if ($options['name'] == 'proizvoditel') {
                     switch ($GLOBALS['modx']->resource->id) {
@@ -161,7 +169,9 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
+            // -------------------------------------------------------
             // Сортировка некоторых опций на кровле
+            // -------------------------------------------------------
             if ($GLOBALS['modx']->resource->context_key == 'krovlya') {
                 switch (true) {
                     case $options['name'] == 'collection' && $GLOBALS['modx']->resource->id == 16788:
@@ -179,9 +189,45 @@ class myCustomFilter extends mse2FiltersHandler {
                     case $options['name'] == 'profil' && $GLOBALS['modx']->resource->id == 86214:
                         $sorted = $this->sortByCustomOrder($sorted, $results, ['C20', 'C8', 'HC35', 'C10', 'C21', 'H75']);
                         break;
+                }
+            }
 
-                    case $options['name'] == 'proizvoditel' && $GLOBALS['modx']->resource->id == 15428:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Технониколь', 'Katepal', 'Тегола', 'Icopal', 'CertainTeed']);
+            // -------------------------------------------------------
+            // Сортировка производителей на контекстах
+            // -------------------------------------------------------
+            if ($options['name'] == 'proizvoditel') {
+                switch ($GLOBALS['modx']->resource->context_key) {
+                    case 'krovlya':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Технониколь', 'Katepal', 'Тегола', 'Icopal', 'Металл Профиль', 'Grand Line', 'Металл-Профиль']);
+                        break;
+
+                    case 'fasad':
+                        switch ($GLOBALS['modx']->resource->id) {
+                            case 36783:
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['VOX', 'FineBer', 'Ю-Пласт', 'Docke', 'Альта-Профиль', 'Grand Line']);
+                            break;
+
+                            case 36793:
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Альта-Профиль', 'VOX', 'Ю-Пласт', 'Vilo', 'FineBer', 'Grand Line']);
+                                break;
+
+                            case 34819:
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Cedral', 'CM BORD', 'Decover', 'Фибратек', 'LATONIT', 'БЕТЭКО']);
+                                break;
+
+                            case 36784:
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Аквасистем', 'Grand Line', 'Металл-Профиль']);
+                                break;
+                        }
+
+                        break;
+
+                    case 'plitaosb':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Knauf', 'Волма', 'Gyproc', 'Nordeco', 'Green Board', 'Калевала ЭкоДом', 'Кроношпан', 'Муром', 'Талион (Ультралам)']);
+                        break;
+
+                    case 'plity-mdvp':
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['ISOPLAAT', 'STEICO', 'Белтермо']);
                         break;
                 }
             }
