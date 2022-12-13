@@ -303,3 +303,71 @@ a.white-btn, button.white-btn
 .__jivoMobileButton
     @media only screen and (max-width: 600px)
         bottom: 52px !important
+
+article.content-block
+    table
+        width: 100%
+        display: table
+        border-collapse: collapse
+        border-spacing: 0
+
+        @media only screen and (max-width: 992px)
+            display: block
+            position: relative
+
+    thead
+        @media only screen and (max-width: 992px)
+            display: block
+            float: left
+            border: 0
+            border-right: 1px solid rgba(0,0,0,0.12)
+
+        tr
+            @media only screen and (max-width: 992px)
+                display: block
+                padding: 0 10px 0 0
+
+    tbody
+        @media only screen and (max-width: 992px)
+            display: block
+            width: auto
+            overflow-x: auto
+            white-space: nowrap
+
+        tr
+            transition: background-color .25s ease
+
+            &:hover
+                background-color: rgba(242,242,242,0.5)
+
+            @media only screen and (max-width: 992px)
+                display: inline-block
+                vertical-align: top
+                border-bottom: none
+                padding: 0 10px
+
+    tr
+        border-bottom: 1px solid rgba(0,0,0,0.12)
+
+        @media only screen and (max-width: 992px)
+            border-bottom: none
+
+    th, td
+        padding: 15px 10px
+        display: table-cell
+        text-align: left
+        vertical-align: middle
+        border-radius: 2px
+
+    td
+        @media only screen and (max-width: 992px)
+            display: block
+            min-height: 1.25em
+            text-align: left
+
+    th
+        font-weight: bold
+
+        @media only screen and (max-width: 992px)
+            display: block
+            text-align: right
