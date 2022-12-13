@@ -181,6 +181,7 @@
             {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
             {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
             {set $rezka = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'rezka']}
+            {set $raspil = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'raspil']}
 
             {if $about['hidemenu'] == 0 && $about['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/o-kompanii/">О компании</a></span>
@@ -211,7 +212,10 @@
             {if $rezka['hidemenu'] == 0 && $rezka['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/rezka/">Резка</a></span>
             {/if}
-            
+            {if $raspil['hidemenu'] == 0 && $raspil['published'] == 1}
+                <span class="header__nav-item"><a class="header__nav-link" href="/raspil/">Распил</a></span>
+            {/if}
+
             <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
 
             <a class="header__email" href="mailto:{'email' | option}">

@@ -316,6 +316,8 @@ article.content-block
             position: relative
 
     thead
+        text-transform: uppercase
+
         @media only screen and (max-width: 992px)
             display: block
             float: left
@@ -355,7 +357,7 @@ article.content-block
     th, td
         padding: 15px 10px
         display: table-cell
-        text-align: left
+        text-align: center
         vertical-align: middle
         border-radius: 2px
 
@@ -368,8 +370,20 @@ article.content-block
     th
         font-weight: bold
         background-color: #e3e3e3
-        text-align: center
 
         @media only screen and (max-width: 992px)
             display: block
             text-align: right
+
+.text-align
+    &_center
+        text-align: center
+
+    &_left
+        text-align: left
+
+    &_right
+        text-align: right
+
+    &_justify
+        text-align: justify

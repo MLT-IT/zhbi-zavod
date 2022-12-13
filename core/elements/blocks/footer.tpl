@@ -62,6 +62,12 @@
 
                 <li class="footer__nav-item"><a href="/faq/">Вопросы-ответы</a></li>
                 <li class="footer__nav-item"><a href="/akcii/">Акции</a></li>
+
+                {set $raspil = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'raspil']}
+                {if $raspil['hidemenu'] == 0 && $raspil['published'] == 1}
+                  <li class="footer__nav-item"><a href="/raspil/">Распил</a></li>
+                {/if}
+
                 <li class="footer__nav-item"><a href="/certs/">Сертификаты</a></li>
                 <li class="footer__nav-item"><a href="/garantii/">Гарантии</a></li>
             </ul>
