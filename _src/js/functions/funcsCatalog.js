@@ -23,34 +23,33 @@ function init() {
     wrapTitle();
     // Мы находимся на странице каталога?
     let $isCatalogPage = $('.listing').length;
+    // Элемент - сайдбар
+    let $aside = $(".listing__filter");
 
     // -------------------------------------------
     // Панель с фильтрами на мобилках
     // -------------------------------------------
     let $openFiltersBtn = $(".listing__open-filters-btn");
     if ($openFiltersBtn.length) {
-        // Основные переменные
-        let $filter = $(".listing__filter");
-
         function toggleFiltersbar(skipChangeClasses) {
-            let filterPanelWidth = $filter.outerWidth();
+            let filterPanelWidth = $aside.outerWidth();
 
             skipChangeClasses = (typeof skipChangeClasses !== 'undefined') ? skipChangeClasses : false;
 
             if (!skipChangeClasses) {
-                $filter.toggleClass("active");
+                $aside.toggleClass("active");
                 $('body').toggleClass("freeze-page");
             }
 
             // Панель открылась
-            if ($filter.hasClass('active')) {
-                $filter[0]['swapMinX'] = 0;
-                $filter[0]['swapMaxX'] = filterPanelWidth;
+            if ($aside.hasClass('active')) {
+                $aside[0]['swapMinX'] = 0;
+                $aside[0]['swapMaxX'] = filterPanelWidth;
             }
             // Панель закрылась
             else {
-                $filter[0]['swapMinX'] = -filterPanelWidth;
-                $filter[0]['swapMaxX'] = 0;
+                $aside[0]['swapMinX'] = -filterPanelWidth;
+                $aside[0]['swapMaxX'] = 0;
             }
         }
 
@@ -72,7 +71,7 @@ function init() {
             let $target = $(e.target);
             if (
                 // Панель с фильтрами должна быть видна
-                $filter.hasClass('active') &&
+                $aside.hasClass('active') &&
                 // Клик должен быть за пределами панели с фильтрами
                 !$target.closest('.listing__filter, .listing__open-filters-btn').length && !$target.hasClass('listing__filter, listing__open-filters-btn') &&
                 // Клик не должен быть по подсказке (или ее содержимых элементов
@@ -86,35 +85,35 @@ function init() {
         // ----------------------------
         // Эффект шторки для панели с фильтрами на мобилках
         // ----------------------------
-        Drog.on($filter[0], {
+        Drog.on($aside[0], {
             swapMinY: 0,
             swapMaxY: 0,
             swapMaxX: 0,
-            swapMinX: -$filter.outerWidth(),
+            swapMinX: -$aside.outerWidth(),
             elem: $('.listing__filter-btn')[0]
         });
 
-        $filter.on('drogEnd', function () {
-            let filterPanelWidth = $filter.outerWidth();
+        $aside.on('drogEnd', function () {
+            let filterPanelWidth = $aside.outerWidth();
             let translateX = 0;
 
             // Если фильтры открыты
-            if ($filter.hasClass('active')) {
+            if ($aside.hasClass('active')) {
                 // Если достаточно сильно свайпнули панель с фильтрами, то необходимо закрыть ее
-                if ($filter[0]['-x'] >= (filterPanelWidth / 2 - 10)) {
+                if ($aside[0]['-x'] >= (filterPanelWidth / 2 - 10)) {
                     translateX = filterPanelWidth;
                 }
             }
             // Если фильтры закрыты
             else {
                 // Если достаточно сильно свайпнули панель с фильтрами, то необходимо открыть ее
-                if ($filter[0]['-x'] <= (0 - (filterPanelWidth / 2 - 10))) {
+                if ($aside[0]['-x'] <= (0 - (filterPanelWidth / 2 - 10))) {
                     translateX = -filterPanelWidth;
                 }
             }
 
             // Возвращение шторки (с анимацией). Либо возвращаем шторку в исходное положение (какой она была до того, как пользователь начал ее тянуть). Либо помогаем пользователю открыть / закрыть ее
-            $filter.css({
+            $aside.css({
                 transform: 'translateX(' + translateX + 'px)',
                 transition: ".3s"
             });
@@ -127,23 +126,23 @@ function init() {
             // Ждем выполнения анимации
             setTimeout(function () {
                 // Сбрасываем Drog
-                Drog.move($filter[0], 0, 0);
+                Drog.move($aside[0], 0, 0);
 
                 // Отменяем transition для шторки, т.к. она уже переместилась
-                $filter.removeAttr('style');
+                $aside.removeAttr('style');
 
                 if (translateX !== 0) {
                     // Делаем transition мгновенным (в css он прописан для right, из-за этого будет ненужный скачок)
-                    $filter.css('transition', 'all 0s');
+                    $aside.css('transition', 'all 0s');
                     // Меняется right в стилях
-                    $filter.toggleClass("active");
+                    $aside.toggleClass("active");
                     // ВАЖНО! Функция toggleFiltersbar обязательно должна идти ПОСЛЕ установки класса active, потому что в ней он проверяется
                     toggleFiltersbar(true);
 
                     // Между отменой мгновенного transition и действиями со стилями необходимо подождать немного
                     setTimeout(function () {
                         // Отменяем мгновенный transition
-                        $filter.removeAttr('style');
+                        $aside.removeAttr('style');
                     }, 20);
                 }
             }, 300);
@@ -604,7 +603,7 @@ function init() {
     // Фиксированный сайдбар
     // -------------------------------
     // Сайдбар есть только на странице каталога. Проверяем, действительно ли открыта страница каталога
-    if ($isCatalogPage) {
+    if ($isCatalogPage && $aside.length) {
         // TODO: удали ненужные переменные. Подчисть код
 
         // Объявление переменных
@@ -618,8 +617,6 @@ function init() {
 
         // Элемент - плитка с товарами
         let $listingContent = $('.listing__content');
-        // Элемент - сайдбар
-        let $aside = $('.listing__filter');
 
         // Величина, на которую проскроллен сайдбар
         let sidebarScrollValue;
