@@ -593,10 +593,9 @@
     &__products-item-chars
         margin-bottom: 20px
         transition: .3s
+        display: none
 
         @media screen and (max-width: 768px)
-            overflow: hidden
-            max-height: 0
             margin-bottom: 0
 
     &__products-item-chars-span
@@ -618,8 +617,7 @@
         &.active
             .listing__products-item-chars
                 @media screen and (max-width: 768px)
-                    overflow: visible
-                    max-height: 500px
+                    display: block
 
             .listing__products-item-chars-btn
                 &::after

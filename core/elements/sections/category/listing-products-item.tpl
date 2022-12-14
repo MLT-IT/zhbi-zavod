@@ -25,7 +25,7 @@
             {if $outputOldPrice?}
                 <div class="listing__discount js-product__discount">Скидка {'!calculateDiscount' | snippet : ['id' => $id]}%</div>
             {/if}
-            
+
             {*Если это первый ресурс тогда только ему присвоить картинку с микроразметкой и отключить лоадер*}
             {if $idx == 1}
                 <img src="{'site_url' | option}{$thumb ?: 'assets/images/no_image.jpg'}" alt="{$pagetitle}"  itemprop="contentUrl">
@@ -127,15 +127,15 @@
             <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
 
             {if $outputOldPrice?}
-                <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
-                    Цена действительна до {'!getTomorrowDate' | snippet}
-                </div>
+              <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">
+                Цена действительна до {'!getTomorrowDate' | snippet}
+              </div>
             {/if}
-            
-            	  {* Иконки услуг для фанеры *}
-	              {if $_modx->context.key === 'pro-fanera'}
-    	            {include "file:chunks/fanera-service-icons.tpl"}
-	              {/if}
+
+            {* Иконки услуг для фанеры *}
+            {if $_modx->context.key === 'pro-fanera'}
+                {include "file:chunks/fanera-service-icons.tpl"}
+            {/if}
         </div>
 
         {include "file:chunks/productsItemUnits.tpl"}

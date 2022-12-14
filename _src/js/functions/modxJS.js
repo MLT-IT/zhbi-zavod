@@ -73,9 +73,6 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
 
-            // Выравнивание цены по одному уровню
-            funcsCatalog.alignPrices();
-
             // Изменить единицы измерения у появившихся карточек, если контекст - кирпич
             if ($('body.kirpich-m').length) {
                 let lastKirpichUnit = funcsProduct.getLastKirpichUnit();

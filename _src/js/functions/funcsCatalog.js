@@ -8,8 +8,7 @@ export default {
     catalogSortFilters,
     catalogSortColorless,
     getRemainder,
-    wrapTitle,
-    alignPrices
+    wrapTitle
 };
 
 let $discountBlock = $('.listing__catalog-promo');
@@ -195,15 +194,37 @@ function init() {
     // -------------------------------------------
     // Скрыть / показать характеристики на карточках
     // -------------------------------------------
+    // let timeoutCharsAnimation;
+    // let alignPricesInterval;
+
     $(document).on('click', '.listing__products-item-chars-btn', function (e) {
         e.preventDefault();
         $(this).closest('.listing__products-item-chars-wrap').toggleClass('active');
+        alignPrices();
+
+        // Для плавности изменения уровня цены добавляем еще один, но очень частый интервал
+        // clearInterval(alignPricesInterval);
+        // alignPricesInterval = setInterval(function () {
+        //     alignPrices();
+        // }, 0);
+        //
+        // // Убираем интервал, т.к. анимация закончилась
+        // clearTimeout(timeoutCharsAnimation);
+        // timeoutCharsAnimation = setTimeout(function () {
+        //     clearInterval(alignPricesInterval);
+        //     alignPrices();
+        // }, 300);
     });
 
     if ($isCatalogPage) {
         let lastW = 0;
 
         $(window).resize(function () {
+            handleCharsWrap();
+        });
+        handleCharsWrap();
+
+        function handleCharsWrap() {
             let $charsWrap = $('.listing__products-item-chars-wrap');
             if (window.innerWidth <= 768 && (lastW > 768)) {
                 $charsWrap.removeClass('active');
@@ -211,7 +232,7 @@ function init() {
                 $charsWrap.addClass('active');
             }
             lastW = window.innerWidth;
-        }).resize();
+        }
     }
 
 
@@ -321,19 +342,17 @@ function init() {
         // window on load
         $(window).on('load', alignPrices);
 
-        // window on resize (with throttling)
+        // Изменение ширины окна / скроллинг
         let timeoutAction;
-        $(window).on('resize', function () {
+        $(window).on('resize scroll', function () {
             clearTimeout(timeoutAction);
             timeoutAction = setTimeout(alignPrices, 1000);
         });
 
-        // Почему-то после загрузки страницы цены не всегда становятся выравненными. Я решил добавить дополнительное выравнивание с помощью интервалов
-        for (let i = 0; i < 10; i++) {
-            setTimeout(function () {
-                alignPrices();
-            }, i * 300);
-        }
+        // Решил повесить выравнивание цены еще и на интервал - для надежности
+        setInterval(function () {
+            alignPrices();
+        }, 1000);
     }
 
 
@@ -726,7 +745,7 @@ function init() {
             $selectionsBtn.show();
         }
 
-        $selectionsBtn.on('click', function(e) {
+        $selectionsBtn.on('click', function (e) {
             e.preventDefault();
             let $this = $(this);
             $this.closest('.selections').toggleClass('show-all');
