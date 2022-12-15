@@ -976,22 +976,22 @@
                     margin-top: auto
                     margin-bottom: auto
 
-                    .text-normal, .text-bold, .text-big
-                        line-height: 1.4
+                .text-normal, .text-bold, .text-big
+                    line-height: 1.4
 
-                    .text-normal, .text-bold
-                        font-size: 20px
-                        @media screen and (max-width: 550px)
-                            font-size: 16px
+                .text-normal, .text-bold
+                    font-size: 20px
+                    @media screen and (max-width: 550px)
+                        font-size: 16px
 
-                    .text-bold, .text-big
-                        font-weight: 900
+                .text-bold, .text-big
+                    font-weight: 900
 
-                    .text-big
-                        font-size: 22px
+                .text-big
+                    font-size: 22px
 
-                        @media screen and (max-width: 550px)
-                            font-size: 18px
+                    @media screen and (max-width: 550px)
+                        font-size: 18px
 
             &_full
                 background: no-repeat center center
@@ -1009,26 +1009,40 @@
                     color: #fff
                     line-height: 1.2
 
-                    .text-big, .text-normal
-                        display: block
+                .text-big, .text-normal
+                    display: block
 
-                    .text-big
-                        font-size: 26px
-                        font-weight: 900
+                .text-big
+                    font-size: 26px
+                    font-weight: 900
 
-                        @media screen and (max-width: 550px)
-                            font-size: 20px
+                    @at-root .fasad &
+                        font-size: 32px
 
-                    .text-normal
-                        font-size: 20px
-                        margin-top: 12px
+                .text-normal
+                    font-size: 20px
+                    margin-top: 12px
 
-                        @media screen and (max-width: 550px)
+                    @at-root .fasad &
+                        font-size: 24px
+
+                @media screen and (max-width: 550px)
+                    .listing__catalog-promo-text
+                        .text-normal
                             font-size: 16px
+
+                        .text-big
+                            font-size: 20px
 
     &__catalog-promo-img
         max-width: 100%
         height: auto
+
+    &__catalog-promo-btn-more-svg
+        fill: #fff
+        width: 15px
+        height: 16px
+        margin-right: 10px
 
     &__catalog-promo-btn-more
         font-size: 16px
@@ -1049,9 +1063,8 @@
         &:hover
             +set_colors_1(background-color, 10%)
 
-        @at-root .krovlya &
+        @at-root .krovlya &, .fasad &
             background-color: #FF2437
-
             &:hover
                 background-color: #AA000F
 
