@@ -80,13 +80,8 @@
                 <li>{'address' | option}</li>
                 <li>Часы работы: ежедневно с 8:00 до 21:00</li>
             </ul>
-            {*
-            <div class="footer__social"><span>Мы в соц. сетях</span>
-                <div class="footer__social-list">
-                    {include "file:elements/social-list.tpl"}
-                </div>
-            </div>
-            *}
+
+            {include "file:elements/social-list.tpl"}
         </div>
     </div>
 </footer>

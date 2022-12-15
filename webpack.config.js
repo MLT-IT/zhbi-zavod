@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://www-fasad.local/",
+                    target: "http://pro-fanera.local/",
                     secure: false,
                     changeOrigin: true
                 }
