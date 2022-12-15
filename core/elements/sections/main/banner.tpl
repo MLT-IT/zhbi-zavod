@@ -8,7 +8,7 @@
     "fasad" => [
         "image" => "/assets/template/img/banners-small/fasad-small.png",
         "content" => ["text" => " Бесплатно рассчитаем фасады под ключ", "class_names" => "color-black font-weight-500"]
-        "button" => ["text" => "Получить бесплатный расчет", "class_names" => "color-white bg-green"]
+        "button" => ["text" => "Закажите расчет фасада бесплатно", "class_names" => "color-white bg-green"]
     ],
     "krovlya" => [
         "image" => "/assets/template/img/banners-small/krovlya-small.png",
