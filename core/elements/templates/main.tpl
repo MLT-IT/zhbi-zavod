@@ -63,6 +63,31 @@
 
     {include "file:sections/main/banner.tpl"}
 
+    {if $_modx->resource.context_key == 'pro-fanera'}
+        <div class="wrapper prods-links">
+            <h1 class="title-1">Фанера по толщине</h1>
+
+            <div class="prods-links__items-wrap">
+              <a href="/fanera-3-mm/" class="prods-links__item">3 мм</a>
+              <a href="/fanera-4-mm/" class="prods-links__item">4 мм</a>
+              <a href="/fanera-6-mm/" class="prods-links__item">6 мм</a>
+              <a href="/fanera-7-mm/" class="prods-links__item">7 мм</a>
+              <a href="/fanera-8-mm/" class="prods-links__item">8 мм</a>
+              <a href="/fanera-9-mm/" class="prods-links__item">9 мм</a>
+              <a href="/fanera-10-mm/" class="prods-links__item">10 мм</a>
+              <a href="/fanera-12-mm/" class="prods-links__item">12 мм</a>
+              <a href="/fanera-15-mm/" class="prods-links__item">15 мм</a>
+              <a href="/fanera-18-mm/" class="prods-links__item">18 мм</a>
+              <a href="/fanera-21-mm/" class="prods-links__item">21 мм</a>
+              <a href="/fanera-24-mm/" class="prods-links__item">24 мм</a>
+              <a href="/fanera-27-mm/" class="prods-links__item">27 мм</a>
+              <a href="/fanera-30-mm/" class="prods-links__item">30 мм</a>
+              <a href="/fanera-35-mm/" class="prods-links__item">35 мм</a>
+              <a href="/fanera-40-mm/" class="prods-links__item">40 мм</a>
+            </div>
+        </div>
+    {/if}
+
     {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp']}
         <div class="wrapper main-page-content">
             <h1 class="title-1">{$_modx->resource.pagetitle}</h1>

@@ -1,0 +1,36 @@
+.subbanner
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    width: 100%
+    grid-column-gap: 15px
+    grid-row-gap: 15px
+    margin-top: 15px
+
+    @media only screen and (max-width: 767px)
+        grid-template-columns: repeat(3, 1fr)
+
+    @media only screen and (max-width: 490px)
+        grid-template-columns: repeat(2, 1fr)
+
+    &__item
+        display: flex
+        align-items: center
+        flex-direction: column
+        background-color: #fff
+        transition: .3s
+        border: 1px solid #e2e2e2
+        justify-content: flex-start
+
+        &:hover
+            transform: scale(1.05)
+
+    &__item-img
+        width: 100%
+        display: block
+
+    &__text
+        font-weight: bold
+        margin-top: 10px
+        margin-bottom: 10px
+        text-align: center
+        padding: 5px
