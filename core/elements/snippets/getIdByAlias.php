@@ -4,10 +4,14 @@ if (empty($alias)) {
     return;
 }
 
+if (empty($contextKey)) {
+    $contextKey = $modx->context->key;
+}
+
 $cacheFolder = 'getIdByAlias';
 $cacheName = $alias;
 $cacheOptions = [
-    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder . '/' . $modx->context->key . '/',
+    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder . '/' . $contextKey . '/',
 ];
 
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
@@ -19,7 +23,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         $al = trim($al);
         $obj = $modx->getObject('modResource', [
             'alias' => $al,
-            'context_key' => $modx->resource->context_key
+            'context_key' => $contextKey
         ]);
 
         if (empty($obj)) {
