@@ -46,8 +46,6 @@ require_once $rootDir . 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-
-
 // Получение $pdo, он нужен, чтобы вызывать файловые сниппеты
 $pdo = $modx->getService('pdoTools');
 
@@ -133,16 +131,21 @@ function createXlsx($title, $values) {
     // Получаем первый лист
     $sheet = $spreadsheet->getActiveSheet();
 
-    // Получаем id ресурса, в котором находятся СЕО выборки
-    $title = $GLOBALS['pdo']->runSnippet('@FILE snippets/getPricelistName.php', [
-        'title' => $title
+    // Генерируем название прайслиста
+    $titleExcel = $GLOBALS['pdo']->runSnippet('@FILE snippets/getPricelistName.php', [
+        'title' => $title,
+        // Я попробовал написать самое длинное название листа, получился 31 символ. Но если вводить emoji, то символов вместится меньше
+        'maxLength' => 31,
     ]);
-    // 32 - это макс. кол-во символов для названия листа. Если название длиннее, то обрезаем
-    if (mb_strlen($title) > 31) {
-        $title = mb_substr($title, 0, 30);
-        $title .= '…';
-    }
-    $sheet->setTitle($title);
+    $sheet->setTitle($titleExcel);
+
+    // Генерируем название Excel-файла
+    $titleFile = $GLOBALS['pdo']->runSnippet('@FILE snippets/getPricelistName.php', [
+        'title' => $title,
+        // Здесь тоже может быть проблема с emoji. Я попробовал написать название файла на 100% из emoji, вместилось 122 символа. -5 для для ".xlsx" = 117
+        'maxLength' => 117,
+        'append' => '.xlsx'
+    ]);
 
     // Установка первой строки (заголовков столбцов)
     $range = range('A', 'Z');
@@ -173,6 +176,6 @@ function createXlsx($title, $values) {
     if (!file_exists($path)) {
         mkdir($path, 0777, true);
     }
-    $writer->save($path . $title);
+    $writer->save($path . $titleFile);
 }
 
