@@ -17,7 +17,12 @@
             'alias' => 'catalog'
         ]}
 
-        {set $mSearch2Ids = '!mSearch2' | snippet : ['returnIds' => 1, 'context' => $_modx->resource.context_key]}
+        {set $mSearch2Ids = '!mSearch2' | snippet : [
+          'returnIds' => 1,
+          'context' => $_modx->resource.context_key
+          'limit' => 0,
+          'depth' => 1000
+        ]}
 
         {*
          TODO: кажется, поиск нерелевантный. Я пытался подправить:
