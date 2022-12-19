@@ -62,7 +62,11 @@ data-single-dir - запретить менять направление сор�
         *}
 
         {if $_modx->resource.context_key == 'pro-fanera'}
-            {set $pricelistName = '@FILE snippets/getPricelistName.php' | snippet}
+            {set $pricelistName = '@FILE snippets/getPricelistName.php' | snippet : [
+                'title' => $title,
+                'maxLength' => 117,
+                'append' => '.xlsx'
+            ]}
             {set $path = '/excel/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
             {if '@FILE snippets/checkFile.php' | snippet : ['path' => $path]}
                 {set $hasPricelist = true}
