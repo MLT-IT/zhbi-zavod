@@ -8,18 +8,20 @@ data-single-dir - запретить менять направление сор�
     {'getTags' | snippet}
 
     {$_modx->runSnippet('pdoResources', [
-        'tpl' => '@FILE chunks/selectionsItem.tpl',
-        'depth' => 0,
-        'limit' => 0,
-        'sortby' => 'menuindex',
-        'sortdir' => 'ASC',
-        'tplWrapper' => '@FILE chunks/selections.tpl',
+      'tpl' => '@FILE chunks/selectionsItem.tpl',
+      'depth' => 0,
+      'limit' => 0,
+      'sortby' => 'menuindex',
+      'sortdir' => 'ASC',
+      'tplWrapper' => '@FILE chunks/selections.tpl',
 
-        'includeTVs' => 'showInDropdownPanel',
-        'where' => '{"template:=":"27"}',
+      'includeTVs' => 'showInDropdownPanel',
+      'where' => '{"template:=":"27"}',
 
-        'totalVar' => 'total',
-        'setTotal' => 1
+      'totalVar' => 'total',
+      'setTotal' => 1,
+
+      'select' => 'menutitle,uri'
     ])}
 
     <div class="listing__selected-wrap" id="mse2_selected_wrapper">

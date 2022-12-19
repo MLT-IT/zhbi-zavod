@@ -1,13 +1,16 @@
+{* Кажется, этот чанк нигде не используется. Вместо него теперь сниппет getTags *}
+
 {set $params = [
-'parents' => $_modx->resource.id,
-'tpl' => '@FILE sections/category/listing-tags-item.tpl',
-'tplWrapper' => "@FILE sections/category/listing-tags-wrapper.tpl",
-'templates' => 5,
-'includeTVs' => 'mainImage',
-'sortby' => 'menuindex',
-'sortdir' => 'ASC',
-'limit' => 0,
-'depth' => 0,
+  'parents' => $_modx->resource.id,
+  'tpl' => '@FILE sections/category/listing-tags-item.tpl',
+  'tplWrapper' => "@FILE sections/category/listing-tags-wrapper.tpl",
+  'templates' => 5,
+  'includeTVs' => 'mainImage',
+  'sortby' => 'menuindex',
+  'sortdir' => 'ASC',
+  'limit' => 0,
+  'depth' => 0,
+  'select' => 'menutitle,uri'
 ]}
 
 {*
@@ -43,13 +46,13 @@
 {if $_modx->resource.context_key === 'krovlya' && $_modx->resource.template !== 4 && $_modx->resource.id not in list $extraTagsIdsArray}
     {* Получаем все категории-потомки для $extraTagsIds, чтобы проверить, может, текущий ресурс - это один из них? *}
     {set $excludeDescendantsIds = 'pdoResources' | snippet : [
-    'parents' => $extraTagsIdsString,
-    'where' => '{"template:=": "5"}',
-    'depth' => 9000,
-    'limit' => 0,
-    'returnIds' => 1,
-    'sortby' => 'id',
-    'sortdir' => 'ASC'
+      'parents' => $extraTagsIdsString,
+      'where' => '{"template:=": "5"}',
+      'depth' => 9000,
+      'limit' => 0,
+      'returnIds' => 1,
+      'sortby' => 'id',
+      'sortdir' => 'ASC',
     ]}
     {set $excludeDescendantsIds = $excludeDescendantsIds | split : ','}
 

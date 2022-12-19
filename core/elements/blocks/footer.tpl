@@ -36,11 +36,12 @@
             <div class="footer__nav-block-title">Категории</div>
             <ul class="footer__nav-list">
                 {'pdoResources' | snippet : [
-                'parents' => $_modx->getPlaceholder('catalog_id'),
-                'resources'=> $_modx->getPlaceholder('footer_nav_ids'),
-                'tpl' => '@INLINE <li class="footer__nav-item"><a href="{$_modx->makeUrl($id)}">{$menutitle}</a></li>',
-                'where' => '{"template":5}',
-                'limit' => '0',
+                  'parents' => $_modx->getPlaceholder('catalog_id'),
+                  'resources'=> $_modx->getPlaceholder('footer_nav_ids'),
+                  'tpl' => '@INLINE <li class="footer__nav-item"><a href="{$uri}">{$menutitle}</a></li>',
+                  'where' => '{"template":5}',
+                  'limit' => '0',
+                  'select' => 'uri,menutitle'
                 ]}
             </ul>
             </div>
