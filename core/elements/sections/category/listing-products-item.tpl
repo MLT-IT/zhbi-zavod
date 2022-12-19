@@ -139,7 +139,9 @@
         </div>
 
         {include "file:chunks/productsItemUnits.tpl"}
-        {include "file:chunks/productElems.tpl" prodId=$id}
+        <div class="listing__product-elems-wrap">
+            {include "file:chunks/productElems.tpl" prodId=$id}
+        </div>
     </div>
 </div>
 

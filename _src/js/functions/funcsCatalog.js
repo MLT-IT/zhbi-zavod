@@ -773,7 +773,7 @@ function alignPrices() {
         let event1 = Math.abs(currPriceElemTop - lastPriceElemTop) > 300;
         let event2 = i === $items.length - 1;
         if (event1 || event2) {
-            if (!event1) {
+            if (event2 && !event1) {
                 group.push({
                     'elem': $priceElem,
                     'value': currPriceElemTop
@@ -789,6 +789,7 @@ function alignPrices() {
             });
 
             group = [];
+            currPriceElemTop = $priceElem.offset().top;
         }
 
         group.push({
