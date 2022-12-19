@@ -346,13 +346,13 @@ function init() {
         let timeoutAction;
         $(window).on('resize scroll', function () {
             clearTimeout(timeoutAction);
-            timeoutAction = setTimeout(alignPrices, 1000);
+            timeoutAction = setTimeout(alignPrices, 100);
         });
 
         // Решил повесить выравнивание цены еще и на интервал - для надежности
         setInterval(function () {
             alignPrices();
-        }, 1000);
+        }, 100);
     }
 
 
