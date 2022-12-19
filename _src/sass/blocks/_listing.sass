@@ -183,7 +183,7 @@
             transform: translateY(9px)
 
             @at-root .listing__right-block_with-pricelist &
-                transform: translateY(34px)
+                transform: translateY(44px)
 
     &__open-filters-btn-icon
         display: block
@@ -1122,9 +1122,27 @@
             width: 100%
             position: relative
 
+    .listing__sort .listing__btn-download-pricelist
+        color: #fff
+
+        @at-root .isover &
+            color: #323232
+
     &__btn-download-pricelist
         margin-right: 10px
         margin-left: 10px
+        +set_colors_1(background-color)
+        border-radius: 4px
+        transition: .3s
+        padding: 5px 10px
+        white-space: nowrap
+
+        &:hover
+            +set_colors_1(background-color, 10%)
+
+            @at-root .isover &
+                background-color: darken(#FFDD00, 10%)
+
 
         @media screen and (max-width: 450px)
             margin-right: 0
