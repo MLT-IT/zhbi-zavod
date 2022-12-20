@@ -375,7 +375,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     'id' => 'assort-sofity',
                     'items' => [
                         'Софиты' => [
-                            'uri' => '/sofity-v-sankt-peterburge/',
+                            'uri' => '/sofity/',
                             'fullwidth' => true,
                         ],
                         'ПВХ софиты' => [
@@ -395,6 +395,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Доборные элементы' => [
                     'id' => 'assort-dobor',
                     'items' => [
+                        'Доборные элементы' => [
+                            'uri' => '/dobornye-elementy/',
+                            'fullwidth' => true,
+                        ],
                         'J-Профиль' => [
                             'uri' => '/j-profil/',
                         ],
@@ -445,6 +449,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Комплектующие' => [
                     'id' => 'assort-soputtovary',
                     'items' => [
+                        'Комплектующие' => [
+                            'uri' => '/komplektuyushhie/',
+                            'fullwidth' => true,
+                        ],
                         'Мастики и краски' => [
                             'uri' => '/mastiki-kraski/',
                         ],
