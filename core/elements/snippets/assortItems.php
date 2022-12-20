@@ -392,8 +392,58 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         ],
                     ]
                 ],
+                'Доборные элементы' => [
+                    'id' => 'assort-dobor',
+                    'items' => [
+                        'J-Профиль' => [
+                            'uri' => '/j-profil/',
+                        ],
+                        'Доборные элементы для мягкой кровли' => [
+                            'uri' => '/dobornye-elementy-dlya-myagkoy-krovli/',
+                        ],
+                        'Доборные элементы фальц' => [
+                            'uri' => '/dobornyie-elementyi-falc/',
+                        ],
+                        'Ендовы для кровли' => [
+                            'uri' => '/endova/',
+                        ],
+                        'Заглушки' => [
+                            'uri' => '/zaglushki/',
+                        ],
+                        'Карнизные планки' => [
+                            'uri' => '/karniznye-planki/',
+                        ],
+                        'Коньковые элементы для кровли' => [
+                            'uri' => '/konkovye-elementy/',
+                        ],
+                        'Лобовые планки' => [
+                            'uri' => '/lobovye-planki/',
+                        ],
+                        'Мансардные планки' => [
+                            'uri' => '/mansardnye-planki/',
+                        ],
+                        'Планка капельник' => [
+                            'uri' => '/planka-kapelnik/',
+                        ],
+                        'Планки примыкания' => [
+                            'uri' => '/planki-primykaniya/',
+                        ],
+                        'Планки снегозадержания' => [
+                            'uri' => '/planki-snegozaderzhaniya/',
+                        ],
+                        'Торцевые планки' => [
+                            'uri' => '/torcevye-planki/',
+                        ],
+                        'Тройники' => [
+                            'uri' => '/troyniki/',
+                        ],
+                        'Четверники' => [
+                            'uri' => '/chetverniki/',
+                        ],
+                    ]
+                ],
                 'Комплектующие' => [
-                    'id' => 'assort-komplekt',
+                    'id' => 'assort-soputtovary',
                     'items' => [
                         'Мастики и краски' => [
                             'uri' => '/mastiki-kraski/',
