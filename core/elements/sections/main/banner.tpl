@@ -109,23 +109,23 @@
 
         {if $_modx->resource.context_key == 'pro-fanera'}
             <div class="subbanner">
-                <a href="#" class="subbanner__item">
+                <a href="/bakelitovaya-fanera/" class="subbanner__item">
                     <img class="subbanner__item-img" src="/assets/template/img/subbanner/pro-fanera/new_bakelitovaja_fanera.png" alt="">
                     <p class="subbanner__text">Бакелитовая фанера</p>
                 </a>
-                <a href="#" class="subbanner__item">
+                <a href="/laminirovannaya-fanera/" class="subbanner__item">
                     <img class="subbanner__item-img" src="/assets/template/img/subbanner/pro-fanera/new_fanera_fk.png" alt="">
                     <p class="subbanner__text">Ламинированная фанера</p>
                 </a>
-                <a href="#" class="subbanner__item">
+                <a href="/transportnaya-fanera/" class="subbanner__item">
                     <img class="subbanner__item-img" src="/assets/template/img/subbanner/pro-fanera/new_fanera_fsf.png" alt="">
                     <p class="subbanner__text">Транспортная фанера</p>
                 </a>
-                <a href="#" class="subbanner__item">
+                <a href="/fanera-fk/" class="subbanner__item">
                     <img class="subbanner__item-img" src="/assets/template/img/subbanner/pro-fanera/new_lamin.png" alt="">
                     <p class="subbanner__text">Фанера ФК</p>
                 </a>
-                <a href="#" class="subbanner__item">
+                <a href="/fanera-fsf/" class="subbanner__item">
                     <img class="subbanner__item-img" src="/assets/template/img/subbanner/pro-fanera/new_transport.png" alt="">
                     <p class="subbanner__text">Фанера ФСФ</p>
                 </a>

@@ -605,9 +605,9 @@
     &__products-item-chars
         margin-bottom: 20px
         transition: .3s
-        display: none
 
         @media screen and (max-width: 768px)
+            display: none
             margin-bottom: 0
 
     &__products-item-chars-span
@@ -1129,13 +1129,16 @@
             color: #323232
 
     &__btn-download-pricelist
-        margin-right: 10px
+        margin-right: 0
         margin-left: 10px
         +set_colors_1(background-color)
         border-radius: 4px
         transition: .3s
         padding: 5px 10px
         white-space: nowrap
+
+        @media screen and (max-width: 1200px)
+            margin-right: 10px
 
         &:hover
             +set_colors_1(background-color, 10%)
