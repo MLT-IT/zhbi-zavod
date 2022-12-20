@@ -30,7 +30,7 @@
             </div>
             {set $isFirst = true}
             {foreach $items as $key => $val}
-                {if $val['id'] in list ['assort-soputtovary']}
+                {if $val['id'] in list ['assort-komplekt']}
                     {set $contentAdditionalClass = ' columns-css'}
                 {else}
                     {set $contentAdditionalClass = ' columns-flex'}
