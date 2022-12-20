@@ -39,7 +39,11 @@
     {set $keyClass = 'cvet'}
 {/if}
 
-{if $key === 'msoption|brand' && $_modx->resource.context_key === 'kirpich-m'}
+{* Установка $dontActive для определенных случаев *}
+{if $key === 'msoption|brand' && $_modx->resource.context_key == 'kirpich-m'}
+    {set $dontActive = true}
+{/if}
+{if $key === 'msoption|ottenok' && $_modx->resource.id == 22594}
     {set $dontActive = true}
 {/if}
 
