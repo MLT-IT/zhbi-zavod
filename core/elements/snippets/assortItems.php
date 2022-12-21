@@ -264,7 +264,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
                 'Цементно-песчаная черепица' => [
-                    'id' => 'assort-natur-cerepica-1',
+                    'id' => 'assort-natur-cerepica',
                     'items' => [
                         'Цементно-песчаная черепица' => [
                             'uri' => '/cementno-peschanaya-cherepica/',
@@ -272,19 +272,20 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                             'links' => [
                                 'Цементно-песчаная черепица Kriastak' => '/cementno-peschanaya-cherepica-kriastak/',
                                 'Цементно-песчаная черепица Braas' => '/cementno-peschanaya-cherepica-braas/',
-                                'Комплектующие Braas' => '/komplektuyushchie-braas/',
+                                'Комплектующие для ЦПЧ' => 'komplektuyushhie-dlya-cpch',
                             ]
                         ]
                     ]
                 ],
                 'Натуральная керамическая черепица' => [
-                    'id' => 'assort-natur-cerepica-2',
+                    'id' => 'assort-ceramocherepica',
                     'items' => [
                         'Керамическая черепица' => [
                             'uri' => '/keramicheskaya-cherepica/',
                             'img' => '/assets/template/img/assort/krovlya/kermaicheskaya-cerepica.jpg',
                             'links' => [
                                 'Керамическая черепица Braas' => '/keramicheskaya-cherepica-braas/',
+                                'Комплектующие для керамической черепицы Braas' => '/komplektuyushhie-dlya-keramicheskoj-cherepicy-braas/'
                             ]
                         ],
                     ]
