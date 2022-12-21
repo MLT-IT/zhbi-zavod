@@ -115,7 +115,9 @@
     {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m']}
         {include "file:sections/main/assort.tpl"}
     {else}
-        {include "file:sections/main/catalog.tpl"}
+        {if $_modx->resource.context_key != 'pro-fanera'}
+            {include "file:sections/main/catalog.tpl"}
+        {/if}
     {/if}
 
     {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp']}

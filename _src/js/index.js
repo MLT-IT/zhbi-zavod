@@ -290,9 +290,9 @@ $(function ($) {
             }
 
             let oldHeight = $assort.height();
-            $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
+            $assort.find('.active.assort__sidebar-item, .active.assort__content-wrap').removeClass('active');
             $this.addClass('active');
-            $assort.find('.assort__content[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
+            $assort.find('.assort__content-wrap[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
             toggleClasses(content, oldHeight);
             $backBtnText.text($this.text());
         });
