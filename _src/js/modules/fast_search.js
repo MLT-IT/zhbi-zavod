@@ -16,7 +16,9 @@ export default class FastSearch {
 
   init() {
     if (!this.search_form || !this.search_input) {
-      console.war("[FastSearch] Нет необходимых элементов для быстрого поиска");
+      console.warn(
+        "[FastSearch] Нет необходимых элементов для быстрого поиска"
+      );
       return;
     }
 
