@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "https://pro-fanera.ru/",
+                    target: "http://krovlyasp.local/",
                     secure: false,
                     changeOrigin: true
                 }

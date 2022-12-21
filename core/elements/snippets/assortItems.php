@@ -394,6 +394,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 ],
                 'Доборные элементы' => [
                     'id' => 'assort-dobor',
+                    'style' => 'columns-css',
                     'items' => [
                         'Доборные элементы' => [
                             'uri' => '/dobornye-elementy/',
@@ -448,6 +449,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 ],
                 'Комплектующие' => [
                     'id' => 'assort-soputtovary',
+                    'style' => 'columns-css',
                     'items' => [
                         'Комплектующие' => [
                             'uri' => '/komplektuyushhie/',
