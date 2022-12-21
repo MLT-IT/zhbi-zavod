@@ -52,16 +52,16 @@
             {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
             {set $rezka = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'rezka']}
             
-            {if $certs->hidemenu == 0}
+            {if $certs->hidemenu == 0 && $certs}
                 <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
             {/if}
-            {if $faq->hidemenu == 0}
+            {if $faq->hidemenu == 0 && $faq}
                 <span class="header__nav-item"><a class="header__nav-link" href="/faq/">Вопросы-ответы</a></span>
             {/if}
-            {if $akcii->hidemenu == 0}
+            {if $akcii->hidemenu == 0 && $akcii}
                 <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
             {/if}
-            {if $rezka->hidemenu == 0}
+            {if $rezka->hidemenu == 0 && $rezka}
                 <span class="header__nav-item"><a class="header__nav-link" href="/rezka/">Резка</a></span>
             {/if}
             
