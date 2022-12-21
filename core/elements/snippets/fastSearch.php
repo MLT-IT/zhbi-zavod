@@ -43,8 +43,12 @@ $where  = [
         'published' => 1
     ]
 ];
-foreach (explode(' ', $_REQUEST['query']) as $query_word) {
-    $where[]['pagetitle:LIKE'] = '%' . $query_word . '%';
+foreach (explode(' ', trim($_REQUEST['query'])) as $query_word) {
+    if (stristr($query_word, ',') || stristr($query_word, '.')) {
+        $where[]['pagetitle:REGEXP'] = preg_replace('/[, .]/', '[,\.]', $query_word);
+    } else {
+        $where[]['pagetitle:LIKE'] = '%' . $query_word . '%';
+    }
 }
 $modx_query = $modx->newQuery('modResource');
 $modx_query->where($where);
