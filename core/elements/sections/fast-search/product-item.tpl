@@ -1,0 +1,1 @@
+<li><a href="{$uri}"><img src="{$image}" />{$menutitle}</a></li>

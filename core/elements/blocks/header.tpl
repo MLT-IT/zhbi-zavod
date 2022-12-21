@@ -140,8 +140,8 @@
                 </div>
             </div>
 
-            <form action="/search/" class="header__search-wrap">
-                <input class="header__search" placeholder="Поиск по сайту" name="query">
+            <form action="/search/" class="header__search-wrap" fast-search-form="desktop">
+                <input class="header__search" placeholder="Поиск по сайту" name="query" fast-search-input="desktop">
                 <button type="submit" class="header__search-btn"></button>
             </form>
 
