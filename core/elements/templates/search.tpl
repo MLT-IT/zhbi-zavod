@@ -16,24 +16,12 @@
         {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
             'alias' => 'catalog'
         ]}
+        {set $data = '@FILE snippets/fastSearchPage.php' | snippet}
 
-        {set $mSearch2Ids = '!mSearch2' | snippet : [
-          'returnIds' => 1,
-          'context' => $_modx->resource.context_key
-          'limit' => 0,
-          'depth' => 1000
-        ]}
-
-        {*
-         TODO: кажется, поиск нерелевантный. Я пытался подправить:
-            'sortby' => '"FIELD(modResource.id, '~$mSearch2Ids~')"'
-         Но не получилось. Нужно больше времени.
-        *}
-
-        {if $mSearch2Ids?}
+        {if $data['ids'] ?}
             {'!pdoPage' | snippet : [
                 'element' => 'msProducts',
-                'resources' => $mSearch2Ids,
+                'resources' => $data['ids'],
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
 
                 'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable',
@@ -66,28 +54,30 @@
 
                 'limit' => 40,
                 'setMeta' => 0,
+
+                'sortby' => 'ids'
             ]}
         {else}
             Ничего не найдено.
         {/if}
 
         <div class="sect-search__content ajax-content">
-            {if $_modx->getPlaceholder('mSearchAmount') > 0}
+            {if $data['amount'] > 0}
                 <p class="sect-search__search-info">
                     {set $amount = $_modx->getPlaceholder('mSearchAmount')}
 
                     {'@FILE snippets/formOfWord.php' | snippet : [
-                            'n' => $amount,
+                            'n' => $data['amount'],
                             'f1' => 'Найден',
                             'f2' => 'Найдено',
                             'f5' => 'Найдено'
                         ]
                     }
 
-                    {$amount}
+                    {$data['amount']}
 
                     {'@FILE snippets/formOfWord.php' | snippet : [
-                            'n' => $amount,
+                            'n' => $data['amount'],
                             'f1' => 'результат',
                             'f2' => 'результата',
                             'f5' => 'результатов'
