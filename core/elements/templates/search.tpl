@@ -16,7 +16,7 @@
         {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
             'alias' => 'catalog'
         ]}
-        {set $data = '@FILE snippets/fastSearchPage.php' | snippet}
+        {set $data = '@FILE snippets/fastSearch.php' | snippet}
 
         {if $data['ids'] ?}
             {'!pdoPage' | snippet : [
