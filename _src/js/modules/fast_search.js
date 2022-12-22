@@ -9,7 +9,7 @@ export default class FastSearch {
       `[fast-search-input="${this.check_device}"]`
     );
 
-    this.search_timeout = 0;
+    this.search_timeout = 400;
 
     this.init();
   }
