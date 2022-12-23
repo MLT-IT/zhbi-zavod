@@ -34,7 +34,7 @@ import mapsLazyload from './modules/lazyload_maps';
 import youtubePlayer from './modules/youtube_player';
 // import add_cover_to_map from './modules/maps';
 import shadowMap from './modules/shadow_map';
-
+import FastSearch from './modules/fast_search'
 
 // -------------------------------------
 // Подключение JQuery
@@ -91,6 +91,8 @@ $(function ($) {
     // Инициализация табов
     initTabs();
 
+    // Инициализация быстрого поиска
+    new FastSearch()
 
     // -------------------------------------
     // Функции страниц на JQuery
@@ -288,9 +290,9 @@ $(function ($) {
             }
 
             let oldHeight = $assort.height();
-            $assort.find('.active.assort__sidebar-item, .active.assort__content').removeClass('active');
+            $assort.find('.active.assort__sidebar-item, .active.assort__content-wrap').removeClass('active');
             $this.addClass('active');
-            $assort.find('.assort__content[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
+            $assort.find('.assort__content-wrap[data-tab="' + $this.attr('data-tab') + '"]').addClass('active');
             toggleClasses(content, oldHeight);
             $backBtnText.text($this.text());
         });

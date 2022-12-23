@@ -224,9 +224,11 @@
         align-items: flex-start
 
     &__content
-        margin-bottom: -16px
+        display: flex
+        flex-wrap: wrap
 
-        &.columns-css
+        &_columns-css
+            display: block !important
             @media screen and (min-width: 701px)
                 column-gap: 8px
                 margin-bottom: 0
@@ -237,9 +239,12 @@
             @media screen and (max-width: 880px) and (min-width: 701px)
                 column-count: 2
 
-        &.columns-css.active
-            @media screen and (min-width: 701px)
-                display: block
+    &__content-wrap
+        margin-bottom: -16px
+        display: none
+
+        &.active
+            display: block
 
     &__item
         padding: 8px 8px 4px
@@ -249,30 +254,32 @@
 
         &_fullwidth
             // Такой селектор нужен для переопределения
-            @at-root .assort .assort__contents-wrap &
+            @at-root .assort .assort__contents-wrap .assort__content &
                 width: 100%
                 margin-right: 0
 
-        @at-root .columns-css &
+        @at-root .assort__content_columns-css &
             @media screen and (min-width: 701px)
                 // https://stackoverflow.com/questions/7785374/how-to-prevent-column-break-within-an-element
                 page-break-inside: avoid
                 break-inside: avoid-column
 
-        @at-root .columns-flex &
+        @at-root .assort__content_columns-flex &
             // 2 столбца
             @media screen and (min-width: 993px)
                 width: calc(50% - 12px)
 
-                &:nth-of-type(odd)
+                &:nth-of-type(even)
                     margin-right: 24px
 
+            // 2 столбца
             @media screen and (max-width: 992px) and (min-width: 701px)
                 width: calc(50% - 8px)
 
-                &:nth-of-type(odd)
+                &:nth-of-type(even)
                     margin-right: 15px
 
+        // 1 столбец
         @media screen and (max-width: 700px)
             width: 100%
 
@@ -284,13 +291,6 @@
 
     &__item-img-wrap
         display: block
-
-    &__content
-        display: none
-
-        &.active
-            display: flex
-            flex-wrap: wrap
 
     &__contents-wrap
         flex-grow: 1

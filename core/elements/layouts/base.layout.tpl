@@ -1,3 +1,9 @@
+{'@FILE snippets/fastSearchAjax.php' | snippet : [
+'tplCategory' => '@FILE sections/fast-search/category-item.tpl',
+'tplProduct' => '@FILE sections/fast-search/product-item.tpl',
+'tplWrapper' => '@FILE sections/fast-search/wrapper.tpl',
+]}
+
 {$_modx->runSnippet('@FILE snippets/pushViewedProduct.php')}
 
 {switch $_modx->context.key}
