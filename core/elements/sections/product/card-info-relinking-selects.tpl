@@ -96,7 +96,7 @@
         <div class="product-card__gallery">
             <div class="product-card__img-wrap">
                 {if $itemVendor?}
-                    <div class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></div>
+                    <div class="product-card__brand" data-val="{$itemVendor}"></div>
                 {/if}
                 {if $outputOldPrice?}
                     <div class="js-product__discount product-card__discount">Скидка {'!calculateDiscount' | snippet}%</div>
@@ -188,7 +188,7 @@
                             <div class="custom-select-wrap">
                                 <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                     <div class="euv-custom-select__input">
-                                        <span data-val="{$cvet | toLowerAndRemoveChars}" class="euv-custom-select__input-value">{$cvet}</span>
+                                        <span data-val="{$cvet}" class="euv-custom-select__input-value">{$cvet}</span>
                                     </div>
                                     <span class="euv-custom-select__btn"></span>
                                     <div class="euv-custom-select__options-wrap">
@@ -197,7 +197,7 @@
                                                 {foreach $linksData.cvet as $data}
                                                     <div class="euv-custom-select__options-col">
                                                         {foreach $data as $id => $val}
-                                                            {set $v = $val | toLowerAndRemoveChars}
+                                                            {set $v = $val}
                                                             <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
                                                                 {$val}
                                                             </a>

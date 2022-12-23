@@ -7,7 +7,7 @@
 {/if*}
 
 {if $filter in list ['cvet', 'ottenok', 'surface', 'brand', 'proizvoditel']}
-    {set $dataVal = $title | toLowerAndRemoveChars}
+    {set $dataVal = $title}
 {/if}
 
 {set $limit = 5}

@@ -124,7 +124,7 @@
                 <div class="product-card__gallery">
                     <div class="product-card__img-wrap">
                         {if $itemVendor?}
-                            <div class="product-card__brand" data-val="{$itemVendor | toLowerAndRemoveChars}"></div>
+                            <div class="product-card__brand" data-val="{$itemVendor}"></div>
                         {/if}
                         {if $outputOldPrice?}
                             <div class="js-product__discount product-card__discount">Скидка {'!calculateDiscount' | snippet}%</div>

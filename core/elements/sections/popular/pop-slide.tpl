@@ -106,7 +106,7 @@
                 {/if}
             </div>
 
-            <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
+            <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0]}"></div>
 
             {if $outputOldPrice?}
                 <div class="js-product__new-price-wrap listing__new-price-text js-product__new-price-text">

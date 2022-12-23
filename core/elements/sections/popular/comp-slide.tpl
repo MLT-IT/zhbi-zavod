@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0] | toLowerAndRemoveChars}"></div>
+            <div class="product-logo listing__product-logo" data-val="{$proizvoditel[0]}"></div>
         </div>
         *}
     </div>
