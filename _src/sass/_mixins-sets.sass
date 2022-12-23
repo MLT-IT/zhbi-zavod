@@ -17,7 +17,7 @@
         background-image: url(/assets/template/img/brands/katepal.jpg)
     &[data-val="Kriastak"]#{$selector}
         background-image: url(/assets/template/img/brands/kriastak.jpg)
-    &[data-val="KROVENT"]#{$selector}
+    &[data-val="KROVENT"]#{$selector}, &[data-val="Krovent"]#{$selector}
         background-image: url(/assets/template/img/brands/krovent.jpg)
     &[data-val="Металл-Профиль"]#{$selector}, &[data-val="Металл Профиль"]#{$selector}
         background-image: url(/assets/template/img/brands/metallprofil.jpg)
@@ -29,6 +29,36 @@
         background-image: url(/assets/template/img/brands/tn.jpg)
     &[data-val="Grand Line"]#{$selector}
         background-image: url(/assets/template/img/brands/grand-line.jpg)
+    &[data-val="Abloy"]#{$selector}
+        background-image: url(/assets/template/img/brands/abloy.png)
+    &[data-val="Duck & Dog"]#{$selector}
+        background-image: url(/assets/template/img/brands/duck-dog.png)
+    &[data-val="Fakro"]#{$selector}
+        background-image: url(/assets/template/img/brands/fakro.png)
+    &[data-val="Master Flash"]#{$selector}
+        background-image: url(/assets/template/img/brands/master-flash.png)
+    &[data-val="MoTip"]#{$selector}
+        background-image: url(/assets/template/img/brands/MoTip.png)
+    &[data-val="NEOMID"]#{$selector}
+        background-image: url(/assets/template/img/brands/NEOMID.png)
+    &[data-val="Optima"]#{$selector}
+        background-image: url(/assets/template/img/brands/optima.png)
+    &[data-val="Orima"]#{$selector}
+        background-image: url(/assets/template/img/brands/orima.png)
+    &[data-val="Soudal"]#{$selector}
+        background-image: url(/assets/template/img/brands/soudal.png)
+    &[data-val="Swedoor (Jeld-Wen)"]#{$selector}
+        background-image: url(/assets/template/img/brands/swedoor-Jeld-Wen.png)
+    &[data-val="TYTAN"]#{$selector}
+        background-image: url(/assets/template/img/brands/TYTAN.png)
+    &[data-val="Velux"]#{$selector}
+        background-image: url(/assets/template/img/brands/velux.png)
+    &[data-val="Везувий"]#{$selector}
+        background-image: url(/assets/template/img/brands/vezuviy.png)
+    &[data-val="Металлик и Ко"]#{$selector}
+        background-image: url(/assets/template/img/brands/Metallik-i-Ko.png)
+    &[data-val="Профлист Момент"]#{$selector}
+        background-image: url(/assets/template/img/brands/proflist-moment.png)
 
     // Кирпичи
     &[data-val="ABC"]#{$selector}
@@ -149,6 +179,20 @@
         background-image: url(/assets/template/img/brands/wienerberger.png)
     &[data-val="Радошковичи (Ceglar)"]#{$selector}
         background-image: url(/assets/template/img/brands/ceglar.png)
+    &[data-val="Plastfoil"]#{$selector}
+        background-image: url(/assets/template/img/brands/plastfoil.jpg)
+    &[data-val="CM Garden"]#{$selector}
+        background-image: url(/assets/template/img/brands/CM-Garden.jpg)
+    &[data-val="Gidrolica"]#{$selector}
+        background-image: url(/assets/template/img/brands/Gidrolica.jpg)
+    &[data-val="Standartpark"]#{$selector}
+        background-image: url(/assets/template/img/brands/Standartpark.jpg)
+    &[data-val="Steingot"]#{$selector}
+        background-image: url(/assets/template/img/brands/Steingot.png)
+    &[data-val="Выбор"]#{$selector}
+        background-image: url(/assets/template/img/brands/vibor.jpg)
+    &[data-val="Готика"]#{$selector}
+        background-image: url(/assets/template/img/brands/gotika.png)
 
     // Плиты ОСБ
     &[data-val="Green Board"]#{$selector}
@@ -213,6 +257,12 @@
         background-image: url(/assets/template/img/brands/fibratech.png)
     &[data-val="Ю-Пласт"]#{$selector}
         background-image: url(/assets/template/img/brands/yuplast.png)
+    &[data-val="Ceresit"]#{$selector}
+        background-image: url(/assets/template/img/brands/ceresit.jpg)
+    &[data-val="Kreisel"]#{$selector}
+        background-image: url(/assets/template/img/brands/Kreisel.jpg)
+    &[data-val="MasterDeck"]#{$selector}
+        background-image: url(/assets/template/img/brands/master-deck.jpg)
 
     // МДВП
     &[data-val="ISOPLAAT"]#{$selector}
@@ -3056,6 +3106,35 @@
     &[data-val="RAL 7003"]#{$selector}
         @at-root .fasad &
             background-color: #7d7d71
+
+    &[data-val="Р 362"]#{$selector}
+        @at-root .krovlya &
+            background-color: #f3be1d
+
+    &[data-val="Антрацит"]#{$selector}
+        @at-root .fasady-pro &
+            background-color: #464451
+
+    &[data-val="Базальтово-серый"]#{$selector}
+        @at-root .fasady-pro &
+            background-color: #4e5754
+
+    &[data-val="Бежевый"]#{$selector}
+        @at-root .fasady-pro &
+            background-color: #f5f5dc
+
+    &[data-val="зеленый"]#{$selector}
+        @at-root .plitaosb &
+            background-color: #008000
+
+    &[data-val="серо-голубой"]#{$selector}
+        @at-root .plitaosb &
+            background-color: #77a1b5
+
+    &[data-val="серый"]#{$selector}
+        @at-root .plitaosb &
+            background-color: #808080
+
 
 @mixin set_colors_1($property, $dark: false, $opacity: false)
     @at-root .knauf &
