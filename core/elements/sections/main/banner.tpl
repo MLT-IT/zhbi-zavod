@@ -6,12 +6,12 @@
         "button" => ["text" => "Получить скидку", "class_names" => "color-white bg-green"]
     ],
     "fasad" => [
-        "image" => "/assets/template/img/banners-small/fasad-small.png",
-        "content" => ["text" => " Бесплатно рассчитаем фасады под ключ", "class_names" => "color-black font-weight-500"]
+        "image" => "/assets/template/img/banners-small/fasad-small.jpg",
+        "content" => ["text" => " Бесплатно рассчитаем фасады под ключ", "class_names" => "color-white font-weight-500"]
         "button" => ["text" => "Закажите расчет фасада бесплатно", "class_names" => "color-white bg-green"]
     ],
     "krovlya" => [
-        "image" => "/assets/template/img/banners-small/krovlya-small.png",
+        "image" => "/assets/template/img/banners-small/krovlya-small.jpg",
         "content" => ["text" => "Бесплатно рассчитаем комплект кровли ", "class_names" => "color-black font-weight-700"]
         "button" => ["text" => "Получить скидку", "class_names" => "color-white bg-green"]
     ],
