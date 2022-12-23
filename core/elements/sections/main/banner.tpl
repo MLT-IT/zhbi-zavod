@@ -12,7 +12,7 @@
     ],
     "krovlya" => [
         "image" => "/assets/template/img/banners-small/krovlya-small.jpg",
-        "content" => ["text" => "Бесплатно рассчитаем комплект кровли ", "class_names" => "color-black font-weight-700"]
+        "content" => ["text" => "Бесплатно рассчитаем комплект кровли ", "class_names" => "color-white font-weight-700"]
         "button" => ["text" => "Получить скидку", "class_names" => "color-white bg-green"]
     ],
 ]}
