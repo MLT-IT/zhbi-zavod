@@ -1,6 +1,19 @@
 <?php
 
 // ---------------------------------------
+// Параметры скрипта
+// ---------------------------------------
+$context = 'pro-fanera';
+
+switch ($context) {
+    case 'pro-fanera':
+        $email = 'tsk@pro-fanera.ru';
+        $phone = '+7 (812) 209-19-68';
+        break;
+}
+
+
+// ---------------------------------------
 // Настройки вывода ошибок
 // ---------------------------------------
 ini_set('display_errors', '1');
@@ -53,16 +66,15 @@ $pdo = $modx->getService('pdoTools');
 // ---------------------------------------
 // Работа с MODX (выборка)
 // ---------------------------------------
-$context = 'pro-fanera';
 // Получаем все категории (id и menutitle)
 $categories = $modx->runSnippet('pdoResources', [
     'parents' => 0,
     'depth' => 1000,
-    'limit' => 0,
     'where' => '{"template:=":5}',
     'context' => $context,
     'tpl' => '@INLINE [[+id]]=[[+menutitle]]',
-    'outputSeparator' => '||'
+    'outputSeparator' => '||',
+    'limit' => 0
 ]);
 $categories = explode('||', $categories);
 $categories = array_filter($categories);
@@ -126,12 +138,15 @@ foreach ($categories as $cat) {
  * Создать xlsx файл.
  */
 function createXlsx($title, $values) {
-    // Создаем таблицу
+    // ----------------------------------
+    // Основные характеристики Excel файла
+    // ----------------------------------
+    // Создание таблицы
     $spreadsheet = new Spreadsheet();
-    // Получаем первый лист
+    // Получение первого листа
     $sheet = $spreadsheet->getActiveSheet();
 
-    // Генерируем название прайслиста
+    // Генерация названия прайслиста
     $titleExcel = $GLOBALS['pdo']->runSnippet('@FILE snippets/getPricelistName.php', [
         'title' => $title,
         // Я попробовал написать самое длинное название листа, получился 31 символ. Но если вводить emoji, то символов вместится меньше
@@ -139,7 +154,7 @@ function createXlsx($title, $values) {
     ]);
     $sheet->setTitle($titleExcel);
 
-    // Генерируем название Excel-файла
+    // Генерация названия Excel-файла
     $titleFile = $GLOBALS['pdo']->runSnippet('@FILE snippets/getPricelistName.php', [
         'title' => $title,
         // Здесь тоже может быть проблема с emoji. Я попробовал написать название файла на 100% из emoji, вместилось 122 символа. -5 для для ".xlsx" = 117
@@ -147,11 +162,37 @@ function createXlsx($title, $values) {
         'append' => '.xlsx'
     ]);
 
-    // Установка первой строки (заголовков столбцов)
+
+    // ----------------------------------
+    // Работа с логотипом таблицы
+    // ----------------------------------
+    // Объединение A1 и B1 - там будет картинка, а она широкая
+    //$sheet->mergeCells('A1:B1');
+    // Вставка картинки
+    $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+    $drawing->setName('Logo');
+    $drawing->setPath($GLOBALS['rootDir'] . 'assets/template/img/logos/for-excel/' . $GLOBALS['context'] . '.png');
+    $drawing->setCoordinates('A1');
+    $drawing->setWorksheet($sheet);
+    // Вставка почты
+    $sheet->setCellValue('A2', $GLOBALS['email']);
+    // Вставка телефона
+    $sheet->setCellValue('A3', $GLOBALS['phone']);
+    // Вставка расписания
+    $sheet->setCellValue('A4', 'Ежедневно с 8:00 до 21:00');
+
+
+    // ----------------------------------
+    // Работа с со значениями прайс-листа (название и цена)
+    // ----------------------------------
+    // 1 - картинка, 2 - email, 3 - телефон, 4 - расписание, 5 - пустая строка
+    $startFrom = 6;
+
+    // Установка заголовков
     $range = range('A', 'Z');
     $headers = ['Название', 'Цена'];
     foreach ($headers as $index => $val) {
-        $sheet->setCellValue($range[$index] . '1', $val);
+        $sheet->setCellValue($range[$index] . $startFrom, $val);
     }
 
     // Установка значений
@@ -160,17 +201,89 @@ function createXlsx($title, $values) {
         $val[1] = preg_replace('/\s+/', '', $val[1]);
 
         foreach ($val as $vidx => $vval) {
-            $sheet->setCellValue($range[$vidx] . ($index + 2), $vval);
+            $sheet->setCellValue($range[$vidx] . ($index + 7), $vval);
         }
     }
 
-    // Установка ширины ячейки
-    for ($i = 0; $i < count($headers); $i++) {
+    // Сохранение кол-ва значений
+    $count = $index + 1;
+
+    // Установка формата ячеек
+    $sheet->getStyle('B' . $startFrom . ':B' . ($count + $startFrom))
+        ->getNumberFormat()
+        ->setFormatCode('#,##0.00_-"₽"');
+
+
+    // ----------------------------------
+    // Работа с размерами столбцов и строк
+    // ----------------------------------
+    // Установка автоматической ширины столбцов А и B (так как значения только в них)
+    for ($i = 0; $i < 2; $i++) {
         $letter = $range[$i];
         $sheet->getColumnDimension($letter)->setAutoSize(true);
     }
 
-    // Сохранение Excel в файловую систему
+    // Вычисление автоматической ширины
+    $sheet->calculateColumnWidths();
+    // Получение ширины столбцов
+    $columnWidthA = $sheet->getColumnDimension('A')->getWidth();
+    $columnWidthB = $sheet->getColumnDimension('B')->getWidth();
+
+    // Получение размеров картинки. Размеры картинки вычисляются в пикселях. Ширина ячеек вычисляется в символах (относительно шрифта). Чтобы соотнести эти размеры, необходимо определить шрифт. В А1 находится картинка, текста там нет. А вот в А2 есть текст. Высота ячеек вычисляется в пунктах, для этого есть специальная функция
+    $excelFont = $sheet->getStyle('A2')->getFont();
+    $imageHeight = $drawing->getHeight();
+    $imageWidth = $drawing->getWidth();
+    $imageHeightPoints = \PhpOffice\PhpSpreadsheet\Shared\Drawing::pixelsToPoints($imageHeight);
+    // Я заметил, что ширина вычисляется не совсем правильно. Получается немного большее значение
+    $imageWidthSymbols = \PhpOffice\PhpSpreadsheet\Shared\Drawing::pixelsToCellDimension($imageWidth, $excelFont);
+
+    // Установка высоты первой строки (там картинка)
+    $sheet->getRowDimension(1)->setRowHeight($imageHeightPoints);
+
+    // Если автоматическая ширина столбца A+B меньше, чем ширина картинки, то надо увеличить
+    if ($imageWidthSymbols > ($columnWidthA + $columnWidthB)) {
+        $sheet->getColumnDimension('A')->setAutoSize(false);
+        $sheet->getColumnDimension('B')->setAutoSize(false);
+        $newValHalf = ($imageWidthSymbols - ($columnWidthA + $columnWidthB)) / 2;
+        $sheet->getColumnDimension('A')->setWidth($columnWidthA + $newValHalf);
+        $sheet->getColumnDimension('B')->setWidth($columnWidthB + $newValHalf);
+    }
+
+    // Объединение A1 и B1 - там картинка, а она широкая
+    $sheet->mergeCells('A1:B1');
+
+
+    // ----------------------------------
+    // Дизайн таблицы
+    // ----------------------------------
+    $bottomCells = $startFrom + $count;
+    $topCells = $startFrom;
+
+    // Добавление пустых столбцов и строк - так было в примере Василия (он поставил мне задачу)
+    $sheet->insertNewColumnBefore('A', 1);
+    $sheet->setCellValue('D' . ($bottomCells + 1), ' ');
+    $sheet->getColumnDimension('D')->setWidth(3.5);
+    $sheet->getColumnDimension('A')->setWidth(3.5);
+
+    // Добавление границ для нужных ячеек
+    // Границы слева
+    $sheet
+        ->getStyle('B' . $topCells . ':C' . $bottomCells)
+        ->getBorders()
+        ->getAllBorders()
+        ->setBorderStyle(PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN)
+        ->setColor(new PhpOffice\PhpSpreadsheet\Style\Color('000000'));
+
+    // Скрытие границ у ненужных ячеек
+    $sheet->setShowGridlines(false);
+
+    // Активация PAGE_LAYOUT
+    $sheet->getSheetView()->setView(PhpOffice\PhpSpreadsheet\Worksheet\SheetView::SHEETVIEW_PAGE_BREAK_PREVIEW);
+
+
+    // ----------------------------------
+    // Сохранение Excel файла
+    // ----------------------------------
     $writer = new Xlsx($spreadsheet);
     $path = $GLOBALS['rootDir'] . 'excel/' . $GLOBALS['context'] . '/';
     if (!file_exists($path)) {
@@ -179,3 +292,4 @@ function createXlsx($title, $values) {
     $writer->save($path . $titleFile);
 }
 
+echo 'Конец работы скрипта';
