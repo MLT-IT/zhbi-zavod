@@ -70,20 +70,33 @@ data-single-dir - запретить менять направление сор�
             {set $path = '/excel/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
             {if '@FILE snippets/checkFile.php' | snippet : ['path' => $path]}
                 {set $hasPricelist = true}
-
+            {/if}
+        {elseif $_modx->resource.context_key in list ['pilomat', 'fasady-pro']}
+            {set $pricelistJson = true}
+            {set $pricelistName = '@FILE snippets/getPricelistName.php' | snippet : [
+              'title' => $_modx->resource.menutitle,
+              'maxLength' => 117,
+              'append' => '.json'
+            ]}
+            {set $path = '/json/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
+            {if '@FILE snippets/checkFile.php' | snippet : ['path' => $path]}
+                {set $hasPricelist = true}
             {/if}
         {/if}
 
         <div class="listing__right-block{$hasPricelist ? ' listing__right-block_with-pricelist' : ''}">
             {if $hasPricelist ?}
-                <a class="listing__btn-download-pricelist" href="/excel/{$_modx->resource.context_key}/{$pricelistName}">Скачать прайслист</a>
+                {if $pricelistJson ?}
+                    <span class="listing__btn-download-pricelist" data-href="{$path}">Скачать прайслист</span>
+                {else}
+                    <a class="listing__btn-download-pricelist" href="{$path}">Скачать прайслист</a>
+                {/if}
             {/if}
 
             <button class="listing__open-filters-btn">
                 Выбор<br>по параметрам
                 <svg class="svg listing__open-filters-btn-icon" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 32 32" width="32"
-                     height="32">
+                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 32 32" width="32" height="32">
                   <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-filter-catalog-btn-toggle-controls"></use>
                 </svg>
             </button>

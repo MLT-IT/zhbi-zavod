@@ -1128,14 +1128,17 @@
         @at-root .isover &
             color: #323232
 
+    span.listing__btn-download-pricelist
+        cursor: pointer
+
     &__btn-download-pricelist
         margin-right: 0
         margin-left: 10px
-        +set_colors_1(background-color)
         border-radius: 4px
         transition: .3s
         padding: 5px 10px
         white-space: nowrap
+        +set_colors_1(background-color)
 
         @media screen and (max-width: 1200px)
             margin-right: 10px
@@ -1145,7 +1148,6 @@
 
             @at-root .isover &
                 background-color: darken(#FFDD00, 10%)
-
 
         @media screen and (max-width: 450px)
             margin-right: 0

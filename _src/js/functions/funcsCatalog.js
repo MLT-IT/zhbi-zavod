@@ -752,6 +752,240 @@ function init() {
             functions.toggleText($this, 'data-text');
         });
     }
+
+
+    // -------------------------------------------
+    // Прайс-лист в pdf
+    // -------------------------------------------
+    // TODO: по-хорошему, прайслист надо генерировать через php. И тогда убрать window-переменные:
+    //  window.pdffont, window.jsPDF, window.jsPDFAutoTable
+    //  Глобальные window-переменные - это что-то типа костылей, они нужны, т.к. скрипт с библиотеками для создания прайслистов подключается динамически, а код, в котором используются библиотеки, написан здесь, из-за этого возникают проблемы с областью видимости
+    //  Я генерирую через JS, т.к. есть опыт именно с JS-библиотеками, а сроки для выполнения задачи небольшие.
+    let $downloadPricelistBtn = $('span.listing__btn-download-pricelist');
+
+    if ($downloadPricelistBtn.length) {
+        // Определение полей для pdf
+        const spaceFromTopEdge = 50; // Верхнее поле
+        const spaceFromLeftEdge = 40; // Левое поле
+        const spaceFromRightEdge = 40; // Правое поле
+        const spaceFromBottomEdge = 30; // Нижнее поле
+
+        // Расстояние между несколькими таблицами на одном листе (но в данном случае на одном листе всего одна таблица будет - такой код в JSON). Также эта переменная участвует в расчете расстояния для переноса одной таблицы на следующий лист
+        const spaceBetweenTables = 30;
+
+        // Сколько файлов по AJAX нужно загрузить для формирования прайслиста?
+        let needToLoadFiles = 2;
+        // Сколько файлов по AJAX уже загружено?
+        let uploadedFiles = 0;
+
+        // Это первый клик по кнопке для скачивания прайс-листа (файлы нужно загружать)?
+        let fstClick = true;
+
+        // Данные из JSON-файла
+        let pricelistData = [];
+
+        // Вешаем обработчик на кнопку
+        $downloadPricelistBtn.on('click', function () {
+            let $this = $(this);
+
+            // Подключаем JSON файл с данными и библиотеки для создания прайс-листа (если это еще не сделано)
+            if (fstClick) {
+                fstClick = false;
+
+                // Скачиваем JSON файл
+                $.getJSON($this.attr('data-href'), function (data) {
+                    pricelistData = data;
+                    increaseUploadedAndCallCreatePricelist();
+                });
+
+                // Подключаем библиотеки
+                let script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = '/assets/template/js/module_filter_table.js';
+                document.getElementsByTagName('head')[0].appendChild(script);
+                script.addEventListener('load', function () {
+                    increaseUploadedAndCallCreatePricelist();
+                });
+            } else {
+                // А если это уже сделано, то просто переходим к следующему шагу
+                createPricelist();
+            }
+        });
+
+        /**
+         * Поскольку JSON-файл с данными и библиотеки подключаются асинхронно, неизвестно, что подключится быстрее. Но однозначно должно быть подключено 2 файла. Эта функция увеличивает переменную, отвечающую за кол-во подключенных файлов, и пытается запустить процесс создания прайс-листа
+         */
+        function increaseUploadedAndCallCreatePricelist() {
+            uploadedFiles++;
+            createPricelist();
+        }
+
+        /**
+         * Функция для создания прайс-листа
+         */
+        function createPricelist() {
+            // Если еще не все файлы загрузились, то выходим из функции
+            if (uploadedFiles < needToLoadFiles) {
+                return;
+            }
+
+            let doc = new window.jsPDF('p', 'pt');
+
+            // Высота листа
+            const pageHeight = doc.internal.pageSize.getHeight();
+            // Ширина листа
+            const pageWidth = doc.internal.pageSize.getWidth();
+
+            // Добавляем шрифт, чтобы отображалась кириллица
+            let font = window.pdffont;
+            doc.addFileToVFS('Roboto-Regular-normal.ttf', font);
+            doc.addFont('Roboto-Regular-normal.ttf', 'Roboto-Regular', 'normal');
+            doc.setFont('Roboto-Regular');
+
+            // Заголовки таблицы
+            let tableHead = ['Название', 'Цена'];
+            // Тело таблицы
+            let tableBody = [];
+            $(pricelistData.items).each(function (index, value) {
+                tableBody.push(value);
+            });
+            // Название таблицы
+            let tableTitle = pricelistData['title'];
+
+            // Добавляем переносы строк, если название таблицы длинное
+            tableTitle = doc.splitTextToSize(tableTitle, pageWidth - spaceFromLeftEdge - spaceFromRightEdge);
+
+            // Получаем высоту заголовка таблицы. Это значение нужно для расчета корректного расстояния сверху листа
+            const titleHeight = doc.getTextDimensions(tableTitle).h;
+            // "+ 10" я сделал на глаз - для красоты
+            const minSpaceFromTopEdge = spaceFromTopEdge + titleHeight + 10;
+
+            // Y координата конца последней нарисованной таблицы. Если значение больше высоты листа (pageHeight), то из него вычитается высота листа
+            let newTablePositionY = doc.previousAutoTable.finalY;
+
+            // Проверяем newTablePositionY (и меняем, если необходимо)
+            if (typeof newTablePositionY !== 'undefined') {
+                // Если на странице почти не осталось места, то выводим таблицу на новую страницу ("+ 10" я подобрал на глаз - вдруг место снизу есть, заголовок вмещается, а таблица на следующей странице - как-то некрасиво)
+                if ((newTablePositionY + spaceBetweenTables + titleHeight + 10) >= (pageHeight - spaceFromBottomEdge)) {
+                    newTablePositionY = 0;
+                    doc.addPage();
+                }
+
+                // Если newTablePositionY окажется меньше minSpaceFromTopEdge (таблица рисуется на новом листе), то заголовок таблицы врежется в верхний колонтитул. Поэтому нужно изменить newTablePositionY
+                // Казалось бы, можно просто увеличить пространство верхнего колонтитула, зачем так мудрить? Но тогда у таблиц, которые растянулись на несколько листов, будет один колонтитул, а у таблиц, начинающихся с нового листа - другой (ведь у них есть заголовок)
+                if (newTablePositionY <= minSpaceFromTopEdge) {
+                    newTablePositionY = minSpaceFromTopEdge;
+                } else {
+                    newTablePositionY = newTablePositionY + spaceBetweenTables + titleHeight;
+                }
+            }
+            // Отступ для самой первой таблицы. Он нужен для заголовка таблицы. Если отступа не будет, то заголовок врежется в содержимое верхнего колонтитула
+            else {
+                newTablePositionY = minSpaceFromTopEdge;
+            }
+
+            // Выводим заголовок перед таблицей ("+ 5" я подобрал на глаз - для красоты, а то заголовок слишком далеко от таблицы)
+            doc.text(tableTitle, spaceFromLeftEdge, newTablePositionY - titleHeight + 5);
+
+            // Рисуем таблицы
+            new window.jsPDFAutoTable(doc, {
+                head: [tableHead],
+                body: tableBody,
+                styles: {
+                    font: 'Roboto-Regular',
+                    fontStyle: 'normal',
+                },
+
+                // Цвет для шапки
+                headStyles: {
+                    fillColor: [85, 85, 85],
+                    halign: 'center',
+                    valign: 'middle'
+                },
+
+                // Поля листа
+                margin: {
+                    top: spaceFromTopEdge,
+                    bottom: spaceFromBottomEdge,
+                    left: spaceFromLeftEdge,
+                    right: spaceFromRightEdge
+                },
+
+                // Указываем атрибут startY - это отступ для каждой таблицы от предыдущей
+                // jspdf-autotable сам расставляет отступы (и без этого атрибута), но они маленькие - в них не получится разместить заголовок таблицы
+                startY: newTablePositionY
+            });
+
+            // Добавляем колонтитулы для листов
+            addColontitulsToPricelist(doc, pageWidth, pricelistData);
+
+            // Отдаем пользователю готовую pdf-ку
+            doc.save(pricelistData['title'] + '.pdf');
+        }
+
+
+        /**
+         * Добавляет колонтитулы для всех листов документа doc.
+         * @param doc
+         * @param pageWidth
+         * @param pricelistData
+         */
+        function addColontitulsToPricelist(doc, pageWidth, pricelistData) {
+            const pageCount = doc.internal.getNumberOfPages();
+            let centerTextMaxWidth = 267;
+
+            // Логотип
+            let logoImg = new Image();
+            logoImg.src = pricelistData['logoPath'];
+
+            // Текст посередине шапки
+            // Получаем текст посередине шапки
+            let centerText = pricelistData['centerText'];
+            // Устанавливаем размер, чтобы вместить текст в определенное пространство
+            doc.setFontSize(11);
+            // Вмещаем текст в пространство
+            centerText = doc.splitTextToSize(centerText, centerTextMaxWidth);
+
+            // Телефон
+            doc.setFontSize(10);
+
+            let phoneText = pricelistData['phone'];
+            let phoneTextWidth = doc.getTextDimensions(phoneText).w;
+            let phoneMarginLeft = pageWidth - phoneTextWidth - 10;
+            // Email
+            doc.setFontSize(9);
+            let emailText = pricelistData['email'];
+            let emailTextWidth = doc.getTextDimensions(emailText).w;
+            // Отступ слева для элементов, что находятся в конце колонтитула
+            let emailMarginLeft = pageWidth - emailTextWidth - 10;
+
+
+            // Цикл для создания колонтитулов на всех страницах
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+
+                // Раскрашиваем шапку
+                doc.setFillColor(238, 238, 238);
+                doc.rect(0, 0, pageWidth, 42, "F");
+
+                // TODO: Я заметил, что во вкладке Network в браузере картинка загружается для каждого листа, а это замедляет отдачу pdf'ки пользователю. Надо поискать, как загрузить картинку ВСЕГО 1 РАЗ
+                // Логотип - картинка
+                doc.addImage(logoImg, 'png', 10, 6, pricelistData['logoWidth'], pricelistData['logoHeight']);
+
+                // Текст посередине шапки
+                doc.setFontSize(11);
+                doc.text(centerText, 213, 18);
+
+                // Телефон
+                doc.setFontSize(10);
+                doc.text(pricelistData['phone'], phoneMarginLeft, 18);
+
+                // Электронный адрес
+                doc.setFontSize(9);
+                doc.text(pricelistData['email'], emailMarginLeft, 32);
+            }
+        }
+    }
 }
 
 

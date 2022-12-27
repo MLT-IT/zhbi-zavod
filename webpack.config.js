@@ -17,7 +17,7 @@ module.exports = (env, args) => {
     return {
         entry: {
             main: ['./_src/js/index.js'],
-            preloader: ['./_src/js/preloader.js']
+            preloader: ['./_src/js/preloader.js'],
             // module_filter_table: './_src/js/module_filter_table.js'
         },
         performance: {
@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://krovlya.local/",
+                    target: "http://pilomat.local/",
                     secure: false,
                     changeOrigin: true
                 }
