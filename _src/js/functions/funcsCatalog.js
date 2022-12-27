@@ -898,7 +898,7 @@ function init() {
 
                 // Цвет для шапки
                 headStyles: {
-                    fillColor: [85, 85, 85],
+                    fillColor: pricelistData['headerBgColor'],
                     halign: 'center',
                     valign: 'middle'
                 },
@@ -932,33 +932,38 @@ function init() {
          */
         function addColontitulsToPricelist(doc, pageWidth, pricelistData) {
             const pageCount = doc.internal.getNumberOfPages();
-            let centerTextMaxWidth = 267;
+            const colontitulHeight = 42;
+            const imgOffsetY = (colontitulHeight - pricelistData['logoHeight']) / 2;
+            const colontitulEdgeMarginX = 10;
 
             // Логотип
             let logoImg = new Image();
             logoImg.src = pricelistData['logoPath'];
 
+            // Телефон
+            doc.setFontSize(10);
+            let phoneText = pricelistData['phone'];
+            let phoneTextWidth = doc.getTextDimensions(phoneText).w;
+            let phoneMarginLeft = pageWidth - phoneTextWidth - colontitulEdgeMarginX;
+            // Email
+            doc.setFontSize(9);
+            let emailText = pricelistData['email'];
+            let emailTextWidth = doc.getTextDimensions(emailText).w;
+            let emailMarginLeft = pageWidth - emailTextWidth - colontitulEdgeMarginX;
+            // Большее число из ширины телефона и email
+            let maxRightWidth = Math.max(emailTextWidth, phoneTextWidth);
+
             // Текст посередине шапки
-            // Получаем текст посередине шапки
+            // Ширина текста посередине шапки
+            let centerTextMaxWidth = pageWidth - (pricelistData['logoWidth'] + 30 + colontitulEdgeMarginX * 2 + maxRightWidth);
+            // Сам текст
             let centerText = pricelistData['centerText'];
             // Устанавливаем размер, чтобы вместить текст в определенное пространство
             doc.setFontSize(11);
             // Вмещаем текст в пространство
             centerText = doc.splitTextToSize(centerText, centerTextMaxWidth);
-
-            // Телефон
-            doc.setFontSize(10);
-
-            let phoneText = pricelistData['phone'];
-            let phoneTextWidth = doc.getTextDimensions(phoneText).w;
-            let phoneMarginLeft = pageWidth - phoneTextWidth - 10;
-            // Email
-            doc.setFontSize(9);
-            let emailText = pricelistData['email'];
-            let emailTextWidth = doc.getTextDimensions(emailText).w;
-            // Отступ слева для элементов, что находятся в конце колонтитула
-            let emailMarginLeft = pageWidth - emailTextWidth - 10;
-
+            // Формула верная, но отображался текст неверно (выше, чем надо). Я потестил и пришел к выводу, что надо добавлять 10
+            const centerTextOffsetY = (colontitulHeight - (doc.getTextDimensions(centerText).h)) / 2 + 10;
 
             // Цикл для создания колонтитулов на всех страницах
             for (let i = 1; i <= pageCount; i++) {
@@ -966,15 +971,15 @@ function init() {
 
                 // Раскрашиваем шапку
                 doc.setFillColor(238, 238, 238);
-                doc.rect(0, 0, pageWidth, 42, "F");
+                doc.rect(0, 0, pageWidth, colontitulHeight, "F");
 
                 // TODO: Я заметил, что во вкладке Network в браузере картинка загружается для каждого листа, а это замедляет отдачу pdf'ки пользователю. Надо поискать, как загрузить картинку ВСЕГО 1 РАЗ
                 // Логотип - картинка
-                doc.addImage(logoImg, 'png', 10, 6, pricelistData['logoWidth'], pricelistData['logoHeight']);
+                doc.addImage(logoImg, 'png', colontitulEdgeMarginX, imgOffsetY, pricelistData['logoWidth'], pricelistData['logoHeight']);
 
                 // Текст посередине шапки
                 doc.setFontSize(11);
-                doc.text(centerText, 213, 18);
+                doc.text(centerText, pricelistData['logoWidth'] + 20, centerTextOffsetY);
 
                 // Телефон
                 doc.setFontSize(10);
