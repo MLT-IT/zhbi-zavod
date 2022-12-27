@@ -764,6 +764,9 @@ function init() {
     let $downloadPricelistBtn = $('span.listing__btn-download-pricelist');
 
     if ($downloadPricelistBtn.length) {
+        // Timeout для убирания класса загрузки с кнопки. Я замечал, что во время загрузки JS немного глючит, из-за чего можно несколько раз нажать на кнопку для скачивания прайс-листа и выдастся много прайс-листов
+        let removeClassTimeout;
+
         // Определение полей для pdf
         const spaceFromTopEdge = 50; // Верхнее поле
         const spaceFromLeftEdge = 40; // Левое поле
@@ -786,14 +789,19 @@ function init() {
 
         // Вешаем обработчик на кнопку
         $downloadPricelistBtn.on('click', function () {
-            let $this = $(this);
+            // Проверяем класс загрузки на кнопке
+            if ($downloadPricelistBtn.hasClass('loading')) {
+                return false;
+            }
+            // Добавляем класс загрузки на кнопку
+            $downloadPricelistBtn.addClass('loading');
 
             // Подключаем JSON файл с данными и библиотеки для создания прайс-листа (если это еще не сделано)
             if (fstClick) {
                 fstClick = false;
 
                 // Скачиваем JSON файл
-                $.getJSON($this.attr('data-href'), function (data) {
+                $.getJSON($downloadPricelistBtn.attr('data-href'), function (data) {
                     pricelistData = data;
                     increaseUploadedAndCallCreatePricelist();
                 });
@@ -921,6 +929,12 @@ function init() {
 
             // Отдаем пользователю готовую pdf-ку
             doc.save(pricelistData['title'] + '.pdf');
+
+            // Убираем класс загрузки с кнопки
+            clearTimeout(removeClassTimeout);
+            removeClassTimeout = setTimeout(function() {
+                $downloadPricelistBtn.removeClass('loading');
+            }, 1000);
         }
 
 
