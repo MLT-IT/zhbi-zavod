@@ -30,6 +30,12 @@
                 <li class="footer__nav-item"><a href="/sitemap/">Карта сайта</a></li>
                 {/if}
             </ul>
+
+            {if $_modx->resource.context_key == 'kirpich-m'}
+                <div class="footer__rating-badge">
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/87565500476?type=rating" width="150" height="50" frameborder="0"></iframe>
+                </div>
+            {/if}
         </div>
         {if $_modx->getPlaceholder('footer_nav_ids') | length > 1}
         <div class="footer__nav-block">
