@@ -58,7 +58,7 @@ $pdo = $modx->getService('pdoTools');
 $defaultValues = [];
 
 foreach ($contexts as $ctx) {
-    // TODO: размеры лого лучше получать через код, а не хардкодить. Логика такая: максимальная ширина: 193, максимальная высота: 38. Вычисляем наибольшее значение, а второе подбираем по пропорциям
+    // TODO: размеры картинок лучше получать через код, а не хардкодить. Логика такая: максимальная ширина: 193, максимальная высота: 38. Вычисляем наибольшее значение, а второе подбираем по пропорциям
     switch ($ctx) {
         case 'pilomat':
             $defaultValues = [
@@ -66,7 +66,9 @@ foreach ($contexts as $ctx) {
                 'phone' => '+7 (812) 209-19-68',
                 'logoWidth' => 193,
                 'logoHeight' => 27,
-                'headerBgColor' => [79, 112, 173]
+                'headerBgColor' => [79, 112, 173],
+                'emailWidth' => 76,
+                'emailHeight' => 8
             ];
             break;
         case 'fasady-pro':
@@ -75,13 +77,17 @@ foreach ($contexts as $ctx) {
                 'phone' => '+7 (812) 209-19-68',
                 'logoWidth' => 100,
                 'logoHeight' => 38,
-                'headerBgColor' => [11, 112, 62]
+                'headerBgColor' => [11, 112, 62],
+                'emailWidth' => 74,
+                'emailHeight' => 8
             ];
             break;
     }
 
-    $logoPath = '/assets/template/img/logos/for-pricelists/' . $ctx . '.png';
+    $logoPath = '/assets/template/img/for-pricelists/logo-' . $ctx . '.png';
     $defaultValues['logoPath'] = $logoPath;
+    $emailPath = '/assets/template/img/for-pricelists/email-' . $ctx . '.png';
+    $defaultValues['emailPath'] = $emailPath;
 
     // Получаем все категории (id и menutitle)
     $categories = $modx->runSnippet('pdoResources', [

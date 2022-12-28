@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://kirpich-m.local/",
+                    target: "http://pilomat.local/",
                     secure: false,
                     changeOrigin: true
                 }

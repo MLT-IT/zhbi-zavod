@@ -959,11 +959,17 @@ function init() {
             let phoneText = pricelistData['phone'];
             let phoneTextWidth = doc.getTextDimensions(phoneText).w;
             let phoneMarginLeft = pageWidth - phoneTextWidth - colontitulEdgeMarginX;
-            // Email
-            doc.setFontSize(9);
-            let emailText = pricelistData['email'];
-            let emailTextWidth = doc.getTextDimensions(emailText).w;
-            let emailMarginLeft = pageWidth - emailTextWidth - colontitulEdgeMarginX;
+
+            // Электронный адрес. Кирилл сказал сделать его картинкой
+            // doc.setFontSize(9);
+            // let emailText = pricelistData['email'];
+            // let emailTextWidth = doc.getTextDimensions(emailText).w;
+            // let emailMarginLeft = pageWidth - emailTextWidth - colontitulEdgeMarginX;
+            let emailImg = new Image();
+            emailImg.src = pricelistData['emailPath'];
+            let emailImgWidth = pricelistData['emailWidth'];
+            let emailImgHeight = pricelistData['emailHeight'];
+            let emailMarginLeft = pageWidth - emailImgWidth - colontitulEdgeMarginX;
 
             // Цикл для создания колонтитулов на всех страницах
             for (let i = 1; i <= pageCount; i++) {
@@ -978,8 +984,9 @@ function init() {
                 doc.text(pricelistData['phone'], phoneMarginLeft, 22);
 
                 // Электронный адрес
-                doc.setFontSize(9);
-                doc.text(pricelistData['email'], emailMarginLeft, 36);
+                // doc.setFontSize(9);
+                // doc.text(pricelistData['email'], emailMarginLeft, 36);
+                doc.addImage(emailImg, 'png', emailMarginLeft, 37 - emailImgHeight, emailImgWidth, emailImgHeight);
             }
         }
     }

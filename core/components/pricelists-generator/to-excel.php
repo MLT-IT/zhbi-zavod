@@ -166,18 +166,27 @@ function createXlsx($title, $values) {
     // ----------------------------------
     // Работа с логотипом таблицы
     // ----------------------------------
-    // Объединение A1 и B1 - там будет картинка, а она широкая
-    //$sheet->mergeCells('A1:B1');
-    // Вставка картинки
-    $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
-    $drawing->setName('Logo');
-    $drawing->setPath($GLOBALS['rootDir'] . 'assets/template/img/logos/for-pricelists/' . $GLOBALS['context'] . '.png');
-    $drawing->setCoordinates('A1');
-    $drawing->setWorksheet($sheet);
-    // Вставка почты
-    $sheet->setCellValue('A2', $GLOBALS['email']);
+    // Вставка логотипа
+    $drawingLogo = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+    $drawingLogo->setName('Logo');
+    $drawingLogo->setPath($GLOBALS['rootDir'] . 'assets/template/img/for-pricelists/logo-' . $GLOBALS['context'] . '.png');
+    $drawingLogo->setCoordinates('A1');
+    $drawingLogo->setWorksheet($sheet);
+
+    // Вставка почты (Кирилл сказать сделать это через картинку)
+    // $sheet->setCellValue('A2', $GLOBALS['email']);
+    $drawingEmail = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+    $drawingEmail->setName('email');
+    $drawingEmail->setPath($GLOBALS['rootDir'] . 'assets/template/img/for-pricelists/email-' . $GLOBALS['context'] . '.png');
+    $drawingEmail->setHeight(13);
+    $drawingEmail->setOffsetX(4);
+    $drawingEmail->setOffsetY(4);
+    $drawingEmail->setCoordinates('A2');
+    $drawingEmail->setWorksheet($sheet);
+
     // Вставка телефона
     $sheet->setCellValue('A3', $GLOBALS['phone']);
+
     // Вставка расписания
     $sheet->setCellValue('A4', 'Ежедневно с 8:00 до 21:00');
 
@@ -231,8 +240,8 @@ function createXlsx($title, $values) {
 
     // Получение размеров картинки. Размеры картинки вычисляются в пикселях. Ширина ячеек вычисляется в символах (относительно шрифта). Чтобы соотнести эти размеры, необходимо определить шрифт. В А1 находится картинка, текста там нет. А вот в А2 есть текст. Высота ячеек вычисляется в пунктах, для этого есть специальная функция
     $excelFont = $sheet->getStyle('A2')->getFont();
-    $imageHeight = $drawing->getHeight();
-    $imageWidth = $drawing->getWidth();
+    $imageHeight = $drawingLogo->getHeight();
+    $imageWidth = $drawingLogo->getWidth();
     $imageHeightPoints = \PhpOffice\PhpSpreadsheet\Shared\Drawing::pixelsToPoints($imageHeight);
     // Я заметил, что ширина вычисляется не совсем правильно. Получается немного большее значение
     $imageWidthSymbols = \PhpOffice\PhpSpreadsheet\Shared\Drawing::pixelsToCellDimension($imageWidth, $excelFont);
