@@ -31,9 +31,34 @@
                 {/if}
             </ul>
 
-            {if $_modx->resource.context_key == 'kirpich-m'}
-                <div class="footer__rating-badge">
-                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/87565500476?type=rating" width="150" height="50" frameborder="0"></iframe>
+            {switch $_modx->resource.context_key}
+                {case 'kirpich-m'}
+                    {set $bangeId = '87565500476'}
+                {case 'plitaosb'}
+                    {set $bangeId = '8738659448'}
+                {case 'pro-fanera'}
+                    {set $bangeId = '54568639872'}
+                {case 'fasad'}
+                    {set $bangeId = '198187341990'}
+                {case 'fasady-pro'}
+                    {set $bangeId = '238477607568'}
+                {case 'pilomat'}
+                    {set $bangeId = '175010721251'}
+                {case 'rockwool'}
+                    {set $bangeId = '224264785290'}
+                {case 'paroc'}
+                    {set $bangeId = '1055099724'}
+                {case 'tn'}
+                    {set $bangeId = '1013634831'}
+                {case 'isover'}
+                    {set $bangeId = '186816765148'}
+                {case 'krovlya'}
+                    {set $bangeId = '55933391293'}
+            {/switch}
+
+            {if $bangeId ?}
+                <div id="clickinformer" class="footer__rating-badge">
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/{$bangeId}?type=rating" width="150" height="50" frameborder="0"></iframe>
                 </div>
             {/if}
         </div>
