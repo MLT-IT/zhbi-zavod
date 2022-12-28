@@ -1,6 +1,32 @@
 {switch $_modx->resource.context_key}
     {case 'pro-fanera'}
         {set $vk = 'https://vk.com/profanera'}
+    {case 'krovlya'}
+        {set $vk = 'https://vk.com/krovlyasp'}
+    {case 'fasady-pro'}
+        {set $vk = 'https://vk.com/fasady_pro'}
+    {case 'fasad'}
+        {set $vk = 'https://vk.com/mirfasad'}
+    {case 'rockwool'}
+        {set $vk = 'https://vk.com/minvata_termo'}
+    {case 'paroc'}
+        {set $vk = 'https://vk.com/minvatapro'}
+    {case 'tn'}
+        {set $vk = 'https://vk.com/prominvata'}
+    {case 'ursa'}
+        {set $vk = 'https://vk.com/minvataspb'}
+    {case 'penoplex'}
+        {set $vk = 'https://vk.com/plityepps'}
+    {case 'isover'}
+        {set $vk = 'https://vk.com/minvata178'}
+    {case 'web'}
+        {set $vk = 'https://vk.com/minvata_78'}
+    {case 'pilomat'}
+        {set $vk = 'https://vk.com/pilomatpro'}
+    {case 'plitaosb'}
+        {set $vk = 'https://vk.com/plitaosb'}
+    {case 'kirpich-m'}
+        {set $vk = 'https://vk.com/kirpichm_pro'}
 {/switch}
 
 {if ($insta is not empty) || ($vk is not empty) || ($yt is not empty) || ($fb is not empty)}
