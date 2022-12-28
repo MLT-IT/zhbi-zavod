@@ -170,7 +170,7 @@ foreach ($contexts as $ctx) {
             'maxLength' => 117,
             'append' => '.json'
         ]);
-        $path = $GLOBALS['rootDir'] . 'json/' . $ctx . '/';
+        $path = $GLOBALS['rootDir'] . 'assets/pricelists/json/' . $ctx . '/';
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
         }

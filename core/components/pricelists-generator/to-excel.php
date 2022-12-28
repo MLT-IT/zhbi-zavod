@@ -171,7 +171,7 @@ function createXlsx($title, $values) {
     // Вставка картинки
     $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
     $drawing->setName('Logo');
-    $drawing->setPath($GLOBALS['rootDir'] . 'assets/template/img/logos/for-excel/' . $GLOBALS['context'] . '.png');
+    $drawing->setPath($GLOBALS['rootDir'] . 'assets/template/img/logos/for-pricelists/' . $GLOBALS['context'] . '.png');
     $drawing->setCoordinates('A1');
     $drawing->setWorksheet($sheet);
     // Вставка почты
@@ -285,7 +285,7 @@ function createXlsx($title, $values) {
     // Сохранение Excel файла
     // ----------------------------------
     $writer = new Xlsx($spreadsheet);
-    $path = $GLOBALS['rootDir'] . 'excel/' . $GLOBALS['context'] . '/';
+    $path = $GLOBALS['rootDir'] . 'assets/pricelists/excel/' . $GLOBALS['context'] . '/';
     if (!file_exists($path)) {
         mkdir($path, 0777, true);
     }

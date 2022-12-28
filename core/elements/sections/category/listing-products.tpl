@@ -67,7 +67,7 @@ data-single-dir - запретить менять направление сор�
                 'maxLength' => 117,
                 'append' => '.xlsx'
             ]}
-            {set $path = '/excel/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
+            {set $path = '/assets/pricelists/excel/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
             {if '@FILE snippets/checkFile.php' | snippet : ['path' => $path]}
                 {set $hasPricelist = true}
             {/if}
@@ -78,7 +78,7 @@ data-single-dir - запретить менять направление сор�
               'maxLength' => 117,
               'append' => '.json'
             ]}
-            {set $path = '/json/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
+            {set $path = '/assets/pricelists/json/' ~ $_modx->resource.context_key ~ '/' ~ $pricelistName}
             {if '@FILE snippets/checkFile.php' | snippet : ['path' => $path]}
                 {set $hasPricelist = true}
             {/if}
