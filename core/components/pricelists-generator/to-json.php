@@ -64,7 +64,6 @@ foreach ($contexts as $ctx) {
             $defaultValues = [
                 'email' => 'tsk@pilomat-pro.ru',
                 'phone' => '+7 (812) 209-19-68',
-                'centerText' => 'Поставка пиломатериалов по Санкт-Петербургу и Ленинградской области',
                 'logoWidth' => 193,
                 'logoHeight' => 27,
                 'headerBgColor' => [79, 112, 173]
@@ -74,7 +73,6 @@ foreach ($contexts as $ctx) {
             $defaultValues = [
                 'email' => 'tsk@fasady-pro.ru',
                 'phone' => '+7 (812) 209-19-68',
-                'centerText' => 'Поставка деревянных фасадов по Санкт-Петербургу и Ленинградской области',
                 'logoWidth' => 100,
                 'logoHeight' => 38,
                 'headerBgColor' => [11, 112, 62]

@@ -87,9 +87,9 @@ data-single-dir - запретить менять направление сор�
         <div class="listing__right-block{$hasPricelist ? ' listing__right-block_with-pricelist' : ''}">
             {if $hasPricelist ?}
                 {if $pricelistJson ?}
-                    <span class="listing__btn-download-pricelist" data-href="{$path}">Скачать прайслист</span>
+                    <span class="listing__btn-download-pricelist" data-href="{$path}">Скачать прайс лист</span>
                 {else}
-                    <a class="listing__btn-download-pricelist" href="{$path}">Скачать прайслист</a>
+                    <a class="listing__btn-download-pricelist" href="{$path}">Скачать прайс лист</a>
                 {/if}
             {/if}
 
