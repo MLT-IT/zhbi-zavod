@@ -84,10 +84,10 @@ foreach ($contexts as $ctx) {
             break;
     }
 
-    $logoPath = '/assets/template/img/for-pricelists/logo-' . $ctx . '.png';
-    $defaultValues['logoPath'] = $logoPath;
-    $emailPath = '/assets/template/img/for-pricelists/email-' . $ctx . '.png';
-    $defaultValues['emailPath'] = $emailPath;
+    $logoPath = '/assets/template/img/for-pricelists/base64.logo-' . $ctx . '.png.txt';
+    $defaultValues['logoPath'] = file_get_contents($rootDir . $logoPath);
+    $emailPath = '/assets/template/img/for-pricelists/base64.email-' . $ctx . '.png.txt';
+    $defaultValues['emailPath'] = file_get_contents($rootDir . $emailPath);
 
     // Получаем все категории (id и menutitle)
     $categories = $modx->runSnippet('pdoResources', [

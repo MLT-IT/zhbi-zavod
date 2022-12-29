@@ -951,8 +951,7 @@ function init() {
             const colontitulEdgeMarginX = 10;
 
             // Логотип
-            let logoImg = new Image();
-            logoImg.src = pricelistData['logoPath'];
+            let logoImg = pricelistData['logoPath'];
 
             // Телефон
             doc.setFontSize(10);
@@ -965,8 +964,7 @@ function init() {
             // let emailText = pricelistData['email'];
             // let emailTextWidth = doc.getTextDimensions(emailText).w;
             // let emailMarginLeft = pageWidth - emailTextWidth - colontitulEdgeMarginX;
-            let emailImg = new Image();
-            emailImg.src = pricelistData['emailPath'];
+            let emailImg = pricelistData['emailPath'];
             let emailImgWidth = pricelistData['emailWidth'];
             let emailImgHeight = pricelistData['emailHeight'];
             let emailMarginLeft = pageWidth - emailImgWidth - colontitulEdgeMarginX;
@@ -975,7 +973,6 @@ function init() {
             for (let i = 1; i <= pageCount; i++) {
                 doc.setPage(i);
 
-                // TODO: Я заметил, что во вкладке Network в браузере картинка загружается для каждого листа, а это замедляет отдачу pdf'ки пользователю. Надо поискать, как загрузить картинку ВСЕГО 1 РАЗ
                 // Логотип - картинка
                 doc.addImage(logoImg, 'png', colontitulEdgeMarginX, imgOffsetY, pricelistData['logoWidth'], pricelistData['logoHeight']);
 
