@@ -13,7 +13,7 @@
             TODO: по-хорошему, надо написать сниппет, который будет задавать условия вывода. И в обоих местах вызывать этот сниппет. Тогда менять надо будет только код сниппета.
              *}
             {set $params = [
-                'element' => 'msProducts',
+                'element' => 'msProductsMy',
                 'suggestionsMaxFilters' => 2000,
                 'suggestionsMaxResults' => 100000,
                 'filters' => $_modx->resource.listFilters ?: "",

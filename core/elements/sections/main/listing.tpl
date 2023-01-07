@@ -2,7 +2,7 @@
     <h2 class="title-2">{$title}</h2>
     <div class="sect-mainlist__content" id="mse2_mfilter">
     {'!mFilter2' | snippet : [
-        'element' => 'msProducts',
+        'element' => 'msProductsMy',
         'suggestionsMaxFilters' => 2000,
         'suggestionsMaxResults' => 100000,
         'filters' => $_modx->resource.listFilters ?: "",

@@ -20,7 +20,7 @@
 
         {if $data['ids'] ?}
             {'!pdoPage' | snippet : [
-                'element' => 'msProducts',
+                'element' => 'msProductsMy',
                 'resources' => $data['ids'],
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
 

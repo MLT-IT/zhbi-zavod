@@ -5,7 +5,7 @@
             {set $params = [
                 'parents' => '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'catalog'],
 
-                'element' => 'msProducts',
+                'element' => 'msProductsMy',
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
                 'ajax' => 1,
                 'limit' => 42,

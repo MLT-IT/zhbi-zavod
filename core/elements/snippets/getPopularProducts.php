@@ -480,5 +480,5 @@ if (!function_exists('getPopularProductsParams')) {
 
 $debug = [];
 $params = getPopularProductsParams($scriptProperties, $debug);
-$result = $modx->runSnippet('msProducts', $params);
+$result = $modx->runSnippet('msProductsMy', $params);
 echo $result;

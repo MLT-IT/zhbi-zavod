@@ -47,7 +47,7 @@
                 </div>
                 <div class="swiper-container sect-comparison__slider">
                     <div class="swiper-wrapper sect-pop__slider">
-                        {'!msProducts' | snippet : [
+                        {'!msProductsMy' | snippet : [
                           'parents' => 0,
                           'depth' => 50,
                           'limit' => 42,

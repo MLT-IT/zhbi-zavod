@@ -1,5 +1,10 @@
 <?php
 
+/*
+Кажется, этот сниппет нигде не используется.
+Если все же используется, то нужно убедиться, что в $params, который передается сюда, нет returnIds. Если есть, то желательно заменить вызов msProductsMy на вызов msProducts. Но необязательно.
+*/
+
 /**
  * Принимает $params (обязательно) - массив с параметрами для вызова msProducts.
  */
@@ -51,7 +56,7 @@ if (!$result && $result !== '') {
         $params['optionFilters'] = $optionFilters;
     }
 
-    $result = $modx->runSnippet('msProducts', $params);
+    $result = $modx->runSnippet('msProductsMy', $params);
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
 }
