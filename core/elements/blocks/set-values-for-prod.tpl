@@ -25,11 +25,18 @@
 
 {* Единицы измерения для утеплителей *}
 {if $src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
-    {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
-    {set $m2 = $src['ploshad_m2'][0]}
-    {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
     {if $src['v_upakovke'][0]? && $src['context_key'] == 'penoplex'}
-        {set $list = $src['v_upakovke'][0]}
+        {if ($src['parent'] not in list [9125,9052,15025,79589,79590])}
+            {set $upk = 1 / $src['v_upakovke'][0]}
+            {set $pm = 1 / ($src['v_upakovke'][0] * (1 / $src['kolvo-pm'][0]))}
+            {set $m2 = 1 / ($src['v_upakovke'][0] * (1 / $src['ploshad_m2'][0]))}
+            {set $m3 = 1 / ($src['v_upakovke'][0] * (1 / $src['obyem_m3'][0]))}
+        {else}
+            {set $list = $src['v_upakovke'][0]}
+            {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
+            {set $m2 = $src['ploshad_m2'][0]}
+            {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
+        {/if}
     {/if}
 {/if}
 
@@ -64,14 +71,14 @@
 {* Единицы измерения для Гибкой черепицы, которая измеряется в м2 *}
 {if ($src['context_key'] == 'krovlya') && ($src['unit'][0] == 'м2')}
     {set $additionalCategories = '@FILE snippets/getCategories.php' | snippet : [
-      'id' => $src['id']
+    'id' => $src['id']
     ] | split : ','}
 
     {set $parentsArray = [15556,18298,18297,15563,15562,15560,15559,15558,15557,18322,15555,15554,15553,15552,15551,15550,15549,15548,18353,25907,25905,25904,25894,25890,22592,22292,18354,15547,18352,18351,18350,18349,18348,18347,18332,15442,15485,15451,15448,15447,15446,15445,15444,15443,15486,15441,15440,15435,15434,15433,15432,15431,15430,15536,15546,15545,15544,15543,15542,15539,15538,15537,15429,15535,15501,15491,15490,15489,15488,15487]}
 
     {set $checkIntersect = '@FILE snippets/checkIntersect.php' | snippet : [
-      'array1' => $additionalCategories,
-      'array2' => $parentsArray
+    'array1' => $additionalCategories,
+    'array2' => $parentsArray
     ]}
 
     {* Если родитель есть в Гибкой черепице. Или одна из доп. категорий - Гибкая черепица *}
