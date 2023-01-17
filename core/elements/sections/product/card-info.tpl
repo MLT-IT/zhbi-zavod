@@ -224,6 +224,12 @@
                 </div>
             {/if}
 
+            {if $_modx->resource['freeShipping'] ?}
+                <div class="product-card__free-shipping">
+                    Доставка товара бесплатно!
+                </div>
+            {/if}
+
             {if $_modx->resource.context_key === 'pilomat'}
                 <div class="product-card__discount-block">
                     <span class="product-card__discount-block-proposal">При заказе от 10 м3, доставка и разгрузка <b>БЕСПЛАТНО</b</span>

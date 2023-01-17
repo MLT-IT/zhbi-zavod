@@ -24,7 +24,7 @@
           'resources' => $resources,
           'tpl' => '@FILE sections/popular/pop-slide.tpl',
           'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
-          'includeTVs' => 'isFractional,productNotAvailable',
+          'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
           ]}
       </div>
       <div class="swiper-scrollbar"></div>

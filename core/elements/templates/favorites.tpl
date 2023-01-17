@@ -29,7 +29,7 @@
                             'context' => $_modx->resource.context_key,
                             'sortby' => 'menuindex',
                             'sortdir' => 'ASC',
-                            'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable',
+                            'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
                             'parents' => 0,
                             'depth' => 0,
                             'resources' => $resources

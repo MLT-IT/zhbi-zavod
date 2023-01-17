@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://pilomat.local/",
+                    target: "http://rockwool.local/",
                     secure: false,
                     changeOrigin: true
                 }

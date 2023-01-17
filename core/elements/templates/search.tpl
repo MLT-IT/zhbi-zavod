@@ -24,7 +24,7 @@
                 'resources' => $data['ids'],
                 'tpl' => "@FILE sections/category/listing-products-item.tpl",
 
-                'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable',
+                'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
 
                 'pageVarKey' => 'page',
                 'pageNavVar' => 'page.nav',

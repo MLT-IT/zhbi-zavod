@@ -95,3 +95,9 @@
         <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
     </div>
 {/if}
+
+{if $_modx->resource['freeShipping'] ?}
+  <div class="product-card__free-shipping">
+    Доставка товара бесплатно!
+  </div>
+{/if}

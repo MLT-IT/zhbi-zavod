@@ -384,6 +384,12 @@
                     <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
                     <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
                 </div>
+
+                {if $_modx->resource['freeShipping'] ?}
+                  <div class="product-card__free-shipping product-card__free-shipping_screen_pc">
+                    Доставка товара бесплатно!
+                  </div>
+                {/if}
             {/if}
 
             <div class="product-card__delivery">
