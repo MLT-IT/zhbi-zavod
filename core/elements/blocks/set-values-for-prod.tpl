@@ -25,6 +25,11 @@
 
 {* Единицы измерения для утеплителей *}
 {if $src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc']}
+
+    {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
+    {set $m2 = $src['ploshad_m2'][0]}
+    {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
+
     {if $src['v_upakovke'][0]? && $src['context_key'] == 'penoplex'}
         {if ($src['parent'] not in list [9125,9052,15025,79589,79590])}
             {set $upk = 1 / $src['v_upakovke'][0]}
@@ -33,10 +38,9 @@
             {set $m3 = 1 / ($src['v_upakovke'][0] * (1 / $src['obyem_m3'][0]))}
         {else}
             {set $list = $src['v_upakovke'][0]}
-            {set $pm = $src['kolvo-pm'][0] | replace : ',' : '.'}
-            {set $m2 = $src['ploshad_m2'][0]}
-            {set $m3 = $src['obyem_m3'][0] | replace : ',' : '.'}
         {/if}
+    {else}
+
     {/if}
 {/if}
 
