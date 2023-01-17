@@ -158,7 +158,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
 
         case 'krovlya':
             $result = [
-                'Ондулин' => [
+                'Ондулин и шифер' => [
                     'id' => 'assort-ondulin',
                     'items' => [
                         'Ондулин' => [
@@ -186,6 +186,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                         'Комплектующие для Ондулина' => [
                             'uri' => '/komplektuyushhie-dlya-ondulina/',
                             'img' => '/assets/template/img/assort/krovlya/komplektujushie-ondulin.jpg',
+                            'links' => [
+                            ]
+                        ],
+                        'Шифер' => [
+                            'uri' => '/shifer/',
+                            'img' => '/assets/template/img/assort/krovlya/shifer.jpg',
                             'links' => [
                             ]
                         ],
