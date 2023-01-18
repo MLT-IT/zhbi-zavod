@@ -154,13 +154,24 @@
         </div>
 
         <div class="product-card__info-right">
-            <div class="product-card__delivery"><b>Доставка в Санкт-Петербург и Лен. область</b>
+            <div class="product-card__delivery">
+              <b>
+                {if $_modx->resource['freeShipping'] ?}
+                    Доставка товара бесплатно
+                {else}
+                    Доставка в Санкт-Петербург и Лен. область
+                {/if}
+              </b>
                 <span data-fancybox data-src="#cost-delivery" class="product-card__delivery-link">
                     <svg class="svg icon-delivery" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                         <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-delivery"></use>
                     </svg>
-                    Узнать стоимость с доставкой
+                    {if $_modx->resource['freeShipping'] ?}
+                        Заказать с доставкой
+                    {else}
+                        Узнать стоимость с доставкой
+                    {/if}
                 </span>
             </div>
 
@@ -221,12 +232,6 @@
                 <div class="product-card__discount-block">
                     <span class="product-card__discount-block-proposal">Нашли дешевле? Снизим цену!</span>
                     <span class="product-card__discount-block-link" data-fancybox data-src="#discount" data-btn-key="discount">Подробнее</span>
-                </div>
-            {/if}
-
-            {if $_modx->resource['freeShipping'] ?}
-                <div class="product-card__free-shipping">
-                    Доставка товара бесплатно!
                 </div>
             {/if}
 
