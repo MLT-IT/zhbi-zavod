@@ -17,11 +17,11 @@
             <div class="footer__about">© 2010-{'' | date : "Y"}</div>
             <div class="footer__payment"><span>Принимаем к оплате:</span>
                 <div class="footer__payment-list">
-                    <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="">
-                    <img src="{$_modx->config['template_path']}img/payment/payment2.png" alt="">
-                    <img src="{$_modx->config['template_path']}img/payment/payment3.png" alt="">
-                    <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="">
-                    <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="">
+                    <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="Платежная система МИР">
+                    <img src="{$_modx->config['template_path']}img/payment/payment2.png" alt="Платежная система Виза">
+                    <img src="{$_modx->config['template_path']}img/payment/payment3.png" alt="Платежная система Виза Электрон">
+                    <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="Платёжная система Маэстро">
+                    <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="Платежная система Мастер Кард">
                 </div>
             </div>
             <ul class="footer__nav-list">

@@ -16,11 +16,11 @@
                         <br>Максимальная сумма платежа отсутствует.</p>
                     <p>Номер карты (PAN) должен иметь не менее 15 и не более 19 символов</p><b>Мы принимаем платежи с сайта по следующим банковским картам   </b>
                     <div class="payment__item-list">
-                        <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="">
-                        <img src="{$_modx->config['template_path']}img/payment/payment2.png" alt="">
-                        <img src="{$_modx->config['template_path']}img/payment/payment3.png" alt="">
-                        <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="">
-                        <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="">
+                        <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="Платежная система МИР">
+                        <img src="{$_modx->config['template_path']}img/payment/payment2.png" alt="Платежная система Виза">
+                        <img src="{$_modx->config['template_path']}img/payment/payment3.png" alt="Платежная система Виза Электрон">
+                        <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="Платёжная система Маэстро">
+                        <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="Платежная система Мастер Кард">
                     </div>
                 </div>
             </div>
