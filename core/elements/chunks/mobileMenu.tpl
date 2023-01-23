@@ -119,7 +119,7 @@
                     {* Пункты меню *}
                     {foreach $menuTypes as $items}
                         {foreach $items as $item}
-                            <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
+                            <span class="header__nav-item"><a data-val="{$item.name}" class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
                         {/foreach}
                     {/foreach}
                 </div>
@@ -143,7 +143,7 @@
 
                         {* Пункты меню *}
                         {foreach $items.children as $item}
-                            <span class="header__nav-item"><a class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
+                            <span class="header__nav-item"><a data-val="{$item.name}" class="header__nav-link" href="{$item.uri}">{$item.name}</a></span>
                         {/foreach}
                     </div>
                 {/foreach}

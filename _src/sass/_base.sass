@@ -125,6 +125,32 @@ a.white-btn, button.white-btn
         +set_colors_3(color)
 
 .header
+    &__nav-link, &__menu-item
+        &[data-val="Скандик Лайт Баттс"]
+            position: relative
+
+            &::after
+                content: ""
+                width: 20px
+                height: 20px
+                background: url(/assets/template/img/svg-sprite/hit.svg) no-repeat
+                background-size: cover
+                display: inline-block
+                position: relative
+                left: 10px
+
+    &__nav-link
+        &[data-val="Скандик Лайт Баттс"]
+            &::after
+                left: 8px
+                top: 5px
+
+    &__menu-item
+        &[data-val="Скандик Лайт Баттс"]
+            &::after
+                top: 4px
+                left: 5px
+
     &__callback
         &:hover
             +set_colors_3(color)

@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: "http://krovlyasp.local/",
+                    target: "http://rockwool.local/",
                     secure: false,
                     changeOrigin: true
                 }

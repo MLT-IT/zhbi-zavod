@@ -5091,11 +5091,6 @@ a .breadcrumbs__val:hover {
   color: #ffbe00;
 }
 
-.header__nav-item:hover > a:after {
-  margin-bottom: -2px !important;
-  transform: rotate(-225deg) !important;
-}
-
 .header__nav-item:hover .header__nav-sublist {
   visibility: visible;
   opacity: 1;
