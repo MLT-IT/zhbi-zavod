@@ -113,7 +113,7 @@
                             {foreach $menu as $column}
                                 <div class="header__catalog-menu-type">
                                     {foreach $column as $items}
-                                        <div class="header__column">
+                                        <div class="header__column{$items.children | count == 0 ? ' header__column_without-children' : ''}">
                                             <p class="header__column-header">
                                                 {if $items.uri ?}
                                                     <a class="header__column-header-link" href="{$items.uri}">{$items.name}</a>
