@@ -34,7 +34,7 @@ import mapsLazyload from './modules/lazyload_maps';
 import youtubePlayer from './modules/youtube_player';
 // import add_cover_to_map from './modules/maps';
 import shadowMap from './modules/shadow_map';
-import FastSearch from './modules/fast_search'
+import FastSearch from './modules/fast_search';
 
 // -------------------------------------
 // Подключение JQuery
@@ -65,6 +65,12 @@ if (elem !== null) {
 
 $(function ($) {
     // --------------------------------
+    // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
+    // --------------------------------
+    $('#cost-fanera, #callback, #cost-delivery').find('.form__title').text('Оставьте свои контакты ниже');
+
+
+    // --------------------------------
     // Копируем форму для шапки
     // --------------------------------
     // Это необходимо, т.к. после форм выдается сообщение об успешной отправки, которое не дает отправить форму еще раз. Форма в шапке такая же, как форма обратного звонка. Если ее отправить, то нельзя будет отправить форму обратного звонка. Чтобы это исправить, надо скопировать форму для шапки
@@ -92,7 +98,7 @@ $(function ($) {
     initTabs();
 
     // Инициализация быстрого поиска
-    new FastSearch()
+    new FastSearch();
 
     // -------------------------------------
     // Функции страниц на JQuery
