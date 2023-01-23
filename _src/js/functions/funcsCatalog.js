@@ -987,6 +987,33 @@ function init() {
             }
         }
     }
+
+
+    // -------------------------------------------
+    // Добавление иконок услуг для pro-fanera
+    // -------------------------------------------
+    if ($('body.pro-fanera').length && $('#mse2_filters')) {
+        $('.listing__products-item').each(function() {
+            let icons = `
+            <div class="product-service-icons">
+                <div class="listing__products-item-chars-val-info-wrap product-service-icons__item">
+                    <span class="listing__products-item-chars-val-info-btn">
+                        <img src="/assets/template/img/icons/delivery.svg" alt="Доставка материала"/>
+                    </span>
+                    <div class="listing__products-item-chars-val-info">Для доставки данного материала используются автомашины «Тоннаж до 1.5 т», т.к. использовать автомобиль меньшего объема не позволяют габариты товара.</div>
+                </div>
+                <div class="listing__products-item-chars-val-info-wrap product-service-icons__item">
+                    <span class="listing__products-item-chars-val-info-btn">
+                        <img src="/assets/template/img/icons/circular-saw.svg" alt="Распил материала"/>
+                    </span>
+                    <div class="listing__products-item-chars-val-info">Для удобства транспортировки мы можем раcпилить данный товар.</div>
+                </div>
+            </div>
+            `;
+
+            $(this).find('.listing__products-item-price-and-logo').append(icons);
+        });
+    }
 }
 
 

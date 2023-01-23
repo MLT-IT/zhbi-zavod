@@ -137,11 +137,6 @@
                   Цена действительна до {'!getTomorrowDate' | snippet}
               </div>
             {/if}
-
-            {* Иконки услуг для фанеры *}
-            {if $_modx->context.key === 'pro-fanera'}
-                {include "file:chunks/fanera-service-icons.tpl"}
-            {/if}
         </div>
 
         {include "file:chunks/productsItemUnits.tpl"}
