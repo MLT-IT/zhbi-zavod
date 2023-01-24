@@ -178,12 +178,194 @@ class myCustomFilter extends mse2FiltersHandler {
                         $sorted = $this->sortByCustomOrder($sorted, $results, ['Монтеррей', 'Супермонтеррей', 'Classic', 'Ламонтерра', 'Ламонтерра X', 'Kvinta Uno', 'Ламонтерра XL', 'Kvinta plus']);
                         break;
 
-                    case $options['name'] == 'cvet' && in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 3005', 'RAL 6005', 'RAL 8004', 'RAL 8017', 'RR 32', 'RAL 7024', 'RAL 3009', 'RAL 5002']);
+                    case $options['name'] == 'cvet':
+                        switch (true) {
+                            case in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 3005', 'RAL 6005', 'RAL 8004', 'RAL 8017', 'RR 32', 'RAL 7024', 'RAL 3009', 'RAL 5002']);
+                                break;
+
+                            case in_array($GLOBALS['modx']->resource->id, [12069, 16789, 11760, 37621, 76923]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, [
+                                    'RAL 3005',
+                                    'RAL 6005',
+                                    'RAL 8004',
+                                    'RAL 8017',
+                                    'RR 32',
+                                    'RAL 7024',
+                                    'RAL 3009',
+                                    'RAL 5002',
+                                    'NL805',
+                                    'RAL 1014',
+                                    'RAL 1015',
+                                    'RAL 1018',
+                                    'RAL 1035',
+                                    'RAL 2004',
+                                    'RAL 3003',
+                                    'RAL 3011',
+                                    'RAL 3013',
+                                    'RAL 3020',
+                                    'RAL 5005',
+                                    'RAL 5015',
+                                    'RAL 5018',
+                                    'RAL 5021',
+                                    'RAL 6002',
+                                    'RAL 6007',
+                                    'RAL 6018',
+                                    'RAL 6019',
+                                    'RAL 6020',
+                                    'RAL 7004',
+                                    'RAL 7005',
+                                    'RAL 7016',
+                                    'RAL 8019',
+                                    'RAL 9002',
+                                    'RAL 9003',
+                                    'RAL 9005',
+                                    'RAL 9006',
+                                    'RAL 9010',
+                                    'RR 11',
+                                    'RR 21',
+                                    'RR 22',
+                                    'RR 23',
+                                    'RR 29',
+                                    'RR 33',
+                                    'RR 35',
+                                    'RR 750',
+                                    'RR 887',
+                                ]);
+                                break;
+
+                            case in_array($GLOBALS['modx']->resource->id, [26581, 81051]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, [
+                                    'RAL 3005',
+                                    'RAL 6005',
+                                    'RAL 8004',
+                                    'RAL 8017',
+                                    'RR 32',
+                                    'RAL 7024',
+                                    'RAL 3009',
+                                    'RAL 5002',
+                                    'NL805',
+                                    'RAL 1014',
+                                    'RAL 1015',
+                                    'RAL 1018',
+                                    'RAL 1019',
+                                    'RAL 1035',
+                                    'RAL 2004',
+                                    'RAL 3003',
+                                    'RAL 3011',
+                                    'RAL 3020',
+                                    'RAL 5005',
+                                    'RAL 5015',
+                                    'RAL 5021',
+                                    'RAL 6002',
+                                    'RAL 6007',
+                                    'RAL 6011',
+                                    'RAL 6018',
+                                    'RAL 6019',
+                                    'RAL 6020',
+                                    'RAL 6033',
+                                    'RAL 7004',
+                                    'RAL 7005',
+                                    'RAL 7016',
+                                    'RAL 7035',
+                                    'RAL 7040',
+                                    'RAL 7044',
+                                    'RAL 8019',
+                                    'RAL 9002',
+                                    'RAL 9003',
+                                    'RAL 9005',
+                                    'RAL 9006',
+                                    'RAL 9010',
+                                    'RAL 9011',
+                                    'RR 11',
+                                    'RR 21',
+                                    'RR 23',
+                                    'RR 29',
+                                    'RR 33',
+                                    'RR 35',
+                                    'RR 750',
+                                    'RR 887',
+                                    'без покрытия',
+                                ]);
+                                break;
+                        }
+
                         break;
 
-                    case $options['name'] == 'pokrytie' && in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Полиэстер', 'Satin', 'Drap', 'PurLite Мatt', 'PURMAN®', 'Rooftop Matte']);
+                    case $options['name'] == 'pokrytie':
+                        switch (true) {
+                            case in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Полиэстер', 'Satin', 'Drap', 'PurLite Мatt', 'PURMAN®', 'Rooftop Matte']);
+                                break;
+
+                            case in_array($GLOBALS['modx']->resource->id, [12069, 16789, 11760, 37621, 76923]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, [
+                                    'Полиэстер',
+                                    'Satin',
+                                    'Drap',
+                                    'PurLite Мatt',
+                                    'PURMAN®',
+                                    'Rooftop Matte',
+                                    'AGNETA®',
+                                    'Atlas',
+                                    'CLOUDY®',
+                                    'Drap ST',
+                                    'GreenCoat Pural BT, matt',
+                                    'GreenСoat Pural BT',
+                                    'NormanMP',
+                                    'PURETAN®',
+                                    'Quarzit',
+                                    'Quarzit lite',
+                                    'Quarzit PRO Matt',
+                                    'Satin Мatt',
+                                    'VALORI',
+                                    'Velur',
+                                    'VikingMP®',
+                                    'VikingMP® E',
+                                    'Полиэстер в пленке',
+                                ]);
+                                break;
+
+                            case in_array($GLOBALS['modx']->resource->id, [26581, 81051]):
+                                $sorted = $this->sortByCustomOrder($sorted, $results, [
+                                    'Полиэстер',
+                                    'Satin',
+                                    'Drap',
+                                    'PURMAN®',
+                                    'Rooftop Matte',
+                                    'AGNETA®',
+                                    'Atlas',
+                                    'CLOUDY®',
+                                    'Drap ST',
+                                    'Drap TwinColor',
+                                    'ECOSTEEL®',
+                                    'ECOSTEEL® матовый',
+                                    'ECOSTEEL® текстурированный',
+                                    'GreenCoat Pural BT',
+                                    'GreenCoat Pural BT, matt',
+                                    'NormanMP',
+                                    'Print-double Elite',
+                                    'Print-double Premium',
+                                    'Print Elite',
+                                    'Print Premium',
+                                    'PURETAN®',
+                                    'PurLite Matt',
+                                    'PurPro Matt',
+                                    'Quarzit',
+                                    'Quarzit lite',
+                                    'Quarzit PRO Matt',
+                                    'Satin Matt',
+                                    'VALORI',
+                                    'Velur',
+                                    'VikingMP®',
+                                    'VikingMP® E',
+                                    'Поликарбонат',
+                                    'Полиэстер двусторонний',
+                                    'Полиэстер матовый двусторонний',
+                                    'Цинк',
+                                ]);
+                                break;
+                        }
                         break;
 
                     case $options['name'] == 'profil' && $GLOBALS['modx']->resource->id == 86214:
