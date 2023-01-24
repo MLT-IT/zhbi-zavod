@@ -20,7 +20,7 @@
             <input id="callback-policy" type="checkbox" name="callback-policy" checked>
             <span>
                 <span>
-                     Нажимая кнопку «Перезвоните мне», Вы потверждаете, что ознакомились с
+                     Нажимая кнопку «Перезвоните мне», Вы подтверждаете, что ознакомились с
                     <span data-fancybox data-type="ajax"
                        data-src="/confidential/" class="privacy-link">Условиями обработки персональных данных </span>
                     и принимаете их
