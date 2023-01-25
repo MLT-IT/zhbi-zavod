@@ -26,8 +26,8 @@
     {set $colorStart = '#deb262'}
     {set $colorEnd = '#c9912a'}
 {elseif $_modx->resource.context_key == 'policarbonat'}
-    {set $colorStart = '#119347'}
-    {set $colorEnd = '#0c6531'}
+    {set $colorStart = '#80c9a6'}
+    {set $colorEnd = '#0a6a3b'}
 {/if}
 <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
     <defs>

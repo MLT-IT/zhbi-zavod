@@ -24,9 +24,13 @@
 .custom-btn
     color: #fff
     +set_colors_1(background-color)
+    @at-root .policarbonat &
+        background-color: #F6901E
 
     &:hover
         +set_colors_1(background-color, 10%)
+        @at-root .policarbonat &
+            background-color: darken(#F6901E, 10%)
 
     @at-root a.custom-btn
         color: #fff

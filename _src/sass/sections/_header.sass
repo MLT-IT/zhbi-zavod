@@ -69,12 +69,16 @@
 
             @at-root .isover &
                 background-color: #FFDD00
+            @at-root .policarbonat &
+                background-color: #F6901E
 
             &:hover
                 +set_colors_1(background-color, 10%)
 
                 @at-root .isover &
                     background-color: darken(#FFDD00, 10%)
+                @at-root .policarbonat &
+                    background-color: darken(#F6901E, 10%)
 
         &-menu
             .header__menu-item
@@ -434,9 +438,14 @@
         flex-basis: 40px
         flex-shrink: 0
         +set_colors_1(background-color)
+        @at-root .policarbonat &
+            background-color: #F6901E
 
         &:hover
             +set_colors_1(background-color, 10%)
+            @at-root .policarbonat &
+                background-color: darken(#F6901E, 10%)
+
 
         &::before, &::after
             display: block
@@ -616,7 +625,6 @@
         top: -4px
         right: 1px
         font-size: 10px
-
         +set_colors_1(background-color)
 
     &__cart-value
