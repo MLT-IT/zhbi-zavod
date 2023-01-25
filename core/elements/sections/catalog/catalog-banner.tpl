@@ -47,40 +47,12 @@
     </div>
 
     {switch $_modx->resource.context_key}
-        {case 'pilomat'}
-            {set $imgname = 'pilomat.jpg'}
         {case 'web'}
             {set $imgname = 'knauf.jpg'}
-        {case 'rockwool'}
-            {set $imgname = 'rockwool.jpg'}
         {case 'tn'}
             {set $imgname = 'tehnonikol.jpg'}
-        {case 'penoplex'}
-            {set $imgname = 'penoplex.jpg'}
-        {case 'isover'}
-            {set $imgname = 'isover.jpg'}
-        {case 'paroc'}
-            {set $imgname = 'paroc.jpg'}
-        {case 'ursa'}
-            {set $imgname = 'ursa.jpg'}
-        {case 'krovlya'}
-            {set $imgname = 'krovlya.jpg'}
-        {case 'kirpich-m'}
-            {set $imgname = 'kirpich-m.jpg'}
-        {case 'fasady-pro'}
-            {set $imgname = 'fasady-pro.jpg'}
-        {case 'fasad'}
-            {set $imgname = 'fasad.jpg'}
-        {case 'armatura-178'}
-            {set $imgname = 'armatura-178.jpg'}
-        {case 'asconcrete'}
-            {set $imgname = 'asconcrete.jpg'}
-        {case 'pro-fanera'}
-            {set $imgname = 'pro-fanera.jpg'}
-        {case 'plitaosb'}
-            {set $imgname = 'plitaosb.jpg'}
-        {case 'plity-mdvp'}
-            {set $imgname = 'plity-mdvp.jpg'}
+        {case default}
+            {set $imgname = $_modx->resource.context_key ~ '.jpg'}
     {/switch}
 
     <div class="catalog-banner__img" style="background-image: url(/assets/template/img/catalog-banner/{$imgname})"></div>

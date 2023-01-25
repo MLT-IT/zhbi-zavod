@@ -3207,6 +3207,13 @@
             #{$property}: rgba(#0b703e, $opacity)
         @else
             #{$property}: #0b703e
+    @at-root .policarbonat &
+        @if $dark
+            #{$property}: darken(#119347, $dark)
+        @else if $opacity
+            #{$property}: rgba(#119347, $opacity)
+        @else
+            #{$property}: #119347
 
 
 @mixin set_colors_2($property)
@@ -3230,6 +3237,8 @@
     //    #{$property}: #323232
     @at-root .fasady-pro &
         #{$property}: #323232
+    @at-root .policarbonat &
+        #{$property}: #323232
 
 @mixin set_colors_3($property)
     @at-root .knauf &
@@ -3252,6 +3261,8 @@
     //    #{$property}: #ee8208
     @at-root .fasady-pro &
         #{$property}: #0b703e
+    @at-root .policarbonat &
+        #{$property}: #F6901E
 
 @mixin filter-shadow()
     // TODO: Попробуй сделать это через box-shadow - чтобы поддерживалось другими браузерами
