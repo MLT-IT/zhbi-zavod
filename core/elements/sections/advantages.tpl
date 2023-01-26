@@ -34,6 +34,9 @@
 {elseif $_modx->resource.context_key == 'plity-mdvp'}
     {set $iword = 'плиты МДВП'}
     {set $rword = 'плит МДВП'}
+{elseif $_modx->resource.context_key == 'policarbonat'}
+    {set $iword = 'поликарбонат'}
+    {set $rword = 'поликарбоната'}
 {/if}
 
 <section class="advantages">

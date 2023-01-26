@@ -1,5 +1,11 @@
-{* Данные для перелинковки *}
-{set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
+{if $_modx->resource.context_key == 'policarbonat'}
+    {* Данные для перелинковки *}
+    {set $linksData = 'getRelinkingDataByOptions' | snippet}
+    {set $linksData['format'] = $linksData['razmer-mm']}
+{else}
+    {* Данные для перелинковки *}
+    {set $linksData = 'getRelinkingData_FormatThicknessSort' | snippet}
+{/if}
 
 {* Данные для блока посередине *}
 {set $mc = $_modx->resource.middleContent}
@@ -31,6 +37,8 @@
             {set $topText = '4 причины купить лист фанеры у нас'}
         {case 9}
             {set $topText = '4 причины купить плиту МДВП у нас'}
+        {case 10}
+            {set $topText = '4 причины купить поликарбонат у нас'}
     {/switch}
 {/if}
 
@@ -251,15 +259,21 @@
         </div>
 
         <div class="product-card__side-panel">
-            {if ($_modx->resource.context_key === 'pro-fanera')}
+            {set $formatText = 'Формат, мм'}
+
+            {if ($_modx->resource.context_key in list ['pro-fanera', 'policarbonat'])}
                 {set $formatKey = 'razmer-mm'}
+
+                {if $_modx->resource.context_key == 'policarbonat'}
+                    {set $formatText = 'Размер, мм'}
+                {/if}
             {else}
                 {set $formatKey = 'format_text'}
             {/if}
 
             {if $linksData['format']?}
                 <div class="product-card__relinking-block">
-                    <div class="product-card__side-panel-text">Формат, мм</div>
+                    <div class="product-card__side-panel-text">{$formatText}</div>
                     <div class="product-card__relinking-items-wrap">
                         {foreach $linksData['format'] as $id => $val}
                             {if $_modx->resource[$formatKey][0] == $val}
@@ -312,6 +326,21 @@
                         {/foreach}
                     </div>
                 </div>
+            {/if}
+
+            {if $linksData['cvet']?}
+              <div class="product-card__relinking-block">
+                <div class="product-card__side-panel-text">Цвет</div>
+                <div class="product-card__relinking-items-wrap">
+                    {foreach $linksData['cvet'] as $id => $val}
+                        {if $_modx->resource['cvet'][0] == $val}
+                          <span title="{$val}" class="product-card__relinking-color active" data-val="{$val}"></span>
+                        {else}
+                          <a title="{$val}" href="{$_modx->makeUrl($id, '', '', 'full')}" class="product-card__relinking-color" data-val="{$val}"></a>
+                        {/if}
+                    {/foreach}
+                </div>
+              </div>
             {/if}
 
             {*

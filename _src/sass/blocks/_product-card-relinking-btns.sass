@@ -124,6 +124,30 @@
                 color: #FFFFFF
                 +set_colors_1(background-color)
 
+        &__relinking-color
+            width: 20px
+            height: 20px
+            display: inline-block
+            margin-right: 4px
+            margin-bottom: 8px
+            border-radius: 4px
+
+            &.active
+                border: 1.5px solid #323232
+
+            &[data-val="Зелёный"]
+                background-color: #008000
+            &[data-val="Прозрачный"]
+                background-color: #eeeeee
+            &[data-val="Бронза"]
+                background-color: #cb7c37
+            &[data-val="Синий"]
+                background-color: #155ea9
+            &[data-val="Розовый"]
+                background-color: #f39295
+            &[data-val="Серебро"]
+                background-color: #a2a0a1
+
         &__relinking-block
             &:nth-last-of-type(n+2)
                 margin-bottom: 10px

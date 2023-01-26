@@ -74,6 +74,8 @@
         {set $micro_title = $micro_title ~ 'фанеры'}
     {elseif $site_context == 'plity-mdvp'}
         {set $micro_title = $micro_title ~ 'плит МДВП'}
+    {elseif $site_context == 'policarbonat'}
+        {set $micro_title = $micro_title ~ 'поликарбоната'}
     {else}
         {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
     {/if}

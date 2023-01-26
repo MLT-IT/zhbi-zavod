@@ -23,6 +23,8 @@
                 фанеры
             {elseif $_modx->context.key == 'plity-mdvp'}
                 плит МДВП
+            {elseif $_modx->context.key == 'policarbonat'}
+                поликарбоната
             {else}
                 утеплителя
             {/if}
