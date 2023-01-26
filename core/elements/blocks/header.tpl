@@ -213,9 +213,6 @@
             {if $rezka['hidemenu'] == 0 && $rezka['published'] == 1}
                 <span class="header__nav-item"><a class="header__nav-link" href="/rezka/">Резка</a></span>
             {/if}
-            {if $raspil['hidemenu'] == 0 && $raspil['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/raspil/">Распил</a></span>
-            {/if}
 
             <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
 
