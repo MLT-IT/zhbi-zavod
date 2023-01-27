@@ -1,6 +1,6 @@
 {if $_modx->resource.context_key == 'policarbonat'}
     {* Данные для перелинковки *}
-    {set $linksData = 'getRelinkingDataByOptions' | snippet}
+    {set $linksData = 'getRelinkingDataPolicarbonat' | snippet}
     {set $linksData['format'] = $linksData['razmer-mm']}
 {else}
     {* Данные для перелинковки *}
@@ -38,6 +38,7 @@
         {case 9}
             {set $topText = '4 причины купить плиту МДВП у нас'}
         {case 10}
+            {set $bottomText = $bottomText | replace : 'Мы хотим помочь построить Ваш дом' : 'Мы хотим помочь обустроить Ваш дом или построить теплицу'}
             {set $topText = '4 причины купить поликарбонат у нас'}
     {/switch}
 {/if}
@@ -253,9 +254,18 @@
                         <div class="product-card__reasons-text">{$bottomText}</div>
                     </div>
                 {/if}
-
             </div>
-            {include 'file:sections/product/card-content-tab.tpl'}
+
+            {* На поликарбонате поле content выводится во вкладке "Описание", поэтому здесь выводить его не надо. Но здесь нужно вывести introtext *}
+            {if $_modx->resource.context_key == 'policarbonat'}
+                {if $_modx->resource.introtext ?}
+                  <article class="content-block">
+                      {$_modx->resource.introtext}
+                  </article>
+                {/if}
+            {else}
+                {include 'file:sections/product/card-content-tab.tpl'}
+            {/if}
         </div>
 
         <div class="product-card__side-panel">

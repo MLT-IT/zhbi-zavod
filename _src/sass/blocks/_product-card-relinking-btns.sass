@@ -24,10 +24,7 @@
             margin-right: 24px
 
         &__title-1
-            margin-bottom: 28px
-
-            @media only screen and (max-width: 550px)
-                margin-bottom: 16px
+            margin-bottom: 15px
 
         &__specs-list-item
             max-width: none
@@ -90,12 +87,7 @@
 
         &__gallery-slider
             width: 208px
-            margin-left: auto
-            margin-right: auto
-            margin-top: 8px
-
-            @media only screen and (max-width: 768px)
-                margin-bottom: 0
+            margin: 8px auto 24px
 
         &__side-panel-text
             font-size: 14px
@@ -133,7 +125,7 @@
             border-radius: 4px
 
             &.active
-                border: 1.5px solid #323232
+                border: 1px solid #323232
 
             &[data-val="Зелёный"]
                 background-color: #008000
@@ -147,6 +139,8 @@
                 background-color: #f39295
             &[data-val="Серебро"]
                 background-color: #a2a0a1
+            &[data-val="Черный"]
+                background-color: #000
 
         &__relinking-block
             &:nth-last-of-type(n+2)
@@ -269,7 +263,10 @@
             width: 100%
 
         &__top
+            margin-bottom: 0
+
             @media only screen and (max-width: 1040px)
+                margin-bottom: 10px
                 flex-direction: column
 
         &__right-info
@@ -320,9 +317,6 @@
         &__discount-block
             background-color: #FFE19A
             margin-bottom: 16px
-
-    .content-block
-        margin-top: 4px
 
     .js-product__btn-in-cart
         width: 100%

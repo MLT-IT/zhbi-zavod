@@ -92,7 +92,7 @@
 {/if}
 
 {* Единицы измерения для плит ОСБ и фанеры *}
-{if $src['context_key'] in list ['plitaosb', 'pro-fanera']}
+{if $src['context_key'] in list ['plitaosb', 'pro-fanera', 'policarbonat']}
     {set $m2 = $src['ploshad_m2'][0]}
 {/if}
 
@@ -159,7 +159,7 @@
 - Должен быть правильный контекст.
 - Родитель не должен быть сопутствующими товарами ИЛИ Родитель должен быть Ондулином или Ондулином Смарт (krovlyasp)
 *}
-{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya', 'plity-mdvp']) &&
+{set $condition = (($src['context_key'] in list ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya', 'plity-mdvp', 'policarbonat']) &&
 ($src['parent'] not in list [9052,9125,14193,14269,10998,12018,12819,15201,15202])) || ($src['parent'] in list [16805, 36871])}
 
 {* Дробное добавление товара в корзину *}

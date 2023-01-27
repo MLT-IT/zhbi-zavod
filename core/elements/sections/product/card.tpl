@@ -37,7 +37,7 @@
         {include "file:sections/product/card-info.tpl"}
     {/if}
 
-    {if $_modx->resource.introtext?}
+    {if $_modx->resource.introtext && $_modx->resource.context_key != 'policarbonat'}
         <div class="product-card__about">
             {$_modx->resource.introtext}
         </div>

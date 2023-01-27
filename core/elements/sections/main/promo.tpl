@@ -7,7 +7,9 @@
             </a>
             <a class="promo__top-card promo__top-card_type_delivery" href="/dostavka-i-oplata/">
                 {if $_modx->resource.context_key in list ['krovlya', 'armatura-178', 'kirpich-m', 'pro-fanera', 'plitaosb', 'plity-mdvp']}
-                    {set $promoImg = 'kran.png'}
+                    {set $promoImg = 'promo-kran.png'}
+                {elseif $_modx->resource.context_key in list ['policarbonat']}
+                    {set $promoImg = 'promo-gazelle.png'}
                 {else}
                     {set $promoImg = 'promo-kamaz.png'}
                 {/if}
