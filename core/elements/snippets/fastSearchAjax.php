@@ -1,10 +1,17 @@
 <?php
 
+// TODO: по-хорошему, это надо как-нибудь объединить с fastSearch.php, т.к. код почти одинаковый.
+
 /**
  * Сниппет выводит быстрые результаты при вводе запроса в поле поиска
  */
 if ($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest' || empty($_REQUEST['action']) || $_REQUEST['action'] !== 'fast-search') {
     return;
+}
+
+$queryPhrase = trim($_GET['query']);
+if (empty($queryPhrase)) {
+    return false;
 }
 
 $pdoTools = $modx->getService('pdoTools');
@@ -33,19 +40,24 @@ $getData = function ($resourcesData, $chunk) use ($pdoTools) {
 };
 
 // Формирование where
-$where = [];
+$wherePagetitle = [];
 $queryWordsArray = [];
-foreach (explode(' ', trim($_REQUEST['query'])) as $index => $queryWord) {
+
+foreach (explode(' ', $queryPhrase) as $index => $queryWord) {
     if (stristr($queryWord, ',') || stristr($queryWord, '.')) {
         $queryWord = preg_replace('/[, .]/', '[,\.]', $queryWord);
-        $where[$index] = '`msProduct`.`pagetitle` REGEXP :queryWord' . $index;
+        $wherePagetitle[$index] = '`msProduct`.`pagetitle` REGEXP :queryWord' . $index;
     } else {
         $queryWord = '%' . $queryWord . '%';
-        $where[$index] = '`msProduct`.`pagetitle` LIKE :queryWord' . $index;
+        $wherePagetitle[$index] = '`msProduct`.`pagetitle` LIKE :queryWord' . $index;
     }
     $queryWordsArray['queryWord' . $index] = $queryWord;
 }
-$where = implode(' AND ', $where);
+
+$wherePagetitle = '(' . implode(' AND ', $wherePagetitle) . ')';
+$queryWordsArray['queryPhrase'] = '%' . $queryPhrase . '%';
+$whereArticle = '(`Data`.`article` LIKE :queryPhrase)';
+$where = $wherePagetitle . ' OR ' . $whereArticle;
 
 // Получение данных из БД
 $query = "SELECT `msProduct`.`id`, `msProduct`.`menutitle`, `msProduct`.`pagetitle`, `Data`.`thumb`, `Parent`.`id` AS parent_id, `Parent`.`pagetitle` AS parent_pagetitle, `Parent`.`menutitle` AS parent_menutitle
@@ -57,11 +69,11 @@ $query = "SELECT `msProduct`.`id`, `msProduct`.`menutitle`, `msProduct`.`pagetit
           LEFT JOIN `modx_site_tmplvar_contentvalues` `TVpriority1` ON `TVpriority1`.`contentid` = `msProduct`.`id` AND `TVpriority1`.`tmplvarid` = 17 
           LEFT JOIN `modx_site_content` `Parent` ON `Parent`.`id` = `msProduct`.`parent`
 
-          WHERE  (`msProduct`.`class_key` = 'msProduct' 
+          WHERE  `msProduct`.`class_key` = 'msProduct' 
                 AND `msProduct`.`published` = 1 
                 AND `msProduct`.`deleted` = 0 
                 AND `msProduct`.`context_key` = '" . $modx->context->key . "'
-                AND ($where))  
+                AND ($where)  
             
           GROUP BY msProduct.id 
           ORDER BY CAST(`TVpriority1`.`value` AS DECIMAL(13,3)) ASC, CAST(`TVhitspage`.`value` AS DECIMAL(13,3)) ASC
@@ -70,6 +82,11 @@ $query = "SELECT `msProduct`.`id`, `msProduct`.`menutitle`, `msProduct`.`pagetit
 
 $stmt = $modx->prepare($query);
 $queryResult = $stmt->execute($queryWordsArray);
+
+if ($queryResult === false) {
+    return false;
+}
+
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (count($data)) {
