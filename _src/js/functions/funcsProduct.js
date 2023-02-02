@@ -458,8 +458,8 @@ function init(yandexMetrikaId) {
         event.preventDefault();
         let $this = $(this);
 
-        // Если контекст - кирпич, то меняем единицы измерения на всей странице
-        if ($('body.kirpich-m').length) {
+        // Если контекст кирпич или деревянные фасады, то меняем единицы измерения на всей странице
+        if ($('body.kirpich-m, body.fasady-pro').length) {
             let val = $this.attr('data-val');
             $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
                 handleUnitLink($(e), event.type == 'click_without_message' || i > 0);

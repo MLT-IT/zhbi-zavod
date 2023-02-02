@@ -1,5 +1,5 @@
 {if $condition}
-    {if $_modx->resource.context_key !== 'kirpich-m'}
+    {if $_modx->resource.context_key not in ['kirpich-m', 'fasady-pro']}
       <div class="js-product__selprice listing__products-item-selprice">
         <span class="js-product__selprice-span">Цена за</span>
         <select name="unit" class="custom-select js-product__units-select">

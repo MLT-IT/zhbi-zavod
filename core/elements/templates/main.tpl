@@ -88,7 +88,7 @@
         </div>
     {/if}
 
-    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp']}
+    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasady-pro']}
         <div class="wrapper main-page-content">
             <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 
@@ -108,7 +108,7 @@
         {/if}
     {/if}
 
-    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad']}
+    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad', 'fasady-pro']}
       {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
@@ -120,7 +120,7 @@
         {/if}
     {/if}
 
-    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad']}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad', 'fasady-pro']}
         {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
@@ -136,7 +136,7 @@
     {include "file:sections/appeal.tpl"}
     {include "file:sections/advantages.tpl"}
 
-    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp']}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasady-pro']}
       <div class="wrapper main-page-content">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
 

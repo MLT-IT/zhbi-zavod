@@ -73,8 +73,8 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
 
-            // Изменить единицы измерения у появившихся карточек, если контекст - кирпич
-            if ($('body.kirpich-m').length) {
+            // Изменить единицы измерения у появившихся карточек, если контекст - кирпич или деревянные фасады
+            if ($('body.kirpich-m, body.fasady-pro').length) {
                 let lastKirpichUnit = funcsProduct.getLastKirpichUnit();
                 $catalog.find('.product-card__unit-link[data-val="' + lastKirpichUnit + '"]').eq(0).trigger('click_without_message');
             }
