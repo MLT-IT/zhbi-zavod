@@ -192,6 +192,14 @@
 
             <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
 
+            {if $_modx->resource.context_key == 'krovlya'}
+                {set $calcservices = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'calculation-services']}
+
+                {if $calcservices['hidemenu'] == 0 && $calcservices['published'] == 1}
+                  <span class="header__nav-item"><a class="header__nav-link" href="/calculation-services/">Сервисы расчета</a></span>
+                {/if}
+            {/if}
+
             {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya', 'fasady-pro', 'fasad']}
                 {set $showroom = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'show-room']}
 
