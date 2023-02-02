@@ -108,7 +108,7 @@
         {/if}
     {/if}
 
-    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp']}
+    {if $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad']}
       {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
@@ -120,7 +120,7 @@
         {/if}
     {/if}
 
-    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp']}
+    {if $_modx->resource.context_key in list ['krovlya', 'kirpich-m', 'plity-mdvp', 'fasad']}
         {include "file:sections/popular/sect-pop-main.tpl"}
     {/if}
 
