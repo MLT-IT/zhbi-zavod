@@ -478,7 +478,23 @@ if (!function_exists('getPopularProductsParams')) {
     }
 }
 
+$recommendIds = $modx->resource->getTVValue('recommendIds');
+if ($recommendIds) {
+    $params = [
+        'resources' => $recommendIds,
+        'parents' => 0,
+        'depth' => 50,
+        'limit' => 42,
+        'tpl' => '@FILE sections/popular/pop-slide.tpl',
+        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+        'context' => $modx->resource->context_key,
+        'tplWrapper' => '@FILE sections/popular/sect-pop-wrapper.tpl',
+        'wrapIfEmpty' => 0
+    ];
+} else {
+    $params = getPopularProductsParams($scriptProperties, $debug);
+}
+
 $debug = [];
-$params = getPopularProductsParams($scriptProperties, $debug);
 $result = $modx->runSnippet('msProductsMy', $params);
 echo $result;
