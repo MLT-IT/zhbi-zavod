@@ -20,9 +20,9 @@
     <div class="wrapper sect-inner">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
         {if $content | length > 0}
-            <article class="sect-inner__content content-block">
-                {$content}
-            </article>
+          <article class="sect-inner__content{if !$_modx->resource.htmlInsideContent} content-block{/if}">
+              {$content}
+          </article>
         {/if}
     </div>
 
