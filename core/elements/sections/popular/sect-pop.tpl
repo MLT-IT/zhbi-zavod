@@ -1,5 +1,3 @@
-{* $resources и $popular_ids нужно отправлять в чанк. Но это не обязательно *}
-{'@FILE snippets/getPopularProducts.php' | snippet : [
+{'@FILE snippets/getPopularProductsClass.php' | snippet : [
   'resources' => $resources,
-  'popular_ids' => $_modx->config['popular_ids']
 ]}
