@@ -245,11 +245,11 @@
                             </li>
 
                             {* Иконки услуг для фанеры *}
-	                        {if $_modx->context.key === 'pro-fanera'}
-                                    <li>
-			                          {include "file:chunks/fanera-service-icons.tpl"}
-			                        </li>
-			                {/if}
+                            {if $_modx->context.key === 'pro-fanera'}
+                                <li>
+                                  {include "file:chunks/fanera-service-icons.tpl"}
+                                </li>
+                            {/if}
                         </ul>
                         <div class="product-card__reasons-text">{$bottomText}</div>
                     </div>
@@ -264,7 +264,7 @@
                   </article>
                 {/if}
             {else}
-                {include 'file:sections/product/card-content-tab.tpl'}
+                {include 'file:sections/product/card-content-tab.tpl' mb=true}
             {/if}
         </div>
 

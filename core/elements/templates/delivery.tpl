@@ -9,6 +9,10 @@
 
     <div class="wrapper">
         <h1 class="title-1{if $_modx->resource.template == 3} rm-vert-mgs{/if}">{$_modx->resource.pagetitle}</h1>
+
+
+
+
     </div>
 
     {*
@@ -18,17 +22,15 @@
 
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
-            <article class="content-block">
-                {$_modx->resource.content}
-            </article>
+            {include 'file:blocks/content-delivery.tpl'}
         </div>
     {/if}
 
     {include "file:sections/payment.tpl"}
     {include "file:sections/faq.tpl"}
+    {include "file:sections/districts-map.tpl"}
     {include "file:sections/appeal.tpl"}
     {include "file:sections/advantages.tpl"}
     {include "file:sections/steps.tpl"}
     {include "file:sections/partners.tpl"}
-    {include "file:sections/districts-map.tpl"}
 {/block}

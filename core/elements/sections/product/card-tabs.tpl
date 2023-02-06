@@ -22,6 +22,8 @@
 
         <div class="product-card__tabs-button{if $_modx->resource.template == 21 && $_modx->resource.context_key != 'policarbonat'} active{/if}">Характеристики</div>
 
+        <div class="product-card__tabs-button">Доставка и оплата</div>
+
         {if $renderCerts == 1}
             <div class="product-card__tabs-button">Сертификаты</div>
         {/if}
@@ -47,6 +49,13 @@
             <div class="product-card__content-wrap">
                 {include 'file:sections/product/card-specs-tab.tpl'}
             </div>
+        </div>
+
+        <div class="product-card__tabs-page">
+          <div class="product-card__mobile-tabs-button">Доставка и оплата</div>
+          <div class="product-card__content-wrap">
+              {include 'file:blocks/content-delivery.tpl'}
+          </div>
         </div>
 
         {if $renderCerts == 1}
