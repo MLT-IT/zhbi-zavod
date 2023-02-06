@@ -87,7 +87,7 @@ export default class FastSearch {
 
     if (this.check_device === "mobile") {
       this.hideLongList();
-      this.close_button.style = "opacity:1;width:20px";
+      this.close_button.style = "opacity:1;width:20px;max-width:none;margin-left:10px;margin-bottom:5px";
     }
   }
 
@@ -97,7 +97,7 @@ export default class FastSearch {
     else this.search_popup.style.display = "none";
 
     if (this.check_device === "mobile") {
-      this.close_button.style = "opacity:0;width:0";
+      this.close_button.style = "";
     }
   }
 
