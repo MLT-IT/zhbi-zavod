@@ -4,17 +4,18 @@ START TRANSACTION;
 -- Обновление картинок для товаров
 -- Если перенести сайт на локалку или еще куда, то придется переносить еще и картинки. А они очень много весят. Куда проще подправить ссылки у товаров, чтобы картинки брались с боевого сайта. Данный код это и делает.
 -- Важно! Я заметил, что из-за этого дольше открываются страницы. А в информации о загрузке страницы написано, что требуется больше ОЗУ.
-UPDATE modx_ms2_product_files
-SET url = (CONCAT('https://minvata-78.ru/', url))
-WHERE url LIKE '/assets/%';
-
-UPDATE modx_ms2_products
-SET image = (CONCAT('https://minvata-78.ru/', image))
-WHERE image LIKE '/assets/%';
-
-UPDATE modx_ms2_products
-SET thumb = (CONCAT('https://minvata-78.ru/', thumb))
-WHERE thumb LIKE '/assets/%';
+-- Я закомментировал этот код, т.к. теперь вместо ссылок используются симлинки
+-- UPDATE modx_ms2_product_files
+-- SET url = (CONCAT('https://minvata-78.ru/', url))
+-- WHERE url LIKE '/assets/%';
+--
+-- UPDATE modx_ms2_products
+-- SET image = (CONCAT('https://minvata-78.ru/', image))
+-- WHERE image LIKE '/assets/%';
+--
+-- UPDATE modx_ms2_products
+-- SET thumb = (CONCAT('https://minvata-78.ru/', thumb))
+-- WHERE thumb LIKE '/assets/%';
 
 -- Обновление настроек контекстов
 -- web
@@ -24,6 +25,54 @@ WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'web');
 UPDATE modx_context_setting
 SET `value` = 'skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'web';
+
+-- rockwool
+UPDATE modx_context_setting
+SET `value` = 'http://rockwool.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'rockwool');
+UPDATE modx_context_setting
+SET `value` = 'rockwool.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'rockwool';
+
+-- tn
+UPDATE modx_context_setting
+SET `value` = 'http://pro-minvata.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'tn');
+UPDATE modx_context_setting
+SET `value` = 'pro-minvata.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'tn';
+
+-- penoplex
+UPDATE modx_context_setting
+SET `value` = 'http://penoplex.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'penoplex');
+UPDATE modx_context_setting
+SET `value` = 'penoplex.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'penoplex';
+
+-- isover
+UPDATE modx_context_setting
+SET `value` = 'http://isover.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'isover');
+UPDATE modx_context_setting
+SET `value` = 'isover.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'isover';
+
+-- paroc
+UPDATE modx_context_setting
+SET `value` = 'http://paroc.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'paroc');
+UPDATE modx_context_setting
+SET `value` = 'paroc.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'paroc';
+
+-- ursa
+UPDATE modx_context_setting
+SET `value` = 'http://ursa.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'ursa');
+UPDATE modx_context_setting
+SET `value` = 'ursa.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'ursa';
 
 -- krovlyasp
 UPDATE modx_context_setting
@@ -48,6 +97,14 @@ WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'fasady-pro'
 UPDATE modx_context_setting
 SET `value` = 'fasady-pro.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'fasady-pro';
+
+-- pro-fanera
+UPDATE modx_context_setting
+SET `value` = 'http://pro-fanera.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'pro-fanera');
+UPDATE modx_context_setting
+SET `value` = 'pro-fanera.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'pro-fanera';
 
 -- fasad
 UPDATE modx_context_setting
@@ -89,14 +146,6 @@ UPDATE modx_context_setting
 SET `value` = 'plitaosb.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'plitaosb';
 
--- pro-fanera
-UPDATE modx_context_setting
-SET `value` = 'http://pro-fanera.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'pro-fanera');
-UPDATE modx_context_setting
-SET `value` = 'pro-fanera.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'pro-fanera';
-
 -- plity-mdvp
 UPDATE modx_context_setting
 SET `value` = 'http://plity-mdvp.skderdom.beget.tech/'
@@ -105,52 +154,12 @@ UPDATE modx_context_setting
 SET `value` = 'plity-mdvp.skderdom.beget.tech'
 WHERE `key` = 'http_host' AND context_key = 'plity-mdvp';
 
--- tn
+-- policarbonat
 UPDATE modx_context_setting
-SET `value` = 'http://pro-minvata.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'tn');
+SET `value` = 'http://policarbonat.skderdom.beget.tech/'
+WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'policarbonat');
 UPDATE modx_context_setting
-SET `value` = 'pro-minvata.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'tn';
-
--- ursa
-UPDATE modx_context_setting
-SET `value` = 'http://ursa.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'ursa');
-UPDATE modx_context_setting
-SET `value` = 'ursa.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'ursa';
-
--- rockwool
-UPDATE modx_context_setting
-SET `value` = 'http://rockwool.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'rockwool');
-UPDATE modx_context_setting
-SET `value` = 'rockwool.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'rockwool';
-
--- penoplex
-UPDATE modx_context_setting
-SET `value` = 'http://penoplex.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'penoplex');
-UPDATE modx_context_setting
-SET `value` = 'penoplex.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'penoplex';
-
--- isover
-UPDATE modx_context_setting
-SET `value` = 'http://isover.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'isover');
-UPDATE modx_context_setting
-SET `value` = 'isover.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'isover';
-
--- paroc
-UPDATE modx_context_setting
-SET `value` = 'http://paroc.skderdom.beget.tech/'
-WHERE (`key` = 'base_url' OR `key` = 'site_url') AND (context_key = 'paroc');
-UPDATE modx_context_setting
-SET `value` = 'paroc.skderdom.beget.tech'
-WHERE `key` = 'http_host' AND context_key = 'paroc';
+SET `value` = 'policarbonat.skderdom.beget.tech'
+WHERE `key` = 'http_host' AND context_key = 'policarbonat';
 
 COMMIT;
