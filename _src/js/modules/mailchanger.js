@@ -31,6 +31,7 @@ export default function mailChange () {
             n.innerText = n.innerText.replace('mail@plitaosb.ru', 'tsk@plitaosb.ru');
             n.innerText = n.innerText.replace('mail@pro-fanera.ru', 'tsk@pro-fanera.ru');
             n.innerText = n.innerText.replace('mail@plity-mdvp.ru', 'tsk@plity-mdvp.ru');
+            n.innerText = n.innerText.replace('mail@policarbonat-spb.ru', 'tsk@policarbonat-spb.ru');
 
             n.href = n.href.replace('mail@minvata-78.ru', 'tsk@minvata-78.ru');
             n.href = n.href.replace('mail@www-minvata.ru', 'tsk@www-minvata.ru');
@@ -49,6 +50,7 @@ export default function mailChange () {
             n.href = n.href.replace('mail@plitaosb.ru', 'tsk@plitaosb.ru');
             n.href = n.href.replace('mail@pro-fanera.ru', 'tsk@pro-fanera.ru');
             n.href = n.href.replace('mail@plity-mdvp.ru', 'tsk@plity-mdvp.ru');
+            n.href = n.href.replace('mail@policarbonat-spb.ru', 'tsk@policarbonat-spb.ru');
         })
     }, TIMEOUT)
 }
