@@ -331,20 +331,44 @@ a.white-btn, button.white-btn
     @media only screen and (max-width: 600px)
         bottom: 52px !important
 
-article.content-block
-    table
-        width: 100%
-        display: table
-        border-collapse: collapse
-        border-spacing: 0
-
-        @media only screen and (max-width: 992px)
-            display: block
-            position: relative
+%custom-table
+    width: 100%
+    display: table
+    border-collapse: collapse
+    border-spacing: 0
 
     thead
         text-transform: uppercase
 
+    tbody
+        tr
+            transition: background-color .25s ease
+
+            &:hover
+                background-color: rgba(242,242,242,0.5)
+
+    tr
+        border-bottom: 1px solid rgba(0,0,0,0.12)
+
+    th, td
+        padding: 15px 10px
+        display: table-cell
+        text-align: center
+        vertical-align: middle
+        border-radius: 2px
+
+    th
+        font-weight: bold
+        background-color: #e3e3e3
+
+article.content-block table
+    @extend %custom-table
+
+    @media only screen and (max-width: 992px)
+        display: block
+        position: relative
+
+    thead
         @media only screen and (max-width: 992px)
             display: block
             float: left
@@ -364,11 +388,6 @@ article.content-block
             white-space: nowrap
 
         tr
-            transition: background-color .25s ease
-
-            &:hover
-                background-color: rgba(242,242,242,0.5)
-
             @media only screen and (max-width: 992px)
                 display: inline-block
                 vertical-align: top
@@ -376,17 +395,8 @@ article.content-block
                 padding: 0 10px
 
     tr
-        border-bottom: 1px solid rgba(0,0,0,0.12)
-
         @media only screen and (max-width: 992px)
             border-bottom: none
-
-    th, td
-        padding: 15px 10px
-        display: table-cell
-        text-align: center
-        vertical-align: middle
-        border-radius: 2px
 
     td
         @media only screen and (max-width: 992px)
@@ -395,9 +405,6 @@ article.content-block
             text-align: left
 
     th
-        font-weight: bold
-        background-color: #e3e3e3
-
         @media only screen and (max-width: 992px)
             display: block
             text-align: right
