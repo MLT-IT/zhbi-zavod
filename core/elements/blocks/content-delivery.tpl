@@ -1,3 +1,5 @@
+{* &nbsp; в ячейках таблицы нужны, чтобы выравнивание по центру (text-align: center) выглядело лучше *}
+
 <article class="block-delivery">
   <table class="block-delivery__table">
     <tbody>
@@ -47,7 +49,7 @@
     </tr>
     <tr>
       <td>
-        <p>Машина до 5 тн до 30 м3</p>
+        <p>Машина до 5 тн до 30 м3&nbsp;&nbsp;&nbsp;&nbsp;</p>
       </td>
       <td>
         <p>6</p>
@@ -58,7 +60,7 @@
     </tr>
     <tr>
       <td>
-        <p>Машина до 10 тн до 50 м3</p>
+        <p>Машина до 10 тн до 50 м3&nbsp;&nbsp;</p>
       </td>
       <td>
         <p>8</p>
@@ -69,7 +71,7 @@
     </tr>
     <tr>
       <td>
-        <p>Машина до 20 тн до 80 м3</p>
+        <p>Машина до 20 тн до 80 м3&nbsp;&nbsp;</p>
       </td>
       <td>
         <p>8</p>
