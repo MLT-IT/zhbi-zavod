@@ -1,7 +1,7 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-callback.tpl',
-'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
 'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -12,7 +12,7 @@
     {'!AjaxForm' | snippet : [
     'snippet' => 'FormIt',
     'form' => '@FILE elements/modals/callback/popup-discount.tpl',
-    'hooks' => 'check_words,create_request,create_bitrix_lead,create_calltouch_lead',
+    'hooks' => 'check_words,create_request,create_bitrix_lead',
     'customValidators' => 'checkPhone,check_request',
     'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
     'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -23,7 +23,7 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-cost-delivery.tpl',
-'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
 'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -33,7 +33,7 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-order.tpl',
-'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
 'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -43,7 +43,7 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/popup-showroom.tpl',
-'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
 'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -53,7 +53,7 @@
 {'!AjaxForm' | snippet : [
 'snippet' => 'FormIt',
 'form' => '@FILE elements/modals/callback/help-in-choice.tpl',
-'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
 'customValidators' => 'checkPhone,check_request',
 'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
 'validationErrorMessage' => 'В форме содержатся ошибки!',
@@ -72,7 +72,7 @@
     {'!AjaxForm' | snippet : [
     'snippet' => 'FormIt',
     'form' => '@FILE elements/modals/callback/popup-cost-fanera.tpl',
-    'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+    'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
     'customValidators' => 'checkPhone,check_request',
     'validate' => 'PHONE:required:checkPhone:check_request,mobilephone:blank',
     'validationErrorMessage' => 'В форме содержатся ошибки!',

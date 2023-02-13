@@ -29,7 +29,7 @@
     </div>
 
     {'!AjaxForm' | snippet : [
-        'hooks' => 'check_words_and_links,create_request,create_bitrix_lead,create_calltouch_lead',
+        'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
         'snippet' => 'FormIt',
         'form' => '@FILE sections/catalog/catalog-banner.tpl',
         'customValidators' => 'checkPhone,check_request',
