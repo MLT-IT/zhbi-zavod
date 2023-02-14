@@ -386,7 +386,7 @@ class myCustomFilter extends mse2FiltersHandler {
                     case 'fasad':
                         switch ($GLOBALS['modx']->resource->id) {
                             case 36783:
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['VOX', 'FineBer', 'Ю-Пласт', 'Docke', 'Альта-Профиль', 'Grand Line']);
+                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Grand Line', 'Docke', 'Альта-Профиль', 'Ю-Пласт', 'FineBer', 'VOX']);
                             break;
 
                             case 36793:
