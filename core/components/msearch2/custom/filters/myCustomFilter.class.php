@@ -108,6 +108,9 @@ class myCustomFilter extends mse2FiltersHandler {
                     case 19859:
                         $sorted = $this->sortByCustomOrder($sorted, $results, []);
                         break;
+                    case 36806:
+                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Фасадная плитка HAUBERK', 'Комплектующие']);
+                        break;
                 }
             }
 
