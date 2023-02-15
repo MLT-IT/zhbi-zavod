@@ -166,19 +166,6 @@ class getPopularProductsClass {
         // Определяем группу, от нее зависит алгоритм выбора соответствующих товаров
         switch (true) {
             // -------------------------------
-            // Группа 1
-            // -------------------------------
-            case in_array(self::$prod->parent, [
-                // Металлочерепица и потомки
-                16788,
-                11760, 12069, 12070, 12071, 12073, 12074, 16789, 37621, 44676, 44677, 44678, 44679, 44680, 44681, 76923
-            ]):
-                $group = 1;
-                $relatedOpts = ['proizvoditel', 'item_thickness', 'cvet', 'pokrytie'];
-                break;
-
-
-            // -------------------------------
             // Группа 3
             // Важно: Группа 3 должна быть ДО группы 2, т.к. условие для группы 3 подходит и для группы 2
             // -------------------------------
@@ -249,8 +236,9 @@ class getPopularProductsClass {
                 49268,
                 49269, 49270, 49271,
 
-                // Торцевые планки
+                // Торцевые планки и потомки
                 18447,
+                18448,49283,49284,49285,49286,49287,64209,64211,64221,
 
                 // Тройники
                 49288,
@@ -280,6 +268,21 @@ class getPopularProductsClass {
                 }
 
                 break;
+
+
+            // -------------------------------
+            // Группа 1
+            // Важно: Группа 1 должна быть ПОСЛЕ группы 2, т.к. условие для группы 1 подходит и для группы 2
+            // -------------------------------
+            case in_array(self::$prod->parent, [
+                // Металлочерепица и потомки
+                16788,
+                11760, 12069, 12070, 12071, 12073, 12074, 16789, 37621, 44676, 44677, 44678, 44679, 44680, 44681, 76923
+            ]):
+                $group = 1;
+                $relatedOpts = ['proizvoditel', 'item_thickness', 'cvet', 'pokrytie'];
+                break;
+
         }
 
         if (empty($group)) {
@@ -322,7 +325,14 @@ class getPopularProductsClass {
 
         if (!empty($resourceValues)) {
             // Работа с $sqlWhere
-            $sqlWhere = implode(' OR ', $sqlWhere);
+
+            if (in_array($group, [2, 3])) {
+                $separator = 'AND';
+            } else {
+                $separator = 'OR';
+            }
+
+            $sqlWhere = implode(" $separator ", $sqlWhere);
             $sqlWhere = "AND ($sqlWhere)";
             self::$debug[] = "Составлено дополнительное where: \"$sqlWhere\".";
 
@@ -339,6 +349,9 @@ class getPopularProductsClass {
 
         // Определяем родителей в зависимости от группы
         switch ($group) {
+            // -------------------------------
+            // Группа 1
+            // -------------------------------
             case 1:
                 $parents = [
                     // Доборные элементы
@@ -349,6 +362,9 @@ class getPopularProductsClass {
                 ];
                 break;
 
+            // -------------------------------
+            // Группа 2
+            // -------------------------------
             case 2:
                 $parents = [
                     // Металлочерепица и потомки
@@ -734,10 +750,12 @@ $cacheOptions = [
 
 if (!$cache = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     $data = getPopularProductsClass::getPopularProductsParams();
-    $cache = json_encode($data['params'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $cache = $data['params'];
     $modx->cacheManager->set($cacheName, $cache, 0, $cacheOptions);
 }
 
-$params = json_decode($cache, true);
+$params = $cache;
 $result = $modx->runSnippet('msProductsMy', $params);
 echo $result;
+
+// TODO: сделай так, что если сопутствующих товаров нет, то выводиться будут рекомендуемые.
