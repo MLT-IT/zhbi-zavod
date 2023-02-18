@@ -1,1 +1,1 @@
-<li><a href="{$uri}"><img src="{$image}" />{$menutitle}</a></li>
+<li><a href="{$uri}"><img src="{$image}" /><span fast-search-result-text>{$menutitle}</span></a></li>
