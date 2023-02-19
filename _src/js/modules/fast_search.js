@@ -1,3 +1,5 @@
+import functions from "../functions/functions";
+
 export default class FastSearch {
   constructor() {
     this.limit_category_items = 3;
@@ -87,8 +89,20 @@ export default class FastSearch {
 
     if (this.check_device === "mobile") {
       this.hideLongList();
-      this.close_button.style = "opacity:1;width:20px;max-width:none;margin-left:10px;margin-bottom:5px";
+      this.close_button.style =
+        "opacity:1;width:20px;max-width:none;margin-left:10px;margin-bottom:5px";
     }
+
+    // Выделение найденных слов
+    this.search_popup
+      .querySelectorAll(".fast-search-container li [fast-search-result-text]")
+      .forEach((list_item) => {
+        list_item.innerHTML = functions.highlight(
+          list_item.innerHTML, // текст для поиска
+          this.search_input.value.split(" "), // слова для обрамления
+          "strong" // тег обрамления
+        );
+      });
   }
 
   hidePopup(html = "") {

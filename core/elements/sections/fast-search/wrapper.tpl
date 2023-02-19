@@ -1,3 +1,4 @@
+{if $products}
 <div class="fast-search-container">
     <ul class="fast-search-categories border" fast-search-limit-items="3">
         <li fast-search-limit-protection>Категории:</li>
@@ -13,3 +14,11 @@
         </li>
     </ul>
 </div>
+{else}
+<div class="fast-search-container one-column">
+    <ul class="fast-search-categories" fast-search-limit-items="3">
+        <li fast-search-limit-protection>Категории:</li>
+        {$categories}
+    </ul>
+</div>
+{/if}
