@@ -11,7 +11,7 @@ if ($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest' || empty($_REQUEST['ac
 
 $queryPhrase = trim($_GET['query']);
 if (empty($queryPhrase)) {
-    return false;
+    die(null);
 }
 
 $pdoTools = $modx->getService('pdoTools');
