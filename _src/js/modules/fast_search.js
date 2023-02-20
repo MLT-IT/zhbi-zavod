@@ -99,7 +99,7 @@ export default class FastSearch {
       .forEach((list_item) => {
         list_item.innerHTML = functions.highlight(
           list_item.innerHTML, // текст для поиска
-          this.search_input.value.split(" "), // слова для обрамления
+          this.search_input.value.trim().split(" "), // слова для обрамления
           "strong" // тег обрамления
         );
       });
