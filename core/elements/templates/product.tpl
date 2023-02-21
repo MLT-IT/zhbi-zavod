@@ -25,18 +25,15 @@
         {include "file:sections/product/card.tpl"}
     </div>
 
-    {* В MODX проблематично получить товары с незаполненными опциями. Поэтому проверяем, заполнена ли опция *}
-    {if $_modx->resource.item_thickness is empty}
-        {$resources = ''}
-    {else}
+    {if ($_modx->resource.context_key not in list ['krovlya', 'kirpich-m']) && ($_modx->resource.item_thickness is not empty)}
         {set $resources = '!msProducts' | snippet : [
-            'parents' => 0,
-            'depth' => 50,
-            'limit' => 42,
-            'returnIds' => 1,
-            'innerJoin' => '{"Options":{"class":"msProductOption"}}',
-            'where' => '{"Options.key":"item_thickness", "Options.value:=":"'~$_modx->resource['item_thickness'].0~'", "context_key:=": "'~$_modx->resource.context_key~'"}',
-            'resources' => '-' ~ $_modx->resource.id
+        'parents' => 0,
+        'depth' => 50,
+        'limit' => 42,
+        'returnIds' => 1,
+        'innerJoin' => '{"Options":{"class":"msProductOption"}}',
+        'where' => '{"Options.key":"item_thickness", "Options.value:=":"'~$_modx->resource['item_thickness'].0~'", "context_key:=": "'~$_modx->resource.context_key~'"}',
+        'resources' => '-' ~ $_modx->resource.id
         ]}
     {/if}
 
