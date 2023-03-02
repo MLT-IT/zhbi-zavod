@@ -3,118 +3,133 @@
  */
 
 export default {
-    formOfWord,
-    numberWithSpaces,
-    toggleText,
-    trim,
-    getActiveForm,
-    getStep,
-    getCorrectValueToCounter,
-    getSearchParameters,
-    escapeRegExp
+  formOfWord,
+  numberWithSpaces,
+  toggleText,
+  trim,
+  getActiveForm,
+  getStep,
+  getCorrectValueToCounter,
+  getSearchParameters,
+  escapeRegExp,
+  highlight,
 };
+
+// Выделяет найденное вхождение в тексте
+function highlight(text, words, tag = "span") {
+  var i,
+    len = words.length,
+    re;
+  for (i = 0; i < len; i++) {
+    re = new RegExp(words[i], "gi");
+    if (re.test(text)) {
+      text = text.replace(
+        re,
+        "<" + tag + ' class="highlight">$&</' + tag + ">"
+      );
+    }
+  }
+  return text;
+}
 
 // Склонение по числам
 function formOfWord(n, f1, f2, f5) {
-    n = Math.abs(parseInt(n)) % 100;
-    if (n > 10 && n < 20) {
-        return f5;
-    }
-    n = n % 10;
-    if (n > 1 && n < 5) {
-        return f2;
-    }
-    if (n === 1) {
-        return f1;
-    }
-
+  n = Math.abs(parseInt(n)) % 100;
+  if (n > 10 && n < 20) {
     return f5;
+  }
+  n = n % 10;
+  if (n > 1 && n < 5) {
+    return f2;
+  }
+  if (n === 1) {
+    return f1;
+  }
+
+  return f5;
 }
 
 // Разделить тысячные пробелами
 function numberWithSpaces(x) {
-    // Это нужно, чтобы убрать ненужные в конце. Пример: 1.80 - здесь лишний ноль
-    x = parseFloat(x);
+  // Это нужно, чтобы убрать ненужные в конце. Пример: 1.80 - здесь лишний ноль
+  x = parseFloat(x);
 
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 // Поменять местами текст внутри тега с текстом внутри атрибута attr_1
 function toggleText($elem, attr_1) {
-    var text = $elem.attr(attr_1);
-    $elem.attr(attr_1, $elem.text());
-    $elem.text(text);
+  var text = $elem.attr(attr_1);
+  $elem.attr(attr_1, $elem.text());
+  $elem.text(text);
 }
-
 
 // Strip whitespace (or other characters) from the beginning and end of a string
 // +   original by: Ilia Kantor (http://javascript.ru)
 function trim(str, charlist) {
-    charlist = !charlist ? ' \s\xA0' : charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, '\$1');
-    var re = new RegExp('^[' + charlist + ']+|[' + charlist + ']+$', 'g');
-    return str.replace(re, '');
+  charlist = !charlist
+    ? " s\xA0"
+    : charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, "$1");
+  var re = new RegExp("^[" + charlist + "]+|[" + charlist + "]+$", "g");
+  return str.replace(re, "");
 }
-
 
 function getActiveForm($productItem) {
-    let $formService;
-    let $formAction;
+  let $formService;
+  let $formAction;
 
-    if ($productItem.hasClass('js-product-in-cart')) {
-        // Товар уже в корзине, нужно изменить кол-во
-        $formService = $productItem.find('.js-product__form-change');
-        $formAction = $productItem.find('.js-product__controls_action_change');
-    } else {
-        // Товара нет в корзине
-        $formService = $productItem.find('.js-product__form-add');
-        $formAction = $productItem.find('.js-product__controls_action_add');
-    }
+  if ($productItem.hasClass("js-product-in-cart")) {
+    // Товар уже в корзине, нужно изменить кол-во
+    $formService = $productItem.find(".js-product__form-change");
+    $formAction = $productItem.find(".js-product__controls_action_change");
+  } else {
+    // Товара нет в корзине
+    $formService = $productItem.find(".js-product__form-add");
+    $formAction = $productItem.find(".js-product__controls_action_add");
+  }
 
-    return {
-        'system': $formService,
-        'action': $formAction
-    };
+  return {
+    system: $formService,
+    action: $formAction,
+  };
 }
-
 
 /**
  * Эта функция нигде не используется.
  * Раньше она нужна была для получения шага, чтобы изменять кол-ва товара в счетчике кратно поддонам (на кирпичах товары должны были продаваться поддонами).
  */
 function getStep($item) {
-    let step = 1;
-    let dataStep = $item.attr('data-step');
+  let step = 1;
+  let dataStep = $item.attr("data-step");
 
-    if (typeof dataStep !== 'undefined') {
-        dataStep = parseFloat(dataStep);
-        if (!isNaN(dataStep) && dataStep > 0) {
-            step = dataStep;
-        } else {
-            step = 1;
-            console.error('Ошибка при получении data-step');
-        }
+  if (typeof dataStep !== "undefined") {
+    dataStep = parseFloat(dataStep);
+    if (!isNaN(dataStep) && dataStep > 0) {
+      step = dataStep;
+    } else {
+      step = 1;
+      console.error("Ошибка при получении data-step");
     }
+  }
 
-    return step;
+  return step;
 }
-
 
 /**
  * Эта функция нигде не используется.
  * Раньше она нужна была для изменения кол-ва товара в счетчике кратно поддонам (на кирпичах товары должны были продаваться поддонами).
  */
 function getCorrectValueToCounter(step, count) {
-    count = parseFloat(count);
-    step = parseFloat(step);
-    let redundant = count % step;
-    redundant = step - redundant;
-    if (redundant !== step) {
-        count += redundant;
-    }
+  count = parseFloat(count);
+  step = parseFloat(step);
+  let redundant = count % step;
+  redundant = step - redundant;
+  if (redundant !== step) {
+    count += redundant;
+  }
 
-    return count;
+  return count;
 }
-
 
 /**
  * Получает GET-параметры и возвращает их в виде объекта.
@@ -124,22 +139,23 @@ function getCorrectValueToCounter(step, count) {
    https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
  */
 function getSearchParameters() {
-    let prmstr = window.location.search.substr(1);
-    return prmstr != null && prmstr != "" ? transformToAssocArray(decodeURI(prmstr)) : {};
+  let prmstr = window.location.search.substr(1);
+  return prmstr != null && prmstr != ""
+    ? transformToAssocArray(decodeURI(prmstr))
+    : {};
 }
-
 
 /**
  * Преобразует строку uri в объект.
  */
 function transformToAssocArray(prmstr) {
-    let params = {};
-    let prmarr = prmstr.split("&");
-    for (let i = 0; i < prmarr.length; i++) {
-        let tmparr = prmarr[i].split("=");
-        params[tmparr[0]] = tmparr[1];
-    }
-    return params;
+  let params = {};
+  let prmarr = prmstr.split("&");
+  for (let i = 0; i < prmarr.length; i++) {
+    let tmparr = prmarr[i].split("=");
+    params[tmparr[0]] = tmparr[1];
+  }
+  return params;
 }
 
 /**
@@ -150,5 +166,5 @@ function transformToAssocArray(prmstr) {
  * @returns {*}
  */
 function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 }
