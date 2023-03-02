@@ -687,23 +687,23 @@
 
     &__mobile-menu-arrow
         &_reverse
-            &::after
+            &::before
                 @at-root  .header &
                     transform: rotate(130deg)
                     margin-top: -4px
 
         &_color
             &_1
-                &::after
+                &::before
                     border-color: #fff
                     @at-root .isover
                         border-color: #323232
 
             &_2
-                &::after
+                &::before
                     +set_colors_1(border-color)
 
-        &::after
+        &::before
             content: ""
             display: block
             border: solid #fff

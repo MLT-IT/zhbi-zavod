@@ -125,33 +125,57 @@ a.white-btn, button.white-btn
     .header__nav-item_special:hover > .header__nav-link
         +set_colors_3(color)
 
-.header
-    &__nav-link, &__menu-item
-        &[data-val="Скандик Лайт Баттс"], &[data-val="Лайт Баттс Оптима"]
-            position: relative
 
-            &::after
-                content: ""
-                width: 20px
-                height: 20px
-                background: url(/assets/template/img/svg-sprite/hit.svg) no-repeat
-                background-size: cover
-                display: inline-block
+@mixin menustar($dataval, $context)
+    [data-ctx="#{$context}"]
+        .header__nav-link, .header__menu-item, .header__column-header-link
+            &[data-val="#{$dataval}"]
                 position: relative
-                left: 10px
+                &::after
+                    content: ""
+                    width: 20px
+                    height: 20px
+                    background: url(/assets/template/img/svg-sprite/hit.svg) no-repeat
+                    background-size: cover
+                    display: inline-block
+                    position: relative
+                    left: 10px
 
-    &__nav-link
-        &[data-val="Скандик Лайт Баттс"], &[data-val="Лайт Баттс Оптима"]
-            &::after
-                left: 8px
-                top: 5px
+        .header__nav-link
+            &[data-val="#{$dataval}"]
+                &::after
+                    left: 8px
+                    top: 5px
 
-    &__menu-item
-        &[data-val="Скандик Лайт Баттс"], &[data-val="Лайт Баттс Оптима"]
-            &::after
-                top: 4px
-                left: 5px
+        .header__menu-item, .header__column-header-link
+            &[data-val="#{$dataval}"]
+                &::after
+                    top: 4px
+                    left: 5px
 
++menustar('Скандик Лайт Баттс', 'rockwool')
++menustar('Лайт Баттс Оптима', 'rockwool')
++menustar('Вагонка', 'fasady-pro')
++menustar('Виниловый сайдинг', 'fasad')
++menustar('Фиброцементный сайдинг', 'fasad')
++menustar('Скандик Лайт Баттс', 'rockwool')
++menustar('Лайт Баттс Оптима', 'rockwool')
++menustar('Технониколь Роклайт', 'tn')
++menustar('Технониколь Carbon', 'tn')
++menustar('Технониколь Технофас', 'tn')
++menustar('Ursa Терра', 'ursa')
++menustar('Ursa GEO', 'ursa')
++menustar('Пеноплэкс Фундамент', 'penoplex')
++menustar('Пеноплэкс Основа', 'penoplex')
++menustar('ТеплоКНАУФ', 'web')
++menustar('Доска обрезная ест. влаж', 'pilomat')
++menustar('Брус обрезной ест. влаж', 'pilomat')
++menustar('OSB плиты', 'plitaosb')
++menustar('Гипрок (гипсокартон)', 'plitaosb')
++menustar('Строительный (рядовой) кирпич', 'kirpich-m')
++menustar('Керамический блок', 'kirpich-m')
+
+.header
     &__callback
         &:hover
             +set_colors_3(color)

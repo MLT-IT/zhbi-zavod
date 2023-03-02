@@ -91,14 +91,14 @@
                 {foreach $menu as $column}
                     {foreach $column as $items}
                         {if $items.children | count > 0}
-                            <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-key="{$items.name}" class="header__mobile-menu-link header__nav-link">{$items.name}</span></span>
+                            <span class="header__nav-item header__mobile-menu-arrow header__mobile-menu-arrow_color_2"><span data-val="{$items.name}" data-key="{$items.name}" class="header__mobile-menu-link header__nav-link">{$items.name}</span></span>
                         {else}
                             {if $items.uri ?}
-                                <a class="header__nav-item" href="{$items.uri}">
+                                <a data-val="{$items.name}" class="header__nav-item" href="{$items.uri}">
                                     <span class="header__nav-link">{$items.name}</span>
                                 </a>
                             {else}
-                                <span class="header__nav-item">
+                                <span data-val="{$items.name}" class="header__nav-item">
                                     <span class="header__nav-link">{$items.name}</span>
                                 </span>
                             {/if}

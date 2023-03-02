@@ -118,7 +118,7 @@
                                         <div class="header__column{$items.children | count == 0 ? ' header__column_without-children' : ''}">
                                             <p class="header__column-header">
                                                 {if $items.uri ?}
-                                                    <a class="header__column-header-link" href="{$items.uri}">{$items.name}</a>
+                                                    <a class="header__column-header-link" data-val="{$items.name}" href="{$items.uri}">{$items.name}</a>
                                                 {else}
                                                     <span>{$items.name}</span>
                                                 {/if}
