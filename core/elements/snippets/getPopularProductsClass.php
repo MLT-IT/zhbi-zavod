@@ -733,7 +733,8 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     if (empty($result && $data['params'] != $data['params_default'])) {
         $result = $modx->runSnippet('msProductsMy', $data['params_default']);
     }
-    $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+    // TODO: временно закомментировал кеширование, т.к. очень много места оно занимает.
+    //$modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
 }
 
 return $result;
