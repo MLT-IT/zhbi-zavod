@@ -1,7 +1,7 @@
 {if $_modx->resource.context_key in list ['web', 'pilomat', 'pro-fanera']}
     {set $colorStart = '#5892FC'}
     {set $colorEnd = '#4F70AD'}
-{elseif $_modx->resource.context_key in list ['rockwool', 'krovlya', 'kirpich-m', 'armatura-178', 'asconcrete', 'plitaosb']}
+{elseif $_modx->resource.context_key in list ['rockwool', 'krovlya', 'kirpich-m', 'armatura-178', 'asconcrete', 'plitaosb', 'isorok']}
     {set $colorStart = '#e90115'}
     {set $colorEnd = '#aa000f'}
 {elseif $_modx->resource.context_key == 'tn'}

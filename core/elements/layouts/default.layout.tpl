@@ -40,6 +40,8 @@
         {set $site_class = 'knauf pro-fanera'}
     {elseif $_modx->resource.context_key == 'plity-mdvp'}
         {set $site_class = 'fasady-pro plity-mdvp'}
+    {elseif $_modx->resource.context_key == 'isorok'}
+        {set $site_class = 'rockwool isorok'}
     {/if}
 
     {* >>> favicon *}
