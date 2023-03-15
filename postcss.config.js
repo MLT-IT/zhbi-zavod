@@ -1,9 +1,13 @@
-module.exports = {
-    plugins: [
-        require('postcss-sort-media-queries')({
-            sort: 'mobile-first'
-        }),
-        require('autoprefixer')('cover 95%'),
-        require('cssnano')
-    ]
-}
+module.exports = ({ file, options, env }) => ({
+    parser: false,
+    plugins: {
+        'postcss-import': {},
+        'postcss-cssnext': {
+            features: {
+                customProperties: false
+            }
+        },
+        'postcss-sort-media-queries' : {},
+        'cssnano':  env === 'production'  ? {} : false
+    }
+});

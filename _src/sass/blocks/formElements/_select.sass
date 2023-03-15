@@ -1,0 +1,63 @@
+.default-select
+	--ss-primary-color: var(--color-red)
+	--ss-bg-color: var(--color-white)
+	--ss-font-color: var(--color-red)
+	--ss-font-placeholder-color: var(--color-red)
+	--ss-disabled-color: var(--color-gray)
+	--ss-border-color: var(--color-red)
+	--ss-highlight-color: transparent
+	--ss-success-color: #00b755
+	--ss-error-color: #dc3545
+	// Height
+	--ss-main-height: 50px
+	--ss-content-height: 300px
+	// Spacin
+	--ss-spacing-l: 7px
+	--ss-spacing-m: 10px
+	--ss-spacing-s: 8px
+	// Mis
+	--ss-animation-timing: 0.3s
+	--ss-border-radius: var(--border-radius-base)
+
+	+until-tablet
+		--ss-main-height: 40px
+		--ss-spacing-m: 8px
+		--ss-spacing-s: 5px
+
+	&__select
+		font-weight: 700
+		font-size: 16px
+		line-height: 1.2
+		text-transform: uppercase
+
+		+until-tablet
+			font-size: 14px
+
+		&:focus
+			box-shadow: none
+
+.ss-main
+	& .ss-arrow
+		flex-shrink: 0
+
+.ss-content
+	margin-top: 10px !important
+	border-radius: var(--border-radius-base)
+	border: none
+	box-shadow: var(--shadow-base)
+
+	& .ss-list
+		padding: 14px
+
+		& .ss-option
+			color: var(--color-black)
+			justify-content: center
+
+			&:hover
+				background-color: transparent
+				color: var(--color-red)
+
+			&:not(.ss-disabled)
+				&.ss-selected
+					background-color: transparent
+					color: var(--color-red)

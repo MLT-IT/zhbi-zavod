@@ -1,0 +1,269 @@
+.cart-item
+	position: relative
+
+	padding: 25px 100px 25px 25px
+	display: flex
+	align-items: center
+
+	background-color: var(--color-white)
+	box-shadow: var(--shadow-base)
+	border-radius: var(--border-radius-base)
+
+	transition: background-color .3s ease, box-shadow .3s ease
+
+	+until-desktop
+		padding: 25px
+
+	+until-tablet
+		padding: 10px
+
+	+while-mob
+		padding: 5px 5px 30px
+		flex-direction: column
+
+	&__picture
+		flex: 0 1 273px
+		height: 100%
+		padding: 35px
+		margin-right: 40px
+		display: flex
+		align-items: center
+		justify-content: center
+
+		background-color: var(--color-gray-lt)
+		border-radius: var(--border-radius-base)
+
+		transition: background-color .3s ease
+
+		+until-desktop
+			position: relative
+			flex: 0 1 200px
+
+		+until-tablet
+			flex: 0 1 180px
+			margin-right: 25px
+
+		+while-mob
+			flex: 0 1 150px
+			padding: 25px
+			width: 100%
+			margin-right: 0
+			margin-bottom: 20px
+
+	&__image
+		display: block
+
+		max-width: 100%
+		max-height: 100%
+
+		object-fit: contain
+
+	&__actions
+		position: absolute
+		bottom: 25px
+		right: 25px
+
+		display: flex
+		align-items: center
+
+		+until-desktop
+			right: unset
+			bottom: unset
+			top: 10px
+			left: 10px
+
+		+while-mob
+			top: 5px
+			left: 5px
+
+		& .product-action
+			+until-desktop
+				width: 32px
+				height: 32px
+
+			+while-mob
+				width: 19px
+				height: 19px
+
+			&:not(:last-child)
+				margin-right: 10px
+
+				+until-tablet
+					margin-right: 4px
+
+	&__remove
+		position: absolute
+		top: 25px
+		right: 25px
+
+		width: 50px
+		height: 50px
+		padding: 0
+		display: flex
+		align-items: center
+		justify-content: center
+
+		background-color: var(--color-red)
+		background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L11.205 4.205L14 1.41Z' fill='white'/%3E%3C/svg%3E")
+		background-position: center
+		background-repeat: no-repeat
+		background-size: 50%
+		border-radius: var(--border-radius-base)
+		border: none
+		outline: none
+
+		cursor: pointer
+		appearance: none
+
+		transition: .3s ease
+
+		+until-desktop
+			right: 10px
+			top: 10px
+
+			width: 32px
+			height: 32px
+
+		+while-mob
+			right: 5px
+			top: 5px
+
+			height: 19px
+			width: 19px
+
+		&:focus,
+		&:hover
+			background-color: var(--color-red-md)
+			outline: none
+
+		&:focus-visible
+			outline: none
+
+		&:active
+			background-color: var(--color-red-dr)
+			box-shadow: none
+			outline: none
+
+	&__body
+		display: flex
+		flex-direction: column
+
+	&__bottom
+		display: flex
+		align-items: flex-end
+
+		+until-tablet
+			flex-wrap: wrap
+
+		+while-mob
+			flex-direction: column
+			align-items: center
+
+	&__title
+		margin-bottom: 35px
+
+		font-weight: 700
+		font-size: 30px
+		line-height: 1.5
+
+		+until-desktop
+			margin-bottom: 25px
+
+			font-size: 24px
+
+		+until-tablet
+			margin-bottom: 12px
+
+			font-size: 18px
+
+		+while-mob
+			font-size: 12px
+			line-height: 1.3
+
+			text-align: center
+
+	&__subtitle
+		display: block
+
+		font-weight: 400
+		font-size: 20px
+		line-height: 1.5
+
+		+until-desktop
+			font-size: 18px
+
+		+until-tablet
+			font-size: 14px
+
+		+while-mob
+			font-size: 10px
+
+	&__price
+		display: flex
+		flex-direction: column
+
+		+while-mob
+			text-align: center
+
+
+		&:not(:last-child)
+			margin-right: 50px
+
+			+until-desktop
+				margin-right: 25px
+
+			+while-mob
+				margin-right: 0
+				margin-bottom: 18px
+
+		&-value
+			font-weight: 700
+			font-size: 30px
+			line-height: 1.5
+
+			white-space: nowrap
+
+			+until-desktop
+				font-size: 24px
+
+			+until-tablet
+				font-size: 18px
+
+			+while-mob
+				font-size: 12px
+
+		&-notion
+			font-weight: 400
+			font-size: 16px
+			line-height: 1.5
+
+			color: var(--color-gray)
+
+			+until-desktop
+				font-size: 14px
+
+			+while-mob
+				font-size: 10px
+
+	&__counter
+		flex: 0 1 237px
+
+		+until-desktop
+			flex: 0 1 200px
+
+		+until-tablet
+			margin-top: 10px
+			flex: 0 1 130px
+
+		+while-mob
+			flex: unset
+			margin-top: 0
+			width: 100%
+
+	&:hover
+		background-color: var(--color-gray-lt)
+		box-shadow: none
+
+		& .cart-item
+			&__picture
+				background-color: var(--color-white)

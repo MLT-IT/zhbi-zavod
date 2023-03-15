@@ -1,0 +1,135 @@
+.default-radio
+	position: relative
+	&__input
+		appearance: none
+		position: absolute
+		top: 0
+		left: 0
+		width: 0
+		height: 0
+		opacity: 0
+		&:checked
+			+ .default-radio__label
+				&::before
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23D3553C'/%3E%3C/svg%3E")
+					background-repeat: no-repeat
+					background-size: 65% 65%
+					background-position: center
+
+		&:disabled
+			+ .default-radio__label
+				filter: grayscale(100%)
+				opacity: .5
+				&::before
+					background-color: var(--color-gray)
+
+		&[required]
+			+ .default-radio__label
+				span
+					color: var(--color-red)
+
+		&.error
+			+ .default-radio__label
+				color: var(--color-red)
+
+	&__label
+		position: relative
+		display: flex
+		cursor: pointer
+
+		font-size: 16px
+		line-height: 1.2
+		font-weight: 400
+
+		+until-tablet
+			font-size: 14px
+
+		&::before
+			content: ''
+			position: relative
+			display: block
+			width: 18px
+			height: 18px
+			border-radius: 50%
+			border: 1px solid var(--color-red)
+			background-color: var(--color-white)
+			margin-right: 20px
+			flex: none
+			transition: border-color .3s ease
+
+.tab-radio
+	position: relative
+	height: 50px
+	display: flex
+	align-items: center
+	width: 100%
+	padding: 8px 37px
+
+	border: 1px solid var(--color-gray-lt)
+	border-radius: var(--border-radius-base)
+	color: inherit
+	background-color: var(--color-gray-lt)
+
+	+until-tablet
+		padding: 8px 15px
+
+	&__input
+		appearance: none
+		position: absolute
+		top: 0
+		left: 0
+		width: 0
+		height: 0
+		opacity: 0
+		&:checked
+			+ .tab-radio__label
+				&::before
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23D3553C'/%3E%3C/svg%3E")
+					background-repeat: no-repeat
+					background-size: 65% 65%
+					background-position: center
+
+		&:disabled
+			+ .tab-radio__label
+				filter: grayscale(100%)
+				opacity: .5
+				&::before
+					background-color: var(--color-gray)
+
+		&[required]
+			+ .tab-radio__label
+				span
+					color: var(--color-red)
+
+		&.error
+			+ .tab-radio__label
+				color: var(--color-red)
+
+	&__label
+		position: relative
+		display: flex
+		align-items: center
+		cursor: pointer
+
+		font-size: 16px
+		line-height: 1.2
+		font-weight: 400
+
+		+until-tablet
+			font-size: 14px
+
+		&::before
+			content: ''
+			position: relative
+			display: block
+			width: 24px
+			height: 24px
+			border-radius: 50%
+			border: 1px solid var(--color-red)
+			background-color: var(--color-white)
+			margin-right: 22px
+			flex: none
+			transition: border-color .3s ease
+
+			+until-tablet
+				margin-right: 10px

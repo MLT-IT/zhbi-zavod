@@ -1,64 +1,295 @@
 .footer
-    &__link
-        cursor: pointer
+	padding: 40px 0 120px
 
-        &:hover
-            +set_colors_1(color)
+	background-color: var(--color-black-dr)
+	color: var(--color-white)
 
-    &__nav-block-title
-        @media screen and (max-width: 420px)
-            margin-bottom: 11px
+	+until-laptop
+		padding: 40px 0 80px
 
-    &__nav
-        @media screen and (max-width: 420px)
-            flex-direction: column
-            text-align: center
+	+until-tablet
+		padding: 30px 0 80px
 
-    &__nav-block
-        @media screen and (max-width: 420px)
-            margin-right: 0
-            &:nth-of-type(1)
-                margin-bottom: 27px
+	&__container
+		display: flex
 
-    &__logo-img
-        width: 162px
-        @media screen and (max-width: 850px)
-            margin: auto
+		+until-tablet
+			flex-direction: column
+			align-items: center
 
-    &__logo
-        height: auto
-        width: 100%
-        // max-width: 162px
-        margin-bottom: 16px
+	&__left
+		position: relative
 
-    &__policy
-        cursor: pointer
+		display: grid
+		grid-template-columns: repeat(2, auto)
+		grid-gap: 0 35px
+		padding-right: 4.5%
+		margin-right: 4.5%
 
-    &__right
-        max-width: 220px
+		+until-desktop
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: center
+			grid-gap: unset
 
-    &__contacts-list
-        display: grid
-        gap: 16px
+		+until-tablet
+			padding-right: 0
+			margin-right: 0
+			margin-bottom: 40px
 
-    &__about-phone,&__email
-        +set_colors_1(color)
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			right: 0
 
-        &:hover
-            +set_colors_2(color)
+			height: calc(100% - 10px)
+			width: 1px
 
-    &__nav-list
-        width: 100%
-        display: flex
-        align-items: flex-start
-        flex-direction: column
+			background-color: var(--color-black)
 
-        @media screen and (max-width: 850px)
-            align-items: center
+			+until-tablet
+				display: none
 
-    &__rating-badge
-        margin-top: 20px
-        margin-right: auto
+	&__column
+		display: flex
+		flex-direction: column
+		align-items: center
 
-        @media screen and (max-width: 850px)
-            margin-left: auto
+		&:not(:last-child)
+			+until-desktop
+				margin-bottom: 26px
+
+	&__logo
+		width: 138px
+		height: 90px
+		margin-bottom: auto
+
+		&-image
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: contain
+
+	&__copy
+		margin-top: 16px
+
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.2
+
+		+until-desktop
+			font-size: 14px
+
+	&__contacts
+		display: flex
+		flex-direction: column
+		margin-bottom: 50px
+
+		+until-tablet
+			margin-bottom: 36px
+
+	&__contact
+		display: flex
+		align-items: center
+
+		font-weight: 700
+		font-size: 16px
+		line-height: 1.2
+
+		text-decoration: none
+		color: inherit
+		transition: color .3s ease
+
+		+until-desktop
+			font-size: 14px
+
+		&:not(:last-child)
+			margin-bottom: 12px
+
+		&:hover
+			color: var(--color-red)
+
+		&-icon
+			width: 20px
+			height: 20px
+			flex-shrink: 0
+			margin-right: 16px
+
+	& a.footer__contact
+		white-space: nowrap
+
+	&__socials
+		margin-top: auto
+		display: flex
+		align-items: center
+
+		+until-desktop
+			margin-top: auto
+
+		&:not(:last-child)
+			margin-bottom: 26px
+
+			+until-tablet
+				margin-bottom: 18px
+
+	&__social
+		width: 40px
+		height: 40px
+
+		color: var(--color-red)
+
+		transition: color .3s ease
+
+		+until-desktop
+			width: 36px
+			height: 36px
+
+		&:not(:last-child)
+			margin-right: 8px
+
+		&:hover
+			color: var(--color-red-dr)
+
+		&-logo
+			width: 100%
+			height: 100%
+
+	&__politic
+		width: max-content
+
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.2
+		white-space: nowrap
+
+		+until-desktop
+			font-size: 14px
+
+	&__right
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+
+		+until-desktop
+			flex-direction: column
+			flex-wrap: nowrap
+			align-items: center
+			justify-content: unset
+			flex: 1 1 auto
+
+	&__nav
+		+until-desktop
+			display: flex
+			flex-direction: column
+			align-items: center
+			text-align: center
+
+		&:not(:last-child)
+			margin-right: 30px
+			margin-bottom: 10px
+
+			+until-laptop
+				margin-right: 20px
+
+			+until-desktop
+				margin-right: 0
+				margin-bottom: 30px
+
+		&-title
+			margin-bottom: 35px
+
+			font-weight: 700
+			font-size: 20px
+			line-height: 1.2
+
+			+until-laptop
+				margin-bottom: 20px
+
+				font-size: 18px
+
+		&-list
+			display: grid
+			grid-template-columns: 100%
+			grid-gap: 13px 35px
+
+			+until-laptop
+				grid-gap: 10px
+
+		&-item
+			font-weight: 400
+			font-size: 16px
+			line-height: 1.2
+
+			color: inherit
+			text-decoration: none
+			transition: color .3s ease
+
+			+until-desktop
+				font-size: 14px
+
+			&:hover
+				color: var(--color-red)
+
+		&_categories
+			color: var(--color-red)
+			& .footer
+				&__nav
+					&-list
+						grid-template-columns: repeat(3, auto)
+
+						+until-widescreen
+							grid-template-columns: repeat(2, auto)
+
+						+until-laptop
+							grid-template-columns: 100%
+
+					&-item
+						&:hover
+							color: var(--color-white)
+
+	&__payment
+		flex: 1 1 100%
+		margin-top: auto
+		display: flex
+		align-items: flex-end
+
+		+until-laptop
+			flex-direction: column
+			align-items: center
+			margin-top: 30px
+
+		+until-desktop
+			margin-top: 10px
+
+		&-title
+			margin-right: 32px
+
+			font-weight: 400
+			font-size: 16px
+			line-height: 1.2
+
+			+until-laptop
+				margin-bottom: 16px
+				margin-right: 0
+
+			+until-desktop
+				font-size: 14px
+
+		&-list
+			display: flex
+			align-items: center
+
+		&-item
+			height: 28px
+			width: auto
+
+			&:not(:last-child)
+				margin-right: 10px
+
+		&-image
+			height: 100%
+			max-width: 100%
+			width: auto
+			object-fit: contain

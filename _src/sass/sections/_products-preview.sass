@@ -1,0 +1,27 @@
+.products-preview
+	&__title
+		margin-bottom: 32px
+
+		+until-tablet
+			margin-bottom: 16px
+
+	&__slider
+		position: relative
+
+		width: 100%
+
+		& .swiper-container
+			padding: 60px 9px
+			margin: -60px -9px
+
+		& .swiper-buttons
+			top: 37.5%
+
+			+until-tablet
+				display: none
+
+		& .preview-card
+			max-width: 266px
+
+			+until-tablet
+				max-width: 156px

@@ -185,26 +185,14 @@
         {block "footer"}
             {include "file:blocks/footer.tpl"}
         {/block}
+        {block "modals"}
+            {include 'file:modals/wrapper.tpl'}
+        {/block}
     </div>
-    {block "modals"}
-        {include 'file:elements/modals/callback/wrapper.tpl'}
-    {/block}
+
 {/block}
 {block "end-body"}
-    <div class="scroll-top">
-        <img src="{$_modx->config['template_path']}img/scroll-top.png">
-    </div>
     <script src="{$_modx->config['template_path']}js/main.js?v=14"></script>
-
-    {*
-    <script src="{$_modx->config['template_path']}js/scripts.js?v=13"></script>
-    *}
-    {*
-    <script src="{$_modx->config['template_path']}js/vendors.js?v=1"></script>
-    <script src="{$_modx->config['template_path']}js/base.js?v=1"></script>
-    *}
-
-    <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" async defer></script>
 
 <!--
 Источник: [^s^]

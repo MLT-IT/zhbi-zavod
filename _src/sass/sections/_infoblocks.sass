@@ -1,0 +1,317 @@
+.infoblocks
+	&__container
+		display: grid
+		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr)
+		grid-gap: 40px 30px
+		align-items: flex-start
+
+		+until-tablet
+			grid-template-columns: 100%
+			grid-gap: 20px
+
+	&__top
+		grid-column: 1 / -1
+
+		+until-tablet
+			padding-bottom: 20px
+			border-bottom: 1px solid var(--color-black-trans)
+
+		+while-mob
+			display: none
+
+	&__tabs
+		display: flex
+		align-items: center
+		width: calc(100% + 60px)
+		margin: 0 -30px
+		padding: 0 30px
+
+		overflow-x: auto
+		+hide-scroll
+
+		+until-desktop
+			width: calc(100% + 40px)
+			margin: 0 -20px
+			padding: 0 20px
+
+		+while-mob
+			width: calc(100% + 20px)
+			margin: 0 -10px
+			padding: 0 10px
+
+
+	&__tab
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.7
+		text-transform: uppercase
+
+		color: var(--color-black)
+
+		transition: color .3s ease
+		cursor: pointer
+		text-decoration: none
+		outline: none
+		white-space: nowrap
+
+		+until-desktop
+			font-size: 18px
+
+		+until-desktop
+			font-size: 16px
+
+		&:hover,
+		&.active
+			color: var(--color-red)
+
+		&:not(:last-child)
+			margin-right: 20px
+
+			+until-desktop
+				margin-right: 15px
+
+	&__title
+		margin-bottom: 32px
+
+		+until-tablet
+			margin-bottom: 8px
+
+	&__content
+		position: relative
+
+	&__block
+		position: absolute
+
+		width: 100%
+		display: block
+		visibility: hidden
+
+		+while-mob
+			position: static
+			visibility: visible
+
+			&:not(:last-child)
+				margin-bottom: 20px
+
+		&.active
+			position: static
+			visibility: visible
+
+		& .infoblocks
+			&__text
+				font-size: 16px
+				line-height: 1.4
+
+		&-title
+			width: 100%
+			padding: 0 0 20px
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			font-family: $fontFamily
+			font-weight: 700
+			font-size: 14px
+			line-height: 1.2
+			letter-spacing: 0.05em
+
+			color: inherit
+			border-radius: 0
+			border: none
+			background-color: transparent
+			border-bottom: 1px solid var(--color-red)
+			box-shadow: none
+			text-align: center
+			text-transform: uppercase
+			text-decoration: none
+
+			cursor: pointer
+			appearance: none
+
+			+from-mob
+				display: none
+
+			&::after
+				content: ''
+
+				width: 10px
+				height: 10px
+				margin-left: 10px
+				flex-shrink: 0
+
+				background-image: url("data:image/svg+xml,%3Csvg width='9' height='6' viewBox='0 0 9 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L4.41341 4.91628C4.45241 4.96103 4.52159 4.96215 4.56202 4.91868L8 1.22222' stroke='%233C3C3B' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
+				background-position: center
+				background-repeat: no-repeat
+				background-size: 100%
+
+				transition: transform .3s ease, background-image .3s ease
+
+			&.active
+				&:after
+					transform: rotate(180deg)
+
+		&-dropdown
+			+while-mob
+				max-height: 1000px
+
+				transition: max-height .4s ease
+				overflow: hidden
+
+			& > *:first-child
+				+while-mob
+					margin-top: 20px
+
+		&:not(.active)
+
+			& .infoblocks
+				&__block
+					&-dropdown
+						+while-mob
+							max-height: 0
+
+	&__text
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.7
+
+		+until-desktop
+			font-size: 14px
+
+		&:not(:last-child)
+			margin-bottom: 10px
+
+		&_uppercase
+			text-transform: uppercase
+
+			&:not(:last-child)
+				margin-bottom: 20px
+
+	&__subtitle
+		font-weight: 400
+		font-size: 20px
+		line-height: 1.5
+
+		+until-widescreen
+			font-size: 18px
+
+		+until-tablet
+			font-size: 16px
+			text-align: center
+
+		+while-mob
+			font-size: 14px
+
+		&:not(:last-child)
+			margin-bottom: 40px
+
+			+until-tablet
+				margin-bottom: 30px
+
+	&__advantages
+		display: grid
+		grid-template-columns: 100%
+		grid-gap: 50px
+		align-items: flex-start
+		padding-top: 30px
+
+		+until-tablet
+			grid-gap: 20px
+			padding-top: 20px
+
+	&__advantage
+		padding: 65px 20px 45px 40px
+
+		background-color: var(--color-white)
+		border-radius: var(--border-radius-base)
+
+		+until-laptop
+			padding: 45px 15px 25px 25px
+
+		& .advantage
+			&__icon
+				width: 73px
+				height: 73px
+
+				+until-laptop
+					bottom: calc(100% + 15px)
+
+					width: 64px
+					height: 64px
+
+				+until-tablet
+					bottom: calc(100% + 10px)
+
+					width: 48px
+					height: 48px
+
+	&__bottom
+		grid-column: 1/-1
+		display: flex
+		justify-content: center
+		align-items: center
+
+		+until-tablet
+			grid-row: 2
+
+		&_tab-view
+			display: none
+
+			&.active
+				+from-mob
+					display: flex
+
+	&__callback
+		display: flex
+		align-items: center
+		justify-content: center
+
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.7
+
+		text-align: center
+		text-transform: uppercase
+
+		+until-desktop
+			flex-direction: column
+
+			font-size: 18px
+
+		+until-tablet
+			font-size: 16px
+
+		+while-mob
+			font-size: 14px
+
+		&-text
+			margin-right: 20px
+			+until-desktop
+				margin-right: 0
+
+		&-phone
+			display: flex
+			align-items: center
+
+			color: var(--color-red)
+
+			transition: color .3s ease
+			text-decoration: none
+			white-space: nowrap
+
+			&:hover
+				color: var(--color-black)
+
+		&-icon
+			margin-right: 5px
+			width: 24px
+			height: 24px
+
+	&_style
+		&_shadow
+
+			& .infoblocks
+				&__advantage
+					box-shadow: var(--shadow-base)
+
+				&__table
+					box-shadow: var(--shadow-base)

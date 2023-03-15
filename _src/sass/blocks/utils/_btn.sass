@@ -1,0 +1,129 @@
+.btn
+	padding: 7px 20px 5px
+	height: 59px
+	display: flex
+	align-items: center
+	justify-content: center
+
+	font-family: $fontFamily
+	font-weight: 700
+	font-size: 16px
+	line-height: 1.2
+	letter-spacing: 0.05em
+
+	color: inherit
+	border-radius: var(--border-radius-base)
+	box-shadow: none
+	text-align: center
+	text-transform: uppercase
+	text-decoration: none
+	border: none
+
+	cursor: pointer
+	appearance: none
+
+	transition: background-color .3s ease, color .3s ease, border-color .3s ease, background-image .3s ease
+
+	+until-desktop
+		height: 50px
+
+	+until-tablet
+		height: 40px
+
+		font-size: 12px
+
+	&:focus
+		outline: none
+
+	&:focus-visible
+		outline: none
+
+	&:active
+		outline: none
+
+	&_style
+		&_trans
+			background-color: transparent
+			color: var(--color-red)
+			border: 1px solid var(--color-red)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-red-trans)
+
+			&:active
+				background-color: var(--color-red)
+				color: var(--color-white)
+
+		&_white-trans
+			background-color: transparent
+			color: var(--color-white)
+			border: 1px solid var(--color-white)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-white-trans)
+
+			&:active
+				background-color: var(--color-white)
+				color: var(--color-black)
+
+		&_black-trans
+			background-color: transparent
+			color: var(--color-black)
+			border: 1px solid var(--color-black)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-black-trans)
+
+			&:active
+				background-color: var(--color-black)
+				color: var(--color-white)
+
+		&_base
+			background-color: var(--color-red)
+			border: 1px solid var(--color-red)
+			color: var(--color-white)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-red-md)
+				border-color: var(--color-red-md)
+
+			&:active
+				background-color: var(--color-red-dr)
+				border-color: var(--color-red-dr)
+
+		&_yellow
+			background-image: var(--gradient-yellow)
+			box-shadow: 0 2px 0 var(--color-orange-dr)
+			color: var(--color-white)
+
+			&:focus,
+			&:hover
+				background-image: linear-gradient(270.06deg, var(--color-orange) 0, var(--color-orange) 100%)
+
+			&:active
+				background-image: linear-gradient(270.06deg, var(--color-orange-dr) 0, var(--color-orange-dr) 100%)
+
+		&_shadow
+			background-color: var(--color-red)
+			box-shadow: 0 2px 0 var(--color-red-dr)
+			border: 1px solid var(--color-red)
+			color: var(--color-white)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-red-md)
+				border-color: var(--color-red-md)
+
+			&:active
+				background-color: var(--color-red-dr)
+				border-color: var(--color-red-dr)
+
+	&_size
+		&_small
+			height: 32px
+
+			font-size: 14px

@@ -1,739 +1,415 @@
 .product-card
-    margin-bottom: 60px
+	padding: 25px 25px 40px
+	display: grid
+	grid-template-columns: 100%
+	grid-template-rows: auto minmax(0, 1fr)
 
-    // Переопределение
-    .content-block
-        margin-bottom: 0
-
-    .product-card__content-block
-        margin-bottom: 20px
+	box-shadow: var(--shadow-base)
+	border-radius: var(--border-radius-base)
+	background-color: var(--color-white)
 
-    &__saleinfo
-        font-weight: bold
-        margin-top: 6px
+	+until-tablet
+		padding: 5px 5px 30px
 
-        &_pos
-            &_top
-                margin-top: 12px
+	&__picture
+		position: relative
+		padding-bottom: 100%
 
-    &__content
-        border: 1px solid #eaeaea
-        padding: 27px
-        width: 100%
-
-        @media screen and (max-width: 450px)
-            padding: 7px
 
-    &__left-info
-        margin-right: 20px
+		display: flex
+		align-items: center
+		justify-content: center
 
-        @media screen and (max-width: 880px)
-            margin-right: 0
+		background-color: var(--color-gray-lt)
+		border-radius: var(--border-radius-base)
 
-    &__article
-        font-weight: 700
-        font-size: 12px
-        color: #b1b2b3
-        width: 100%
-        text-align: right
-
-        @media screen and (max-width: 880px)
-            text-align: left
-            margin-top: 16px
-
-        @media screen and (max-width: 768px)
-            margin-top: 0
+	&__image
+		position: absolute
+		top: 10%
+		left: 10%
 
-        &_mobile
-            display: none
-
-            @media screen and (max-width: 768px)
-                display: block
-                margin-bottom: 6px
-
-        &_pc
-            @media screen and (max-width: 768px)
-                display: none
-
-    &__title-1
-        font-size: 24px
-        color: #323232
-        align-self: flex-start
-        text-align: left
-
-    &__specs-list-item
-        display: flex
-        max-width: 564px
-        overflow: hidden
-
-        &:nth-last-child(n+2)
-            margin-bottom: 12px
-
-        &::before
-            width: 0
-            font-size: 14px
-            content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-            white-space: nowrap
-
-    &__specs-list-item-value
-        margin-left: auto
-        padding-left: 4px
-
-    &__specs-list-item-name
-        padding-right: 4px
-
-    &__specs-list-item-name, &__specs-list-item-value
-        background-color: #fff
-
-    &__buy, &__info-left
-        max-width: 372px
-        width: 100%
-
-    &__img
-        display: block
-
-    &__img-link
-        cursor: zoom-in
-        display: block
-
-        // При наведении на картинку срабатывает js-image-zoom, справа появляется прямоугольник. В некоторых карточках товара справа есть цена. И она может быть зачеркнута (если у товара указана старая цена). Для зачеркивания нужно position: relative. А из-за position: relative блок с ценой по z будет выше прямоугольника справа. Данные строки исправляют это
-        position: relative
-        z-index: 2
-
-    &__info
-        width: 100%
-        display: grid
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
-        grid-gap: 10px 30px
-
-        @media screen and (max-width: 1200px)
-            grid-template-columns: 1fr
-
-    &__info-left, &__info-right
-        @media screen and (max-width: 450px)
-            grid-template-columns: 2fr
-
-    &__info-left
-        display: flex
-        align-items: flex-start
-        flex-direction: column
-
-        .yellow-btn
-            width: 100%
-            padding: 0 10px
-
-            svg
-                margin-right: 10px
-
-        .white-btn
-            width: 100%
-            grid-column: span 2
-
-    &__info-right
-        width: 100%
-        display: grid
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
-        grid-gap: 14px
-
-    &__buy
-        max-width: 271px
-        margin-top: 15px
-
-    &__reviews
-        white-space: nowrap
-
-    &__package
-        margin-top: 14px
-        font-style: italic
-        font-size: 14px
-        line-height: 120%
-        color: #BABABA
-
-    &__tabs-buttons
-        @media screen and (max-width: 768px)
-            display: none
-
-    &__content-wrap
-        display: none
-        padding-top: 20px
-
-        @media screen and (max-width: 768px)
-            padding-bottom: 20px
-
-    &__tabs-page
-        &.active
-            .product-card__content-wrap
-                display: block
-
-            .product-card__mobile-tabs-button
-                background-color: #fff
-                +set_colors_1(color)
-
-                &::before
-                    transform: rotate(-135deg)
-                    top: calc(50% - 2px)
-
-    &__mobile-tabs-button
-        cursor: pointer
-        line-height: 1
-        overflow: hidden
-        position: relative
-        align-items: center
-        justify-content: center
-        text-align: center
-        font-weight: 700
-        padding: 15px 20px
-        transition: color .3s, background-color .3s
-        background: #f6f6f6
-        border: 1px solid #eaeaea
-        box-sizing: border-box
-        border-radius: 2px
-
-        display: none
-
-        @media screen and (max-width: 768px)
-            display: flex
-
-        &::before
-            position: absolute
-            top: calc(50% - 6px)
-            right: 15px
-            display: inline-block
-            width: 0
-            height: 0
-            padding: 3px
-            content: ""
-            transition: .3s ease-in
-            transform: rotate(45deg)
-            border-width: 0 2px 2px 0
-            border-style: solid
-            +set_colors_1(border-color)
-
-    &__unit-span
-        margin-right: 4px
-
-    &__units-wrap
-        font-weight: 600
-        font-size: 14px
-        line-height: 100%
-        grid-column: span 2
-
-    &__unit-link
-        line-height: 1.8
-        transition: .3s
-        cursor: pointer
-
-        @at-root .pop-slide &, .listing__products-item &
-            transition: none
-
-        &:nth-last-of-type(n+2)
-            margin-right: 4px
-
-        &.active
-            +set_colors_1(color)
-            border-radius: 4px
-            padding: 7px 8.5px
-            background-color: #F8F8F8
-
-    &__info-inner
-        grid-column: span 2
-        display: flex
-        align-items: flex-start
-
-        @media screen and (max-width: 1200px)
-            grid-column: span 1
-
-        @media screen and (max-width: 880px)
-            display: block
-
-    &__right-info
-        display: flex
-        margin-left: auto
-        flex-wrap: wrap
-        width: 240px
-
-        @media screen and (max-width: 880px)
-            margin-left: 0
-            margin-bottom: 12px
-
-    &__btn-fav, &__btn-compare
-        margin-top: 12px
-
-        &::after
-            padding-bottom: 2px
-            border-bottom: 1px solid currentColor
-            transition: .3s
-
-        &:hover
-            &::after
-                border-bottom-color: transparent
-
-    &__new-price-wrap
-        font-weight: bold
-
-    &__price-wrap
-        margin-top: 12px
-        font-weight: 700
-        font-size: 24px
-        display: block
-        margin-right: 20px
-
-    &__price-outer
-        display: flex
-        flex-wrap: wrap
-        align-items: center
-
-    &__top
-        margin-bottom: 60px
-
-    &__top-line
-        display: flex
-        align-items: center
-        border-bottom: 1px solid #F0F0F0
-        padding-bottom: 16px
-        margin-bottom: 24px
-        flex-wrap: wrap
-
-        @media screen and (max-width: 880px)
-            border-bottom: none
-            margin-bottom: 0
-
-        @media screen and (max-width: 500px)
-            display: none
-
-        &::after
-            order: 1
-            display: none
-            content: ""
-            width: 100%
-
-            @media screen and (max-width: 880px)
-                display: block
-
-    &__select-span
-        font-size: 12px
-        padding-bottom: 8px
-
-    &__select-wrap
-        @media screen and (max-width: 500px)
-            width: 100%
-            margin-bottom: 16px
-
-            &:nth-last-of-type(1)
-                margin-bottom: 0
-
-        .euv-custom-select
-            width: 100%
-
-        &_align
-            &_right
-                margin-left: auto
-
-                @media screen and (max-width: 500px)
-                    margin-left: 0
-
-        &_type
-            &_full
-                width: 100%
-
-            &_half
-                width: calc(50% - 6px)
-
-        &.mb
-            margin-bottom: 16px
-
-        &.mt
-            margin-top: 16px
-
-    &__info-simple
-        grid-column: span 2
-        display: flex
-
-        @media screen and (max-width: 500px)
-            display: none
-
-    &__delivery
-        display: flex
-        flex-direction: column
-        align-items: flex-start
-        grid-column: span 3
-
-    &__delivery-title
-        font-weight: bold
-        margin-bottom: 14px
-
-    &__delivery-content
-        width: 100%
-        display: flex
-
-        @media screen and (max-width: 500px)
-            flex-wrap: wrap
-
-    &__article-and-availability
-        display: none
-
-        @media screen and (max-width: 500px)
-            display: block
-
-    &__delivery-link
-        cursor: pointer
-        font-size: 12px
-        color: #b1b2b3
-        display: flex
-        align-items: center
-        border-bottom: 1px dashed rgba(60, 60, 59, 0.5)
-        padding-bottom: 3px
-
-        @at-root .product-card_type_usual &
-            margin-top: 8px
-            font-weight: 700
-
-            svg
-                width: 13px
-                height: 13px
-                margin-right: 10px
-
-        @at-root .product-card_type_relinking &
-            font-weight: 600
-            background: url(/assets/template/fonts/icon-delivery-2.svg) no-repeat left top 1px
-            margin-top: 1px
-            padding-left: 16px
-
-        &:hover
-            border-bottom-color: transparent
-
-    &__delivery-text
-        margin-right: 12px
-        font-weight: 600
-
-        @media screen and (max-width: 500px)
-            width: 100%
-            margin-right: 0
-            margin-bottom: 10px
-
-    &__aux-info
-        display: none
-        margin-top: 16px
-
-        .product-card__availability svg
-            margin-right: 6px
-
-        @media screen and (max-width: 500px)
-            display: flex
-
-    &__brand
-        position: absolute
-        left: 10px
-        top: 10px
-        display: block
-        width: 60px
-        height: 40px
-        z-index: 10
-        background: rgba(255, 255, 255, .5)
-
-        +brands_to_selector('::after')
-
-        &::after
-            content: ""
-            display: block
-            width: 100%
-            height: 100%
-            background-repeat: no-repeat
-            background-position: center center
-            box-sizing: border-box
-            background-size: contain
-
-    &__img-wrap
-        position: relative
-
-    &__gallery-item
-        width: 50px
-        height: 50px
-        overflow: hidden
-        border: 2px solid transparent
-        transition: .3s
-        border-radius: 2px
-        display: flex
-        align-items: center
-        justify-content: center
-
-        &:hover
-            +set_colors_1($property: border-color, $opacity: .4)
-
-        &.active
-            +set_colors_1(border-color)
-
-    &__gallery-item-img
-        max-width: 100%
-        height: auto
-        display: block
-
-    &__gallery-btns-wrap
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
-
-    &__gallery
-        width: 260px
-        margin-right: 30px
-        position: relative
-
-        @media screen and (max-width: 768px)
-            margin-left: auto
-            margin-right: auto
-            text-align: center
-
-    // Переопределение
-    .product-card__gallery-slider.product-card__gallery-slider_without-buttons
-        margin-left: 0
-        margin-right: 0
-
-    &__gallery-slider
-        margin-top: 15px
-        margin-left: 26px
-        margin-right: 26px
-
-        @media screen and (max-width: 768px)
-            margin-bottom: 16px
-
-    &__gallery-btn
-        z-index: 10
-        position: absolute
-        border: solid #323232
-        display: inline-block
-        transition: .3s
-        bottom: 20px
-        cursor: pointer
-        border-width: 0 3px 3px 0
-        padding: 6px
-        border-radius: 2px
-
-        @media screen and (max-width: 768px)
-            bottom: 34px
-
-        &:hover
-            +set_colors_1(border-color)
-
-        &_dir
-            &_next
-                right: 0
-                transform: rotate(-45deg)
-
-            &_prev
-                left: 0
-                transform: rotate(135deg)
-
-    &__discount
-        right: -6px
-        top: 20px
-
-    &__controls-elem-input
-        display: flex
-        align-items: center
-        text-transform: uppercase
-        border-color: #eaeaea transparent
-        border-style: solid
-        border-width: 1px
-        height: 40px
-        border-left: 1px solid #eaeaea
-        border-right: 1px solid #eaeaea
-        padding-left: 12px
-        padding-right: 12px
-        text-align: left
-        width: 92px
-        background-color: #ffffff
-        color: #b1b1b1
-        font-size: 13.3333px
-        font-weight: normal !important
-
-    &__discount-block
-        height: 56px
-        border-radius: 4px
-        font-weight: 500
-        font-size: 14px
-        background: #FFFCF5 url(/assets/template/img/svg-sprite/fire.svg) no-repeat left 23px center
-        padding-left: 64px
-        padding-right: 10px
-        display: flex
-        flex-wrap: wrap
-        align-content: center
-        align-items: center
-        line-height: 1.5
-
-        @media only screen and (max-width: 1040px)
-            padding-left: 56px
-            background-position: 17.33px center
-
-    &__discount-block-proposal
-        margin-right: 4px
-
-    &__discount-block-link
-        cursor: pointer
-        +set_colors_1(color)
-
-    &__reasons-header
-        margin-bottom: 24px
-        font-weight: 600
-        font-size: 16px
-
-    &__reasons-items-wrap
-        padding-bottom: 8px
-
-    &__reasons-tip
-        display: flex
-        margin-left: 5.33px
-        margin-top: 2px
-        position: relative
-        fill: #808181
-        height: 20px
-        width: 20px
-
-        &::after
-            content: ""
-            display: none
-            width: 40px
-            height: 15px
-            position: absolute
-            left: 0
-            top: 16px
-
-        &:hover
-            &::after
-                display: block
-
-            .product-card__reasons-tip-text
-                padding-top: 8px
-                padding-bottom: 8px
-                max-height: 600px
-                width: 300px
-                opacity: 1
-
-    &__reasons-tip-text
-        overflow: hidden
-        position: absolute
-        max-height: 0
-        padding-left: 8px
-        padding-right: 8px
-        width: 300px
-        transition: .3s
-        background-color: #fff
-        box-shadow: rgba(51, 51, 51, 0.08) 0px 4px 10px 0px
-        border-radius: 6px
-        z-index: 1
-        top: 20px
-        left: 0
-        opacity: 0
-        font-size: 14px
-
-    &__reasons-item
-        display: flex
-        align-items: center
-        margin-bottom: 16px
-
-    &__reasons-item-img
-        margin-right: 16px
-        display: flex
-        justify-content: center
-        align-items: center
-        padding: 4px
-        width: 32px
-        height: 32px
-        border-radius: 8px
-        background: #FBFBFB no-repeat center center
-        position: relative
-
-        &_icon
-            &_label
-                background-image: url(/assets/template/img/svg-sprite/icon-label.svg)
-
-            &_heart
-                background-image: url(/assets/template/img/svg-sprite/icon-heart-2.svg)
-
-            &_availability
-                background-image: url(/assets/template/img/svg-sprite/icon-availability.svg)
-
-            &_money
-                background-image: url(/assets/template/img/svg-sprite/icon-money-2.svg)
-
-    &__reasons-text
-        font-weight: 500
-        max-width: 312px
-        margin-bottom: 24px
-
-        @media screen and (max-width: 1200px)
-            max-width: none
-
-        a, span
-            +set_colors_1(color)
-
-        span
-            cursor: pointer
-
-    &__return
-        grid-column: span 4
-        padding-left: 22px
-        background: url(/assets/template/img/svg-sprite/icon-return.svg) no-repeat 0 2px
-
-        @media screen and (max-width: 1200px)
-            margin-bottom: 0
-
-        @media screen and (max-width: 480px)
-            grid-column: span 3
-
-    &__availability-cross
-        position: relative
-        width: 13px
-        height: 13px
-        opacity: 1
-        margin-right: 3px
-        margin-top: 1px
-
-        &:before, &:after
-            position: absolute
-            left: 6.5px
-            content: ""
-            height: 13px
-            width: 2px
-            background-color: #aa000f
-
-        &:before
-            transform: rotate(45deg)
-        &:after
-            transform: rotate(-45deg)
-
-    &__availability.negative
-        @media screen and (max-width: 500px)
-            font-size: 12px
-
-            .product-card__availability-cross
-                width: 12px
-                height: 12px
-
-                &:before, &:after
-                    position: absolute
-                    left: 5px
-                    height: 12px
-                    width: 1.5px
-                    background-color: #aa000f
-
-    &__free-shipping
-        grid-column: 1/3
-        +set-colors_1(color)
-        font-weight: bold
-        text-align: center
-
-        @at-root .product-card_type_usual &
-            @media screen and (max-width: 1200px)
-                grid-column: 1/4
-
-        @at-root .product-card_type_relinking-btns &, .product-card_type_relinking &
-            margin-bottom: 16px
-
-        @at-root .product-card_type_relinking &
-            &_screen
-                &_pc
-                    margin-top: 16px
-
-                    @media screen and (max-width: 768px)
-                        margin-bottom: 0
+		display: block
+
+		width: 100%
+		height: 100%
+		max-width: 80%
+		max-height: 80%
+
+		object-fit: contain
+
+	&__actions
+		position: absolute
+		right: 0
+		top: 0
+
+		margin: 10px 10px 0 0
+		display: flex
+		align-items: center
+
+		+until-tablet
+			margin: 5px 5px
+
+		& .product-action
+			&:not(:last-child)
+				margin-right: 10px
+
+				+until-tablet
+					margin-right: 4px
+
+	&__body
+		padding-top: 40px
+		display: flex
+		flex-direction: column
+
+		+until-tablet
+			padding-top: 20px
+
+	&__title
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.5
+
+		+until-tablet
+			font-size: 12px
+			line-height: 1.3
+
+	&__subtitle
+		+from-tablet
+			font-weight: 400
+
+	&__price
+		margin-top: 30px
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		+until-tablet
+			margin-top: 10px
+			flex-direction: column
+			align-items: flex-start
+
+		&-value
+			font-weight: 700
+			font-size: 30px
+			line-height: 1.5
+
+			white-space: nowrap
+
+			+until-tablet
+				font-size: 12px
+
+		&-notion
+			font-weight: 400
+			font-size: 14px
+			line-height: 1.5
+
+			color: var(--color-gray)
+			text-align: right
+
+			+until-tablet
+				font-size: 10px
+
+		&_volume
+			margin-top: 15px
+
+			+until-widescreen
+				flex-wrap: wrap
+
+			+until-tablet
+				flex-direction: row
+
+			& .product-card__price
+				&-value
+					font-size: 20px
+
+					+until-widescreen
+						flex: 1 1 100%
+						text-align: center
+						margin-top: 20px
+
+					+until-desktop
+						font-size: 18px
+
+	&__stats
+		display: flex
+		flex-direction: column
+
+		&:not(:first-child)
+			margin-top: 10px
+
+			+until-tablet
+				margin-top: 7px
+
+		&-dropdown
+			margin-top: 10px
+			margin-bottom: auto
+
+			+until-tablet
+				margin-top: 7px
+
+			&.active
+
+				& .product-card__stats
+					&-title
+						&::after
+							content: 'Скрыть информацию'
+
+		&-title
+			font-size: 12px
+			line-height: 1.5
+
+			+from-desktop
+				display: none
+
+			&::after
+				content: 'Показать информацию'
+
+		&-body
+			height: 0
+
+			transition: height .3s ease
+			overflow: hidden
+
+			+from-desktop
+				height: auto !important
+
+			& .product-card__stats
+				padding-top: 10px
+
+				+from-desktop
+					padding-top: 0
+
+	&__stat
+		display: flex
+		align-items: flex-end
+		justify-content: space-between
+
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.7
+
+		word-wrap: break-word
+		hyphens: auto
+
+		+until-tablet
+			font-size: 10px
+			line-height: 1.1
+
+		&:not(:last-child)
+			+until-tablet
+				margin-bottom: 10px
+
+		&::before
+			content: ''
+
+			order: 2
+			margin-bottom: 6px
+			flex: 1 1 auto
+			min-width: 20px
+
+			border-bottom: 1px dashed var(--color-gray-md)
+
+			+until-tablet
+				margin-bottom: 0
+
+		&-name
+			order: 1
+			max-width: 50%
+
+		&-value
+			order: 3
+
+			text-align: right
+
+	&__bottom
+		margin-top: 25px
+		display: flex
+		align-items: center
+
+		+while-mob
+			margin-top: 20px
+
+	&__counter
+		flex: 1 1 auto
+
+	&__volume
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+
+		&:not(:last-child)
+			margin-right: 10px
+
+		&-title
+			font-weight: 400
+			font-size: 14px
+			line-height: 1.7
+
+			+until-tablet
+				font-size: 12px
+
+			&:not(:last-child)
+				margin-right: 7px
+
+		&-tabs
+			display: flex
+			align-items: center
+
+		&-tab
+			padding: 6px 3px 4px
+			display: flex
+			align-items: center
+			justify-content: center
+
+			font-weight: 700
+			font-size: 10px
+			line-height: 1.2
+			text-align: center
+			text-transform: uppercase
+
+			border: 1px solid var(--color-red)
+			background-color: var(--color-white)
+			border-radius: var(--border-radius-base)
+			color: var(--color-red)
+
+			transition: background-color .3s ease, color .3s ease
+			cursor: pointer
+
+			&:not(:last-child)
+				margin-right: 5px
+
+			&:hover,
+			&.active
+				background-color: var(--color-red)
+				color: var(--color-white)
+
+	&__add
+		position: relative
+
+		white-space: nowrap
+
+		+until-tablet
+			flex: 1 0 55px
+			padding: 3px 16px
+			height: 30px
+
+		&:not(:last-child)
+			margin-right: 10px
+
+			+until-tablet
+				margin-right: 5px
+
+		&.active
+			&::before
+				content: ''
+				position: absolute
+				top: -1px
+				left: -1px
+
+				width: calc(100% + 2px)
+				height: calc(100% + 2px)
+
+				background-color: var(--color-red-dr)
+				border-radius: var(--border-radius-base)
+				background-image: url("data:image/svg+xml,%3Csvg width='146' height='59' viewBox='0 0 146 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M58 29.5L68.0007 39L88 20' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+				background-position: center
+				background-size: 100%
+				background-repeat: no-repeat
+
+		&-text
+			+until-tablet
+				display: none
+
+		&::after
+			content: ''
+			display: none
+
+			width: 24px
+			height: 24px
+
+			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.56522 9.55692C5.5195 9.14524 5.1487 8.84856 4.73702 8.89428C4.32534 8.94 4.02866 9.3108 4.07438 9.72249L5.56522 9.55692ZM5.65057 17.1202L4.90515 17.203L4.90516 17.2031L5.65057 17.1202ZM7.45859 18.739L7.45831 19.489H7.45859V18.739ZM16.7398 18.739L16.7399 17.989H16.7398V18.739ZM18.5488 17.1202L19.2942 17.2031L19.2942 17.2029L18.5488 17.1202ZM20.1241 9.7224C20.1697 9.31071 19.873 8.93994 19.4613 8.89427C19.0496 8.8486 18.6789 9.14532 18.6332 9.55701L20.1241 9.7224ZM3 8.88971C2.58579 8.88971 2.25 9.2255 2.25 9.63971C2.25 10.0539 2.58579 10.3897 3 10.3897V8.88971ZM21.1985 10.3897C21.6128 10.3897 21.9485 10.0539 21.9485 9.63971C21.9485 9.2255 21.6128 8.88971 21.1985 8.88971V10.3897ZM5.05896 9.3043C4.87372 9.67478 5.02389 10.1253 5.39437 10.3105C5.76485 10.4958 6.21536 10.3456 6.4006 9.97512L5.05896 9.3043ZM8.22046 6.33541C8.4057 5.96493 8.25553 5.51442 7.88505 5.32918C7.51456 5.14394 7.06406 5.29411 6.87881 5.66459L8.22046 6.33541ZM17.7979 9.97512C17.9832 10.3456 18.4337 10.4958 18.8042 10.3105C19.1747 10.1253 19.3248 9.67478 19.1396 9.3043L17.7979 9.97512ZM17.3197 5.66459C17.1345 5.29411 16.684 5.14394 16.3135 5.32918C15.943 5.51442 15.7928 5.96493 15.9781 6.33541L17.3197 5.66459ZM8.61944 15.0993C8.61944 15.5135 8.95522 15.8493 9.36944 15.8493C9.78365 15.8493 10.1194 15.5135 10.1194 15.0993H8.61944ZM10.1194 13.2794C10.1194 12.8652 9.78365 12.5294 9.36944 12.5294C8.95522 12.5294 8.61944 12.8652 8.61944 13.2794H10.1194ZM11.3492 15.0993C11.3492 15.5135 11.685 15.8493 12.0992 15.8493C12.5134 15.8493 12.8492 15.5135 12.8492 15.0993H11.3492ZM12.8492 13.2794C12.8492 12.8652 12.5134 12.5294 12.0992 12.5294C11.685 12.5294 11.3492 12.8652 11.3492 13.2794H12.8492ZM14.079 15.0993C14.079 15.5135 14.4148 15.8493 14.829 15.8493C15.2432 15.8493 15.579 15.5135 15.579 15.0993H14.079ZM15.579 13.2794C15.579 12.8652 15.2432 12.5294 14.829 12.5294C14.4148 12.5294 14.079 12.8652 14.079 13.2794H15.579ZM4.07438 9.72249L4.90515 17.203L6.39598 17.0374L5.56522 9.55692L4.07438 9.72249ZM4.90516 17.2031C5.04981 18.5041 6.14928 19.4885 7.45831 19.489L7.45887 17.989C6.91391 17.9888 6.45619 17.579 6.39597 17.0373L4.90516 17.2031ZM7.45859 19.489H16.7398V17.989H7.45859V19.489ZM16.7398 19.489C18.0493 19.4891 19.1495 18.5046 19.2942 17.2031L17.8034 17.0373C17.7431 17.5792 17.2851 17.989 16.7399 17.989L16.7398 19.489ZM19.2942 17.2029L20.1241 9.7224L18.6332 9.55701L17.8034 17.0375L19.2942 17.2029ZM3 10.3897H21.1985V8.88971H3V10.3897ZM6.4006 9.97512L8.22046 6.33541L6.87881 5.66459L5.05896 9.3043L6.4006 9.97512ZM19.1396 9.3043L17.3197 5.66459L15.9781 6.33541L17.7979 9.97512L19.1396 9.3043ZM10.1194 15.0993V13.2794H8.61944V15.0993H10.1194ZM12.8492 15.0993V13.2794H11.3492V15.0993H12.8492ZM15.579 15.0993V13.2794H14.079V15.0993H15.579Z' fill='white'/%3E%3C/svg%3E")
+			background-position: center
+			background-size: 100%
+			background-repeat: no-repeat
+
+			+until-tablet
+				display: block
+
+
+	&_catalog
+		padding: 18px 18px 35px
+
+		& .product-card
+
+			&__body
+				padding-top: 20px
+
+			&__title
+				+from-tablet
+					font-size: 16px
+
+			&__subtitle
+				+from-tablet
+					font-size: 14px
+
+			&__actions
+				& .product-action
+					+from-tablet
+						width: 36px
+						height: 36px
+
+			&__stat
+				font-size: 14px
+				+until-desktop
+					font-size: 12px
+
+			&__add
+				height: 43px
+				padding: 5px 13px 3px
+
+				font-size: 12px
+
+				+until-desktop
+					flex: 1 0 55px
+					padding: 3px 16px
+					height: 30px
+
+				+media-until(350px)
+					max-width: 70px
+
+				&:not(:last-child)
+					margin-right: 7px
+					+while-mob
+						margin-right: 4px
+
+				&-text
+					+until-desktop
+						display: none
+
+				&::after
+					+until-desktop
+						display: block
+
+			&__counter
+				height: 43px
+
+				+until-desktop
+					flex: 0 1 140px
+					height: 30px
+
+				& .counter
+					&__btn
+						flex: 0 0 43px
+
+						+until-desktop
+							flex: 1 0 30px
+
+						+while-mob
+							min-width: 20px
+							flex-shrink: 1
+
+					&__input
+						font-size: 16px
+
+						+until-desktop
+							font-size: 12px

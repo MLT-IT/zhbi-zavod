@@ -1,0 +1,97 @@
+.h-catalog
+	margin: 0 -35px
+
+	border-spacing: 35px 0
+	border-collapse: separate
+
+	&__row
+		&:last-child
+			& .h-catalog
+				&__item
+					padding-bottom: 0
+
+	&__title
+		position: sticky
+		top: 0
+
+		padding-bottom: 11px
+
+		font-weight: 400
+		font-size: 14px
+		line-height: 1.2
+		color: var(--color-gray)
+
+		text-align: left
+		user-select: none
+
+		&::before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			z-index: -1
+
+			width: 100%
+			height: calc(100% + 18px)
+
+			background-color: var(--color-white)
+
+	&__item
+		padding-bottom: 17px
+
+		vertical-align: middle
+
+		&_border
+			padding-right: 35px
+
+			border-right: 1px solid var(--color-black-trans)
+
+.h-catalog-item
+	display: flex
+	align-items: center
+
+	cursor: pointer
+	color: var(--color-black)
+
+	&__preview
+		flex-shrink: 0
+		padding: 5px
+		width: 40px
+		height: 37px
+		margin-right: 20px
+
+		background-color: var(--color-gray-lt)
+		border-radius: 6px
+
+		transition: background-color .3s ease
+
+	&__image
+		display: block
+
+		width: 100%
+		height: 100%
+
+		object-fit: contain
+
+	&__name
+		font-weight: 400
+		font-size: 14px
+		line-height: 1.2
+
+		border-bottom: 1px solid var(--color-black-trans)
+
+		transition: color .3s ease, border-color .3s ease
+
+		&_bold
+			font-weight: 700
+
+	&_active,
+	&:hover
+		color: var(--color-red)
+
+		& .h-catalog-item
+			&__name
+				border-color: transparent
+
+			&__preview
+				background-color: var(--color-red)

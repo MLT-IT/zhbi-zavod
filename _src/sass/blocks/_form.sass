@@ -1,34 +1,83 @@
-.form__inputs input,
-.form__inputs textarea,
-.custom-input,
-.custom-textarea
-    background-color: rgb(248, 248, 248)
-    border-radius: 2px
-    width: 100%
-    color: #3c3c3b
-    padding-left: 14px
-    border: 1px solid transparent
-    transition: box-shadow .3s, border-color .3s
+.form
+	&__items
+		display: grid
+		grid-template-columns: 100%
+		grid-gap: 15px
 
-.form__inputs input,
-.form__inputs textarea,
-.custom-input
-    &:hover
-        box-shadow: none
-        +set_colors_1(border-color)
+		+until-tablet
+			grid-gap: 10px
 
-.form__inputs label span
-    display: block
-    font-size: 14px
-    margin-bottom: 5px
+		&:not(:last-child)
+			margin-bottom: 32px
 
-.form__inputs label.error input, .form__inputs label.error textarea
-    border-color: #e80000
-    color: #e80000
+		&_double
+			grid-template-columns: repeat(2, minmax(0, 1fr))
 
-.form__inputs textarea
-    resize: none
-    padding-top: 8px
+			+until-tablet
+				grid-template-columns: 100%
 
-.form__inputs input, .custom-input
-    height: 45px
+	&__item
+
+		&_wide
+			grid-column: 1 / -1
+
+	&__title
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.2
+
+		+until-tablet
+			text-align: center
+
+		&:not(:last-child)
+			margin-bottom: 20px
+
+	&__radios
+		display: flex
+		flex-direction: column
+
+		+until-tablet
+			width: max-content
+			margin: 0 auto
+
+		&:not(:last-child)
+			margin-bottom: 32px
+
+		& .default-radio
+			&:not(:last-child)
+				margin-bottom: 10px
+
+	&__submit
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		&_row
+			flex-direction: row
+			justify-content: space-between
+
+			+until-tablet
+				flex-direction: column
+
+			& .form
+				&__suggestion
+					margin-top: 0
+					margin-right: 20px
+
+					+until-tablet
+						margin-right: 0
+
+
+	& .btn
+		+until-tablet
+			order: 2
+
+	&__suggestion
+		margin-top: 20px
+
+		+until-tablet
+			width: min-content
+			min-width: 240px
+			order: 1
+			margin-top: 0
+			margin-bottom: 25px

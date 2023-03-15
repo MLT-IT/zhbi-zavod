@@ -1,0 +1,34 @@
+@import @fancyapps/fancybox/dist/jquery.fancybox.min.css
+
+.fancybox-slide--html
+	& .fancybox-close-small
+		top: 15px
+		right: 15px
+
+		padding: 0
+		width: 60px
+		height: 60px
+
+		color: var(--color-black)
+		opacity: 1
+		box-shadow: none
+		filter: none
+
+		+until-tablet
+			top: 5px
+			right: 5px
+
+			width: 52px
+			height: 52px
+
+		&:focus,
+		&:hover
+			color: var(--color-red)
+			outline: none
+
+		& svg
+			width: 100%
+			height: 100%
+
+			box-shadow: none
+			filter: none

@@ -1,0 +1,56 @@
+.main-screen
+	padding: 0 0 40px
+
+	background-color: var(--color-gray-lt)
+
+	&__banners
+		width: 100%
+		display: grid
+		grid-template-columns: minmax(0, 3fr) minmax(0, 1fr)
+		grid-template-rows: minmax(333px, 1fr)
+		grid-gap: 20px
+
+		+until-laptop
+			grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
+
+		+until-desktop
+			grid-template-columns: 100%
+			grid-template-rows: minmax(313px, 1fr)
+
+		&:not(:last-child)
+			margin-bottom: 80px
+
+			+until-laptop
+				margin-bottom: 60px
+
+			+until-desktop
+				margin-bottom: 20px
+
+
+	&__slider
+		position: relative
+
+		width: 100%
+
+		&:only-child
+			grid-column: 1 / -1
+
+		& .swiper-container
+			width: 100%
+			height: 100%
+
+		& .swiper-buttons
+			+while-mob
+				display: none
+
+	&__sub-slider
+		position: relative
+
+		width: 100%
+
+		+until-desktop
+			display: none
+
+		& .swiper-container
+			width: 100%
+			height: 100%

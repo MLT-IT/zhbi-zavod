@@ -2,243 +2,216 @@
 <div class="mobile-sticky-header"></div>
 <div class="mobile-header"></div>
 
-{* Эта переменная используется не только тут, но и в chunks/mobileMenu.tpl. Так что повнимательнее, если захочешь удалить ее *}
-{set $menuIsSimple = $_modx->resource.context_key not in list ['krovlya', 'kirpich-m', 'armatura-178', 'plitaosb', 'fasad']}
-
-<header class="header">
-    <div class="header__wrapper wrapper">
-        <span class="header__burger burger">
-            <span class="burger__stick"></span>
-            <span class="burger__stick"></span>
-            <span class="burger__stick"></span>
-        </span>
-        <div class="header__line header__line_type_about">
-            <div class="header__about">
-                <a class="header__about-phone" href="tel:{'phone' | option}">{'phone' | option}</a>
-
-                <div class="header__about-text">
-                    Поставка
-                    {if $_modx->context.key == 'krovlya'}
-                        кровли
-                    {elseif $_modx->context.key == 'pilomat'}
-                        пиломатериалов
-                    {elseif $_modx->context.key == 'kirpich-m'}
-                        кирпича
-                    {elseif $_modx->context.key == 'fasady-pro'}
-                        деревянных фасадов
-                    {elseif $_modx->context.key == 'fasad'}
-                        фасадов
-                    {elseif $_modx->context.key == 'armatura-178'}
-                        арматуры
-                    {elseif $_modx->context.key == 'asconcrete'}
-                        асфальтобетона
-                    {elseif $_modx->context.key == 'plitaosb'}
-                        плит ОСБ
-                    {elseif $_modx->context.key == 'pro-fanera'}
-                        фанеры
-                    {elseif $_modx->context.key == 'plity-mdvp'}
-                        плит МДВП
-                    {elseif $_modx->context.key == 'policarbonat'}
-                        поликарбоната
-                    {else}
-                        утеплителя {$brand}
-                    {/if}
-                    по Санкт-Петербургу и Ленинградской области
-                </div>
-
-                {*<a href="#" class="header__about-city">Санкт-Петербург и Ленинградская область</a>*}
-            </div>
-            <div class="header__contacts">
-                <div class="header__contacts-city" data-address-2="Мурино, Кооперативная 20б">
-                    {'address' | option}
-                </div>
-                <div class="header__contacts-time">Часы работы: ежедневно с 8:00 до 21:00</div>
-            </div>
-            <div class="header__callback-wrap">
-                <a class="header__phone" href="tel:{'phone' | option}">{'phone' | option}</a>
-                <span data-btn-key="header-link" class="header__callback" data-fancybox="" data-src="#header-callback">
-                    <svg class="svg icon-phone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 17 17" width="17" height="17">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-phone"></use>
-                    </svg>
-                    Заказать звонок
-                </span>
-            </div>
-        </div>
-        <div class="header__line header__line_type_elems">
-            <a href="/" class="header__logo-wrap">
-                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro', 'pro-fanera', 'fasad', 'policarbonat']}
-                    {*
-                    <picture>
-                        <source srcset="/assets/template/img/logos/plitaosb-mobile.png" media="(max-width: 768px)">
-                        <img class="header__logo" src="/assets/template/img/logos/plitaosb.png">
-                    </picture>
-                    *}
-                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.png">
-                {else}
-                    <img class="header__logo" src="/assets/template/img/logos/{$site_context}.svg">
-                {/if}
-            </a>
-            <div class="header__catalog">
-                <div class="header__catalog-btn">
-                    <div class="burger">
-                        <span class="burger__stick"></span>
-                        <span class="burger__stick"></span>
-                        <span class="burger__stick"></span>
-                    </div>
-                    <span class="header__catalog-text">Каталог</span>
-                </div>
-                <div class="header__catalog-menu header__catalog-menu_width_full">
-                    <div class="header__catalog-menu-inner">
-                        <a href="/catalog/" class="header__catalog-menu-header">Перейти в каталог</a>
-                        {set $menu = 'createMenu' | snippet}
-
-                        {if $menuIsSimple}
-                            {foreach $menu as $key => $menuTypes}
-                                <div class="header__catalog-menu-type">
-                                    <p class="header__column-header">{$key}</p>
-                                    <div class="header__columns-wrap">
-                                        {foreach $menuTypes as $items}
-                                            <div class="header__column">
-                                                <div class="header__column-items-wrap">
-                                                    {foreach $items as $item}
-                                                        <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
-                                                            {$item.name}
-                                                        </a>
-                                                    {/foreach}
-                                                </div>
-                                            </div>
-                                        {/foreach}
-                                    </div>
-                                </div>
-                            {/foreach}
-                        {else}
-                            {foreach $menu as $column}
-                                <div class="header__catalog-menu-type">
-                                    {foreach $column as $items}
-                                        <div class="header__column{$items.children | count == 0 ? ' header__column_without-children' : ''}">
-                                            <p class="header__column-header">
-                                                {if $items.uri ?}
-                                                    <a class="header__column-header-link" data-val="{$items.name}" href="{$items.uri}">{$items.name}</a>
-                                                {else}
-                                                    <span>{$items.name}</span>
-                                                {/if}
-                                            </p>
-
-                                            <div class="header__columns-wrap">
-                                                <div class="header__column-items-wrap">
-                                                    {foreach $items.children as $item}
-                                                        <a class="header__menu-item" data-val="{$item.name}" href="{$item.uri}">
-                                                            {$item.name}
-                                                        </a>
-                                                    {/foreach}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/foreach}
-                                </div>
-                            {/foreach}
-                        {/if}
-                    </div>
-                </div>
-            </div>
-
-            <form action="/search/" class="header__search-wrap" fast-search-form="desktop">
-                <input class="header__search" placeholder="Поиск по сайту" name="query" fast-search-input="desktop">
-                <button type="submit" class="header__search-btn"></button>
-            </form>
-
-            <div class="header__btns-wrap">
-                <a class="header__cat" href="/catalog/">
-                    <span class="header__cat-icon">
-                        <span class="header__cat-icon-stick"></span>
-                        <span class="header__cat-icon-stick"></span>
-                        <span class="header__cat-icon-stick"></span>
-                    </span>
-                    <span class="header__cat-text">Каталог</span>
-                </a>
-
-                <a class="header__favorites" href="/favorites/">
-                    <svg class="svg icon-heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-heart"></use>
-                    </svg>
-                    <span class="header__fav-value">{$_modx->getPlaceholder('checkItems')['fav'] | length}</span>
-                    <span class="header__favorites-text">Избранное</span>
-                </a>
-                <a class="header__comparison" href="/comparison/">
-                    <svg class="svg icon-compare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-compare"></use>
-                    </svg>
-                    <span class="header__comp-value">{$_modx->getPlaceholder('checkItems')['comp'] | length}</span>
-                    <span class="header__comparison-text">Сравнение</span>
-                </a>
-
-                {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
-            </div>
-        </div>
-
-        <div class="header__nav-list">
-            {set $about = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'o-kompanii']}
-            {set $garantii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'garantii']}
-            {set $certs = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'certs']}
-            {set $faq = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'faq']}
-            {set $akcii = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'akcii']}
-            {set $rezka = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'rezka']}
-            {set $raspil = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'raspil']}
-            {set $primenenie = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'primenenie']}
-
-            {if $about['hidemenu'] == 0 && $about['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/o-kompanii/">О компании</a></span>
-            {/if}
-
-            <span class="header__nav-item"><a class="header__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a></span>
-
-            {if $_modx->resource.context_key == 'krovlya'}
-                {set $calcservices = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'calculation-services']}
-
-                {if $calcservices['hidemenu'] == 0 && $calcservices['published'] == 1}
-                  <span class="header__nav-item"><a class="header__nav-link" href="/calculation-services/">Сервисы расчета</a></span>
-                {/if}
-            {/if}
-
-            {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya', 'fasady-pro', 'fasad']}
-                {set $showroom = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'show-room']}
-
-                {if $showroom['hidemenu'] == 0 && $showroom['published'] == 1}
-                  <span class="header__nav-item"><a class="header__nav-link" href="/show-room/">Шоурум</a></span>
-                {/if}
-            {/if}
-
-            {if $certs['hidemenu'] == 0 && $certs['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/certs/">Сертификаты</a></span>
-            {/if}
-            {if $faq['hidemenu'] == 0 && $faq['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/faq/">Вопросы-ответы</a></span>
-            {/if}
-            {if $garantii['hidemenu'] == 0 && $garantii['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/garantii/">Гарантии</a></span>
-            {/if}
-            {if $akcii['hidemenu'] == 0 && $akcii['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/akcii/">Акции</a></span>
-            {/if}
-            {if $rezka['hidemenu'] == 0 && $rezka['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/rezka/">Резка</a></span>
-            {/if}
-
-            <span class="header__nav-item"><a class="header__nav-link" href="/contacts/">Контакты</a></span>
-
-            {if $raspil['hidemenu'] == 0 && $raspil['published'] == 1}
-                <span class="header__nav-item"><a class="header__nav-link" href="/raspil/">Распил</a></span>
-            {/if}
-
-            {if $primenenie['hidemenu'] == 0 && $primenenie['published'] == 1}
-              <span class="header__nav-item"><a class="header__nav-link" href="/primenenie/">Применение</a></span>
-            {/if}
-
-            <a class="header__email" href="mailto:{'email' | option}">
-                {'email' | option}
-            </a>
-        </div>
-
-        {include 'file:chunks/mobileMenu.tpl'}
+<header class="header" data-hello="1">
+  <div class="header__mobile">
+    <div class="header__container">
+      <button class="header__burger icon-btn icon-btn_style_red">
+        <svg class="icon-btn__icon" aria-hidden="true">
+          <use xlink:href="assets/template/pictures/icons.svg#svg-burger"></use>
+        </svg>
+      </button>
+      <div class="h-logo h-logo_mobile"><img class="h-logo__image" src="assets/template/pictures/logo-mob.svg" alt="monolit-logo"></div>
+      <div class="header__actions">
+        <button class="header__action icon-btn icon-btn_style_black">
+          <svg class="icon-btn__icon" aria-hidden="true">
+            <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+          </svg>
+        </button>
+        <button class="header__action icon-btn icon-btn_style_white">
+          <svg class="icon-btn__icon" aria-hidden="true">
+            <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+          </svg>
+        </button>
+      </div>
     </div>
+  </div>
+  <div class="header__top">
+    <div class="header__container">
+      <div class="h-subinfo h-subinfo_color_grey"><span class="h-subinfo__text">Продажа газобетона в Санкт-Петербурге</span></div>
+      <div class="h-subinfo h-subinfo_display_widescreen">
+        <svg class="h-subinfo__icon" aria-hidden="true">
+          <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
+        </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
+      </div>
+      <div class="h-subinfo">
+        <svg class="h-subinfo__icon" aria-hidden="true">
+          <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
+        </svg>
+        <a class="h-subinfo__link" href="mailto:{'email' | option}">{'email' | option}</a>
+      </div>
+      <div class="h-subinfo h-subinfo_size_big">
+        <svg class="h-subinfo__icon" aria-hidden="true">
+          <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+        </svg><a class="h-subinfo__link" href="tel:{'phone' | option}">{'phone' | option}</a>
+      </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
+    </div>
+  </div>
+  <div class="header__bottom">
+    <div class="header__container">
+      <a href="/" class="h-logo">
+        <img class="h-logo__image" src="assets/template/pictures/logo.svg" alt="monolit-logo">
+      </a>
+      <div class="header__toolbar">
+        <div class="h-menu header__menu" data-dropdown>
+          <button class="h-menu__btn btn btn_style_base">Меню</button>
+          <div class="h-menu__dropdown">
+            <nav class="h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
+            </nav>
+          </div>
+        </div>
+        <div class="h-menu header__catalog" data-dropdown>
+          <button class="h-menu__btn btn btn_style_base">Каталог</button>
+          <div class="h-menu__dropdown">
+            <table class="h-catalog">
+              <thead>
+              <tr>
+                <th class="h-catalog__title">Товар</th>
+                <th class="h-catalog__title">Плотность</th>
+                <th class="h-catalog__title">Размеры</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="h-catalog__row">
+                <td class="h-catalog__item h-catalog__item_border">
+                  <div class="h-catalog-item">
+                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-1.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон ЛСР</span>
+                  </div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
+                </td>
+              </tr>
+              <tr class="h-catalog__row">
+                <td class="h-catalog__item h-catalog__item_border">
+                  <div class="h-catalog-item">
+                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-2.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон СК</span>
+                  </div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
+                </td>
+              </tr>
+              <tr class="h-catalog__row">
+                <td class="h-catalog__item h-catalog__item_border">
+                  <div class="h-catalog-item">
+                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-3.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон YTONG</span>
+                  </div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
+                </td>
+              </tr>
+              <tr class="h-catalog__row">
+                <td class="h-catalog__item h-catalog__item_border">
+                  <div class="h-catalog-item">
+                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-4.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон ЕАБ</span>
+                  </div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
+                </td>
+              </tr>
+              <tr class="h-catalog__row">
+                <td class="h-catalog__item h-catalog__item_border">
+                  <div class="h-catalog-item">
+                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-5.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон AEROC</span>
+                  </div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
+                </td>
+                <td class="h-catalog__item">
+                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="search header__search" data-dropdown>
+          <div class="search__wrapper">
+            <button class="search__btn icon-btn icon-btn_style_red">
+              <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
+                <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
+              </svg>
+            </button>
+            <input class="search__input" type="search" placeholder="Хочу найти...">
+          </div>
+          <div class="search__dropdown">
+            <div class="search__dropdown-wrapper"><span class="search__dropdown-title">Результат поиска:</span>
+              <ul class="search__options">
+                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
+                  <button class="search__option-add icon-btn icon-btn_style_white">
+                    <svg class="icon-btn__icon" aria-hidden="true">
+                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
+                  <button class="search__option-add icon-btn icon-btn_style_white">
+                    <svg class="icon-btn__icon" aria-hidden="true">
+                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
+                  <button class="search__option-add icon-btn icon-btn_style_white">
+                    <svg class="icon-btn__icon" aria-hidden="true">
+                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
+                  <button class="search__option-add icon-btn icon-btn_style_white">
+                    <svg class="icon-btn__icon" aria-hidden="true">
+                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
+                  <button class="search__option-add icon-btn icon-btn_style_white">
+                    <svg class="icon-btn__icon" aria-hidden="true">
+                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+              <button class="search__more btn btn_style_trans">показать ещё</button>
+            </div>
+          </div>
+        </div>
+        <nav class="header__nav h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
+        </nav>
+        <div class="header__actions">
+          <a href="/favorites/" class="header__action icon-btn icon-btn_style_white">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
+            </svg>
+          </a>
+          <a href="/comparison/" class="header__action icon-btn icon-btn_style_white">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
+            </svg>
+          </a>
+          <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

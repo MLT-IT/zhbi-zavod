@@ -1,0 +1,65 @@
+// НАСТРОЙКИ
+// Минимальная ширина страницы
+$minWidth: 320
+
+// Ширина полотна (макета)
+$maxWidth: 1920
+
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1366
+
+// Общий отступ у контейнера
+$containerPadding: 30
+
+// Общая ширина контейнера
+$containerWidth: $maxWidthContainer + $containerPadding * 2
+
+// Шрифт по умолчанию
+$fontFamily: 'Gotham Pro', sans-serif
+
+[class*="__container"]
+	&:not(.fancybox__container)
+		@if ($maxWidthContainer > 0)
+			box-sizing: content-box
+			max-width: $maxWidthContainer + px
+			margin: 0 auto
+
+		@if ($containerPadding > 0)
+			padding: 0 $containerPadding + px
+			+until-desktop
+				padding: 0 20px
+			+while-mob
+				padding: 0 10px
+
+.layout
+	display: flex
+	flex-direction: column
+	min-height: 100%
+	&__main
+		flex-grow: 1
+
+html
+	scroll-behavior: smooth
+
+html,
+body
+	height: 100%
+	overscroll-behavior-y: none
+
+body
+	width: 100%
+	margin: 0 auto
+
+	font-family: $fontFamily
+	line-height: 1.2
+	font-size: 16px
+
+	color: var(--color-black)
+	background-color: var(--color-white)
+
+	&.mobilemenu-opened,
+	&.fancybox-active
+		overflow: hidden
+
+.secret-field
+	display: none

@@ -1,0 +1,36 @@
+.breadcrumbs
+	padding: 24px 0
+
+	+while-mob
+		padding: 14px 0 24px
+
+	&__items
+		display: flex
+		align-items: center
+
+		+while-mob
+			justify-content: center
+
+	&__item
+		font-weight: 400
+		font-size: 12px
+		line-height: 1.7
+		color: var(--color-gray)
+
+		text-decoration: none
+		transition: color .3s ease
+
+		&:hover,
+		&:focus
+			color: var(--color-black)
+
+		&:not(:last-child)
+			margin-right: 8px
+
+			&::after
+				content: '/'
+				margin-left: 8px
+
+		&_active,
+		&:last-child
+			color: var(--color-black)

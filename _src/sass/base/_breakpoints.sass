@@ -1,0 +1,93 @@
+// Брейк-поинты
+$grid-breakpoints: ('mobile': 480px, 'tablet': 768px, 'laptop': 992px, 'laptop-xl': 1200px, 'laptop-xxl': 1400px)
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints)
+	$min: map-get($breakpoints, $name)
+	@return if($min != 0, $min, null)
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints)
+	$max: map-get($breakpoints, $name)
+	@return if($max and $max > 0, $max - 0.02, null)
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints)
+	$min: breakpoint-min($name, $breakpoints)
+	@if $min
+		@media (min-width: $min)
+			@content
+	@else
+		@content
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints)
+	$max: breakpoint-max($name, $breakpoints)
+	@if $max
+		@media (max-width: $max)
+			@content
+	@else
+		@content
+
+// -==========================================================================================================
+@mixin from-mob()
+	@include media-breakpoint-up('mobile')
+		@content
+
+@mixin from-tablet()
+	@include media-breakpoint-up('tablet')
+		@content
+
+@mixin from-desktop()
+	@include media-breakpoint-up('laptop')
+		@content
+
+@mixin from-laptop()
+	@include media-breakpoint-up('laptop-xl')
+		@content
+
+@mixin from-widescreen()
+	@include media-breakpoint-up('laptop-xxl')
+		@content
+
+// -==========================================================================================================
+@mixin while-mob()
+	@include media-breakpoint-down('mobile')
+		@content
+
+@mixin until-tablet()
+	@include media-breakpoint-down('tablet')
+		@content
+
+@mixin until-desktop()
+	@include media-breakpoint-down('laptop')
+		@content
+
+@mixin until-laptop()
+	@include media-breakpoint-down('laptop-xl')
+		@content
+
+@mixin until-widescreen()
+	@include media-breakpoint-down('laptop-xxl')
+		@content
+
+// -==========================================================================================================
+@mixin media-from($val)
+	@media (min-width: $val)
+		@content
+
+@mixin media-until($val)
+	@media (max-width: $val - 0.02)
+		@content
+
+@mixin media-height($height, $width: 0)
+	@if($width != 0)
+		@media (max-height: $height) and (min-width: $width)
+			@content
+	@else
+		@media (max-height: $height)
+			@content
+
+@mixin pointer-desk
+	@media (hover: hover) and (pointer: fine)
+		@content
+
+@mixin pointer-touch
+	@media (hover: none) and (pointer: coarse)
+		@content

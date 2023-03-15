@@ -1,0 +1,62 @@
+.cart-total
+	padding: 30px 25px 40px
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+
+	background-color: var(--color-gray-lt)
+	border-radius: var(--border-radius-base)
+
+	+until-tablet
+		align-items: center
+		padding: 20px 32px 30px
+
+	&__title, &__price
+		font-weight: 700
+		line-height: 1.5
+		text-align: right
+
+		+while-mob
+			text-align: center
+
+	&__title
+		margin-bottom: 15px
+
+		font-size: 20px
+
+		+while-mob
+			margin-bottom: 5px
+
+			font-size: 16px
+
+	&__price
+		font-size: 30px
+
+	&__notion
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.5
+		text-align: right
+
+		color: var(--color-gray)
+
+		+while-mob
+			font-size: 12px
+
+			text-align: center
+
+	&__btns
+		margin-top: 35px
+		width: 100%
+		display: flex
+		flex-direction: row-reverse
+		align-items: center
+		justify-content: space-between
+
+		+until-tablet
+			display: grid
+			grid-template-columns: 100%
+			grid-gap: 32px
+
+		+while-mob
+			margin-top: 5px

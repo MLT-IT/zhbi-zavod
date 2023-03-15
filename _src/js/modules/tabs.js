@@ -1,33 +1,38 @@
-export default function initTabs() {
-    const allTabs = document.querySelectorAll('[data-tabs]');
-    // const tabsSelects = document.querySelectorAll('[data-select-tabs]');
-    if (allTabs || tabsSelects) {
-        allTabs.forEach((tabs) => {
-            const arr = Array.from(tabs.children)
-            const tabPages = document.querySelectorAll(`.${tabs.getAttribute('data-tabs')} > *`);
-            arr.forEach((elem) => {
-                elem.addEventListener('click', () => {
-                    // remove кнопки
-                    arr.forEach(e => e.classList.remove('active'));
+export default class Tabs {
+    tabsSections = document.querySelectorAll("[data-tabs]")
 
-                    // remove Вкладки
-                    tabPages.forEach(item => item.classList.remove('active'));
+    constructor() {
+        if (this.tabsSections.length) this.#init();
+    }
+    #init() {
+        this.tabsSections.forEach((section) => {
+            const event = section.hasAttribute('data-tabs-hover') ? 'mouseenter' : 'click';
+            const tabs = section.querySelectorAll('[data-tab]');
+            const views = section.querySelectorAll('[data-tab-page]');
+            tabs.forEach((tab) => {
+                const tabValue = tab.dataset.tab;
+                if (!tabValue) return;
 
-                    // add Кнопка
-                    elem.classList.add('active');
-                    // add вкладка
-                    tabPages[elem.getAttribute('data-tab-page')].classList.add('active');
-                });
-            });
-        });
-        // tabsSelects.forEach((select) => {
-        //     const tabPages = document.querySelectorAll(`.${select.getAttribute('data-select-tabs')} > *`);
-        //     select.addEventListener('change', () => {
-        //         // remove Вкладки
-        //         tabPages.forEach(item => item.classList.remove('active'));
-        //         // add вкладка
-        //         tabPages[select.options[select.selectedIndex].getAttribute('data-tab-page')].classList.add('active');
-        //     })
-        // })
+                tab.addEventListener(event, (e) => {
+                    e.preventDefault();
+
+                    tabs.forEach((item) => {
+                        if (item.dataset.tab !== tabValue) {
+                            item.classList.remove('active');
+                        } else {
+                            item.classList.add('active')
+                        }
+                    })
+
+                    views.forEach((item) => {
+                        if (item.dataset.tabPage !== tabValue) {
+                            item.classList.remove("active")
+                        } else {
+                            item.classList.add('active')
+                        }
+                    })
+                })
+            })
+        })
     }
 }

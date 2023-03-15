@@ -1,0 +1,80 @@
+.preview-card
+	padding: 15px 15px 40px
+	display: flex
+	flex-direction: column
+
+	background: var(--color-white)
+	box-shadow: var(--shadow-base)
+	border-radius: var(--border-radius-base)
+
+	+until-tablet
+		padding: 8px 8px 32px
+
+	&__picture
+		height: 220px
+		padding: 45px 30px
+		display: flex
+		align-items: center
+		justify-content: center
+		margin-bottom: 30px
+
+		background-color: var(--color-gray-lt)
+		border-radius: var(--border-radius-base)
+
+		+until-tablet
+			height: 128px
+			padding: 25px 18px
+			margin-bottom: 20px
+
+	&__image
+		display: block
+
+		max-width: 100%
+		max-height: 100%
+
+		object-fit: contain
+
+	&__name
+		margin-bottom: 11px
+
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.2
+
+		+until-tablet
+			font-size: 16px
+
+	&__price
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.5
+
+		+until-tablet
+			font-size: 12px
+
+	&__notion
+		font-weight: 400
+		font-size: 14px
+		line-height: 1.5
+
+		color: var(--color-gray)
+
+		+until-tablet
+			font-size: 10px
+
+	&__btn
+		margin-top: 24px
+		align-self: flex-start
+
+		+until-tablet
+			padding: 8px 20px
+			margin-top: 15px
+
+			font-size: 12px
+
+	&:hover
+		box-shadow: 10px 0px 60px rgba(211, 85, 60, 0.3)
+
+		& .preview-card
+			&__picture
+				background-color: var(--color-gray-md)

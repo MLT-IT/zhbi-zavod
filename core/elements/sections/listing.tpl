@@ -1,0 +1,36 @@
+<section class="catalog section">
+  <div class="catalog__container" id="mse2_mfilter">
+    <div class="catalog__filter filter" data-dropdown>
+      <button class="filter__btn btn btn_style_base">фильтры</button>
+      <form action="{$_modx->resource.id | url}" class="filter__body" id="mse2_filters" method="post">
+          {$filters}
+      </form>
+    </div>
+
+    <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
+      <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
+      <div class="sorting__body">
+        <span class="sorting__title">Сортировать:</span>
+        <a href="#" class="sorting__item{if $.get.sort == ''} active{/if}" data-sort="" data-dir="">По популярности</a>
+        <a href="#" class="sorting__item{if $.get.sort == 'ms|price:desc'} active{/if} sorting__item_switch" data-sort="ms|price" data-dir="" data-default="desc">По цене</a>
+        <a href="#" class="sorting__item{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if} sorting__item_switch sorting__item_switch_up" data-sort="ms_product|pagetitle" data-dir="" data-default="desc">По алфавиту</a>
+      </div>
+    </div>
+
+    <div class="catalog__body">
+      <div class="catalog__products" id="mse2_results">
+          {$results}
+      </div>
+      <button class="btn btn_style_trans catalog__more">{$pagenav}</button>
+
+      <div class="catalog__banner banner">
+        <picture class="banner__bg">
+          <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+        </picture>
+        <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
+        <p class="banner__text">Акция до конца месяца</p>
+        <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+      </div>
+    </div>
+  </div>
+</section>

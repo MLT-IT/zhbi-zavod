@@ -1,0 +1,112 @@
+.promo-block
+	position: relative
+	z-index: 0
+
+	padding: 40px 60px 35px
+
+	border-radius: var(--border-radius-base)
+
+	+until-tablet
+		display: flex
+		flex-direction: column
+		padding: 25px 30px 25px 10px
+
+	&__bg
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: -1
+
+		background-color: var(--color-white)
+		border-radius: var(--border-radius-base)
+		overflow: hidden
+
+		&-img
+			display: block
+			width: 100%
+			height: 100%
+
+			object-fit: cover
+			object-position: bottom right
+
+	&__title
+		margin-bottom: 10px
+
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.2
+
+		+until-tablet
+			line-height: 1.3
+
+	&__text
+		margin-bottom: auto
+
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.2
+
+		+until-tablet
+			font-size: 12px
+			line-height: 1.3
+
+	&__btn
+		margin-top: 30px
+		width: max-content
+
+		+until-tablet
+			margin-top: 25px
+			padding: 10px 10px 6px
+
+			font-size: 12px
+
+	&_view
+		&_big
+			padding: 60px 60px 45px
+
+			+until-desktop
+				padding: 40px 60px 35px
+
+			+until-tablet
+				padding: 25px 30px 25px 10px
+
+			& .promo-block
+				&__title
+					margin-bottom: 15px
+
+					font-size: 30px
+
+					+until-desktop
+						margin-bottom: 10px
+
+						font-size: 20px
+
+				&__text
+					font-size: 20px
+
+					+until-desktop
+						font-size: 16px
+
+					+until-tablet
+						font-size: 12px
+
+				&__btn
+					margin-top: 40px
+
+					+until-desktop
+						margin-top: 30px
+
+					+until-tablet
+						margin-top: 25px
+
+	&_style
+
+		&_white
+			color: var(--color-white)
+
+		& .promo-block
+
+			&__bg
+				background-image: linear-gradient(293.96deg, #D3553C 5.68%, #FCA796 87.17%)

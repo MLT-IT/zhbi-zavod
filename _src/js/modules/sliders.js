@@ -1,152 +1,139 @@
-import Swiper, {Navigation, Pagination, Scrollbar, Thumbs, Autoplay, Lazy} from 'swiper';
+import Swiper from "swiper";
+import {Navigation, EffectFade, Pagination, Autoplay, Thumbs} from "swiper";
+Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
 
-Swiper.use([Navigation, Pagination, Scrollbar, Thumbs, Autoplay, Lazy]);
+export function initSliders() {
+    const mainScreenSliderContainer = document.querySelector('.main-screen__slider');
 
-// Галерея на странице товара
-new Swiper(".product-card_type_usual .product-card__gallery-slider, .product-card_type_relinking-btns .product-card__gallery-slider", {
-    loop: false,
-    spaceBetween: 4,
-    slidesPerView: 'auto', // Чтобы размер фоток был как в CSS, делаем auto
-    lazy: {loadPrevNext: true},
-    navigation: {
-        nextEl: ".product-card__gallery-btn_dir_next",
-        prevEl: ".product-card__gallery-btn_dir_prev"
-    },
-});
-
-// Галерея на странице товара с перелинковкой
-new Swiper(".product-card_type_relinking .product-card__gallery-slider", {
-    loop: false,
-    spaceBetween: 8,
-    slidesPerView: 'auto', // Чтобы размер фоток был как в CSS, делаем auto
-    lazy: {loadPrevNext: true},
-    direction: 'horizontal',
-    navigation: {
-        nextEl: ".product-card__gallery-btn_dir_next",
-        prevEl: ".product-card__gallery-btn_dir_prev"
-    },
-
-    breakpoints: {
-        481: {
-            direction: 'vertical',
-            spaceBetween: 4,
-        }
-    }
-});
-
-// Слайдер с популярными товарами и слайдер на странице сравнения
-let sliderPopCompare = new Swiper(".product-slider-1 .swiper-container", {
-    loop: false,
-    slidesPerView: "auto",
-    lazy: {loadPrevNext: true},
-    navigation: {
-        nextEl: ".product-slider-1 .swiper-button-next",
-        prevEl: ".product-slider-1 .swiper-button-prev"
-    },
-    scrollbar: {draggable: true, el: ".product-slider-1 .swiper-scrollbar"}
-});
-
-// Слайдер с недавно просмотренными товарами
-let sliderRecentlyViewed = new Swiper(".product-slider-2 .swiper-container", {
-    loop: false,
-    slidesPerView: "auto",
-    lazy: {loadPrevNext: true},
-    navigation: {
-        nextEl: ".product-slider-2 .swiper-button-next",
-        prevEl: ".product-slider-2 .swiper-button-prev"
-    },
-    scrollbar: {draggable: true, el: ".product-slider-2 .swiper-scrollbar"}
-});
-
-// Слайдер "Распродажа" на новой странице каталога
-let sliderSales = new Swiper(".product-slider-3 .swiper-container", {
-    loop: false,
-    slidesPerView: "auto",
-    lazy: {loadPrevNext: true},
-    navigation: {
-        nextEl: ".product-slider-3 .swiper-button-next",
-        prevEl: ".product-slider-3 .swiper-button-prev"
-    },
-    scrollbar: {draggable: true, el: ".product-slider-3 .swiper-scrollbar"}
-});
-
-// Слайдер с тегами
-new Swiper(".listing__tags", {
-    slidesPerView: "auto",
-    freeMode: true,
-    scrollbar: {
-        draggable: true,
-        el: ".listing__tags .swiper-scrollbar"
-    }
-});
-
-
-// ---------------------------------------
-// Исправление одного бага на мобилках для слайдеров с товарами.
-//
-// Подробнее о баге см. скриншот:
-// _dev/screenshots/photo_2022-05-26_17-55-36.jpg
-// ---------------------------------------
-$(sliderPopCompare, sliderRecentlyViewed, sliderSales).each(function (i, e) {
-    if (e.slides) {
-        e.on('slideChange', setZIndexToSlides);
-        setZIndexToSlides(e);
-    }
-});
-
-function setZIndexToSlides(slider) {
-    let amount = slider.slides.length + 10;
-    slider.slides.each(function (e, i) {
-        $(e).css('z-index', amount - i);
-    });
-}
-
-
-// ---------------------------------------
-// Слайдер с логотипами партнеров
-// ---------------------------------------
-let sliderClients = null;
-
-function breakpointChecker() {
-    if (window.innerWidth < 1350) {
-        sliderClientsEnable();
-    } else {
-        if (sliderClients !== null) {
-            sliderClients.destroy(true, true);
-            sliderClients = null;
-            // spaceBetween прописывается в style. А если слайдера нет, то и spaceBetween не нужен
-            $('.clients__list-img').css('margin-right', '');
-        }
-    }
-
-    if (window.innerWidth >= 500) {
-        // На 500 slidesPerView устанавливается как auto. Это значит, что ширина больше не задается через JS. Но она и не сбрасывается. Видимо, так написан swiper.js. Возможно, есть способ настроить плагин так, чтобы ширина сбрасывалась. Но я пока этот способ не знаю.
-        $('.clients__list-img').css('width', '');
-    }
-}
-
-function sliderClientsEnable() {
-    if (sliderClients === null) {
-        sliderClients = new Swiper(".clients__list", {
-            loop: false,
-            lazy: {loadPrevNext: true},
-            spaceBetween: 30,
-            navigation: {nextEl: ".clients__list .swiper-button-next", prevEl: ".clients__list .swiper-button-prev"},
-            breakpoints: {
-                300: {spaceBetween: 30, slidesPerView: 1},
-                400: {slidesPerView: 2, spaceBetween: 10},
-                500: {slidesPerView: 'auto'}
+    if (mainScreenSliderContainer) {
+        const mainScreenSlider = new Swiper(mainScreenSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            autoplay: {
+                delay: 5000
             },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            navigation: {
+                prevEl: mainScreenSliderContainer.querySelector('.swiper-button-prev') || null,
+                nextEl: mainScreenSliderContainer.querySelector('.swiper-button-next') || null,
+            },
+            pagination: {
+                el: mainScreenSliderContainer.querySelector('.swiper-pagination') || null,
+                type: 'bullets',
+            }
+        })
+    }
 
-            // Если убрать эти строки, то при загрузке страницы стрелки слайдера будут неактивны, т.к. картинки подгружаются через lazyload, а ширина слайдов зависит от картинок. Если картинок нет, то и ширина нулевая. А это значит, что и стрелки не нужны, чтобы листать слайды.
-            // Подробнее: https://stackoverflow.com/questions/43770106/swiper-slider-not-working-unless-page-is-resized
-            observer: true,
-            observeParents: true
+    const mainScreenSubSliderContainer = document.querySelector('.main-screen__sub-slider');
+
+    if (mainScreenSubSliderContainer) {
+        const mainScreenSubSlider = new Swiper(mainScreenSubSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 7500
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: {
+                el: mainScreenSubSliderContainer.querySelector('.swiper-pagination') || null,
+                type: 'bullets',
+            }
+        })
+    }
+
+    const productsPreviewSliderContainer = document.querySelector('.products-preview__slider');
+
+    if (productsPreviewSliderContainer) {
+        const productsPreviewSlider = new Swiper(productsPreviewSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 'auto',
+            spaceBetween: 9,
+            navigation: {
+                prevEl: productsPreviewSliderContainer.querySelector('.swiper-button-prev') || null,
+                nextEl: productsPreviewSliderContainer.querySelector('.swiper-button-next') || null,
+            },
+        })
+    }
+
+    const productPicturesSliderContainer = document.querySelector('.product__pictures-slider');
+
+    if (productPicturesSliderContainer) {
+        const productPicturesSliderThumbsContainer = document.querySelector('.product__pictures-thumbs');
+        let productPicturesSliderThumbs;
+        if (productPicturesSliderThumbsContainer) {
+            productPicturesSliderThumbs = new Swiper(productPicturesSliderThumbsContainer, {
+                loop: true,
+                spaceBetween: 5,
+                slidesPerView: 3,
+                direction: 'horizontal',
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                breakpoints: {
+                    1200: {
+                        direction: 'vertical',
+                        slidesPerView: 4,
+                        spaceBetween: 15
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 15
+                    }
+                }
+            });
+        }
+
+        const productPicturesSlider = new Swiper(productPicturesSliderContainer, {
+            loop: true,
+            spaceBetween: 0,
+            slidesPerView: 1,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            thumbs: {
+                swiper: productPicturesSliderThumbs || null,
+            },
         });
     }
-}
 
-$(window).on('resize', function () {
-    breakpointChecker();
-});
-breakpointChecker();
+    const reviewsSliderContainer = document.querySelector('.reviews__slider');
+
+    if (reviewsSliderContainer) {
+        const reviewsSlider = new Swiper(reviewsSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            navigation: {
+                prevEl: reviewsSliderContainer.querySelector('.swiper-button-prev') || null,
+                nextEl: reviewsSliderContainer.querySelector('.swiper-button-next') || null,
+            },
+        })
+    }
+
+    const otherProductsSliderContainer = document.querySelector('.other-products__slider');
+
+    if (otherProductsSliderContainer) {
+        const otherProductsSlider = new Swiper(otherProductsSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 'auto',
+            spaceBetween: 6,
+            navigation: {
+                prevEl: otherProductsSliderContainer.querySelector('.swiper-button-prev') || null,
+                nextEl: otherProductsSliderContainer.querySelector('.swiper-button-next') || null,
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 16
+                }
+            }
+        })
+    }
+}

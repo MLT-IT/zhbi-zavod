@@ -1,0 +1,141 @@
+.header
+	&__container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__mobile
+		position: relative
+
+		padding: 20px 0
+
+		+from-desktop
+			display: none
+
+		+until-tablet
+			padding: 16px 0 8px
+
+		& .h-logo
+			position: absolute
+			left: 50%
+			bottom: 20px
+			margin: 0 auto
+
+			transform: translateX(-50%)
+
+			+until-tablet
+				bottom: 8px
+
+	&__burger
+		position: relative
+
+		margin-right: 20px
+
+		&.active
+			& .icon-btn__icon
+				display: none
+
+			&::before
+				content: ''
+				width: 24px
+				height: 24px
+
+				background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L11.205 4.205L14 1.41Z' fill='white'/%3E%3C/svg%3E")
+				background-position: center
+				background-size: 100%
+				background-repeat: no-repeat
+
+				+until-tablet
+					width: 12px
+					height: 12px
+
+	&__top
+		padding: 13px 0 10px
+
+		background-color: var(--color-white)
+
+		& .h-subinfo
+			&:not(:last-child)
+				margin-right: 15px
+
+		+until-desktop
+			display: none
+
+	&__bottom
+		padding: 10px 0 20px
+
+		background-color: var(--color-gray-lt)
+
+		+until-desktop
+			padding: 18px 0
+
+		& .h-logo
+			margin-right: 32px
+
+			+until-desktop
+				display: none
+
+		& .header
+			&__actions
+				margin-left: 32px
+
+				+until-widescreen
+					margin-left: auto
+
+				+until-desktop
+					display: none
+
+	&__toolbar
+		align-self: flex-end
+		flex: 1 1 auto
+		display: flex
+		align-items: center
+
+	&__menu
+		margin-right: 10px
+
+		+from-widescreen
+			display: none
+
+		+until-desktop
+			display: none
+
+		& .h-nav
+			flex-direction: column
+			align-items: flex-start
+
+			&__link
+				&:not(:last-child)
+					margin-right: 0
+					margin-bottom: 20px
+
+	&__catalog
+		margin-right: 10px
+
+		+until-desktop
+			display: none
+
+	&__search
+		flex: 0 1 355px
+		margin-right: 32px
+
+		+until-widescreen
+			margin-right: 10px
+
+		+until-desktop
+			flex: 1 1 100%
+			margin-right: 0
+
+	&__nav
+		margin: 0 auto
+
+		+until-widescreen
+			display: none
+
+	&__actions
+		display: flex
+		align-items: center
+
+	&__action
+		&:not(:last-child)
+			margin-right: 10px

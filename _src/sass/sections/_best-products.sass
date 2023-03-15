@@ -1,0 +1,23 @@
+.best-products
+	&__title
+		margin-bottom: 32px
+
+		color: var(--color-red)
+
+		+until-tablet
+			margin-bottom: 16px
+
+	&__products
+		display: grid
+		grid-template-columns: repeat(auto-fit, minmax(330px, 1fr))
+		grid-gap: 16px
+
+		+until-tablet
+			grid-gap: 10px 6px
+			grid-template-columns: repeat(auto-fit, minmax(167px, 1fr))
+
+		& .product-card
+			&__counter
+				& .counter__btn
+					+until-laptop
+						flex-shrink: 1

@@ -1,0 +1,61 @@
+//  Скрыть горизонтальный скролл
+@mixin hide-scroll()
+	&::-webkit-scrollbar
+		appearance: none
+		-webkit-appearance: none
+		width: 0
+		&:horizontal
+			height: 0
+
+// Оформление горизонтального скроллбара
+@mixin Hscroll()
+	scrollbar-color: var(--color-gray-lt) var(--color-gray)
+	scrollbar-width: thin
+
+	&::-webkit-scrollbar /* 1 - скроллбар */
+		appearance: none
+		-webkit-appearance: none
+		&:horizontal
+			height: 5px
+
+	&::-webkit-scrollbar-track /* 2 - трек */
+		border-radius: 2px
+		background: var(--color-gray-lt)
+
+	&::-webkit-scrollbar-thumb /* 3 - ползунок */
+		background-color: var(--color-gray)
+		border-radius: 2px
+		border: 3px solid var(--color-gray)
+
+// Оформление вертикального скроллбара
+@mixin Vscroll()
+	scrollbar-color: var(--color-gray-lt) var(--color-gray)
+	scrollbar-width: thin
+
+	&::-webkit-scrollbar /* 1 - скроллбар */
+		width: 6px
+		appearance: none
+		-webkit-appearance: none
+
+	&::-webkit-scrollbar-track /* 3 - трек */
+		border-radius: 0
+		background: var(--color-gray-lt)
+
+	&::-webkit-scrollbar-thumb /* 5 - ползунок */
+		border-radius: 0
+		background-color: var(--color-gray)
+		border: 3px solid var(--color-gray)
+
+// Обрезаем строки
+@mixin cutString($count)
+	overflow: hidden
+	text-overflow: ellipsis
+	display: -webkit-box
+	-webkit-line-clamp: $count
+	-webkit-box-orient: vertical
+
+// Отключение ховеров в тач устройствах
+@mixin hover()
+	@media (hover: hover)
+		&:hover
+			@content

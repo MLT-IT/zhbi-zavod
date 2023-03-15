@@ -1,0 +1,151 @@
+.faq
+	&__title
+		margin-bottom: 32px
+
+		+until-tablet
+			margin-bottom: 20px
+
+	&__list
+		display: grid
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+		grid-gap: 30px 35px
+		align-items: flex-start
+
+		+until-desktop
+			grid-template-columns: 100%
+			grid-gap: 20px
+
+		+while-mob
+			grid-gap: 15px
+
+		&:not(:last-child)
+			margin-bottom: 40px
+
+			+until-desktop
+				margin-bottom: 30px
+
+			+while-mob
+				margin-bottom: 20px
+
+	&__column
+		display: grid
+		grid-template-columns: 100%
+		grid-gap: 30px
+
+		+until-desktop
+			grid-template-columns: 100%
+			grid-gap: 20px
+
+		+while-mob
+			grid-gap: 15px
+
+	&__more
+		margin: 0 auto
+
+.faq-item
+	&__top
+		min-height: 50px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 0 0 0 20px
+
+		background: var(--color-white)
+		border-radius: var(--border-radius-base)
+
+		cursor: pointer
+		transition: background .3s ease, border-radius .3s ease
+
+		+while-mob
+			padding: 0 0 0 10px
+			min-height: 45px
+
+		&:hover
+			background: rgba(211, 85, 60, 0.3)
+
+	&__title
+		margin-right: 20px
+		padding: 4px 0 2px
+
+		font-weight: 700
+		font-size: 16px
+		line-height: 1.2
+		+cutString(2)
+
+		+while-mob
+			font-size: 14px
+
+	&__toggler
+		height: 50px
+		width: 50px
+		padding: 0
+		flex-shrink: 0
+
+		border-radius: var(--border-radius-base)
+		background-image: url("data:image/svg+xml,%3Csvg width='59' height='59' viewBox='0 0 59 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 27.9998C15.1716 27.9998 14.5 28.6713 14.5 29.4998C14.5 30.3282 15.1716 30.9998 16 30.9998V27.9998ZM28.5 30.9998C29.3284 30.9998 30 30.3282 30 29.4998C30 28.6713 29.3284 27.9998 28.5 27.9998V30.9998ZM28.5 27.9998C27.6716 27.9998 27 28.6713 27 29.4998C27 30.3282 27.6716 30.9998 28.5 30.9998V27.9998ZM41 30.9998C41.8284 30.9998 42.5 30.3282 42.5 29.4998C42.5 28.6713 41.8284 27.9998 41 27.9998V30.9998ZM29.9999 29.5C29.9999 28.6716 29.3284 28 28.4999 28C27.6715 28 26.9999 28.6716 26.9999 29.5H29.9999ZM26.9999 42C26.9999 42.8284 27.6715 43.5 28.4999 43.5C29.3284 43.5 29.9999 42.8284 29.9999 42H26.9999ZM26.9999 29.5C26.9999 30.3284 27.6715 31 28.4999 31C29.3284 31 29.9999 30.3284 29.9999 29.5H26.9999ZM29.9999 17C29.9999 16.1716 29.3284 15.5 28.4999 15.5C27.6715 15.5 26.9999 16.1716 26.9999 17H29.9999ZM16 30.9998H28.5V27.9998H16V30.9998ZM28.5 30.9998H41V27.9998H28.5V30.9998ZM26.9999 29.5V42H29.9999V29.5H26.9999ZM29.9999 29.5V17H26.9999V29.5H29.9999Z' fill='white'/%3E%3C/svg%3E")
+		background-color: var(--color-red)
+		background-position: center
+		background-repeat: no-repeat
+		background-size: 100%
+		border: none
+		outline: none
+
+		cursor: pointer
+		appearance: none
+
+		transition: .3s ease
+
+		+while-mob
+			height: 45px
+			width: 45px
+
+		&:focus
+			outline: none
+
+		&:focus,
+		&:hover
+			background-color: var(--color-red-md)
+			border-color: var(--color-red-md)
+
+		&:focus-visible
+			outline: none
+
+		&:active
+			outline: none
+			background-color: var(--color-red-dr)
+			border-color: var(--color-red-dr)
+
+	&.active
+		& .faq-item
+			&__top
+				border-radius: var(--border-radius-base) var(--border-radius-base) 0 0
+
+			&__toggler
+				background-color: var(--color-red-dr)
+				border-color: var(--color-red-dr)
+				background-image: url("data:image/svg+xml,%3Csvg width='59' height='59' viewBox='0 0 59 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M42 30H17' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+
+	&__dropdown
+		margin-top: -1px
+		height: 0
+
+		background-color: var(--color-white)
+		border-radius: 0 0 var(--border-radius-base) var(--border-radius-base)
+
+		transition: height .3s ease
+		overflow: hidden
+
+	&__content
+		padding: 20px 70px 35px 20px
+
+		border-top: 1px solid var(--color-gray-md)
+
+		+while-mob
+			padding: 15px 10px 25px
+
+	&__text
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.5
+		+while-mob
+			font-size: 12px

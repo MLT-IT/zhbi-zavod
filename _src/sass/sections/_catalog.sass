@@ -1,0 +1,58 @@
+.catalog
+	padding-bottom: 50px
+
+	+until-tablet
+		padding-bottom: 30px
+
+	&__container
+		display: grid
+		grid-template-columns: minmax(275px, 330px) minmax(840px, 1fr)
+		grid-template-rows: auto 1fr
+		grid-gap: 10px 30px
+
+		+until-laptop
+			grid-gap: 10px 15px
+
+		+until-laptop
+			grid-template-columns: repeat(2 , auto)
+			grid-gap: 10px 6px
+
+		+until-tablet
+			grid-template-columns: repeat(2 , minmax(0, 1fr))
+
+	&__filter
+		grid-row: 1 / -1
+
+		+until-laptop
+			grid-row: 1
+
+	&__body
+		display: grid
+		grid-template-columns: 100%
+		grid-gap: 40px
+
+		+until-laptop
+			grid-column: 1 / -1
+
+		+until-tablet
+			grid-gap: 30px
+
+	&__more
+		justify-self: center
+
+	&__products
+		display: grid
+		grid-template-columns: repeat(3, minmax(0, 1fr))
+		grid-gap: 20px 12px
+
+		+until-desktop
+			grid-gap: 12px 6px
+
+		+media-until(600px)
+			grid-template-columns: repeat(2, minmax(0, 1fr))
+
+		+media-until(350px)
+			grid-template-columns: 100%
+
+	&__product
+		height: 100%

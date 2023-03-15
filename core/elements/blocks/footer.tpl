@@ -1,127 +1,135 @@
 <footer class="footer">
-    <div class="wrapper">
-        <div class="footer__left">
-            <a class="footer__logo" href="/">
-                {if $_modx->resource.context_key in list ['plitaosb', 'web', 'rockwool', 'tn', 'paroc', 'penoplex', 'ursa', 'isover', 'fasady-pro', 'pro-fanera', 'fasad', 'policarbonat']}
-                    {*
-                    <picture>
-                        <source srcset="/assets/template/img/logos/plitaosb-mobile.png" media="(max-width: 768px)">
-                        <img class="header__logo-img adaptive-img" src="/assets/template/img/logos/plitaosb.png">
-                    </picture>
-                    *}
-                    <img class="footer__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.png">
-                {else}
-                    <img class="footer__logo-img adaptive-img" src="/assets/template/img/logos/{$site_context}.svg">
-                {/if}
+  <div class="footer__container">
+    <div class="footer__left">
+      <div class="footer__column"><a class="footer__logo" href="/">
+          <img class="footer__logo-image" src="assets/template/pictures/logo-white.svg" alt="monolit-logo"></a><span class="footer__copy">© 2010-{'' | date : "Y"}</span>
+      </div>
+      <div class="footer__column">
+        <address class="footer__contacts">
+            <a class="footer__contact" href="tel:+78122109963">
+              <svg class="footer__contact-icon" aria-hidden="true">
+                <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+              </svg>
+              <span class="footer__contact-value">+7 (812) 210-99-63</span>
             </a>
-            <div class="footer__about">© 2010-{'' | date : "Y"}</div>
-            <div class="footer__payment"><span>Принимаем к оплате:</span>
-                <div class="footer__payment-list">
-                    <img src="{$_modx->config['template_path']}img/payment/payment1.png" alt="Платежная система МИР">
-                    <img src="{$_modx->config['template_path']}img/payment/payment2.png" alt="Платежная система Виза">
-                    <img src="{$_modx->config['template_path']}img/payment/payment3.png" alt="Платежная система Виза Электрон">
-                    <img src="{$_modx->config['template_path']}img/payment/payment4.png" alt="Платёжная система Маэстро">
-                    <img src="{$_modx->config['template_path']}img/payment/payment5.png" alt="Платежная система Мастер Кард">
-                </div>
-            </div>
-            <ul class="footer__nav-list">
-                <li class="footer__nav-item"><span class="footer__link" data-fancybox data-type="ajax" data-src="/confidential/">Политика конфиденциальности</span></li>
-                {if $_modx->resource.template === 1}
-                <li class="footer__nav-item"><a href="/sitemap/">Карта сайта</a></li>
-                {/if}
-            </ul>
-
-            {switch $_modx->resource.context_key}
-                {case 'kirpich-m'}
-                    {set $bangeId = '87565500476'}
-                {case 'plitaosb'}
-                    {set $bangeId = '8738659448'}
-                {case 'pro-fanera'}
-                    {set $bangeId = '54568639872'}
-                {case 'fasad'}
-                    {set $bangeId = '198187341990'}
-                {case 'fasady-pro'}
-                    {set $bangeId = '238477607568'}
-                {case 'pilomat'}
-                    {set $bangeId = '175010721251'}
-                {case 'rockwool'}
-                    {set $bangeId = '224264785290'}
-                {case 'paroc'}
-                    {set $bangeId = '1055099724'}
-                {case 'tn'}
-                    {set $bangeId = '1013634831'}
-                {case 'isover'}
-                    {set $bangeId = '186816765148'}
-                {case 'krovlya'}
-                    {set $bangeId = '55933391293'}
-            {/switch}
-
-            {if $bangeId ?}
-                <div id="clickinformer" class="footer__rating-badge">
-                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/{$bangeId}?type=rating" width="150" height="50" frameborder="0"></iframe>
-                </div>
-            {/if}
+            <a class="footer__contact" href="mailto:zakaz@www-gazobeton.ru">
+              <svg class="footer__contact-icon" aria-hidden="true">
+                <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
+              </svg>
+              <span class="footer__contact-value">zakaz@www-gazobeton.ru</span>
+            </a>
+          <div class="footer__contact">
+            <svg class="footer__contact-icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
+            </svg>
+            <span class="footer__contact-value">Мурино, Кооперативная, 20Б</span>
+          </div>
+        </address>
+        <div class="footer__socials"><a class="footer__social" href="#">
+            <svg class="footer__social-logo" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-vk"></use>
+            </svg>
+          </a><a class="footer__social" href="#">
+            <svg class="footer__social-logo" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-ok"></use>
+            </svg>
+          </a><a class="footer__social" href="#">
+            <svg class="footer__social-logo" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-tg"></use>
+            </svg>
+          </a><a class="footer__social" href="#">
+            <svg class="footer__social-logo" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-zen"></use>
+            </svg>
+          </a><a class="footer__social" href="#">
+            <svg class="footer__social-logo" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-youtube"></use>
+            </svg>
+          </a>
         </div>
-        {if $_modx->getPlaceholder('footer_nav_ids') | length > 1}
-        <div class="footer__nav-block">
-            <div class="footer__nav-block-title">Категории</div>
-            <ul class="footer__nav-list">
-                {'pdoResources' | snippet : [
-                  'parents' => $_modx->getPlaceholder('catalog_id'),
-                  'resources'=> $_modx->getPlaceholder('footer_nav_ids'),
-                  'tpl' => '@INLINE <li class="footer__nav-item"><a href="{$uri}">{$menutitle}</a></li>',
-                  'where' => '{"template":5}',
-                  'limit' => '0',
-                  'select' => 'uri,menutitle'
-                ]}
-            </ul>
-            </div>
-        {/if}
-        <div class="footer__nav-block">
-            <div class="footer__nav-block-title">Покупателям</div>
-            <ul class="footer__nav-list">
-                <li class="footer__nav-item"><a href="/o-kompanii/">О компании</a></li>
-                <li class="footer__nav-item"><a href="/contacts/">Контакты</a></li>
-                <li class="footer__nav-item"><a href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-
-                {if $_modx->resource.context_key == 'krovlya'}
-                    {set $calcservices = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'calculation-services']}
-
-                    {if $calcservices['hidemenu'] == 0 && $calcservices['published'] == 1}
-                      <li class="footer__nav-item"><a href="/calculation-services/">Сервисы расчета</a></li>
-                    {/if}
-                {/if}
-
-                {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya', 'fasady-pro', 'fasad']}
-                    {set $showroom = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'show-room']}
-
-                    {if $showroom['hidemenu'] == 0 && $showroom['published'] == 1}
-                      <li class="footer__nav-item"><a href="/show-room/">Шоурум</a></li>
-                    {/if}
-                {/if}
-
-                <li class="footer__nav-item"><a href="/faq/">Вопросы-ответы</a></li>
-                <li class="footer__nav-item"><a href="/akcii/">Акции</a></li>
-
-                {set $raspil = '@FILE snippets/getResourceByAlias.php' | snippet : ['alias' => 'raspil']}
-                {if $raspil['hidemenu'] == 0 && $raspil['published'] == 1}
-                  <li class="footer__nav-item"><a href="/raspil/">Распил</a></li>
-                {/if}
-
-                <li class="footer__nav-item"><a href="/certs/">Сертификаты</a></li>
-                <li class="footer__nav-item"><a href="/garantii/">Гарантии</a></li>
-            </ul>
-        </div>
-        <div class="footer__right">
-            <div class="footer__nav-block-title">Контактная информация</div>
-            <ul class="footer__contacts-list">
-                <li><a class="footer__about-phone" href="tel:{'phone' | option}">{'phone' | option}</a></li>
-                <li><a class="footer__email" href="mailto:{'email' | option}"> {'email' | option} </a></li>
-                <li>{'address' | option}</li>
-                <li>Часы работы: ежедневно с 8:00 до 21:00</li>
-            </ul>
-
-            {include "file:elements/social-list.tpl"}
-        </div>
+        <a class="footer__politic link link_white" data-fancybox="" data-type="ajax" data-src="/confidential/">Политика конфиденциальности</a>
+      </div>
     </div>
+    <div class="footer__right">
+      <div class="footer__nav">
+        <p class="footer__nav-title">Каталог</p>
+        <nav class="footer__nav-list">
+          <a class="footer__nav-item" href="/o-kompanii/">О компании</a>
+          <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
+          <a class="footer__nav-item" href="/certs/">Сертификаты</a>
+          <a class="footer__nav-item" href="/garantii/">Гарантии</a>
+        </nav>
+      </div>
+      <div class="footer__nav footer__nav_categories">
+        <p class="footer__nav-title">Популярные категории</p>
+        <nav class="footer__nav-list"><a class="footer__nav-item" href="#">Газобетон СК</a>
+          <a class="footer__nav-item" href="#">ЕвроАэроБетон</a><a class="footer__nav-item" href="#">Газобетон ЛСР</a><a class="footer__nav-item" href="#">Газобетон Аэрок</a><a class="footer__nav-item" href="#">Газобетон H+H</a>
+          <a class="footer__nav-item" href="#">Газобетон Могилевский</a>
+          <a class="footer__nav-item" href="#">Газобетон Ютонг</a>
+          <a class="footer__nav-item" href="#">Газобетон Забудова</a>
+        </nav>
+      </div>
+      <div class="footer__payment">
+        <p class="footer__payment-title">Мы принимаем к оплате:</p>
+        <ul class="footer__payment-list">
+          <li class="footer__payment-item">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mir.png" alt="mir">
+          </li>
+          <li class="footer__payment-item">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard.png" alt="mastercard">
+          </li>
+          <li class="footer__payment-item">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard-2.png" alt="mastercard-2">
+          </li>
+          <li class="footer__payment-item">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa-2.png" alt="visa-2">
+          </li>
+          <li class="footer__payment-item">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa.png" alt="visa">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<section class="burger-menu">
+  <div class="burger-menu__container">
+    <nav class="burger-menu__nav">
+      <div class="burger-menu__nav-items"><a class="burger-menu__nav-link" href="#">О компании</a><a class="burger-menu__nav-link" href="#">Акции</a><a class="burger-menu__nav-link" href="#">Доставка и оплата</a><a class="burger-menu__nav-link" href="#">Контакты</a>
+      </div>
+    </nav>
+    <div class="burger-menu__catalog">
+      <div class="bm-cat-item">
+        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-1.png" alt="Газобетон ЛСР"></picture>
+        <div class="bm-cat-item__content">
+          <p class="bm-cat-item__name">Газобетон ЛСР</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
+        </div>
+      </div>
+      <div class="bm-cat-item">
+        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-2.png" alt="Газобетон СК"></picture>
+        <div class="bm-cat-item__content">
+          <p class="bm-cat-item__name">Газобетон СК</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
+        </div>
+      </div>
+      <div class="bm-cat-item">
+        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-3.png" alt="Газобетон YTONG"></picture>
+        <div class="bm-cat-item__content">
+          <p class="bm-cat-item__name">Газобетон YTONG</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
+        </div>
+      </div>
+      <div class="bm-cat-item">
+        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-4.png" alt="Газобетон ЕАБ"></picture>
+        <div class="bm-cat-item__content">
+          <p class="bm-cat-item__name">Газобетон ЕАБ</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
+        </div>
+      </div>
+      <div class="bm-cat-item">
+        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-5.png" alt="Газобетон AEROC"></picture>
+        <div class="bm-cat-item__content">
+          <p class="bm-cat-item__name">Газобетон AEROC</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

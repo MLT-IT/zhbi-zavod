@@ -1,0 +1,39 @@
+extends ../pug/base/_head
+include ../pug/sections/_main-screen
+include ../pug/sections/_main-infoblock
+include ../pug/sections/_contacts
+
+block vars
+    - const title = 'Доставка'
+
+block content
+    body
+        .layout
+            // - HEADER
+            include ../pug/sections/_header
+
+            // - CONTENT
+            main.layout__main
+                +main-screen(false, false)
+
+                +main-infoblock(false)
+
+                include ../pug/sections/_faq
+
+                include ../pug/sections/_payment-ways
+
+                +contacts(true)
+
+            // - FOOTER
+            include ../pug/sections/_footer
+
+            // - POPUPS AND OTHER
+
+            include ../pug/blocks/_burger-menu
+
+            .popups
+                include ../pug/popups/_popup-availability
+                include ../pug/popups/_popup-callback
+
+        // - SCRIPTS
+        include ../pug/base/_scripts

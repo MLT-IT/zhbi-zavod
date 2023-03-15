@@ -1,0 +1,69 @@
+.tabs
+
+	&__list
+		margin: -5px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+
+	&__item
+		margin: 5px
+		height: 59px
+		padding: 6px 19px
+		display: flex
+		align-items: center
+		justify-content: center
+
+		font-family: $fontFamily
+		font-weight: 700
+		font-size: 16px
+		line-height: 1.2
+		letter-spacing: 0.05em
+
+		background-color: transparent
+		color: var(--color-red)
+		border: 1px solid var(--color-red)
+		border-radius: var(--border-radius-base)
+		box-shadow: none
+		text-align: center
+		text-transform: uppercase
+		text-decoration: none
+
+		cursor: pointer
+		appearance: none
+
+		transition: background-color .3s ease, color .3s ease, border-color .3s ease
+
+		+until-desktop
+			font-size: 50px
+
+		+until-tablet
+			height: 40px
+			font-size: 12px
+
+		&:focus,
+		&:hover
+			outline: none
+			background-color: var(--color-red-trans)
+
+		&:focus-visible
+			outline: none
+
+		&:active
+			outline: none
+			background-color: var(--color-red)
+			color: var(--color-white)
+
+		&.active
+			background-color: var(--color-red)
+			border: 1px solid var(--color-red)
+			color: var(--color-white)
+
+			&:focus,
+			&:hover
+				background-color: var(--color-red-md)
+				border-color: var(--color-red-md)
+
+			&:active
+				background-color: var(--color-red-dr)
+				border-color: var(--color-red-dr)

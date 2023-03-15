@@ -1,0 +1,45 @@
+extends ../pug/base/_head
+include ../pug/sections/_main-screen
+include ../pug/sections/_main-infoblock
+include ../pug/sections/_contacts
+
+block vars
+    - const title = 'Главная страница'
+
+block content
+    body
+        .layout
+            // - HEADER
+            include ../pug/sections/_header
+
+            // - CONTENT
+            main.layout__main
+                +main-screen(true, true)
+
+                include ../pug/sections/_products-preview
+
+                include ../pug/sections/_promo
+
+                include ../pug/sections/_best-products
+
+                +main-infoblock()
+
+                include ../pug/sections/_content-block
+
+                include ../pug/sections/_faq
+
+                +contacts()
+
+            // - FOOTER
+            include ../pug/sections/_footer
+
+            // - POPUPS AND OTHER
+
+            include ../pug/blocks/_burger-menu
+
+            .popups
+                include ../pug/popups/_popup-availability
+                include ../pug/popups/_popup-callback
+
+        // - SCRIPTS
+        include ../pug/base/_scripts

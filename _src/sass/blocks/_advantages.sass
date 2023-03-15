@@ -1,0 +1,129 @@
+.advantages
+	width: 100%
+	display: flex
+	padding: 36px 60px 28px
+
+	background: var(--color-white)
+	box-shadow: var(--shadow-base)
+	border-radius: var(--border-radius-base)
+
+	+until-laptop
+		padding: 36px 45px 28px
+
+	+until-desktop
+		padding: 20px 24px 15px
+		display: grid
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+		grid-gap: 15px 20px
+
+	&__item
+		flex: 1 1 auto
+
+		&:not(:last-child)
+			padding-right: 45px
+			margin-right: 60px
+
+			+until-laptop
+				padding-right: 30px
+				margin-right: 45px
+
+			+until-desktop
+				padding-right: 0
+				margin-right: 0
+
+			&:after
+				content: ''
+				position: absolute
+				right: 0
+				top: 50%
+
+				height: 75%
+				width: 1px
+
+				transform: translateY(-50%)
+				background-color: var(--color-gray-md)
+
+				+until-desktop
+					display: none
+
+		& .advantage
+			&__icon
+				+until-desktop
+					position: static
+
+					margin-bottom: 13px
+
+			&__text
+				font-size: 20px
+				line-height: 1.4
+
+				+until-widescreen
+					font-size: 18px
+
+				+until-laptop
+					font-size: 16px
+
+				+until-desktop
+					font-size: 14px
+					line-height: 1.3
+
+
+.advantage
+	position: relative
+
+	&__icon
+		position: absolute
+		bottom: calc(100% + 20px)
+		left: 0
+
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 50px
+		height: 50px
+
+		background-color: var(--color-red)
+		border-radius: var(--border-radius-base)
+
+		+until-desktop
+			bottom: calc(100% + 10px)
+
+			width: 32px
+			height: 32px
+
+		&-image
+			width: 75%
+			height: 75%
+
+	&__text
+		font-weight: 400
+		font-size: 16px
+		line-height: 1.2
+
+		+until-desktop
+			font-size: 14px
+			line-height: 1.3
+
+		&:not(:last-child)
+			margin-bottom: 12px
+
+			+until-tablet
+				margin-bottom: 8px
+
+	&__title
+		margin-bottom: 9px
+
+		font-style: normal
+		font-weight: 700
+		font-size: 20px
+		line-height: 1.2
+
+		+until-widescreen
+			font-size: 18px
+
+		+until-tablet
+			font-size: 16px
+
+	&__link
+		+until-tablet
+			font-size: 12px

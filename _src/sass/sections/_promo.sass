@@ -1,0 +1,35 @@
+.promo
+
+	&__top
+		display: flex
+		align-items: flex-end
+		justify-content: space-between
+		margin-bottom: 32px
+
+		+until-tablet
+			display: block
+			margin-bottom: 16px
+
+		& .link
+			+until-tablet
+				display: none
+
+	&__items
+		display: grid
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+		grid-template-rows: repeat(2, minmax(0, 1fr))
+		grid-gap: 10px
+
+		+until-desktop
+			grid-template-columns: 100%
+			grid-template-rows: unset
+			grid-auto-rows: minmax(200px, 1fr)
+
+	&__item
+		&.promo-block
+			&_view
+				&_big
+					grid-row: span 2
+
+					+until-desktop
+						grid-row: unset

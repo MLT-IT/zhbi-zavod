@@ -1,0 +1,308 @@
+.product
+	&__title
+		margin-bottom: 24px
+
+	&__body
+		display: grid
+		grid-template-columns: minmax(400px, 1fr) minmax(500px, 591px)
+		grid-gap: 40px
+		align-items: flex-start
+
+		+until-laptop
+			grid-gap: 15px
+
+		+until-desktop
+			grid-template-columns: 100%
+
+	&__pictures
+		display: grid
+		grid-template-columns: minmax(90px, 135px) minmax(0, 1fr)
+		gap: 15px
+		height: 552px
+
+		+until-laptop
+			height: auto
+			grid-template-columns: 100%
+			grid-template-rows: 310px 112px
+
+		+until-tablet
+			gap: 5px
+			grid-template-rows: 240px 72px
+
+		&-thumbs
+			height: 100%
+			width: 100%
+
+			+until-laptop
+				grid-row: 2
+
+		&-slider
+			height: 100%
+
+			+until-laptop
+				grid-row: 1
+
+		&-slide,
+		&-thumb
+			display: flex
+			align-items: center
+			justify-content: center
+
+		&-slide
+			padding: 10%
+
+		&-thumb
+			padding: 18px
+
+			background-color: var(--color-white)
+			border-radius: var(--border-radius-base)
+
+		&-image
+			display: block
+			max-width: 100%
+			max-height: 100%
+
+			object-fit: contain
+
+	&__picture
+		position: relative
+
+		background-color: var(--color-white)
+		border-radius: var(--border-radius-base)
+
+	&__actions
+		position: absolute
+		top: 10px
+		left: 10px
+		z-index: 10
+
+		display: flex
+		align-items: center
+
+		& .product-action
+			+until-tablet
+				width: 40px
+				height: 40px
+
+			&:not(:last-child)
+				margin-right: 10px
+
+				+until-tablet
+					margin-right: 4px
+
+.product-info
+	padding: 30px 40px 50px
+
+	background-color: var(--color-white)
+	border-radius: var(--border-radius-base)
+
+	+until-tablet
+		padding: 20px 20px 25px
+
+	&__top
+		padding-bottom: 24px
+		margin-bottom: 24px
+
+		border-bottom: 1px solid var(--color-black-trans)
+
+	&__rating
+		margin-bottom: 25px
+		+while-mob
+			justify-content: center
+
+	&__availability
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		+until-tablet
+			flex-direction: column-reverse
+
+		&-title
+			display: flex
+			align-items: center
+			margin-left: 20px
+
+			font-weight: 400
+			font-size: 12px
+			line-height: 1.7
+
+			+until-tablet
+				margin-left: 0
+				margin-bottom: 20px
+
+			&_available
+				&::before
+					content: ''
+
+					width: 12px
+					height: 12px
+					flex-shrink: 0
+					margin-right: 15px
+
+					background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='%2349BF63'/%3E%3Cpath d='M4 5.89474L5.51996 7.51469C5.56199 7.55949 5.6341 7.55615 5.67182 7.50766L8.4 4' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E")
+					background-position: center
+					background-repeat: no-repeat
+					background-size: 100%
+
+	&__params
+		display: flex
+		align-items: center
+		flex: 1 1 50%
+
+		+until-tablet
+			width: 100%
+
+		+while-mob
+			flex-direction: column
+
+	&__param
+		flex: 1 1 30%
+
+		+until-tablet
+			flex: 1 1 50%
+
+		+while-mob
+			flex: unset
+			width: 100%
+
+		&:not(:last-child)
+			margin-right: 10px
+
+			+while-mob
+				margin-right: 0
+				margin-bottom: 10px
+
+	&__bottom
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+
+	&__volume
+		display: flex
+		flex-direction: column
+
+		+until-tablet
+			order: 2
+			flex-direction: row
+			align-items: center
+
+		&:not(:last-child)
+			margin-right: 20px
+			+until-tablet
+				margin-right: 0
+
+		&-title
+			font-weight: 400
+			font-size: 16px
+			line-height: 1.7
+
+			&:not(:last-child)
+				margin-bottom: 3px
+				+until-tablet
+					margin-bottom: 0
+					margin-right: 15px
+
+		&-tabs
+			display: flex
+			align-items: center
+
+		&-tab
+			padding: 7px 8px 4px
+			height: 45px
+			min-width: 50px
+			display: flex
+			align-items: center
+			justify-content: center
+
+			font-weight: 700
+			font-size: 16px
+			line-height: 1.2
+			text-align: center
+			text-transform: uppercase
+
+			border: 1px solid var(--color-red)
+			background-color: var(--color-white)
+			border-radius: var(--border-radius-base)
+			color: var(--color-red)
+
+			transition: background-color .3s ease, color .3s ease
+			cursor: pointer
+
+			+until-tablet
+				padding: 6px 3px 4px
+				height: 30px
+				min-width: 30px
+
+				font-size: 10px
+
+			&:not(:last-child)
+				margin-right: 10px
+
+			&:hover,
+			&.active
+				background-color: var(--color-red)
+				color: var(--color-white)
+
+	&__price
+		margin-left: auto
+		text-align: right
+
+		+until-tablet
+			order: 1
+			margin-left: 0
+			margin-bottom: 10px
+			flex: 1 1 100%
+
+			text-align: center
+
+		&-notion
+			margin-bottom: 4px
+
+			font-weight: 400
+			font-size: 16px
+			line-height: 1.7
+
+		&-value
+			font-weight: 700
+			font-size: 30px
+			line-height: 1.5
+
+	&__actions
+		flex: 1 1 100%
+		margin-top: 25px
+		display: grid
+		grid-template-columns: 178px minmax(0, 1fr)
+		grid-gap: 10px 25px
+
+		+until-tablet
+			order: 3
+			grid-gap: 10px
+
+		+while-mob
+			grid-template-columns: 130px minmax(0, 1fr)
+
+	&__counter
+		height: 50px
+
+		+until-tablet
+			height: 40px
+
+		& .counter
+			&__btn
+				flex: 0 0 50px
+				+until-tablet
+					flex: 0 1 40px
+
+			&__input
+				font-size: 16px
+
+				+until-tablet
+					font-size: 14px
+
+	&__buy,
+	&__fast-buy
+		height: 50px
+
+	&__fast-buy
+		grid-column: 1 / -1

@@ -1,0 +1,48 @@
+.cart
+
+
+	&__top
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 25px
+
+	&__clear
+		margin-left: 20px
+		margin-right: -20px
+
+		color: var(--color-red)
+		background-color: transparent
+		border: 1px solid transparent
+
+		+while-mob
+			padding: 0
+			margin-right: 0
+			height: auto
+
+			border: none
+			font-size: 14px
+
+		&:hover,
+		&:focus
+			border-color: var(--color-red)
+
+	&__items
+		display: grid
+		grid-template-columns: 100%
+		grid-auto-rows: minmax(304px, auto)
+		grid-gap: 20px
+		margin-bottom: 25px
+
+		+until-desktop
+			grid-auto-rows: minmax(250px, auto)
+
+		+until-tablet
+			grid-auto-rows: minmax(200px, auto)
+
+		+while-mob
+			grid-template-columns: repeat(2, minmax(0, 1fr))
+			grid-auto-rows: minmax(0, 1fr)
+			grid-gap: 10px 5px
+
+
