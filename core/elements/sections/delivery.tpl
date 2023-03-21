@@ -1,64 +1,10 @@
-
 <article class="infoblocks section section_view_bg">
   <div class="infoblocks__container">
     <div class="infoblocks__content">
       <h3 class="infoblocks__title section__title">Условия доставки материала</h3>
-      <p class="infoblocks__text">Доставка стройматериалов по Санкт-Петербургу осуществляется по следующему тарифу:</p>
+      <p class="infoblocks__subtitle">Доставка стройматериалов по Санкт-Петербургу осуществляется по следующему тарифу:</p>
       <div class="table">
-        <table class="table__table">
-          <tbody>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">Боротовик 1,5 т.</td>
-            <td class="table__cell">14 м3</td>
-            <td class="table__cell">1 000 Ꝑ</td>
-          </tr>
-          </tbody>
-        </table>
+        {include 'file:sections/delivery-inner.tpl'}
       </div>
     </div>
     <div class="infoblocks__advantages">

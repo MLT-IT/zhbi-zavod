@@ -68,7 +68,7 @@ export function initSliders() {
         let productPicturesSliderThumbs;
         if (productPicturesSliderThumbsContainer) {
             productPicturesSliderThumbs = new Swiper(productPicturesSliderThumbsContainer, {
-                loop: true,
+                loop: false,
                 spaceBetween: 5,
                 slidesPerView: 3,
                 direction: 'horizontal',

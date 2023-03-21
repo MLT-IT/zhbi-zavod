@@ -1,4 +1,7 @@
 .infoblocks
+	&__text > *:nth-last-child(n+2)
+		margin-bottom: 10px
+
 	&__container
 		display: grid
 		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr)
@@ -176,9 +179,6 @@
 
 		+until-desktop
 			font-size: 14px
-
-		&:not(:last-child)
-			margin-bottom: 10px
 
 		&_uppercase
 			text-transform: uppercase
