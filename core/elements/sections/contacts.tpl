@@ -1,16 +1,16 @@
-<article class="contacts section">
-  <div class="contacts__container">
+<article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}">
+  <div class="contacts__container" data-tabs="">
     <div class="contacts__top">
       <h2 class="contacts__title section__title">Адреса</h2>
       <div class="tabs">
-        <ul class="tabs__list" data-tabs="contacts__body">
-          <li class="tabs__item active" data-tab-page="0">склады</li>
-          <li class="tabs__item" data-tab-page="1">офис</li>
+        <ul class="tabs__list">
+          <li class="tabs__item active" data-tab="склады">склады</li>
+          <li class="tabs__item" data-tab="офис">офис</li>
         </ul>
       </div>
     </div>
     <div class="contacts__body">
-      <div class="contacts__block active">
+      <div class="contacts__block active" data-tab-page="склады">
         <div class="contacts__info">
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
@@ -41,11 +41,11 @@
                 <p class="contact__value">+7 (812) 220-17-90, доб 3</p>
               </div><a class="contact__link" href="tel:+78122201790"></a>
             </div>
-          </address><a class="contacts__availability btn btn_style_base" data-fancybox href="#availability">Узнать наличие материала на ближайшем складе</a>
+          </address><a class="contacts__availability btn btn_style_base" data-fancybox="" href="#availability">Узнать наличие материала на ближайшем складе</a>
         </div>
-        <div class="contacts__map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e&amp;width=835&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script></div>
+        <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
       </div>
-      <div class="contacts__block">
+      <div class="contacts__block" data-tab-page="офис">
         <div class="contacts__info">
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
@@ -85,9 +85,9 @@
                 <p class="contact__value">zakaz@www-gazobeton.ru</p>
               </div><a class="contact__link" href="mailto::zakaz@www-gazobeton.ru"></a>
             </div>
-          </address><a class="contacts__availability btn btn_style_base" data-fancybox href="#availability">Узнать наличие материала на ближайшем складе</a>
+          </address><a class="contacts__availability btn btn_style_base" data-fancybox="" href="#availability">Узнать наличие материала на ближайшем складе</a>
         </div>
-        <div class="contacts__map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e&amp;width=835&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script></div>
+        <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
       </div>
     </div>
   </div>

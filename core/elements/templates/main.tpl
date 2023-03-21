@@ -61,11 +61,10 @@
       <article class="main-screen section">
         <div class="main-screen__container">
           {include "file:sections/banner.tpl"}
-          {include "file:sections/advantages.tpl"}
+          {include "file:sections/advantages-1.tpl"}
         </div>
       </article>
-
-      {include "file:sections/listing.tpl"}
+      {include "file:sections/simple-listing.tpl"}
       {include "file:sections/actions.tpl"}
       {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl"}

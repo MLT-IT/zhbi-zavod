@@ -8,7 +8,7 @@
           </picture>
           <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
           <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><a data-fancybox href="#callback" class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+          <div class="banner__action"><span data-fancybox href="#callback" class="banner__btn btn btn_style_yellow">заказать со скидкой</span></div>
         </div>
         <div class="swiper-slide banner">
           <picture class="banner__bg">
@@ -16,7 +16,7 @@
           </picture>
           <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
           <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><a data-fancybox href="#callback" class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+          <div class="banner__action"><span data-fancybox href="#callback" class="banner__btn btn btn_style_yellow">заказать со скидкой</span></div>
         </div>
         <div class="swiper-slide banner">
           <picture class="banner__bg">
@@ -24,7 +24,7 @@
           </picture>
           <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
           <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><a data-fancybox href="#callback" class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+          <div class="banner__action"><span data-fancybox href="#callback" class="banner__btn btn btn_style_yellow">заказать со скидкой</span></div>
         </div>
       </div>
       <div class="swiper-pagination"></div>

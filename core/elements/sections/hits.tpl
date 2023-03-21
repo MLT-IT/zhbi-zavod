@@ -9,7 +9,7 @@
         'sortby' => '',
         'sortdir' => '',
         'resources' => $resources,
-        'tpl' => '@FILE sections/category/listing-products-item.tpl',
+        'tpl' => '@FILE sections/category/listing-products-item-default.tpl',
         'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
         'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
         ]}
