@@ -1,4 +1,4 @@
-<article class="infoblocks section section_view_bg">
+<article class="infoblocks section{$styleClass ? ' ' ~ $styleClass : ''}">
   <div class="infoblocks__container">
     <div class="infoblocks__content">
       <h3 class="infoblocks__title section__title">Условия доставки материала</h3>

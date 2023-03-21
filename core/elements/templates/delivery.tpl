@@ -1,25 +1,54 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block "page"}
-    <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
-    </div>
+      <main class="layout__main">
+        <article class="main-screen section">
+          <div class="main-screen__container">
+            <div class="main-screen__banners">
+              <div class="main-screen__slider">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide banner">
+                      <picture class="banner__bg">
+                        <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+                      </picture>
+                      <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
+                      <p class="banner__text">Акция до конца месяца</p>
+                      <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+                    </div>
+                    <div class="swiper-slide banner">
+                      <picture class="banner__bg">
+                        <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+                      </picture>
+                      <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
+                      <p class="banner__text">Акция до конца месяца</p>
+                      <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+                    </div>
+                    <div class="swiper-slide banner">
+                      <picture class="banner__bg">
+                        <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+                      </picture>
+                      <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
+                      <p class="banner__text">Акция до конца месяца</p>
+                      <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">заказать со скидкой</a></div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-buttons">
+                  <div class="swiper-button swiper-button-prev"></div>
+                  <div class="swiper-button swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <div class="wrapper">
-        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
-    </div>
+        {include "file:sections/delivery.tpl"}
+        {include "file:sections/sfaq.tpl"}
+        {include "file:sections/payment.tpl"}
+        {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
-    {if $_modx->resource.content | length > 0}
-        <div class="wrapper">
-            {include 'file:blocks/content-delivery.tpl'}
-        </div>
-    {/if}
+      </main>
 
-    {include "file:sections/payment.tpl"}
-    {include "file:sections/faq.tpl"}
-    {include "file:sections/districts-map.tpl"}
-    {include "file:sections/appeal.tpl"}
-    {include "file:sections/advantages.tpl"}
-    {include "file:sections/steps.tpl"}
-    {include "file:sections/partners.tpl"}
 {/block}

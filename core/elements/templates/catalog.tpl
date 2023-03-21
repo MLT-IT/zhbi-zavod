@@ -92,7 +92,7 @@
 
 
     {include "file:sections/gazobeton-info.tpl"}
-    {include "file:sections/delivery.tpl"}
+    {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
     {include "file:sections/payment.tpl"}
     {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
   </main>
