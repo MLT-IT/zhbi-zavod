@@ -6,7 +6,7 @@
   <div class="cart__container">
 {if !$hasProducts}
   <div class="cart__top">
-    <h2 class="cart__title section__title">{$_modx->resource.pagetitle}</h2>
+    <h1 class="cart__title section__title">{$_modx->resource.pagetitle}</h1>
   </div>
   <div class="cart__empty">
     <p class="cart__empty-text">
@@ -16,8 +16,13 @@
   </div>
 {else}
   <div class="cart__top">
-    <h2 class="cart__title section__title">{$_modx->resource.pagetitle}</h2>
-    <button class="btn cart__clear">Очистить корзину</button>
+    <h1 class="cart__title section__title">{$_modx->resource.pagetitle}</h1>
+    <form method="post" type="submit" name="ms2_action" value="cart/clean">
+      <input type="hidden" name="ctx" value="{$_modx->resource.context_key}">
+      <button type="submit" name="ms2_action" value="cart/clean" class="btn cart__clear">
+        Очистить корзину
+      </button>
+    </form>
   </div>
   <div class="cart__items">
       {foreach $products as $product}
