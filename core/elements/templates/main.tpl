@@ -61,7 +61,7 @@
       <article class="main-screen section">
         <div class="main-screen__container">
           {include "file:sections/banner.tpl"}
-          {include "file:sections/advantages-1.tpl"}
+          {include "file:sections/advantages.tpl" styleClass='main-screen__advantages'}
         </div>
       </article>
       {include "file:sections/simple-listing.tpl"}

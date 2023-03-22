@@ -2882,8 +2882,8 @@ body.mobilemenu-opened, body.fancybox-active {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   grid-gap: 16px; }
-.infoblocks__text > *:nth-last-of-type(n+2) {
-  bottom: 20px; }
+.infoblocks__text > *:nth-last-child(n+2) {
+  margin-bottom: 10px; }
 .infoblocks__container {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -2994,8 +2994,6 @@ body.mobilemenu-opened, body.fancybox-active {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7; }
-.infoblocks__text:not(:last-child) {
-    margin-bottom: 10px; }
 .infoblocks__text_uppercase {
     text-transform: uppercase; }
 .infoblocks__text_uppercase:not(:last-child) {
