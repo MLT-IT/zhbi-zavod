@@ -15,7 +15,7 @@
         <h1 class="title-1 title-1_align_left">{$_modx->resource.pagetitle}</h1>
 
         {if $_modx->resource.content | length > 0}
-            <article class="sect-inner__content content-block">
+            <article class="sect-inner__content content">
                 {$_modx->resource.content}
             </article>
         {/if}

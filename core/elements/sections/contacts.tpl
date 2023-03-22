@@ -20,8 +20,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в Мурино:</p>
-                <p class="contact__value">+7 (812) 220-17-90, доб 3</p>
-              </div><a class="contact__link" href="tel:+78122201790"></a>
+                <p class="contact__value">{'phone' | option}, доб 1</p>
+              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
@@ -29,8 +29,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в Мурино:</p>
-                <p class="contact__value">+7 (812) 220-17-90, доб 3</p>
-              </div><a class="contact__link" href="tel:+78122201790"></a>
+                <p class="contact__value">{'phone' | option}, доб 2</p>
+              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
@@ -38,10 +38,10 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в Мурино:</p>
-                <p class="contact__value">+7 (812) 220-17-90, доб 3</p>
-              </div><a class="contact__link" href="tel:+78122201790"></a>
+                <p class="contact__value">{'phone' | option}, доб 3</p>
+              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
-          </address><a class="contacts__availability btn btn_style_base" data-fancybox="" href="#availability">Узнать наличие материала на ближайшем складе</a>
+          </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
         <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
       </div>
@@ -55,7 +55,7 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Офис:</p>
-                <p class="contact__value">Мурино, Кооперативная 20Б</p>
+                <p class="contact__value">{'address' | option}</p>
               </div>
             </div>
             <div class="contact">
@@ -73,8 +73,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Номер телефона контактного центра:</p>
-                <p class="contact__value">+7 (812) 220-17-90, доб 2</p>
-              </div><a class="contact__link" href="tel:+78122201790"></a>
+                <p class="contact__value">{'phone' | option}, доб 2</p>
+              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
@@ -82,10 +82,10 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Почта для связи:</p>
-                <p class="contact__value">zakaz@www-gazobeton.ru</p>
-              </div><a class="contact__link" href="mailto::zakaz@www-gazobeton.ru"></a>
+                <p class="contact__value">{'email' | option}</p>
+              </div><a class="contact__link" href="mailto:{'email' | option}"></a>
             </div>
-          </address><a class="contacts__availability btn btn_style_base" data-fancybox="" href="#availability">Узнать наличие материала на ближайшем складе</a>
+          </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
         <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
       </div>

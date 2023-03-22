@@ -1,7 +1,7 @@
 <article class="promo section section_view_bg">
   <div class="promo__container">
     <div class="promo__top">
-      <h2 class="section__title">Акции и скидки</h2><a class="link" href="#">Смотреть все</a>
+      <h2 class="section__title">Акции и скидки</h2><a class="link" href="/akcii/">Смотреть все</a>
     </div>
     <div class="promo__items">
       <div class="promo__item promo-block promo-block_view_big promo-block_style_white">

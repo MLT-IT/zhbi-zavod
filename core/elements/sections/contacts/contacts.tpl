@@ -35,7 +35,7 @@
                 </li>
                 <li class="contacts__item contacts__item_content_address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <div class="contacts__item-key"><span>Адрес</span></div>
-                    <div class="contacts__item-value" data-address-2="Мурино, Кооперативная 20б">{'address' | option}</div>
+                    <div class="contacts__item-value" data-address-2="{'address' | option}">{'address' | option}</div>
                 </li>
             </ul>
             <div class="contacts__left-bottom">
@@ -51,11 +51,11 @@
             </div>
         </div>
         {if $utm_city['icase'] is empty}
-            <div class="contacts__map">  
+            <div class="contacts__map">
             {if $_modx->context.key === 'pro-fanera'}
                 <div class="map__container">
                     <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=54568639872" width="560" height="400" frameborder="0"></iframe>
-                </div> 
+                </div>
             {else}
                 <div class="map__container" data-map="1">
                   <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A31df190eea88679967ae35e35e6dcc4126648da41068891dbc7988e304baa628&amp;width=460&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>

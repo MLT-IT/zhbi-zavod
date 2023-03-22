@@ -10,21 +10,23 @@
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
-              <span class="footer__contact-value">+7 (812) 210-99-63</span>
+              <span class="footer__contact-value">{'phone' | option}</span>
             </a>
-            <a class="footer__contact" href="mailto:zakaz@www-gazobeton.ru">
+            <a class="footer__contact" href="mailto:{'email' | option}">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
               </svg>
-              <span class="footer__contact-value">zakaz@www-gazobeton.ru</span>
+              <span class="footer__contact-value">{'email' | option}</span>
             </a>
           <div class="footer__contact">
             <svg class="footer__contact-icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
             </svg>
-            <span class="footer__contact-value">Мурино, Кооперативная, 20Б</span>
+            <span class="footer__contact-value">{'address' | option}</span>
           </div>
         </address>
+
+        {*
         <div class="footer__socials"><a class="footer__social" href="#">
             <svg class="footer__social-logo" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-vk"></use>
@@ -47,6 +49,8 @@
             </svg>
           </a>
         </div>
+        *}
+
         <a class="footer__politic link link_white" data-fancybox="" data-type="ajax" data-src="/confidential/">Политика конфиденциальности</a>
       </div>
     </div>

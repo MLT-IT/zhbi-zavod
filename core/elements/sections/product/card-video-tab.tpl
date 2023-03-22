@@ -1,3 +1,3 @@
-<div class="content-block">
+<div class="content">
     {$value}
 </div>

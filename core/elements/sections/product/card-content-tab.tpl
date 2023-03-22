@@ -8,7 +8,7 @@
 {/if}
 
 {if $content}
-    <article class="content-block{if $mb} product-card__content-block{/if}" itemprop="description">
+    <article class="content{if $mb} product-card__content-block{/if}" itemprop="description">
         {$content}
     </article>
 {/if}

@@ -8,16 +8,16 @@
                 {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
                 {set $resources = $_modx->config['popular_ids']}
             {/if}
-            {'!msProductsMy' | snippet : [
+            {'!pdoResources' | snippet : [
               'parents' => 0,
               'depth' => 50,
               'limit' => 42,
               'sortby' => '',
               'sortdir' => '',
-              'resources' => $resources,
               'tpl' => '@FILE sections/popular/pop-slide.tpl',
-              'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
+              'where' => '{"template:=": "5"}',
               'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+              'context' => $_modx->resource.context_key
             ]}
         </div>
       </div>

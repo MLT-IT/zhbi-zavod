@@ -38,7 +38,7 @@
     {include "file:sections/districts-map.tpl"}
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">
-            <article class="content-block">
+            <article class="content">
                 {$_modx->resource.content}
             </article>
         </div>
