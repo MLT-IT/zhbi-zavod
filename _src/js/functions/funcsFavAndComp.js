@@ -8,6 +8,9 @@ export default {
     init
 };
 
+let $headerFav = $('.header__favorites');
+let $headerComp = $('.header__comparison');
+
 // Инициализация
 function init() {
     // -------------------------------
@@ -26,11 +29,11 @@ function init() {
         // Установка обработчика для переключателя "Только отличающиеся"
         $('.custom-toggler__input').on('change', function () {
             $comparison.toggleClass('sect-comparison_only-different');
-            refreshOptions();
+            // refreshOptions();
         });
 
         // Работа с характеристиками
-        refreshOptions();
+        // refreshOptions();
 
         // Установка обработчка для правильной высоты опций
         // $(window).on('resize', setHeightToOptions);
@@ -139,7 +142,7 @@ function actionsHandler(e) {
         // $('.title-1__sup').text(splitted.length + ' ' + functions.formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
 
         // Удаление товара из сравнения
-        if ($this.hasClass('js-product__btn-fav')) {
+        if ($this.hasClass('js-product__btn-compare')) {
             $(this).closest('.js-product').remove();
 
             // Обновляем опции
@@ -169,7 +172,7 @@ function actionsHandler(e) {
     if ($('.favorites').length) {
         // Удаление товара из избранного
         if ($this.hasClass('js-product__btn-fav')) {
-					$this.closest('.js-product').remove();
+            $this.closest('.js-product').remove();
         }
     }
 }
@@ -181,13 +184,20 @@ function actionsHandler(e) {
  * @param cookieName - название куки, влияет на то, какую именно кнопку обновить.
  */
 function refreshBtnsInHeader(length, cookieName) {
+    let $elem
     switch (cookieName) {
         case 'favIds':
-            $('.header__fav-value').text(length);
+            $elem = $headerFav;
             break;
         case 'compIds':
-            $('.header__comp-value').text(length);
+            $elem = $headerComp;
             break;
+    }
+
+    if (length) {
+        $elem.attr('data-amount', length);
+    } else {
+        $elem.removeAttr('data-amount');
     }
 }
 

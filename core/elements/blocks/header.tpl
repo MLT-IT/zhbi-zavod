@@ -195,12 +195,14 @@
         <nav class="header__nav h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
         </nav>
         <div class="header__actions">
-          <a href="/favorites/" class="header__action icon-btn icon-btn_style_white">
+          {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
+          <a href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
             </svg>
           </a>
-          <a href="/comparison/" class="header__action icon-btn icon-btn_style_white">
+          {set $favComp = $_modx->getPlaceholder('checkItems')['comp'] | length}
+          <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
             </svg>

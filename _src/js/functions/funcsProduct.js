@@ -67,14 +67,14 @@ function init(yandexMetrikaId) {
     //         custom_select_option_class = 'euv-custom-select__option',
     //         custom_select_class = 'euv-custom-select',
     //         custom_select_options_wrap_class = 'euv-custom-select__options-wrap';
-		//
+    //
     //     // -------------------------------
     //     // Стилизованный список
     //     // -------------------------------
     //     // Пришлось частично копировать код от плагина euv_custom_select, т.к. нужен не весь функционал, на некоторый функционал отличается
-		//
+    //
     //     let $select = $('.product-card_type_relinking .euv-custom-select');
-		//
+    //
     //     // Обработчик на клик по списку
     //     $select.on('click', function (e) {
     //         // Исключаем клик по подсказке или по кнопке для вызова подсказки
@@ -83,7 +83,7 @@ function init(yandexMetrikaId) {
     //             $target.closest('.filter-option__tip').length) {
     //             return;
     //         }
-		//
+    //
     //         function close_select(e) {
     //             let $target = $(e.target);
     //             let $target_select = $target.closest('.' + custom_select_class);
@@ -98,7 +98,7 @@ function init(yandexMetrikaId) {
     //                 }
     //             });
     //         }
-		//
+    //
     //         let $this = $(this);
     //         $this.toggleClass(custom_select_visible_class);
     //         $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
@@ -116,14 +116,14 @@ function init(yandexMetrikaId) {
     //             $(document).off('click.' + plugin_name, close_select);
     //         }
     //     });
-		//
+    //
     //     $select.each(function () {
     //         let $this = $(this);
     //         let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
-		//
+    //
     //         // Стилизованные скроллбары внутри списков
     //         $scroll.overlayScrollbars({});
-		//
+    //
     //         // Выбор цвета / оттенка в списке
     //         let $selectColors = $('.colors-options');
     //         $selectColors.on('change', selectColorsOnChange);
@@ -137,7 +137,7 @@ function init(yandexMetrikaId) {
     //             selectColorsOnChange({target: $selectColors[0]});
     //         });
     //     });
-		//
+    //
     //     // Из-за стилизованных скроллбаров внутри списков плохо работает анимация для раскрытия списков при первом открытии после загрузки страницы. Данный код исправляет это
     //     $('.' + custom_select_options_wrap_class).each(function () {
     //         let $elem = $(this);
@@ -150,7 +150,7 @@ function init(yandexMetrikaId) {
     //             $elem.css('opacity', '');
     //         }, 300);
     //     });
-		//
+    //
     //     // -------------------------------
     //     // Мобильный стилизованный список
     //     // -------------------------------
@@ -159,35 +159,35 @@ function init(yandexMetrikaId) {
     //         let $popup = $('.popup-select');
     //         let $customSelectWrap = $(this).closest('.custom-select-wrap');
     //         let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
-		//
+    //
     //         // Очистка от предыдущего использования
     //         $popup.html('');
     //         $popup.removeClass('colors-options');
-		//
+    //
     //         // Добавление класса для отображения цветов
     //         if ($customSelectWrap.find('.colors-options').length) {
     //             $popup.addClass('colors-options');
     //         }
-		//
+    //
     //         // Добавление item'ов
     //         $children.each(function () {
     //             // Основные переменные
     //             let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
     //             let $child = $(this);
-		//
+    //
     //             // Установка текста
     //             $item.html($child.html());
     //             // Установка href
     //             $item.attr('href', $child.attr('href'));
     //             // Установка атрибут для цвета
     //             $item.attr('data-val', $child.attr('data-val'));
-		//
+    //
     //             // Добавление обработчика
     //             // $item.on('click', function (e) {
     //             //     // Закрываем всплывашку
     //             //     $('.popup-select .fancybox-button').click();
     //             // });
-		//
+    //
     //             // Добавление айтема во всплывашку
     //             $item.appendTo($popup);
     //         });
@@ -205,36 +205,36 @@ function init(yandexMetrikaId) {
     //         let zoomer = e.currentTarget;
     //         let offsetX, offsetY;
     //         let x, y = null;
-		//
+    //
     //         if (e.offsetX) {
     //             offsetX = e.offsetX;
     //             x = offsetX / zoomer.offsetWidth * 100;
     //         }
-		//
+    //
     //         if (e.offsetY) {
     //             offsetY = e.offsetY;
     //             y = offsetY / zoomer.offsetHeight * 100;
     //         }
-		//
+    //
     //         if (x !== null && y !== null) {
     //             zoomer.style.backgroundPosition = x + '% ' + y + '%';
     //             zoomer.style.backgroundSize = 200 + '%';
     //         }
     //     });
     // }
-		//
+    //
     // let ImageZoomInstance;
-		//
+    //
     // const settingsDefault = {
     //     width: 260,
     //     height: 260,
     //     zoomWidth: 500,
     //     offset: {vertical: 0, horizontal: 10}
     // };
-		//
+    //
     // const zoomDefault = document.getElementsByClassName("zoom-default");
     // const zoomNarrow = document.getElementsByClassName("zoom-narrow");
-		//
+    //
     // if (zoomDefault.length) {
     //     ImageZoomInstance = new ImageZoom(zoomDefault[0], settingsDefault);
     // } else if (zoomNarrow.length) {
@@ -251,25 +251,25 @@ function init(yandexMetrikaId) {
     // let $proFaneraCard = $('.product-card_type_relinking-btns');
     // if ($proFaneraCard.length) {
     //     let $productItem = $('.product-card__content .js-product');
-		//
+    //
     //     $productItem.on('changeAmount', changeAmountHandler);
     //     changeAmountHandler();
-		//
+    //
     //     function changeAmountHandler() {
     //         let $activeForm = functions.getActiveForm($productItem);
     //         let amount = $activeForm.action.find('.custom-counter__amount').val();
-		//
+    //
     //         // Установка цены
     //         let price = $productItem.find('.js-product__price').attr('data-default');
     //         let priceNewVal = Number(amount * price).toFixed(2);
     //         $('.product-card__price-val_type_total').text(functions.numberWithSpaces(priceNewVal));
-		//
+    //
     //         if ($productItem.hasClass('js-product_with-discount')) {
     //             let newPrice = $productItem.find('.js-product__new-price').attr('data-default');
     //             let newPriceNewVal = Number(amount * newPrice).toFixed(2);
     //             $('.product-card__new-price').text(functions.numberWithSpaces(newPriceNewVal));
     //         }
-		//
+    //
     //         // Установка веса
     //         let weight = $('.js-product__weight').attr('content');
     //         if (weight > 0) {
@@ -277,7 +277,7 @@ function init(yandexMetrikaId) {
     //             $('.product-card__weight-val').text(functions.numberWithSpaces(newWeight));
     //         }
     //     }
-		//
+    //
     //     // Если товар есть в корзине, значит, у него может быть не "1" в кол-ве, а другое число. Поэтому надо пересчитать и второе кол-во
     //     if ($proFaneraCard.find('.js-product-in-cart')) {
     //         let $amountList = $('.custom-counter__amount[data-purpose="second"]');
@@ -291,9 +291,9 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     // $('.product-card__reviews-quantity').on('click', function (e) {
     //     e.preventDefault();
-		//
+    //
     //     $('.product-card__tabs-button_type_reviews').trigger('click');
-		//
+    //
     //     $([document.documentElement, document.body]).animate({
     //         scrollTop: $(".product-card__tabs").offset().top
     //     }, 300);
@@ -317,19 +317,19 @@ function init(yandexMetrikaId) {
     //     function changeTextDependingOnAmount($prod) {
     //         let m2 = $('.product-card__specs-list-item[data-opt-key="ploshad_m2"] .product-card__specs-list-item-value').text();
     //         let m3 = $('.product-card__specs-list-item[data-opt-key="obyem_m3"] .product-card__specs-list-item-value').text();
-		//
+    //
     //         let amount = functions.getActiveForm($prod)['action'].find('.custom-counter__amount').val();
     //         m2 *= amount;
     //         m3 *= amount;
-		//
+    //
     //         if (m2) {
     //             m2 += ' м2';
     //         }
-		//
+    //
     //         if (m3) {
     //             m3 += ' м3';
     //         }
-		//
+    //
     //         let val;
     //         if (amount == 1) {
     //             val = 'В листе: ';
@@ -337,12 +337,12 @@ function init(yandexMetrikaId) {
     //             val = 'В ' + amount + ' ' + functions.formOfWord(amount, 'листе', 'листах', 'листах') + ': ';
     //         }
     //         val += [m2, m3].join(', ');
-		//
+    //
     //         $('.product-card__package').text(val).show();
     //     }
-		//
+    //
     //     changeTextDependingOnAmount($prod);
-		//
+    //
     //     $prod.on('changeAmount', function () {
     //         changeTextDependingOnAmount($(this));
     //     });
@@ -416,10 +416,10 @@ function init(yandexMetrikaId) {
     // $(document).on('change', 'select.js-product__units-select', function (e) {
     //     e.preventDefault();
     //     let $productItem = $(this).closest('.js-product');
-		//
+    //
     //     // Вызываем событие о том, что у товара изменилась ед. измерения
     //     $productItem.trigger('changeUnit');
-		//
+    //
     //     // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
     //     // Меняем цену
     //     calcPrice($productItem);
@@ -433,31 +433,31 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     // function handleUnitLink($unitLink, dontShowMessage) {
     //     dontShowMessage = (typeof dontShowMessage !== 'undefined') ? dontShowMessage : false;
-		//
+    //
     //     let $productItem = $unitLink.closest('.js-product');
     //     let $unit = $productItem.find('[name="unit"]');
     //     let val = $unitLink.attr('data-val');
-		//
+    //
     //     $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
     //     $productItem.find('.product-card__unit-link.active').removeClass('active');
     //     $unitLink.addClass('active');
     //     $unit.val(val);
-		//
+    //
     //     // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара (на самом деле уже не особо важно, т.к. step теперь не используется)
     //     // Вызываем событие о том, что у товара изменилась ед. измерения
     //     $productItem.trigger('changeUnit');
-		//
+    //
     //     // Обработчик кнопки на странице товара для смены ед. измерения
     //     calcPrice($productItem);
-		//
+    //
     //     // Пересчитываем кол-во товара в корзине
     //     changeCountItemInCart($productItem, true, null, dontShowMessage);
     // }
-		//
+    //
     // $(document).on('click click_without_message', '.product-card__unit-link', function (event) {
     //     event.preventDefault();
     //     let $this = $(this);
-		//
+    //
     //     // Если контекст кирпич или деревянные фасады, то меняем единицы измерения на всей странице
     //     if ($('body.kirpich-m, body.fasady-pro').length) {
     //         let val = $this.attr('data-val');
@@ -539,23 +539,23 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     // let $galleryItem = $('.product-card__gallery-item');
     // let $gallerySlider = $('.product-card__gallery-slider');
-		//
+    //
     // if ($gallerySlider.length) {
     //     $galleryItem.on('click', function (e) {
     //         e.preventDefault();
-		//
+    //
     //         // Основные переменные
     //         let $this = $(this);
     //         let srcBig = $this.attr('href');
     //         let srcSmall = $this.find('.product-card__gallery-item-img').attr('src');
-		//
+    //
     //         // Меняем элемент с классом active
     //         $this.parent().find('.active').removeClass('active');
     //         $this.addClass('active');
     //         // Меняем картинку (href - для всплывашки, src - для избражения)
     //         $('.product-card__img-link').attr('href', srcBig);
     //         $('.product-card__img').attr('src', srcSmall);
-		//
+    //
     //         // Поскольку картинка сменилась, нужно обновить скрипт для увеличения при наведении
     //         if (typeof ImageZoomInstance !== 'undefined') {
     //             ImageZoomInstance.setup();
@@ -565,28 +565,28 @@ function init(yandexMetrikaId) {
     //             $zoomImg.css('background-image', 'url("' + $zoomImg.find('img').attr('src') + '")');
     //         }
     //     });
-		//
+    //
     //     // Если шаблон с перелинковкой, то вешаем обработчик для показа / скрытия стрелок в слайдере галереи
     //     if ($('.product-card_type_relinking').length) {
     //         $(window).on('resize', onResizeHandler);
     //         onResizeHandler();
-		//
+    //
     //         function onResizeHandler() {
     //             if (window.innerWidth > 480) {
     //                 let commonSlidesHeight = 0;
     //                 let mb = parseFloat($galleryItem.css('margin-bottom'));
     //                 let $btnsWrap = $('.product-card__gallery-btns-wrap');
-		//
+    //
     //                 // Я сделал новый jQuery селектор, чтобы удобнее было отлаживать (так можно через devtools добавлять слайды). После отладки можно заменить селектор на $galleryItem
     //                 $('.product-card__gallery-item').each(function (i, e) {
     //                     commonSlidesHeight += $(e).outerHeight(true);
     //                 });
-		//
+    //
     //                 // Вычитаем один margin-bottom, т.к. Swiper добавляет его даже для последнего элемента
     //                 commonSlidesHeight -= mb;
     //                 // Отнимаем несколько пикселей, чтобы стрелки не появлялись, если карточки чуть-чуть не вмещаются
     //                 commonSlidesHeight -= 10;
-		//
+    //
     //                 if ($gallerySlider.height() < commonSlidesHeight) {
     //                     $btnsWrap.show();
     //                 } else {
@@ -838,8 +838,12 @@ function handleMiniCart(unique_products) {
     // Кол-во товаров в корзине
     let cartValue;
     if (typeof unique_products !== 'undefined') {
-        cartValue = Number((unique_products).toFixed(2));
-        $cartInfoCountVal.attr('data-amount', cartValue);
+        if (unique_products > 0) {
+            cartValue = Number((unique_products).toFixed(2));
+            $cartInfoCountVal.attr('data-amount', cartValue);
+        } else {
+            $cartInfoCountVal.removeAttr('data-amount');
+        }
     }
 }
 
@@ -973,8 +977,8 @@ function getActiveUnitValue($productItem) {
 
     let unit = $productItem.find('*[name="unit"]').val();
     if (typeof unit === 'undefined') {
-			unit = 1;
-		}
+        unit = 1;
+    }
 
     return unitValues[unit];
 }
