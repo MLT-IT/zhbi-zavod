@@ -12,12 +12,11 @@
   <main class="layout__main">
     {include "file:blocks/breadcrumbs.tpl"}
 
-      <article class="best-products section">
+      <article class="best-products section comparison">
         <div class="best-products__container">
-          <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
+          <h2 class="section__title margin-bottom-md">{$_modx->resource.pagetitle}</h2>
             {set $resources = $_modx->getPlaceholder('checkItems')['comp'] | join : ','}
             {set $countResources = $_modx->getPlaceholder('checkItems')['comp'] | length}
-
             {if $resources != ''}
               <div class="best-products__products">
                 {'!msProductsMy' | snippet : [

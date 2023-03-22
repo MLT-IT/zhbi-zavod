@@ -12,9 +12,9 @@
   <main class="layout__main">
     {include "file:blocks/breadcrumbs.tpl"}
 
-      <article class="best-products section">
+      <article class="best-products section favorites">
         <div class="best-products__container">
-          <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
+          <h2 class="section__title margin-bottom-md">{$_modx->resource.pagetitle}</h2>
             {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
             {if $resources != ''}
               <div class="best-products__products">

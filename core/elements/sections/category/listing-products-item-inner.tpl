@@ -2,14 +2,15 @@
 {if $_modx->getPlaceholder('checkItems') is null}
   {'!checkItems' | snippet}
 {/if}
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
 
 <div class="product-card__picture">
   <a href="{$uri}">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
   </a>
   <div class="product-card__actions">
-    <button class="product-action product-action_favorite"></button>
-    <button class="product-action product-action_compare"></button>
+    <button class="product-action product-action_favorite js-product__btn-fav{if $checkItems['fav'][$id]?} active{/if}"></button>
+    <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
   </div>
 </div>
 <div class="product-card__body">

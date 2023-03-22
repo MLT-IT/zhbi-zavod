@@ -16,8 +16,7 @@ function init() {
     let $comparison = $('.sect-comparison');
 
     // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
-    $(document).on('click', '.js-product__btn, .js-product__action-btn', actionsHandler);
-    $(document).on('change', '.js-product__actions-compare', actionsHandler);
+    $(document).on('click', '.js-product__btn-fav, .js-product__btn-compare', actionsHandler);
 
     // Если мы находимся на странице сравнения
     if ($comparison.length) {
@@ -34,7 +33,7 @@ function init() {
         refreshOptions();
 
         // Установка обработчка для правильной высоты опций
-        $(window).on('resize', setHeightToOptions);
+        // $(window).on('resize', setHeightToOptions);
     }
 }
 
@@ -86,18 +85,16 @@ function actionsHandler(e) {
     let $product = $this.closest('.js-product');
 
     switch (true) {
-        // TODO: зачем по 2-3 класса? Подправь стили и скрипты, чтобы для JS был один класс
-        case ($this.hasClass('js-product__btn-fav') || $this.hasClass('listing__products-item-btn-fav')):
+        case ($this.hasClass('js-product__btn-fav')):
             pageUri = '/favorites/';
             targetText1 = 'избранное';
             targetText2 = 'избранного';
             cookieName = 'favIds';
             splitted = getSplitted(cookieName);
-
-            // Переключение класса. Кнопок в $product может быть несколько. На странице товара с перелинковкой это так - одна для ПК, другая для мобилок. Поэтому ищем все и переключаем у них класс
-            $product.find('.js-product__btn-fav, .listing__products-item-btn-fav').toggleClass('active');
+            $product.find('.js-product__btn-fav').toggleClass('active');
             break;
-        case $this.hasClass('js-product__btn-compare') || $this.hasClass('js-product__actions-compare') || $this.hasClass('listing__products-item-btn-compare'):
+
+        case $this.hasClass('js-product__btn-compare'):
             pageUri = '/comparison/';
             targetText1 = 'сравнение';
             targetText2 = 'сравнения';
@@ -105,7 +102,7 @@ function actionsHandler(e) {
             splitted = getSplitted(cookieName);
 
             // Переключение класса
-            $product.find('.js-product__actions-compare, .listing__products-item-btn-compare, .js-product__btn-compare').toggleClass('active');
+            $product.find('.js-product__btn-compare').toggleClass('active');
             break;
     }
 
@@ -137,27 +134,27 @@ function actionsHandler(e) {
     // --------------------------------------------
     // Если мы находимся на странице сравнения
     // --------------------------------------------
-    let $comparison = $('.sect-comparison');
+    let $comparison = $('.comparison');
     if ($comparison.length) {
-        $('.title-1__sup').text(splitted.length + ' ' + functions.formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
+        // $('.title-1__sup').text(splitted.length + ' ' + functions.formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
 
         // Удаление товара из сравнения
-        if ($this.hasClass('listing__products-item-fav-remove-btn')) {
-            $(this).closest('.comp-slide').remove();
+        if ($this.hasClass('js-product__btn-fav')) {
+            $(this).closest('.js-product').remove();
 
             // Обновляем опции
             refreshOptions();
 
             // Если это была последняя карточка, то удаляем слайдер с карточками
             if (!$('.comp-slide').length) {
-                $('.sect-pop__wrapper .swiper-container, .sect-pop__wrapper .sect-pop__swiper-buttons').remove();
+                $('.comparison .swiper-container, .comparison .swiper-buttons').remove();
             }
 
             // Обновление слайдера (т.к. изменилось количество карточек)
             window.dispatchEvent(new Event('resize'));
             // Скрыть / показать кнопки слайдера
             let $buttons = $('.swiper-buttons');
-            if ($('.comp-slide').not('.hidden').length > 4) {
+            if ($('.js-product').not('.hidden').length > 3) {
                 $buttons.show();
             } else {
                 $buttons.hide();
@@ -169,10 +166,10 @@ function actionsHandler(e) {
     // --------------------------------------------
     // Если мы находимся на странице избранного
     // --------------------------------------------
-    if ($('.listing__products_full').length) {
+    if ($('.favorites').length) {
         // Удаление товара из избранного
-        if ($this.hasClass('listing__products-item-btn-fav')) {
-            $(this).closest('.js-product').remove();
+        if ($this.hasClass('js-product__btn-fav')) {
+					$this.closest('.js-product').remove();
         }
     }
 }
@@ -327,7 +324,7 @@ function refreshOptions() {
     });
 
     // Обновляем высоту опций
-    setHeightToOptions();
+    // setHeightToOptions();
 }
 
 
