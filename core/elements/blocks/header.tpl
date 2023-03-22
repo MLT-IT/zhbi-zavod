@@ -205,11 +205,7 @@
               <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
             </svg>
           </a>
-          <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
-            <svg class="icon-btn__icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-            </svg>
-          </a>
+          {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
         </div>
       </div>
     </div>

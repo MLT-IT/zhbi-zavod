@@ -480,7 +480,7 @@ function init(yandexMetrikaId) {
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
+            handleMiniCart(response.data.unique_products);
         }
     };
 
@@ -488,7 +488,7 @@ function init(yandexMetrikaId) {
     miniShop2.Callbacks.Cart.remove.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
+            handleMiniCart(response.data.unique_products);
 
             checkCart(response.data.total_cost);
         }
@@ -498,7 +498,7 @@ function init(yandexMetrikaId) {
     miniShop2.Callbacks.Cart.change.response.success = function (response) {
         if (response.success) {
             // Работа с мини-корзиной
-            handleMiniCart(response.data.unique_products, response.data.total_count, response.data.total_cost, response.data.total_old_cost);
+            handleMiniCart(response.data.unique_products);
 
             checkCart(response.data.total_cost);
         }
@@ -834,53 +834,14 @@ function checkCart(total_count) {
 /**
  * Работа с миникорзиной в шапке сайта (изменить кол-во, скрыть номерок, если товаров 0, показать номерок в противном случае).
  */
-function handleMiniCart(unique_products, count, cost, old_cost) {
-    const $cartValueElem = $('.header__cart-value');
-    const $cartInfoCountVal = $('.header__info-val_type_count-val');
-    const $cartInfoCountText = $('.header__info-val_type_count-text');
-    const $cartInfoCostVal = $('.header__info-val_type_cost-val');
-    const $cartInfoCostOldVal = $('.header__info-val_type_old-cost-val');
-    const $cartInfoCostOld = $('.header__info-old-cost');
+function handleMiniCart(unique_products) {
+    const $cartInfoCountVal = $('.header__minicart');
 
     // Кол-во товаров в корзине
     let cartValue;
-    if (typeof count !== 'undefined') {
-        count = Number((count).toFixed(2));
+    if (typeof unique_products !== 'undefined') {
         cartValue = Number((unique_products).toFixed(2));
-        $cartValueElem.text(cartValue);
-        $cartInfoCountVal.text(count);
-        $cartInfoCountText.text(functions.formOfWord(count, 'товар', 'товара', 'товаров'));
-    } else {
-        cartValue = parseFloat($cartValueElem.text());
-        cartValue = Number((cartValue).toFixed(2));
-    }
-
-    // Цена
-    let cartCost;
-    if (typeof cost !== 'undefined') {
-        cost = Number((cost).toFixed(2));
-        cartCost = functions.numberWithSpaces(cost);
-        $cartInfoCostVal.text(cartCost);
-    }
-
-    // Старая цена
-    let cartOldCost;
-    if (typeof old_cost !== 'undefined') {
-        old_cost = Number((old_cost).toFixed(2));
-        cartOldCost = functions.numberWithSpaces(old_cost);
-        $cartInfoCostOldVal.text(cartOldCost);
-
-        if (cost === old_cost) {
-            $cartInfoCostOld.hide();
-        } else {
-            $cartInfoCostOld.show();
-        }
-    }
-
-    if (cartValue > 0) {
-        $cartValueElem.removeClass('hidden');
-    } else {
-        $cartValueElem.addClass('hidden');
+        $cartInfoCountVal.attr('data-amount', cartValue);
     }
 }
 
@@ -895,7 +856,7 @@ function initStyledCounter() {
         let $counterInput = $item.find('.custom-counter__amount');
 
         // Инициализируем стилизованный список для смены единиц измерения
-        let $select = $item.find('select.custom-select');
+        // let $select = $item.find('select.custom-select');
         // $select.euv_custom_select();
         // $select.on('beforeChange.euv_custom_select', function () {
         //     $item.attr('data-last-unit-value', getActiveUnitValue($item));
@@ -936,12 +897,12 @@ function initStyledCounter() {
             };
 
             // Фильтр для изменения значения
-            // $this.inputFilter(filter);
-						//
+            $this.inputFilter(filter);
+
             // Фильтр для ввода (input) значения
-            // $this.inputFilter(function (value) {
-            //     return regexp.test(value);
-            // }, {'event': 'input'});
+            $this.inputFilter(function (value) {
+                return regexp.test(value);
+            }, {'event': 'input'});
         });
 
         // Обработчик кнопок стилизованного счетчкика
@@ -970,7 +931,7 @@ function initStyledCounter() {
 
             $inputValue.val(val);
 
-            // При щелчке по кнопкам на странице корзины и так вызывается change, поэтому повторно его вызывать здесь не надо. Я бегло посмотрел файл плагина, чтобы удалить его оттуда и убрать эти строки. Но ничего там не нашел. По-хорошему надо подправить этот момент в фале плагина. Эти строки тут выглядят как костыль
+            // При щелчке по кнопкам на странице корзины и так вызывается change, поэтому повторно его вызывать здесь не надо. Я бегло посмотрел файл плагина, чтобы удалить его оттуда и убрать эти строки. Но ничего там не нашел. По-хорошему надо подправить этот момент в файле плагина. Эти строки тут выглядят как костыль
             if (!$inputValue.closest('.ms2_form').length) {
                 $inputValue.trigger('change');
             }

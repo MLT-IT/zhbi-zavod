@@ -14,6 +14,7 @@ import functions from './functions/functions.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
+import inputFilter from './libs/inputFilter/inputFilter.js';
 
 
 // -------------------------------------
