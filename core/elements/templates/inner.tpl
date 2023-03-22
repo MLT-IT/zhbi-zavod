@@ -1,29 +1,18 @@
 {extends "file:layouts/default.layout.tpl"}
 
-{block 'title'}
-    {include "file:elements/product/meta-title.tpl"}
-{/block}
-{block 'description'}
-    {include "file:elements/product/meta-description.tpl"}
-{/block}
-
 {block "page"}
-    <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
-    </div>
+  <main class="layout__main">
 
-    {set $content = $_modx->getPlaceholder('content')}
-    {if $content | length === 0}
-        {set $content = $_modx->resource.content}
-    {/if}
+    {include "file:blocks/breadcrumbs.tpl"}
 
-    <div class="wrapper sect-inner">
-        <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
-        {if $content | length > 0}
-          <article class="sect-inner__content{if !$_modx->resource.htmlInsideContent} content-block{/if}">
-              {$content}
-          </article>
-        {/if}
-    </div>
+    <article class="inner section">
+      <div class="inner__container">
+        <h2 class="inner__title section__title">{$_modx->resource.pagetitle}</h2>
+        <div class="content-block">
+            {$_modx->resource.content}
+        </div>
+      </div>
+    </article>
 
+  </main>
 {/block}

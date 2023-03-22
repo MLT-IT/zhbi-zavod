@@ -1,6 +1,6 @@
 <div class="popup js-thanks popup_type_callback" id="callback">
     <form method="POST" action class="popup__form form">
-        <input type="text" name="MOBILEPHONE" class="secret-field">
+        <input type="text" name="MOBILEPHONE" class="secret">
 
         <h2 class="title-2 form__title"></h2>
         <div class="form__text">мы Вам перезвоним в течение 15 минут</div>

@@ -12,22 +12,24 @@
 {/if}
 
 <div class="js-product__controls js-product__controls_action_add">
-    <div class="custom-counter js-product__custom-counter{$extraClass}">
-        <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-        <input name="count" class="custom-counter__amount" value="1" data-min="{$dataMin}">
-        <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
+    <span class="js-product__btn-in-cart js-product__to-cart product-card__add btn btn_style_shadow">
+        <span class="product-card__add-text">В корзину</span>
+    </span>
+    <div class="product-card__counter counter custom-counter js-product__custom-counter{$extraClass}">
+        <span class="counter__btn counter__btn_minus custom-counter__btn custom-counter__btn_dir_less"></span>
+        <input name="count" class="counter__input custom-counter__amount" value="1" data-min="{$dataMin}">
+        <span class="counter__btn counter__btn_plus custom-counter__btn custom-counter__btn_dir_more"></span>
     </div>
-    <span class="js-product__btn-in-cart js-product__to-cart">В корзину</span>
 </div>
 <div class="js-product__controls js-product__controls_action_change">
-    <div class="custom-counter js-product__custom-counter{$extraClass}">
-        <span href="#" class="custom-counter__btn custom-counter__btn_dir_less">-</span>
-        <input name="count" class="custom-counter__amount" value="{$itemInCart?:0}">
-        <span href="#" class="custom-counter__btn custom-counter__btn_dir_more">+</span>
+    <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active" title="в корзину"></a>
+    <div class="product-card__counter counter custom-counter js-product__custom-counter{$extraClass}">
+      <button class="counter__btn counter__btn_minus custom-counter__btn custom-counter__btn_dir_less"></button>
+      <input class="counter__input custom-counter__amount" value="1" type="number" placeholder="0" data-min="{$dataMin}">
+      <button class="counter__btn counter__btn_plus custom-counter__btn custom-counter__btn_dir_more"></button>
     </div>
-    <a href="/cart/" class="js-product__btn-in-cart"><span class="js-product__btn-in-cart-top-text">В корзине</span> Перейти</a>
 </div>
-<div class="js-product__ms2-elems">
+<div class="js-product__ms2-elems hidden">
     <form class="js-product__form-add ms2_form" method="post">
         <input name="options" value="[]">
         <input name="id" value="{$prodId}">

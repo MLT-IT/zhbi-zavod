@@ -6,6 +6,16 @@ import '../sass/main.sass'
 window.jQuery = $;
 window.$ = $;
 
+
+// -------------------------------------
+// Импорт функций на JQuery
+// -------------------------------------
+import functions from './functions/functions.js';
+import funcsProduct from './functions/funcsProduct.js';
+import funcsCatalog from './functions/funcsCatalog.js';
+import funcsFavAndComp from './functions/funcsFavAndComp';
+
+
 // -------------------------------------
 // MODULES
 // -------------------------------------
@@ -37,6 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let lazyLoadInstance = new LazyLoad();
     // Код с обработчиками MODX
     modxJS(lazyLoadInstance, yandexMetrikaId);
+
+
+		// -------------------------------------
+		// Функции страниц на JQuery
+		// -------------------------------------
+		// Функции для каталога
+		// funcsCatalog.init();
+		// Функции для карточки товара
+		funcsProduct.init(yandexMetrikaId);
+		// Функции для избранного и сравнения
+		funcsFavAndComp.init();
 })
 
 function getYandexMetrikaId() {

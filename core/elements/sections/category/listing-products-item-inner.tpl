@@ -24,12 +24,7 @@
   <ul class="product-card__stats">
       {include "file:blocks/listing-product-chars.tpl"}
   </ul>
-  <div class="product-card__bottom">
-    <button class="product-card__add btn btn_style_shadow"><span class="product-card__add-text">в корзину</span></button>
-    <div class="product-card__counter counter">
-      <button class="counter__btn counter__btn_minus"></button>
-      <input class="counter__input" type="number" placeholder="0" min="0">
-      <button class="counter__btn counter__btn_plus"></button>
-    </div>
+  <div class="listing__product-elems-wrap product-card__bottom">
+      {include "file:chunks/productElems.tpl" prodId=$id}
   </div>
 </div>

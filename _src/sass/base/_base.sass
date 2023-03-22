@@ -61,5 +61,16 @@ body
 	&.fancybox-active
 		overflow: hidden
 
-.secret-field
+.secret, .hidden
 	display: none
+
+.bg-gray
+	background-color: var(--color-gray-lt)
+
+.inner
+	&__title
+		margin-bottom: 32px
+
+.content-block
+	& > *:nth-last-child(n+2)
+		margin-bottom: 10px

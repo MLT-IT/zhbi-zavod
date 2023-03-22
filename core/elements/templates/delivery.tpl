@@ -2,6 +2,9 @@
 
 {block "page"}
       <main class="layout__main">
+
+        {include "file:blocks/breadcrumbs.tpl" styleClass='bg-gray'}
+
         <article class="main-screen section">
           <div class="main-screen__container">
             <div class="main-screen__banners">
