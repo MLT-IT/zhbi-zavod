@@ -8,62 +8,35 @@
 {/block}
 
 {block "page"}
-    <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
-    </div>
 
-    {set $resources = $_modx->getPlaceholder('checkItems')['comp'] | join : ','}
-    {set $countResources = $_modx->getPlaceholder('checkItems')['comp'] | length}
+  <main class="layout__main">
+    {include "file:blocks/breadcrumbs.tpl"}
 
-    <section class="product-slider product-slider-1 sect-pop sect-comparison">
-        <div class="wrapper sect-pop__wrapper">
-            <div class="sect-comparison__header-and-toggler">
-                <h1 class="asfs title-1">{$_modx->resource.pagetitle}
-                    <span class="title-1__sup">{$countResources}
-                        {'formOfWord' | snippet : [
-                        'n' => $countResources,
-                        'f1' => 'товар',
-                        'f2' => 'товара',
-                        'f5' => 'товаров'
-                        ]}
-                </span>
-                </h1>
-
-                {if $resources != ''}
-                    <label for="only-different-toggler" class="sect-comparison__custom-toggler custom-toggler">
-                        <span class="custom-toggler__span">
-                            <input class="custom-toggler__input" type="checkbox" id="only-different-toggler">
-                            <span class="custom-toggler__checkmark"></span>
-                        </span>
-                        <span class="custom-toggler__text">Только отличающиеся</span>
-                    </label>
-                {/if}
-            </div>
+      <article class="best-products section">
+        <div class="best-products__container">
+          <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
+            {set $resources = $_modx->getPlaceholder('checkItems')['comp'] | join : ','}
+            {set $countResources = $_modx->getPlaceholder('checkItems')['comp'] | length}
 
             {if $resources != ''}
-                <div class="swiper-buttons sect-pop__swiper-buttons sect-comparison__buttons" style="display: none;">
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-                <div class="swiper-container sect-comparison__slider">
-                    <div class="swiper-wrapper sect-pop__slider">
-                        {'!msProductsMy' | snippet : [
-                          'parents' => 0,
-                          'depth' => 50,
-                          'limit' => 42,
-                          'sortby' => '',
-                          'sortdir' => '',
-                          'resources' => $resources,
-                          'tpl' => '@FILE sections/popular/comp-slide.tpl',
-                          'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
-                          'includeTVs' => 'productNotAvailable',
-                        ]}
-                    </div>
-                    <div class="swiper-scrollbar"></div>
-                </div>
+              <div class="best-products__products">
+                {'!msProductsMy' | snippet : [
+                  'tpl' => '@FILE sections/category/listing-products-item-default.tpl',
+                  'ajaxMode' => 'button',
+                  'limit' => 0,
+                  'context' => $_modx->resource.context_key,
+                  'sortby' => 'menuindex',
+                  'sortdir' => 'ASC',
+                  'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
+                  'parents' => 0,
+                  'depth' => 0,
+                  'resources' => $resources
+                ]}
+              </div>
             {/if}
-
         </div>
-    </section>
+      </article>
+
+  </main>
 
 {/block}

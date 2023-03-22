@@ -8,37 +8,33 @@
 {/block}
 
 {block "page"}
-    <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
-    </div>
 
-    {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
+  <main class="layout__main">
+    {include "file:blocks/breadcrumbs.tpl"}
 
-    <div class="wrapper sect-inner">
-        <h1 class="title-1 asfs">{$_modx->resource.pagetitle}</h1>
+      <article class="best-products section">
+        <div class="best-products__container">
+          <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
+            {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
+            {if $resources != ''}
+              <div class="best-products__products">
+                {'!msProductsMy' | snippet : [
+                  'tpl' => '@FILE sections/category/listing-products-item-default.tpl',
+                  'ajaxMode' => 'button',
+                  'limit' => 0,
+                  'context' => $_modx->resource.context_key,
+                  'sortby' => 'menuindex',
+                  'sortdir' => 'ASC',
+                  'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
+                  'parents' => 0,
+                  'depth' => 0,
+                  'resources' => $resources
+                ]}
+              </div>
+            {/if}
+        </div>
+      </article>
 
-        {if $resources != ''}
-            <section class="listing">
-                <div class="listing__content">
-                    <div class="listing__products listing__products_full">
-                        <div class="listing__products-list rows grid">
-                            {'!msProductsMy' | snippet : [
-                            'tpl' => "@FILE sections/category/listing-products-item.tpl",
-                            'ajaxMode' => 'button',
-                            'limit' => 42,
-                            'context' => $_modx->resource.context_key,
-                            'sortby' => 'menuindex',
-                            'sortdir' => 'ASC',
-                            'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
-                            'parents' => 0,
-                            'depth' => 0,
-                            'resources' => $resources
-                            ]}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        {/if}
+  </main>
 
-    </div>
 {/block}
