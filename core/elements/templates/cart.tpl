@@ -8,16 +8,13 @@
 {/block}
 
 {block "page"}
-    <div class="wrapper sect-cart">
-        {include "file:blocks/topbar-search.tpl"}
 
-        {'!msCartCustom' | snippet : [
-            'tpl' => '@FILE: sections/sect-cart.tpl',
-            'includeTVs' => 'isFractional'
-        ]}
-{*        {'!msOrder' | snippet : ['tpl' => '@FILE: chunks/msOrder.tpl']}*}
-{*        {'!msGetOrder' | snippet : ['tpl' => '@FILE: chunks/msGetOrder.tpl']}*}
+<main class="layout__main">
+    {include "file:blocks/breadcrumbs.tpl"}
 
-    </div>
-    {include "file:sections/districts-map.tpl" classToWrapper='is-wide' classToMap='map_sect-cart'}
+    {'!msCartCustom' | snippet : [
+        'tpl' => '@FILE: sections/cart.tpl',
+        'includeTVs' => 'isFractional'
+    ]}
+</main>
 {/block}
