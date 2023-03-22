@@ -3,10 +3,6 @@
   {'!checkItems' | snippet}
 {/if}
 
-{* Устанавливаем переменные для чанка *}
-{set $src = $_pls}
-{insert "file:blocks/set-values-for-prod.tpl"}
-
 <div class="product-card__picture">
   <a href="{$uri}">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">

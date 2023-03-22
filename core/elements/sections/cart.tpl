@@ -2,7 +2,7 @@
     {set $hasProducts = 1}
 {/if}
 
-<article class="cart section">
+<article class="cart section" id="msCart">
   <div class="cart__container">
 {if !$hasProducts}
   <div class="cart__top">
@@ -26,7 +26,7 @@
   </div>
   <div class="cart__items">
       {foreach $products as $product}
-        <div class="cart__item cart-item">
+        <div class="cart__item cart-item" id="{$product.key}">
           <div class="cart-item__picture">
             <img class="cart-item__image" src="assets/template/pictures/products/product-1.png" alt="product">
 
@@ -42,7 +42,11 @@
               <button class="product-action product-action_favorite"></button>
               <button class="product-action product-action_compare"></button>
             </div>
-            <button class="cart-item__remove"></button>
+
+            <form method="post" class="ms2_form">
+              <input type="hidden" name="key" value="{$product.key}">
+              <button title="Удалить из корзины" class="cart-item__remove" type="submit" name="ms2_action" value="cart/remove"></button>
+            </form>
           </div>
           <div class="cart-item__body">
             <p class="cart-item__title">
@@ -62,18 +66,25 @@
                   Стоимость за 1 {$priceUnit}
                 </span>
               </div>
-              <div class="cart-item__counter counter">
-                <button class="counter__btn counter__btn_minus"></button>
-                <input class="counter__input" type="number" placeholder="0" min="0">
-                <button class="counter__btn counter__btn_plus"></button>
-              </div>
+
+              <form method="post" class="ms2_form cart-item__counter-form" role="form">
+                <input type="hidden" name="key" value="{$product.key}"/>
+                <div class="custom-counter cart-item__counter counter">
+                  <span class="custom-counter__btn custom-counter__btn_dir_less counter__btn counter__btn_minus"></span>
+                  <input name="count" class="counter__input custom-counter__amount{if $product.isFractional} custom-counter_type_fractional{/if}"
+                         value="{$product.count}">
+                  <span class="custom-counter__btn custom-counter__btn_dir_more counter__btn counter__btn_plus"></span>
+                </div>
+                <button class="btn btn-sm" type="submit" name="ms2_action" value="cart/change"></button>
+              </form>
+
             </div>
           </div>
         </div>
       {/foreach}
   </div>
   <div class="cart__total cart-total"><span class="cart-total__title">Всего товаров на сумму:</span>
-    <p class="cart-total__price">{$total.cost} ₽</p><span class="cart-total__notion">Без учёта менеджерской скидки</span>
+    <p class="cart-total__price"><span class="ms2_total_cost">{$total.cost}</span> ₽</p><span class="cart-total__notion">Без учёта менеджерской скидки</span>
     <div class="cart-total__btns">
       <button class="btn btn_style_shadow" data-fancybox href="#order">Перейти к оформлению</button><a class="btn btn_style_trans" href="/catalog/">Вернутся в каталог</a>
     </div>

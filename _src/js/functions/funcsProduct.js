@@ -489,8 +489,7 @@ function init(yandexMetrikaId) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.unique_products);
-
-            checkCart(response.data.total_cost);
+            checkCart(response.data.unique_products);
         }
     };
 
@@ -499,8 +498,7 @@ function init(yandexMetrikaId) {
         if (response.success) {
             // Работа с мини-корзиной
             handleMiniCart(response.data.unique_products);
-
-            checkCart(response.data.total_cost);
+            checkCart(response.data.unique_products);
         }
     };
 
@@ -824,8 +822,8 @@ function calcPrice($productItem) {
 /**
  * Если товаров в корзине 0. И если мы на странице корзины, то перезагружаем страницу.
  */
-function checkCart(total_count) {
-    if (total_count === 0 && $('.sect-cart').length) {
+function checkCart(unique_products) {
+    if (unique_products == 0 && $('.cart.section').length) {
         location.reload();
     }
 }
@@ -850,7 +848,7 @@ function handleMiniCart(unique_products) {
  * Инициализация стилизованного счетчика и стилизованного списка.
  */
 function initStyledCounter() {
-    $('.not-init.js-product').each(function () {
+    $('.not-init.js-product, .cart-item').each(function () {
         // Основные переменные
         let $item = $(this);
         let $counterInput = $item.find('.custom-counter__amount');
@@ -862,18 +860,18 @@ function initStyledCounter() {
         //     $item.attr('data-last-unit-value', getActiveUnitValue($item));
         // });
 
-        if (!$item.hasClass('cart-table__table-row_type_product')) {
-            // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
-            $item.on('changeUnit', function (e) {
-                setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
-            });
-            // Устанавливаем шаг и кол-во
-            if ($item.hasClass('js-product-in-cart')) {
-                setStepAndAmount($item, true);
-            } else {
-                setStepAndAmount($item, true);
-            }
-        }
+        // if (!$item.hasClass('cart-table__table-row_type_product')) {
+        //     // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
+        //     $item.on('changeUnit', function (e) {
+        //         setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
+        //     });
+        //     // Устанавливаем шаг и кол-во
+        //     if ($item.hasClass('js-product-in-cart')) {
+        //         setStepAndAmount($item, true);
+        //     } else {
+        //         setStepAndAmount($item, true);
+        //     }
+        // }
 
         // Инициализируем фильтры для счетчика
         $counterInput.each(function () {
@@ -937,7 +935,7 @@ function initStyledCounter() {
             }
 
             // Если кнопка находится в карточке товара корзины, то отправляем форму (кликаем по кнопке для отправки формы)
-            $this.closest('.cart-table__table-row').find('.btn-sm').click();
+            $this.closest('.cart-item').find('.btn-sm').click();
         });
 
         // Удаляем у чанка класс о том, что чанк еще не инициализирован

@@ -2,7 +2,7 @@
     <form method="POST" action class="popup__form form">
         <input type="text" name="MOBILEPHONE" class="secret">
 
-        <h2 class="title-2 form__title"></h2>
+        <h3 class="title-2 form__title"></h3>
         <div class="form__text">мы Вам перезвоним в течение 15 минут</div>
         <div class="form__inputs">
             <label>
@@ -16,16 +16,13 @@
             </label>
         </div>
         <button type="submit" class="btn btn_style_shadow popup__btn">Перезвоните мне</button>
-        <label class="form__checkbox">
-            <input id="callback-policy" type="checkbox" name="callback-policy" checked>
-            <span>
-                <span>
-                     Нажимая кнопку «Перезвоните мне», Вы подтверждаете, что ознакомились с
-                    <span data-fancybox data-type="ajax"
-                       data-src="/confidential/" class="privacy-link">Условиями обработки персональных данных </span>
-                    и принимаете их
-                </span>
-            </span>
-        </label>
+
+        <div class="default-checkbox">
+          <input class="default-checkbox__input" type="checkbox" id="checkbox-callback" name="privacy" checked>
+          <label class="default-checkbox__label" for="checkbox-callback">
+            <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="privacy-link">политикой конфиденциальности</a> сайта</span>
+          </label>
+        </div>
+
     </form>
 </div>

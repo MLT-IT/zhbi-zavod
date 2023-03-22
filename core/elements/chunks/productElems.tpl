@@ -25,7 +25,7 @@
     <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active" title="в корзину"></a>
     <div class="product-card__counter counter custom-counter js-product__custom-counter{$extraClass}">
       <button class="counter__btn counter__btn_minus custom-counter__btn custom-counter__btn_dir_less"></button>
-      <input class="counter__input custom-counter__amount" value="1" type="number" placeholder="0" data-min="0">
+      <input class="counter__input custom-counter__amount" value="{$itemInCart?:0}" type="number" placeholder="0" data-min="0">
       <button class="counter__btn counter__btn_plus custom-counter__btn custom-counter__btn_dir_more"></button>
     </div>
 </div>
