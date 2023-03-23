@@ -1,0 +1,102 @@
+.fast-search
+    position: absolute
+    top: 50px
+    z-index: 12
+    background: #ffffff
+    border: 1px solid #f0f0f0
+    border-radius: 4px
+    padding: 20px
+    width: 130%
+    left: -15%
+
+    img
+        width: 45px
+        height: 45px
+        background: #f0f0f0
+
+    ul
+        display: flex
+        flex-direction: column
+        gap: 10px
+        width: 50%
+
+    ul li:first-child
+        font-size: 18px
+        font-weight: 700
+
+    a
+        display: flex
+        align-items: center
+        gap: 10px
+
+    &-categories
+        &.border
+            border-right: 2px solid #eeeeee
+            padding-right: 10px
+        a
+            border-bottom: 1px dashed rgba(60, 60, 59, 0.5)
+            font-weight: 700
+            padding-bottom: 2px
+            color: #1a0dab
+            display: inline-block
+
+            &:hover
+                border-color: transparent
+
+    &-container
+        display: flex
+        gap: 10px
+
+    &-button
+        display: flex
+        justify-content: center
+        margin-top: 20px
+
+    &-close-button
+        opacity: 0
+        color: #323232
+        font-size: 21px
+        display: flex
+        align-items: center
+        transition: 0.3s
+        max-width: 0
+        margin: 0
+
+    &-show-all
+        display: flex
+        justify-content: center
+
+        span
+            position: relative
+            height: 15px
+            animation: flick 1s linear infinite alternate-reverse
+
+    &-show-all span:after
+        content: ""
+        display: block
+        border: 13px solid transparent
+        border-top: 13px solid #afafaf
+
+@keyframes flick
+    0%
+        opacity: 1
+
+    100%
+        opacity: 0.5
+
+@media (max-width: 769px)
+    .fast-search
+        width: 100%
+        left: 0
+
+        & ul
+            width: 100%
+
+        &-container
+            flex-direction: column
+
+        &-categories.border
+            border-right: none
+            padding-right: 0
+            border-bottom: 2px solid #eeeeee
+            padding-bottom: 10px

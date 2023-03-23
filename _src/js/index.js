@@ -29,6 +29,7 @@ import Tabs from "./modules/tabs";
 import {initFancybox} from "./libs/fancybox";
 import {initSlimSelect} from "./libs/slimSelect";
 import LazyLoad from "vanilla-lazyload";
+import FastSearch from './modules/fast_search';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
@@ -48,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let lazyLoadInstance = new LazyLoad();
     // Код с обработчиками MODX
     modxJS(lazyLoadInstance, yandexMetrikaId);
+
+    // Инициализация быстрого поиска
+    new FastSearch();
 
 
     // -------------------------------------

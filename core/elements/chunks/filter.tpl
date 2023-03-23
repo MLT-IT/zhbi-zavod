@@ -4,7 +4,10 @@
   <div class="filter-item__dropdown">
     <div class="filter-item__options">
       {$rows}
+
+      {*
       <span class="btn btn_style_trans filter-item__more" data-text="Скрыть">Показать все</span>
+      *}
     </div>
   </div>
 </div>

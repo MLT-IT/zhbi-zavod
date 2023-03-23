@@ -148,3 +148,13 @@
 	&__more
 		margin-top: 20px
 		align-self: flex-start
+
+	&_display
+		&_mobile
+			display: none
+			+until-desktop
+				display: flex
+
+		&_desktop
+			+until-desktop
+				display: none

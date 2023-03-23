@@ -140,57 +140,23 @@
             </table>
           </div>
         </div>
-        <div class="search header__search" data-dropdown>
-          <div class="search__wrapper">
-            <button class="search__btn icon-btn icon-btn_style_red">
+        <div class="search header__search">
+          <form action="/search/" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
+            <button type="submit" class="search__btn icon-btn icon-btn_style_red">
               <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
               </svg>
             </button>
-            <input class="search__input" type="search" placeholder="Хочу найти...">
-          </div>
-          <div class="search__dropdown">
-            <div class="search__dropdown-wrapper"><span class="search__dropdown-title">Результат поиска:</span>
-              <ul class="search__options">
-                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
-                  <button class="search__option-add icon-btn icon-btn_style_white">
-                    <svg class="icon-btn__icon" aria-hidden="true">
-                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-                    </svg>
-                  </button>
-                </li>
-                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
-                  <button class="search__option-add icon-btn icon-btn_style_white">
-                    <svg class="icon-btn__icon" aria-hidden="true">
-                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-                    </svg>
-                  </button>
-                </li>
-                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
-                  <button class="search__option-add icon-btn icon-btn_style_white">
-                    <svg class="icon-btn__icon" aria-hidden="true">
-                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-                    </svg>
-                  </button>
-                </li>
-                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
-                  <button class="search__option-add icon-btn icon-btn_style_white">
-                    <svg class="icon-btn__icon" aria-hidden="true">
-                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-                    </svg>
-                  </button>
-                </li>
-                <li class="search__option"><a class="search__option-name" href="#">Газобетон СК</a><span class="search__option-price">129 000 ₽</span>
-                  <button class="search__option-add icon-btn icon-btn_style_white">
-                    <svg class="icon-btn__icon" aria-hidden="true">
-                      <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-                    </svg>
-                  </button>
-                </li>
-              </ul>
-              <button class="search__more btn btn_style_trans">показать ещё</button>
-            </div>
-          </div>
+            <input name="query" class="search__input" fast-search-input="desktop" type="search" placeholder="Хочу найти...">
+          </form>
+          <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile">
+            <button type="submit" class="search__btn icon-btn icon-btn_style_red">
+              <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
+                <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
+              </svg>
+            </button>
+            <input name="query" class="search__input" fast-search-input="mobile" type="search" placeholder="Хочу найти...">
+          </form>
         </div>
         <nav class="header__nav h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
         </nav>

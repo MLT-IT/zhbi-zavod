@@ -9,7 +9,7 @@
         {$products}
         <li>
             <div class="fast-search-button">
-                <button class="custom-btn">Показать еще</button>
+                <button type="submit" class="btn_style_shadow btn ">Показать еще</button>
             </div>
         </li>
     </ul>
