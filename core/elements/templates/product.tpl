@@ -8,7 +8,6 @@
 {/block}
 
 {block "page"}
-
 {set $amountPhotos = $files | count}
 {if $amountPhotos == 0}
   {set $files = [
@@ -18,10 +17,18 @@
   ]}
 {/if}
 
+{if $_modx->getPlaceholder('checkItems') is null}
+    {'!checkItems' | snippet}
+{/if}
+{set $checkItems = $_modx->getPlaceholder('checkItems')}
+
+{set $src = $_modx->resource}
+{insert "file:blocks/set-values-for-prod.tpl"}
+
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:blocks/breadcrumbs.tpl"}
-    <article class="product section">
+    <article class="product section js-product not-init">
       <div class="product__container">
         <h2 class="product__title section__title">{$_modx->resource.pagetitle}</h2>
         <div class="product__body">
@@ -47,8 +54,8 @@
                 </div>
               </div>
               <div class="product__actions">
-                <button class="product-action product-action_favorite"></button>
-                <button class="product-action product-action_compare"></button>
+                <button class="product-action product-action_favorite js-product__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}"></button>
+                <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"></button>
               </div>
             </div>
           </div>
@@ -63,7 +70,10 @@
                   <li class="rating__star"></li>
                 </ul><span class="rating__reviews">12 отзывов</span>
               </div>
+
+
               <div class="product-info__availability">
+                {*
                 <div class="product-info__params">
                   <div class="product-info__param">
                     <div class="default-select">
@@ -73,7 +83,8 @@
                         <option value="1">D200</option>
                         <option value="2">D300</option>
                       </select><div data-id="ss-mgnilr5g" id="ss-mgnilr5g" tabindex="0" class="ss-main default-select__select" role="combobox" aria-haspopup="listbox" aria-controls="ss-mgnilr5g" aria-expanded="false"><div class="ss-values"><div class="ss-placeholder">Плотность</div></div><div class="ss-deselect ss-hide"><svg viewBox="0 0 100 100"><path d="M10,10 L90,90 M10,90 L90,10"></path></svg></div><svg class="ss-arrow" viewBox="0 0 100 100"><path d="M10,30 L50,70 L90,30"></path></svg></div>
-                      <div data-id="ss-mgnilr5g" id="ss-mgnilr5g" class="ss-content default-select__select" role="listbox"><div class="ss-search ss-hide"><input readonly="" type="search" placeholder="Поиск" tabindex="-1" aria-label="Поиск" autocapitalize="off" autocomplete="off" autocorrect="off"></div><div class="ss-list"><div class="ss-option ss-hide"></div><div data-id="tn10zfl7" id="tn10zfl7" class="ss-option" role="option" aria-selected="false">D100</div><div data-id="41cmfz9d" id="41cmfz9d" class="ss-option" role="option" aria-selected="false">D200</div><div data-id="ijgk3t6m" id="ijgk3t6m" class="ss-option" role="option" aria-selected="false">D300</div></div></div></div>
+                      <div data-id="ss-mgnilr5g" id="ss-mgnilr5g" class="ss-content default-select__select" role="listbox"><div class="ss-search ss-hide"><input readonly="" type="search" placeholder="Поиск" tabindex="-1" aria-label="Поиск" autocapitalize="off" autocomplete="off" autocorrect="off"></div><div class="ss-list"><div class="ss-option ss-hide"></div><div data-id="tn10zfl7" id="tn10zfl7" class="ss-option" role="option" aria-selected="false">D100</div><div data-id="41cmfz9d" id="41cmfz9d" class="ss-option" role="option" aria-selected="false">D200</div><div data-id="ijgk3t6m" id="ijgk3t6m" class="ss-option" role="option" aria-selected="false">D300</div></div></div>
+                    </div>
                   </div>
                   <div class="product-info__param">
                     <div class="default-select">
@@ -86,10 +97,14 @@
                       <div data-id="ss-g9de1fkx" id="ss-g9de1fkx" class="ss-content default-select__select" role="listbox"><div class="ss-search ss-hide"><input readonly="" type="search" placeholder="Поиск" tabindex="-1" aria-label="Поиск" autocapitalize="off" autocomplete="off" autocorrect="off"></div><div class="ss-list"><div class="ss-option ss-hide"></div><div data-id="01v02jov" id="01v02jov" class="ss-option" role="option" aria-selected="false">1000</div><div data-id="utfl66ei" id="utfl66ei" class="ss-option" role="option" aria-selected="false">2000</div><div data-id="p5n7otak" id="p5n7otak" class="ss-option" role="option" aria-selected="false">3000</div></div></div></div>
                   </div>
                 </div>
+                *}
                 <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
               </div>
+
+
             </div>
             <div class="product-info__bottom">
+              {*
               <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
                 <ul class="product-info__volume-tabs">
                   <li class="product-info__volume-tab active">м3</li>
@@ -97,18 +112,15 @@
                   <li class="product-info__volume-tab">поддон</li>
                 </ul>
               </div>
+              *}
               <div class="product-info__price"><span class="product-info__price-notion">Продаётся кубами</span>
-                <p class="product-info__price-value">129 000 ₽</p>
+                <p class="product-info__price-value">{$outputPrice} ₽</p>
               </div>
+
               <div class="product-info__actions">
-                <div class="product-info__counter counter">
-                  <button class="counter__btn counter__btn_minus"></button>
-                  <input class="counter__input" type="number" placeholder="0" min="0">
-                  <button class="counter__btn counter__btn_plus"></button>
-                </div>
-                <button class="product-info__buy btn btn_style_shadow">В корзину</button>
-                <button class="product-info__fast-buy btn btn_style_trans">купить в 1 клик</button>
+                  {include "file:chunks/productElems.tpl" prodId=$_modx->resource.id}
               </div>
+              <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 <section class="listing">
     <div class="wrapper">
-        <div class="listing__content" id="mse2_mfilter">
+        <div class="listing__content js-catalog" id="mse2_mfilter">
 
             {if $_modx->getPlaceholder('mspcs.option') ? || $_modx->getPlaceholder('mspcs.where') ?}
                 {set $isSeoPage = 1}

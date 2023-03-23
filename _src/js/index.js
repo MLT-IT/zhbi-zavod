@@ -31,8 +31,8 @@ import {initSlimSelect} from "./libs/slimSelect";
 import LazyLoad from "vanilla-lazyload";
 
 document.addEventListener('DOMContentLoaded', () => {
-		// Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
-		$('#callback').find('.form__title').text('Оставьте свои контакты ниже');
+    // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
+    $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
 
     calcAppProperties();
     initMobilemenu('.header__burger', '.burger-menu');
@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     modxJS(lazyLoadInstance, yandexMetrikaId);
 
 
-		// -------------------------------------
-		// Функции страниц на JQuery
-		// -------------------------------------
-		// Функции для каталога
-		// funcsCatalog.init();
-		// Функции для карточки товара
-		funcsProduct.init(yandexMetrikaId);
-		// Функции для избранного и сравнения
-		funcsFavAndComp.init();
+    // -------------------------------------
+    // Функции страниц на JQuery
+    // -------------------------------------
+    // Функции для каталога
+    // funcsCatalog.init();
+    // Функции для карточки товара
+    funcsProduct.init(yandexMetrikaId);
+    // Функции для избранного и сравнения
+    funcsFavAndComp.init();
 })
 
 function getYandexMetrikaId() {

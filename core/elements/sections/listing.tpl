@@ -21,7 +21,7 @@
       <div class="catalog__products" id="mse2_results">
           {$results}
       </div>
-      <button class="btn btn_style_trans catalog__more">{$pagenav}</button>
+      {$_modx->getPlaceholder('page.nav')}
 
       <div class="catalog__banner banner">
         <picture class="banner__bg">
