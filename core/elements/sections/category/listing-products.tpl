@@ -106,8 +106,8 @@ data-single-dir - запретить менять направление сор�
         {$results}
     </div>
 
-    <div class="mse2_pagination">
-        {$pagenav}
+    <div id="mse2_pagination">
+        {$_modx->getPlaceholder('page.nav')}
     </div>
     <div class="hidden-data">
         <span id="mse2_total">{$total ?: 0}</span>

@@ -1,5 +1,5 @@
 <section class="catalog section">
-  <div class="catalog__container" id="mse2_mfilter">
+  <div class="catalog__container js-catalog" id="mse2_mfilter">
     <div class="catalog__filter filter" data-dropdown>
       <button class="filter__btn btn btn_style_base">фильтры</button>
       <form action="{$_modx->resource.id | url}" class="filter__body" id="mse2_filters" method="post">
@@ -21,7 +21,15 @@
       <div class="catalog__products" id="mse2_results">
           {$results}
       </div>
-      {$_modx->getPlaceholder('page.nav')}
+
+      <div id="mse2_pagination">
+          {$_modx->getPlaceholder('page.nav')}
+      </div>
+      <div class="hidden-data">
+        <span id="mse2_total">{$total ?: 0}</span>
+      </div>
+
+
 
       <div class="catalog__banner banner">
         <picture class="banner__bg">

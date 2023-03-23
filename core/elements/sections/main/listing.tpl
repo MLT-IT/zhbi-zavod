@@ -1,6 +1,6 @@
 <section class="wrapper sect-mainlist">
     <h2 class="title-2">{$title}</h2>
-    <div class="sect-mainlist__content" id="mse2_mfilter">
+    <div class="sect-mainlist__content js-catalog" id="mse2_mfilter">
     {'!mFilter2' | snippet : [
         'element' => 'msProductsMy',
         'suggestionsMaxFilters' => 2000,

@@ -1121,7 +1121,7 @@ function catalogSortColorless() {
 function getRemainder() {
     // Количество товаров в листинге
     let amount = $('.js-catalog .js-product').length;
-    let $btnMore = $('#mse2_mfilter .btn_more, .sect-listing__content .btn_more');
+    let $btnMore = $('#mse2_mfilter .btn_more');
 
     // Проверка - существует ли листинг на основе pdoPage или mSearch2. И есть ли в таком листинге товары
     if (((typeof mSearch2 !== 'undefined' && mSearch2) ||

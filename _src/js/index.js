@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функции страниц на JQuery
     // -------------------------------------
     // Функции для каталога
-    // funcsCatalog.init();
+    funcsCatalog.init();
     // Функции для карточки товара
     funcsProduct.init(yandexMetrikaId);
     // Функции для избранного и сравнения
