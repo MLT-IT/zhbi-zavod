@@ -62,6 +62,7 @@
         <div class="h-menu header__catalog" data-dropdown>
           <button class="h-menu__btn btn btn_style_base">Каталог</button>
           <div class="h-menu__dropdown">
+            {set $menu = '@FILE snippets/createMenu.php' | snippet}
             <table class="h-catalog">
               <thead>
               <tr>
@@ -71,71 +72,38 @@
               </tr>
               </thead>
               <tbody>
-              <tr class="h-catalog__row">
-                <td class="h-catalog__item h-catalog__item_border">
-                  <div class="h-catalog-item">
-                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-1.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон ЛСР</span>
-                  </div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
-                </td>
-              </tr>
-              <tr class="h-catalog__row">
-                <td class="h-catalog__item h-catalog__item_border">
-                  <div class="h-catalog-item">
-                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-2.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон СК</span>
-                  </div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
-                </td>
-              </tr>
-              <tr class="h-catalog__row">
-                <td class="h-catalog__item h-catalog__item_border">
-                  <div class="h-catalog-item">
-                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-3.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон YTONG</span>
-                  </div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
-                </td>
-              </tr>
-              <tr class="h-catalog__row">
-                <td class="h-catalog__item h-catalog__item_border">
-                  <div class="h-catalog-item">
-                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-4.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон ЕАБ</span>
-                  </div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
-                </td>
-              </tr>
-              <tr class="h-catalog__row">
-                <td class="h-catalog__item h-catalog__item_border">
-                  <div class="h-catalog-item">
-                    <div class="h-catalog-item__preview"><img class="h-catalog-item__image" src="assets/template/pictures/products/item-5.png" alt="item"></div><span class="h-catalog-item__name h-catalog-item__name_bold">Газобетон AEROC</span>
-                  </div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">D600</span></div>
-                </td>
-                <td class="h-catalog__item">
-                  <div class="h-catalog-item"><span class="h-catalog-item__name">75х250х625</span></div>
-                </td>
-              </tr>
+                {foreach $menu as $row}
+                  <tr class="h-catalog__row">
+
+                    <td class="h-catalog__item h-catalog__item_border">
+                      {if $row['param3'] ?}
+                        <div class="h-catalog-item">
+                          <div class="h-catalog-item__preview">
+                            <img class="h-catalog-item__image" src="{$row['param1']['img']}" alt="{$row['param1']['text']}">
+                          </div>
+                          <a href="{$row['param1']['link']}" class="h-catalog-item__name h-catalog-item__name_bold">{$row['param1']['text']}</a>
+                        </div>
+                      {/if}
+                    </td>
+
+                    <td class="h-catalog__item">
+                      {if $row['param2'] ?}
+                        <div class="h-catalog-item">
+                          <a href="{$row['param2']['link']}" class="h-catalog-item__name">{$row['param2']['text']}</a>
+                        </div>
+                      {/if}
+                    </td>
+
+                    <td class="h-catalog__item">
+                      {if $row['param3'] ?}
+                        <div class="h-catalog-item">
+                          <a href="{$row['param3']['link']}" class="h-catalog-item__name">{$row['param3']['text']}</a>
+                        </div>
+                      {/if}
+                    </td>
+
+                  </tr>
+                {/foreach}
               </tbody>
             </table>
           </div>
