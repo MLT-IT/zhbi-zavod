@@ -43,7 +43,9 @@
             </div>
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
-        <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
+        <div class="contacts__map shadow-map" data-map-script="contacts-map-1">
+          <iframe data-map-id="contacts-map-1" data-src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe>
+        </div>
       </div>
       <div class="contacts__block" data-tab-page="офис">
         <div class="contacts__info">
@@ -87,7 +89,9 @@
             </div>
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
-        <div class="contacts__map"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe></div>
+        <div class="contacts__map shadow-map" data-map-script="contacts-map-2">
+          <iframe data-map-id="contacts-map-2" data-src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e" frameborder="0" allowfullscreen="true" width="835px" height="450px" style="display: block;"></iframe>
+        </div>
       </div>
     </div>
   </div>

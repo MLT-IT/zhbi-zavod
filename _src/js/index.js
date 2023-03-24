@@ -15,6 +15,7 @@ import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
 import inputFilter from './libs/inputFilter/inputFilter.js';
+import mapsLazyload from './modules/lazyload_maps';
 
 
 // -------------------------------------
@@ -30,6 +31,8 @@ import {initFancybox} from "./libs/fancybox";
 import {initSlimSelect} from "./libs/slimSelect";
 import LazyLoad from "vanilla-lazyload";
 import FastSearch from './modules/fast_search';
+import shadowMap from './modules/shadow_map';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
@@ -63,6 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
     funcsProduct.init(yandexMetrikaId);
     // Функции для избранного и сравнения
     funcsFavAndComp.init();
+
+
+    // -------------------------------
+    // Яндекс карты
+    // -------------------------------
+    mapsLazyload();
+
+
+    // -------------------------------
+    // Запрет прокрутки карты до клика
+    // -------------------------------
+    shadowMap('.shadow-map');
 })
 
 function getYandexMetrikaId() {
