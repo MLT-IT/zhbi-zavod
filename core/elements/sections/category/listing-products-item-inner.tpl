@@ -10,7 +10,9 @@
   </a>
   <div class="product-card__actions">
     <button class="product-action product-action_favorite js-product__btn-fav{if $checkItems['fav'][$id]?} active{/if}"></button>
+    {*
     <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
+    *}
   </div>
 </div>
 <div class="product-card__body">

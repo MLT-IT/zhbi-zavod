@@ -136,11 +136,13 @@
             </svg>
           </a>
           {set $favComp = $_modx->getPlaceholder('checkItems')['comp'] | length}
+          {*
           <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
             </svg>
           </a>
+          *}
           {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
         </div>
       </div>

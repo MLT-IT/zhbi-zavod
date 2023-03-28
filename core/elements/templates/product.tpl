@@ -25,6 +25,14 @@
 {set $src = $_modx->resource}
 {insert "file:blocks/set-values-for-prod.tpl"}
 
+{* Галерея *}
+{'!msGallery' | snippet : [
+'tpl' => '@FILE chunks/gallery.tpl',
+'product' => $id,
+'toPlaceholder' => 'gallery'
+]}
+{set $gallery = $_modx->getPlaceholder('gallery')}
+
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:blocks/breadcrumbs.tpl"}
@@ -55,7 +63,9 @@
               </div>
               <div class="product__actions">
                 <button class="product-action product-action_favorite js-product__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}"></button>
+                {*
                 <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"></button>
+                *}
               </div>
             </div>
           </div>
