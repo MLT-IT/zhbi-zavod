@@ -69,7 +69,7 @@
       {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
       {include "file:sections/gazobeton-info.tpl"}
-      {include "file:sections/sfaq.tpl"}
+      {include "file:sections/faq.tpl"}
       {include "file:sections/contacts.tpl"}
     </main>
 {/block}

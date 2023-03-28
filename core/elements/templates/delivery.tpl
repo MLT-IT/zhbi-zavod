@@ -46,12 +46,9 @@
             </div>
           </div>
         </article>
-
         {include "file:sections/delivery.tpl"}
-        {include "file:sections/sfaq.tpl"}
+        {include "file:sections/faq.tpl"}
         {include "file:sections/payment.tpl"}
         {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
-
       </main>
-
 {/block}
