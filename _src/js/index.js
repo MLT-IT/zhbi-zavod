@@ -78,6 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Запрет прокрутки карты до клика
     // -------------------------------
     shadowMap('.shadow-map');
+
+
+    // -------------------------------
+    // Переключение вкладок в меню в шапке
+    // -------------------------------
+    $('.h-catalog-item_main').on('click', function(e) {
+        e.preventDefault();
+        let $this = $(this);
+
+        if ($this.hasClass('active')) {
+            return false;
+        }
+
+        $('.h-catalog-item.active').removeClass('active');
+        $this.addClass('active');
+        $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
+    });
 })
 
 function getYandexMetrikaId() {

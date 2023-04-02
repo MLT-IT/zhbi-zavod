@@ -59,53 +59,50 @@
             </nav>
           </div>
         </div>
+
+        {set $menu = '@FILE snippets/createMenu.php' | snippet}
+
         <div class="h-menu header__catalog" data-dropdown>
           <button class="h-menu__btn btn btn_style_base">Каталог</button>
           <div class="h-menu__dropdown">
-            {set $menu = '@FILE snippets/createMenu.php' | snippet}
-            <table class="h-catalog">
-              <thead>
-              <tr>
-                <th class="h-catalog__title">Товар</th>
-                <th class="h-catalog__title">Плотность</th>
-                <th class="h-catalog__title">Размеры</th>
-              </tr>
-              </thead>
-              <tbody>
-                {foreach $menu as $row}
-                  <tr class="h-catalog__row">
+            <div class="h-catalog">
+              <div class="h-catalog__column">
+                <div class="h-catalog__column-header">{$menu['column1']}</div>
+                  {foreach $menu['values'] as $catId => $catCols}
+                    <div class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
+                      <div class="h-catalog-item__preview">
+                        <img class="h-catalog-item__image" src="{$catCols['column1']['img']}" alt="{$catCols['column1']['name']}">
+                      </div>
+                      <span class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</span>
+                    </div>
+                    {if $activeCatId is empty}
+                        {set $activeCatId = $catId}
+                    {/if}
+                  {/foreach}
+              </div>
 
-                    <td class="h-catalog__item h-catalog__item_border">
-                      {if $row['param3'] ?}
-                        <div class="h-catalog-item">
-                          <div class="h-catalog-item__preview">
-                            <img class="h-catalog-item__image" src="{$row['param1']['img']}" alt="{$row['param1']['text']}">
-                          </div>
-                          <a href="{$row['param1']['link']}" class="h-catalog-item__name h-catalog-item__name_bold">{$row['param1']['text']}</a>
-                        </div>
-                      {/if}
-                    </td>
+              <div class="h-catalog__column">
+                <div class="h-catalog__column-header">{$menu['column2']}</div>
+                  {foreach $menu['values'] as $catId => $catCols}
+                    {foreach $catCols['column2'] as $val}
+                      <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
+                        <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                      </div>
+                    {/foreach}
+                  {/foreach}
+              </div>
 
-                    <td class="h-catalog__item">
-                      {if $row['param2'] ?}
-                        <div class="h-catalog-item">
-                          <a href="{$row['param2']['link']}" class="h-catalog-item__name">{$row['param2']['text']}</a>
-                        </div>
-                      {/if}
-                    </td>
-
-                    <td class="h-catalog__item">
-                      {if $row['param3'] ?}
-                        <div class="h-catalog-item">
-                          <a href="{$row['param3']['link']}" class="h-catalog-item__name">{$row['param3']['text']}</a>
-                        </div>
-                      {/if}
-                    </td>
-
-                  </tr>
-                {/foreach}
-              </tbody>
-            </table>
+              <div class="h-catalog__column">
+                <div class="h-catalog__column-header">{$menu['column3']}</div>
+                  {foreach $menu['values'] as $catId => $catCols}
+                    {foreach $catCols['column3'] as $val}
+                      <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
+                        <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                      </div>
+                    {/foreach}
+                  {/foreach}
+              </div>
+            </div>
           </div>
         </div>
         <div class="search header__search">

@@ -1,8 +1,6 @@
 .h-catalog
-	margin: 0 -35px
-
-	border-spacing: 35px 0
-	border-collapse: separate
+	display: flex
+	align-items: flex-start
 
 	&__row
 		&:last-child
@@ -30,28 +28,59 @@
 			bottom: 0
 			left: 0
 			z-index: -1
-
 			width: 100%
 			height: calc(100% + 18px)
-
 			background-color: var(--color-white)
 
 	&__item
 		padding-bottom: 17px
+		vertical-align: top
 
-		vertical-align: middle
+	&__column
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		justify-content: flex-start
 
-		&_border
-			padding-right: 35px
+		&:nth-of-type(n+2)
+			padding-left: 30px
 
-			border-right: 1px solid var(--color-black-trans)
+		&:nth-of-type(1)
+			position: relative
+			padding-right: 20px
+
+			&::after
+				display: block
+				position: absolute
+				content: ""
+				border-right: 1px solid var(--color-black-trans)
+				right: 0
+				top: 28px
+				height: calc(100% - 38px)
+
+	&__column-header
+		padding-bottom: 11px
+		font-weight: 400
+		font-size: 14px
+		line-height: 1.2
+		color: var(--color-gray)
+		text-align: left
+		user-select: none
 
 .h-catalog-item
-	display: flex
 	align-items: center
-
 	cursor: pointer
 	color: var(--color-black)
+	margin-bottom: 17px
+	vertical-align: top
+	min-height: 37px
+	display: flex
+
+	&_dependent
+		display: none
+
+		&.active
+			display: flex
 
 	&__preview
 		flex-shrink: 0
@@ -77,16 +106,15 @@
 		font-weight: 400
 		font-size: 14px
 		line-height: 1.2
-
+		text-decoration: none
 		border-bottom: 1px solid var(--color-black-trans)
-
 		transition: color .3s ease, border-color .3s ease
+		color: inherit
 
 		&_bold
 			font-weight: 700
 
-	&_active,
-	&:hover
+	&:hover, &_main.active
 		color: var(--color-red)
 
 		& .h-catalog-item

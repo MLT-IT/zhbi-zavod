@@ -126,7 +126,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-										target: 'http://monolit-main.local/',
+                    target: 'http://gazosilikatstroy.local/',
                     secure: false,
                     changeOrigin: true
                 }
