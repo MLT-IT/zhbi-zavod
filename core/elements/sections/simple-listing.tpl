@@ -8,17 +8,8 @@
                 {* Если popular_ids не заполнено, то resources будет пустой. И будут выводиться все товары подряд *}
                 {set $resources = $_modx->config['popular_ids']}
             {/if}
-            {'!pdoResources' | snippet : [
-              'parents' => 0,
-              'depth' => 50,
-              'limit' => 42,
-              'sortby' => '',
-              'sortdir' => '',
-              'tpl' => '@FILE sections/popular/pop-slide.tpl',
-              'where' => '{"template:=": "5"}',
-              'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-              'context' => $_modx->resource.context_key
-            ]}
+
+            {'@FILE snippets/getCategoriesWithMinPrice.php' | snippet}
         </div>
       </div>
       <div class="swiper-buttons">
