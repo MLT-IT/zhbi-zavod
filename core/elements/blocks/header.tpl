@@ -10,7 +10,17 @@
           <use xlink:href="assets/template/pictures/icons.svg#svg-burger"></use>
         </svg>
       </button>
-      <div class="h-logo h-logo_mobile"><img class="h-logo__image" src="assets/template/pictures/logo-mob.svg" alt="monolit-logo"></div>
+
+      {switch $_modx->resource.context_key}
+          {case 'web'}
+            {set $logo = 'logo-mob.svg'}
+          {case 'gazosilikatstroy'}
+            {set $logo = 'gazosilicatstroy.png'}
+      {/switch}
+
+      <div class="h-logo h-logo_mobile">
+        <img class="h-logo__image" src="assets/template/pictures/{$logo}">
+      </div>
       <div class="header__actions">
         <button class="header__action icon-btn icon-btn_style_black">
           <svg class="icon-btn__icon" aria-hidden="true">
@@ -49,7 +59,7 @@
   <div class="header__bottom">
     <div class="header__container">
       <a href="/" class="h-logo">
-        <img class="h-logo__image" src="assets/template/pictures/logo.svg" alt="monolit-logo">
+        <img class="h-logo__image" src="assets/template/pictures/{$logo}">
       </a>
       <div class="header__toolbar">
         <div class="h-menu header__menu" data-dropdown>
