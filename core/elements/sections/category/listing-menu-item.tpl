@@ -1,1 +1,0 @@
-<a href="{$uri}" {$classes}>{$menutitle}</a>

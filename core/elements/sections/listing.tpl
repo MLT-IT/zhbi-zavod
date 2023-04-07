@@ -21,16 +21,12 @@
       <div class="catalog__products" id="mse2_results">
           {$results}
       </div>
-
       <div id="mse2_pagination">
           {$_modx->getPlaceholder('page.nav')}
       </div>
       <div class="hidden-data">
         <span id="mse2_total">{$total ?: 0}</span>
       </div>
-
-
-
       <div class="catalog__banner banner">
         <picture class="banner__bg">
           <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
