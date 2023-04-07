@@ -40,17 +40,17 @@
         <div class="swiper-slide banner banner_sm">
           <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen-sm.jpg" alt="banner"></picture>
           <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
-          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">подробнее</a></div>
+          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="/akcii/likvidacziya-sklada-uspej-zabrat/">подробнее</a></div>
         </div>
         <div class="swiper-slide banner banner_sm">
           <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen-sm.jpg" alt="banner"></picture>
           <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
-          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">подробнее</a></div>
+          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="/akcii/likvidacziya-sklada-uspej-zabrat/">подробнее</a></div>
         </div>
         <div class="swiper-slide banner banner_sm">
           <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen-sm.jpg" alt="banner"></picture>
           <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
-          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="#">подробнее</a></div>
+          <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="/akcii/likvidacziya-sklada-uspej-zabrat/">подробнее</a></div>
         </div>
       </div>
       <div class="swiper-pagination"></div>
