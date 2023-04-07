@@ -7,7 +7,9 @@
 
         {include 'file:blocks/certs.tpl' h='283' classToPreview='cursor-zoom'}
 
-        {*<a href="/certs/" class="custom-link">Смотреть все</a>*}
+        {*
+        <a href="/certs/" class="custom-link">Смотреть все</a>
+        *}
     </div>
 {/if}
 

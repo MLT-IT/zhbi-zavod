@@ -16,7 +16,7 @@
             {$_modx->resource.content}
           </div>
 
-          {* --- ^ Подкатегории --------------------- *}
+          {* --- Подкатегории --------------------- *}
           {set $categories = 'pdoResources' | snippet : [
             'depth' => 9000,
             'limit' => 0,
@@ -51,14 +51,14 @@
               {/if}
             </div>
           {/if}
-          {* --- $ Подкатегории --------------------- *}
+          {* --- / Подкатегории --------------------- *}
 
         </div>
       </article>
     </section>
 
 
-    {* --- ^ Листинг товаров --------------------- *}
+    {* --- Листинг товаров --------------------- *}
     {'!mFilter2' | snippet : [
       'element' => 'msProductsMy',
       'suggestionsMaxFilters' => 2000,
@@ -88,7 +88,7 @@
       'parents' => $_modx->resource.itemsParents,
       'totalVar' => 'total'
     ]}
-    {* --- $ Листинг товаров --------------------- *}
+    {* --- / Листинг товаров --------------------- *}
 
 
     {include "file:sections/gazobeton-info.tpl"}
