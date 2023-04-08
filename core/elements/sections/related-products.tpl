@@ -10,7 +10,7 @@
               'limit' => 42,
               'sortby' => '',
               'sortdir' => '',
-              'tpl' => '@FILE sections/listing-products-item-slide.tpl',
+              'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
               'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
               'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
             ]}

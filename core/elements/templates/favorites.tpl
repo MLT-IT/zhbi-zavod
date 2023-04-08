@@ -19,7 +19,7 @@
             {if $resources != ''}
               <div class="best-products__products">
                 {'!msProductsMy' | snippet : [
-                  'tpl' => '@FILE sections/listing-products-item-default.tpl',
+                  'tpl' => '@FILE chunks/product/listing-products-item-default.tpl',
                   'ajaxMode' => 'button',
                   'limit' => 0,
                   'context' => $_modx->resource.context_key,

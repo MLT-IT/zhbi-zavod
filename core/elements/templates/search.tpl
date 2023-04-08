@@ -15,12 +15,12 @@
     {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
       'alias' => 'catalog'
     ]}
-    {set $data = '@FILE snippets/fastSearch.php' | snippet}
+    {set $data = '@FILE snippets/fast-search/fastSearch.php' | snippet}
 
     {'!pdoPage' | snippet : [
       'element' => 'msProductsMy',
       'resources' => $data['ids'],
-      'tpl' => "@FILE sections/listing-products-item-default.tpl",
+      'tpl' => "@FILE chunks/product/listing-products-item-default.tpl",
 
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
 

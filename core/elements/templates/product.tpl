@@ -23,7 +23,7 @@
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 
 {set $src = $_modx->resource}
-{insert "file:chunks/set-values-for-prod.tpl"}
+{insert "file:chunks/product/set-values-for-prod.tpl"}
 
 {* Галерея *}
 {'!msGallery' | snippet : [

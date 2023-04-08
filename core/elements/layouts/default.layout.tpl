@@ -186,7 +186,7 @@
             {include "file:chunks/footer.tpl"}
         {/block}
         {block "modals"}
-            {include 'file:modals/wrapper.tpl'}
+            {include 'file:chunks/modals/wrapper.tpl'}
         {/block}
     </div>
 
