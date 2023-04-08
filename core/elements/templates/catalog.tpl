@@ -1,14 +1,14 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'schema'}
-    {include "file:blocks/catalog-schema.tpl"}
+    {include "file:chunks/catalog-schema.tpl"}
 {/block}
 
 {block "page"}
 
   <main class="layout__main">
     <section class="section section_view_top">
-      {include "file:blocks/breadcrumbs.tpl"}
+      {include "file:chunks/breadcrumbs.tpl"}
       <article class="catalog-screen">
         <div class="catalog-screen__container">
           <h2 class="catalog-screen__title section__title">{$_modx->resource.pagetitle ?: $_modx->resource.menutitle}</h2>
@@ -65,7 +65,7 @@
       'suggestionsMaxResults' => 100000,
       'filters' => $_modx->resource.listFilters ?: "",
 
-      'tpls' => "@FILE sections/category/listing-products-item-default.tpl",
+      'tpls' => "@FILE sections/listing-products-item-default.tpl",
       'tplOuter' => '@FILE sections/listing.tpl',
       'tplFilter.outer.default' => '@FILE chunks/filter.tpl',
       'ajaxMode' => 'button',

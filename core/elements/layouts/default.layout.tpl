@@ -2,10 +2,10 @@
 {block 'head'}
     {parent}
     {block 'title'}
-        {include "file:elements/meta-title.tpl"}
+        {include "file:chunks/meta-title.tpl"}
     {/block}
     {block 'description'}
-        {include "file:elements/meta-description.tpl"}
+        {include "file:chunks/meta-description.tpl"}
     {/block}
     {*
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">
@@ -177,13 +177,13 @@
 
     <div class="wrap">
         {block "header"}
-            {insert "file:blocks/header.tpl"}
+            {insert "file:chunks/header.tpl"}
         {/block}
         <div class="current-page">
             {block "page"}{/block}
         </div>
         {block "footer"}
-            {include "file:blocks/footer.tpl"}
+            {include "file:chunks/footer.tpl"}
         {/block}
         {block "modals"}
             {include 'file:modals/wrapper.tpl'}

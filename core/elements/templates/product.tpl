@@ -1,10 +1,10 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:elements/product/meta-title.tpl"}
+    {include "file:chunks/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:elements/product/meta-description.tpl"}
+    {include "file:chunks/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
@@ -23,7 +23,7 @@
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 
 {set $src = $_modx->resource}
-{insert "file:blocks/set-values-for-prod.tpl"}
+{insert "file:chunks/set-values-for-prod.tpl"}
 
 {* Галерея *}
 {'!msGallery' | snippet : [
@@ -35,7 +35,7 @@
 
 <main class="layout__main">
   <section class="section section_view_top">
-    {include "file:blocks/breadcrumbs.tpl"}
+    {include "file:chunks/breadcrumbs.tpl"}
     <article class="product section js-product not-init">
       <div class="product__container">
         <h2 class="product__title section__title">{$_modx->resource.pagetitle}</h2>
@@ -159,7 +159,7 @@
               <table class="table__table">
                 <tbody>
                   {'msProductOptions' | snippet : [
-                    'tpl' => '@FILE blocks/item-characters.tpl',
+                    'tpl' => '@FILE chunks/item-characters.tpl',
                     'ignoreOptions' => 'edizm,edizm2'
                   ]}
                 </tbody>

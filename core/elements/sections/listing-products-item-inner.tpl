@@ -21,7 +21,7 @@
     <p class="product-card__price-value">{$outputPrice} ₽</p><span class="product-card__price-notion">Стоимость за 1 м3</span>
   </div>
   <ul class="product-card__stats">
-      {include "file:blocks/listing-product-chars.tpl"}
+      {include "file:chunks/listing-product-chars.tpl"}
   </ul>
   <div class="listing__product-elems-wrap product-card__bottom">
       {include "file:chunks/productElems.tpl" prodId=$id}

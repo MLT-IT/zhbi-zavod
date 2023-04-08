@@ -1,12 +1,12 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'schema'}
-    {include "file:blocks/catalog-schema.tpl"}
+    {include "file:chunks/catalog-schema.tpl"}
 {/block}
 
 {block "page"}
     <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
+        {include "file:chunks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper">
         {* В каталоге для utm с городом нужно выводить другой h1. *}
@@ -34,7 +34,7 @@
             {$outputTitle}{'!textFromGetParams' | snippet}
         </h1>
     </div>
-    {include "file:sections/category/listing.tpl"}
+    {include "file:sections/listing.tpl"}
     {include "file:sections/districts-map.tpl"}
     {if $_modx->resource.content | length > 0}
         <div class="wrapper">

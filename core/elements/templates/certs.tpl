@@ -1,15 +1,15 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:elements/product/meta-title.tpl"}
+    {include "file:chunks/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:elements/product/meta-description.tpl"}
+    {include "file:chunks/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
     <div class="wrapper">
-        {include "file:blocks/breadcrumbs.tpl"}
+        {include "file:chunks/breadcrumbs.tpl"}
     </div>
     <div class="wrapper sect-inner">
         <h1 class="title-1">{$_modx->resource.pagetitle}</h1>
@@ -21,7 +21,7 @@
         {/if}
 
         {set $certs = 'getAllCerts' | snippet}
-        {include 'file:blocks/certs.tpl'}
+        {include 'file:chunks/certs.tpl'}
 
     </div>
 {/block}

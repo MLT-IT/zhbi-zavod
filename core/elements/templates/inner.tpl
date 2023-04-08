@@ -2,8 +2,7 @@
 
 {block "page"}
   <main class="layout__main">
-
-    {include "file:blocks/breadcrumbs.tpl"}
+    {include "file:chunks/breadcrumbs.tpl"}
 
     <article class="inner section">
       <div class="inner__container">

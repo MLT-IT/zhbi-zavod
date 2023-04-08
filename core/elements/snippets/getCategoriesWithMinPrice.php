@@ -53,7 +53,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
 // Оборачиваем данные в чанк
 $pdo = $modx->getService('pdoTools');
 $result = array_map(function($v) use ($pdo) {
-    return $pdo->getChunk('@FILE sections/popular/pop-slide.tpl', $v);
+    return $pdo->getChunk('@FILE sections/pop-slide.tpl', $v);
 }, $result);
 
 return implode('', $result);

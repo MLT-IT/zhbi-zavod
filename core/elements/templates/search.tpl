@@ -1,16 +1,16 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:elements/product/meta-title.tpl"}
+    {include "file:chunks/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:elements/product/meta-description.tpl"}
+    {include "file:chunks/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
 
   <main class="layout__main">
-    {include "file:blocks/breadcrumbs.tpl"}
+    {include "file:chunks/breadcrumbs.tpl"}
 
     {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
       'alias' => 'catalog'
@@ -20,7 +20,7 @@
     {'!pdoPage' | snippet : [
       'element' => 'msProductsMy',
       'resources' => $data['ids'],
-      'tpl' => "@FILE sections/category/listing-products-item-default.tpl",
+      'tpl' => "@FILE sections/listing-products-item-default.tpl",
 
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
 

@@ -1,16 +1,16 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:elements/product/meta-title.tpl"}
+    {include "file:chunks/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:elements/product/meta-description.tpl"}
+    {include "file:chunks/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
 
   <main class="layout__main">
-    {include "file:blocks/breadcrumbs.tpl"}
+    {include "file:chunks/breadcrumbs.tpl"}
 
       <article class="best-products section comparison">
         <div class="best-products__container">
@@ -20,7 +20,7 @@
             {if $resources != ''}
               <div class="best-products__products">
                 {'!msProductsMy' | snippet : [
-                  'tpl' => '@FILE sections/category/listing-products-item-default.tpl',
+                  'tpl' => '@FILE sections/listing-products-item-default.tpl',
                   'ajaxMode' => 'button',
                   'limit' => 0,
                   'context' => $_modx->resource.context_key,

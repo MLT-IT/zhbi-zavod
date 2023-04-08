@@ -64,7 +64,7 @@
           {include "file:sections/advantages.tpl" styleClass='main-screen__advantages'}
         </div>
       </article>
-      {include "file:sections/simple-listing.tpl"}
+      {include "file:sections/listing-brands.tpl"}
       {include "file:sections/actions.tpl"}
       {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
