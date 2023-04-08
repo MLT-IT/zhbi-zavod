@@ -2,8 +2,8 @@
   <div class="breadcrumbs__container">
     <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumbs__items">
       {'pdoCrumbs' | snippet : [
-        'tpl' => '@FILE chunks/breadcrumbs-item.tpl',
-        'tplCurrent' => '@FILE chunks/breadcrumbs-item-current.tpl',
+        'tpl' => '@FILE chunks/breadcrumbs/breadcrumbs-item.tpl',
+        'tplCurrent' => '@FILE chunks/breadcrumbs/breadcrumbs-item-current.tpl',
         'tplWrapper' => '@INLINE [[+output]]',
         'showHome' => 1,
         'showAtHome' => 0,

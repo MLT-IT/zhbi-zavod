@@ -3,7 +3,7 @@
 {block "page"}
       <main class="layout__main">
 
-        {include "file:chunks/breadcrumbs.tpl" styleClass='bg-gray'}
+        {include "file:chunks/breadcrumbs/breadcrumbs.tpl" styleClass='bg-gray'}
 
         <article class="main-screen section">
           <div class="main-screen__container">

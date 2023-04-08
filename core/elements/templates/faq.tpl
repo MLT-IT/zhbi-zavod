@@ -2,7 +2,7 @@
 
 {block "page"}
     <div class="wrapper">
-        {include "file:chunks/breadcrumbs.tpl"}
+        {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
     </div>
     {include 'faq' ispage=1}
     {include "file:sections/payment.tpl"}

@@ -1,15 +1,15 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:chunks/product/meta-title.tpl"}
+    {include "file:chunks/meta/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:chunks/product/meta-description.tpl"}
+    {include "file:chunks/meta/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
     <div class="wrapper">
-        {include "file:chunks/breadcrumbs.tpl"}
+        {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
     </div>
     <div class="wrapper sect-inner">
         <h1 class="title-1 title-1_align_left">{$_modx->resource.pagetitle}</h1>

@@ -6,7 +6,7 @@
 
 {block "page"}
     <div class="wrapper">
-        {include "file:chunks/breadcrumbs.tpl"}
+        {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
     </div>
     <div class="wrapper">
         {* В каталоге для utm с городом нужно выводить другой h1. *}

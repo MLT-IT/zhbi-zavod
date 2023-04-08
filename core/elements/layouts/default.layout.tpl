@@ -2,10 +2,10 @@
 {block 'head'}
     {parent}
     {block 'title'}
-        {include "file:chunks/meta-title.tpl"}
+        {include "file:chunks/meta/meta-title.tpl"}
     {/block}
     {block 'description'}
-        {include "file:chunks/meta-description.tpl"}
+        {include "file:chunks/meta/meta-description.tpl"}
     {/block}
     {*
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/fonts.css?v=1">

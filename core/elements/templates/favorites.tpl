@@ -1,16 +1,16 @@
 {extends "file:layouts/default.layout.tpl"}
 
 {block 'title'}
-    {include "file:chunks/product/meta-title.tpl"}
+    {include "file:chunks/meta/product/meta-title.tpl"}
 {/block}
 {block 'description'}
-    {include "file:chunks/product/meta-description.tpl"}
+    {include "file:chunks/meta/product/meta-description.tpl"}
 {/block}
 
 {block "page"}
 
   <main class="layout__main">
-    {include "file:chunks/breadcrumbs.tpl"}
+    {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
 
       <article class="best-products section favorites">
         <div class="best-products__container">
