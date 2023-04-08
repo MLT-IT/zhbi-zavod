@@ -21,7 +21,7 @@
             'depth' => 9000,
             'limit' => 0,
             'where' => '{"template:=":"5"}',
-            'tpl' => '@FILE chunks/categoryItem.tpl',
+            'tpl' => '@FILE chunks/header-menu/category-item.tpl',
             'includeTVs' => 'mainImage',
             'outputSeparator' => '||'
           ] | split : '||'}

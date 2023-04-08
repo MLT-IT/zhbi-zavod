@@ -1067,7 +1067,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         'parents' => 4,
         'depth' => 0,
         'limit' => 0,
-        'tpl' => '@FILE chunks/createMenuItem.tpl',
+        'tpl' => '@FILE chunks/category-item-json.tpl',
         'tplWrapper' => '@INLINE {[[+output]]}',
         'where' => '{"template:=":"5"}',
         'includeTVs' => 'mainImage'

@@ -18,7 +18,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         'includeTVs' => 'mainImage',
         'context' => $modx->resource->context_key,
         'resources' => '-4', // Исключаем каталог
-        'tpl' => '@FILE chunks/categoryWithMinPriceJson.tpl',
+        'tpl' => '@FILE chunks/category-with-min-price-json.tpl',
     ];
     $json = $modx->runSnippet('pdoResources', $params);
     $json = str_replace('}, }', '} }', $json);

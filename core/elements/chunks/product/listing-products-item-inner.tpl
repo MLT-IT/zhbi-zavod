@@ -24,6 +24,6 @@
       {include "file:chunks/listing-product-chars.tpl"}
   </ul>
   <div class="listing__product-elems-wrap product-card__bottom">
-      {include "file:chunks/productElems.tpl" prodId=$id}
+      {include "file:chunks/product/productElems.tpl" prodId=$id}
   </div>
 </div>

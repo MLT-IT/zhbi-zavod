@@ -128,7 +128,7 @@
               </div>
 
               <div class="product-info__actions">
-                  {include "file:chunks/productElems.tpl" prodId=$_modx->resource.id}
+                  {include "file:chunks/product/productElems.tpl" prodId=$_modx->resource.id}
               </div>
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>
