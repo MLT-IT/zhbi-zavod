@@ -55,23 +55,34 @@
       </div>
     </div>
     <div class="footer__right">
-      <div class="footer__nav">
-        <p class="footer__nav-title">Каталог</p>
-        <nav class="footer__nav-list">
-          <a class="footer__nav-item" href="/o-kompanii/">О компании</a>
-          <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
-          <a class="footer__nav-item" href="/certs/">Сертификаты</a>
-          <a class="footer__nav-item" href="/garantii/">Гарантии</a>
-        </nav>
-      </div>
-      <div class="footer__nav footer__nav_categories">
-        <p class="footer__nav-title">Популярные категории</p>
-        <nav class="footer__nav-list"><a class="footer__nav-item" href="#">Газобетон СК</a>
-          <a class="footer__nav-item" href="#">ЕвроАэроБетон</a><a class="footer__nav-item" href="#">Газобетон ЛСР</a><a class="footer__nav-item" href="#">Газобетон Аэрок</a><a class="footer__nav-item" href="#">Газобетон H+H</a>
-          <a class="footer__nav-item" href="#">Газобетон Могилевский</a>
-          <a class="footer__nav-item" href="#">Газобетон Ютонг</a>
-          <a class="footer__nav-item" href="#">Газобетон Забудова</a>
-        </nav>
+      <div class="footer__right-top">
+        <div class="footer__nav">
+          <p class="footer__nav-title">Каталог</p>
+          <nav class="footer__nav-list">
+            <a class="footer__nav-item" href="/o-kompanii/">О компании</a>
+            <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
+            <a class="footer__nav-item" href="/certs/">Сертификаты</a>
+            <a class="footer__nav-item" href="/garantii/">Гарантии</a>
+          </nav>
+        </div>
+        <div class="footer__nav footer__nav_categories">
+          <p class="footer__nav-title">Популярные категории</p>
+          {set $resources =  $_modx->config.popular_categories}
+          {if $resources ?}
+            <nav class="footer__nav-list">
+              {$_modx->runSnippet('pdoResources', [
+                'parents' => 0,
+                'depth' => 1000,
+                'context' => $_modx->resource.context_key,
+                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'limit' => 0,
+                'resources' => $resources,
+                'sortby' => 'FIELD(id, '~$resources~')',
+                'sortdir' => 'ASC'
+              ])}
+            </nav>
+          {/if}
+        </div>
       </div>
       <div class="footer__payment">
         <p class="footer__payment-title">Мы принимаем к оплате:</p>

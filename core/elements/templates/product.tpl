@@ -171,7 +171,6 @@
         <div class="infoblocks__block" data-tab-page="Условия доставки товара">
           <button class="infoblocks__block-title" data-tab="Условия доставки товара"> Условия доставки товара</button>
           <div class="infoblocks__block-dropdown">
-            <p class="infoblocks__text infoblocks__text_uppercase">Стоимость доставки</p>
             <div class="table infoblocks__table">
               {include 'file:sections/delivery-inner.tpl'}
             </div>
@@ -204,29 +203,9 @@
           </div>
         </div>
       </div>
-      <div class="infoblocks__advantages">
-        <div class="infoblocks__advantage">
-          <div class="advantage advantage">
-            <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.png" alt="advantage"></div>
-            <p class="advantage__title">Гарантия качества</p>
-            <p class="advantage__text">Заменим дефектный материал или вернём деньги</p><a class="advantage__link link" href="#">Условия возврата</a>
-          </div>
-        </div>
-        <div class="infoblocks__advantage">
-          <div class="advantage">
-            <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.png" alt="advantage"></div>
-            <p class="advantage__title">Доставка и самовывоз</p>
-            <p class="advantage__text">Вы можете заказать доставку по России (ПЭК, СДЭК, Энергия, Возовоз и Деловые линии) или оформить самовывоз с нашего склада в Санкт-Петербурге</p><a class="advantage__link link" href="#">Условия доставки и самовывоза</a>
-          </div>
-        </div>
-        <div class="infoblocks__advantage">
-          <div class="advantage">
-            <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-7.png" alt="advantage"></div>
-            <p class="advantage__title">Оптово и розничная продажа</p>
-            <p class="advantage__text">Мы продаём товары как в розницу, так и оптом. В зависимости от объёмов заказа мы предоставляем клиентам персональные скидки</p>
-          </div>
-        </div>
-      </div>
+
+      {include "file:chunks/guarantees.tpl"}
+
       <div class="infoblocks__bottom infoblocks__bottom_tab-view" data-tab-page="Условия доставки товара">
         <div class="infoblocks__callback">
           <p class="infoblocks__callback-text">ТОЧНУЮ СТОИМОСТЬ И СРОКИ УТОЧНЯЙТЕ ПО НОМЕРУ:</p><a class="infoblocks__callback-phone" href="tel:+78120000000">

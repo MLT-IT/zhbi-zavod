@@ -587,7 +587,7 @@ function init() {
     // Кнопка "Показать все" в фильтрах
     // -------------------------------
     if ($isCatalogPage) {
-        let resourceId = parseInt($('body').attr('data-resource-id'));
+        // let resourceId = parseInt($('body').attr('data-resource-id'));
 
         $('.filter-item').each(function (i, e) {
             let $e = $(e);

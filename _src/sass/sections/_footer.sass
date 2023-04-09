@@ -166,6 +166,7 @@
 		white-space: nowrap
 
 		+until-desktop
+			margin-top: 20px
 			font-size: 14px
 
 	&__right
@@ -180,6 +181,13 @@
 			justify-content: unset
 			flex: 1 1 auto
 
+		&-top
+			display: flex
+
+			+until-desktop
+				flex-direction: column
+				margin-bottom: 20px
+
 	&__nav
 		+until-desktop
 			display: flex
@@ -189,7 +197,7 @@
 
 		&:not(:last-child)
 			margin-right: 30px
-			margin-bottom: 10px
+			margin-bottom: 30px
 
 			+until-laptop
 				margin-right: 20px

@@ -12,14 +12,16 @@
       </button>
 
       {switch $_modx->resource.context_key}
-          {case 'web'}
-            {set $logo = 'logo-mob.svg'}
-          {case 'gazosilikatstroy'}
-            {set $logo = 'gazosilicatstroy.png'}
+        {case 'web'}
+          {set $logo = 'logo.svg'}
+          {set $logoMobile = 'logo-mob.svg'}
+        {case 'gazosilikatstroy'}
+          {set $logo = 'gazosilicatstroy.png'}
+          {set $logoMobile = 'gazosilicatstroy.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
-        <img class="h-logo__image" src="assets/template/pictures/{$logo}">
+        <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
       </div>
       <div class="header__actions">
         <button class="header__action icon-btn icon-btn_style_black">
@@ -47,12 +49,12 @@
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
         </svg>
-        <a class="h-subinfo__link" href="mailto:{'email' | option}">{'email' | option}</a>
+        <a class="h-subinfo__link h-subinfo__link_type_mail" href="mailto:{'email' | option}">{'email' | option}</a>
       </div>
       <div class="h-subinfo h-subinfo_size_big">
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-        </svg><a class="h-subinfo__link" href="tel:{'phone' | option}">{'phone' | option}</a>
+        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'phone' | option}">{'phone' | option}</a>
       </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
     </div>
   </div>

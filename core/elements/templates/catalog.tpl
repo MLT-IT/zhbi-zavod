@@ -23,7 +23,8 @@
             'where' => '{"template:=":"5"}',
             'tpl' => '@FILE chunks/header-menu/category-item.tpl',
             'includeTVs' => 'mainImage',
-            'outputSeparator' => '||'
+            'outputSeparator' => '||',
+            'context' => $_modx->resource.context_key
           ] | split : '||'}
           {set $count = $categories | count}
           {set $maxIndex = $count > 5 ? 5 : $count}
@@ -85,8 +86,9 @@
       'where' => $_modx->getPlaceholder('mspcs.where'),
 
       'setMeta' => 0,
-      'parents' => $_modx->resource.itemsParents,
-      'totalVar' => 'total'
+      'totalVar' => 'total',
+
+      'context' => $_modx->resource.context_key
     ]}
     {* --- / Листинг товаров --------------------- *}
 

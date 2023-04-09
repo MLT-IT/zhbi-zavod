@@ -32,6 +32,7 @@ import {initSlimSelect} from "./libs/slimSelect";
 import LazyLoad from "vanilla-lazyload";
 import FastSearch from './modules/fast_search';
 import shadowMap from './modules/shadow_map';
+import initDistrictsMap from './modules/districts_map';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Яндекс карты
     // -------------------------------
+    window.initDistrictsMap = initDistrictsMap;
     mapsLazyload();
 
 
