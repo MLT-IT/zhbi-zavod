@@ -21,7 +21,7 @@ function init() {
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
     // Мы находимся на странице каталога?
-    let $isCatalogPage = $('.listing').length;
+    let $isCatalogPage = $('#mse2_mfilter').length;
     // Элемент - сайдбар
     let $aside = $(".listing__filter");
 
@@ -589,29 +589,23 @@ function init() {
     if ($isCatalogPage) {
         let resourceId = parseInt($('body').attr('data-resource-id'));
 
-        $('.listing__filter-block').each(function (i, e) {
+        $('.filter-item').each(function (i, e) {
             let $e = $(e);
-            let dataKey = $e.attr('data-key');
             let limit = 5;
 
-            // В некотрых категориях нужно выводить не 5, а 6 или больше значений некоторых фильтров. Если будешь это менять / убирать, подправь и в filterCheckboxNew.tpl
-            if (([37609, 19847, 37478].indexOf(resourceId) !== -1 && dataKey == 'msoption|proizvoditel') ||
-                ((resourceId == 86214) && dataKey == 'msoption|profil') ||
-                ([16788, 86214, 22594].indexOf(resourceId) !== -1 && dataKey == 'msoption|pokrytie')
-            ) {
-                limit = 6;
-            } else if ((resourceId == 16788 && dataKey == 'msoption|collection') || ([16788, 86214, 22594].indexOf(resourceId) !== -1 && dataKey == 'msoption|cvet')) {
-                limit = 8;
-            }
+            if ($e.find('.filter-item__option').length > limit) {
+                $e.addClass('filter-item_with-excess-elems');
+                let $btnMore = $('<span data-dont-close class="btn btn_style_trans filter-item__more" data-text="Скрыть">Показать все</span>').appendTo($e.find('.filter-item__options'));
 
-            if ($e.find('.filter-option').length > limit) {
-                $e.addClass('listing__filter-block_with-excess-elems');
-                let $btnMore = $('<span class="listing__filter-block-btn-more" data-text="Свернуть все">Показать все</span>').appendTo($e.find('.listing__filter-block-content'));
                 $btnMore.on('click', function (event) {
                     event.preventDefault();
-                    $e.toggleClass('listing__filter-block_show-excess');
-                    $e.find('.js-custom-scrollbar').overlayScrollbars().update();
+                    $e.toggleClass('filter-item_show-excess');
                     functions.toggleText($(this), 'data-text');
+                    let $dropdown = $e.find('.filter-item__dropdown');
+                    $dropdown.css('transition', 'all 0s ease 0s')
+                    $dropdown.css('height', '');
+                    $dropdown.css('height', $dropdown.prop('scrollHeight'))
+                    $dropdown.css('transition', '')
                 });
             }
         });

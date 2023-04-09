@@ -1,4 +1,7 @@
 export default class Dropdowns {
+
+    // TODO: я заметил в скрипте баг. Если сделать console.log и щелкнуть по data-dropdown, то вывод будет столько раз, сколько data-dropdown на странице. А должен быть всего 1 раз. Это баг верстальщика.
+
     dropdowns = document.querySelectorAll('[data-dropdown]')
 
     constructor() {

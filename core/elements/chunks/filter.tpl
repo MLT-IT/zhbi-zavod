@@ -1,13 +1,11 @@
 {var $key = $table ~ $delimeter ~ $filter}
-<div class="filter-item {if $keyClass?} filter_type_{$keyClass}{/if}" id="mse2_{$key}" data-dropdown="responsive">
+{set $limit = 5}
+
+<div class="filter-item{if $keyClass?} filter-item_type_{$keyClass}{/if}{if $idx >= $limit} filter-item_excess{/if}" id="mse2_{$key}" data-dropdown="responsive">
   <div class="filter-item__top active"><span class="filter-item__title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}:</span></div>
   <div class="filter-item__dropdown">
     <div class="filter-item__options">
       {$rows}
-
-      {*
-      <span class="btn btn_style_trans filter-item__more" data-text="Скрыть">Показать все</span>
-      *}
     </div>
   </div>
 </div>

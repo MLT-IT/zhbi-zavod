@@ -95,6 +95,10 @@
 					transform: none
 					pointer-events: all
 
+.filter-option
+	&_excess
+		display: none
+
 .filter-item
 	background: var(--color-white)
 	box-shadow: var(--shadow-base)
@@ -108,6 +112,10 @@
 	&:not(:first-child)
 		+until-laptop
 			border-top: 1px solid var(--color-black-trans)
+
+	&_show-excess
+		.filter-option_excess
+			display: block
 
 	&__top
 		padding: 24px 40px
