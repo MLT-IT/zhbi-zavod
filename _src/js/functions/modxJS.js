@@ -44,7 +44,7 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // Работа с mse2_load (mFilter2) и pdopage_load (pdoPage)
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
-        let $catalogTop = $(".js-catalog-top");
+        let $catalogTop = $(".js-catalog");
         if ($catalogTop) {
             let title1OffsetTop = $catalogTop.offset().top;
             if ($(window).scrollTop() > title1OffsetTop + 200 && e.type == 'mse2_load' && $(e.target.activeElement).is('.default-checkbox__input, .ui-slider-handle')) {

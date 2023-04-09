@@ -66,7 +66,7 @@
       'suggestionsMaxResults' => 100000,
       'filters' => $_modx->resource.listFilters ?: "",
 
-      'tpls' => "@FILE chunks/product/listing-products-item-default.tpl",
+      'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
       'tplOuter' => '@FILE sections/listing.tpl',
       'tplFilter.outer.default' => '@FILE chunks/filter.tpl',
       'ajaxMode' => 'button',

@@ -81,7 +81,7 @@
           </p>
 
           {if $data['ids'] ?}
-            <div id="pdopage" class="js-catalog js-catalog-top">
+            <div id="pdopage" class="js-catalog">
               <div class="best-products__products rows">
                 {$_modx->getPlaceholder('mSearchResults')}
               </div>
