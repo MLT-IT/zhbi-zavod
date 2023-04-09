@@ -17,7 +17,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         'isover' => 93187,
         'paroc' => 93188,
         'ursa' => 93192,
-        'isorok' => 93186
+        'isoroc' => 93186
     ];
 
     // Получаем столбцы 2 и 3
@@ -910,148 +910,148 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                     ]
                 ],
 
-                $catalogs['isorok'] => [
+                $catalogs['isoroc'] => [
                     'column2' => [
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20балкона/лоджии",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20балкона/лоджии",
                             "name" => "Для балкона/лоджии",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20вентиляции",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20вентиляции",
                             "name" => "Для вентиляции",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20кровли",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20кровли",
                             "name" => "Для кровли",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20мансарды",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20мансарды",
                             "name" => "Для мансарды",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20перегородок",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20перегородок",
                             "name" => "Для перегородок",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20перекрытий",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20перекрытий",
                             "name" => "Для перекрытий",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20печи/камина",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20печи/камина",
                             "name" => "Для печи/камина",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20пола",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20пола",
                             "name" => "Для пола",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20потолка",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20потолка",
                             "name" => "Для потолка",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20сайдинга",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20сайдинга",
                             "name" => "Для сайдинга",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20стен",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20стен",
                             "name" => "Для стен",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20труб",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20труб",
                             "name" => "Для труб",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Для%20фасада",
+                            "uri" => "/isoroc/?msoption|primenenie=Для%20фасада",
                             "name" => "Для фасада",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|primenenie=Крыши",
+                            "uri" => "/isoroc/?msoption|primenenie=Крыши",
                             "name" => "Крыши",
                         ]
                     ],
                     'column3' => [
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=1.2",
+                            "uri" => "/isoroc/?msoption|item_thickness=1.2",
                             "name" => "1.2",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=1.5",
+                            "uri" => "/isoroc/?msoption|item_thickness=1.5",
                             "name" => "1.5",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=27",
+                            "uri" => "/isoroc/?msoption|item_thickness=27",
                             "name" => "27",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=30",
+                            "uri" => "/isoroc/?msoption|item_thickness=30",
                             "name" => "30",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=40",
+                            "uri" => "/isoroc/?msoption|item_thickness=40",
                             "name" => "40",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=50",
+                            "uri" => "/isoroc/?msoption|item_thickness=50",
                             "name" => "50",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=60",
+                            "uri" => "/isoroc/?msoption|item_thickness=60",
                             "name" => "60",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=70",
+                            "uri" => "/isoroc/?msoption|item_thickness=70",
                             "name" => "70",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=80",
+                            "uri" => "/isoroc/?msoption|item_thickness=80",
                             "name" => "80",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=90",
+                            "uri" => "/isoroc/?msoption|item_thickness=90",
                             "name" => "90",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=100",
+                            "uri" => "/isoroc/?msoption|item_thickness=100",
                             "name" => "100",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=110",
+                            "uri" => "/isoroc/?msoption|item_thickness=110",
                             "name" => "110",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=120",
+                            "uri" => "/isoroc/?msoption|item_thickness=120",
                             "name" => "120",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=130",
+                            "uri" => "/isoroc/?msoption|item_thickness=130",
                             "name" => "130",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=140",
+                            "uri" => "/isoroc/?msoption|item_thickness=140",
                             "name" => "140",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=150",
+                            "uri" => "/isoroc/?msoption|item_thickness=150",
                             "name" => "150",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=160",
+                            "uri" => "/isoroc/?msoption|item_thickness=160",
                             "name" => "160",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=170",
+                            "uri" => "/isoroc/?msoption|item_thickness=170",
                             "name" => "170",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=180",
+                            "uri" => "/isoroc/?msoption|item_thickness=180",
                             "name" => "180",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=190",
+                            "uri" => "/isoroc/?msoption|item_thickness=190",
                             "name" => "190",
                         ],
                         [
-                            "uri" => "/isorok/?msoption|item_thickness=200",
+                            "uri" => "/isoroc/?msoption|item_thickness=200",
                             "name" => "200",
                         ],
                     ]
@@ -1067,7 +1067,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         'parents' => 4,
         'depth' => 0,
         'limit' => 0,
-        'tpl' => '@FILE chunks/category-item-json.tpl',
+        'tpl' => '@FILE chunks/header-menu/category-item-json.tpl',
         'tplWrapper' => '@INLINE {[[+output]]}',
         'where' => '{"template:=":"5"}',
         'includeTVs' => 'mainImage'
