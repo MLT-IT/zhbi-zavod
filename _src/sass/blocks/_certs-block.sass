@@ -1,0 +1,79 @@
+.certs-block
+    display: flex
+    flex-wrap: wrap
+    margin-left: -10px
+
+    &__cert-img
+        display: block
+
+    &__item
+        margin-bottom: 20px
+        margin-left: 10px
+        margin-right: 10px
+
+    &__pdf-preview, &__cert-preview
+        transition: .3s
+
+        &:hover
+            box-shadow: 0 3px 4px #83828296
+
+    &__cert-preview
+        display: inline-block
+
+    &__preview-view, &__preview-download
+        display: flex
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        width: 100px
+        height: 141px
+        border: 1px solid #bbc2ce
+        background: #f9fafb
+        position: relative
+        text-decoration: none
+
+        &::before, &::after
+            color: #323232
+
+        &::before
+            top: 20px
+            margin-top: -10px
+
+        &::after
+            top: 40px
+
+    &__preview-view
+        &::after
+            content: "посмотреть"
+
+    &__preview-download
+        &::after
+            content: "скачать"
+
+    &__pdf-preview
+        &::before
+            content: "PDF"
+
+    &__dwg-preview
+        &::before
+            content: "DWG"
+
+    &__doc-preview
+        &::before
+            content: "DOC"
+
+    &__xls-preview
+        &::before
+            content: "XLS"
+
+    &__rfa-preview
+        &::before
+            content: "RFA"
+
+    &__odt-preview
+        &::before
+            content: "ODT"
+
+    &__zip-preview
+        &::before
+            content: "ZIP"

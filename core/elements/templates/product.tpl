@@ -8,30 +8,42 @@
 {/block}
 
 {block "page"}
-{set $amountPhotos = $files | count}
-{if $amountPhotos == 0}
-  {set $files = [
-    [
-      'small' => '/assets/images/no_image.jpg'
-    ]
-  ]}
+{* Если фоток нет, то ставим заглушку *}
+{if $files | count == 0}
+  {set $files = [['small' => '/assets/images/no_image.jpg']]}
 {/if}
 
+{* Получаем кол-во товара в корзине, нахождение товара в избранном и сравнении *}
 {if $_modx->getPlaceholder('checkItems') is null}
     {'!checkItems' | snippet}
 {/if}
 {set $checkItems = $_modx->getPlaceholder('checkItems')}
 
+{* Получаем коэффициенты единиц измерения товара *}
 {set $src = $_modx->resource}
 {insert "file:chunks/product/set-values-for-prod.tpl"}
 
-{* Галерея *}
-{'!msGallery' | snippet : [
-'tpl' => '@FILE chunks/gallery.tpl',
-'product' => $id,
-'toPlaceholder' => 'gallery'
-]}
-{set $gallery = $_modx->getPlaceholder('gallery')}
+{* Получаем сертификаты товара *}
+{if $_modx->resource.certs}
+    {set $certs = $_modx->resource.certs}
+
+    {set $certs = json_decode($certs, true)}
+    {if $certs | count > 0}
+        {set $renderCerts = 1}
+    {/if}
+{/if}
+
+{* Получаем отзывы товара *}
+{set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
+{if $reviews | count > 0}
+    {set $renderReviews = 1}
+{/if}
+
+{* Получаем видео товара *}
+{set $video = $_modx->resource.video}
+{if $video | length > 0}
+    {set $renderVideo = 1}
+{/if}
 
 <main class="layout__main">
   <section class="section section_view_top">
@@ -40,35 +52,11 @@
       <div class="product__container">
         <h2 class="product__title section__title">{$_modx->resource.pagetitle}</h2>
         <div class="product__body">
-          <div class="product__pictures">
-            <div class="swiper-container product__pictures-thumbs">
-              <div class="swiper-wrapper">
-                {foreach $files as $key => $file}
-                  <div class="swiper-slide product__pictures-thumb">
-                    <img class="product__pictures-image" src="{$file['small']}" alt="{$imgTitle} - фото {$key + 1}">
-                  </div>
-                {/foreach}
-              </div>
-            </div>
 
-            <div class="product__picture">
-              <div class="swiper-container product__pictures-slider">
-                <div class="swiper-wrapper">
-                  {foreach $files as $key => $file}
-                    <div class="swiper-slide product__pictures-thumb">
-                      <img class="product__pictures-image" src="{$file['small']}" alt="{$imgTitle} - фото {$key + 1}">
-                    </div>
-                  {/foreach}
-                </div>
-              </div>
-              <div class="product__actions">
-                <button class="product-action product-action_favorite js-product__btn-fav{if $checkItems['fav'][$_modx->resource['id']]?} active{/if}"></button>
-                {*
-                <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$_modx->resource['id']]?} active{/if}"></button>
-                *}
-              </div>
-            </div>
-          </div>
+          {'!msGallery' | snippet : [
+          'tpl' => '@FILE chunks/gallery.tpl',
+          ]}
+
           <div class="product__info product-info">
             <div class="product-info__top">
               <div class="product-info__rating rating">
@@ -80,7 +68,6 @@
                   <li class="rating__star"></li>
                 </ul><span class="rating__reviews">12 отзывов</span>
               </div>
-
 
               <div class="product-info__availability">
                 {*
@@ -111,7 +98,6 @@
                 <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
               </div>
 
-
             </div>
             <div class="product-info__bottom">
               {*
@@ -141,9 +127,27 @@
   <article class="infoblocks infoblocks_style_shadow section">
     <div class="infoblocks__container" data-tabs="">
       <div class="infoblocks__top">
-        <div class="infoblocks__tabs"><a class="infoblocks__tab" href="javascript:;" data-tab="Описание">Описание</a><a class="infoblocks__tab active" href="javascript:;" data-tab="Характеристики">Характеристики</a><a class="infoblocks__tab" href="javascript:;" data-tab="Условия доставки товара">Условия доставки товара</a><a class="infoblocks__tab" href="javascript:;" data-tab="Отзывы">Отзывы</a><a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
+        <div class="infoblocks__tabs">
+          <a class="infoblocks__tab" href="javascript:;" data-tab="Описание">Описание</a>
+          <a class="infoblocks__tab active" href="javascript:;" data-tab="Характеристики">Характеристики</a>
+          <a class="infoblocks__tab" href="javascript:;" data-tab="Условия доставки товара">Условия доставки товара</a>
+
+          {if $renderCerts ?}
+            <a class="infoblocks__tab" href="javascript:;" data-tab="Сертификаты">Сертификаты</a>
+          {/if}
+
+          {if $renderReviews ?}
+            <a class="infoblocks__tab" href="javascript:;" data-tab="Отзывы">Отзывы</a>
+          {/if}
+
+          {if $renderVideo ?}
+            <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
+          {/if}
+
+          <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
         </div>
       </div>
+
       <div class="infoblocks__content">
         <div class="infoblocks__block" data-tab-page="Описание">
           <button class="infoblocks__block-title" data-tab="Описание">Описание</button>
@@ -169,39 +173,102 @@
         </div>
 
         <div class="infoblocks__block" data-tab-page="Условия доставки товара">
-          <button class="infoblocks__block-title" data-tab="Условия доставки товара"> Условия доставки товара</button>
+          <button class="infoblocks__block-title" data-tab="Условия доставки товара">Условия доставки товара</button>
           <div class="infoblocks__block-dropdown">
             <div class="table infoblocks__table">
               {include 'file:sections/delivery-inner.tpl'}
             </div>
           </div>
         </div>
-        <div class="infoblocks__block" data-tab-page="Отзывы">
-          <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
-          <div class="infoblocks__block-dropdown">
-            <div class="reviews">
-              <div class="reviews__slider">
-                <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide reviews__item swiper-slide-active" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">Кирилл Жохов</span>
-                      <p class="reviews__text">Хороший газобетон, прекрасно подходит под цвет моей кожи, легко наноситься и смывается. Доставка быстрая, менеджер добрый. Советую с апельсиновым вкусом.</p>
-                    </div>
-                    <div class="swiper-slide reviews__item swiper-slide-next" style="width: 802px; opacity: 0; transform: translate3d(-802px, 0px, 0px);"><span class="reviews__name">Олег</span>
-                      <p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni molestiae necessitatibus nemo vitae voluptatem? Dignissimos illo, laudantium molestiae mollitia qui soluta sunt totam vero voluptatem voluptatum? Aliquam assumenda ipsa ullam.</p>
-                    </div>
-                    <div class="swiper-slide reviews__item" style="width: 802px; opacity: 0; transform: translate3d(-1604px, 0px, 0px);"><span class="reviews__name">Марат</span>
-                      <p class="reviews__text">Хороший газобетон, прекрасно подходит под цвет моей кожи, легко наноситься и смывается. Доставка быстрая, менеджер добрый. Советую с апельсиновым вкусом.</p>
+
+        {if $renderReviews ?}
+          <div class="infoblocks__block" data-tab-page="Отзывы">
+            <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
+            <div class="infoblocks__block-dropdown">
+              <div class="reviews">
+                <div class="reviews__slider">
+                  <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                    <div class="swiper-wrapper">
+                      {foreach $reviews as $idx => $row}
+                        <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
+                          <p class="reviews__text">{$row.text}</p>
+                        </div>
+                      {/foreach}
                     </div>
                   </div>
+                  <div class="swiper-buttons">
+                    <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
+                    <div class="swiper-button swiper-button-next"></div>
+                  </div>
                 </div>
-                <div class="swiper-buttons">
-                  <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
-                  <div class="swiper-button swiper-button-next"></div>
-                </div>
-              </div><a class="btn btn_style_shadow reviews__btn" href="#">Оставить отзыв</a>
+                <a class="btn btn_style_shadow reviews__btn" href="#">Оставить отзыв</a>
+              </div>
             </div>
           </div>
-        </div>
+        {/if}
+
+        {if $renderCerts ?}
+          <div class="infoblocks__block" data-tab-page="Сертификаты">
+              <button class="infoblocks__block-title" data-tab="Сертификаты">Сертификаты</button>
+              <div class="infoblocks__block-dropdown">
+                <ul class="certs-block">
+                    {foreach $certs as $ct}
+                        <li class="certs-block__item">
+                            {set $previewSrc = ''}
+                            {set $splitted = $ct.file | split: '.'}
+                            {set $count = $splitted | count}
+                            {if $count > 1}
+                                {set $lastElem = $splitted[$count - 1] | strtolower}
+
+                                {if $lastElem == 'pdf'}
+                                    {set $previewSrc = 'pdfToJpg' | snippet : [
+                                    'src' => '/assets/template/img/import/' ~ $ct.file,
+                                    ]}
+                                {elseif ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
+                                    {set $previewSrc = '/assets/template/img/import/' ~ $ct.file}
+                                {/if}
+
+                                {if $previewSrc ?}
+                                    {if $h is empty}
+                                        {set $h = 138}
+                                    {/if}
+                                    {set $previewSrc = 'phpthumbon' | snippet : [
+                                    'input' => $previewSrc,
+                                    'options' => '&h='~$h~'&far=1'
+                                    ]}
+                                {/if}
+                            {/if}
+
+                            {if $previewSrc is empty}
+                                {if $lastElem in list ['dwg','xls','doc', 'rfa', 'odt', 'zip']}
+                                    {set $previewClass = 'certs-block__preview-download'}
+                                {else}
+                                    {set $previewClass = 'certs-block__preview-view'}
+                                    {set $fancybox = 'data-fancybox'}
+                                {/if}
+                                <a class="{$previewClass} certs-block__{$lastElem}-preview" {$fancybox} title="{$ct.name}"
+                                   href="/assets/template/img/import/{$ct.file}"></a>
+                            {else}
+                                <a class="certs-block__cert-preview{if $classToPreview?} {$classToPreview}{/if}" data-fancybox title="{$ct.name}"
+                                   href="/assets/template/img/import/{$ct.file}">
+                                    <img class="certs-block__cert-img" src="{$previewSrc}" alt="{$ct.name}">
+                                </a>
+                            {/if}
+                        </li>
+                    {/foreach}
+                </ul>
+              </div>
+          </div>
+        {/if}
+
+        {if $renderVideo == 1}
+          <div class="infoblocks__block" data-tab-page="Видео">
+            <button class="infoblocks__block-title" data-tab="Видео">Видео</button>
+            <div class="infoblocks__block-dropdown">
+              {$video}
+            </div>
+          </div>
+        {/if}
       </div>
 
       {include "file:chunks/guarantees.tpl"}
