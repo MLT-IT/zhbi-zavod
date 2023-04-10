@@ -71,12 +71,14 @@
 
       'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
       'tplOuter' => '@FILE sections/listing.tpl',
-      'tplFilter.outer.default' => '@FILE chunks/filter.tpl',
       'ajaxMode' => 'button',
       'showEmptyFilters' => 1,
       'limit' => 42,
 
-      'tplFilter.row.default' => '@FILE chunks/mainListFilter.tpl',
+      'tplFilter.outer.default' => '@FILE chunks/listing/filter-checkbox.tpl',
+      'tplFilter.row.default' => '@FILE chunks/listing/filter-checkbox-option.tpl',
+      'tplFilter.outer.price' => '@FILE chunks/listing/filter-number.tpl',
+      'tplFilter.row.price' => '@FILE chunks/listing/filter-number-inner.tpl',
 
       'aliases' => 'ms|price==price',
       'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
