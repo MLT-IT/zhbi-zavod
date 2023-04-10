@@ -601,10 +601,8 @@ function init() {
                     $e.toggleClass('filter-item_show-excess');
                     functions.toggleText($(this), 'data-text');
                     let $dropdown = $e.find('.filter-item__dropdown');
-                    $dropdown.css('transition', 'all 0s ease 0s')
                     $dropdown.css('height', '');
                     $dropdown.css('height', $dropdown.prop('scrollHeight'))
-                    $dropdown.css('transition', '')
                 });
             }
         });
