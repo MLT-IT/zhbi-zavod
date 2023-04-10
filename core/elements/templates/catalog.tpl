@@ -18,13 +18,16 @@
 
           {* --- Подкатегории --------------------- *}
           {set $categories = 'pdoResources' | snippet : [
-            'depth' => 9000,
-            'limit' => 0,
-            'where' => '{"template:=":"5"}',
-            'tpl' => '@FILE chunks/header-menu/category-item.tpl',
+            'parents' => $_modx->resource.id,
+            'templates' => '5',
             'includeTVs' => 'mainImage',
+            'tpl' => '@FILE chunks/header-menu/category-item.tpl',
             'outputSeparator' => '||',
-            'context' => $_modx->resource.context_key
+            'context' => $_modx->resource.context_key,
+            'sortby' => 'menuindex,id',
+            'sortdir' => 'ASC',
+            'depth' => 0,
+            'limit' => 0,
           ] | split : '||'}
           {set $count = $categories | count}
           {set $maxIndex = $count > 5 ? 5 : $count}
