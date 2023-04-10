@@ -111,40 +111,26 @@
 <section class="burger-menu">
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
-      <div class="burger-menu__nav-items"><a class="burger-menu__nav-link" href="#">О компании</a><a class="burger-menu__nav-link" href="#">Акции</a><a class="burger-menu__nav-link" href="#">Доставка и оплата</a><a class="burger-menu__nav-link" href="#">Контакты</a>
+      <div class="burger-menu__nav-items">
+        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+        <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
+        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+        <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
       </div>
     </nav>
     <div class="burger-menu__catalog">
-      <div class="bm-cat-item">
-        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-1.png" alt="Газобетон ЛСР"></picture>
-        <div class="bm-cat-item__content">
-          <p class="bm-cat-item__name">Газобетон ЛСР</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
-        </div>
-      </div>
-      <div class="bm-cat-item">
-        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-2.png" alt="Газобетон СК"></picture>
-        <div class="bm-cat-item__content">
-          <p class="bm-cat-item__name">Газобетон СК</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
-        </div>
-      </div>
-      <div class="bm-cat-item">
-        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-3.png" alt="Газобетон YTONG"></picture>
-        <div class="bm-cat-item__content">
-          <p class="bm-cat-item__name">Газобетон YTONG</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
-        </div>
-      </div>
-      <div class="bm-cat-item">
-        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-4.png" alt="Газобетон ЕАБ"></picture>
-        <div class="bm-cat-item__content">
-          <p class="bm-cat-item__name">Газобетон ЕАБ</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
-        </div>
-      </div>
-      <div class="bm-cat-item">
-        <picture class="bm-cat-item__picture"><img class="bm-cat-item__image" src="assets/template/pictures/products/item-5.png" alt="Газобетон AEROC"></picture>
-        <div class="bm-cat-item__content">
-          <p class="bm-cat-item__name">Газобетон AEROC</p><a class="bm-cat-item__link btn btn_style_shadow" href="#">перейти</a>
-        </div>
-      </div>
+      {set $id = '@FILE snippets/getIdByAlias.php' | snippet : [
+        'alias' => 'catalog'
+      ]}
+      {$_modx->runSnippet('pdoResources', [
+        'parents' => $id,
+        'depth' => 0,
+        'context' => $_modx->resource.context_key,
+        'tpl' => '@FILE chunks/header-menu/mobile-menu-item.tpl',
+        'limit' => 10,
+        'where' => '{"template:=", 5}',
+        'includeTVs' => 'mainImage'
+      ])}
     </div>
   </div>
 </section>
