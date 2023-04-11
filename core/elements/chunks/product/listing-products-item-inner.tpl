@@ -23,7 +23,18 @@
       {include "file:chunks/listing-product-chars.tpl"}
   </ul>
 
-  {include "file:chunks/product/products-item-units.tpl"}
+  <input type="hidden" name="unit" value="1">
+  {if $prodValues['condition']}
+    <div class="product-card__volume">
+      <span class="product-card__volume-title">Цена за</span>
+      <div class="product-info__volume-tabs">
+        <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+          {foreach $prodValues['itemUnits'] as $val}
+            <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+          {/foreach}
+      </div>
+    </div>
+  {/if}
 
   <div class="listing__product-elems-wrap product-card__bottom">
       {include "file:chunks/product/product-elems.tpl" prodId=$id}

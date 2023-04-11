@@ -47,7 +47,9 @@
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
-    <article class="product section js-product not-init">
+    <article class="product section js-product not-init"
+    {insert "file:chunks/product/get-data-attrs.tpl"}
+    >
       <div class="product__container">
         <h2 class="product__title section__title">{$_modx->resource.pagetitle}</h2>
         <div class="product__body">
@@ -62,8 +64,8 @@
                 <ul class="rating__stars">
                   <li class="rating__star active"></li>
                   <li class="rating__star active"></li>
-                  <li class="rating__star"></li>
-                  <li class="rating__star"></li>
+                  <li class="rating__star active"></li>
+                  <li class="rating__star active"></li>
                   <li class="rating__star"></li>
                 </ul><span class="rating__reviews">12 отзывов</span>
               </div>
@@ -99,21 +101,25 @@
 
             </div>
             <div class="product-info__bottom">
-              {*
               <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
-                <ul class="product-info__volume-tabs">
-                  <li class="product-info__volume-tab active">м3</li>
-                  <li class="product-info__volume-tab">шт</li>
-                  <li class="product-info__volume-tab">поддон</li>
-                </ul>
-              </div>
-              *}
-              <div class="product-info__price"><span class="product-info__price-notion">Продаётся кубами</span>
-                <p class="product-info__price-value">{$prodValues['outputPrice']} ₽</p>
+                <input type="hidden" name="unit" value="1">
+                {if $prodValues['condition']}
+                  <div class="product-card__volume">
+                    <ul class="product-info__volume-tabs">
+                      <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
+                      {foreach $prodValues['itemUnits'] as $val}
+                        <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
+                      {/foreach}
+                    </ul>
+                  </div>
+                {/if}
               </div>
 
+              <div class="product-info__price">
+                <p class="product-info__price-value"><span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽</p>
+              </div>
               <div class="product-info__actions">
-                  {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
+                {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
               </div>
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>

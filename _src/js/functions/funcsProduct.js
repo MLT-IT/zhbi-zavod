@@ -435,7 +435,7 @@ function init(yandexMetrikaId) {
         let val = $unitLink.attr('data-val');
 
         $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
-        $productItem.find('.product-card__volume-tab.active').removeClass('active');
+        $productItem.find('.js-product__volume-tab.active').removeClass('active');
         $unitLink.addClass('active');
         $unit.val(val);
 
@@ -450,11 +450,11 @@ function init(yandexMetrikaId) {
         changeCountItemInCart($productItem, true, null, dontShowMessage);
     }
 
-    $(document).on('click click_without_message', '.product-card__volume-tab', function (event) {
+    $(document).on('click click_without_message', '.js-product__volume-tab', function (event) {
         event.preventDefault();
         let $this = $(this);
         let val = $this.attr('data-val');
-        $('.product-card__volume-tab[data-val="' + val + '"]').each(function (i, e) {
+        $('.js-product__volume-tab[data-val="' + val + '"]').each(function (i, e) {
             handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
         });
     });
