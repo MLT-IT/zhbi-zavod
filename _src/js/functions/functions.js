@@ -21,15 +21,135 @@ function highlight(text, words, tag = "span") {
     len = words.length,
     re;
   for (i = 0; i < len; i++) {
-    re = new RegExp(words[i], "gi");
-    if (re.test(text)) {
-      text = text.replace(
-        re,
-        "<" + tag + ' class="highlight">$&</' + tag + ">"
-      );
-    }
+    let find = false;
+    [
+      words[i],
+      translit(words[i], "en_ru"),
+      translit(words[i], "ru_en"),
+    ].forEach((word) => {
+      if (!find) {
+        re = new RegExp(word, "gi");
+        if (re.test(text)) {
+          find = true;
+          text = text.replace(
+            re,
+            "<" + tag + ' class="highlight">$&</' + tag + ">"
+          );
+        }
+      }
+    });
   }
   return text;
+}
+
+// Транслитирация
+function translit(word, key) {
+  let converter = {
+    ru_en: {
+      а: "a",
+      б: "b",
+      в: "v",
+      г: "g",
+      д: "d",
+      е: "e",
+      ё: "yo",
+      ж: "zh",
+      з: "z",
+      и: "i",
+      й: "j",
+      к: "k",
+      л: "l",
+      м: "m",
+      н: "n",
+      о: "o",
+      п: "p",
+      р: "r",
+      с: "s",
+      т: "t",
+      у: "u",
+      ф: "f",
+      х: "h",
+      ц: "c",
+      ч: "ch",
+      ш: "sh",
+      щ: "sh",
+      ъ: "``",
+      ы: "y",
+      ь: "`",
+      э: "e`",
+      ю: "yu",
+      я: "ya",
+    },
+    en_ru: {
+      a: "а",
+      b: "б",
+      v: "в",
+      g: "г",
+      d: "д",
+      e: "е",
+      yo: "ё",
+      zh: "ж",
+      z: "з",
+      i: "и",
+      j: "й",
+      k: "к",
+      l: "л",
+      m: "м",
+      n: "н",
+      o: "о",
+      p: "п",
+      r: "р",
+      s: "с",
+      t: "т",
+      u: "у",
+      f: "ф",
+      h: "х",
+      c: "ц",
+      ch: "ч",
+      sh: "ш",
+      sch: "щ",
+      "``": "ъ",
+      y: "ы",
+      "`": "ь",
+      "e`": "э",
+      yu: "ю",
+      ya: "я",
+    },
+  };
+
+  word = word.toLowerCase();
+
+  let answer = "";
+  for (let i = 0; i < word.length; ++i) {
+    let x = word[i];
+    if (x === "c" && word[i + 1] === "h") {
+      x = "ch";
+      i++;
+    } else if (x === "s" && word[i + 1] === "h") {
+      x = "sh";
+      i++;
+    } else if (x === "y" && word[i + 1] === "u") {
+      x = "yu";
+      i++;
+    } else if (x === "y" && word[i + 1] === "a") {
+      x = "ya";
+      i++;
+    } else if (x === "y" && word[i + 1] === "o") {
+      x = "yo";
+      i++;
+    } else if (x === "z" && word[i + 1] === "h") {
+      x = "zh";
+      i++;
+    }
+
+    if (converter[key][x] == undefined) {
+      answer += x;
+    } else {
+      answer += converter[key][x];
+    }
+  }
+
+  return answer;
 }
 
 // Склонение по числам

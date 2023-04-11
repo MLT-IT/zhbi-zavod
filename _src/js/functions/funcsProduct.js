@@ -413,64 +413,64 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     // Обработчик списка для смены ед. измерения - в карточке, в листинге, везде
     // -------------------------------------
-    // $(document).on('change', 'select.js-product__units-select', function (e) {
-    //     e.preventDefault();
-    //     let $productItem = $(this).closest('.js-product');
-    //
-    //     // Вызываем событие о том, что у товара изменилась ед. измерения
-    //     $productItem.trigger('changeUnit');
-    //
-    //     // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
-    //     // Меняем цену
-    //     calcPrice($productItem);
-    //     // Пересчитываем кол-во товара в корзине
-    //     changeCountItemInCart($productItem, true);
-    // });
+    $(document).on('change', 'select.js-product__units-select', function (e) {
+        e.preventDefault();
+        let $productItem = $(this).closest('.js-product');
+
+        // Вызываем событие о том, что у товара изменилась ед. измерения
+        $productItem.trigger('changeUnit');
+
+        // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара
+        // Меняем цену
+        calcPrice($productItem);
+        // Пересчитываем кол-во товара в корзине
+        changeCountItemInCart($productItem, true);
+    });
 
 
     // -------------------------------------
     // Обработчик кнопок для смены ед. измерения - в карточке, в листинге, везде
     // -------------------------------------
-    // function handleUnitLink($unitLink, dontShowMessage) {
-    //     dontShowMessage = (typeof dontShowMessage !== 'undefined') ? dontShowMessage : false;
-    //
-    //     let $productItem = $unitLink.closest('.js-product');
-    //     let $unit = $productItem.find('[name="unit"]');
-    //     let val = $unitLink.attr('data-val');
-    //
-    //     $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
-    //     $productItem.find('.product-card__unit-link.active').removeClass('active');
-    //     $unitLink.addClass('active');
-    //     $unit.val(val);
-    //
-    //     // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара (на самом деле уже не особо важно, т.к. step теперь не используется)
-    //     // Вызываем событие о том, что у товара изменилась ед. измерения
-    //     $productItem.trigger('changeUnit');
-    //
-    //     // Обработчик кнопки на странице товара для смены ед. измерения
-    //     calcPrice($productItem);
-    //
-    //     // Пересчитываем кол-во товара в корзине
-    //     changeCountItemInCart($productItem, true, null, dontShowMessage);
-    // }
-    //
-    // $(document).on('click click_without_message', '.product-card__unit-link', function (event) {
-    //     event.preventDefault();
-    //     let $this = $(this);
-    //
-    //     // Если контекст кирпич или деревянные фасады, то меняем единицы измерения на всей странице
-    //     if ($('body.kirpich-m, body.fasady-pro').length) {
-    //         let val = $this.attr('data-val');
-    //         $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
-    //             handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
-    //         });
-    //         lastKirpichUnit = val;
-    //     }
-    //     // В противном случае меняем только в текущем месте
-    //     else {
-    //         handleUnitLink($(this));
-    //     }
-    // });
+    function handleUnitLink($unitLink, dontShowMessage) {
+        dontShowMessage = (typeof dontShowMessage !== 'undefined') ? dontShowMessage : false;
+
+        let $productItem = $unitLink.closest('.js-product');
+        let $unit = $productItem.find('[name="unit"]');
+        let val = $unitLink.attr('data-val');
+
+        $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
+        $productItem.find('.product-card__unit-link.active').removeClass('active');
+        $unitLink.addClass('active');
+        $unit.val(val);
+
+        // ВАЖНО! Перерасчет цены и кол-ва товара должен быть ПОСЛЕ changeUnit, потому что на это событие вешается перерасчет step и кол-ва товара (на самом деле уже не особо важно, т.к. step теперь не используется)
+        // Вызываем событие о том, что у товара изменилась ед. измерения
+        $productItem.trigger('changeUnit');
+
+        // Обработчик кнопки на странице товара для смены ед. измерения
+        calcPrice($productItem);
+
+        // Пересчитываем кол-во товара в корзине
+        changeCountItemInCart($productItem, true, null, dontShowMessage);
+    }
+
+    $(document).on('click click_without_message', '.product-card__unit-link', function (event) {
+        event.preventDefault();
+        let $this = $(this);
+
+        // Если контекст кирпич или деревянные фасады, то меняем единицы измерения на всей странице
+        if ($('body.kirpich-m, body.fasady-pro').length) {
+            let val = $this.attr('data-val');
+            $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
+                handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
+            });
+            lastKirpichUnit = val;
+        }
+        // В противном случае меняем только в текущем месте
+        else {
+            handleUnitLink($(this));
+        }
+    });
 
 
     // -------------------------------------
