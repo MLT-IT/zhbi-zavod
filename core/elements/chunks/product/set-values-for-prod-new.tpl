@@ -3,7 +3,7 @@
   {$src['id'] = $_modx->resouce.id}
 {/if}
 
-{set $prodValues = '@FILE snippets/product/set-values-for-prod.php' | snippet : [
+{set $prodValues = '@FILE snippets/product/setValuesForProd.php' | snippet : [
   'src' => [
     'id' => $src['id'],
     'price' => $src['price'],

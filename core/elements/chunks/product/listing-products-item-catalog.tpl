@@ -2,6 +2,8 @@
 {set $src = $_pls}
 {insert "file:chunks/product/set-values-for-prod-new.tpl"}
 
+{set $renderChars = true}
+
 <div class="product-card product-card_catalog js-product not-init{if $itemInCart?} js-product-in-cart{/if}"
 {* Выводим data-атрибуты *}
 {insert "file:chunks/product/get-data-attrs.tpl"}
