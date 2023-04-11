@@ -89,7 +89,7 @@
               </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
             </div>
             <div class="contacts__map shadow-map" data-map-script="contacts-map-2">
-              <script type="text/javascript" charset="utf-8" async data-map-id="contacts-map-2" data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9897d4d519ac0b96d53c1fe1657bd5a4f472e778fd55528a39aa276dbb7ce75e&amp;width=835&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script>
+                {'map_office' | option}
             </div>
           </div>
         </div>
