@@ -1,11 +1,11 @@
 {* Вынес в отдельный чанк, чтобы удобнее было работать, т.к. тут много кода *}
 
 {* Определяем, какие опции будут выводиться *}
-{if $src['context_key'] == 'web'}
+{if $prodValues['context_key'] == 'web'}
     {set $charsValues = [
-        $src['razmer'][0],
-        $src['proizvoditel'][0],
-        $src['kolvo_na_poddone'][0],
+        $prodValues['razmer'][0],
+        $prodValues['proizvoditel'][0],
+        $prodValues['kolvo_na_poddone'][0],
     ]}
     {set $charsHeaders = [
         'Размер, мм',

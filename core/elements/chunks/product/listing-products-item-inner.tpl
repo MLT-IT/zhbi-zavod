@@ -18,12 +18,12 @@
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle}</a>
   <div class="product-card__price">
-    <p class="product-card__price-value">{$outputPrice} ₽</p><span class="product-card__price-notion">Стоимость за 1 м3</span>
+    <p class="product-card__price-value">{$prodValues['outputPrice']} ₽</p><span class="product-card__price-notion">Стоимость за 1 м3</span>
   </div>
   <ul class="product-card__stats">
       {include "file:chunks/listing-product-chars.tpl"}
   </ul>
   <div class="listing__product-elems-wrap product-card__bottom">
-      {include "file:chunks/product/productElems.tpl" prodId=$id}
+      {include "file:chunks/product/product-elems.tpl" prodId=$id}
   </div>
 </div>

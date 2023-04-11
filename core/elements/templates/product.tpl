@@ -21,7 +21,7 @@
 
 {* Получаем коэффициенты единиц измерения товара *}
 {set $src = $_modx->resource}
-{insert "file:chunks/product/set-values-for-prod.tpl"}
+{insert "file:chunks/product/set-values-for-prod-new.tpl"}
 
 {* Получаем сертификаты товара *}
 {if $_modx->resource.certs}
@@ -110,11 +110,11 @@
               </div>
               *}
               <div class="product-info__price"><span class="product-info__price-notion">Продаётся кубами</span>
-                <p class="product-info__price-value">{$outputPrice} ₽</p>
+                <p class="product-info__price-value">{$prodValues['outputPrice']} ₽</p>
               </div>
 
               <div class="product-info__actions">
-                  {include "file:chunks/product/productElems.tpl" prodId=$_modx->resource.id}
+                  {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
               </div>
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>
