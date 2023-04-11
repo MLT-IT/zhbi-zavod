@@ -9,11 +9,7 @@ export default {
     initStyledCounter,
     handleMiniCart,
     resetCountProductsOnPage,
-    getLastKirpichUnit
 };
-
-// Последняя выбранная единица измерения. На кирпичах при клике по единице измерения в одном месте меняются единицы измерения на всей странице. Но при загрузке товаров по AJAX (например, в каталоге) единица измерения выводится та, что по умолчанию. Данная переменная нужна, чтобы при загрузке менять единицу измерения на последнюю выбранную.
-var lastKirpichUnit = 1;
 
 // Инициализация
 function init(yandexMetrikaId) {
@@ -439,7 +435,7 @@ function init(yandexMetrikaId) {
         let val = $unitLink.attr('data-val');
 
         $productItem.attr('data-last-unit-value', getActiveUnitValue($productItem));
-        $productItem.find('.product-card__unit-link.active').removeClass('active');
+        $productItem.find('.product-card__volume-tab.active').removeClass('active');
         $unitLink.addClass('active');
         $unit.val(val);
 
@@ -454,22 +450,13 @@ function init(yandexMetrikaId) {
         changeCountItemInCart($productItem, true, null, dontShowMessage);
     }
 
-    $(document).on('click click_without_message', '.product-card__unit-link', function (event) {
+    $(document).on('click click_without_message', '.product-card__volume-tab', function (event) {
         event.preventDefault();
         let $this = $(this);
-
-        // Если контекст кирпич или деревянные фасады, то меняем единицы измерения на всей странице
-        if ($('body.kirpich-m, body.fasady-pro').length) {
-            let val = $this.attr('data-val');
-            $('.product-card__unit-link[data-val="' + val + '"]').each(function (i, e) {
-                handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
-            });
-            lastKirpichUnit = val;
-        }
-        // В противном случае меняем только в текущем месте
-        else {
-            handleUnitLink($(this));
-        }
+        let val = $this.attr('data-val');
+        $('.product-card__volume-tab[data-val="' + val + '"]').each(function (i, e) {
+            handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
+        });
     });
 
 
@@ -691,11 +678,7 @@ function changeCountItemInCart($productItem, forbidZero, $target, dontShowMessag
             if ($productItem.find('.custom-counter_type_fractional').length) {
                 valTmp = Number(valTmp).toFixed(2);
             } else {
-                if ($('body.kirpich-m').length) {
-                    valTmp = Math.round(valTmp);
-                } else {
-                    valTmp = Math.ceil(valTmp);
-                }
+                valTmp = Math.ceil(valTmp);
             }
 
             if (!$checkedAmount.is($inputAmount)) {
@@ -864,18 +847,14 @@ function initStyledCounter() {
         //     $item.attr('data-last-unit-value', getActiveUnitValue($item));
         // });
 
-        // if (!$item.hasClass('cart-table__table-row_type_product')) {
-        //     // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
-        //     $item.on('changeUnit', function (e) {
-        //         setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
-        //     });
-        //     // Устанавливаем шаг и кол-во
-        //     if ($item.hasClass('js-product-in-cart')) {
-        //         setStepAndAmount($item, true);
-        //     } else {
-        //         setStepAndAmount($item, true);
-        //     }
-        // }
+        if (!$item.hasClass('cart-table__table-row_type_product')) {
+            // Вешаем обработчик на смену единицы измерения - менять шаг и кол-во
+            $item.on('changeUnit', function (e) {
+                setStepAndAmount($item, !$item.hasClass('js-product-in-cart'));
+            });
+            // Устанавливаем шаг и кол-во
+            setStepAndAmount($item, true);
+        }
 
         // Инициализируем фильтры для счетчика
         $counterInput.each(function () {
@@ -1054,8 +1033,4 @@ function setStepAndAmount($item, dontChangeAmount) {
     if (!dontChangeAmount) {
         $activeFormInput.val(newVal);
     }
-}
-
-function getLastKirpichUnit() {
-    return lastKirpichUnit;
 }

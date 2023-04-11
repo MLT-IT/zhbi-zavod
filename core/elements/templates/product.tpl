@@ -17,7 +17,6 @@
 {if $_modx->getPlaceholder('checkItems') is null}
     {'!checkItems' | snippet}
 {/if}
-{set $checkItems = $_modx->getPlaceholder('checkItems')}
 
 {* Получаем коэффициенты единиц измерения товара *}
 {set $src = $_modx->resource}

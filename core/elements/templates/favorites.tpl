@@ -15,7 +15,7 @@
       <article class="best-products section favorites">
         <div class="best-products__container">
           <h2 class="section__title margin-bottom-md">{$_modx->resource.pagetitle}</h2>
-            {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
+            {set $resources = $prodValues['checkItems']['fav'] | join : ','}
             {if $resources != ''}
               <div class="best-products__products">
                 {'!msProductsMy' | snippet : [
