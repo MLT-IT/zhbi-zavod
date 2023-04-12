@@ -13,8 +13,8 @@
 
       {switch $_modx->resource.context_key}
         {case 'web'}
-          {set $logo = 'logo.svg'}
-          {set $logoMobile = 'logo-mob.svg'}
+          {set $logo = 'alterteplo.png'}
+          {set $logoMobile = 'alterteplo.png'}
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}

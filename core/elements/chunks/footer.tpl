@@ -1,6 +1,6 @@
 {switch $_modx->resource.context_key}
   {case 'web'}
-    {set $logo = 'logo-white.svg'}
+    {set $logo = 'alterteplo-white.png'}
   {case 'gazosilikatstroy'}
     {set $logo = 'gazosilicatstroy-white.png'}
 {/switch}
