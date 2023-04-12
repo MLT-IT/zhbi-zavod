@@ -296,7 +296,7 @@
     </div>
   </article>
 
-  {include "file:sections/related-products.tpl"}
+  {'@FILE snippets/getPopularProductsClass.php' | snippet}
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 

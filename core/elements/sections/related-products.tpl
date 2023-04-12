@@ -4,16 +4,7 @@
     <div class="other-products__slider">
       <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-            {'!msProductsMy' | snippet : [
-              'parents' => 0,
-              'depth' => 50,
-              'limit' => 42,
-              'sortby' => '',
-              'sortdir' => '',
-              'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-              'where' => '{"context_key:=": "'~$_modx->resource.context_key~'"}',
-              'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-            ]}
+            {$output}
         </div>
       </div>
       <div class="swiper-buttons">
