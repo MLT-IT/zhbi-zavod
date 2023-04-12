@@ -1,8 +1,15 @@
+{switch $_modx->resource.context_key}
+  {case 'web'}
+    {set $logo = 'logo-white.svg'}
+  {case 'gazosilikatstroy'}
+    {set $logo = 'gazosilicatstroy-white.png'}
+{/switch}
+
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__left">
       <div class="footer__column"><a class="footer__logo" href="/">
-          <img class="footer__logo-image" src="assets/template/pictures/logo-white.svg" alt="monolit-logo"></a><span class="footer__copy">© 2010-{'' | date : "Y"}</span>
+          <img class="footer__logo-image" src="assets/template/pictures/{$logo}" alt="monolit-logo"></a><span class="footer__copy">© 2010-{'' | date : "Y"}</span>
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
