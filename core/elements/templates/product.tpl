@@ -34,9 +34,7 @@
 
 {* Получаем отзывы товара *}
 {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
-{if $reviews | count > 0}
-    {set $renderReviews = 1}
-{/if}
+{set $reviewsCount = $reviews | count}
 
 {* Получаем видео товара *}
 {set $video = $_modx->resource.video}
@@ -67,7 +65,16 @@
                   <li class="rating__star active"></li>
                   <li class="rating__star active"></li>
                   <li class="rating__star"></li>
-                </ul><span class="rating__reviews">12 отзывов</span>
+                </ul>
+                <span class="rating__reviews">
+                  {$reviewsCount}
+                  {'@FILE snippets/formOfWord.php' | snippet : [
+                    'n' => $reviewsCount,
+                    'f1' => 'отзыв',
+                    'f2' => 'отзыва',
+                    'f5' => 'отзывов'
+                  ]}
+                </span>
               </div>
 
               <div class="product-info__availability">
@@ -141,7 +148,7 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Сертификаты">Сертификаты</a>
           {/if}
 
-          {if $renderReviews ?}
+          {if $reviewsCount > 0}
             <a class="infoblocks__tab" href="javascript:;" data-tab="Отзывы">Отзывы</a>
           {/if}
 
@@ -186,7 +193,7 @@
           </div>
         </div>
 
-        {if $renderReviews ?}
+        {if $reviewsCount > 0}
           <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
