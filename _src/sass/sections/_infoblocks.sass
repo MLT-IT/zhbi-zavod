@@ -84,12 +84,15 @@
 
 	&__block
 		position: absolute
-
+		top: -1000px
+		left: -1000px
 		width: 100%
 		display: block
 		visibility: hidden
 
 		+while-mob
+			top: auto
+			left: auto
 			position: static
 			visibility: visible
 

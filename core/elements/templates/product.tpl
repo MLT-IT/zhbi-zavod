@@ -42,6 +42,20 @@
     {set $renderVideo = 1}
 {/if}
 
+{if $_modx->resource.recommendIds ?}
+    {set $recommendProducts = 'msProducts' | snippet : [
+      'resources' => $_modx->resource.recommendIds,
+      'sortby' => 'FIELD(msProduct.id, ' ~ $_modx->resource.recommendIds ~ ')',
+      'parents' => 0,
+      'depth' => 50,
+      'limit' => 42,
+      'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+      'tplWrapper' => '@FILE sections/related-products.tpl',
+      'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+      'context' => $_modx->resource.context_key,
+    ]};
+{/if}
+
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -156,7 +170,9 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
-          <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
+          {if $recommendProducts ?}
+            <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
+          {/if}
         </div>
       </div>
 
@@ -296,7 +312,7 @@
     </div>
   </article>
 
-  {'@FILE snippets/getPopularProductsClass.php' | snippet}
+  {$recommendProducts ?: ''}
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
