@@ -33,6 +33,7 @@ import LazyLoad from "vanilla-lazyload";
 import FastSearch from './modules/fast_search';
 import shadowMap from './modules/shadow_map';
 import initDistrictsMap from './modules/districts_map';
+import Inputmask from 'inputmask';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Инициализация быстрого поиска
     new FastSearch();
+
+
+    // -------------------------------------
+    // Маска для телефона
+    // -------------------------------------
+    // Inputmask для ввода номера телефона
+    let im = new Inputmask("+7 (999) 999-99-9{2,3}");
+    im.mask(document.querySelectorAll('input[name="PHONE"]'));
 
 
     // -------------------------------------
