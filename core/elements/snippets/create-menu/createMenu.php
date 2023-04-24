@@ -32,7 +32,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     $params = array_merge([
         'depth' => 0,
         'limit' => 0,
-        'tpl' => '@FILE chunks/header-menu/category-item-json.tpl',
+        'tpl' => '@FILE chunks/create-menu/category-item-json.tpl',
         'tplWrapper' => '@INLINE {[[+output]]}',
         'where' => '{"template:=":"5"}',
         'includeTVs' => 'mainImage'

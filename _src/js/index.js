@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Переключение вкладок в меню в шапке
     // -------------------------------
-    $('.h-catalog-item_main').on('click', function(e) {
+    let $hCatalogItem = $('.h-catalog-item_main');
+    $hCatalogItem.on('mouseenter', function(e) {
         e.preventDefault();
         let $this = $(this);
 
@@ -106,6 +107,21 @@ document.addEventListener('DOMContentLoaded', () => {
         $this.addClass('active');
         $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
     });
+
+    // Можно сделать не при наведении, а при клике:
+    // $('.h-catalog-item_main').on('click', function(e) {
+    //     e.preventDefault();
+    //     let $this = $(this);
+    //
+    //     if ($this.hasClass('active')) {
+    //         return false;
+    //     }
+    //
+    //     $('.h-catalog-item.active').removeClass('active');
+    //     $this.addClass('active');
+    //     $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
+    // });
+
 })
 
 function getYandexMetrikaId() {

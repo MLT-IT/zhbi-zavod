@@ -85,7 +85,7 @@
                       <div class="h-catalog-item__preview">
                         <img class="h-catalog-item__image" src="{$catCols['column1']['img']}" alt="{$catCols['column1']['name']}">
                       </div>
-                      <span class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</span>
+                      <a href="{$catCols['column1']['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</a>
                     </div>
                     {if $activeCatId is empty}
                         {set $activeCatId = $catId}

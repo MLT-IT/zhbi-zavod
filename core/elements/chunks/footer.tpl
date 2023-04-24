@@ -133,7 +133,7 @@
         'parents' => $id,
         'depth' => 0,
         'context' => $_modx->resource.context_key,
-        'tpl' => '@FILE chunks/header-menu/mobile-menu-item.tpl',
+        'tpl' => '@FILE chunks/create-menu/mobile-menu-item.tpl',
         'limit' => 10,
         'where' => '{"template:=", 5}',
         'includeTVs' => 'mainImage'
