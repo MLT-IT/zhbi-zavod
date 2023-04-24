@@ -1,6 +1,10 @@
+{if $title is empty}
+    {set $title = 'Сопутствующие товары'}
+{/if}
+
 <article class="other-products section section_view_bg" id="other-products">
   <div class="other-products__container">
-    <h2 class="other-products__title section__title">Сопутствующие товары</h2>
+    <h2 class="other-products__title section__title">{$title}</h2>
     <div class="other-products__slider">
       <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
