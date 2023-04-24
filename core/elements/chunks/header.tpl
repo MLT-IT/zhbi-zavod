@@ -72,7 +72,7 @@
           </div>
         </div>
 
-        {set $menu = '@FILE snippets/createMenu.php' | snippet}
+        {set $menu = '@FILE snippets/create-menu/createMenu.php' | snippet}
 
         <div class="h-menu header__catalog" data-dropdown>
           <button class="h-menu__btn btn btn_style_base">Каталог</button>

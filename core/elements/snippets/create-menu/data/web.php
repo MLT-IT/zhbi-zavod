@@ -1,0 +1,1044 @@
+<?php
+
+function getMenuData() {
+    $knauf = 93185;
+    $rockwool = 93190;
+    $tn = 93191;
+    $penoplex = 93189;
+    $isover = 93187;
+    $paroc = 93188;
+    $ursa = 93192;
+    $isoroc = 93186;
+
+    return [
+        $knauf => [
+            'column2' => [
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20печи/камина",
+                    "name" => "Для печи/камина",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Под%20штукатурку",
+                    "name" => "Под штукатурку",
+                ],
+            ],
+
+            'column3' => [
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=45",
+                    "name" => "45",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=47",
+                    "name" => "47",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=75",
+                    "name" => "75",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=110",
+                    "name" => "110",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+            ]
+        ],
+
+        $rockwool => [
+            'column2' => [
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20печи/камина",
+                    "name" => "Для печи/камина",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Под%20штукатурку",
+                    "name" => "Под штукатурку",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+            ],
+
+            'column3' => [
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=35",
+                    "name" => "35",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=75",
+                    "name" => "75",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=102",
+                    "name" => "102",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=105",
+                    "name" => "105",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=110",
+                    "name" => "110",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=122",
+                    "name" => "122",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=130",
+                    "name" => "130",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=140",
+                    "name" => "140",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=152",
+                    "name" => "152",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=160",
+                    "name" => "160",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=170",
+                    "name" => "170",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=190",
+                    "name" => "190",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=210",
+                    "name" => "210",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=220",
+                    "name" => "220",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=230",
+                    "name" => "230",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=240",
+                    "name" => "240",
+                ],
+                [
+                    "uri" => "/rockwool/?msoption|item_thickness=250",
+                    "name" => "250",
+                ],
+            ]
+        ],
+
+        $tn => [
+            'column2' => [
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20окон",
+                    "name" => "Для окон",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Под%20штукатурку",
+                    "name" => "Под штукатурку",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20ванной%20комнаты",
+                    "name" => "Для ванной комнаты",
+                ],
+                [
+                    "uri" => "/tn/?msoption|primenenie=Для%20дверей%20и%20ворот",
+                    "name" => "Для дверей и ворот",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/tn/?msoption|item_thickness=5",
+                    "name" => "5",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=10",
+                    "name" => "10",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=22",
+                    "name" => "22",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=55",
+                    "name" => "55",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=110",
+                    "name" => "110",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=130",
+                    "name" => "130",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=140",
+                    "name" => "140",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=160",
+                    "name" => "160",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=170",
+                    "name" => "170",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=190",
+                    "name" => "190",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+            ]
+        ],
+
+        $penoplex => [
+            'column2' => [
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=30.4",
+                    "name" => "30.4",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+            ]
+        ],
+
+        $isover => [
+            'column2' => [
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/isover/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=65",
+                    "name" => "65",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=75",
+                    "name" => "75",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+            ]
+        ],
+
+        $paroc => [
+            'column2' => [
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=117",
+                    "name" => "117",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=122",
+                    "name" => "122",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=126",
+                    "name" => "126",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=151",
+                    "name" => "151",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=350",
+                    "name" => "350",
+                ],
+            ]
+        ],
+
+        $ursa => [
+            'column2' => [
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=130",
+                    "name" => "130",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=1200",
+                    "name" => "1200",
+                ],
+            ]
+        ],
+
+        $isoroc => [
+            'column2' => [
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20печи/камина",
+                    "name" => "Для печи/камина",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20сайдинга",
+                    "name" => "Для сайдинга",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|primenenie=Крыши",
+                    "name" => "Крыши",
+                ]
+            ],
+            'column3' => [
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=1.2",
+                    "name" => "1.2",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=1.5",
+                    "name" => "1.5",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=110",
+                    "name" => "110",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=130",
+                    "name" => "130",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=140",
+                    "name" => "140",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=150",
+                    "name" => "150",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=160",
+                    "name" => "160",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=170",
+                    "name" => "170",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=190",
+                    "name" => "190",
+                ],
+                [
+                    "uri" => "/isoroc/?msoption|item_thickness=200",
+                    "name" => "200",
+                ],
+            ]
+        ]
+    ];
+}
