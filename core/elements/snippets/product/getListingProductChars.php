@@ -12,7 +12,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     // Определяем, какие опции будут выводиться
     switch (true) {
         // Газосиликат
-        case $_modx->resource->context_key == 'gazosilikatstroy':
+        case $modx->resource->context_key == 'gazosilikatstroy':
+            $charsValues = [
+                'Размер, мм' => ['val' => $src['razmer-mm']],
+                'На поддоне, м3' => ['val' => $src['pallet_num']],
+            ];
             break;
 
         // В остальных случаях
@@ -27,7 +31,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                 'Кол-во в упаковке, п.м.' => ['val' => $pm],
             ];
 
-            if (in_array($modx->resource->context_key, ['web', 'rockwool', 'tn', 'penoplex', 'isover', 'paroc', 'ursa'])) {
+            if (in_array($modx->resource->context_key, ['web'])) {
                 $charsValues['Применение']['composite'] = true;
             }
 

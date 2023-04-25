@@ -30,7 +30,7 @@
             'limit' => 0,
           ] | split : '||'}
           {set $count = $categories | count}
-          {set $maxIndex = $count > 5 ? 5 : $count}
+          {set $maxIndex = $count > 9 ? 9 : $count}
 
           {if $count > 0}
             <div class="catalog-screen__products" data-dropdown="responsive" data-dropdown-title=".catalog-screen__item_more" data-dropdown-body=".catalog-screen__other" data-disable-close="">
@@ -39,15 +39,15 @@
                   {$categories[$index]}
                 {/foreach}
 
-                {if $count > 5}
+                {if $count > 9}
                   <li class="catalog-screen__item catalog-screen__item_more"></li>
                 {/if}
               </ul>
-              {* Если подкатегорий > 5, то прячем оставшиеся под споилер *}
-              {if $count > 5}
+              {* Если подкатегорий > 9, то прячем оставшиеся под споилер *}
+              {if $count > 9}
                 <div class="catalog-screen__other">
                   <ul class="catalog-screen__items">
-                    {foreach 5..$count as $index}
+                    {foreach 9..$count as $index}
                         {$categories[$index]}
                     {/foreach}
                   </ul>
