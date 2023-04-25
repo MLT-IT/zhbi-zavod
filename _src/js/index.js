@@ -122,6 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
     //     $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
     // });
 
+
+    // -------------------------------
+    // Раскрытие панелек с фильтрами на странице каталога / категории
+    // -------------------------------
+    $('.filter-item__top').each(function(i, e) {
+        e.click();
+    });
 })
 
 function getYandexMetrikaId() {
