@@ -81,13 +81,13 @@ export default function initDistrictsMap() {
     };
 
     let phoneNumber = $('.h-subinfo__link_type_phone').text().trim();
-    let balloonContentHTML = '<div style="text-align: center;">Часы работы: ежедневно с 8:00 до 21:00<br>Стоимость доставки до 30 км: 990 рублей<br>Телефон склада: <a href="tel:' + phoneNumber + '">' + phoneNumber + '</a></div>';
+    let balloonContentHTML = '<div style="text-align: center;">Часы работы: ежедневно с 8:00 до 21:00<br>Стоимость доставки до 30 км: 1100 рублей<br>Телефон склада: <a href="tel:' + phoneNumber + '">' + phoneNumber + '</a></div>';
 
     districtsMap.geoObjects
         .add(new ymaps.Placemark(
             [59.994992, 30.293467],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 1</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад метро Пионерская</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -95,7 +95,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [60.069773, 30.350095],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 2</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Парнас</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -103,7 +103,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.817160, 30.165481],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 3</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Красносельский район</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -111,7 +111,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.801154, 30.375384],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 4</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Шушары</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -119,7 +119,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.984950, 30.454456],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 5</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Полюстрово</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -127,7 +127,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [60.041875, 30.474897],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 6</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Мурино</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -135,7 +135,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.855832, 30.528814],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 7</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Новосаратовка</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -143,7 +143,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.896878, 30.352717],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 8</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад метро Волковская</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -151,7 +151,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.943607, 30.439485],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 9</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад метро Ладожская</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -159,7 +159,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.942827, 30.696826],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 10</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Колтуши</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -167,7 +167,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.832629, 30.298908],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 11</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Предпортовая</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -175,7 +175,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.988707, 30.452143],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 12</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -183,7 +183,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.874390, 30.342898],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 13</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад метро Парк Победы</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -191,7 +191,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.585767, 30.158156],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 14</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Гатчина</div>',
                 balloonContent: balloonContentHTML,
             },
             options
@@ -199,7 +199,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.978459, 30.459773],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад 15</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Ржевка</div>',
                 balloonContent: balloonContentHTML,
             },
             options
