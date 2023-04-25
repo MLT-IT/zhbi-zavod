@@ -6,6 +6,12 @@
 
 {block "page"}
 
+  {if $_modx->getPlaceholder('mspcs.option') ? || $_modx->getPlaceholder('mspcs.where') ?}
+      {set $isSeoPage = 1}
+  {else}
+      {set $isSeoPage = 0}
+  {/if}
+
   <main class="layout__main">
     <section class="section section_view_top">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -61,7 +67,6 @@
       </article>
     </section>
 
-
     {* --- Листинг товаров --------------------- *}
     {'!mFilter2' | snippet : [
       'element' => 'msProductsMy',
@@ -93,10 +98,13 @@
       'setMeta' => 0,
       'totalVar' => 'total',
 
+      'parents' => 'excludeIds' | snippet : [
+        'isSeoPage' => $isSeoPage,
+      ],
+
       'context' => $_modx->resource.context_key
     ]}
     {* --- / Листинг товаров --------------------- *}
-
 
     {include "file:sections/gazobeton-info.tpl"}
     {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
