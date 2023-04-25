@@ -32,7 +32,7 @@
     <td class="table__cell">8</td>
     <td class="table__cell">от 3 500</td>
   </tr>
-  <tr class="table__row">
+  <tr class="table__row table__row_border_bold">
     <td class="table__cell">Машина - 20 тн до 80 м3</td>
     <td class="table__cell">8</td>
     <td class="table__cell">от 5 500</td>

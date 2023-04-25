@@ -77,6 +77,7 @@
         <div class="h-menu header__catalog" data-dropdown>
           <button class="h-menu__btn btn btn_style_base">Каталог</button>
           <div class="h-menu__dropdown">
+            <a class="h-menu__link-to-catalog" href="/catalog/">Перейти в каталог</a>
             <div class="h-catalog">
               <div class="h-catalog__column">
                 <div class="h-catalog__column-header">{$menu['column1']}</div>
