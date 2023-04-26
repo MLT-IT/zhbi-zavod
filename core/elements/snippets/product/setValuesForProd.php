@@ -80,8 +80,13 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         $result['pricePer'] = $unit;
     }
 
-    // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину. На этом сайте она всегда выводится, поэтому значение 1
-    $result['condition'] = 1;
+    // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
+    $result['condition'] = !in_array($src['parent'], [
+        93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336,
+
+        // isoroc
+        93247,93260,93259,93258,93257,93256,93255,93254,93253,93252,93251,93250,93249,93248,93233,93246,93245,93244,93243,93242,93241,93240,93239,93238,93237,93236,93235,93234
+    ]);
 
     // Дробное добавление товара в корзину
     if (in_array($modx->resource->template, [17, 20, 6, 21, 22])) {
@@ -108,7 +113,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         $m3 = str_replace(',', '.', $src['obyem_m3'][0]);
 
         if (!empty($src['v_upakovke'][0]) && $src['context_key'] == 'penoplex') {
-            if (!in_array($src['parent'], [9125, 9052, 15025, 79589, 79590])) {
+            if (!in_array($src['parent'], [93452, 93450, 93453, 93454, 93455])) {
                 $upk = 1 / $src['v_upakovke'][0];
                 $pm = 1 / ($src['v_upakovke'][0] * (1 / $src['kolvo-pm'][0]));
                 $m2 = 1 / ($src['v_upakovke'][0] * (1 / $src['ploshad_m2'][0]));
