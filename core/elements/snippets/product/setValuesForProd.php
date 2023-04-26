@@ -80,13 +80,8 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         $result['pricePer'] = $unit;
     }
 
-    /*
-     Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
-     Условия...
-     1. Должен быть правильный контекст.
-     2. Родитель не должен быть сопутствующими товарами ИЛИ Родитель должен быть Ондулином или Ондулином Смарт (krovlyasp)
-    */
-    $result['condition'] = in_array($src['context_key'], ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc', 'armatura-178', 'pilomat', 'kirpich-m', 'plitaosb', 'pro-fanera', 'fasady-pro', 'krovlya', 'plity-mdvp', 'policarbonat']) && (!in_array($src['parent'], [9052, 9125, 14193, 14269, 10998, 12018, 12819, 15201, 15202]) || in_array($src['parent'], [16805, 36871]));
+    // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину. На этом сайте она всегда выводится, поэтому значение 1
+    $result['condition'] = 1;
 
     // Дробное добавление товара в корзину
     if (in_array($modx->resource->template, [17, 20, 6, 21, 22])) {
@@ -107,7 +102,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     // Вычисление и установка коэффициентов
     // ------------------------------------
     // Единицы измерения для утеплителей
-    if (in_array($src['context_key'], ['rockwool', 'penoplex', 'web', 'tn', 'ursa', 'isover', 'paroc'])) {
+    if (in_array($src['context_key'], ['web'])) {
         $pm = str_replace(',', '.', $src['kolvo-pm'][0]);
         $m2 = $src['ploshad_m2'][0];
         $m3 = str_replace(',', '.', $src['obyem_m3'][0]);
@@ -124,98 +119,14 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         }
     }
 
-    // Единицы измерения для арматуры
-    if ($src['context_key'] == 'armatura-178') {
-        $metrov_v_tonne = str_replace(',', '.', $src['kolichestvo-metrov-v-1-tonne'][0]);
-        $dlina_m = str_replace(',', '.', $src['dlina-m'][0]);
-
-        if ($metrov_v_tonne > 0) {
-            if ($dlina_m > 0) {
-                $thing = $metrov_v_tonne / $dlina_m;
-            }
-            $pm = $metrov_v_tonne;
+    // Единицы измерения для газобетона
+    if (in_array($src['context_key'], ['gazosilikatstroy'])) {
+        if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
+            $thing = $src['kolvoshm3'][0];
         }
-    }
-
-    // Единицы измерения для пиломата
-    if ($src['context_key'] == 'pilomat') {
-        $pilomat_thing = str_replace(',', '.', $src['kol-vokub-sh'][0]);
-    }
-
-    // Единицы измерения для кирпича
-    if ($src['context_key'] == 'kirpich-m') {
-        $k_m3seam = str_replace(',', '.', (1 / $src['k_m3seam'][0]));
-        $k_m2seam = str_replace(',', '.', (1 / $src['k_m2seam'][0]));
-    }
-
-    // Единицы измерения для Гибкой черепицы, которая измеряется в м2
-    if ($src['context_key'] == 'krovlya' && $src['unit'][0] == 'м2') {
-        $additionalCategories = explode(',', $pdoTools->runSnippet('@FILE snippets/getCategories.php', ['id' => $src['id']]));
-
-        $parentsArray = [15556, 18298, 18297, 15563, 15562, 15560, 15559, 15558, 15557, 18322, 15555, 15554, 15553, 15552, 15551, 15550, 15549, 15548, 18353, 25907, 25905, 25904, 25894, 25890, 22592, 22292, 18354, 15547, 18352, 18351, 18350, 18349, 18348, 18347, 18332, 15442, 15485, 15451, 15448, 15447, 15446, 15445, 15444, 15443, 15486, 15441, 15440, 15435, 15434, 15433, 15432, 15431, 15430, 15536, 15546, 15545, 15544, 15543, 15542, 15539, 15538, 15537, 15429, 15535, 15501, 15491, 15490, 15489, 15488, 15487];
-
-        $checkIntersect = $pdoTools->runSnippet('@FILE snippets/checkIntersect.php', [
-            'array1' => $additionalCategories,
-            'array2' => $parentsArray
-        ]);
-
-        // Если родитель есть в Гибкой черепице. Или одна из доп. категорий - Гибкая черепица
-        if (in_array($src['parent'], $parentsArray) || $checkIntersect) {
-            $upk = 1 / $src['kolvom2upak'][0];
+        if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
+            $pdn = $src['pallet_num'][0];
         }
-    }
-
-    // Единицы измерения для плит ОСБ и фанеры
-    if (in_array($src['context_key'], ['plitaosb', 'pro-fanera', 'policarbonat'])) {
-        $m2 = $src['ploshad_m2'][0];
-    }
-
-    // Единицы измерения для Ондулина и Ондулина Смарт (krovlyasp)
-    if (in_array($src['parent'], [16805, 36871]) && !empty($src['ploshad_m2'][0])) {
-        $list = str_replace(',', '.', (1 / $src['ploshad_m2'][0]));
-    }
-
-    // Единицы измерения для Уголвков (armatura-178)
-    if (in_array($src['parent'], [71771, 71772, 71774]) && !empty($src['metrov-v-tonne'][0])) {
-        $meter = str_replace(',', '.', $src['metrov-v-tonne'][0]);
-    }
-
-    // Единицы измерения для Труб (armatura-178)
-    if (in_array($src['parent'], [79636, 71768, 79637, 79638, 79639, 71769, 71770, 71766, 71767]) && !empty($src['massa-1m-kg'][0])) {
-        $pm = str_replace(',', '.', $src['massa-1m-kg'][0]) / 1000;
-
-        if (!empty($src['dlina-m'][0])) {
-            $tmp = str_replace(',', '.', $src['dlina-m'][0]);
-            if ($tmp > 0) {
-                $thing = str_replace(',', '.', 1 / ($pm * $tmp));
-            }
-        }
-
-        $pm = str_replace(',', '.', 1 / $pm);
-    }
-
-    // Единицы измерения fasady-pro
-    if ($src['context_key'] == 'fasady-pro') {
-        $m2 = str_replace([',', ' '], ['.', ''], $src['obschaya-ploshad'][0]);
-        $m3 = 1 / str_replace([' ', ','], ['', '.'], $src['kol-vokub-sh'][0]);
-        $upk = str_replace(' ', ',', 1 / $src['v_upakovke'][0]);
-    }
-
-    // Единицы измерения krovlya
-    // Для Цементно-песчаная черепица (22596) и Керамическая черепица (22599) нужно вывести цену за м2
-    if ($src['context_key'] == 'krovlya' && in_array($src['parent'], 22596, 22599, 66808, 66794, 66795, 66796, 66797, 66798, 66799, 66800, 66801, 66802, 66803, 66804, 66805, 66806, 66807, 66793, 66809, 66810, 66811, 66812, 66813, 66814, 66857, 66858, 66859, 66860, 66861, 66862, 66865, 66873, 64851, 22598, 22600, 64676, 64679, 64683, 64690, 64693, 64768, 64773, 64780, 64785, 64797, 64822, 64846, 22597, 64854, 64859, 64868, 66724, 66725, 66740, 66747, 66748, 66768, 66769, 66770, 66771, 66772, 66773)) {
-        $length = $src['item_length'][0];
-        $width = $src['item_width'][0];
-
-        if (!empty($length) && !empty($width)) {
-            $m2 = $length * $width / 1000000;
-        }
-    }
-
-    // Единицы измерения для plity-mdvp
-    if ($src['context_key'] == 'plity-mdvp') {
-        // round нужен, т.к. на странице с перелинковкой через fenom выводится (расчитывается) цена за м2. А в каталоге, например, при смене единицы измерения рассчеты происходят через JS. И результат расчета на fenom отличается от результата на JS. А если округлить, то все норм *}
-        $list = str_replace(',', '.', round(1 / $src['ploshad_m2'][0]));
     }
 
     // Установка itemUnits
@@ -252,7 +163,9 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     if (!empty($upk) && ($upk > 0) && ($upk < $inf)) {
         $result['itemUnits']['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11'];
     }
-
+    if (!empty($pdn) && ($pdn > 0) && ($pdn < $inf)) {
+        $result['itemUnits']['pdn'] = ['val' => $pdn, 'title' => 'поддон', 'id' => '12'];
+    }
 
     // ------------------------------------
     // Финальные вычисления

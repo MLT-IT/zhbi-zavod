@@ -28,6 +28,8 @@
     'obschaya-ploshad' => $src['obschaya-ploshad'],
     'item_length' => $src['item_length'],
     'item_width' => $src['item_width'],
+    'kolvoshm3' => $src['kolvoshm3'],
+    'pallet_num' => $src['pallet_num'],
 
     'isFractional' => $src['isFractional'],
   ]

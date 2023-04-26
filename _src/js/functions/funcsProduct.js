@@ -944,6 +944,7 @@ function getActiveUnitValue($productItem) {
         '9': $productItem.attr('data-k_m3seam'),
         '10': $productItem.attr('data-meter'),
         '11': $productItem.attr('data-upk'),
+        '12': $productItem.attr('data-pdn'),
     };
 
     // Обработка кол-ва единиц измерения
