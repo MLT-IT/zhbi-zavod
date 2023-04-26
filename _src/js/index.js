@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     new Dropdowns();
     new Tabs();
+
     initSlimSelect(".default-select__select");
+    console.log('initSlimSelect', initSlimSelect);
+
     initFancybox();
 
     // id для целей Яндекс.Метрики

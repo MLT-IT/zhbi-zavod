@@ -75,7 +75,7 @@ export default function initDistrictsMap() {
 
     let options = {
         iconLayout: 'default#image',
-        iconImageHref: 'assets/template/img/icons/warehouse-1.png',
+        iconImageHref: 'assets/template/img/icons/warehouse-2.png',
         iconImageSize: [42, 42], // Размеры метки.
         iconImageOffset: [-21, -21] // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
     };
@@ -175,7 +175,7 @@ export default function initDistrictsMap() {
         .add(new ymaps.Placemark(
             [59.988707, 30.452143],
             {
-                balloonContentHeader: '<div style="text-align: center;">Склад</div>',
+                balloonContentHeader: '<div style="text-align: center;">Склад Шафировский проспект</div>',
                 balloonContent: balloonContentHTML,
             },
             options

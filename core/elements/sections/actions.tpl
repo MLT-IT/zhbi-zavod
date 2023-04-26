@@ -23,7 +23,7 @@
           <source srcset="assets/template/pictures/promo/promo-3-mob.jpg" media="(max-width: 768px)"><img class="promo-block__bg-img" src="assets/template/pictures/promo/promo-3.jpg" alt="promo">
         </picture>
         <h3 class="promo-block__title">Белорусский газобетон 3 000 Ꝑ/м3</h3>
-        <p class="promo-block__text">Газобетон с доставкой Беларусии</p><a class="promo-block__btn btn btn_style_trans" href="/akcii/belorusskij-gazobeton-3-000-pm3/">Узнать подробности акции</a>
+        <p class="promo-block__text">Газобетон с доставкой Беларусии</p><a class="promo-block__btn btn btn_style_trans" href="{$_modx->makeUrl(102335)}">Узнать подробности акции</a>
       </div>
     </div>
   </div>
