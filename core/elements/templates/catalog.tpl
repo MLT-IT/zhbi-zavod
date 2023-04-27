@@ -12,8 +12,25 @@
       {set $isSeoPage = 0}
   {/if}
 
+  {set $categories = 'pdoResources' | snippet : [
+    'parents' => $_modx->resource.id,
+    'templates' => '5',
+    'includeTVs' => 'mainImage',
+    'tpl' => '@FILE chunks/create-menu/category-item.tpl',
+    'outputSeparator' => '||',
+    'context' => $_modx->resource.context_key,
+    'sortby' => 'menuindex,id',
+    'sortdir' => 'ASC',
+    'depth' => 0,
+    'limit' => 0,
+  ] | split : '||'}
+  {set $tagsCount = $categories | count}
+  {set $maxIndex = $tagsCount > 9 ? 9 : $tagsCount}
+
+  $tagsCount = {$tagsCount}
+
   <main class="layout__main">
-    <section class="section section_view_top">
+    <section class="section {if $tagsCount > 0}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">
         <div class="catalog-screen__container">
@@ -22,38 +39,23 @@
             {$_modx->resource.content}
           </div>
 
-          {* --- Подкатегории --------------------- *}
-          {set $categories = 'pdoResources' | snippet : [
-            'parents' => $_modx->resource.id,
-            'templates' => '5',
-            'includeTVs' => 'mainImage',
-            'tpl' => '@FILE chunks/create-menu/category-item.tpl',
-            'outputSeparator' => '||',
-            'context' => $_modx->resource.context_key,
-            'sortby' => 'menuindex,id',
-            'sortdir' => 'ASC',
-            'depth' => 0,
-            'limit' => 0,
-          ] | split : '||'}
-          {set $count = $categories | count}
-          {set $maxIndex = $count > 9 ? 9 : $count}
-
-          {if $count > 0}
+          {* Подкатегории (теги) --- *}
+          {if $tagsCount > 0}
             <div class="catalog-screen__products" data-dropdown="responsive" data-dropdown-title=".catalog-screen__item_more" data-dropdown-body=".catalog-screen__other" data-disable-close="">
               <ul class="catalog-screen__items">
                 {foreach 0..($maxIndex-1) as $index}
                   {$categories[$index]}
                 {/foreach}
 
-                {if $count > 9}
+                {if $tagsCount > 9}
                   <li class="catalog-screen__item catalog-screen__item_more"></li>
                 {/if}
               </ul>
               {* Если подкатегорий > 9, то прячем оставшиеся под споилер *}
-              {if $count > 9}
+              {if $tagsCount > 9}
                 <div class="catalog-screen__other">
                   <ul class="catalog-screen__items">
-                    {foreach 9..$count as $index}
+                    {foreach 9..$tagsCount as $index}
                         {$categories[$index]}
                     {/foreach}
                   </ul>
@@ -61,13 +63,13 @@
               {/if}
             </div>
           {/if}
-          {* --- / Подкатегории --------------------- *}
+          {* / Подкатегории (теги) --- *}
 
         </div>
       </article>
     </section>
 
-    {* --- Листинг товаров --------------------- *}
+    {* Листинг товаров --- *}
     {'!mFilter2' | snippet : [
       'element' => 'msProductsMy',
       'suggestionsMaxFilters' => 2000,
@@ -104,7 +106,7 @@
 
       'context' => $_modx->resource.context_key
     ]}
-    {* --- / Листинг товаров --------------------- *}
+    {* / Листинг товаров *}
 
     {include "file:sections/gazobeton-info.tpl"}
     {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
