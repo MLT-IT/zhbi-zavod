@@ -75,7 +75,7 @@ export default function initDistrictsMap() {
 
     let options = {
         iconLayout: 'default#image',
-        iconImageHref: 'assets/template/img/icons/warehouse-2.png',
+        iconImageHref: 'assets/template/img/icons/warehouse.png',
         iconImageSize: [42, 42], // Размеры метки.
         iconImageOffset: [-21, -21] // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
     };

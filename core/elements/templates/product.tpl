@@ -96,35 +96,20 @@
 
                 <div class="product-info__availability">
                   {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
-                  {if $_modx->context.key == 'gazosilikatstroy'}
+                  {if $_modx->context.key == 'gazosilikatstroy' && $relinkingData is not empty}
                     <div class="product-info__euv-custom-select euv-custom-select">
                       <div class="euv-custom-select__input">
                         <span class="euv-custom-select__input-value">Производитель</span>
                       </div>
                       <span class="euv-custom-select__btn"></span>
                       <div class="euv-custom-select__options-wrap">
-                        <div class="euv-custom-select__options-wrap-scroll">
-                            {foreach $relinkingData as $item}
-                              <a href="/{$item['uri']}" class="euv-custom-select__option">
-                                  {$item['proizvoditel']}
-                              </a>
-                            {/foreach}
-                        </div>
+                          {foreach $relinkingData as $item}
+                            <a href="/{$item['uri']}" class="euv-custom-select__option">
+                                {$item['proizvoditel']}
+                            </a>
+                          {/foreach}
                       </div>
                     </div>
-
-{*                    <div class="product-info__params">*}
-{*                      <div class="product-info__param">*}
-{*                        <div class="default-select">*}
-{*                          <select class="default-select__select">*}
-{*                            <option data-placeholder="true">Производитель</option>*}
-{*                            <option value="0">1000</option>*}
-{*                            <option value="1">2000</option>*}
-{*                            <option value="2">3000</option>*}
-{*                          </select>*}
-{*                        </div>*}
-{*                      </div>*}
-{*                    </div>*}
                   {/if}
                   <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
                 </div>
