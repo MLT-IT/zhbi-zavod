@@ -56,9 +56,9 @@ function init(yandexMetrikaId) {
     // -------------------------------
     // Работа со страницей товара с перелинковкой со списками
     // -------------------------------
-    if ($('.product-card_type_relinking').length) {
+    if ($('.product-info__availability .euv-custom-select').length) {
         let plugin_name = 'euv_custom_select';
-        let toggleDuration = 300;
+        let toggleDuration = 200;
         let custom_select_visible_class = 'euv-custom-select_visible',
             custom_select_option_class = 'euv-custom-select__option',
             custom_select_class = 'euv-custom-select',
@@ -67,9 +67,7 @@ function init(yandexMetrikaId) {
         // -------------------------------
         // Стилизованный список
         // -------------------------------
-        // Пришлось частично копировать код от плагина euv_custom_select, т.к. нужен не весь функционал, на некоторый функционал отличается
-
-        let $select = $('.product-card_type_relinking .euv-custom-select');
+        let $select = $('.product-info .euv-custom-select');
 
         // Обработчик на клик по списку
         $select.on('click', function (e) {
@@ -135,59 +133,17 @@ function init(yandexMetrikaId) {
         });
 
         // Из-за стилизованных скроллбаров внутри списков плохо работает анимация для раскрытия списков при первом открытии после загрузки страницы. Данный код исправляет это
-        $('.' + custom_select_options_wrap_class).each(function () {
-            let $elem = $(this);
-            $elem.show();
-            $elem.css('opacity', 0);
-            let $osContentGlue = $elem.find('.os-content-glue');
-            setTimeout(function () {
-                $osContentGlue.css('height', $osContentGlue.outerHeight());
-                $elem.hide();
-                $elem.css('opacity', '');
-            }, 300);
-        });
-
-        // -------------------------------
-        // Мобильный стилизованный список
-        // -------------------------------
-        $('.custom-select-mobile-link').on('click', function () {
-            // Основные переменные
-            let $popup = $('.popup-select');
-            let $customSelectWrap = $(this).closest('.custom-select-wrap');
-            let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
-
-            // Очистка от предыдущего использования
-            $popup.html('');
-            $popup.removeClass('colors-options');
-
-            // Добавление класса для отображения цветов
-            if ($customSelectWrap.find('.colors-options').length) {
-                $popup.addClass('colors-options');
-            }
-
-            // Добавление item'ов
-            $children.each(function () {
-                // Основные переменные
-                let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
-                let $child = $(this);
-
-                // Установка текста
-                $item.html($child.html());
-                // Установка href
-                $item.attr('href', $child.attr('href'));
-                // Установка атрибут для цвета
-                $item.attr('data-val', $child.attr('data-val'));
-
-                // Добавление обработчика
-                // $item.on('click', function (e) {
-                //     // Закрываем всплывашку
-                //     $('.popup-select .fancybox-button').click();
-                // });
-
-                // Добавление айтема во всплывашку
-                $item.appendTo($popup);
-            });
-        });
+        // $('.' + custom_select_options_wrap_class).each(function () {
+        //     let $elem = $(this);
+        //     $elem.show();
+        //     $elem.css('opacity', 0);
+        //     let $osContentGlue = $elem.find('.os-content-glue');
+        //     setTimeout(function () {
+        //         $osContentGlue.css('height', $osContentGlue.outerHeight());
+        //         $elem.hide();
+        //         $elem.css('opacity', '');
+        //     }, 300);
+        // });
     }
 
 

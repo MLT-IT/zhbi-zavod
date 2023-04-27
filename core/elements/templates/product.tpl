@@ -56,6 +56,8 @@
     ]};
 {/if}
 
+{'!test' | snippet}
+
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -93,54 +95,36 @@
                 </div>
 
                 <div class="product-info__availability">
+                  {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
                   {if $_modx->context.key == 'gazosilikatstroy'}
-
-
-                    <div class="product-card__select-wrap product-card__select-wrap_type_full mt">
-                      <div class="product-card__select-span">Производитель:</div>
-                      <div class="custom-select-wrap">
-                        <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                          <div class="euv-custom-select__input">
-                            <span class="euv-custom-select__input-value">{$_modx->resource.proizvoditel[0]}</span>
-                          </div>
-                          <span class="euv-custom-select__btn"></span>
-                          <div class="euv-custom-select__options-wrap">
-                            <div class="euv-custom-select__options-wrap-scroll">
-                              <a href="https://krovlyasp.ru/metallocherepica-klassik-grand-line-0-5-purpro-matt-275-rr-32-temno-korichneviy/"
-                                 class="euv-custom-select__option">
-                                PurPro Matt (275) <span class="euv-custom-select__small-text">Матовая</span>
+                    <div class="product-info__euv-custom-select euv-custom-select">
+                      <div class="euv-custom-select__input">
+                        <span class="euv-custom-select__input-value">Производитель</span>
+                      </div>
+                      <span class="euv-custom-select__btn"></span>
+                      <div class="euv-custom-select__options-wrap">
+                        <div class="euv-custom-select__options-wrap-scroll">
+                            {foreach $relinkingData as $item}
+                              <a href="/{$item['uri']}" class="euv-custom-select__option">
+                                  {$item['proizvoditel']}
                               </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="custom-select-mobile-link"></div>
-                        <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                      </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="product-info__params">
-                      <div class="product-info__param">
-                        <div class="default-select">
-                          <select class="default-select__select">
-                            <option data-placeholder="true">Производитель</option>
-                            <option value="0">1000</option>
-                            <option value="1">2000</option>
-                            <option value="2">3000</option>
-                          </select>
+                            {/foreach}
                         </div>
                       </div>
                     </div>
+
+{*                    <div class="product-info__params">*}
+{*                      <div class="product-info__param">*}
+{*                        <div class="default-select">*}
+{*                          <select class="default-select__select">*}
+{*                            <option data-placeholder="true">Производитель</option>*}
+{*                            <option value="0">1000</option>*}
+{*                            <option value="1">2000</option>*}
+{*                            <option value="2">3000</option>*}
+{*                          </select>*}
+{*                        </div>*}
+{*                      </div>*}
+{*                    </div>*}
                   {/if}
                   <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
                 </div>

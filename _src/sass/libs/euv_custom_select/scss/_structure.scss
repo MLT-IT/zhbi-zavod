@@ -1,0 +1,41 @@
+.euv-custom-select {
+    $parent: &;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    &__original-select {
+        display: none !important;
+    }
+    &__options-wrap {
+        display: none;
+        z-index: 1;
+        position: absolute;
+    }
+    &_visible {
+        z-index: 11;
+    }
+    &__input {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        margin-left: 1px;
+        height: calc(100% - 2px);
+    }
+    @at-root div.euv-custom-select__input {
+        cursor: pointer;
+    }
+    &__option {
+        white-space: nowrap;
+        cursor: pointer;
+    }
+    &__btn {
+        height: 100%;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+        }
+    }
+}
