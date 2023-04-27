@@ -1,4 +1,4 @@
-<table class="table__table">
+<table class="table__table table-delivery">
   <thead>
   <tr class="table__row">
     <td class="table__cell">Способ доставки</td>
