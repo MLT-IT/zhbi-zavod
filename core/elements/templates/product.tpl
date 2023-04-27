@@ -93,31 +93,55 @@
                 </div>
 
                 <div class="product-info__availability">
-                  {*
-                  <div class="product-info__params">
-                    <div class="product-info__param">
-                      <div class="default-select">
-                        <select class="default-select__select" data-id="ss-mgnilr5g" tabindex="-1" aria-hidden="true" style="display: none;">
-                          <option data-placeholder="true">Плотность</option>
-                          <option value="0">D100</option>
-                          <option value="1">D200</option>
-                          <option value="2">D300</option>
-                        </select><div data-id="ss-mgnilr5g" id="ss-mgnilr5g" tabindex="0" class="ss-main default-select__select" role="combobox" aria-haspopup="listbox" aria-controls="ss-mgnilr5g" aria-expanded="false"><div class="ss-values"><div class="ss-placeholder">Плотность</div></div><div class="ss-deselect ss-hide"><svg viewBox="0 0 100 100"><path d="M10,10 L90,90 M10,90 L90,10"></path></svg></div><svg class="ss-arrow" viewBox="0 0 100 100"><path d="M10,30 L50,70 L90,30"></path></svg></div>
-                        <div data-id="ss-mgnilr5g" id="ss-mgnilr5g" class="ss-content default-select__select" role="listbox"><div class="ss-search ss-hide"><input readonly="" type="search" placeholder="Поиск" tabindex="-1" aria-label="Поиск" autocapitalize="off" autocomplete="off" autocorrect="off"></div><div class="ss-list"><div class="ss-option ss-hide"></div><div data-id="tn10zfl7" id="tn10zfl7" class="ss-option" role="option" aria-selected="false">D100</div><div data-id="41cmfz9d" id="41cmfz9d" class="ss-option" role="option" aria-selected="false">D200</div><div data-id="ijgk3t6m" id="ijgk3t6m" class="ss-option" role="option" aria-selected="false">D300</div></div></div>
+                  {if $_modx->context.key == 'gazosilikatstroy'}
+
+
+                    <div class="product-card__select-wrap product-card__select-wrap_type_full mt">
+                      <div class="product-card__select-span">Производитель:</div>
+                      <div class="custom-select-wrap">
+                        <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                          <div class="euv-custom-select__input">
+                            <span class="euv-custom-select__input-value">{$_modx->resource.proizvoditel[0]}</span>
+                          </div>
+                          <span class="euv-custom-select__btn"></span>
+                          <div class="euv-custom-select__options-wrap">
+                            <div class="euv-custom-select__options-wrap-scroll">
+                              <a href="https://krovlyasp.ru/metallocherepica-klassik-grand-line-0-5-purpro-matt-275-rr-32-temno-korichneviy/"
+                                 class="euv-custom-select__option">
+                                PurPro Matt (275) <span class="euv-custom-select__small-text">Матовая</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="custom-select-mobile-link"></div>
+                        <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
                       </div>
                     </div>
-                    <div class="product-info__param">
-                      <div class="default-select">
-                        <select class="default-select__select" data-id="ss-g9de1fkx" tabindex="-1" aria-hidden="true" style="display: none;">
-                          <option data-placeholder="true">размер</option>
-                          <option value="0">1000</option>
-                          <option value="1">2000</option>
-                          <option value="2">3000</option>
-                        </select><div data-id="ss-g9de1fkx" id="ss-g9de1fkx" tabindex="0" class="ss-main default-select__select" role="combobox" aria-haspopup="listbox" aria-controls="ss-g9de1fkx" aria-expanded="false"><div class="ss-values"><div class="ss-placeholder">размер</div></div><div class="ss-deselect ss-hide"><svg viewBox="0 0 100 100"><path d="M10,10 L90,90 M10,90 L90,10"></path></svg></div><svg class="ss-arrow" viewBox="0 0 100 100"><path d="M10,30 L50,70 L90,30"></path></svg></div>
-                        <div data-id="ss-g9de1fkx" id="ss-g9de1fkx" class="ss-content default-select__select" role="listbox"><div class="ss-search ss-hide"><input readonly="" type="search" placeholder="Поиск" tabindex="-1" aria-label="Поиск" autocapitalize="off" autocomplete="off" autocorrect="off"></div><div class="ss-list"><div class="ss-option ss-hide"></div><div data-id="01v02jov" id="01v02jov" class="ss-option" role="option" aria-selected="false">1000</div><div data-id="utfl66ei" id="utfl66ei" class="ss-option" role="option" aria-selected="false">2000</div><div data-id="p5n7otak" id="p5n7otak" class="ss-option" role="option" aria-selected="false">3000</div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="product-info__params">
+                      <div class="product-info__param">
+                        <div class="default-select">
+                          <select class="default-select__select">
+                            <option data-placeholder="true">Производитель</option>
+                            <option value="0">1000</option>
+                            <option value="1">2000</option>
+                            <option value="2">3000</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  *}
+                  {/if}
                   <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
                 </div>
 

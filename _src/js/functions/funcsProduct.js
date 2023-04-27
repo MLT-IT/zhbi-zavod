@@ -56,139 +56,139 @@ function init(yandexMetrikaId) {
     // -------------------------------
     // Работа со страницей товара с перелинковкой со списками
     // -------------------------------
-    // if ($('.product-card_type_relinking').length) {
-    //     let plugin_name = 'euv_custom_select';
-    //     let toggleDuration = 300;
-    //     let custom_select_visible_class = 'euv-custom-select_visible',
-    //         custom_select_option_class = 'euv-custom-select__option',
-    //         custom_select_class = 'euv-custom-select',
-    //         custom_select_options_wrap_class = 'euv-custom-select__options-wrap';
-    //
-    //     // -------------------------------
-    //     // Стилизованный список
-    //     // -------------------------------
-    //     // Пришлось частично копировать код от плагина euv_custom_select, т.к. нужен не весь функционал, на некоторый функционал отличается
-    //
-    //     let $select = $('.product-card_type_relinking .euv-custom-select');
-    //
-    //     // Обработчик на клик по списку
-    //     $select.on('click', function (e) {
-    //         // Исключаем клик по подсказке или по кнопке для вызова подсказки
-    //         let $target = $(e.target);
-    //         if ($target.hasClass('filter-option__tip') ||
-    //             $target.closest('.filter-option__tip').length) {
-    //             return;
-    //         }
-    //
-    //         function close_select(e) {
-    //             let $target = $(e.target);
-    //             let $target_select = $target.closest('.' + custom_select_class);
-    //             $('.' + custom_select_visible_class).each(function () {
-    //                 let $this = $(this);
-    //                 if ($this[0] != $target_select[0] || $target.hasClass(custom_select_option_class)) {
-    //                     if ($('.' + custom_select_visible_class).length < 2) {
-    //                         $(document).off('click.' + plugin_name, close_select);
-    //                     }
-    //                     $this.removeClass(custom_select_visible_class);
-    //                     $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
-    //                 }
-    //             });
-    //         }
-    //
-    //         let $this = $(this);
-    //         $this.toggleClass(custom_select_visible_class);
-    //         $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
-    //         if ($this.hasClass('euv-custom-select_visible')) {
-    //             $(document).off('click.' + plugin_name, close_select);
-    //             $(document).on('click.' + plugin_name, function (e) {
-    //                 let $target = $(e.target);
-    //                 if ($target.hasClass('wintip') ||
-    //                     $target.closest('.wintip').length) {
-    //                     return;
-    //                 }
-    //                 close_select(e);
-    //             });
-    //         } else {
-    //             $(document).off('click.' + plugin_name, close_select);
-    //         }
-    //     });
-    //
-    //     $select.each(function () {
-    //         let $this = $(this);
-    //         let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
-    //
-    //         // Стилизованные скроллбары внутри списков
-    //         $scroll.overlayScrollbars({});
-    //
-    //         // Выбор цвета / оттенка в списке
-    //         let $selectColors = $('.colors-options');
-    //         $selectColors.on('change', selectColorsOnChange);
-    //         function selectColorsOnChange(elem) {
-    //             let $this = $(elem.target);
-    //             let $parent = $this.closest('.euv-custom-select');
-    //             let val = $parent.find('.euv-custom-select__selected-option').attr('data-val');
-    //             $parent.find('.euv-custom-select__input-value').attr('data-val', val);
-    //         }
-    //         $selectColors.on('euv_custom_select_init', function () {
-    //             selectColorsOnChange({target: $selectColors[0]});
-    //         });
-    //     });
-    //
-    //     // Из-за стилизованных скроллбаров внутри списков плохо работает анимация для раскрытия списков при первом открытии после загрузки страницы. Данный код исправляет это
-    //     $('.' + custom_select_options_wrap_class).each(function () {
-    //         let $elem = $(this);
-    //         $elem.show();
-    //         $elem.css('opacity', 0);
-    //         let $osContentGlue = $elem.find('.os-content-glue');
-    //         setTimeout(function () {
-    //             $osContentGlue.css('height', $osContentGlue.outerHeight());
-    //             $elem.hide();
-    //             $elem.css('opacity', '');
-    //         }, 300);
-    //     });
-    //
-    //     // -------------------------------
-    //     // Мобильный стилизованный список
-    //     // -------------------------------
-    //     $('.custom-select-mobile-link').on('click', function () {
-    //         // Основные переменные
-    //         let $popup = $('.popup-select');
-    //         let $customSelectWrap = $(this).closest('.custom-select-wrap');
-    //         let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
-    //
-    //         // Очистка от предыдущего использования
-    //         $popup.html('');
-    //         $popup.removeClass('colors-options');
-    //
-    //         // Добавление класса для отображения цветов
-    //         if ($customSelectWrap.find('.colors-options').length) {
-    //             $popup.addClass('colors-options');
-    //         }
-    //
-    //         // Добавление item'ов
-    //         $children.each(function () {
-    //             // Основные переменные
-    //             let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
-    //             let $child = $(this);
-    //
-    //             // Установка текста
-    //             $item.html($child.html());
-    //             // Установка href
-    //             $item.attr('href', $child.attr('href'));
-    //             // Установка атрибут для цвета
-    //             $item.attr('data-val', $child.attr('data-val'));
-    //
-    //             // Добавление обработчика
-    //             // $item.on('click', function (e) {
-    //             //     // Закрываем всплывашку
-    //             //     $('.popup-select .fancybox-button').click();
-    //             // });
-    //
-    //             // Добавление айтема во всплывашку
-    //             $item.appendTo($popup);
-    //         });
-    //     });
-    // }
+    if ($('.product-card_type_relinking').length) {
+        let plugin_name = 'euv_custom_select';
+        let toggleDuration = 300;
+        let custom_select_visible_class = 'euv-custom-select_visible',
+            custom_select_option_class = 'euv-custom-select__option',
+            custom_select_class = 'euv-custom-select',
+            custom_select_options_wrap_class = 'euv-custom-select__options-wrap';
+
+        // -------------------------------
+        // Стилизованный список
+        // -------------------------------
+        // Пришлось частично копировать код от плагина euv_custom_select, т.к. нужен не весь функционал, на некоторый функционал отличается
+
+        let $select = $('.product-card_type_relinking .euv-custom-select');
+
+        // Обработчик на клик по списку
+        $select.on('click', function (e) {
+            // Исключаем клик по подсказке или по кнопке для вызова подсказки
+            let $target = $(e.target);
+            if ($target.hasClass('filter-option__tip') ||
+                $target.closest('.filter-option__tip').length) {
+                return;
+            }
+
+            function close_select(e) {
+                let $target = $(e.target);
+                let $target_select = $target.closest('.' + custom_select_class);
+                $('.' + custom_select_visible_class).each(function () {
+                    let $this = $(this);
+                    if ($this[0] != $target_select[0] || $target.hasClass(custom_select_option_class)) {
+                        if ($('.' + custom_select_visible_class).length < 2) {
+                            $(document).off('click.' + plugin_name, close_select);
+                        }
+                        $this.removeClass(custom_select_visible_class);
+                        $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
+                    }
+                });
+            }
+
+            let $this = $(this);
+            $this.toggleClass(custom_select_visible_class);
+            $this.find('.' + custom_select_options_wrap_class).slideToggle(toggleDuration);
+            if ($this.hasClass('euv-custom-select_visible')) {
+                $(document).off('click.' + plugin_name, close_select);
+                $(document).on('click.' + plugin_name, function (e) {
+                    let $target = $(e.target);
+                    if ($target.hasClass('wintip') ||
+                        $target.closest('.wintip').length) {
+                        return;
+                    }
+                    close_select(e);
+                });
+            } else {
+                $(document).off('click.' + plugin_name, close_select);
+            }
+        });
+
+        $select.each(function () {
+            let $this = $(this);
+            let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
+
+            // Стилизованные скроллбары внутри списков
+            $scroll.overlayScrollbars({});
+
+            // Выбор цвета / оттенка в списке
+            let $selectColors = $('.colors-options');
+            $selectColors.on('change', selectColorsOnChange);
+            function selectColorsOnChange(elem) {
+                let $this = $(elem.target);
+                let $parent = $this.closest('.euv-custom-select');
+                let val = $parent.find('.euv-custom-select__selected-option').attr('data-val');
+                $parent.find('.euv-custom-select__input-value').attr('data-val', val);
+            }
+            $selectColors.on('euv_custom_select_init', function () {
+                selectColorsOnChange({target: $selectColors[0]});
+            });
+        });
+
+        // Из-за стилизованных скроллбаров внутри списков плохо работает анимация для раскрытия списков при первом открытии после загрузки страницы. Данный код исправляет это
+        $('.' + custom_select_options_wrap_class).each(function () {
+            let $elem = $(this);
+            $elem.show();
+            $elem.css('opacity', 0);
+            let $osContentGlue = $elem.find('.os-content-glue');
+            setTimeout(function () {
+                $osContentGlue.css('height', $osContentGlue.outerHeight());
+                $elem.hide();
+                $elem.css('opacity', '');
+            }, 300);
+        });
+
+        // -------------------------------
+        // Мобильный стилизованный список
+        // -------------------------------
+        $('.custom-select-mobile-link').on('click', function () {
+            // Основные переменные
+            let $popup = $('.popup-select');
+            let $customSelectWrap = $(this).closest('.custom-select-wrap');
+            let $children = $customSelectWrap.find('.os-content .euv-custom-select__option');
+
+            // Очистка от предыдущего использования
+            $popup.html('');
+            $popup.removeClass('colors-options');
+
+            // Добавление класса для отображения цветов
+            if ($customSelectWrap.find('.colors-options').length) {
+                $popup.addClass('colors-options');
+            }
+
+            // Добавление item'ов
+            $children.each(function () {
+                // Основные переменные
+                let $item = $('<a href="#" class="popup-select__item euv-custom-select__option"></a>');
+                let $child = $(this);
+
+                // Установка текста
+                $item.html($child.html());
+                // Установка href
+                $item.attr('href', $child.attr('href'));
+                // Установка атрибут для цвета
+                $item.attr('data-val', $child.attr('data-val'));
+
+                // Добавление обработчика
+                // $item.on('click', function (e) {
+                //     // Закрываем всплывашку
+                //     $('.popup-select .fancybox-button').click();
+                // });
+
+                // Добавление айтема во всплывашку
+                $item.appendTo($popup);
+            });
+        });
+    }
 
 
     // -------------------------------
