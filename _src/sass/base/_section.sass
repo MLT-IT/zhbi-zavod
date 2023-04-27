@@ -20,18 +20,21 @@
 			text-align: center
 
 	&_view
+		&_bg, &_top, &_shrink
+			background-color: var(--color-gray-lt)
+
+		&_shrink
+			padding: 0 0 0px
+
 		&_bg
 			padding: 40px 0
 
-			background-color: var(--color-gray-lt)
 
 			+until-tablet
 				padding-top: 30px
 
 		&_top
 			padding: 0 0 40px
-
-			background-color: var(--color-gray-lt)
 
 			+until-tablet
 				padding: 0 0 30px

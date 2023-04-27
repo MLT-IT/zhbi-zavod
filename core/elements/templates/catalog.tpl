@@ -23,14 +23,16 @@
     'sortdir' => 'ASC',
     'depth' => 0,
     'limit' => 0,
-  ] | split : '||'}
-  {set $tagsCount = $categories | count}
-  {set $maxIndex = $tagsCount > 9 ? 9 : $tagsCount}
-
-  $tagsCount = {$tagsCount}
+  ]}
+  {set $catsNotEmpty = $categories is not empty}
+  {if $catsNotEmpty}
+    {set $categories = $categories | split : '||'}
+    {set $tagsCount = $categories | count}
+    {set $maxIndex = $tagsCount > 9 ? 9 : $tagsCount}
+  {/if}
 
   <main class="layout__main">
-    <section class="section {if $tagsCount > 0}section_view_top{else}section_view_shrink{/if}">
+    <section class="section {if $catsNotEmpty}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">
         <div class="catalog-screen__container">
@@ -40,7 +42,7 @@
           </div>
 
           {* Подкатегории (теги) --- *}
-          {if $tagsCount > 0}
+          {if $catsNotEmpty}
             <div class="catalog-screen__products" data-dropdown="responsive" data-dropdown-title=".catalog-screen__item_more" data-dropdown-body=".catalog-screen__other" data-disable-close="">
               <ul class="catalog-screen__items">
                 {foreach 0..($maxIndex-1) as $index}
