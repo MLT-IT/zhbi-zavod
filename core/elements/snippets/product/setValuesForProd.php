@@ -128,10 +128,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     if (in_array($src['context_key'], ['gazosilikatstroy'])) {
         if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
             $thing = $src['kolvoshm3'][0];
+
+            if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
+                $pdn = 1 / ((1 / $thing) *  $src['pallet_num'][0]);
+            }
         }
-        if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
-            $pdn = $src['pallet_num'][0];
-        }
+
     }
 
     // Установка itemUnits
