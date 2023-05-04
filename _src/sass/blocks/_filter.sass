@@ -144,11 +144,9 @@
 
 	&__title
 		font-weight: 700
-		font-size: 20px
+		font-size: 18px
 		line-height: 1.2
-
 		text-transform: uppercase
-
 		color: var(--color-red)
 
 		+until-widescreen
@@ -179,21 +177,21 @@
 				display: flex
 
 		&:not(:last-child)
-			margin-bottom: 24px
+			margin-bottom: 18px
 
-			+while-mob
-				margin-bottom: 14px
+			+until-tablet
+				margin-bottom: 8px
 
 		& ~ .filter-item__more
 			margin-top: 6px
 
 		& .default-checkbox
 			&__label
-				font-size: 20px
+				font-size: 16px
 				font-weight: 700
 
-				+until-widescreen
-					font-size: 16px
+				+until-tablet
+					font-size: 12px
 
 				&:before
 					width: 30px
@@ -209,6 +207,8 @@
 	&__more
 		height: 50px
 		align-self: flex-start
+		margin-left: auto
+		margin-right: auto
 
 		+until-laptop
 			height: auto !important
@@ -235,11 +235,6 @@
 	&__link
 		text-decoration: none
 		color: inherit
-
-
-
-
-
 
 .filter-number
     &__inner

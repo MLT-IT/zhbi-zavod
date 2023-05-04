@@ -139,8 +139,8 @@
         <nav class="header__nav h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
         </nav>
         <div class="header__actions">
-          {set $favLen = $prodValues['checkItems']['fav'] | length}
-          <a href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
+          {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
+          <a data-aaaa href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
             </svg>

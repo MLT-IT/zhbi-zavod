@@ -15,7 +15,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         case $modx->resource->context_key == 'gazosilikatstroy':
             $charsValues = [
                 'Размер, мм' => ['val' => $src['razmer-mm']],
-                'На поддоне, м3' => ['val' => $src['pallet_num']],
+                'Кол-во на поддоне, шт' => ['val' => $src['pallet_num']],
             ];
             break;
 

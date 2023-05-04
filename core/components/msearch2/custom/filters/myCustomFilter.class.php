@@ -97,80 +97,20 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
-            // -------------------------------------------------------
-            // Сортировка опции "Тип" на некоторых ресурсах
-            // -------------------------------------------------------
-            if ($options['name'] === 'tip') {
-                switch ($GLOBALS['modx']->resource->id) {
-                    case 37609:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Керамический кирпич', 'Клинкерный кирпич', 'Кирпич ручной формовки', 'Печной кирпич']);
-                        break;
-                    case 19859:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, []);
-                        break;
-                    case 36806:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Фасадная плитка HAUBERK', 'Комплектующие']);
-                        break;
-                }
-            }
-
-            // -------------------------------------------------------
-            // Сортировка опции "Продуктовая линейка"
-            // -------------------------------------------------------
-            if ($options['name'] === 'produktovaya-lineyka') {
-                switch ($GLOBALS['modx']->resource->context_key) {
-                    case 'rockwool':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Лайт Баттс', 'Руф Баттс', 'Фасад Баттс', 'Флор Баттс', 'Венти Баттс', 'Каркас Баттс', 'Эконом', 'Акустик Баттс', 'Кавити Баттс', 'Арктик', 'Рокфасад']);
-                        break;
-                    case 'tn':
-                        //	$sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Теплоролл', '35 250 Стандарт', 'Технофас', 'Технолайт', 'Технофлор', 'Техноруф', 'Техновент', 'Техноблок', 'Изобокс', 'GreenGuard', 'Базалит', 'Техносэндвич', 'Сэндвич Ц-XPS', 'Техноплекс', 'LOGICPIR', 'Плиты PIR', 'Техноакустик', 'Техно ОЗБ', 'Техно ОЗД', 'Техно ОЗМ', 'Техно Т', 'Мат Техно', 'Цилиндр Техно', 'LOGICROOF', 'Штукатурный фасад', 'Master Звукозащита', 'Техноэласт', 'ECOBASE', 'ECOPLAST', 'LOGICBASE', 'LOGICPOOL',  'Sintofoil']);
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Роклайт', 'Carbon', 'Техноплекс', 'Техноруф', 'Техноблок', 'Техновент', 'LOGICPIR', 'Технолайт', 'Технофлор', 'Техноакустик', 'Технофас', 'Техно ОЗМ']);
-                        break;
-                    case 'ursa':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Terra', 'Geo', 'XPS', 'Pureone', 'Seco']);
-                        break;
-                    case 'web':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Терм', 'ТеплоКНАУФ', 'АкустиКНАУФ', 'Инсулейшн', 'GreenTERM']);
-                        break;
-                    case 'isover':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Теплый Дом', 'Фасад', 'Руф', 'Звукозащита', 'Скатная Кровля', 'Плавающий пол', 'Профи', 'Тёплые Стены']);
-                        break;
-                }
-            }
 
             // -------------------------------------------------------
             // Сортировка опции "Производитель" на кирпичах
             // -------------------------------------------------------
-            if ($GLOBALS['modx']->resource->context_key == 'kirpich-m') {
+            if ($GLOBALS['modx']->resource->context_key == 'gazosilikatstroy') {
                 if ($options['name'] == 'proizvoditel') {
-                    switch ($GLOBALS['modx']->resource->id) {
-                        // Облицовочные
-                        case 37609:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Wienerberger', 'Roben', 'Эталон ЗСМ']);
-                            break;
-                        // Клинкерные
-                        case 19852:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Wienerberger', 'Roben']);
-                            break;
-                        // Фасадная плитка
-                        case 37478:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['Feldhaus Klinker', 'Roben', 'Terca', 'Wienerberger', 'ESTIMA', 'Nelissen']);
-                            break;
-                        // Строительные
-                        case 37608:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Радошковичи (Ceglar)', 'БКСМ', 'ВКЗ', 'Витебск цех-1', 'ЗСМ Эталон', 'Псковский КЗ']);
-                            break;
-                        // Керамоблоки
-                        case 19847:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Радошковичи (Ceglar)', 'BRAER', 'Гжельский кирпичный завод', 'ВКЗ', 'Forati', 'Porotherm (Wienerberger)']);
-                            break;
-                        // Остальные кирпичи
-                        default:
-                            $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'Faber Jar', 'Feldhaus Klinker', 'Roben', 'Эталон ЗСМ']);
-                            break;
-                    }
+                    $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'СК (СтройКомплект)', 'Могилевский газосиликат', 'AEROC', 'Белорусский БЦК', 'YTONG', 'ЕАБ (ЕвроАэроБетон)', 'Н+Н', 'Bonolit', 'Забудова']);
+                }
+
+                if ($options['name'] == 'item_thickness') {
+                    arsort($sorted);
                 }
             }
+
 
             // -------------------------------------------------------
             // Сортировка некоторых опций на кровле

@@ -99,7 +99,7 @@
                   {if $_modx->context.key == 'gazosilikatstroy' && $relinkingData is not empty}
                     <div class="product-info__euv-custom-select euv-custom-select">
                       <div class="euv-custom-select__input">
-                        <span class="euv-custom-select__input-value">Производитель</span>
+                        <span class="euv-custom-select__input-value">{$_modx->resource['proizvoditel'][0]}</span>
                       </div>
                       <span class="euv-custom-select__btn"></span>
                       <div class="euv-custom-select__options-wrap">
@@ -204,6 +204,7 @@
             <div class="table infoblocks__table">
               {include 'file:sections/delivery-inner.tpl'}
             </div>
+            <div class="product-info__delivery-btn infoblocks__bottom"><a class="btn btn_style_shadow" data-fancybox="" href="#callback">заказать с доставкой</a></div>
           </div>
         </div>
 
@@ -298,15 +299,6 @@
       </div>
 
       {include "file:chunks/guarantees.tpl"}
-
-      <div class="infoblocks__bottom infoblocks__bottom_tab-view" data-tab-page="Условия доставки">
-        <div class="infoblocks__callback">
-          <p class="infoblocks__callback-text">ТОЧНУЮ СТОИМОСТЬ И СРОКИ УТОЧНЯЙТЕ ПО НОМЕРУ:</p><a class="infoblocks__callback-phone" href="tel:+78120000000">
-            <svg class="infoblocks__callback-icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-            </svg>+7 (812) 000-00-00</a>
-        </div>
-      </div>
     </div>
   </article>
 

@@ -1,6 +1,6 @@
 <?php
 
-$neededOptions = ['plotnost-ob', 'razmer-mm'];
+$neededOptions = ['plotnost-ob'];
 $currentOptions = $modx->resource->loadData()->get('options');
 $context = $modx->resource->context_key;
 $id = $modx->resource->id;
@@ -40,6 +40,9 @@ if (!empty($optionsHash)) {
     $optionsHash = implode(', ', $optionsHash);
 }
 
+$razmer = explode('х', $currentOptions['razmer-mm'][0]);
+$razmer = implode('х', [$razmer[0], $razmer[1]]) . '%';
+
 $query = "SELECT 
 resources.`id`,
 resources.`uri`,
@@ -57,6 +60,7 @@ LEFT JOIN modx_site_content resources ON resources.`id` = main.`product_id`
 WHERE resources.`context_key` = '$context'
 AND proizvoditel.`value` != '$proizvoditel'
 AND main.`product_id` != $id
+AND razmer.`value` LIKE '$razmer'
 AND main.`product_id` IN (
     -- Получаем все товары с таким же хешем
     SELECT `product_id`
