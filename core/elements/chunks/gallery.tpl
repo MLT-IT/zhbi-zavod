@@ -13,9 +13,9 @@
     <div class="swiper-container product__pictures-slider">
       <div class="swiper-wrapper">
         {foreach $files as $key => $file}
-          <div class="swiper-slide product__pictures-thumb">
+          <a href="{$file['small']}" data-fancybox class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
             <img class="product__pictures-image" src="{$file['small']}" alt="{$imgTitle} - фото {$key + 1}">
-          </div>
+          </a>
         {/foreach}
       </div>
     </div>
