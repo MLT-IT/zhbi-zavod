@@ -90,7 +90,7 @@
       'tplFilter.row.price' => '@FILE chunks/listing/filter-number-inner.tpl',
 
       'aliases' => 'ms|price==price',
-      'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
+      'sort' => 'tv|priority1:desc,tv|HitsPage:desc',
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
 
       'values_delimeter' => '~',

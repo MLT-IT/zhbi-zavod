@@ -9,5 +9,5 @@
   'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
 ]}
 {if $hits?}
-    {include "file:sections/related-products.tpl" title='Хит продаж' output=$hits}
+  {include "file:sections/related-products.tpl" title='Хит продаж' output=$hits}
 {/if}

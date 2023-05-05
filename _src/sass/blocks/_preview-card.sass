@@ -2,10 +2,11 @@
 	padding: 15px 15px 40px
 	display: flex
 	flex-direction: column
-
 	background: var(--color-white)
 	box-shadow: var(--shadow-base)
 	border-radius: var(--border-radius-base)
+	text-decoration: none
+	color: var(--color-black)
 
 	+until-tablet
 		padding: 8px 8px 32px
@@ -69,12 +70,15 @@
 		+until-tablet
 			padding: 8px 20px
 			margin-top: 15px
-
 			font-size: 12px
 
 	&:hover
 		box-shadow: 10px 0px 60px rgba(211, 85, 60, 0.3)
 
-		& .preview-card
+		.preview-card
 			&__picture
 				background-color: var(--color-gray-md)
+
+		.btn_style_shadow
+			background-color: var(--color-red-md)
+			border-color: var(--color-red-md)

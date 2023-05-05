@@ -116,7 +116,7 @@ function init(yandexMetrikaId) {
             let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
 
             // Стилизованные скроллбары внутри списков
-            $scroll.overlayScrollbars({});
+            // $scroll.overlayScrollbars({});
 
             // Выбор цвета / оттенка в списке
             let $selectColors = $('.colors-options');
