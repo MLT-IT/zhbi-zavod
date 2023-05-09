@@ -1,5 +1,5 @@
 <div class="js-product__controls js-product__controls_action_add">
-    <span class="js-product__btn-in-cart js-product__to-cart product-card__add btn btn_style_shadow">
+    <span class="js-product__btn-to-cart js-product__to-cart product-card__add btn btn_style_shadow">
         <span class="product-card__add-text">В корзину</span>
     </span>
     <div class="product-card__counter counter custom-counter js-product__custom-counter{$prodValues['extraClass']}">
