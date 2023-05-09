@@ -2,7 +2,7 @@
   'parents' => 0,
   'depth' => 50,
   'limit' => 42,
-  'sortby' => '{"priority1":"DESC", "HitsPage":"DESC"}',
+  'sortby' => '{"priority1":"ASC", "HitsPage":"ASC"}',
   'where' => '{"priority1:IS NOT": null, "HitsPage:IS NOT": null}',
   'includeTVs' => 'isFractional,productNotAvailable,freeShipping,priority1,HitsPage',
   'context' => $_modx->resource.context_key,
