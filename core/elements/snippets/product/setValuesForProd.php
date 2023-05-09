@@ -17,7 +17,7 @@ $cacheOptions = [
     xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheName . '/' . $src['context_key'] . '/' . $src['id'],
 ];
 
-if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
+//if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     $result = [
         // id и ключ товара
         'prodId', // id товара, нужен для добавления товара в корзину
@@ -195,8 +195,8 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     // ------------------------------------
     // Работа с кешем
     // ------------------------------------
-    $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
-}
+    //$modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+//}
 
 // Есть ли товар в избранном, в сравнении
 $result['checkItems'] = $modx->getPlaceholder('checkItems');

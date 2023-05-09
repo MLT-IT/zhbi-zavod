@@ -8,7 +8,7 @@ $cacheOptions = [
 
 // TODO: кешировать лучше не html, а массив. Меньше места будет заниматься.
 
-if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
+//if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     // Определяем, какие опции будут выводиться
     switch (true) {
         // Газосиликат
@@ -99,7 +99,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
                </div>';
     }
 
-    $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
-}
+    //$modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+//}
 
 return $result;
