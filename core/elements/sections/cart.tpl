@@ -26,7 +26,8 @@
   </div>
   <div class="cart__items">
       {foreach $products as $product}
-        <div class="cart__item cart-item" id="{$product.key}">
+        <div class="cart__item cart-item js-product" id="{$product.key}">
+          <input name="id" value="{$product.id}" type="hidden">
           <div class="cart-item__picture">
             <img class="cart-item__image" src="assets/template/pictures/products/product-1.png" alt="product">
 
@@ -39,8 +40,10 @@
             {/var}
 
             <div class="cart-item__actions">
-              <button class="product-action product-action_favorite"></button>
+              <button class="product-action product-action_favorite js-product__btn-fav"></button>
+              {*
               <button class="product-action product-action_compare"></button>
+              *}
             </div>
 
             <form method="post" class="ms2_form">
@@ -55,6 +58,9 @@
             <div class="cart-item__bottom">
               <div class="cart-item__price">
                 <p class="cart-item__price-value">{$product.price} ₽</p>
+                {if $product.old_price?}
+                  <p class="cart-item__old-price-value">{$product.old_price} ₽</p>
+                {/if}
                 <span class="cart-item__price-notion">
                   {if ($product.unit[0] is empty) || ($product.unit[0] == 'упаковка')}
                       {set $priceUnit = 'упаковку'}
@@ -84,7 +90,13 @@
       {/foreach}
   </div>
   <div class="cart__total cart-total"><span class="cart-total__title">Всего товаров на сумму:</span>
-    <p class="cart-total__price"><span class="ms2_total_cost">{$total.cost}</span> ₽</p><span class="cart-total__notion">Без учёта менеджерской скидки</span>
+    <p class="cart-total__price">
+      <span class="ms2_total_cost">{$total.cost}</span> ₽
+    </p>
+    <p class="cart-total__old-price ms2_total_old_cost_block"{if $total.old_cost == $total.cost} style="display: none;"{/if}>
+      <span class="ms2_total_old_cost">{$total.old_cost}</span> ₽
+    </p>
+    <span class="cart-total__notion">Без учёта менеджерской скидки</span>
     <div class="cart-total__btns">
       <button class="btn btn_style_shadow" data-fancybox href="#order">Перейти к оформлению</button><a class="btn btn_style_trans" href="/catalog/">Вернутся в каталог</a>
     </div>

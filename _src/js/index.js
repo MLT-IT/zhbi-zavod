@@ -34,6 +34,7 @@ import FastSearch from './modules/fast_search';
 import shadowMap from './modules/shadow_map';
 import initDistrictsMap from './modules/districts_map';
 import Inputmask from 'inputmask';
+import mailChange from './modules/mailchanger';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -132,6 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.filter-item__top').each(function(i, e) {
         e.click();
     });
+
+
+    // -------------------------------
+    // Подмена Email'а
+    // -------------------------------
+    mailChange();
 })
 
 function getYandexMetrikaId() {

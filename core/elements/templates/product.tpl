@@ -61,7 +61,7 @@
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
-    <article class="product section js-product not-init"
+    <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
     {insert "file:chunks/product/get-data-attrs.tpl"}
     >
       <div class="product__container">
@@ -131,7 +131,19 @@
                 </div>
 
                 <div class="product-info__price">
-                  <p class="product-info__price-value"><span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽</p>
+                  <p class="product-info__price-value">
+                    <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
+                  </p>
+
+                  {if $prodValues['outputOldPrice']?}
+                    <div class="js-product__old-price">
+                      <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
+                          {$prodValues['outputOldPrice']}
+                      </span>
+                      ₽
+                    </div>
+                  {/if}
+
                 </div>
                 <div class="product-info__actions">
                   {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}

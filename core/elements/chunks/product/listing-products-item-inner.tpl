@@ -20,6 +20,15 @@
     <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
   </div>
 
+  {if $prodValues['outputOldPrice']?}
+    <div class="js-product__old-price">
+      <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
+          {$prodValues['outputOldPrice']}
+      </span>
+      ₽
+    </div>
+  {/if}
+
   {if $renderChars ?}
     <ul class="product-card__stats">
         {include "file:chunks/product/listing-chars.tpl"}

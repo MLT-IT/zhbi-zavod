@@ -37,9 +37,9 @@ function init(yandexMetrikaId) {
     // Запретить дергать слайды за кнопку добавления товара в корзину / перехода в корзину
     // -------------------------------
     // Если быстро добавлять разные товары в корзину в слайдере, то можно случайно сделать небольшой свайп (немного дергнуть слайд). Из-за этого клик не сработает, и товар не добавится. Данный код исправляет это. Этот баг касается не только кнопки добавления товара в корзину, но и других элементов управления
-    // $('.swiper-slide .js-product__btn-in-cart, .swiper-slide .js-product__custom-counter, .swiper-slide .js-product__units-select-wrap, .swiper-slide .js-product__action-btn').on('pointerdown touchstart', function (event) {
-    //     event.stopPropagation();
-    // });
+    $('.swiper-slide .js-product__controls, .swiper-slide .product-card__volume, .swiper-slide .product-card__actions').on('pointerdown touchstart', function (event) {
+        event.stopPropagation();
+    });
 
 
     // -------------------------------
@@ -731,7 +731,7 @@ function calcPrice($productItem) {
 
     selectors.push('.js-product__price');
     if ($productItem.hasClass('js-product_with-discount')) {
-        selectors.push('.js-product__new-price');
+        selectors.push('.js-product__old-price-val');
     }
 
     selectors.forEach(function (selector) {
