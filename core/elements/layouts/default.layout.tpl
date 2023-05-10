@@ -14,35 +14,21 @@
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v=16">
 
     {if $_modx->context.key == 'web'}
-        {set $site_context = 'knauf'}
+        {set $site_context = 'alterteplo'}
     {else}
         {set $site_context = $_modx->context.key}
     {/if}
     {set $site_class = $site_context}
 
+    {*
     {if $_modx->context.key == 'krovlya'}
         {set $site_class = 'rockwool krovlya'}
     {elseif $_modx->context.key == 'pilomat'}
         {set $site_class = 'knauf pilomat'}
     {elseif $_modx->context.key == 'kirpich-m'}
         {set $site_class = 'rockwool kirpich-m'}
-    {elseif $_modx->context.key == 'fasady-pro'}
-        {set $site_class = 'fasady-pro'}
-    {elseif $_modx->context.key == 'fasad'}
-        {set $site_class = 'fasad'}
-    {elseif $_modx->resource.context_key == 'armatura-178'}
-        {set $site_class = 'rockwool armatura-178'}
-    {elseif $_modx->resource.context_key == 'asconcrete'}
-        {set $site_class = 'rockwool asconcrete'}
-    {elseif $_modx->resource.context_key == 'plitaosb'}
-        {set $site_class = 'rockwool plitaosb'}
-    {elseif $_modx->resource.context_key == 'pro-fanera'}
-        {set $site_class = 'knauf pro-fanera'}
-    {elseif $_modx->resource.context_key == 'plity-mdvp'}
-        {set $site_class = 'fasady-pro plity-mdvp'}
-    {elseif $_modx->resource.context_key == 'isorok'}
-        {set $site_class = 'rockwool isorok'}
     {/if}
+    *}
 
     {* >>> favicon *}
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/img/favicons/{$site_context}/apple-touch-icon.png">
