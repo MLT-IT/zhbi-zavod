@@ -75,15 +75,15 @@ function getMenuData() {
         $sk => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-sk/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-sk/?msoption|plotnost-ob=D400",
                     "name" => "D400",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-sk/?msoption|plotnost-ob=D500",
                     "name" => "D500",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-sk/?msoption|plotnost-ob=D600",
                     "name" => "D600",
                 ],
             ],
@@ -150,17 +150,17 @@ function getMenuData() {
         $eab => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-eab/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-eab/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
 
                 [
-                    "uri" => "/gazobeton-eab/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-eab/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
 
                 [
-                    "uri" => "/gazobeton-eab/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-eab/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -199,19 +199,19 @@ function getMenuData() {
         $aeroc => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-aerok/?plotnost-ob=D300",
+                    "uri" => "/gazobeton-aerok/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-aerok/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-aerok/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-aerok/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ]
             ],
@@ -250,19 +250,19 @@ function getMenuData() {
         $mogil => [
             'column2' => [
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?plotnost-ob=D300",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?plotnost-ob=D400",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?plotnost-ob=D500",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?plotnost-ob=D600",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -305,19 +305,19 @@ function getMenuData() {
         $bck => [
             'column2' => [
                 [
-                    "uri" => "/bck-belorusskiy/?plotnost-ob=D300",
+                    "uri" => "/bck-belorusskiy/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?plotnost-ob=D400",
+                    "uri" => "/bck-belorusskiy/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?plotnost-ob=D500",
+                    "uri" => "/bck-belorusskiy/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?plotnost-ob=D600",
+                    "uri" => "/bck-belorusskiy/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -356,19 +356,19 @@ function getMenuData() {
         $hh => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-hh/?plotnost-ob=D300",
+                    "uri" => "/gazobeton-hh/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-hh/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-hh/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-hh/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -407,15 +407,15 @@ function getMenuData() {
         $bonolit => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-bonolit/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-bonolit/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-bonolit/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-bonolit/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -483,15 +483,15 @@ function getMenuData() {
         $zabudova => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-zabudova/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-zabudova/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-zabudova/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-zabudova/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
@@ -531,19 +531,19 @@ function getMenuData() {
         $ytong => [
             'column2' => [
                 [
-                    "uri" => "/gazobeton-ytong/?plotnost-ob=D300",
+                    "uri" => "/gazobeton-ytong/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?plotnost-ob=D400",
+                    "uri" => "/gazobeton-ytong/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-ytong/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?plotnost-ob=D600",
+                    "uri" => "/gazobeton-ytong/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
