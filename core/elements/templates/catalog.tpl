@@ -36,7 +36,7 @@
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">
         <div class="catalog-screen__container">
-          <h2 class="catalog-screen__title section__title">{$_modx->resource.pagetitle ?: $_modx->resource.menutitle}</h2>
+          <h1 class="catalog-screen__title section__title">{$_modx->resource.pagetitle ?: $_modx->resource.menutitle}</h1>
           <div class="catalog-screen__text">
             {$_modx->resource.content}
           </div>

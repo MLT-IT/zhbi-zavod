@@ -39,7 +39,17 @@
   </div>
   <div class="header__top">
     <div class="header__container">
-      <div class="h-subinfo h-subinfo_color_grey"><span class="h-subinfo__text">Продажа газобетона в Санкт-Петербурге</span></div>
+      <div class="h-subinfo h-subinfo_color_grey">
+        <span class="h-subinfo__text">
+          {switch $_modx->resource.context_key}
+            {case 'web'}
+              {set $text = 'утеплителей'}
+            {case 'gazosilikatstroy'}
+              {set $text = 'газобетона'}
+          {/switch}
+          Продажа {$text} в Санкт-Петербурге
+        </span>
+      </div>
       <div class="h-subinfo h-subinfo_display_widescreen">
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
@@ -84,7 +94,7 @@
                   {foreach $menu['values'] as $catId => $catCols}
                     <div class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                       <div class="h-catalog-item__preview">
-                        <img class="h-catalog-item__image" src="{$catCols['column1']['img']}" alt="{$catCols['column1']['name']}">
+                        <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
                       </div>
                       <a href="{$catCols['column1']['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</a>
                     </div>

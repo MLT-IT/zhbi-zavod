@@ -65,7 +65,9 @@
         </div>
       </article>
       {include "file:sections/listing-brands.tpl"}
-      {include "file:sections/actions.tpl"}
+      {if $_modx->resource.context_key != 'web'}
+        {include "file:sections/actions.tpl"}
+      {/if}
       {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
       {include "file:sections/gazobeton-info.tpl"}

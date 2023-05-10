@@ -1,6 +1,14 @@
 <article class="products-preview section">
   <div class="products-preview__container">
-    <h2 class="section__title products-preview__title">Газобетон от наших производителей</h2>
+    <h1 class="section__title products-preview__title">
+      {switch $_modx->resource.context_key}
+        {case 'web'}
+          {set $text = 'утеплителей'}
+        {case 'gazosilikatstroy'}
+          {set $text = 'газобетона'}
+      {/switch}
+      Продажа {$text} в Санкт-Петербурге
+    </h1>
     <div class="products-preview__slider">
       <div class="swiper-container">
         <div class="swiper-wrapper">

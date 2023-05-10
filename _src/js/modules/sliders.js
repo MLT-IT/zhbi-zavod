@@ -27,8 +27,8 @@ export function initSliders() {
         })
     }
 
+    /*
     const mainScreenSubSliderContainer = document.querySelector('.main-screen__sub-slider');
-
     if (mainScreenSubSliderContainer) {
         const mainScreenSubSlider = new Swiper(mainScreenSubSliderContainer.querySelector('.swiper-container'), {
             slidesPerView: 1,
@@ -47,6 +47,7 @@ export function initSliders() {
             }
         })
     }
+    */
 
     const productsPreviewSliderContainer = document.querySelector('.products-preview__slider');
 

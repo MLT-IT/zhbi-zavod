@@ -15,7 +15,7 @@
                       <picture class="banner__bg">
                         <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
                       </picture>
-                      <h2 class="banner__title">Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор</h2>
+                      <div class="banner__title">Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор</div>
                       <p class="banner__text">Акция до конца месяца</p>
                       <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
                     </div>
