@@ -110,7 +110,15 @@
     ]}
     {* / Листинг товаров *}
 
-    {include "file:sections/gazobeton-info.tpl"}
+    {*
+    {switch $_modx->resource.context_key}
+      {case 'web'}
+        {include "file:sections/uteplitel-info.tpl"}
+      {case 'gazosilikatstroy'}
+        {include "file:sections/gazobeton-info.tpl"}
+    {/switch}
+    *}
+
     {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
     {include "file:sections/payment.tpl"}
     {include "file:sections/contacts.tpl" styleClass='section_view_bg'}

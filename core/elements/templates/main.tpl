@@ -70,7 +70,13 @@
       {/if}
       {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
-      {include "file:sections/gazobeton-info.tpl"}
+
+      {switch $_modx->resource.context_key}
+        {case 'web'}
+          {include "file:sections/uteplitel-info.tpl"}
+        {case 'gazosilikatstroy'}
+          {include "file:sections/gazobeton-info.tpl"}
+      {/switch}
       {include "file:sections/faq.tpl"}
       {include "file:sections/contacts.tpl"}
     </main>
