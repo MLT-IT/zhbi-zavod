@@ -41,7 +41,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     // Формируем массив
     // Столбец 1, это категории самого верхнего уровня
     $json = $modx->runSnippet('pdoResources', $params);
-    $json = str_replace([' ', ',}'], ['', ' }'], $json);
+    $json = str_replace([',}'], [' }'], $json);
     $array = json_decode($json, 1);
     foreach ($array as $catId => $catVals) {
         $result[$catId]['column1'] = $catVals;
