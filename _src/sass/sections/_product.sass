@@ -120,6 +120,21 @@
 		line-height: 1.2
 		margin-top: 24px
 
+		&::after, &::before
+			content: ""
+			display: inline-block
+			width: 34px
+			height: 34px
+			background: url(/assets/template/img/gift.png) no-repeat
+			background-size: contain
+			margin-bottom: -3px
+
+		&::before
+			margin-right: 6px
+
+		&::after
+			margin-left: 8px
+
 	&__fast-buy
 		width: 100%
 		margin-top: 10px

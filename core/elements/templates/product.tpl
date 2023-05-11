@@ -152,7 +152,7 @@
               </div>
             </div>
             {if $_modx->resource.context_key == 'gazosilikatstroy'}
-              <p class="product-info__discount">🎁 Скидка 30% на доставку с разгрузкой 🎁</p>
+              <p class="product-info__discount">Скидка 30% на доставку с разгрузкой</p>
             {/if}
           </div>
         </div>
