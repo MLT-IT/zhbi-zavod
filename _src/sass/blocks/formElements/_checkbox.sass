@@ -40,6 +40,10 @@
 
 		&:hover,
 		&:focus
+			.default-checkbox__label-text
+				border-bottom-color: transparent
+				color: var(--color-red)
+
 			&::before
 				border-color: var(--color-red)
 
@@ -61,3 +65,6 @@
 			background-color: var(--color-gray-lt)
 
 			transition: border-color .3s ease
+
+	&__label-text
+		transition: .3s

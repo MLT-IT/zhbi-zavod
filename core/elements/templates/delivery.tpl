@@ -13,7 +13,7 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide banner">
                       <picture class="banner__bg">
-                        <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+                        <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg" alt="banner">
                       </picture>
                       <div class="banner__title">Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор</div>
                       <p class="banner__text">Акция до конца месяца</p>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="swiper-slide banner">
                       <picture class="banner__bg">
-                        <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
+                        <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg" alt="banner">
                       </picture>
                       <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
                       <p class="banner__text">Акция до конца месяца</p>

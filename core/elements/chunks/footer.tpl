@@ -19,7 +19,7 @@
               </svg>
               <span class="footer__contact-value">{'phone' | option}</span>
             </a>
-            <a class="footer__contact" href="mailto:{'email' | option}">
+            <a class="footer__contact" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
               </svg>

@@ -6,7 +6,7 @@
 
     <article class="inner section">
       <div class="inner__container">
-        <h2 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h2>
+        <h1 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h1>
         <div class="content">
             {$_modx->resource.content}
         </div>

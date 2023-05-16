@@ -52,9 +52,9 @@
             </form>
           </div>
           <div class="cart-item__body">
-            <p class="cart-item__title">
-                {$product.pagetitle}
-            </p>
+            <a href="{$product.id | url}" class="cart-item__title">
+              {$product.pagetitle}
+            </a>
             <div class="cart-item__bottom">
               <div class="cart-item__price">
                 <p class="cart-item__price-value">{$product.price} ₽</p>

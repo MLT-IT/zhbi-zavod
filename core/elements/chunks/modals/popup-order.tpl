@@ -59,7 +59,7 @@
           <div class="default-checkbox form__suggestion">
             <input class="default-checkbox__input" type="checkbox" id="checkbox-order" checked name="privacy">
             <label class="default-checkbox__label" for="checkbox-order">
-              <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="privacy-link">политикой конфиденциальности</a> сайта</span>
+              <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="popup__privacy-link link">политикой конфиденциальности</a> сайта</span>
             </label>
           </div>
           <button class="btn btn_style_shadow" type="submit">Оформить заказ</button>

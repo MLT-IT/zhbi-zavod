@@ -3,8 +3,6 @@
 	display: flex
 	align-items: center
 
-	background-color: var(--color-gray-lt)
-
 	+until-tablet
 		height: 30px
 
@@ -47,22 +45,22 @@
 
 		&_minus
 			background-image: url("data:image/svg+xml,%3Csvg width='59' height='59' viewBox='0 0 59 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M42 30H17' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+			transform: translateX(4px)
 
 		&_plus
 			background-image: url("data:image/svg+xml,%3Csvg width='59' height='59' viewBox='0 0 59 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 27.9998C15.1716 27.9998 14.5 28.6713 14.5 29.4998C14.5 30.3282 15.1716 30.9998 16 30.9998V27.9998ZM28.5 30.9998C29.3284 30.9998 30 30.3282 30 29.4998C30 28.6713 29.3284 27.9998 28.5 27.9998V30.9998ZM28.5 27.9998C27.6716 27.9998 27 28.6713 27 29.4998C27 30.3282 27.6716 30.9998 28.5 30.9998V27.9998ZM41 30.9998C41.8284 30.9998 42.5 30.3282 42.5 29.4998C42.5 28.6713 41.8284 27.9998 41 27.9998V30.9998ZM29.9999 29.5C29.9999 28.6716 29.3284 28 28.4999 28C27.6715 28 26.9999 28.6716 26.9999 29.5H29.9999ZM26.9999 42C26.9999 42.8284 27.6715 43.5 28.4999 43.5C29.3284 43.5 29.9999 42.8284 29.9999 42H26.9999ZM26.9999 29.5C26.9999 30.3284 27.6715 31 28.4999 31C29.3284 31 29.9999 30.3284 29.9999 29.5H26.9999ZM29.9999 17C29.9999 16.1716 29.3284 15.5 28.4999 15.5C27.6715 15.5 26.9999 16.1716 26.9999 17H29.9999ZM16 30.9998H28.5V27.9998H16V30.9998ZM28.5 30.9998H41V27.9998H28.5V30.9998ZM26.9999 29.5V42H29.9999V29.5H26.9999ZM29.9999 29.5V17H26.9999V29.5H29.9999Z' fill='white'/%3E%3C/svg%3E")
+			transform: translateX(-4px)
 
 	&__input
 		width: 100%
 		height: 100%
 		flex: 1 1 auto
-
+		background-color: var(--color-gray-lt)
 		font-weight: 700
 		font-size: 20px
 		line-height: 1.5
-
-		background-color: transparent
 		color: inherit
-		border: none
+		border: 1px solid transparent
 		outline: none
 		text-align: center
 		-moz-appearance: textfield
@@ -78,3 +76,5 @@
 		&::placeholder
 			color: var(--color-gray-md)
 
+		&:hover
+			border-color: var(--color-red)

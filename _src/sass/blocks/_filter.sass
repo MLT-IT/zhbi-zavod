@@ -168,7 +168,7 @@
 			padding: 14px 0 0
 
 	&__option
-		display: flex
+		display: block
 
 		&_excess
 			display: none
@@ -236,6 +236,9 @@
 		text-decoration: none
 		color: inherit
 
+		.default-checkbox__label
+			width: 100%
+
 .filter-number
     &__inner
         padding: 0 40px 30px
@@ -284,6 +287,9 @@
         display: flex
         margin-bottom: 24px
         position: relative
+
+    &__label
+        display: block
 
     &__label, &__input
         font-size: .875rem
