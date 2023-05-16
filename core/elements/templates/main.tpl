@@ -57,7 +57,7 @@
 {/block}
 
 {block "page"}
-    <main class="layout__main">
+    <main class="layout__main" data-template="main">
       <article class="main-screen section">
         <div class="main-screen__container">
           {include "file:sections/banner.tpl"}

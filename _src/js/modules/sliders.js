@@ -3,7 +3,7 @@ import {Navigation, EffectFade, Pagination, Autoplay, Thumbs} from "swiper";
 Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
 
 export function initSliders() {
-    const mainScreenSliderContainer = document.querySelector('.main-screen__slider');
+    const mainScreenSliderContainer = document.querySelector('[data-template="main"] .main-screen__slider');
 
     if (mainScreenSliderContainer) {
         const mainScreenSlider = new Swiper(mainScreenSliderContainer.querySelector('.swiper-container'), {

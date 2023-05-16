@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Переключение вкладок в меню в шапке
     // -------------------------------
     let $hCatalogItem = $('.h-catalog-item_main');
-    $hCatalogItem.on('mouseenter', function(e) {
+    $hCatalogItem.on('mouseenter', function (e) {
         e.preventDefault();
         let $this = $(this);
 
@@ -109,8 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         $('.h-catalog-item.active').removeClass('active');
         $this.addClass('active');
-        $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
+        $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
     });
+
+
+    // -------------------------------
+    // Переключение типа заказчика в корзине
+    // -------------------------------
+    $('[data-influent]').on('change', function (e) {
+        let $elem = $(this);
+        let $container = $elem.closest('[data-dependence]')
+        $container.find('[data-dependent]').hide().find('input').prop('disabled', true);
+        $container.find('[data-dependent=' + $elem.attr('id') + ']').show().find('input').prop('disabled', false);
+        $container.find('[data-dependence-value]').val($elem.val());
+    });
+
 
     // Можно сделать не при наведении, а при клике:
     // $('.h-catalog-item_main').on('click', function(e) {
@@ -130,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
     // -------------------------------
-    $('.filter-item__top').each(function(i, e) {
+    $('.filter-item__top').each(function (i, e) {
         e.click();
     });
 

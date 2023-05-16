@@ -1,3 +1,5 @@
+{* TODO: Наверно, надо переделать. Сделать выбор лица не через JS, а через HTML и табы *}
+
 <div class="popup popup_type_order js-thanks" id="order">
   <div class="popup__block">
     <div class="popup__content">
@@ -5,19 +7,26 @@
         <h3 class="title-2 form__title">Оформление заказа</h3>
         <input type="text" name="MOBILEPHONE" class="secret">
 
-        <div class="form__items form__items_double">
+        <div class="form__items form__items_double" data-dependence>
+          <input type="hidden" name="CUSTOMER-TYPE" value="Физическое лицо" data-dependence-value>
           <div class="tab-radio form__item">
-            <input class="tab-radio__input" type="radio" id="order-radio-1" name="CUSTOMER-TYPE" checked="checked">
+            <input value="Физическое лицо" class="tab-radio__input" type="radio" id="order-radio-1" name="CUSTOMER-TYPE" checked="checked" data-influent>
             <label class="tab-radio__label" for="order-radio-1">Физическое лицо</label>
           </div>
           <div class="tab-radio form__item">
-            <input class="tab-radio__input" type="radio" id="order-radio-2" name="CUSTOMER-TYPE">
+            <input value="Юридическое лицо" class="tab-radio__input" type="radio" id="order-radio-2" name="CUSTOMER-TYPE" data-influent>
             <label class="tab-radio__label" for="order-radio-2">Юридическое лицо</label>
           </div>
-          <div class="default-input form__item form__item_wide">
+
+          <div class="default-input form__item form__item_wide" data-dependent="order-radio-1">
             <input class="default-input__input" name="CUSTOMER"  placeholder="ФИО получателя">
             <span class="error_CUSTOMER">[[!+fi.error.CUSTOMER]]</span>
           </div>
+          <div style="display: none;" class="default-input form__item form__item_wide" data-dependent="order-radio-2">
+            <input disabled class="default-input__input" name="COMPANY"  placeholder="Название компании">
+            <span class="error_COMPANY">[[!+fi.error.COMPANY]]</span>
+          </div>
+
           <div class="default-input form__item">
             <input class="default-input__input" name="MAIL"  placeholder="Email">
             <span class="error_MAIL">[[!+fi.error.MAIL]]</span>

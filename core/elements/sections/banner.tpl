@@ -48,7 +48,13 @@
     <div class="swiper-slide banner banner_sm">
       <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg" alt="banner"></picture>
       <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
-      <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="/akcii/likvidacziya-sklada-uspej-zabrat/">подробнее</a></div>
+      {switch $_modx->resource.context_key}
+        {case 'web'}
+          {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
+        {case 'gazosilikatstroy'}
+          {set $link = '/rasprodazha-so-sklada/'}
+      {/switch}
+      <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
   </div>
 </div>
