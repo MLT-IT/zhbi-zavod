@@ -76,11 +76,11 @@
 
     {* Листинг товаров --- *}
     {'!mFilter2' | snippet : [
-      'element' => 'msProductsMy',
+      'element' => 'msProducts',
       'suggestionsMaxFilters' => 2000,
       'suggestionsMaxResults' => 100000,
       'filters' => $_modx->resource.listFilters ?: "",
-
+      'includeThumbs' => 'webp',
       'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
       'tplOuter' => '@FILE sections/listing.tpl',
       'ajaxMode' => 'button',

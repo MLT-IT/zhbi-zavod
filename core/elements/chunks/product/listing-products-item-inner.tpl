@@ -4,8 +4,8 @@
 {/if}
 
 <div class="product-card__picture">
-  <a href="{$uri}">
-    <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+  <a href="{$uri}" class="product-card__link">
+    <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
   </a>
   <div class="product-card__actions">
     <button class="product-action product-action_favorite js-product__btn-fav{if $prodValues['checkItems']['fav'][$id]?} active{/if}"></button>

@@ -53,6 +53,7 @@
       'tplWrapper' => '@FILE sections/related-products.tpl',
       'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
       'context' => $_modx->resource.context_key,
+      'includeThumbs' => 'webp',
     ]};
 {/if}
 

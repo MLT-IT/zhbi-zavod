@@ -1,5 +1,3 @@
-{* TODO: Наверно, надо переделать. Сделать выбор лица не через JS, а через HTML и табы *}
-
 <div class="popup popup_type_order js-thanks" id="order">
   <div class="popup__block">
     <div class="popup__content">

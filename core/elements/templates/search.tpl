@@ -18,18 +18,15 @@
     {set $data = '@FILE snippets/fast-search/fastSearch.php' | snippet}
 
     {'!pdoPage' | snippet : [
-      'element' => 'msProductsMy',
+      'element' => 'msProducts',
       'resources' => $data['ids'],
       'tpl' => "@FILE chunks/product/listing-products-item-default.tpl",
-
+      'includeThumbs' => 'webp',
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
-
       'pageVarKey' => 'page',
       'pageNavVar' => 'page.nav',
-
       'parents' => 0,
       'depth' => '10000',
-
       'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
       'tplPage' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</a>',
       'tplPageActive' => '@INLINE <span class="active sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</span>',
@@ -41,18 +38,14 @@
       'tplPageLastEmpty' => '@INLINE ',
       'tplPagePrevEmpty' => '@INLINE ',
       'tplPageNextEmpty' => '@INLINE ',
-
       'toPlaceholder' => 'mSearchResults',
       'totalVar' => 'mSearchAmount',
-
       'ajaxElemLink' => '.sect-search__pagination-item',
       'ajaxElemPagination' => '.sect-search__pagination',
       'ajax' => '1',
       'ajaxMode' => 'default',
-
       'limit' => 2,
       'setMeta' => 0,
-
       'sortby' => 'ids'
     ]}
 

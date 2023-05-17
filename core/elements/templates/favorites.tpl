@@ -17,7 +17,7 @@
           {set $resources = $_modx->getPlaceholder('checkItems')['fav'] | join : ','}
           {if $resources != ''}
             <div class="best-products__products">
-              {'!msProductsMy' | snippet : [
+              {'!msProducts' | snippet : [
                 'tpl' => '@FILE chunks/product/listing-products-item-default.tpl',
                 'ajaxMode' => 'button',
                 'limit' => 0,
@@ -27,7 +27,8 @@
                 'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
                 'parents' => 0,
                 'depth' => 0,
-                'resources' => $resources
+                'resources' => $resources,
+                'includeThumbs' => 'webp',
               ]}
             </div>
           {/if}

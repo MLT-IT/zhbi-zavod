@@ -1,4 +1,4 @@
-{set $hits = '!msProductsMy' | snippet : [
+{set $hits = '!msProducts' | snippet : [
   'parents' => 0,
   'depth' => 50,
   'limit' => 42,
@@ -7,6 +7,7 @@
   'includeTVs' => 'isFractional,productNotAvailable,freeShipping,priority1,HitsPage',
   'context' => $_modx->resource.context_key,
   'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+  'includeThumbs' => 'webp',
 ]}
 {if $hits?}
   {include "file:sections/related-products.tpl" title='Хит продаж' output=$hits}
