@@ -16,20 +16,18 @@
 		font-size: 12px
 		line-height: 1.7
 		color: var(--color-gray)
-
 		text-decoration: none
 		transition: color .3s ease
 
 		&:hover,
-		&:focus
-			color: var(--color-black)
+		&:focus,
+		&_active
+			color: var(--color-red)
 
 		&:not(:last-child)
 			margin-right: 8px
 
 			&::after
+				color: var(--color-gray)
 				content: '/'
 				margin-left: 8px
-
-		&_active
-			color: var(--color-black)

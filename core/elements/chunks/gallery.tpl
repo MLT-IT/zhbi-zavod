@@ -3,13 +3,19 @@
       ['small' => '/assets/images/no_image.jpg']
     ]}
 {/if}
+{set $altTitle = $_modx->resource.menutitle ?: $_modx->resource.pagetitle}
 
 <div class="product__pictures">
   <div class="swiper-container product__pictures-thumbs">
     <div class="swiper-wrapper">
       {foreach $files as $key => $file}
+        {set $alt = $altTitle}
+        {if $key > 0}
+            {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
+        {/if}
+
         <div class="swiper-slide product__pictures-thumb">
-          <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$imgTitle} - фото {$key + 1}">
+          <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
         </div>
       {/foreach}
     </div>
@@ -19,8 +25,13 @@
     <div class="swiper-container product__pictures-slider">
       <div class="swiper-wrapper">
         {foreach $files as $key => $file}
-          <a href="{'site_url' | option}{$file['small']}" data-fancybox class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
-            <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$imgTitle} - фото {$key + 1}">
+          {set $alt = $altTitle}
+          {if $key > 0}
+              {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
+          {/if}
+
+          <a href="{'site_url' | option}{$file['url']}" data-fancybox class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
+            <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
           </a>
         {/foreach}
       </div>
