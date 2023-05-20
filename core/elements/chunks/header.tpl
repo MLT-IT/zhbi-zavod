@@ -24,16 +24,16 @@
         <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
       </div>
       <div class="header__actions">
-        <button class="header__action icon-btn icon-btn_style_black">
+        <a href="tel:+7 (812) 627-13-90" class="header__action icon-btn icon-btn_style_black">
           <svg class="icon-btn__icon" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
           </svg>
-        </button>
-        <button class="header__action icon-btn icon-btn_style_white">
+        </a>
+        <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
           <svg class="icon-btn__icon" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   </div>
