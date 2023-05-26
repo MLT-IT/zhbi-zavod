@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lazyLoadInstance = new LazyLoad();
     // Код с обработчиками MODX
     modxJS(lazyLoadInstance, yandexMetrikaId);
-
+ 
     // Инициализация быстрого поиска
     new FastSearch();
 
@@ -152,6 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Подмена Email'а
     // -------------------------------
     mailChange();
+
+
+    // -------------------------------
+    // Добавление в бургер кнопки "Все производители"
+    // -------------------------------
+    $('.h-catalog__column:first').append('<a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom" href="/catalog/">Перейти в каталог</a>');
 })
 
 function getYandexMetrikaId() {

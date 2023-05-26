@@ -1,0 +1,80 @@
+.catalog__selected
+	display: flex
+	flex-wrap: wrap
+	margin-bottom: 22px
+
+	@media screen and (max-width: 460px)
+		flex-wrap: nowrap
+		overflow-x: auto
+
+.chips-item
+	position: relative
+	padding: 6px 36px 6px 16px
+	height: 28px
+	border-radius: 16px
+	margin-bottom: 8px
+	transition: background-color .3s, border-color .3s
+	white-space: nowrap
+	background-color: var(--color-red)
+	text-decoration: none
+
+	// Переопределение
+	@at-root .wrap &
+		&:hover
+			background-color: var(--color-red-dr)
+
+	&:nth-last-of-type(n+2)
+		margin-right: 8px
+
+	&_type
+		&_reset
+			padding-top: 4px
+			padding-right: 16px
+			border: 1px solid
+			border-color: var(--color-red)
+
+			&:hover
+				border-color: var(--color-red-dr)
+
+			// Переопределение
+			@at-root .wrap &
+				background-color: transparent
+
+				&:hover
+					border-color: var(--color-red-dr)
+
+					.chips-item__title
+						color: #fff
+
+			.chips-item__title
+				transition: .3s
+				color: var(--color-red)
+
+	&__cross
+		position: absolute
+		right: 32px
+		top: 8px
+
+		&::before,  &::after
+			position: absolute
+			left: 6px
+			content: ""
+			height: 13px
+			width: 2px
+			background-color: #fff
+
+		&::before
+			transform: rotate(45deg)
+
+		&::after
+			transform: rotate(-45deg)
+
+	&__title
+		color: #fff
+		font-style: normal
+		font-size: 14px
+		white-space: nowrap
+
+	&__name
+		color: #fff
+		margin-right: 2px

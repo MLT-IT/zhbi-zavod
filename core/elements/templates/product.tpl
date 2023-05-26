@@ -76,7 +76,9 @@
           <div class="product__info-wrap">
             <div class="product__info product-info">
               <div class="product-info__top">
+
                 <div class="product-info__rating rating">
+                  <div class="product-info__availability-title product-info__availability-title_available mobile-block">На складе 190 м3</div>
                   <ul class="rating__stars">
                     <li class="rating__star active"></li>
                     <li class="rating__star active"></li>
@@ -112,7 +114,7 @@
                       </div>
                     </div>
                   {/if}
-                  <div class="product-info__availability-title product-info__availability-title_available">На складе 190 м3</div>
+                  <div class="product-info__availability-title product-info__availability-title_available pc-block">На складе 190 м3</div>
                 </div>
 
               </div>
@@ -153,7 +155,8 @@
               </div>
             </div>
             {if $_modx->resource.context_key == 'gazosilikatstroy'}
-              <p class="product-info__discount">Скидка 30% на доставку с разгрузкой</p>
+              <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на
+                доставку с <span class="product-info__discount-end">разгрузкой</span></p>
             {/if}
           </div>
         </div>

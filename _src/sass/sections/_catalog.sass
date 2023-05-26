@@ -15,17 +15,16 @@
 		grid-gap: 10px 30px
 
 		+until-laptop
-			grid-gap: 10px 15px
-
-		+until-laptop
-			grid-template-columns: repeat(2 , auto)
+			grid-template-columns: 180px auto
 			grid-gap: 10px 6px
 
-		+until-tablet
-			grid-template-columns: repeat(2 , minmax(0, 1fr))
+		+while-mob
+			grid-template-columns: 100%
+			grid-gap: 20px 6px
 
 	&__filter
 		grid-row: 1 / -1
+		z-index: 100
 
 		+until-laptop
 			grid-row: 1

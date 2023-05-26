@@ -14,12 +14,23 @@
         <div class="contacts__info">
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
+            {switch $_modx->resource.context_key}
+              {case 'web'}
+                {set $storehouse1 = 'Мурино'}
+                {set $storehouse2 = 'Мурино'}
+                {set $storehouse3 = 'Мурино'}
+              {case 'gazosilikatstroy'}
+                {set $storehouse1 = 'Мурино'}
+                {set $storehouse2 = 'Красном Селе'}
+                {set $storehouse3 = 'Гатчине'}
+            {/switch}
+
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
               </svg>
               <div class="contact__content">
-                <p class="contact__title">Телефон склада в Мурино:</p>
+                <p class="contact__title">Телефон склада в {$storehouse1}:</p>
                 <p class="contact__value">{'phone' | option}, доб 1</p>
               </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
@@ -28,7 +39,7 @@
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
               </svg>
               <div class="contact__content">
-                <p class="contact__title">Телефон склада в Мурино:</p>
+                <p class="contact__title">Телефон склада в {$storehouse2}:</p>
                 <p class="contact__value">{'phone' | option}, доб 2</p>
               </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
@@ -37,7 +48,7 @@
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
               </svg>
               <div class="contact__content">
-                <p class="contact__title">Телефон склада в Мурино:</p>
+                <p class="contact__title">Телефон склада в {$storehouse3}:</p>
                 <p class="contact__value">{'phone' | option}, доб 3</p>
               </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>

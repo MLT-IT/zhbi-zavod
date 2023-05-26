@@ -76,6 +76,7 @@ body
 	min-height: 100vh
 	display: flex
 	flex-direction: column
+	overflow: hidden
 
 .title-1
 	font-size: 24px
@@ -93,3 +94,15 @@ body
 
 .margin-bottom-md
 	margin-bottom: 32px
+
+.mobile-block
+	display: none !important
+
+	+while-mob
+		display: block !important
+
+.pc-block
+	display: block !important
+
+	+while-mob
+		display: none !important

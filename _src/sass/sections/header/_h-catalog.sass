@@ -73,6 +73,28 @@
 	vertical-align: top
 	min-height: 37px
 	display: flex
+	cursor: pointer
+
+	&_main
+		padding-right: 12px
+
+		&::after
+			display: block
+			content: ""
+			border: solid black
+			border-width: 0 1.5px 1.5px 0
+			padding: 3px
+			transform: rotate(-45deg)
+			right: 10px
+			visibility: hidden
+			margin-left: auto
+
+		&.active
+			background-color: #f6f6f6
+			position: relative
+
+			&::after
+				visibility: visible
 
 	&_dependent
 		align-self: flex-start

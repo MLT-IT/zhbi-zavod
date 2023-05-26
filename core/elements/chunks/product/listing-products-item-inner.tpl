@@ -16,6 +16,13 @@
 </div>
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle}</a>
+
+  {if $renderChars ?}
+    <ul class="product-card__stats">
+        {include "file:chunks/product/listing-chars.tpl"}
+    </ul>
+  {/if}
+
   <div class="product-card__price">
     <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
   </div>
@@ -27,12 +34,6 @@
       </span>
       ₽
     </div>
-  {/if}
-
-  {if $renderChars ?}
-    <ul class="product-card__stats">
-        {include "file:chunks/product/listing-chars.tpl"}
-    </ul>
   {/if}
 
   <input type="hidden" name="unit" value="1">

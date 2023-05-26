@@ -7,13 +7,19 @@
       </form>
     </div>
 
-    <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
-      <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
-      <div class="sorting__body">
-        <span class="sorting__title">Сортировать:</span>
-        <a href="#" class="sorting__item{if $.get.sort == ''} active{/if}" data-sort="" data-dir="">По популярности</a>
-        <a href="#" class="sorting__item{if $.get.sort == 'ms|price:desc'} active{/if} sorting__item_switch" data-sort="ms|price" data-dir="" data-default="desc">По цене</a>
-        <a href="#" class="sorting__item{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if} sorting__item_switch sorting__item_switch_up" data-sort="ms_product|pagetitle" data-dir="" data-default="desc">По алфавиту</a>
+    <div class="catalog__top">
+      <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
+        <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
+      </div>
+
+      <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
+        <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
+        <div class="sorting__body">
+          <span class="sorting__title">Сортировать:</span>
+          <a href="#" class="sorting__item{if $.get.sort == ''} active{/if}" data-sort="" data-dir="">По популярности</a>
+          <a href="#" class="sorting__item{if $.get.sort == 'ms|price:desc'} active{/if} sorting__item_switch" data-sort="ms|price" data-dir="" data-default="desc">По цене</a>
+          <a href="#" class="sorting__item{if $.get.sort == 'ms_product|pagetitle:desc'} active{/if} sorting__item_switch sorting__item_switch_up" data-sort="ms_product|pagetitle" data-dir="" data-default="desc">По алфавиту</a>
+        </div>
       </div>
     </div>
 

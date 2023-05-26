@@ -13,7 +13,7 @@ var mSearch2 = {
 
         filters: '#mse2_filters',
         filter_title: '.filter_title',
-        filter_wrapper: '.listing__filter-block',
+        filter_wrapper: '.filter-item',
 
         pagination: '.mse2_pagination',
         pagination_link: '.mse2_pagination a',
@@ -26,7 +26,7 @@ var mSearch2 = {
 
         selected: '#mse2_selected',
         selected_tpl: '<a href="#" data-id="_id_" class="chips-item mse2_selected_link"><span class="chips-item__title">_title_</span><span class="chips-item__cross"></span></a>',
-        selected_wrapper_tpl: '<span class="chips-item__name">_title_:</span>',
+        selected_wrapper_tpl: '<span class="chips-item__name">_title_</span>',
         selected_filters_delimeter: ' ',
         selected_values_delimeter: ' ',
 
@@ -505,11 +505,18 @@ var mSearch2 = {
                 var label = mSearch2.filters.find('label[for="' + input.prop('id') + '"]');
                 var sup = label.find('sup').text();
                 var text = label.text().trim();
+
+
+                //////////////////////////
                 if (sup) {
                     title = text.replace(new RegExp(sup.replace('+', '\\+') + '$'), '');
                 } else {
                     title = text;
                 }
+
+                console.log('title = ', title)
+                //////////////////////////
+
                 $('[data-id="' + id + '"]', this.selected).remove();
                 if (input.is(':checked')) {
                     elem = this.options['selected_tpl']
@@ -543,6 +550,8 @@ var mSearch2 = {
         this.selected.html('');
         var count = 0;
         var selected = [];
+
+        console.log('selections', this.selections);
         for (var i in this.selections) {
             if (!this.selections.hasOwnProperty(i) || !Object.keys(this.selections).length) {
                 continue;
@@ -556,9 +565,13 @@ var mSearch2 = {
                     tmp.push(this.selections[i][i2]);
                     count++;
                 }
+                ///////////////////////////////////
                 title = this.options['selected_wrapper_tpl']
                     .replace('[[+title]]', i)
                     .replace('_title_', i);
+                ///////////////////////////////////
+                console.log('another title', title);
+
                 selected.push(title + tmp.join(this.options['selected_values_delimeter']));
             }
         }

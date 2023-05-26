@@ -240,102 +240,104 @@
 			width: 100%
 
 .filter-number
-    &__inner
-        padding: 0 40px 30px
+	&__inner
+		padding: 0 40px 30px
 
-        +until-laptop
-            padding: 14px 0 0
+		+until-laptop
+			padding: 14px 0 0
 
-    .ui-slider-horizontal
-        height: 4px
-        margin-left: 10px
-        margin-right: 12px
+	.ui-slider-horizontal
+		height: 4px
+		margin-left: 10px
+		margin-right: 12px
 
-    .listing__filter-block-content
-        overflow: hidden
+	.listing__filter-block-content
+		overflow: hidden
 
-    .filter-number__slider
-        &.ui-slider
-            border: 0
-            background: #eaeaea
+	.filter-number__slider
+		&.ui-slider
+			border: 0
+			background: #eaeaea
 
-        .ui-slider-handle
-            width: 20px
-            height: 20px
-            top: 0
-            border-radius: 100px
-            margin-top: -7.5px
-            outline: 0
-            border: 0
-            cursor: pointer
-            background-color: var(--color-red-md)
+		.ui-slider-handle
+			width: 20px
+			height: 20px
+			top: 0
+			border-radius: 100px
+			margin-top: -7.5px
+			outline: 0
+			border: 0
+			cursor: pointer
+			background-color: var(--color-red-md)
 
-    &__slider
-        margin-left: 5px
-        margin-right: 5px
+	&__slider
+		margin-left: 5px
+		margin-right: 5px
 
-    &__inner
-        border: 0
-        margin: 0
+	&__inner
+		border: 0
+		margin: 0
 
-    .ui-slider-range
-        border-radius: 10px
-        background: var(--color-red)
+	.ui-slider-range
+		border-radius: 10px
+		background: var(--color-red)
 
+	&__row
+		display: flex
+		margin-bottom: 24px
+		position: relative
 
-    &__row
-        display: flex
-        margin-bottom: 24px
-        position: relative
+	&__label
+		display: block
 
-    &__label
-        display: block
+	&__label, &__input
+		font-size: .875rem
 
-    &__label, &__input
-        font-size: .875rem
+	&__input-wrap
+		position: relative
+		border: 1px solid #EAEAEA
+		margin: 1px
+		border-radius: 8px
+		transition: border-color .3s
+		background: #F8F8F8
 
-    &__input-wrap
-        position: relative
-        border: 1px solid #EAEAEA
-        margin: 1px
-        border-radius: 8px
-        transition: border-color .3s
-        background: #F8F8F8
+		&::before
+			display: block
+			position: absolute
+			z-index: 1
+			color: #DAD9D9
+			font-style: normal
+			font-weight: bold
+			font-size: 14px
+			line-height: 100%
+			top: 16px
+			left: 12px
 
-        &::before
-            display: block
-            position: absolute
-            z-index: 1
-            color: #DAD9D9
-            font-style: normal
-            font-weight: bold
-            font-size: 14px
-            line-height: 100%
-            top: 16px
-            left: 12px
+		&:nth-of-type(1)
+			margin-right: 16px
 
-        &:nth-of-type(1)
-            margin-right: 16px
+			&::before
+				content: "от"
 
-            &::before
-                content: "от"
+		&:nth-of-type(2)
+			&::before
+				content: "до"
 
-        &:nth-of-type(2)
-            &::before
-                content: "до"
+	&__input
+		background: transparent
+		display: flex
+		align-items: center
+		padding-left: 32px
+		padding-right: 20px
+		box-sizing: border-box
+		height: 48px
+		color: #3C3C3B
+		font-size: 14px
+		padding-bottom: 3px
+		border-radius: 8px
+		width: 100px
+		border: 1px solid transparent
+		outline: 0
 
-    &__input
-        background: transparent
-        display: flex
-        align-items: center
-        padding-left: 32px
-        padding-right: 20px
-        box-sizing: border-box
-        height: 48px
-        color: #3C3C3B
-        font-weight: bold
-        font-size: 14px
-        padding-bottom: 3px
-        border-radius: 8px
-        width: 100px
-        border: 0
+		&:hover, &:focus
+			border-color: var(--color-red)

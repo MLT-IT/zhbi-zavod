@@ -42,21 +42,17 @@
 		position: absolute
 		top: 10%
 		left: 10%
-
 		display: block
-
 		width: 100%
 		height: 100%
 		max-width: 80%
 		max-height: 80%
-
 		object-fit: contain
 
 	&__actions
 		position: absolute
 		right: 0
 		top: 0
-
 		margin: 10px 10px 0 0
 		display: flex
 		align-items: center
@@ -85,7 +81,6 @@
 		font-size: 20px
 		line-height: 1.5
 		align-self: flex-start
-		margin-bottom: 35px
 		color: #1a0dab
 		text-decoration: underline
 		text-decoration-style: dashed
@@ -105,7 +100,7 @@
 			font-weight: 400
 
 	&__price
-		margin-top: 30px
+		margin-top: 22px
 		display: flex
 		align-items: center
 		justify-content: space-between
@@ -119,11 +114,10 @@
 			font-weight: 700
 			font-size: 30px
 			line-height: 1.5
-
 			white-space: nowrap
 
 			+until-tablet
-				font-size: 12px
+				font-size: 18px
 
 		&-notion
 			font-weight: 400
@@ -162,11 +156,8 @@
 		flex-direction: column
 
 		&:not(:first-child)
-			margin-top: 10px
-			margin-bottom: 15px
-
-			+until-tablet
-				margin-top: 7px
+			margin-top: 22px
+			margin-bottom: -10px
 
 		&-dropdown
 			margin-top: 10px
@@ -313,8 +304,13 @@
 
 	&__add
 		position: relative
-
 		white-space: nowrap
+		flex-direction: column
+
+		&.active
+			background-color: #73b017
+			border: transparent
+			box-shadow: none
 
 		+until-tablet
 			flex: 1 0 55px
@@ -327,23 +323,6 @@
 			+until-tablet
 				margin-right: 5px
 
-		&.active
-			&::before
-				content: ''
-				position: absolute
-				top: -1px
-				left: -1px
-
-				width: calc(100% + 2px)
-				height: calc(100% + 2px)
-
-				background-color: var(--color-red-dr)
-				border-radius: var(--border-radius-base)
-				background-image: url("data:image/svg+xml,%3Csvg width='146' height='59' viewBox='0 0 146 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M58 29.5L68.0007 39L88 20' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-				background-position: center
-				background-repeat: no-repeat
-				background-size: contain
-
 		&-text
 			+until-tablet
 				display: none
@@ -351,10 +330,8 @@
 		&::after
 			content: ''
 			display: none
-
 			width: 24px
 			height: 24px
-
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.56522 9.55692C5.5195 9.14524 5.1487 8.84856 4.73702 8.89428C4.32534 8.94 4.02866 9.3108 4.07438 9.72249L5.56522 9.55692ZM5.65057 17.1202L4.90515 17.203L4.90516 17.2031L5.65057 17.1202ZM7.45859 18.739L7.45831 19.489H7.45859V18.739ZM16.7398 18.739L16.7399 17.989H16.7398V18.739ZM18.5488 17.1202L19.2942 17.2031L19.2942 17.2029L18.5488 17.1202ZM20.1241 9.7224C20.1697 9.31071 19.873 8.93994 19.4613 8.89427C19.0496 8.8486 18.6789 9.14532 18.6332 9.55701L20.1241 9.7224ZM3 8.88971C2.58579 8.88971 2.25 9.2255 2.25 9.63971C2.25 10.0539 2.58579 10.3897 3 10.3897V8.88971ZM21.1985 10.3897C21.6128 10.3897 21.9485 10.0539 21.9485 9.63971C21.9485 9.2255 21.6128 8.88971 21.1985 8.88971V10.3897ZM5.05896 9.3043C4.87372 9.67478 5.02389 10.1253 5.39437 10.3105C5.76485 10.4958 6.21536 10.3456 6.4006 9.97512L5.05896 9.3043ZM8.22046 6.33541C8.4057 5.96493 8.25553 5.51442 7.88505 5.32918C7.51456 5.14394 7.06406 5.29411 6.87881 5.66459L8.22046 6.33541ZM17.7979 9.97512C17.9832 10.3456 18.4337 10.4958 18.8042 10.3105C19.1747 10.1253 19.3248 9.67478 19.1396 9.3043L17.7979 9.97512ZM17.3197 5.66459C17.1345 5.29411 16.684 5.14394 16.3135 5.32918C15.943 5.51442 15.7928 5.96493 15.9781 6.33541L17.3197 5.66459ZM8.61944 15.0993C8.61944 15.5135 8.95522 15.8493 9.36944 15.8493C9.78365 15.8493 10.1194 15.5135 10.1194 15.0993H8.61944ZM10.1194 13.2794C10.1194 12.8652 9.78365 12.5294 9.36944 12.5294C8.95522 12.5294 8.61944 12.8652 8.61944 13.2794H10.1194ZM11.3492 15.0993C11.3492 15.5135 11.685 15.8493 12.0992 15.8493C12.5134 15.8493 12.8492 15.5135 12.8492 15.0993H11.3492ZM12.8492 13.2794C12.8492 12.8652 12.5134 12.5294 12.0992 12.5294C11.685 12.5294 11.3492 12.8652 11.3492 13.2794H12.8492ZM14.079 15.0993C14.079 15.5135 14.4148 15.8493 14.829 15.8493C15.2432 15.8493 15.579 15.5135 15.579 15.0993H14.079ZM15.579 13.2794C15.579 12.8652 15.2432 12.5294 14.829 12.5294C14.4148 12.5294 14.079 12.8652 14.079 13.2794H15.579ZM4.07438 9.72249L4.90515 17.203L6.39598 17.0374L5.56522 9.55692L4.07438 9.72249ZM4.90516 17.2031C5.04981 18.5041 6.14928 19.4885 7.45831 19.489L7.45887 17.989C6.91391 17.9888 6.45619 17.579 6.39597 17.0373L4.90516 17.2031ZM7.45859 19.489H16.7398V17.989H7.45859V19.489ZM16.7398 19.489C18.0493 19.4891 19.1495 18.5046 19.2942 17.2031L17.8034 17.0373C17.7431 17.5792 17.2851 17.989 16.7399 17.989L16.7398 19.489ZM19.2942 17.2029L20.1241 9.7224L18.6332 9.55701L17.8034 17.0375L19.2942 17.2029ZM3 10.3897H21.1985V8.88971H3V10.3897ZM6.4006 9.97512L8.22046 6.33541L6.87881 5.66459L5.05896 9.3043L6.4006 9.97512ZM19.1396 9.3043L17.3197 5.66459L15.9781 6.33541L17.7979 9.97512L19.1396 9.3043ZM10.1194 15.0993V13.2794H8.61944V15.0993H10.1194ZM12.8492 15.0993V13.2794H11.3492V15.0993H12.8492ZM15.579 15.0993V13.2794H14.079V15.0993H15.579Z' fill='white'/%3E%3C/svg%3E")
 			background-position: center
 			background-size: 100%
@@ -404,9 +381,6 @@
 					flex: 1 0 55px
 					padding: 3px 16px
 					height: 30px
-
-				+media-until(350px)
-					max-width: 70px
 
 				&:not(:last-child)
 					margin-right: 7px

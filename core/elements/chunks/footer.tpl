@@ -126,6 +126,9 @@
       </div>
     </nav>
     <div class="burger-menu__catalog">
+      <div class="burger-menu__link-to-catalog-wrap">
+        <a class="h-menu__link-to-catalog h-menu__link-to-catalog_mobile" href="/catalog/">Перейти в каталог</a>
+      </div>
       {set $id = '@FILE snippets/getIdByAlias.php' | snippet : [
         'alias' => 'catalog'
       ]}

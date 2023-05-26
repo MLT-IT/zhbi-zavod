@@ -9,7 +9,10 @@
     </div>
 </div>
 <div class="js-product__controls js-product__controls_action_change">
-    <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active" title="в корзину"></a>
+    <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active">
+      <span class="js-product__btn-in-cart-top-text">В корзине</span>
+      <span class="js-product__btn-in-cart-bottom-text">Перейти</span>
+    </a>
     <div class="product-card__counter counter custom-counter js-product__custom-counter{$prodValues['extraClass']}">
       <button class="counter__btn counter__btn_minus custom-counter__btn custom-counter__btn_dir_less"></button>
       <input name="count" class="counter__input custom-counter__amount" value="{$prodValues['itemInCart']?:0}" type="number" data-min="0">

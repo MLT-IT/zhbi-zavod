@@ -2,7 +2,7 @@
 {set $limit = 5}
 
 <div data-disable-close class="filter-item{if $keyClass?} filter-item_type_{$keyClass}{/if}{if $idx >= $limit} filter-item_excess{/if}" id="mse2_{$key}" data-dropdown="responsive">
-  <div class="filter-item__top active"><span class="filter-item__title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}:</span></div>
+  <div class="filter-item__top active"><span class="filter_title filter-item__title">{('mse2_filter_' ~ $table ~ '_' ~ $filter) | lexicon}:</span></div>
   <div class="filter-item__dropdown">
     <div class="filter-item__options">
       {$rows}
