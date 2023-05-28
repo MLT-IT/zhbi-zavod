@@ -30,7 +30,7 @@
               {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
           {/if}
 
-          <a href="{'site_url' | option}{$file['url']}" data-fancybox class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
+          <a href="{'site_url' | option}{$file['url']}" data-fancybox class="swiper-slide product__pictures-thumb zoom-here" itemscope itemtype="http://schema.org/ImageObject">
             <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
           </a>
         {/foreach}

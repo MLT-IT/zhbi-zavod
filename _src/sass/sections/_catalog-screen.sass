@@ -1,5 +1,4 @@
 .catalog-screen
-
 	&__title
 		@at-root .section_view_shrink &
 			margin-bottom: 0
@@ -70,6 +69,10 @@
 		align-items: center
 		background-color: var(--color-white)
 		border-radius: var(--border-radius-base)
+		transition: .3s
+
+		&:hover
+			box-shadow: 10px 0 60px rgba(211, 85, 60, .3)
 
 		+until-tablet
 			padding: 5px

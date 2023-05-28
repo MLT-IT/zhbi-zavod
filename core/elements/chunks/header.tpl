@@ -150,7 +150,11 @@
             <input name="query" class="search__input" fast-search-input="mobile" type="search" placeholder="Хочу найти...">
           </form>
         </div>
-        <nav class="header__nav h-nav"><a class="h-nav__link" href="/o-kompanii/">О компании</a><a class="h-nav__link" href="/akcii/">Акции</a><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a><a class="h-nav__link" href="/contacts/">Контакты</a>
+        <nav class="header__nav h-nav">
+          <a class="h-nav__link" href="/contacts/">Контакты</a>
+          <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+          <a class="h-nav__link" href="/akcii/">Акции</a>
+          <a class="h-nav__link" href="/o-kompanii/">О компании</a>
         </nav>
         <div class="header__actions">
           {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}

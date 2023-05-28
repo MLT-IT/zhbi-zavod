@@ -150,50 +150,54 @@ function init(yandexMetrikaId) {
     // -------------------------------
     // Приближение фотки при наведении на странице товара
     // -------------------------------
-    // let $zoomImg = $('.zoom-here');
-    // if ($zoomImg.length) {
-    //     $zoomImg.css('background-image', 'url("' + $zoomImg.find('img').attr('src') + '")');
-    //     $zoomImg.mousemove(function (e) {
-    //         let zoomer = e.currentTarget;
-    //         let offsetX, offsetY;
-    //         let x, y = null;
-    //
-    //         if (e.offsetX) {
-    //             offsetX = e.offsetX;
-    //             x = offsetX / zoomer.offsetWidth * 100;
-    //         }
-    //
-    //         if (e.offsetY) {
-    //             offsetY = e.offsetY;
-    //             y = offsetY / zoomer.offsetHeight * 100;
-    //         }
-    //
-    //         if (x !== null && y !== null) {
-    //             zoomer.style.backgroundPosition = x + '% ' + y + '%';
-    //             zoomer.style.backgroundSize = 200 + '%';
-    //         }
-    //     });
-    // }
-    //
-    // let ImageZoomInstance;
-    //
-    // const settingsDefault = {
-    //     width: 260,
-    //     height: 260,
-    //     zoomWidth: 500,
-    //     offset: {vertical: 0, horizontal: 10}
-    // };
-    //
-    // const zoomDefault = document.getElementsByClassName("zoom-default");
-    // const zoomNarrow = document.getElementsByClassName("zoom-narrow");
-    //
-    // if (zoomDefault.length) {
-    //     ImageZoomInstance = new ImageZoom(zoomDefault[0], settingsDefault);
-    // } else if (zoomNarrow.length) {
-    //     let settingsNarrow = settingsDefault;
-    //     settingsNarrow['zoomWidth'] = 430;
-    //     ImageZoomInstance = new ImageZoom(zoomNarrow[0], settingsNarrow);
-    // }
+    let $zoomImg = $('.zoom-here');
+    if ($zoomImg.length) {
+        $zoomImg.each(function(index, elem) {
+            let $e = $(elem);
+
+            $e.css('background-image', 'url("' + $e.find('img').attr('src') + '")');
+            $e.mousemove(function (e) {
+                let zoomer = e.currentTarget;
+                let offsetX, offsetY;
+                let x, y = null;
+
+                if (e.offsetX) {
+                    offsetX = e.offsetX;
+                    x = offsetX / zoomer.offsetWidth * 100;
+                }
+
+                if (e.offsetY) {
+                    offsetY = e.offsetY;
+                    y = offsetY / zoomer.offsetHeight * 100;
+                }
+
+                if (x !== null && y !== null) {
+                    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                    zoomer.style.backgroundSize = 200 + '%';
+                }
+            });
+        });
+    }
+
+    let ImageZoomInstance;
+
+    const settingsDefault = {
+        width: 260,
+        height: 260,
+        zoomWidth: 500,
+        offset: {vertical: 0, horizontal: 10}
+    };
+
+    const zoomDefault = document.getElementsByClassName("zoom-default");
+    const zoomNarrow = document.getElementsByClassName("zoom-narrow");
+
+    if (zoomDefault.length) {
+        ImageZoomInstance = new ImageZoom(zoomDefault[0], settingsDefault);
+    } else if (zoomNarrow.length) {
+        let settingsNarrow = settingsDefault;
+        settingsNarrow['zoomWidth'] = 430;
+        ImageZoomInstance = new ImageZoom(zoomNarrow[0], settingsNarrow);
+    }
 
 
     // -------------------------------
