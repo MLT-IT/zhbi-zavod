@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lazyLoadInstance = new LazyLoad();
     // Код с обработчиками MODX
     modxJS(lazyLoadInstance, yandexMetrikaId);
- 
+
     // Инициализация быстрого поиска
     new FastSearch();
 
@@ -114,30 +114,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -------------------------------
-    // Переключение типа заказчика в корзине
+    // Переключение типа покупателя в корзине
     // -------------------------------
-    $('[data-influent]').on('change', function (e) {
-        let $elem = $(this);
-        let $container = $elem.closest('[data-dependence]')
-        $container.find('[data-dependent]').hide().find('input').prop('disabled', true);
-        $container.find('[data-dependent=' + $elem.attr('id') + ']').show().find('input').prop('disabled', false);
-        $container.find('[data-dependence-value]').val($elem.val());
-    });
+    if ($('.popup_type_order').length) {
+        $('[name="CUSTOMER-TYPE"]').on('change', function () {
+            let $this = $(this);
+            let $wrapper = $this.closest('[data-forms-wrapper]');
+            let $form = $wrapper.find('form[data-form="' + $this.val() + '"]');
+            if (!$form.length) {
+                return true;
+            }
 
-
-    // Можно сделать не при наведении, а при клике:
-    // $('.h-catalog-item_main').on('click', function(e) {
-    //     e.preventDefault();
-    //     let $this = $(this);
-    //
-    //     if ($this.hasClass('active')) {
-    //         return false;
-    //     }
-    //
-    //     $('.h-catalog-item.active').removeClass('active');
-    //     $this.addClass('active');
-    //     $('.h-catalog-item_dependent[data-cat-id='+$this.attr('data-cat-id')+']').addClass('active');
-    // });
+            $wrapper.find('form').removeAttr('data-active');
+            $form.attr('data-active', 1);
+        });
+    }
 
 
     // -------------------------------
@@ -157,7 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Добавление в бургер кнопки "Все производители"
     // -------------------------------
-    $('.h-catalog__column:first').append('<a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom" href="/catalog/">Перейти в каталог</a>');
+    $('.h-catalog__column:first').append('<a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom" href="/catalog/">Все производители</a>');
+
+
+    // -------------------------------
+    // Раскрытие тегов
+    // -------------------------------
+    let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
+    if ($catalogItemMoreBtn.length) {
+        $catalogItemMoreBtn.on('click', function () {
+            $catalogItemMoreBtn.parent().add($catalogItemMoreBtn).toggleClass('active');
+        });
+    }
+
 })
 
 function getYandexMetrikaId() {

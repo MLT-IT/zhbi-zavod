@@ -61,9 +61,34 @@ body
 	&.fancybox-active
 		overflow: hidden
 
+// -------------------------------
+// Приближение при наведении в карточке товара
+// -------------------------------
+.zoom-here
+	background-position: 50% 50%
+	position: relative
+	overflow: hidden
+	cursor: zoom-in
+
+	& img:hover
+		opacity: 0
+
+	img
+		transition: opacity .5s
+		display: block
+		width: 100%
+
+// -------------------------------
+// Переключение типа покупателя в корзине
+// -------------------------------
+[data-form]
+	display: none
+
+	&[data-active]
+		display: block
 
 // -------------------------------------
-// Код разных стилей без категории
+// Разные стили без категории
 // -------------------------------------
 .secret, .hidden, .hidden-data
     display: none !important
@@ -106,17 +131,3 @@ body
 
 	+while-mob
 		display: none !important
-
-.zoom-here
-	background-position: 50% 50%
-	position: relative
-	overflow: hidden
-	cursor: zoom-in
-
-	& img:hover
-		opacity: 0
-
-	img
-		transition: opacity .5s
-		display: block
-		width: 100%

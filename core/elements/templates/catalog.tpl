@@ -12,27 +12,20 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $categories = 'pdoResources' | snippet : [
+  {set $tags = 'pdoResources' | snippet : [
     'parents' => $_modx->resource.id,
     'templates' => '5',
     'includeTVs' => 'mainImage',
     'tpl' => '@FILE chunks/create-menu/category-item.tpl',
-    'outputSeparator' => '||',
     'context' => $_modx->resource.context_key,
     'sortby' => 'menuindex,id',
     'sortdir' => 'ASC',
     'depth' => 0,
     'limit' => 0,
   ]}
-  {set $catsNotEmpty = $categories is not empty}
-  {if $catsNotEmpty}
-    {set $categories = $categories | split : '||'}
-    {set $tagsCount = $categories | count}
-    {set $maxIndex = $tagsCount > 9 ? 9 : $tagsCount}
-  {/if}
 
   <main class="layout__main">
-    <section class="section {if $catsNotEmpty}section_view_top{else}section_view_shrink{/if}">
+    <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">
         <div class="catalog-screen__container">
@@ -44,31 +37,14 @@
             </div>
           {/if}
 
-          {* Подкатегории (теги) --- *}
-          {if $catsNotEmpty}
-            <div class="catalog-screen__products" data-dropdown="responsive" data-dropdown-title=".catalog-screen__item_more" data-dropdown-body=".catalog-screen__other" data-disable-close="">
+          {if $tags is not empty}
+            <div class="catalog-screen__products">
               <ul class="catalog-screen__items">
-                {foreach 0..($maxIndex-1) as $index}
-                  {$categories[$index]}
-                {/foreach}
-
-                {if $tagsCount > 9}
-                  <li class="catalog-screen__item catalog-screen__item_more"></li>
-                {/if}
+                {$tags}
+                <li class="catalog-screen__item catalog-screen__item_type_more"></li>
               </ul>
-              {* Если подкатегорий > 9, то прячем оставшиеся под споилер *}
-              {if $tagsCount > 9}
-                <div class="catalog-screen__other">
-                  <ul class="catalog-screen__items">
-                    {foreach 9..$tagsCount as $index}
-                        {$categories[$index]}
-                    {/foreach}
-                  </ul>
-                </div>
-              {/if}
             </div>
           {/if}
-          {* / Подкатегории (теги) --- *}
 
         </div>
       </article>

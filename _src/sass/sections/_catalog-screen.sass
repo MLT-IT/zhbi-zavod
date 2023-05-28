@@ -29,38 +29,35 @@
 		+while-mob
 			grid-gap: 5px
 
+	&__items
+		display: grid
+		grid-template-columns: repeat(5, minmax(0, 1fr))
+		grid-auto-rows: minmax(50px, auto)
+		grid-gap: 9px
+
 		&.active
+			.catalog-screen__item
+				&_type
+					&_default
+						display: flex !important
 
-			& .catalog-screen
-				&__other
-					opacity: 1
-
-				&__item
 					&_more
 						&::before
 							content: 'скрыть'
 
-	&__items
-		display: grid
-		grid-template-columns: repeat(5, minmax(0, 1fr))
-		grid-auto-rows: minmax(0, 1fr)
-		grid-gap: 9px
-
 		+until-desktop
-			grid-template-columns: repeat(4, minmax(0, 1fr))
+			grid-template-columns: repeat(4, 1fr)
 
 		+until-tablet
-			grid-template-columns: repeat(3, minmax(0, 1fr))
+			grid-template-columns: repeat(3, 1fr)
 
 		+while-mob
-			grid-template-columns: repeat(2, minmax(0, 1fr))
+			grid-template-columns: repeat(2, 1fr)
 			grid-gap: 5px
 
 	&__other
 		height: 0
-
 		opacity: 0
-
 		overflow: hidden
 		transition: height .3s ease, opacity .3s ease
 
@@ -99,10 +96,8 @@
 
 		&-image
 			display: block
-
 			max-width: 100%
 			max-height: 100%
-
 			object-fit: contain
 
 		&-name
@@ -113,20 +108,34 @@
 			font-size: 15px
 			line-height: 1.3
 
-		&_more
-			justify-content: center
+		&_type_default
+			+from-mob
+				&:nth-of-type(n+4)
+					display: none
+			+while-mob
+				&:nth-of-type(n+5)
+					display: none
 
+		&_type_more
+			justify-content: center
 			font-weight: 700
 			font-size: 16px
 			line-height: 1.2
 			text-align: center
 			letter-spacing: 0.05em
 			text-transform: uppercase
-
 			color: var(--color-red)
-
 			cursor: pointer
 			transition: color .3s ease
+			display: none
+
+			+from-mob
+				&:nth-of-type(n+5)
+					display: flex
+
+			+while-mob
+				&:nth-of-type(n+6)
+					display: flex
 
 			+until-laptop
 				font-size: 14px
@@ -139,5 +148,3 @@
 
 			&:before
 				content: 'показать все'
-
-
