@@ -134,9 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
     // -------------------------------
-    $('.filter-item__top').each(function (i, e) {
-        e.click();
-    });
+    if (window.innerWidth >= 1200) {
+        // Если мы на компах, то раскрываем фильтры прямо при загрузке страницы.
+        $('.filter-item__top').click();
+    } else {
+        // На телефонах надо делать иначе, в противном случае будет баг в фильтре с ценой (фильтр будет отображаться не полностью)
+        let $filterBtn = $('.catalog__filter');
+        $filterBtn.on('dropdowns-toggle', function() {
+            $filterBtn.off('dropdowns-toggle');
+            $('.filter-item__top').click();
+        });
+    }
 
 
     // -------------------------------
@@ -148,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Добавление в бургер кнопки "Все производители"
     // -------------------------------
-    $('.h-catalog__column:first').append('<a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom" href="/catalog/">Все производители</a>');
+    $('.h-catalog__column:first').append('<a class="btn btn_style_base" href="/catalog/">Все производители</a>');
 
 
     // -------------------------------

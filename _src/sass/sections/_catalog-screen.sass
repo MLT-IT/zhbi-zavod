@@ -46,13 +46,13 @@
 							content: 'скрыть'
 
 		+until-desktop
-			grid-template-columns: repeat(4, 1fr)
+			grid-template-columns: repeat(4, minmax(0, 1fr))
 
 		+until-tablet
-			grid-template-columns: repeat(3, 1fr)
+			grid-template-columns: repeat(3, minmax(0, 1fr))
 
 		+while-mob
-			grid-template-columns: repeat(2, 1fr)
+			grid-template-columns: repeat(2, minmax(0, 1fr))
 			grid-gap: 5px
 
 	&__other
@@ -67,9 +67,13 @@
 		background-color: var(--color-white)
 		border-radius: var(--border-radius-base)
 		transition: .3s
+		padding-right: 15px
 
 		&:hover
-			box-shadow: 10px 0 60px rgba(211, 85, 60, .3)
+			box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
+
+		+until-laptop
+			padding-right: 10px
 
 		+until-tablet
 			padding: 5px
@@ -101,19 +105,26 @@
 			object-fit: contain
 
 		&-name
-			max-width: 120px
+			max-width: calc(100% - 94px)
 			color: inherit
 			text-decoration: none
 			font-weight: 700
 			font-size: 15px
 			line-height: 1.3
 
+			+until-laptop
+				max-width: calc(100% - 65px)
+				font-size: 14px
+
+			+until-tablet
+				font-size: 12px
+
 		&_type_default
 			+from-mob
-				&:nth-of-type(n+4)
+				&:nth-of-type(n+10)
 					display: none
 			+while-mob
-				&:nth-of-type(n+5)
+				&:nth-of-type(n+4)
 					display: none
 
 		&_type_more
@@ -130,11 +141,11 @@
 			display: none
 
 			+from-mob
-				&:nth-of-type(n+5)
+				&:nth-of-type(n+11)
 					display: flex
 
 			+while-mob
-				&:nth-of-type(n+6)
+				&:nth-of-type(n+5)
 					display: flex
 
 			+until-laptop

@@ -602,7 +602,7 @@ function init() {
                     functions.toggleText($(this), 'data-text');
                     let $dropdown = $e.find('.filter-item__dropdown');
                     $dropdown.css('height', '');
-                    $dropdown.css('height', $dropdown.prop('scrollHeight'))
+                    $dropdown.css('height', $dropdown.prop('scrollHeight'));
                 });
             }
         });
@@ -923,7 +923,7 @@ function init() {
 
             // Убираем класс загрузки с кнопки
             clearTimeout(removeClassTimeout);
-            removeClassTimeout = setTimeout(function() {
+            removeClassTimeout = setTimeout(function () {
                 $downloadPricelistBtn.removeClass('loading');
             }, 1000);
         }
@@ -984,7 +984,7 @@ function init() {
     // Добавление иконок услуг для pro-fanera
     // -------------------------------------------
     if ($('body.pro-fanera').length && $('#mse2_filters')) {
-        $('.listing__products-item').each(function() {
+        $('.listing__products-item').each(function () {
             let icons = `
             <div class="product-service-icons">
                 <div class="listing__products-item-chars-val-info-wrap product-service-icons__item">

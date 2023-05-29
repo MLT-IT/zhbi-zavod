@@ -98,21 +98,23 @@
                 </div>
 
                 <div class="product-info__availability">
-                  {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
-                  {if $_modx->context.key == 'gazosilikatstroy' && $relinkingData is not empty}
-                    <div class="product-info__euv-custom-select euv-custom-select">
-                      <div class="euv-custom-select__input">
-                        <span class="euv-custom-select__input-value">{$_modx->resource['proizvoditel'][0]}</span>
-                      </div>
-                      <span class="euv-custom-select__btn"></span>
-                      <div class="euv-custom-select__options-wrap">
+                  {if $_modx->context.key == 'gazosilikatstroy'}
+                    {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
+                    {if $relinkingData is not empty}
+                      <div class="product-info__euv-custom-select euv-custom-select">
+                        <div class="euv-custom-select__input">
+                          <span class="euv-custom-select__input-value">{$_modx->resource['proizvoditel'][0]}</span>
+                        </div>
+                        <span class="euv-custom-select__btn"></span>
+                        <div class="euv-custom-select__options-wrap">
                           {foreach $relinkingData as $item}
                             <a href="/{$item['uri']}" class="euv-custom-select__option">
-                                {$item['proizvoditel']}
+                              {$item['proizvoditel']}
                             </a>
                           {/foreach}
+                        </div>
                       </div>
-                    </div>
+                    {/if}
                   {/if}
                   <div class="product-info__availability-title product-info__availability-title_available pc-block">На складе 190 м3</div>
                 </div>

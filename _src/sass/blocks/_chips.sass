@@ -9,14 +9,15 @@
 
 .chips-item
 	position: relative
-	padding: 6px 36px 6px 16px
-	height: 28px
+	height: 21px
 	border-radius: 16px
 	margin-bottom: 8px
 	transition: background-color .3s, border-color .3s
 	white-space: nowrap
 	background-color: var(--color-red)
 	text-decoration: none
+	font-size: 12px
+	padding: 4px 22px 4px 12px
 
 	// Переопределение
 	@at-root .wrap &
@@ -28,8 +29,8 @@
 
 	&_type
 		&_reset
-			padding-top: 4px
-			padding-right: 16px
+			padding-top: 3px
+			padding-right: 12px
 			border: 1px solid
 			border-color: var(--color-red)
 
@@ -52,14 +53,14 @@
 
 	&__cross
 		position: absolute
-		right: 32px
-		top: 8px
+		right: 19px
+		top: 6px
 
 		&::before,  &::after
 			position: absolute
 			left: 6px
 			content: ""
-			height: 13px
+			height: 10px
 			width: 2px
 			background-color: #fff
 
@@ -72,7 +73,6 @@
 	&__title
 		color: #fff
 		font-style: normal
-		font-size: 14px
 		white-space: nowrap
 
 	&__name

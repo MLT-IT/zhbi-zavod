@@ -57,5 +57,8 @@ export default class Dropdowns {
                 content.style.height = `${content.scrollHeight}px`
             }
         }
+
+        const event = new CustomEvent('dropdowns-toggle');
+        item.dispatchEvent(event);
     }
 }

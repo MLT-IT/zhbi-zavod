@@ -244,12 +244,20 @@
 		margin-top: 25px
 		display: flex
 		align-items: center
+		width: 100%
+
+		.js-product__controls
+			width: 100%
+		.product-card__counter
+			transform: translateX(4px)
+			max-width: 177px
+			margin-left: auto
 
 		+while-mob
 			margin-top: 20px
 
 	&__counter
-		flex: 1 1 auto
+		display: flex
 
 	&__volume
 		display: flex
@@ -345,7 +353,7 @@
 		padding: 18px 18px 35px
 
 		&:hover
-			box-shadow: 10px 0 60px rgba(211,85,60,.3)
+			box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
 
 		& .product-card
 
