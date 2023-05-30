@@ -23,7 +23,6 @@ export default class Tabs {
 
                 tab.addEventListener(event, (e) => {
                     e.preventDefault();
-
                     tabs.forEach((item) => {
                         if (item.dataset.tab !== tabValue) {
                             item.classList.remove('active');
@@ -47,6 +46,10 @@ export default class Tabs {
                             }
                         }
                     });
+
+                    $("html, body").animate({
+                        scrollTop: $('.infoblocks__content').offset().top - 30
+                    }, 400);
                 });
             });
         });
