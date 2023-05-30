@@ -258,6 +258,7 @@
 
 	&__counter
 		display: flex
+		transform: translateX(-4px)
 
 	&__volume
 		display: flex
@@ -314,6 +315,10 @@
 		position: relative
 		white-space: nowrap
 		flex-direction: column
+		margin-right: 0 !important
+
+		+until-desktop
+			height: 59px
 
 		&.active
 			background-color: #73b017
@@ -323,7 +328,7 @@
 		+until-tablet
 			flex: 1 0 55px
 			padding: 3px 16px
-			height: 30px
+			height: 40px
 
 		&:not(:last-child)
 			margin-right: 10px

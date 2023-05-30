@@ -1,6 +1,10 @@
 // Этот класс не только для JS (что можно подумать, исходя из названия). Он включает в себя общие стили для всех чанков товара - в слайдере, в листинге, в сравнении, в избранном, страница товара.
 
 .js-product
+	&__btn-in-cart-bottom-text, &__btn-in-cart-top-text
+		+until-desktop 
+			display: none
+
 	&__btn-in-cart-bottom-text
 		font-weight: 400
 		text-transform: none

@@ -12,7 +12,7 @@ function getMenuData() {
     $zabudova = 101935;
     $ytong = 101931;
 
-    return [
+    $data = [
         $lsr => [
             'column2' => [
                 [
@@ -608,4 +608,10 @@ function getMenuData() {
             ]
         ]
     ];
+
+    foreach ($data as $key => $values) {
+        $data[$key]['column3'] = array_chunk($values['column3'], 7);
+    }
+
+    return $data;
 }

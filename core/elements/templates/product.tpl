@@ -78,7 +78,7 @@
               <div class="product-info__top">
 
                 <div class="product-info__rating rating">
-                  <div class="product-info__availability-title product-info__availability-title_available mobile-block">На складе 190 м3</div>
+                  <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div>
                   <ul class="rating__stars">
                     <li class="rating__star active"></li>
                     <li class="rating__star active"></li>
@@ -116,7 +116,7 @@
                       </div>
                     {/if}
                   {/if}
-                  <div class="product-info__availability-title product-info__availability-title_available pc-block">На складе 190 м3</div>
+                  <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе 190 м3</div>
                 </div>
 
               </div>

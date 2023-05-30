@@ -2,9 +2,12 @@
   <div class="catalog__container js-catalog" id="mse2_mfilter">
     <div class="catalog__filter filter" data-dropdown>
       <button class="filter__btn btn btn_style_base">фильтры</button>
-      <form action="{$_modx->resource.id | url}" class="filter__body" id="mse2_filters" method="post">
-          {$filters}
-      </form>
+      <div class="filter__inner">
+        <form action="{$_modx->resource.id | url}" class="filter__body" id="mse2_filters" method="post">
+            {$filters}
+        </form>
+        <button class="filter__close-btn btn btn_style_base">Закрыть</button>
+      </div>
     </div>
 
     <div class="catalog__top">

@@ -169,6 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // -------------------------------
+    // Кнопка для закрытия фильтров в каталоге на маленьких экранах
+    // -------------------------------
+    $('.filter__close-btn').on('click', function () {
+        console.log('this = ', $(this));
+        console.log('closest = ', $(this).closest('[data-dropdown]'));
+
+        $(this).closest('[data-dropdown]').removeClass('active');
+    });
+
 })
 
 function getYandexMetrikaId() {

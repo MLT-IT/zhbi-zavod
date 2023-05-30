@@ -2,6 +2,13 @@
 	display: flex
 	align-items: flex-start
 
+	&__parts-wrap
+		display: flex
+
+	&__part
+		&:nth-last-of-type(n+2)
+			margin-right: 14px
+
 	&__row
 		&:last-child
 			& .h-catalog

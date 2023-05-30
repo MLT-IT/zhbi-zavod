@@ -122,11 +122,17 @@
               <div class="h-catalog__column">
                 <div class="h-catalog__column-header">{$menu['column3']}</div>
                   {foreach $menu['values'] as $catId => $catCols}
-                    {foreach $catCols['column3'] as $val}
-                      <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                        <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
-                      </div>
-                    {/foreach}
+                    <div class="h-catalog__parts-wrap">
+                      {foreach $catCols['column3'] as $parts}
+                        <div class="h-catalog__part">
+                          {foreach $parts as $val}
+                            <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
+                              <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                            </div>
+                          {/foreach}
+                        </div>
+                      {/foreach}
+                    </div>
                   {/foreach}
               </div>
             </div>

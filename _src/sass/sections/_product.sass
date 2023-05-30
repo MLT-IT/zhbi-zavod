@@ -199,6 +199,10 @@
 					background-repeat: no-repeat
 					background-size: 100%
 
+					+while-mob
+						margin-right: 5px
+
+
 	&__params
 		display: flex
 		align-items: center
@@ -327,6 +331,10 @@
 	&__actions
 		margin-top: 30px
 		width: 100%
+
+		.counter__btn, .counter
+			+until-tablet
+				height: 40px
 
 		.counter__btn
 			max-width: 50px

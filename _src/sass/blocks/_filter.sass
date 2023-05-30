@@ -9,11 +9,8 @@
 		right: 0
 		bottom: 0
 		z-index: 10
-
 		display: none
-
 		opacity: 0
-
 		pointer-events: none
 		transition: opacity .3s ease
 		background: rgba(0, 0, 0, 0.25)
@@ -39,15 +36,24 @@
 
 		&::before
 			content: ''
-
 			width: 18px
 			height: 15px
 			margin-right: 10px
 			margin-bottom: 1px
-
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='3' y='6' width='18' height='2' fill='%23FFFFFF'/%3E%3Crect x='3' y='11' width='18' height='2' fill='%23FFFFFF'/%3E%3Crect x='3' y='16' width='18' height='2' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
 			background-position: center
 			background-repeat: no-repeat
+
+	&__inner
+		+until-laptop
+			opacity: 0
+			position: absolute
+			top: calc(100% + 6px)
+			pointer-events: none
+			transition: opacity .3s ease, transform .3s ease
+			transform: translateY(-10px)
+			z-index: 11
+			left: 0
 
 	&__body
 		display: grid
@@ -55,22 +61,11 @@
 		grid-gap: 28px
 
 		+until-laptop
-			position: absolute
-			top: calc(100% + 6px)
-			left: 0
-			z-index: 11
-
 			grid-gap: 0
 			padding: 0 30px
-
-			transform: translateY(-10px)
-			opacity: 0
 			background-color: var(--color-white)
 			box-shadow: var(--shadow-base)
 			border-radius: var(--border-radius-base)
-
-			pointer-events: none
-			transition: opacity .3s ease, transform .3s ease
 
 		+while-mob
 			width: calc(100vw - 20px)
@@ -80,6 +75,12 @@
 			opacity: 1
 
 		& .filter
+			&__inner
+				+until-laptop
+					opacity: 1
+					transform: none
+					pointer-events: all
+
 			&__btn
 				+from-laptop
 					background-color: var(--color-red-dr)
@@ -87,13 +88,13 @@
 
 				&::before
 					background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L16.205 9.205L19 6.41Z' fill='white'/%3E%3C/svg%3E%0A")
+	&__close-btn
+		display: none
+		margin-top: 6px
+		width: 100%
 
-			&__body
-				+until-laptop
-					opacity: 1
-
-					transform: none
-					pointer-events: all
+		+until-laptop
+			display: flex
 
 .filter-item
 	background: var(--color-white)
