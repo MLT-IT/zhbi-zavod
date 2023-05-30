@@ -139,7 +139,6 @@
                   <p class="product-info__price-value">
                     <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
                   </p>
-
                   {if $prodValues['outputOldPrice']?}
                     <div class="js-product__old-price">
                       <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
@@ -148,7 +147,6 @@
                       ₽
                     </div>
                   {/if}
-
                 </div>
                 <div class="product-info__actions">
                   {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
@@ -167,7 +165,7 @@
   </section>
 
   <article class="infoblocks infoblocks_style_shadow section">
-    <div class="infoblocks__container" data-tabs="">
+    <div class="infoblocks__container" data-tabs data-tabs-hiddable="479">
       <div class="infoblocks__top">
         <div class="infoblocks__tabs">
           <a class="infoblocks__tab" href="javascript:;" data-tab="Описание">Описание</a>

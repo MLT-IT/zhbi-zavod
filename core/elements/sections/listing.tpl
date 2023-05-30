@@ -6,7 +6,7 @@
         <form action="{$_modx->resource.id | url}" class="filter__body" id="mse2_filters" method="post">
             {$filters}
         </form>
-        <button class="filter__close-btn btn btn_style_base">Закрыть</button>
+        <button class="filter__close-btn btn btn_style_base" data-dropdown-only-close="1" data-dropdown data-dropdown-body-doc=".filter">Закрыть</button>
       </div>
     </div>
 

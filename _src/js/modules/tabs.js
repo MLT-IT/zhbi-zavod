@@ -1,17 +1,25 @@
 export default class Tabs {
-    tabsSections = document.querySelectorAll("[data-tabs]")
+    tabsSections = document.querySelectorAll("[data-tabs]");
 
     constructor() {
-        if (this.tabsSections.length) this.#init();
+        if (this.tabsSections.length) {
+            this.#init();
+        }
     }
+
     #init() {
         this.tabsSections.forEach((section) => {
             const event = section.hasAttribute('data-tabs-hover') ? 'mouseenter' : 'click';
             const tabs = section.querySelectorAll('[data-tab]');
             const views = section.querySelectorAll('[data-tab-page]');
+            const hiddable = section.dataset.tabsHiddable;
+
             tabs.forEach((tab) => {
                 const tabValue = tab.dataset.tab;
-                if (!tabValue) return;
+
+                if (!tabValue) {
+                    return;
+                }
 
                 tab.addEventListener(event, (e) => {
                     e.preventDefault();
@@ -20,19 +28,27 @@ export default class Tabs {
                         if (item.dataset.tab !== tabValue) {
                             item.classList.remove('active');
                         } else {
-                            item.classList.add('active')
+                            if (hiddable && window.innerWidth <= hiddable && item.classList.contains('active')) {
+                                item.classList.remove('active');
+                            } else {
+                                item.classList.add('active');
+                            }
                         }
-                    })
+                    });
 
                     views.forEach((item) => {
                         if (item.dataset.tabPage !== tabValue) {
-                            item.classList.remove("active")
+                            item.classList.remove("active");
                         } else {
-                            item.classList.add('active')
+                            if (hiddable && window.innerWidth <= hiddable && item.classList.contains('active')) {
+                                item.classList.remove('active');
+                            } else {
+                                item.classList.add('active');
+                            }
                         }
-                    })
-                })
-            })
-        })
+                    });
+                });
+            });
+        });
     }
 }
