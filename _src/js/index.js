@@ -1,4 +1,4 @@
-import '../sass/main.sass'
+import '../sass/main.sass';
 
 // -------------------------------------
 // Подключение JQuery
@@ -23,7 +23,7 @@ import mapsLazyload from './modules/lazyload_maps';
 // -------------------------------------
 import modxJS from './functions/modxJS';
 import {initSliders} from "./modules/sliders";
-import calcAppProperties from "./utils/calcProperties";
+import calcProperties from "./utils/calcProperties";
 import initMobilemenu from "./modules/mobileMenu";
 import Dropdowns from "./modules/dropdowns";
 import Tabs from "./modules/tabs";
@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
     $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
 
-    calcAppProperties();
-    initMobilemenu('.header__burger', '.burger-menu');
+    calcProperties.calcAppProperties();
+    initMobilemenu('.js-burger-1', '.burger-menu');
+    initMobilemenu('.js-burger-2', '.burger-menu');
     initSliders();
     new Dropdowns();
     new Tabs();
 
     initSlimSelect(".default-select__select");
-    console.log('initSlimSelect', initSlimSelect);
 
     initFancybox();
 
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         // На телефонах надо делать иначе, в противном случае будет баг в фильтре с ценой (фильтр будет отображаться не полностью)
         let $filterBtn = $('.catalog__filter');
-        $filterBtn.on('dropdowns-toggle', function() {
+        $filterBtn.on('dropdowns-toggle', function () {
             $filterBtn.off('dropdowns-toggle');
             $('.filter-item__top').click();
         });
@@ -169,7 +169,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-})
+
+    // -------------------------------
+    // Фиксация шапки
+    // -------------------------------
+    function fixAndUnfixHeader() {
+        const $wrap = $('.wrap');
+        const cls = 'header-fixed';
+        const $header = $('.header__bottom');
+
+        if ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight())) {
+            $wrap.removeClass(cls);
+            $wrap.css('padding-top', '');
+        } else {
+            // Поскольку шапка становтся fixed, высота документа уменьшается. Из-за этого будет некрасивый скачок. И некоторый контент будет сложно прочитать. Чтобы этого избежать, добавляем padding-top величиной в высоту НЕФИКСИРОВАННОЙ шапки
+            $wrap.css('padding-top', $header.outerHeight(true));
+            $wrap.addClass(cls);
+        }
+    }
+    $(window).scroll(function () {
+        fixAndUnfixHeader();
+    });
+    fixAndUnfixHeader();
+});
 
 function getYandexMetrikaId() {
     switch (location.host) {

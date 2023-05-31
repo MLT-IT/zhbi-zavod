@@ -138,3 +138,108 @@
 	&__action
 		&:not(:last-child)
 			margin-right: 10px
+
+	// -----------------------------
+	// Фиксированная шапка
+	// -----------------------------
+	&__phonesched, &__callback-btn
+		display: none
+
+	&__phonesched
+		margin-right: 30px
+
+		+until-widescreen
+			margin-left: auto
+
+		+until-desktop
+			margin-top: 0
+			margin-left: auto
+			margin-right: auto
+
+	&__right-burger
+		display: none
+
+	&-fixed
+		.header__bottom
+			position: fixed
+			z-index: 1000
+			width: 100%
+			top: 0
+			box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
+			padding-top: 15px
+			padding-bottom: 15px
+
+		.header__phone
+			font-size: 20px
+
+			+until-desktop
+				font-size: 25px
+				font-weight: bold
+
+			+until-tablet
+				font-size: 18px
+
+		.search
+			display: none
+
+		.header__nav
+			margin-left: 20px
+
+		.h-logo__image
+			margin-top: 0
+
+		.header__toolbar
+			align-self: flex-start
+			position: relative
+			margin-top: auto
+			margin-bottom: auto
+
+		.h-logo
+			height: auto
+
+		.header__phonesched
+			display: block
+
+		.header__callback-btn
+			display: flex
+
+			+until-desktop
+				display: none
+
+		.header__actions
+			right: 0
+			top: 80px
+			position: absolute
+			margin-left: 0
+
+		.header__action
+			box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
+
+		.h-subinfo_display_widescreen
+			margin-top: 6px
+
+		.h-logo
+			// Переопределение
+			+until-desktop
+				display: block
+
+			+until-tablet
+				margin-right: 10px
+
+		.header__schedule
+			+until-desktop
+				display: none
+				margin-left: 0
+
+		.header__right-burger
+			margin-right: 0
+			margin-left: 32px
+
+			+until-desktop
+				display: flex
+			+until-tablet
+				margin-left: 10px
+
+		.h-subinfo__icon
+			+while-mob
+				display: none

@@ -1,7 +1,11 @@
 import actionOnResize from "./actionOnResize";
 
-export default function calcAppProperties() {
+export default {
+    calcAppProperties,
+    calcHeaderHeight
+};
 
+function calcAppProperties() {
     calcProperties();
 
     actionOnResize.addTarget('appProperties', calcProperties);
@@ -10,7 +14,6 @@ export default function calcAppProperties() {
         calcAppHeight();
         calcHeaderHeight();
     }
-
 }
 
 function calcAppHeight() {
@@ -20,8 +23,14 @@ function calcAppHeight() {
 }
 
 function calcHeaderHeight() {
-    const doc = document.documentElement,
-        header = document.querySelector('header');
+    const doc = document.documentElement;
+    let offset;
 
-    doc.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    if ($('.header-fixed').length) {
+        offset = document.querySelector('.header__bottom').offsetHeight + 20;
+    } else {
+        offset = document.querySelector('header').offsetHeight;
+    }
+
+    doc.style.setProperty('--header-height', `${offset}px`);
 }

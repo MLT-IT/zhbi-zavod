@@ -5,7 +5,7 @@
 <header class="header" data-hello="1">
   <div class="header__mobile">
     <div class="header__container">
-      <button class="header__burger icon-btn icon-btn_style_red">
+      <button class="js-burger-1 header__burger icon-btn icon-btn_style_red">
         <svg class="icon-btn__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-burger"></use>
         </svg>
@@ -162,9 +162,22 @@
           <a class="h-nav__link" href="/akcii/">Акции</a>
           <a class="h-nav__link" href="/o-kompanii/">О компании</a>
         </nav>
+        <div class="header__phonesched">
+          <div class="h-subinfo header__phone h-subinfo_size_big">
+            <svg class="h-subinfo__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+            </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'phone' | option}">{'phone' | option}</a>
+          </div>
+          <div class="h-subinfo header__schedule">
+            <svg class="h-subinfo__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
+            </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
+          </div>
+        </div>
+        <a class="header__callback-btn btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
         <div class="header__actions">
           {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
-          <a data-aaaa href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
+          <a href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
             </svg>
@@ -179,6 +192,12 @@
           *}
           {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
         </div>
+
+        <button class="js-burger-2 header__right-burger header__burger icon-btn icon-btn_style_red">
+          <svg class="icon-btn__icon" aria-hidden="true">
+            <use xlink:href="assets/template/pictures/icons.svg#svg-burger"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
