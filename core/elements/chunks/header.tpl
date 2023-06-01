@@ -1,7 +1,3 @@
-<div class="header-sticky"></div>
-<div class="mobile-sticky-header"></div>
-<div class="mobile-header"></div>
-
 <header class="header" data-hello="1">
   <div class="header__mobile">
     <div class="header__container">
@@ -177,7 +173,7 @@
         <a class="header__callback-btn btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
         <div class="header__actions">
           {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
-          <a href="/favorites/" class="header__favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
+          <a href="/favorites/" class="header__action_type_favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
             </svg>
@@ -191,6 +187,11 @@
           </a>
           *}
           {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
+          <a data-fancybox href="#callback" class="header__action_type_callback header__action icon-btn icon-btn_style_white">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+            </svg>
+          </a>
         </div>
 
         <button class="js-burger-2 header__right-burger header__burger icon-btn icon-btn_style_red">

@@ -119,10 +119,10 @@
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
       <div class="burger-menu__nav-items">
-        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
-        <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
-        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
         <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
+        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+        <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
+        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
       </div>
     </nav>
 
@@ -130,18 +130,26 @@
       <a class="h-menu__link-to-catalog h-menu__link-to-catalog_mobile" href="/catalog/">Перейти в каталог</a>
     </div>
     <div class="burger-menu__catalog">
-      {set $id = '@FILE snippets/getIdByAlias.php' | snippet : [
-        'alias' => 'catalog'
-      ]}
-      {$_modx->runSnippet('pdoResources', [
-        'parents' => $id,
+      {set $params = [
         'depth' => 0,
-        'context' => $_modx->resource.context_key,
+        'limit' => 0,
         'tpl' => '@FILE chunks/create-menu/mobile-menu-item.tpl',
-        'limit' => 10,
-        'where' => '{"template:=", 5}',
+        'where' => '{"template:=":"5"}',
         'includeTVs' => 'mainImage'
-      ])}
+      ]}
+      {switch $_modx->resource.context_key}
+        {case 'web'}
+          {set $params['parents'] = 4}
+        {case 'gazosilikatstroy'}
+          {set $resources = '101938,101936,101934,101932,101937,101929,101930,101933,101935,101931'}
+          {set $params['resources'] = $resources}
+          {set $params['parents'] = 0}
+          {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
+          {set $params['sortdir'] = 'ASC'}
+      {/switch}
+      {$_modx->runSnippet('pdoResources', $params)}
     </div>
   </div>
 </section>
+
+<a href="#" class="to-top-btn"></a>

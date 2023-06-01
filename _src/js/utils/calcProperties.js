@@ -27,7 +27,7 @@ function calcHeaderHeight() {
     let offset;
 
     if ($('.header-fixed').length) {
-        offset = document.querySelector('.header__bottom').offsetHeight + 20;
+        offset = document.querySelector('.header__bottom').offsetHeight;
     } else {
         offset = document.querySelector('header').offsetHeight;
     }

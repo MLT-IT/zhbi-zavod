@@ -178,19 +178,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const cls = 'header-fixed';
         const $header = $('.header__bottom');
 
-        if ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight())) {
+        if ((window.innerWidth >= 992) && ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight()))) {
             $wrap.removeClass(cls);
-            $wrap.css('padding-top', '');
         } else {
             // Поскольку шапка становтся fixed, высота документа уменьшается. Из-за этого будет некрасивый скачок. И некоторый контент будет сложно прочитать. Чтобы этого избежать, добавляем padding-top величиной в высоту НЕФИКСИРОВАННОЙ шапки
-            $wrap.css('padding-top', $header.outerHeight(true));
             $wrap.addClass(cls);
         }
     }
+
+    // TODO: добавь throttling
     $(window).scroll(function () {
         fixAndUnfixHeader();
     });
     fixAndUnfixHeader();
+
+
+    // --------------------------------
+    // Кнопка для скролла вверх
+    // --------------------------------
+    let $btn = $('.to-top-btn');
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > window.innerHeight) {
+            $btn.addClass('active');
+        } else {
+            $btn.removeClass('active');
+        }
+    });
+
+    $btn.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 300);
+    });
 });
 
 function getYandexMetrikaId() {

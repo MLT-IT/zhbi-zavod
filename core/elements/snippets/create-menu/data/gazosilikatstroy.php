@@ -89,59 +89,59 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=200х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=200х250х600",
                     "name" => "200х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=250х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=250х250х600",
                     "name" => "250х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=300х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=300х250х600",
                     "name" => "300х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=375х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=375х250х600",
                     "name" => "375х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=400х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=400х250х600",
                     "name" => "400х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=100х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=100х250х600",
                     "name" => "100х250х600",
                 ],
                 [
-                    "uri" => "/gazobeton-sk/?razmer-mm=150х250х600",
+                    "uri" => "/gazobeton-sk/?msoption|razmer-mm=150х250х600",
                     "name" => "150х250х600",
                 ],
             ]
@@ -166,31 +166,31 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-eab/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-eab/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ]
@@ -217,31 +217,31 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-aerok/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-aerok/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ]
@@ -268,35 +268,35 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=300х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=100х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=150х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=200х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=250х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=375х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?razmer-mm=400х250х625",
+                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ],
@@ -323,31 +323,31 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=300х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=100х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=150х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=200х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=250х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=375х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/bck-belorusskiy/?razmer-mm=400х250х625",
+                    "uri" => "/bck-belorusskiy/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ]
@@ -374,31 +374,31 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-hh/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-hh/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ]
@@ -422,59 +422,59 @@ function getMenuData() {
 
             'column3' => [
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=200х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=200х250х600",
                     "name" => "200х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=250х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=250х250х600",
                     "name" => "250х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=300х200х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=300х200х600",
                     "name" => "300х200х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=300х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=300х250х600",
                     "name" => "300х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=350х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=350х250х600",
                     "name" => "350х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=375х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=375х250х600",
                     "name" => "375х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=400х200х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=400х200х600",
                     "name" => "400х200х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=400х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=400х250х600",
                     "name" => "400х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=500х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=500х250х600",
                     "name" => "500х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=100х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=100х250х600",
                     "name" => "100х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=500х200х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=500х200х600",
                     "name" => "500х200х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=50х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=50х250х600",
                     "name" => "50х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=75х250х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=75х250х600",
                     "name" => "75х250х600"
                 ],
                 [
-                    "uri" => "/gazobeton-bonolit/?razmer-mm=200х200х600",
+                    "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=200х200х600",
                     "name" => "200х200х600"
                 ],
             ]
@@ -498,31 +498,31 @@ function getMenuData() {
 
             'column3' => [
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-zabudova/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ]
@@ -550,59 +550,59 @@ function getMenuData() {
 
             'column3' => [
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=300х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=100х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=150х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=200х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=250х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=375х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=400х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=500х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=500х250х625",
                     "name" => "500х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=50х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=50х250х625",
                     "name" => "50х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=75х250х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=75х250х625",
                     "name" => "75х250х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=100х750х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=100х750х625",
                     "name" => "100х750х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=75х750х625",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=75х750х625",
                     "name" => "75х750х625"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=300х250х500",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=300х250х500",
                     "name" => "300х250х500"
                 ],
                 [
-                    "uri" => "/gazobeton-ytong/?razmer-mm=375х250х500",
+                    "uri" => "/gazobeton-ytong/?msoption|razmer-mm=375х250х500",
                     "name" => "375х250х500"
                 ],
             ]

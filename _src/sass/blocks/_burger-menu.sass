@@ -1,128 +1,138 @@
 .burger-menu
-	position: fixed
-	top: var(--header-height)
-	left: 0
-	z-index: 100
+    position: fixed
+    top: var(--header-height)
+    left: 0
+    z-index: 100
 
-	width: 100%
-	height: calc(var(--app-height) - var(--header-height))
+    width: 100%
+    height: calc(var(--app-height) - var(--header-height))
 
-	background-color: var(--color-gray-lt)
-	opacity: 0
+    background-color: var(--color-gray-lt)
+    opacity: 0
 
-	overflow-y: auto
-	pointer-events: none
-	transition: opacity .3s ease
+    overflow-y: auto
+    pointer-events: none
+    transition: opacity .3s ease
 
-	&.active
-		transform: none
-		opacity: 1
-		pointer-events: all
+    &.active
+        transform: none
+        opacity: 1
+        pointer-events: all
 
-	&__nav
-		padding: 10px 10px 0
-		margin: 0 -20px 25px
+    &__nav
+        padding: 10px 10px 0
+        margin: 0 -20px 25px
 
-		background-color: var(--color-white)
+        background-color: var(--color-white)
 
-		+while-mob
-			margin: 0 -10px 25px
-			padding: 10px 0 0
+        +while-mob
+            margin: 0 -10px 25px
+            padding: 10px 0 0
 
-		&-items
-			display: flex
-			align-items: center
-			padding-bottom: 10px
+        &-items
+            display: flex
+            align-items: center
+            padding-bottom: 10px
+            overflow-x: auto
+            scrollbar-color: var(--color-white) var(--color-gray)
+            scrollbar-width: thin
 
-			overflow-x: auto
-			scrollbar-color: var(--color-white) var(--color-gray)
-			scrollbar-width: thin
+            +while-mob
+                padding-bottom: 0
 
-			+while-mob
-				padding-bottom: 0
+            &::-webkit-scrollbar /* 1 - скроллбар */
+                appearance: none
+                -webkit-appearance: none
+                &:horizontal
+                    height: 15px
 
-			&::-webkit-scrollbar /* 1 - скроллбар */
-				appearance: none
-				-webkit-appearance: none
-				&:horizontal
-					height: 15px
+            &::-webkit-scrollbar-track /* 2 - трек */
+                border-radius: 0
+                background: var(--color-white)
 
-			&::-webkit-scrollbar-track /* 2 - трек */
-				border-radius: 0
-				background: var(--color-white)
+            &::-webkit-scrollbar-thumb /* 3 - ползунок */
+                background-color: var(--color-gray-md)
+                border-radius: 6px
+                border: 5px solid var(--color-white)
 
-			&::-webkit-scrollbar-thumb /* 3 - ползунок */
-				background-color: var(--color-gray-md)
-				border-radius: 6px
-				border: 5px solid var(--color-white)
+        &-link
+            padding: 0 8px
 
-		&-link
-			padding: 0 8px
+            font-weight: 700
+            font-size: 16px
+            line-height: 1.2
 
-			font-weight: 700
-			font-size: 16px
-			line-height: 1.2
+            color: var(--color-black)
+            white-space: nowrap
+            text-decoration: none
+            cursor: pointer
 
-			color: var(--color-black)
-			white-space: nowrap
-			text-decoration: none
-			cursor: pointer
+            +while-mob
+                border-bottom: 1px solid var(--color-gray-md)
 
-			+while-mob
-				border-bottom: 1px solid var(--color-gray-md)
+            &:first-child
+                padding-left: 10px
 
-			&:first-child
-				padding-left: 10px
+            &:last-child
+                padding-right: 10px
 
-			&:last-child
-				padding-right: 10px
+    &__catalog
+        display: grid
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+        grid-gap: 10px
+        margin-bottom: 10px
 
-	&__catalog
-		display: grid
-		grid-template-columns: repeat(2, minmax(0, 1fr))
-		grid-gap: 10px
-		margin-bottom: 10px
-
-		+until-tablet
-			grid-template-columns: 100%
-			grid-gap: 5px
+        +until-tablet
+            grid-template-columns: 100%
+            grid-gap: 5px
 
 .bm-cat-item
-	padding: 10px
-	display: flex
+    padding: 10px
+    display: flex
+    border-radius: var(--border-radius-base)
+    background-color: var(--color-white)
 
-	border-radius: var(--border-radius-base)
-	background-color: var(--color-white)
+    &__link-img
+        flex-basis: 94px
+        flex-shrink: 0
+        margin-right: 20px
 
-	&__picture
-		flex: 0 0 94px
-		padding: 18px 12px
-		margin-right: 20px
-		min-height: 100%
-		display: flex
-		align-items: center
-		justify-content: center
-		background-color: var(--color-gray-lt)
-		max-width: 94px
-		height: auto
+        &:hover
+            .bm-cat-item__picture
+                background-color: var(--color-gray-md)
 
-	&__image
-		width: 100%
-		height: 100%
-		object-fit: contain
+    &__picture
+        flex: 0 0 94px
+        padding: 18px 12px
+        min-height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: var(--color-gray-lt)
+        height: auto
+        width: 100%
+        transition: background-color .3s
 
-	&__content
-		padding-top: 10px
+    &__image
+        width: 100%
+        height: 100%
+        object-fit: contain
 
-	&__name
-		margin-bottom: 12px
-		font-weight: 700
-		font-size: 16px
-		line-height: 1.2
+    &__content
+        padding-top: 10px
 
-	&__link
-		padding: 10px 25px 6px
-		width: max-content
+    &__name
+        margin-bottom: 12px
+        font-weight: 700
+        font-size: 16px
+        line-height: 1.2
+        display: block
+        text-decoration: none
+        color: rgb(60, 60, 59)
 
-		+until-tablet
-			padding: 10px 25px 6px
+    &__link
+        padding: 10px 25px 6px
+        width: max-content
+
+        +until-tablet
+            padding: 10px 25px 6px

@@ -1,0 +1,50 @@
+.to-top-btn
+    width: 50px
+    height: 50px
+    display: block
+    position: fixed
+    bottom: 30px
+    right: 30px
+    transition: background-color .3s, border .3s, opacity .5s, visibility .5s
+    margin: 30px
+    z-index: 1000
+    opacity: 0
+    visibility: hidden
+    background-color: var(--color-red)
+    text-align: center
+    border-radius: 4px
+    border: 3px solid transparent
+    box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
+     
+    +until-tablet
+        right: 0
+
+    &::after
+        content: ""
+        border: 5px solid transparent
+        border-bottom-color: #fff
+        border-left-color: #fff
+        display: block
+        position: absolute
+        width: 25px
+        height: 25px
+        top: 17px
+        left: 0
+        right: 0
+        margin-left: auto
+        margin-right: auto
+        transform: rotate(135deg)
+        transition: .3s
+        box-sizing: border-box
+
+    &.active
+        opacity: 1
+        visibility: visible
+
+    &:hover
+        border-color: var(--color-red)
+        background-color: #fff
+
+        &::after
+            border-bottom-color: var(--color-red)
+            border-left-color: var(--color-red)

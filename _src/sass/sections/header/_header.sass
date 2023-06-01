@@ -1,245 +1,268 @@
 .header
-	&__container
-		display: flex
-		align-items: center
-		justify-content: space-between
+    &__container
+        display: flex
+        align-items: center
+        justify-content: space-between
 
-	&__mobile
-		position: relative
-		padding: 20px 0
+    &__mobile
+        position: relative
+        padding: 20px 0
+        display: none
 
-		+from-desktop
-			display: none
+        +until-tablet
+            padding: 8px 0 8px
 
-		+until-tablet
-			padding: 8px 0 8px
+        & .h-logo
+            position: absolute
+            left: 50%
+            bottom: 20px
+            margin: 0 auto
 
-		& .h-logo
-			position: absolute
-			left: 50%
-			bottom: 20px
-			margin: 0 auto
+            transform: translateX(-50%)
 
-			transform: translateX(-50%)
+            +until-tablet
+                bottom: 8px
 
-			+until-tablet
-				bottom: 8px
+    &__burger
+        position: relative
 
-	&__burger
-		position: relative
+        margin-right: 20px
 
-		margin-right: 20px
+        &.active
+            & .icon-btn__icon
+                display: none
 
-		&.active
-			& .icon-btn__icon
-				display: none
+            &::before
+                content: ''
+                width: 24px
+                height: 24px
 
-			&::before
-				content: ''
-				width: 24px
-				height: 24px
+                background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L11.205 4.205L14 1.41Z' fill='white'/%3E%3C/svg%3E")
+                background-position: center
+                background-size: 100%
+                background-repeat: no-repeat
 
-				background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L11.205 4.205L14 1.41Z' fill='white'/%3E%3C/svg%3E")
-				background-position: center
-				background-size: 100%
-				background-repeat: no-repeat
+                +until-tablet
+                    width: 12px
+                    height: 12px
 
-				+until-tablet
-					width: 12px
-					height: 12px
+    &__top
+        padding: 13px 0 10px
 
-	&__top
-		padding: 13px 0 10px
+        background-color: var(--color-white)
 
-		background-color: var(--color-white)
+        & .h-subinfo
+            &:not(:last-child)
+                margin-right: 15px
 
-		& .h-subinfo
-			&:not(:last-child)
-				margin-right: 15px
+        +until-desktop
+            display: none
 
-		+until-desktop
-			display: none
+    &__bottom
+        padding: 10px 0 20px
 
-	&__bottom
-		padding: 10px 0 20px
+        background-color: var(--color-gray-lt)
 
-		background-color: var(--color-gray-lt)
+        +until-desktop
+            padding: 18px 0
 
-		+until-desktop
-			padding: 18px 0
+        & .h-logo
+            margin-right: 32px
 
-		& .h-logo
-			margin-right: 32px
+            +until-desktop
+                display: none
 
-			+until-desktop
-				display: none
+    &__toolbar
+        align-self: flex-end
+        flex: 1 1 auto
+        display: flex
+        align-items: center
 
-		& .header
-			&__actions
-				margin-left: 32px
+    &__menu
+        margin-right: 10px
 
-				+until-widescreen
-					margin-left: auto
+        +from-widescreen
+            display: none
 
-				+until-desktop
-					display: none
+        +until-desktop
+            display: none
 
-	&__toolbar
-		align-self: flex-end
-		flex: 1 1 auto
-		display: flex
-		align-items: center
+        & .h-nav
+            flex-direction: column
+            align-items: flex-start
 
-	&__menu
-		margin-right: 10px
+            &__link
+                &:not(:last-child)
+                    margin-right: 0
+                    margin-bottom: 20px
 
-		+from-widescreen
-			display: none
+    &__catalog
+        margin-right: 10px
 
-		+until-desktop
-			display: none
+        +until-desktop
+            display: none
 
-		& .h-nav
-			flex-direction: column
-			align-items: flex-start
+    &__search
+        flex: 0 1 355px
+        margin-right: 32px
+
+        +until-widescreen
+            margin-right: 10px
+
+        +until-desktop
+            flex: 1 1 100%
+            margin-right: 0
 
-			&__link
-				&:not(:last-child)
-					margin-right: 0
-					margin-bottom: 20px
+    &__nav
+        margin: 0 auto
 
-	&__catalog
-		margin-right: 10px
+        +until-widescreen
+            display: none
 
-		+until-desktop
-			display: none
+    &__actions
+        display: flex
+        align-items: center
+        margin-left: auto
 
-	&__search
-		flex: 0 1 355px
-		margin-right: 32px
+    &__action
+        &:not(:last-child)
+            margin-right: 10px
 
-		+until-widescreen
-			margin-right: 10px
+        &_type
+            &_minicart
+                +until-desktop
+                    order: 1
+            &_favorites
+                +until-desktop
+                    order: 2
 
-		+until-desktop
-			flex: 1 1 100%
-			margin-right: 0
+            &_callback
+                display: none
+                order: 3
 
-	&__nav
-		margin: 0 auto
+                +until-desktop
+                    display: flex
 
-		+until-widescreen
-			display: none
 
-	&__actions
-		display: flex
-		align-items: center
+    // -----------------------------
+    // Фиксированная шапка
+    // -----------------------------
+    &__phonesched, &__callback-btn
+        display: none
 
-	&__action
-		&:not(:last-child)
-			margin-right: 10px
+    &__phonesched
+        margin-right: 30px
+
+        +until-widescreen
+            margin-left: auto
 
-	// -----------------------------
-	// Фиксированная шапка
-	// -----------------------------
-	&__phonesched, &__callback-btn
-		display: none
+        +until-desktop
+            margin-top: 0
+            margin-left: auto
+            margin-right: auto
+
+    &__right-burger
+        display: none
 
-	&__phonesched
-		margin-right: 30px
-
-		+until-widescreen
-			margin-left: auto
-
-		+until-desktop
-			margin-top: 0
-			margin-left: auto
-			margin-right: auto
-
-	&__right-burger
-		display: none
-
-	&-fixed
-		.header__bottom
-			position: fixed
-			z-index: 1000
-			width: 100%
-			top: 0
-			box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
-			padding-top: 15px
-			padding-bottom: 15px
-
-		.header__phone
-			font-size: 20px
-
-			+until-desktop
-				font-size: 25px
-				font-weight: bold
-
-			+until-tablet
-				font-size: 18px
-
-		.search
-			display: none
-
-		.header__nav
-			margin-left: 20px
-
-		.h-logo__image
-			margin-top: 0
-
-		.header__toolbar
-			align-self: flex-start
-			position: relative
-			margin-top: auto
-			margin-bottom: auto
-
-		.h-logo
-			height: auto
-
-		.header__phonesched
-			display: block
-
-		.header__callback-btn
-			display: flex
-
-			+until-desktop
-				display: none
-
-		.header__actions
-			right: 0
-			top: 80px
-			position: absolute
-			margin-left: 0
-
-		.header__action
-			box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
-
-		.h-subinfo_display_widescreen
-			margin-top: 6px
-
-		.h-logo
-			// Переопределение
-			+until-desktop
-				display: block
-
-			+until-tablet
-				margin-right: 10px
-
-		.header__schedule
-			+until-desktop
-				display: none
-				margin-left: 0
-
-		.header__right-burger
-			margin-right: 0
-			margin-left: 32px
-
-			+until-desktop
-				display: flex
-			+until-tablet
-				margin-left: 10px
-
-		.h-subinfo__icon
-			+while-mob
-				display: none
+    &-fixed
+        .header__bottom
+            position: fixed
+            z-index: 1000
+            width: 100%
+            top: 0
+            box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
+            padding-top: 15px
+            padding-bottom: 15px
+
+            +while-mob
+                padding-top: 6px
+                padding-bottom: 6px
+
+        .header__phone
+            font-size: 20px
+
+            +until-desktop
+                font-size: 25px
+                font-weight: bold
+
+            +until-tablet
+                font-size: 18px
+
+            +while-mob
+                font-size: 15px
+
+        .search
+            display: none
+
+        .header__nav
+            margin-left: 20px
+
+        .h-logo__image
+            margin-top: 0
+
+        .header__toolbar
+            align-self: flex-start
+            position: relative
+            margin-top: auto
+            margin-bottom: auto
+
+        .h-logo
+            height: auto
+
+        .header__phonesched
+            display: block
+
+        .header__callback-btn
+            display: flex
+
+            +until-desktop
+                display: none
+
+        .header__actions
+            right: 0
+            top: 80px
+            position: absolute
+
+            +until-widescreen
+                margin-left: auto
+
+            +until-desktop
+                position: fixed
+                bottom: -4px
+                right: auto
+                top: auto
+                margin: 0
+                transform: translateX(-50%)
+                left: 50%
+
+        .header__action
+            box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
+
+        .h-subinfo_display_widescreen
+            margin-top: 6px
+
+        .h-logo
+            // Переопределение
+            +until-desktop
+                display: block
+
+            +until-tablet
+                margin-right: 10px
+
+        .header__schedule
+            +until-desktop
+                display: none
+                margin-left: 0
+
+        .header__right-burger
+            margin-right: 0
+            margin-left: 32px
+
+            +until-desktop
+                display: flex
+            +until-tablet
+                margin-left: 10px
+
+        .h-subinfo__icon
+            +while-mob
+                display: none

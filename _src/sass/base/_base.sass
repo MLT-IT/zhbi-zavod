@@ -18,125 +18,128 @@ $containerWidth: $maxWidthContainer + $containerPadding * 2
 $fontFamily: 'Gotham Pro', sans-serif
 
 [class*="__container"]
-	&:not(.fancybox__container)
-		@if ($maxWidthContainer > 0)
-			box-sizing: content-box
-			max-width: $maxWidthContainer + px
-			margin: 0 auto
+    &:not(.fancybox__container)
+        @if ($maxWidthContainer > 0)
+            box-sizing: content-box
+            max-width: $maxWidthContainer + px
+            margin: 0 auto
 
-		@if ($containerPadding > 0)
-			padding: 0 $containerPadding + px
-			+until-desktop
-				padding: 0 20px
-			+while-mob
-				padding: 0 10px
+        @if ($containerPadding > 0)
+            padding: 0 $containerPadding + px
+            +until-desktop
+                padding: 0 20px
+            +while-mob
+                padding: 0 10px
 
 .layout
-	display: flex
-	flex-direction: column
-	min-height: 100%
+    display: flex
+    flex-direction: column
+    min-height: 100%
 
-	&__main
-		flex-grow: 1
+    &__main
+        flex-grow: 1
 
 html
-	scroll-behavior: smooth
+    scroll-behavior: smooth
 
 html,
 body
-	height: 100%
-	overscroll-behavior-y: none
+    height: 100%
+    overscroll-behavior-y: none
 
 body
-	width: 100%
-	margin: 0 auto
+    width: 100%
+    margin: 0 auto
 
-	font-family: $fontFamily
-	line-height: 1.2
-	font-size: 16px
+    font-family: $fontFamily
+    line-height: 1.2
+    font-size: 16px
 
-	color: var(--color-black)
-	background-color: var(--color-white)
+    color: var(--color-black)
+    background-color: var(--color-white)
 
-	&.mobilemenu-opened,
-	&.fancybox-active
-		overflow: hidden
+    &.mobilemenu-opened,
+    &.fancybox-active
+        overflow: hidden
 
 // -------------------------------
 // Приближение при наведении в карточке товара
 // -------------------------------
 .zoom-here
-	background-position: 50% 50%
-	position: relative
-	overflow: hidden
-	cursor: zoom-in !important
+    background-position: 50% 50%
+    position: relative
+    overflow: hidden
+    cursor: zoom-in !important
 
-	& img:hover
-		opacity: 0
+    & img:hover
+        opacity: 0
 
-	img
-		transition: opacity .5s
-		display: block
-		width: 100%
+    img
+        transition: opacity .5s
+        display: block
+        width: 100%
 
 // -------------------------------
 // Переключение типа покупателя в корзине
 // -------------------------------
 [data-form]
-	display: none
+    display: none
 
-	&[data-active]
-		display: block
+    &[data-active]
+        display: block
 
 // -------------------------------------
 // Разные стили без категории
 // -------------------------------------
 .secret, .hidden, .hidden-data
-	display: none !important
+    display: none !important
 
 .bg-gray
-	background-color: var(--color-gray-lt)
+    background-color: var(--color-gray-lt)
 
 .wrap
-	// Это нужно, чтобы прижать footer к самому низу
-	min-height: 100vh
-	display: flex
-	flex-direction: column
-	overflow: hidden
+    // Это нужно, чтобы прижать footer к самому низу
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    overflow: hidden
+
+    &.header-fixed
+        padding-top: var(--header-height)
 
 .title-1
-	font-size: 24px
-	line-height: 120%
-	margin-bottom: 20px
-	text-align: center
+    font-size: 24px
+    line-height: 120%
+    margin-bottom: 20px
+    text-align: center
 
 .jGrowl .jGrowl-message a
-	color: #fff
-	text-decoration: underline
+    color: #fff
+    text-decoration: underline
 
-	&:hover
-		color: #fff
-		text-decoration: none
+    &:hover
+        color: #fff
+        text-decoration: none
 
 .margin-bottom-md
-	margin-bottom: 32px
+    margin-bottom: 32px
 
 .mobile-block
-	display: none !important
-	+while-mob
-		display: block !important
+    display: none !important
+    +while-mob
+        display: block !important
 
 .mobile-flex
-	display: none !important
-	+while-mob
-		display: flex !important
+    display: none !important
+    +while-mob
+        display: flex !important
 
 .pc-block
-	display: block !important
-	+while-mob
-		display: none !important
+    display: block !important
+    +while-mob
+        display: none !important
 
 .pc-flex
-	display: flex !important
-	+while-mob
-		display: none !important
+    display: flex !important
+    +while-mob
+        display: none !important

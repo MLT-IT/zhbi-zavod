@@ -1,23 +1,30 @@
 .h-logo
-	width: 107px
-	height: 70px
+    width: 107px
+    height: 70px
 
-	&__image
-		display: block
-		width: 100%
-		height: auto
-		max-height: 100%
-		object-fit: contain
-		margin-top: 26px
+    &__image
+        display: block
+        width: 100%
+        height: auto
+        max-height: 100%
+        object-fit: contain
+        margin-top: 26px
 
-		+until-desktop
-			margin-top: 0
+        +until-desktop
+            margin-top: 0
 
-	&_mobile
-		width: 220px
-		height: 50px
+    &_mobile
+        width: 220px
+        height: 50px
 
-		+until-tablet
-			width: 40%
-			max-width: 140px
-			height: 32px
+        +until-tablet
+            width: 40%
+            max-width: 140px
+            height: 32px
+
+    &.h-logo_mobile
+        +until-laptop
+            height: 50px
+        +until-tablet
+            height: 40px
+
