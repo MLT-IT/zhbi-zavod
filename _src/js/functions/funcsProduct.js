@@ -549,6 +549,21 @@ function init(yandexMetrikaId) {
     // Стилизованный счетчик и стилизованный список
     // -------------------------------------
     initStyledCounter();
+
+
+    // -------------------------------------
+    // Переключение вкладок на странице товара
+    // -------------------------------------
+    let $productInfoblocks = $('.product__infoblocks');
+    if ($productInfoblocks.length) {
+        $productInfoblocks.find('.infoblocks__container').on('change-tab', function() {
+            if (window.innerWidth <= 479) {
+                $("html, body").animate({
+                    scrollTop: $productInfoblocks.find('.infoblocks__content').offset().top - 30
+                }, 400);
+            }
+        });
+    }
 }
 
 

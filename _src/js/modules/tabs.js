@@ -47,9 +47,8 @@ export default class Tabs {
                         }
                     });
 
-                    $("html, body").animate({
-                        scrollTop: $('.infoblocks__content').offset().top - 30
-                    }, 400);
+                    const triggerEvent = new CustomEvent('change-tab');
+                    section.dispatchEvent(triggerEvent);
                 });
             });
         });

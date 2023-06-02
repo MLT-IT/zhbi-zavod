@@ -92,12 +92,12 @@
               <div class="h-catalog__column">
                 <div class="h-catalog__column-header">{$menu['column1']}</div>
                   {foreach $menu['values'] as $catId => $catCols}
-                    <div class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
+                    <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                       <div class="h-catalog-item__preview">
                         <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
                       </div>
-                      <a href="{$catCols['column1']['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</a>
-                    </div>
+                      <span class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</span>
+                    </a>
                     {if $activeCatId is empty}
                         {set $activeCatId = $catId}
                     {/if}

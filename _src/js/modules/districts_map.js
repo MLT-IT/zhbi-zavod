@@ -80,7 +80,7 @@ export default function initDistrictsMap() {
         iconImageOffset: [-21, -21] // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
     };
 
-    let phoneNumber = $('.h-subinfo__link_type_phone').text().trim();
+    let phoneNumber = $('.h-subinfo__link_type_phone:first').text().trim();
     let balloonContentHTML = '<div style="text-align: center;">Часы работы: ежедневно с 8:00 до 21:00<br>Стоимость доставки до 30 км: 1100 рублей<br>Телефон склада: <a href="tel:' + phoneNumber + '">' + phoneNumber + '</a></div>';
 
     districtsMap.geoObjects

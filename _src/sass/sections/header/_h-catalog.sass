@@ -1,150 +1,151 @@
 .h-catalog
-	display: flex
-	align-items: flex-start
+    display: flex
+    align-items: flex-start
 
-	&__parts-wrap
-		display: flex
+    &__parts-wrap
+        display: flex
 
-	&__part
-		&:nth-last-of-type(n+2)
-			margin-right: 14px
+    &__part
+        &:nth-last-of-type(n+2)
+            margin-right: 14px
 
-	&__row
-		&:last-child
-			& .h-catalog
-				&__item
-					padding-bottom: 0
+    &__row
+        &:last-child
+            & .h-catalog
+                &__item
+                    padding-bottom: 0
 
-	&__title
-		position: sticky
-		top: 0
+    &__title
+        position: sticky
+        top: 0
 
-		padding-bottom: 11px
+        padding-bottom: 11px
 
-		font-weight: 400
-		font-size: 14px
-		line-height: 1.2
-		color: var(--color-gray)
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.2
+        color: var(--color-gray)
 
-		text-align: left
-		user-select: none
+        text-align: left
+        user-select: none
 
-		&::before
-			content: ''
-			position: absolute
-			bottom: 0
-			left: 0
-			z-index: -1
-			width: 100%
-			height: calc(100% + 18px)
-			background-color: var(--color-white)
+        &::before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: -1
+            width: 100%
+            height: calc(100% + 18px)
+            background-color: var(--color-white)
 
-	&__item
-		padding-bottom: 17px
-		vertical-align: top
+    &__item
+        padding-bottom: 17px
+        vertical-align: top
 
-	&__column
-		display: flex
-		flex-direction: column
-		justify-content: flex-start
+    &__column
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
 
-		&:nth-of-type(n+2)
-			padding-left: 30px
+        &:nth-of-type(n+2)
+            padding-left: 30px
 
-		&:nth-of-type(1)
-			position: relative
-			padding-right: 20px
+        &:nth-of-type(1)
+            position: relative
+            padding-right: 20px
 
-			&::after
-				display: block
-				position: absolute
-				content: ""
-				border-right: 1px solid var(--color-black-trans)
-				right: 0
-				top: 28px
-				height: calc(100% - 38px)
+            &::after
+                display: block
+                position: absolute
+                content: ""
+                border-right: 1px solid var(--color-black-trans)
+                right: 0
+                top: 28px
+                height: calc(100% - 38px)
 
-	&__column-header
-		padding-bottom: 11px
-		font-weight: 400
-		font-size: 14px
-		line-height: 1.2
-		color: var(--color-gray)
-		text-align: left
-		user-select: none
+    &__column-header
+        padding-bottom: 11px
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.2
+        color: var(--color-gray)
+        text-align: left
+        user-select: none
 
 .h-catalog-item
-	align-items: center
-	color: var(--color-black)
-	margin-bottom: 17px
-	vertical-align: top
-	min-height: 37px
-	display: flex
-	cursor: pointer
+    align-items: center
+    color: var(--color-black)
+    margin-bottom: 17px
+    vertical-align: top
+    min-height: 37px
+    display: flex
+    cursor: pointer
 
-	&_main
-		padding-right: 12px
+    &_main
+        padding-right: 12px
+        text-decoration: none
 
-		&::after
-			display: block
-			content: ""
-			border: solid black
-			border-width: 0 1.5px 1.5px 0
-			padding: 3px
-			transform: rotate(-45deg)
-			right: 10px
-			visibility: hidden
-			margin-left: auto
+        &::after
+            display: block
+            content: ""
+            border: solid black
+            border-width: 0 1.5px 1.5px 0
+            padding: 3px
+            transform: rotate(-45deg)
+            right: 10px
+            visibility: hidden
+            margin-left: auto
 
-		&.active
-			background-color: #f6f6f6
-			position: relative
+        &.active
+            background-color: #f6f6f6
+            position: relative
 
-			&::after
-				visibility: visible
+            &::after
+                visibility: visible
 
-	&_dependent
-		align-self: flex-start
-		display: none
+    &_dependent
+        align-self: flex-start
+        display: none
 
-		&.active
-			display: flex
+        &.active
+            display: flex
 
-	&__preview
-		flex-shrink: 0
-		padding: 5px
-		width: 40px
-		height: 37px
-		margin-right: 20px
-		border-radius: 6px
-		transition: background-color .3s ease
+    &__preview
+        flex-shrink: 0
+        padding: 5px
+        width: 40px
+        height: 37px
+        margin-right: 20px
+        border-radius: 6px
+        transition: background-color .3s ease
 
-	&__image
-		display: block
+    &__image
+        display: block
 
-		width: 100%
-		height: 100%
+        width: 100%
+        height: 100%
 
-		object-fit: contain
+        object-fit: contain
 
-	&__name
-		font-weight: 400
-		font-size: 14px
-		line-height: 1.2
-		text-decoration: none
-		border-bottom: 1px solid var(--color-black-trans)
-		transition: color .3s ease, border-color .3s ease
-		color: inherit
+    &__name
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.2
+        text-decoration: none
+        border-bottom: 1px solid var(--color-black-trans)
+        transition: color .3s ease, border-color .3s ease
+        color: inherit
 
-		&_bold
-			font-weight: 700
+        &_bold
+            font-weight: 700
 
-	&:hover, &_main.active
-		color: var(--color-red)
+    &:hover, &_main.active
+        color: var(--color-red)
 
-		& .h-catalog-item
-			&__name
-				border-color: transparent
+        & .h-catalog-item
+            &__name
+                border-color: transparent
 
-			&__preview
-				background-color: var(--color-red)
+            &__preview
+                background-color: var(--color-red)

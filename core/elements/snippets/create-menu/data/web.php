@@ -10,7 +10,7 @@ function getMenuData() {
     $ursa = 93192;
     $isoroc = 93186;
 
-    return [
+    $data = [
         $knauf => [
             'column2' => [
                 [
@@ -1041,4 +1041,10 @@ function getMenuData() {
             ]
         ]
     ];
+
+    foreach ($data as $key => $values) {
+        $data[$key]['column3'] = array_chunk($values['column3'], 7);
+    }
+
+    return $data;
 }
