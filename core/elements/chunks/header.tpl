@@ -134,7 +134,7 @@
             </div>
           </div>
         </div>
-        <div class="search header__search">
+        <div class="search header__search header__search_screen_desktop">
           <form action="/search/" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
             <button type="submit" class="search__btn icon-btn icon-btn_style_red">
               <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">

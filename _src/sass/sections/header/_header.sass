@@ -113,6 +113,15 @@
             flex: 1 1 100%
             margin-right: 0
 
+        &_screen
+            &_mobile
+                width: 100%
+                margin-bottom: 30px
+                display: none
+
+                form
+                    width: 100%
+
     &__nav
         margin: 0 auto
 
@@ -191,8 +200,14 @@
             +while-mob
                 font-size: 15px
 
-        .search
-            display: none
+        .header__search
+            &_screen
+                &_desktop
+                    display: none
+
+                &_mobile
+                    +until-desktop
+                        display: flex
 
         .header__nav
             margin-left: 20px

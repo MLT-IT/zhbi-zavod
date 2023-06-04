@@ -54,10 +54,8 @@
       'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
       'context' => $_modx->resource.context_key,
       'includeThumbs' => 'webp',
-    ]};
+    ]}
 {/if}
-
-{'!test' | snippet}
 
 <main class="layout__main">
   <section class="section section_view_top">

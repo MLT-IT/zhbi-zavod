@@ -64,7 +64,7 @@
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-location"></use>
               </svg>
-              <div class="contact__content">
+              <div class="contact__content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 <p class="contact__title">Офис:</p>
                 <p class="contact__value">{'address' | option}</p>
               </div>
@@ -84,7 +84,7 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Номер телефона контактного центра:</p>
-                <p class="contact__value">{'phone' | option}, доб 2</p>
+                <p class="contact__value"><span itemprop="telephone">{'phone' | option}</span>, доб 2</p>
               </div><a class="contact__link" href="tel:{'phone' | option}"></a>
             </div>
             <div class="contact">
@@ -93,7 +93,7 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Почта для связи:</p>
-                <p class="contact__value">{'email' | option}</p>
+                <p class="contact__value"><span itemprop="email">{'email' | option}</span></p>
               </div><a class="contact__link" href="mailto:{'email' | option}"></a>
             </div>
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>

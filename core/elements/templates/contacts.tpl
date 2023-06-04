@@ -8,8 +8,28 @@
     <article class="contacts contacts_separate section">
       <div class="contacts__container">
         <div class="contacts__top">
-          <h2 class="contacts__title section__title">Наши контакты</h2>
+          <h1 class="contacts__title section__title">Контакты</h1>
         </div>
+
+        {switch $_modx->resource.context_key}
+          {case 'web'}
+            {set $text = 'утеплителей'}
+          {case 'gazosilikatstroy'}
+            {set $text = 'газобетона'}
+        {/switch}
+        {if $_modx->context.key == 'web'}
+            {set $site_context = 'alterteplo'}
+        {else}
+            {set $site_context = $_modx->context.key}
+        {/if}
+
+        {* >>> meta *}
+        <meta itemprop="name" content="Продажа {$text} в Санкт-Петербурге">
+        <meta itemprop="priceRange" content="От 250 RUB">
+        <meta itemprop="image" content="/assets/template/img/favicons/{$site_context}/favicon.ico">
+        <time itemprop="openingHours" datetime="Mo-Su 08:00−21:00">
+        {* <<< meta *}
+
         <div class="contacts__body">
           <div class="contacts__block">
             <div class="contacts__info">
@@ -26,7 +46,7 @@
                     {set $storehouse3 = 'Гатчине'}
                 {/switch}
 
-                <div class="contact">
+                <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
@@ -35,7 +55,7 @@
                     <p class="contact__value">{'phone' | option}, доб 1</p>
                   </div><a class="contact__link" href="tel:{'phone' | option}"></a>
                 </div>
-                <div class="contact">
+                <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
@@ -44,7 +64,7 @@
                     <p class="contact__value">{'phone' | option}, доб 2</p>
                   </div><a class="contact__link" href="tel:{'phone' | option}"></a>
                 </div>
-                <div class="contact">
+                <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
@@ -65,7 +85,7 @@
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-location"></use>
                   </svg>
-                  <div class="contact__content">
+                  <div class="contact__content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <p class="contact__title">Офис:</p>
                     <p class="contact__value">{'address' | option}</p>
                   </div>
@@ -79,22 +99,22 @@
                     <p class="contact__value">9:00 - 20:00</p>
                   </div>
                 </div>
-                <div class="contact">
+                <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Номер телефона контактного центра:</p>
-                    <p class="contact__value">{'phone' | option}, доб 2</p>
+                    <p class="contact__value"><span itemprop="telephone">{'phone' | option}</span>, доб 2</p>
                   </div><a class="contact__link" href="tel:{'phone' | option}"></a>
                 </div>
-                <div class="contact">
+                <div class="contact contact_hover contact_type_mail">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-email"></use>
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Почта для связи:</p>
-                    <p class="contact__value">{'email' | option}</p>
+                    <p class="contact__value"><span itemprop="email">{'email' | option}</span></p>
                   </div><a class="contact__link" href="mailto:{'email' | option}"></a>
                 </div>
               </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>

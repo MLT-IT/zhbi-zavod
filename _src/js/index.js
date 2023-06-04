@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Поскольку шапка становтся fixed, высота документа уменьшается. Из-за этого будет некрасивый скачок. И некоторый контент будет сложно прочитать. Чтобы этого избежать, добавляем padding-top величиной в высоту НЕФИКСИРОВАННОЙ шапки
             $wrap.addClass(cls);
         }
+        calcProperties.calcHeaderHeight();
     }
 
     // TODO: добавь throttling
@@ -209,6 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 300);
     });
+
+
+    // --------------------------------
+    // FastSearch на мобилках
+    // --------------------------------
+    let $fastSearchMobile = $('.header__search_screen_desktop')
+        .clone(true, true);
+    $fastSearchMobile
+        .insertBefore('.burger-menu__link-to-catalog-wrap')
+        .removeClass('header__search_screen_desktop')
+        .addClass('header__search_screen_mobile');
 });
 
 function getYandexMetrikaId() {
