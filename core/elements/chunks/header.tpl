@@ -134,6 +134,7 @@
             </div>
           </div>
         </div>
+
         <div class="search header__search header__search_screen_desktop">
           <form action="/search/" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
             <button type="submit" class="search__btn icon-btn icon-btn_style_red">
@@ -152,6 +153,7 @@
             <input name="query" class="search__input" fast-search-input="mobile" type="search" placeholder="Хочу найти...">
           </form>
         </div>
+
         <nav class="header__nav h-nav">
           <a class="h-nav__link" href="/contacts/">Контакты</a>
           <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>

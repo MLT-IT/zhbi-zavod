@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
     modxJS(lazyLoadInstance, yandexMetrikaId);
 
     // Инициализация быстрого поиска
-    new FastSearch();
+    new FastSearch('.header__search_screen_desktop');
+    new FastSearch('.header__search_screen_mobile');
 
 
     // -------------------------------------
@@ -210,17 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 300);
     });
-
-
-    // --------------------------------
-    // FastSearch на мобилках
-    // --------------------------------
-    let $fastSearchMobile = $('.header__search_screen_desktop')
-        .clone(true, true);
-    $fastSearchMobile
-        .insertBefore('.burger-menu__link-to-catalog-wrap')
-        .removeClass('header__search_screen_desktop')
-        .addClass('header__search_screen_mobile');
 });
 
 function getYandexMetrikaId() {
