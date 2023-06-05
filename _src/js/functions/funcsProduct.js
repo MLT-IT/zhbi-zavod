@@ -559,7 +559,7 @@ function init(yandexMetrikaId) {
         $productInfoblocks.find('.infoblocks__container').on('change-tab', function() {
             if (window.innerWidth <= 479) {
                 $("html, body").animate({
-                    scrollTop: $productInfoblocks.find('.infoblocks__content').offset().top - 30
+                    scrollTop: $productInfoblocks.find('.infoblocks__content').offset().top - $('.header__bottom').outerHeight() - 30
                 }, 400);
             }
         });
