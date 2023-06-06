@@ -14,20 +14,21 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     switch ($context) {
         // alterteplo.ru
         case 'web':
-            $params = ['parents' => 4];
+            $resources = '93190,93191,93189,93185,93188,93192,93187,93186';
             break;
 
         // gazosilikatstroy.ru
         case 'gazosilikatstroy':
             $resources = '101938,101936,101934,101932,101937,101929,101930,101933,101935,101931';
-            $params = [
-                'resources' => $resources,
-                'parents' => '0',
-                'sortby' => 'FIELD(modResource.id, ' . $resources . ')',
-                'sortdir' => 'ASC'
-            ];
             break;
     }
+
+    $params = [
+        'resources' => $resources,
+        'parents' => '0',
+        'sortby' => 'FIELD(modResource.id, ' . $resources . ')',
+        'sortdir' => 'ASC'
+    ];
 
     $params = array_merge([
         'depth' => 0,

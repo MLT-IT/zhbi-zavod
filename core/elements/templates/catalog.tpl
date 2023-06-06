@@ -12,7 +12,7 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $tags = 'pdoResources' | snippet : [
+  {set $params = [
     'parents' => $_modx->resource.id,
     'templates' => '5',
     'includeTVs' => 'mainImage',
@@ -23,6 +23,14 @@
     'depth' => 0,
     'limit' => 0,
   ]}
+
+  {if $_modx->resource.id == 4}
+      {set $resources = '93190,93191,93189,93185,93188,93192,93187,93186'}
+      {set $params['resources'] = $resources}
+      {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
+  {/if}
+
+  {set $tags = 'pdoResources' | snippet : $params}
 
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
@@ -50,7 +58,7 @@
       </article>
     </section>
 
-    {* Листинг товаров --- *}
+    {* >>> Листинг товаров *}
     {'!mFilter2' | snippet : [
       'element' => 'msProducts',
       'suggestionsMaxFilters' => 2000,
@@ -87,7 +95,7 @@
 
       'context' => $_modx->resource.context_key
     ]}
-    {* / Листинг товаров *}
+    {* <<< Листинг товаров *}
 
     {*
     {switch $_modx->resource.context_key}

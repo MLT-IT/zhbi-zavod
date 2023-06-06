@@ -11,146 +11,6 @@ function getMenuData() {
     $isoroc = 93186;
 
     $data = [
-        $knauf => [
-            'column2' => [
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20печи/камина",
-                    "name" => "Для печи/камина",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|primenenie=Под%20штукатурку",
-                    "name" => "Под штукатурку",
-                ],
-            ],
-
-            'column3' => [
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=27",
-                    "name" => "27",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=45",
-                    "name" => "45",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=47",
-                    "name" => "47",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=80",
-                    "name" => "80",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=90",
-                    "name" => "90",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=110",
-                    "name" => "110",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=150",
-                    "name" => "150",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=200",
-                    "name" => "200",
-                ],
-            ]
-        ],
-
         $rockwool => [
             'column2' => [
                 [
@@ -597,105 +457,142 @@ function getMenuData() {
             ]
         ],
 
-        $isover => [
+        $knauf => [
             'column2' => [
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20балкона/лоджии",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20балкона/лоджии",
                     "name" => "Для балкона/лоджии",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20бани",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20бани",
                     "name" => "Для бани",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20кровли",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20вентиляции",
+                    "name" => "Для вентиляции",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20кровли",
                     "name" => "Для кровли",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20мансарды",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20мансарды",
                     "name" => "Для мансарды",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20перегородок",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20перегородок",
                     "name" => "Для перегородок",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20перекрытий",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20перекрытий",
                     "name" => "Для перекрытий",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20пола",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20печи/камина",
+                    "name" => "Для печи/камина",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Для%20пола",
                     "name" => "Для пола",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20потолка",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20потолка",
                     "name" => "Для потолка",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20стен",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20стен",
                     "name" => "Для стен",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20труб",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20труб",
                     "name" => "Для труб",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20фасада",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20фасада",
                     "name" => "Для фасада",
                 ],
                 [
-                    "uri" => "/isover/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "uri" => "/knauf/?msoption|primenenie=Для%20фундамента/цоколя",
                     "name" => "Для фундамента/цоколя",
                 ],
+                [
+                    "uri" => "/knauf/?msoption|primenenie=Под%20штукатурку",
+                    "name" => "Под штукатурку",
+                ],
             ],
+
             'column3' => [
                 [
-                    "uri" => "/isover/?msoption|item_thickness=20",
+                    "uri" => "/knauf/?msoption|item_thickness=20",
                     "name" => "20",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=25",
-                    "name" => "25",
+                    "uri" => "/knauf/?msoption|item_thickness=27",
+                    "name" => "27",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=30",
+                    "uri" => "/knauf/?msoption|item_thickness=30",
                     "name" => "30",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=40",
+                    "uri" => "/knauf/?msoption|item_thickness=40",
                     "name" => "40",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=50",
+                    "uri" => "/knauf/?msoption|item_thickness=45",
+                    "name" => "45",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=47",
+                    "name" => "47",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=50",
                     "name" => "50",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=60",
+                    "uri" => "/knauf/?msoption|item_thickness=60",
                     "name" => "60",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=65",
-                    "name" => "65",
+                    "uri" => "/knauf/?msoption|item_thickness=70",
+                    "name" => "70",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=75",
+                    "uri" => "/knauf/?msoption|item_thickness=75",
                     "name" => "75",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=80",
+                    "uri" => "/knauf/?msoption|item_thickness=80",
                     "name" => "80",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=100",
+                    "uri" => "/knauf/?msoption|item_thickness=90",
+                    "name" => "90",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=100",
                     "name" => "100",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=120",
+                    "uri" => "/knauf/?msoption|item_thickness=110",
+                    "name" => "110",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=120",
                     "name" => "120",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=150",
+                    "uri" => "/knauf/?msoption|item_thickness=150",
                     "name" => "150",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=180",
+                    "name" => "180",
+                ],
+                [
+                    "uri" => "/knauf/?msoption|item_thickness=200",
+                    "name" => "200",
                 ],
             ]
         ],
@@ -890,6 +787,109 @@ function getMenuData() {
                 [
                     "uri" => "/ursa/?msoption|item_thickness=1200",
                     "name" => "1200",
+                ],
+            ]
+        ],
+
+        $isover => [
+            'column2' => [
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20балкона/лоджии",
+                    "name" => "Для балкона/лоджии",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20бани",
+                    "name" => "Для бани",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20кровли",
+                    "name" => "Для кровли",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20мансарды",
+                    "name" => "Для мансарды",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20перегородок",
+                    "name" => "Для перегородок",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20перекрытий",
+                    "name" => "Для перекрытий",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20пола",
+                    "name" => "Для пола",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20потолка",
+                    "name" => "Для потолка",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20стен",
+                    "name" => "Для стен",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20труб",
+                    "name" => "Для труб",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20фасада",
+                    "name" => "Для фасада",
+                ],
+                [
+                    "uri" => "/isover/?msoption|primenenie=Для%20фундамента/цоколя",
+                    "name" => "Для фундамента/цоколя",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/isover/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=65",
+                    "name" => "65",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=75",
+                    "name" => "75",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=80",
+                    "name" => "80",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=100",
+                    "name" => "100",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=120",
+                    "name" => "120",
+                ],
+                [
+                    "uri" => "/isover/?msoption|item_thickness=150",
+                    "name" => "150",
                 ],
             ]
         ],
