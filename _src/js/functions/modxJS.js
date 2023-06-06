@@ -46,12 +46,14 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     $(document).on('mse2_load pdopage_load', function (e, data) {
         let $catalogTop = $(".js-catalog");
         if ($catalogTop) {
-            // let title1OffsetTop = $catalogTop.offset().top;
-            // if ($(window).scrollTop() > title1OffsetTop + 200 && e.type == 'mse2_load' && $(e.target.activeElement).is('.default-checkbox__input, .ui-slider-handle')) {
-            //     $([document.documentElement, document.body]).animate({
-            //         scrollTop: title1OffsetTop
-            //     }, 300);
-            // }
+            let title1OffsetTop = $catalogTop.offset().top;
+            if ($(window).scrollTop() > title1OffsetTop + 200 && e.type == 'mse2_load' && $(e.target.activeElement).is('.default-checkbox__input, .ui-slider-handle')) {
+                if ($('.product-card_catalog').length <= 6) {
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: title1OffsetTop
+                    }, 300);
+                }
+            }
         }
 
         let $catalog = $('.js-catalog');
