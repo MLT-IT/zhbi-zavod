@@ -1183,6 +1183,8 @@ div.euv-custom-select__input {
     font-weight: 400;
     font-size: 12px;
     line-height: 1.7; }
+.rating__reviews_clickable {
+      cursor: pointer; }
 [data-amount] {
   position: relative; }
 [data-amount]::before {
@@ -3572,6 +3574,9 @@ div.euv-custom-select__input {
       border-radius: 0;
       background-color: var(--color-gray);
       border: 3px solid var(--color-gray); }
+.alterteplo .h-menu__dropdown {
+      max-width: 1200px;
+      left: -50px; }
 .h-menu.active .h-menu__btn {
     background-color: var(--color-red-dr);
     border-color: var(--color-red-dr); }
@@ -3637,7 +3642,11 @@ div.euv-custom-select__input {
       padding-left: 30px; }
 .h-catalog__column:nth-of-type(1) {
       position: relative;
-      padding-right: 20px; }
+      padding-right: 20px;
+      -ms-flex-preferred-size: 285px;
+          flex-basis: 285px;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; }
 .h-catalog__column:nth-of-type(1)::after {
         display: block;
         position: absolute;
@@ -3884,6 +3893,9 @@ div.euv-custom-select__input {
   width: 100%;
   display: block;
   visibility: hidden; }
+.infoblocks__block[data-tab-page="Характеристики"] .table__cell {
+    white-space: normal;
+    width: 55%; }
 .infoblocks__block.active {
     position: static;
     visibility: visible; }
@@ -4984,6 +4996,8 @@ div.euv-custom-select__input {
     grid-gap: 20px 12px; }
 .catalog__product {
     height: 100%; }
+.product__infoblocks .table__cell {
+  font-size: 16px; }
 .product__title {
   margin-bottom: 24px; }
 .product__body {

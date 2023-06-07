@@ -152,7 +152,7 @@ function init(yandexMetrikaId) {
     // -------------------------------
     let $zoomImg = $('.zoom-here');
     if ($zoomImg.length) {
-        $zoomImg.each(function(index, elem) {
+        $zoomImg.each(function (index, elem) {
             let $e = $(elem);
 
             $e.css('background-image', 'url("' + $e.find('img').attr('src') + '")');
@@ -556,7 +556,7 @@ function init(yandexMetrikaId) {
     // -------------------------------------
     let $productInfoblocks = $('.product__infoblocks');
     if ($productInfoblocks.length) {
-        $productInfoblocks.find('.infoblocks__container').on('change-tab', function() {
+        $productInfoblocks.find('.infoblocks__container').on('change-tab', function () {
             if (window.innerWidth <= 479) {
                 $("html, body").animate({
                     scrollTop: $productInfoblocks.find('.infoblocks__content').offset().top - $('.header__bottom').outerHeight() - 30
@@ -564,6 +564,18 @@ function init(yandexMetrikaId) {
             }
         });
     }
+
+    // Скролл до вкладки "Отызвы"
+    let $reviewsTab = $('.infoblocks__tab[data-tab="Отзывы"]');
+    if ($reviewsTab.length) {
+        $('.rating__reviews_clickable').on('click', function () {
+            if (!$reviewsTab.hasClass('active')) {
+                $reviewsTab[0].click();
+            }
+            $('html, body').animate({scrollTop: $('.infoblocks__content').offset().top - $('.header__bottom').outerHeight() - 20}, 300);
+        });
+    }
+
 }
 
 

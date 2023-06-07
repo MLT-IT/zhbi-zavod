@@ -222,10 +222,6 @@ function getMenuData() {
                     "name" => "30",
                 ],
                 [
-                    "uri" => "/rockwool/?msoption|item_thickness=35",
-                    "name" => "35",
-                ],
-                [
                     "uri" => "/rockwool/?msoption|item_thickness=40",
                     "name" => "40",
                 ],
@@ -246,92 +242,16 @@ function getMenuData() {
                     "name" => "75",
                 ],
                 [
-                    "uri" => "/rockwool/?msoption|item_thickness=80",
-                    "name" => "80",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=90",
-                    "name" => "90",
-                ],
-                [
                     "uri" => "/rockwool/?msoption|item_thickness=100",
                     "name" => "100",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=102",
-                    "name" => "102",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=105",
-                    "name" => "105",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=110",
-                    "name" => "110",
                 ],
                 [
                     "uri" => "/rockwool/?msoption|item_thickness=120",
                     "name" => "120",
                 ],
                 [
-                    "uri" => "/rockwool/?msoption|item_thickness=122",
-                    "name" => "122",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=130",
-                    "name" => "130",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=140",
-                    "name" => "140",
-                ],
-                [
                     "uri" => "/rockwool/?msoption|item_thickness=150",
                     "name" => "150",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=152",
-                    "name" => "152",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=160",
-                    "name" => "160",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=170",
-                    "name" => "170",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=190",
-                    "name" => "190",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=200",
-                    "name" => "200",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=210",
-                    "name" => "210",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=220",
-                    "name" => "220",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=230",
-                    "name" => "230",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=240",
-                    "name" => "240",
-                ],
-                [
-                    "uri" => "/rockwool/?msoption|item_thickness=250",
-                    "name" => "250",
                 ],
             ]
         ],
@@ -531,20 +451,16 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/tn/?msoption|item_thickness=5",
-                    "name" => "5",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=10",
-                    "name" => "10",
-                ],
-                [
                     "uri" => "/tn/?msoption|item_thickness=20",
                     "name" => "20",
                 ],
                 [
-                    "uri" => "/tn/?msoption|item_thickness=22",
-                    "name" => "22",
+                    "uri" => "/tn/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/tn/?msoption|item_thickness=27",
+                    "name" => "27",
                 ],
                 [
                     "uri" => "/tn/?msoption|item_thickness=30",
@@ -559,10 +475,6 @@ function getMenuData() {
                     "name" => "50",
                 ],
                 [
-                    "uri" => "/tn/?msoption|item_thickness=55",
-                    "name" => "55",
-                ],
-                [
                     "uri" => "/tn/?msoption|item_thickness=60",
                     "name" => "60",
                 ],
@@ -571,56 +483,20 @@ function getMenuData() {
                     "name" => "70",
                 ],
                 [
-                    "uri" => "/tn/?msoption|item_thickness=80",
-                    "name" => "80",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=90",
-                    "name" => "90",
+                    "uri" => "/tn/?msoption|item_thickness=75",
+                    "name" => "75",
                 ],
                 [
                     "uri" => "/tn/?msoption|item_thickness=100",
                     "name" => "100",
                 ],
                 [
-                    "uri" => "/tn/?msoption|item_thickness=110",
-                    "name" => "110",
-                ],
-                [
                     "uri" => "/tn/?msoption|item_thickness=120",
                     "name" => "120",
                 ],
                 [
-                    "uri" => "/tn/?msoption|item_thickness=130",
-                    "name" => "130",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=140",
-                    "name" => "140",
-                ],
-                [
                     "uri" => "/tn/?msoption|item_thickness=150",
                     "name" => "150",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=160",
-                    "name" => "160",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=170",
-                    "name" => "170",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=190",
-                    "name" => "190",
-                ],
-                [
-                    "uri" => "/tn/?msoption|item_thickness=200",
-                    "name" => "200",
                 ],
             ]
         ],
@@ -720,16 +596,20 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/penoplex/?msoption|item_thickness=200",
-                    "name" => "200",
+                    "uri" => "/penoplex/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=27",
+                    "name" => "27",
                 ],
                 [
                     "uri" => "/penoplex/?msoption|item_thickness=30",
                     "name" => "30",
-                ],
-                [
-                    "uri" => "/penoplex/?msoption|item_thickness=30.4",
-                    "name" => "30.4",
                 ],
                 [
                     "uri" => "/penoplex/?msoption|item_thickness=40",
@@ -744,8 +624,12 @@ function getMenuData() {
                     "name" => "60",
                 ],
                 [
-                    "uri" => "/penoplex/?msoption|item_thickness=80",
-                    "name" => "80",
+                    "uri" => "/penoplex/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/penoplex/?msoption|item_thickness=75",
+                    "name" => "75",
                 ],
                 [
                     "uri" => "/penoplex/?msoption|item_thickness=100",
@@ -865,6 +749,10 @@ function getMenuData() {
                     "name" => "20",
                 ],
                 [
+                    "uri" => "/knauf/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
                     "uri" => "/knauf/?msoption|item_thickness=27",
                     "name" => "27",
                 ],
@@ -875,14 +763,6 @@ function getMenuData() {
                 [
                     "uri" => "/knauf/?msoption|item_thickness=40",
                     "name" => "40",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=45",
-                    "name" => "45",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=47",
-                    "name" => "47",
                 ],
                 [
                     "uri" => "/knauf/?msoption|item_thickness=50",
@@ -901,20 +781,8 @@ function getMenuData() {
                     "name" => "75",
                 ],
                 [
-                    "uri" => "/knauf/?msoption|item_thickness=80",
-                    "name" => "80",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=90",
-                    "name" => "90",
-                ],
-                [
                     "uri" => "/knauf/?msoption|item_thickness=100",
                     "name" => "100",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=110",
-                    "name" => "110",
                 ],
                 [
                     "uri" => "/knauf/?msoption|item_thickness=120",
@@ -924,17 +792,8 @@ function getMenuData() {
                     "uri" => "/knauf/?msoption|item_thickness=150",
                     "name" => "150",
                 ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/knauf/?msoption|item_thickness=200",
-                    "name" => "200",
-                ],
             ]
         ],
-
         $paroc => [
             'column2' => [
                 [
@@ -1054,44 +913,52 @@ function getMenuData() {
             ],
             'column3' => [
                 [
+                    "uri" => "/paroc/?msoption|item_thickness=20",
+                    "name" => "20",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=25",
+                    "name" => "25",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
                     "uri" => "/paroc/?msoption|item_thickness=30",
                     "name" => "30",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=40",
+                    "name" => "40",
                 ],
                 [
                     "uri" => "/paroc/?msoption|item_thickness=50",
                     "name" => "50",
                 ],
                 [
-                    "uri" => "/paroc/?msoption|item_thickness=90",
-                    "name" => "90",
+                    "uri" => "/paroc/?msoption|item_thickness=60",
+                    "name" => "60",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/paroc/?msoption|item_thickness=75",
+                    "name" => "75",
                 ],
                 [
                     "uri" => "/paroc/?msoption|item_thickness=100",
                     "name" => "100",
                 ],
                 [
-                    "uri" => "/paroc/?msoption|item_thickness=117",
-                    "name" => "117",
-                ],
-                [
-                    "uri" => "/paroc/?msoption|item_thickness=122",
-                    "name" => "122",
-                ],
-                [
-                    "uri" => "/paroc/?msoption|item_thickness=126",
-                    "name" => "126",
+                    "uri" => "/paroc/?msoption|item_thickness=120",
+                    "name" => "120",
                 ],
                 [
                     "uri" => "/paroc/?msoption|item_thickness=150",
                     "name" => "150",
-                ],
-                [
-                    "uri" => "/paroc/?msoption|item_thickness=151",
-                    "name" => "151",
-                ],
-                [
-                    "uri" => "/paroc/?msoption|item_thickness=350",
-                    "name" => "350",
                 ],
             ]
         ],
@@ -1179,6 +1046,10 @@ function getMenuData() {
                     "name" => "25",
                 ],
                 [
+                    "uri" => "/ursa/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
                     "uri" => "/ursa/?msoption|item_thickness=30",
                     "name" => "30",
                 ],
@@ -1195,32 +1066,24 @@ function getMenuData() {
                     "name" => "60",
                 ],
                 [
-                    "uri" => "/ursa/?msoption|item_thickness=80",
-                    "name" => "80",
+                    "uri" => "/ursa/?msoption|item_thickness=70",
+                    "name" => "70",
+                ],
+                [
+                    "uri" => "/ursa/?msoption|item_thickness=75",
+                    "name" => "75",
                 ],
                 [
                     "uri" => "/ursa/?msoption|item_thickness=100",
                     "name" => "100",
                 ],
                 [
-                    "uri" => "/ursa/?msoption|item_thickness=130",
-                    "name" => "130",
+                    "uri" => "/ursa/?msoption|item_thickness=120",
+                    "name" => "120",
                 ],
                 [
                     "uri" => "/ursa/?msoption|item_thickness=150",
                     "name" => "150",
-                ],
-                [
-                    "uri" => "/ursa/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/ursa/?msoption|item_thickness=200",
-                    "name" => "200",
-                ],
-                [
-                    "uri" => "/ursa/?msoption|item_thickness=1200",
-                    "name" => "1200",
                 ],
             ]
         ],
@@ -1424,6 +1287,10 @@ function getMenuData() {
                     "name" => "25",
                 ],
                 [
+                    "uri" => "/isover/?msoption|item_thickness=27",
+                    "name" => "27",
+                ],
+                [
                     "uri" => "/isover/?msoption|item_thickness=30",
                     "name" => "30",
                 ],
@@ -1440,16 +1307,12 @@ function getMenuData() {
                     "name" => "60",
                 ],
                 [
-                    "uri" => "/isover/?msoption|item_thickness=65",
-                    "name" => "65",
+                    "uri" => "/isover/?msoption|item_thickness=70",
+                    "name" => "70",
                 ],
                 [
                     "uri" => "/isover/?msoption|item_thickness=75",
                     "name" => "75",
-                ],
-                [
-                    "uri" => "/isover/?msoption|item_thickness=80",
-                    "name" => "80",
                 ],
                 [
                     "uri" => "/isover/?msoption|item_thickness=100",
@@ -1601,12 +1464,12 @@ function getMenuData() {
             ],
             'column3' => [
                 [
-                    "uri" => "/isoroc/?msoption|item_thickness=1.2",
-                    "name" => "1.2",
+                    "uri" => "/isoroc/?msoption|item_thickness=20",
+                    "name" => "20",
                 ],
                 [
-                    "uri" => "/isoroc/?msoption|item_thickness=1.5",
-                    "name" => "1.5",
+                    "uri" => "/isoroc/?msoption|item_thickness=25",
+                    "name" => "25",
                 ],
                 [
                     "uri" => "/isoroc/?msoption|item_thickness=27",
@@ -1633,56 +1496,20 @@ function getMenuData() {
                     "name" => "70",
                 ],
                 [
-                    "uri" => "/isoroc/?msoption|item_thickness=80",
-                    "name" => "80",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=90",
-                    "name" => "90",
+                    "uri" => "/isoroc/?msoption|item_thickness=75",
+                    "name" => "75",
                 ],
                 [
                     "uri" => "/isoroc/?msoption|item_thickness=100",
                     "name" => "100",
                 ],
                 [
-                    "uri" => "/isoroc/?msoption|item_thickness=110",
-                    "name" => "110",
-                ],
-                [
                     "uri" => "/isoroc/?msoption|item_thickness=120",
                     "name" => "120",
                 ],
                 [
-                    "uri" => "/isoroc/?msoption|item_thickness=130",
-                    "name" => "130",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=140",
-                    "name" => "140",
-                ],
-                [
                     "uri" => "/isoroc/?msoption|item_thickness=150",
                     "name" => "150",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=160",
-                    "name" => "160",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=170",
-                    "name" => "170",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=180",
-                    "name" => "180",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=190",
-                    "name" => "190",
-                ],
-                [
-                    "uri" => "/isoroc/?msoption|item_thickness=200",
-                    "name" => "200",
                 ],
             ]
         ]
