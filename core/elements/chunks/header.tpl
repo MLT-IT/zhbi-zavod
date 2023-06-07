@@ -89,8 +89,9 @@
           <div class="h-menu__dropdown">
             <a class="h-menu__link-to-catalog" href="/catalog/">Перейти в каталог</a>
             <div class="h-catalog">
+
               <div class="h-catalog__column">
-                <div class="h-catalog__column-header">{$menu['column1']}</div>
+                  <div class="h-catalog__column-header">{$menu['column1']['title']}</div>
                   {foreach $menu['values'] as $catId => $catCols}
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                       <div class="h-catalog-item__preview">
@@ -104,33 +105,37 @@
                   {/foreach}
               </div>
 
-              <div class="h-catalog__column">
-                <div class="h-catalog__column-header">{$menu['column2']}</div>
-                  {foreach $menu['values'] as $catId => $catCols}
-                    {foreach $catCols['column2'] as $val}
-                      <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                        <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
-                      </div>
-                    {/foreach}
-                  {/foreach}
-              </div>
+              {foreach $menu as $colKey => $colValues}
+                {if $colKey in list ['values', 'column1']}
+                    {continue}
+                {/if}
 
-              <div class="h-catalog__column">
-                <div class="h-catalog__column-header">{$menu['column3']}</div>
-                  {foreach $menu['values'] as $catId => $catCols}
-                    <div class="h-catalog__parts-wrap">
-                      {foreach $catCols['column3'] as $parts}
-                        <div class="h-catalog__part">
-                          {foreach $parts as $val}
+                <div class="h-catalog__column">
+                  <div class="h-catalog__column-header">{$colValues['title']}</div>
+                    {foreach $menu['values'] as $catId => $catCols}
+                      {if $colValues['type'] == 'composite'}
+                        <div class="h-catalog__parts-wrap">
+                          {foreach $catCols[$colKey] as $parts}
+                            <div class="h-catalog__part">
+                              {foreach $parts as $val}
+                                <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
+                                  <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                                </div>
+                              {/foreach}
+                            </div>
+                          {/foreach}
+                        </div>
+                      {else}
+                          {foreach $catCols[$colKey] as $val}
                             <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
                               <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
                             </div>
                           {/foreach}
-                        </div>
-                      {/foreach}
-                    </div>
-                  {/foreach}
-              </div>
+                      {/if}
+                    {/foreach}
+                </div>
+              {/foreach}
+
             </div>
           </div>
         </div>

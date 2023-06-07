@@ -54,14 +54,15 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
 
     switch ($context) {
         case 'web':
-            $result['column1'] = 'Товар';
-            $result['column2'] = 'Применение';
-            $result['column3'] = 'Толщина';
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];
+            $result['column3'] = ['title' => 'Толщина', 'type' => 'simple'];
+            $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
             break;
         case 'gazosilikatstroy':
-            $result['column1'] = 'Товар';
-            $result['column2'] = 'Плотность';
-            $result['column3'] = 'Размеры';
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Плотность', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Размеры', 'type' => 'composite'];
             break;
     }
 
