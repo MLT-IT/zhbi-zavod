@@ -8,18 +8,18 @@
         grid-gap: 40px 30px
         align-items: flex-start
 
-        +until-tablet
+        +until-768
             grid-template-columns: 100%
             grid-gap: 20px
 
     &__top
         grid-column: 1 / -1
 
-        +until-tablet
+        +until-768
             padding-bottom: 20px
             border-bottom: 1px solid var(--color-black-trans)
 
-        +while-mob
+        +until-480
             display: none
 
     &__tabs
@@ -32,12 +32,12 @@
         overflow-x: auto
         +hide-scroll
 
-        +until-desktop
+        +until-992
             width: calc(100% + 40px)
             margin: 0 -20px
             padding: 0 20px
 
-        +while-mob
+        +until-480
             width: calc(100% + 20px)
             margin: 0 -10px
             padding: 0 10px
@@ -57,10 +57,10 @@
         outline: none
         white-space: nowrap
 
-        +until-desktop
+        +until-992
             font-size: 18px
 
-        +until-desktop
+        +until-992
             font-size: 16px
 
         &:hover,
@@ -70,13 +70,13 @@
         &:not(:last-child)
             margin-right: 20px
 
-            +until-desktop
+            +until-992
                 margin-right: 15px
 
     &__title
         margin-bottom: 32px
 
-        +until-tablet
+        +until-768
             margin-bottom: 8px
 
     &__content
@@ -95,7 +95,7 @@
                 white-space: normal
                 width: 55%
 
-        +while-mob
+        +until-480
             top: auto
             left: auto
             position: static
@@ -139,7 +139,7 @@
             cursor: pointer
             appearance: none
 
-            +from-mob
+            +from-480
                 display: none
 
             &::after
@@ -162,14 +162,14 @@
                     transform: rotate(180deg)
 
         &-dropdown
-            +while-mob
+            +until-480
                 max-height: 1000px
 
                 transition: max-height .4s ease
                 overflow: hidden
 
             & > *:first-child
-                +while-mob
+                +until-480
                     margin-top: 20px
 
         &:not(.active)
@@ -177,7 +177,7 @@
             & .infoblocks
                 &__block
                     &-dropdown
-                        +while-mob
+                        +until-480
                             max-height: 0
 
     &__text
@@ -185,7 +185,7 @@
         font-size: 16px
         line-height: 1.7
 
-        +until-desktop
+        +until-992
             font-size: 14px
 
         &_uppercase
@@ -199,20 +199,20 @@
         font-size: 20px
         line-height: 1.5
 
-        +until-widescreen
+        +until-1400
             font-size: 18px
 
-        +until-tablet
+        +until-768
             font-size: 16px
             text-align: center
 
-        +while-mob
+        +until-480
             font-size: 14px
 
         &:not(:last-child)
             margin-bottom: 40px
 
-            +until-tablet
+            +until-768
                 margin-bottom: 30px
 
     &__advantages
@@ -222,7 +222,7 @@
         align-items: flex-start
         padding-top: 30px
 
-        +until-tablet
+        +until-768
             grid-gap: 20px
             padding-top: 20px
 
@@ -232,7 +232,7 @@
         background-color: var(--color-white)
         border-radius: var(--border-radius-base)
 
-        +until-laptop
+        +until-1200
             padding: 45px 15px 25px 25px
 
         & .advantage
@@ -240,13 +240,13 @@
                 width: 73px
                 height: 73px
 
-                +until-laptop
+                +until-1200
                     bottom: calc(100% + 15px)
 
                     width: 64px
                     height: 64px
 
-                +until-tablet
+                +until-768
                     bottom: calc(100% + 10px)
 
                     width: 48px
@@ -258,14 +258,14 @@
         justify-content: center
         align-items: center
 
-        +until-tablet
+        +until-768
             grid-row: 2
 
         &_tab-view
             display: none
 
             &.active
-                +from-mob
+                +from-480
                     display: flex
 
     &__callback
@@ -280,20 +280,20 @@
         text-align: center
         text-transform: uppercase
 
-        +until-desktop
+        +until-992
             flex-direction: column
 
             font-size: 18px
 
-        +until-tablet
+        +until-768
             font-size: 16px
 
-        +while-mob
+        +until-480
             font-size: 14px
 
         &-text
             margin-right: 20px
-            +until-desktop
+            +until-992
                 margin-right: 0
 
         &-phone

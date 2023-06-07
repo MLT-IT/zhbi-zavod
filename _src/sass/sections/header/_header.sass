@@ -9,7 +9,7 @@
         padding: 20px 0
         display: none
 
-        +until-tablet
+        +until-768
             padding: 8px 0 8px
 
         & .h-logo
@@ -20,7 +20,7 @@
 
             transform: translateX(-50%)
 
-            +until-tablet
+            +until-768
                 bottom: 8px
 
     &__burger
@@ -42,7 +42,7 @@
                 background-size: 100%
                 background-repeat: no-repeat
 
-                +until-tablet
+                +until-768
                     width: 12px
                     height: 12px
 
@@ -55,7 +55,7 @@
             &:not(:last-child)
                 margin-right: 15px
 
-        +until-desktop
+        +until-992
             display: none
 
     &__bottom
@@ -63,13 +63,13 @@
 
         background-color: var(--color-gray-lt)
 
-        +until-desktop
+        +until-992
             padding: 18px 0
 
         & .h-logo
             margin-right: 32px
 
-            +until-desktop
+            +until-992
                 display: none
 
     &__toolbar
@@ -81,10 +81,10 @@
     &__menu
         margin-right: 10px
 
-        +from-widescreen
+        +from-1400
             display: none
 
-        +until-desktop
+        +until-992
             display: none
 
         & .h-nav
@@ -99,17 +99,17 @@
     &__catalog
         margin-right: 10px
 
-        +until-desktop
+        +until-992
             display: none
 
     &__search
         flex: 0 1 355px
         margin-right: 32px
 
-        +until-widescreen
+        +until-1400
             margin-right: 10px
 
-        +until-desktop
+        +until-992
             flex: 1 1 100%
             margin-right: 0
 
@@ -125,7 +125,7 @@
     &__nav
         margin: 0 auto
 
-        +until-widescreen
+        +until-1400
             display: none
 
     &__actions
@@ -139,17 +139,17 @@
 
         &_type
             &_minicart
-                +until-desktop
+                +until-992
                     order: 1
             &_favorites
-                +until-desktop
+                +until-992
                     order: 2
 
             &_callback
                 display: none
                 order: 3
 
-                +until-desktop
+                +until-992
                     display: flex
 
 
@@ -162,10 +162,10 @@
     &__phonesched
         margin-right: 30px
 
-        +until-widescreen
+        +until-1400
             margin-left: auto
 
-        +until-desktop
+        +until-992
             margin-top: 0
             margin-left: auto
             margin-right: auto
@@ -183,21 +183,21 @@
             padding-top: 15px
             padding-bottom: 15px
 
-            +while-mob
+            +until-480
                 padding-top: 6px
                 padding-bottom: 6px
 
         .header__phone
             font-size: 20px
 
-            +until-desktop
+            +until-992
                 font-size: 25px
                 font-weight: bold
 
-            +until-tablet
+            +until-768
                 font-size: 18px
 
-            +while-mob
+            +until-480
                 font-size: 15px
 
         .header__search
@@ -206,7 +206,7 @@
                     display: none
 
                 &_mobile
-                    +until-desktop
+                    +until-992
                         display: flex
 
         .header__nav
@@ -230,7 +230,7 @@
         .header__callback-btn
             display: flex
 
-            +until-desktop
+            +until-992
                 display: none
 
         .header__actions
@@ -238,10 +238,10 @@
             top: 80px
             position: absolute
 
-            +until-widescreen
+            +until-1400
                 margin-left: auto
 
-            +until-desktop
+            +until-992
                 position: fixed
                 bottom: -4px
                 right: auto
@@ -261,14 +261,14 @@
 
         .h-logo
             // Переопределение
-            +until-desktop
+            +until-992
                 display: block
 
-            +until-tablet
+            +until-768
                 margin-right: 10px
 
         .header__schedule
-            +until-desktop
+            +until-992
                 display: none
                 margin-left: 0
 
@@ -276,11 +276,11 @@
             margin-right: 0
             margin-left: 32px
 
-            +until-desktop
+            +until-992
                 display: flex
-            +until-tablet
+            +until-768
                 margin-left: 10px
 
         .h-subinfo__icon
-            +while-mob
+            +until-480
                 display: none

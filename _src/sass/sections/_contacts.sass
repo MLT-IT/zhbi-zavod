@@ -5,13 +5,13 @@
         justify-content: space-between
         margin-bottom: 32px
 
-        +while-mob
+        +until-480
             flex-direction: column
 
     &__title
 
         &:not(:last-child)
-            +while-mob
+            +until-480
                 margin-bottom: 16px
 
     &__body
@@ -22,7 +22,7 @@
         grid-template-columns: minmax(384px, 2fr) minmax(0, 5fr)
         grid-gap: 35px
 
-        +until-tablet
+        +until-768
             grid-template-columns: 100%
             grid-template-rows: auto 284px
             grid-gap: 25px
@@ -54,19 +54,19 @@
         font-size: 20px
         line-height: 1.2
 
-        +until-tablet
+        +until-768
             align-self: center
 
             font-size: 16px
             line-height: 1.5
 
-        +while-mob
+        +until-480
             font-size: 14px
 
         &:not(:last-child)
             margin-bottom: 32px
 
-            +while-mob
+            +until-480
                 margin-bottom: 16px
 
         &_bold
@@ -77,20 +77,20 @@
         flex-direction: column
         align-self: flex-start
 
-        +until-tablet
+        +until-768
             align-self: center
 
         & .contact
             &:not(:last-child)
                 margin-bottom: 30px
 
-                +while-mob
+                +until-480
                     margin-bottom: 20px
 
     &__availability
         margin-top: 44px
 
-        +while-mob
+        +until-480
             margin-top: 28px
 
     &_separate
@@ -123,7 +123,7 @@
 
         color: var(--color-red)
 
-        +until-tablet
+        +until-768
             width: 32px
             height: 32px
 
@@ -132,10 +132,10 @@
         font-size: 16px
         line-height: 1.5
 
-        +until-tablet
+        +until-768
             font-size: 14px
 
-        +while-mob
+        +until-480
             font-size: 12px
 
     &__value
@@ -145,10 +145,10 @@
 
         transition: color .3s ease
 
-        +until-tablet
+        +until-768
             font-size: 18px
 
-        +while-mob
+        +until-480
             font-size: 16px
 
     &__link

@@ -10,20 +10,20 @@
 		grid-template-rows: minmax(333px, 1fr)
 		grid-gap: 20px
 
-		+until-laptop
+		+until-1200
 			grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
 
-		+until-desktop
+		+until-992
 			grid-template-columns: 100%
 			grid-template-rows: minmax(313px, 1fr)
 
 		&:not(:last-child)
 			margin-bottom: 80px
 
-			+until-laptop
+			+until-1200
 				margin-bottom: 60px
 
-			+until-desktop
+			+until-992
 				margin-bottom: 20px
 
 
@@ -42,7 +42,7 @@
 		& .swiper-buttons
 			height: 0
 
-			+while-mob
+			+until-480
 				display: none
 
 	&__sub-slider
@@ -50,7 +50,7 @@
 
 		width: 100%
 
-		+until-desktop
+		+until-992
 			display: none
 
 		& .swiper-container

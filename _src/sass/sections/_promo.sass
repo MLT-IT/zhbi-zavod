@@ -6,12 +6,12 @@
 		justify-content: space-between
 		margin-bottom: 32px
 
-		+until-tablet
+		+until-768
 			display: block
 			margin-bottom: 16px
 
 		& .link
-			+until-tablet
+			+until-768
 				display: none
 
 	&__items
@@ -20,7 +20,7 @@
 		grid-template-rows: repeat(2, minmax(0, 1fr))
 		grid-gap: 10px
 
-		+until-desktop
+		+until-992
 			grid-template-columns: 100%
 			grid-template-rows: unset
 			grid-auto-rows: minmax(200px, 1fr)
@@ -31,5 +31,5 @@
 				&_big
 					grid-row: span 2
 
-					+until-desktop
+					+until-992
 						grid-row: unset

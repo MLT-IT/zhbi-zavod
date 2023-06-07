@@ -8,7 +8,7 @@
 	border-radius: var(--border-radius-base)
 	background-color: var(--color-white)
 
-	+until-tablet
+	+until-768
 		padding: 5px 5px 30px
 
 	&__btn-in-cart
@@ -57,14 +57,14 @@
 		display: flex
 		align-items: center
 
-		+until-tablet
+		+until-768
 			margin: 5px 5px
 
 		& .product-action
 			&:not(:last-child)
 				margin-right: 10px
 
-				+until-tablet
+				+until-768
 					margin-right: 4px
 
 	&__body
@@ -73,7 +73,7 @@
 		flex-direction: column
 		align-items: flex-start
 
-		+until-tablet
+		+until-768
 			padding-top: 20px
 
 	&__title
@@ -91,12 +91,12 @@
 			color: var(--color-red)
 			text-decoration: none
 
-		+until-tablet
+		+until-768
 			font-size: 12px
 			line-height: 1.3
 
 	&__subtitle
-		+from-tablet
+		+from-768
 			font-weight: 400
 
 	&__price
@@ -105,7 +105,7 @@
 		align-items: center
 		justify-content: space-between
 
-		+until-tablet
+		+until-768
 			margin-top: 10px
 			flex-direction: column
 			align-items: flex-start
@@ -116,7 +116,7 @@
 			line-height: 1.5
 			white-space: nowrap
 
-			+until-tablet
+			+until-768
 				font-size: 18px
 
 		&-notion
@@ -127,28 +127,28 @@
 			color: var(--color-gray)
 			text-align: right
 
-			+until-tablet
+			+until-768
 				font-size: 10px
 
 		&_volume
 			margin-top: 15px
 
-			+until-widescreen
+			+until-1400
 				flex-wrap: wrap
 
-			+until-tablet
+			+until-768
 				flex-direction: row
 
 			& .product-card__price
 				&-value
 					font-size: 20px
 
-					+until-widescreen
+					+until-1400
 						flex: 1 1 100%
 						text-align: center
 						margin-top: 20px
 
-					+until-desktop
+					+until-992
 						font-size: 18px
 
 	&__stats
@@ -163,7 +163,7 @@
 			margin-top: 10px
 			margin-bottom: auto
 
-			+until-tablet
+			+until-768
 				margin-top: 7px
 
 			&.active
@@ -177,7 +177,7 @@
 			font-size: 12px
 			line-height: 1.5
 
-			+from-desktop
+			+from-992
 				display: none
 
 			&::after
@@ -189,13 +189,13 @@
 			transition: height .3s ease
 			overflow: hidden
 
-			+from-desktop
+			+from-992
 				height: auto !important
 
 			& .product-card__stats
 				padding-top: 10px
 
-				+from-desktop
+				+from-992
 					padding-top: 0
 
 	&__stat
@@ -210,12 +210,12 @@
 		word-wrap: break-word
 		hyphens: auto
 
-		+until-tablet
+		+until-768
 			font-size: 10px
 			line-height: 1.1
 
 		&:not(:last-child)
-			+until-tablet
+			+until-768
 				margin-bottom: 10px
 
 		&::before
@@ -228,7 +228,7 @@
 
 			border-bottom: 1px dashed var(--color-gray-md)
 
-			+until-tablet
+			+until-768
 				margin-bottom: 0
 
 		&-name
@@ -253,7 +253,7 @@
 			max-width: 177px
 			margin-left: auto
 
-		+while-mob
+		+until-480
 			margin-top: 20px
 
 	&__counter
@@ -273,7 +273,7 @@
 			font-size: 14px
 			line-height: 1.7
 
-			+until-tablet
+			+until-768
 				font-size: 12px
 
 			&:not(:last-child)
@@ -317,7 +317,7 @@
 		flex-direction: column
 		margin-right: 0 !important
 
-		+until-desktop
+		+until-992
 			height: 59px
 
 		&.active
@@ -325,7 +325,7 @@
 			border: transparent
 			box-shadow: none
 
-		+until-tablet
+		+until-768
 			flex: 1 0 55px
 			padding: 3px 16px
 			height: 40px
@@ -333,7 +333,7 @@
 		&:not(:last-child)
 			margin-right: 10px
 
-			+until-tablet
+			+until-768
 				margin-right: 5px
 
 		&::after
@@ -346,7 +346,7 @@
 			background-size: 100%
 			background-repeat: no-repeat
 
-			+until-tablet
+			+until-768
 				display: block
 
 
@@ -362,22 +362,22 @@
 				padding-top: 20px
 
 			&__title
-				+from-tablet
+				+from-768
 					font-size: 16px
 
 			&__subtitle
-				+from-tablet
+				+from-768
 					font-size: 14px
 
 			&__actions
 				& .product-action
-					+from-tablet
+					+from-768
 						width: 36px
 						height: 36px
 
 			&__stat
 				font-size: 14px
-				+until-desktop
+				+until-992
 					font-size: 12px
 
 			&__add
@@ -386,28 +386,28 @@
 
 				font-size: 12px
 
-				+until-desktop
+				+until-992
 					flex: 1 0 55px
 					padding: 3px 16px
 					height: 30px
 
 				&:not(:last-child)
 					margin-right: 7px
-					+while-mob
+					+until-480
 						margin-right: 4px
 
 				&-text
-					+until-desktop
+					+until-992
 						display: none
 
 				&::after
-					+until-desktop
+					+until-992
 						display: block
 
 			&__counter
 				height: 43px
 
-				+until-desktop
+				+until-992
 					flex: 0 1 140px
 					height: 30px
 
@@ -415,17 +415,17 @@
 					&__btn
 						flex: 0 0 43px
 
-						+until-desktop
+						+until-992
 							flex: 1 0 30px
 
-						+while-mob
+						+until-480
 							min-width: 20px
 							flex-shrink: 1
 
 					&__input
 						font-size: 16px
 
-						+until-desktop
+						+until-992
 							font-size: 12px
 
 

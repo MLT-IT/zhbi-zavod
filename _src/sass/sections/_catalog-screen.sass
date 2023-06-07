@@ -12,10 +12,10 @@
 		font-size: 16px
 		line-height: 1.5
 
-		+until-tablet
+		+until-768
 			font-size: 14px
 
-		+while-mob
+		+until-480
 			font-size: 12px
 
 		&:not(:last-child)
@@ -26,7 +26,7 @@
 		grid-template-columns: 100%
 		grid-gap: 9px
 
-		+while-mob
+		+until-480
 			grid-gap: 5px
 
 	&__items
@@ -45,13 +45,13 @@
 						&::before
 							content: 'скрыть'
 
-		+until-desktop
+		+until-992
 			grid-template-columns: repeat(4, minmax(0, 1fr))
 
-		+until-tablet
+		+until-768
 			grid-template-columns: repeat(3, minmax(0, 1fr))
 
-		+while-mob
+		+until-480
 			grid-template-columns: repeat(2, minmax(0, 1fr))
 			grid-gap: 5px
 
@@ -72,10 +72,10 @@
 		&:hover
 			box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
 
-		+until-laptop
+		+until-1200
 			padding-right: 10px
 
-		+until-tablet
+		+until-768
 			padding: 5px
 
 		&-picture
@@ -88,12 +88,12 @@
 			align-items: center
 			justify-content: center
 
-			+until-laptop
+			+until-1200
 				margin-right: 15px
 				width: 50px
 				height: 50px
 
-			+until-tablet
+			+until-768
 				width: 40px
 				height: 40px
 				padding: 5px
@@ -112,18 +112,18 @@
 			font-size: 15px
 			line-height: 1.3
 
-			+until-laptop
+			+until-1200
 				max-width: calc(100% - 65px)
 				font-size: 14px
 
-			+until-tablet
+			+until-768
 				font-size: 12px
 
 		&_type_default
-			+from-mob
+			+from-480
 				&:nth-of-type(n+10)
 					display: none
-			+while-mob
+			+until-480
 				&:nth-of-type(n+4)
 					display: none
 
@@ -140,18 +140,18 @@
 			transition: color .3s ease
 			display: none
 
-			+from-mob
+			+from-480
 				&:nth-of-type(n+11)
 					display: flex
 
-			+while-mob
+			+until-480
 				&:nth-of-type(n+5)
 					display: flex
 
-			+until-laptop
+			+until-1200
 				font-size: 14px
 
-			+until-tablet
+			+until-768
 				font-size: 12px
 
 			&:hover

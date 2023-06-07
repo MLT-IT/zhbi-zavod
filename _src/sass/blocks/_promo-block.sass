@@ -6,7 +6,7 @@
 
 	border-radius: var(--border-radius-base)
 
-	+until-tablet
+	+until-768
 		display: flex
 		flex-direction: column
 		padding: 25px 30px 25px 10px
@@ -38,7 +38,7 @@
 		font-size: 20px
 		line-height: 1.2
 
-		+until-tablet
+		+until-768
 			line-height: 1.3
 
 	&__text
@@ -48,7 +48,7 @@
 		font-size: 16px
 		line-height: 1.2
 
-		+until-tablet
+		+until-768
 			font-size: 12px
 			line-height: 1.3
 
@@ -56,7 +56,7 @@
 		margin-top: 30px
 		width: max-content
 
-		+until-tablet
+		+until-768
 			margin-top: 25px
 			padding: 10px 10px 6px
 
@@ -66,10 +66,10 @@
 		&_big
 			padding: 60px 60px 45px
 
-			+until-desktop
+			+until-992
 				padding: 40px 60px 35px
 
-			+until-tablet
+			+until-768
 				padding: 25px 30px 25px 10px
 
 			& .promo-block
@@ -78,7 +78,7 @@
 
 					font-size: 30px
 
-					+until-desktop
+					+until-992
 						margin-bottom: 10px
 
 						font-size: 20px
@@ -86,19 +86,19 @@
 				&__text
 					font-size: 20px
 
-					+until-desktop
+					+until-992
 						font-size: 16px
 
-					+until-tablet
+					+until-768
 						font-size: 12px
 
 				&__btn
 					margin-top: 40px
 
-					+until-desktop
+					+until-992
 						margin-top: 30px
 
-					+until-tablet
+					+until-768
 						margin-top: 25px
 
 	&_style

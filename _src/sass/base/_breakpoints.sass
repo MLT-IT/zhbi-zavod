@@ -26,44 +26,44 @@ $grid-breakpoints: ('mobile': 480px, 'tablet': 768px, 'laptop': 992px, 'laptop-x
 		@content
 
 // -==========================================================================================================
-@mixin from-mob()
+@mixin from-480()
 	@include media-breakpoint-up('mobile')
 		@content
 
-@mixin from-tablet()
+@mixin from-768()
 	@include media-breakpoint-up('tablet')
 		@content
 
-@mixin from-desktop()
+@mixin from-992()
 	@include media-breakpoint-up('laptop')
 		@content
 
-@mixin from-laptop()
+@mixin from-1200()
 	@include media-breakpoint-up('laptop-xl')
 		@content
 
-@mixin from-widescreen()
+@mixin from-1400()
 	@include media-breakpoint-up('laptop-xxl')
 		@content
 
 // -==========================================================================================================
-@mixin while-mob()
+@mixin until-480()
 	@include media-breakpoint-down('mobile')
 		@content
 
-@mixin until-tablet()
+@mixin until-768()
 	@include media-breakpoint-down('tablet')
 		@content
 
-@mixin until-desktop()
+@mixin until-992()
 	@include media-breakpoint-down('laptop')
 		@content
 
-@mixin until-laptop()
+@mixin until-1200()
 	@include media-breakpoint-down('laptop-xl')
 		@content
 
-@mixin until-widescreen()
+@mixin until-1400()
 	@include media-breakpoint-down('laptop-xxl')
 		@content
 

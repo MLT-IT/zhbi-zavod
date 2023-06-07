@@ -16,7 +16,7 @@
 		transition: opacity .3s ease
 		background: rgba(0, 0, 0, 0.25)
 
-		+until-tablet
+		+until-768
 			display: block
 
 	&__btn
@@ -26,10 +26,10 @@
 		margin-left: auto
 		display: none
 
-		+until-tablet
+		+until-768
 			display: flex
 
-		+while-mob
+		+until-480
 			width: 100%
 
 		&::after
@@ -62,7 +62,7 @@
 		align-items: center
 		justify-content: flex-end
 
-		+until-tablet
+		+until-768
 			position: absolute
 			top: calc(100% + 6px)
 			right: 0
@@ -82,7 +82,7 @@
 			pointer-events: none
 			transition: opacity .3s ease, transform .3s ease
 
-		+while-mob
+		+until-480
 			width: calc(100vw - 20px)
 
 	&__title
@@ -92,7 +92,7 @@
 		font-size: 14px
 		line-height: 1.5
 
-		+until-laptop
+		+until-1200
 			display: none
 
 	&__item
@@ -117,7 +117,7 @@
 		&:not(:last-child)
 			margin-right: 32px
 
-			+until-tablet
+			+until-768
 				margin-right: 0
 				margin-bottom: 18px
 
@@ -160,7 +160,7 @@
 	&.active
 		& .sorting
 			&__body
-				+until-tablet
+				+until-768
 					opacity: 1
 
 					transform: none

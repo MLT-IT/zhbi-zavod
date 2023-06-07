@@ -12,7 +12,7 @@
 		& .swiper-buttons
 			height: 0
 
-			+while-mob
+			+until-480
 				position: relative
 				z-index: 2
 
@@ -26,15 +26,15 @@
 					width: 40px
 					height: 40px
 
-					+until-desktop
+					+until-992
 						width: 32px
 						height: 32px
 
-					+while-mob
+					+until-480
 						transform: none
 
 					&:not(:last-child)
-						+while-mob
+						+until-480
 							margin-right: 5px
 
 	&__name
@@ -51,14 +51,14 @@
 		font-size: 16px
 		line-height: 1.7
 
-		+until-desktop
+		+until-992
 			font-size: 14px
 
 	&__btn
 		margin-top: 50px
 		width: max-content
 
-		+until-desktop
+		+until-992
 			margin-top: 30px
 
 	&__item
@@ -67,8 +67,8 @@
 		background: var(--color-white)
 		border-radius: var(--border-radius-base)
 
-		+until-desktop
+		+until-992
 			padding: 20px 30px
 
-		+while-mob
+		+until-480
 			padding: 10px 15px

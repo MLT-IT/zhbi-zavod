@@ -12,10 +12,10 @@
         grid-gap: 40px
         align-items: flex-start
 
-        +until-laptop
+        +until-1200
             grid-gap: 15px
 
-        +until-desktop
+        +until-992
             grid-template-columns: 100%
 
     &__pictures
@@ -24,12 +24,12 @@
         gap: 15px
         height: 552px
 
-        +until-laptop
+        +until-1200
             height: auto
             grid-template-columns: 100%
             grid-template-rows: auto 112px
 
-        +until-tablet
+        +until-768
             gap: 5px
             grid-template-rows: auto 72px
 
@@ -37,13 +37,13 @@
             height: 100%
             width: 100%
 
-            +until-laptop
+            +until-1200
                 grid-row: 2
 
         &-slider
             height: 100%
 
-            +until-laptop
+            +until-1200
                 grid-row: 1
 
         &-slide,
@@ -85,14 +85,14 @@
         align-items: center
 
         & .product-action
-            +until-tablet
+            +until-768
                 width: 40px
                 height: 40px
 
             &:not(:last-child)
                 margin-right: 10px
 
-                +until-tablet
+                +until-768
                     margin-right: 4px
 
 
@@ -101,7 +101,7 @@
     background-color: var(--color-white)
     border-radius: var(--border-radius-base)
 
-    +until-tablet
+    +until-768
         padding: 20px 20px 25px
 
     &__delivery-btn
@@ -111,7 +111,7 @@
         flex-grow: 1
         margin-right: 20px
 
-        +until-tablet
+        +until-768
             margin-top: 20px
             margin-right: 0
             width: 100%
@@ -145,7 +145,7 @@
         width: 100%
         margin-top: 10px
 
-        +until-tablet
+        +until-768
             order: 4
 
     &__top
@@ -153,13 +153,13 @@
         margin-bottom: 24px
         border-bottom: 1px solid var(--color-black-trans)
 
-        +while-mob
+        +until-480
             margin-bottom: 30px
 
     &__rating
         margin-bottom: 25px
 
-        +while-mob
+        +until-480
             justify-content: center
 
             .rating__star:not(:last-child)
@@ -177,7 +177,7 @@
         align-items: center
         justify-content: space-between
 
-        +until-tablet
+        +until-768
             flex-direction: column-reverse
 
         &-title
@@ -187,10 +187,10 @@
             font-size: 12px
             line-height: 1.7
 
-            +while-mob
+            +until-480
                 margin-right: auto
 
-            +until-tablet
+            +until-768
                 margin-left: 0
 
             &_available
@@ -205,7 +205,7 @@
                     background-repeat: no-repeat
                     background-size: 100%
 
-                    +while-mob
+                    +until-480
                         margin-right: 5px
 
 
@@ -215,26 +215,26 @@
         flex: 1 1 50%
         margin-right: 20px
 
-        +until-tablet
+        +until-768
             width: 100%
 
-        +while-mob
+        +until-480
             flex-direction: column
 
     &__param
         flex: 1 1 30%
 
-        +until-tablet
+        +until-768
             flex: 1 1 50%
 
-        +while-mob
+        +until-480
             flex: unset
             width: 100%
 
         &:not(:last-child)
             margin-right: 10px
 
-            +while-mob
+            +until-480
                 margin-right: 0
                 margin-bottom: 10px
 
@@ -247,17 +247,17 @@
         display: flex
         flex-direction: column
 
-        +until-tablet
+        +until-768
             order: 2
             flex-direction: row
             align-items: center
 
-        +while-mob
+        +until-480
             order: 1
 
         &:not(:last-child)
             margin-right: 20px
-            +until-tablet
+            +until-768
                 margin-right: 0
 
         &-title
@@ -267,7 +267,7 @@
 
             &:not(:last-child)
                 margin-bottom: 3px
-                +until-tablet
+                +until-768
                     margin-bottom: 0
                     margin-right: 15px
 
@@ -297,7 +297,7 @@
             transition: background-color .3s ease, color .3s ease
             cursor: pointer
 
-            +until-tablet
+            +until-768
                 padding: 6px 3px 4px
                 height: 30px
                 min-width: 30px
@@ -316,7 +316,7 @@
         margin-left: auto
         margin-top: 30px
 
-        +until-tablet
+        +until-768
             order: 1
             margin-top: 0
             margin-left: 0
@@ -324,7 +324,7 @@
             flex: 1 1 100%
             text-align: center
 
-        +while-mob
+        +until-480
             margin-top: 10px
             margin-bottom: 0
             order: 2
@@ -346,13 +346,13 @@
         width: 100%
 
         .counter__btn, .counter
-            +until-tablet
+            +until-768
                 height: 40px
 
         .counter__btn
             max-width: 50px
 
-            +while-mob
+            +until-480
                 flex-basis: 24px
 
         .btn
@@ -361,7 +361,7 @@
             margin-right: 0
             margin-left: 25px
 
-            +while-mob
+            +until-480
                 flex-basis: 159px
                 margin-left: 22px
 
@@ -372,29 +372,29 @@
             &::after
                 display: none
 
-        +until-tablet
+        +until-768
             order: 3
 
-        +while-mob
+        +until-480
             margin-top: 20px
             grid-template-columns: 130px minmax(0, 1fr)
 
     &__counter
         height: 50px
 
-        +until-tablet
+        +until-768
             height: 40px
 
         & .counter
             &__btn
                 flex: 0 0 50px
-                +until-tablet
+                +until-768
                     flex: 0 1 40px
 
             &__input
                 font-size: 16px
 
-                +until-tablet
+                +until-768
                     font-size: 14px
 
     &__buy,

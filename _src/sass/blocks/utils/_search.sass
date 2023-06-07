@@ -22,7 +22,7 @@
         z-index: 1
         box-shadow: none
 
-        +until-tablet
+        +until-768
             flex: 0 0 28px
 
     &__input
@@ -42,7 +42,7 @@
         border-left: none
         outline: none
 
-        +until-tablet
+        +until-768
             min-height: 28px
             padding: 6px 10px
 
@@ -82,7 +82,7 @@
         transform: translateY(-12px)
         transition: .3s ease
 
-        +until-desktop
+        +until-992
             max-width: unset
             width: 100%
 
@@ -152,9 +152,9 @@
     &_display
         &_mobile
             display: none
-            +until-desktop
+            +until-992
                 display: flex
 
         &_desktop
-            +until-desktop
+            +until-992
                 display: none

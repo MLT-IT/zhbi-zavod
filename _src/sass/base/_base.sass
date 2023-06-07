@@ -26,9 +26,9 @@ $fontFamily: 'Gotham Pro', sans-serif
 
         @if ($containerPadding > 0)
             padding: 0 $containerPadding + px
-            +until-desktop
+            +until-992
                 padding: 0 20px
-            +while-mob
+            +until-480
                 padding: 0 10px
 
 .layout
@@ -126,20 +126,20 @@ body
 
 .mobile-block
     display: none !important
-    +while-mob
+    +until-480
         display: block !important
 
 .mobile-flex
     display: none !important
-    +while-mob
+    +until-480
         display: flex !important
 
 .pc-block
     display: block !important
-    +while-mob
+    +until-480
         display: none !important
 
 .pc-flex
     display: flex !important
-    +while-mob
+    +until-480
         display: none !important

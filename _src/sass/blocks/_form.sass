@@ -4,7 +4,7 @@
 		grid-template-columns: 100%
 		grid-gap: 15px
 
-		+until-tablet
+		+until-768
 			grid-gap: 10px
 
 		&:not(:last-child)
@@ -13,7 +13,7 @@
 		&_double
 			grid-template-columns: repeat(2, minmax(0, 1fr))
 
-			+until-tablet
+			+until-768
 				grid-template-columns: 100%
 
 	&__item
@@ -26,7 +26,7 @@
 		font-size: 20px
 		line-height: 1.2
 
-		+until-tablet
+		+until-768
 			text-align: center
 
 		&:not(:last-child)
@@ -36,7 +36,7 @@
 		display: flex
 		flex-direction: column
 
-		+until-tablet
+		+until-768
 			width: max-content
 			margin: 0 auto
 
@@ -56,7 +56,7 @@
 			flex-direction: row
 			justify-content: space-between
 
-			+until-tablet
+			+until-768
 				flex-direction: column
 
 			& .form
@@ -64,18 +64,18 @@
 					margin-top: 0
 					margin-right: 20px
 
-					+until-tablet
+					+until-768
 						margin-right: 0
 
 
 	& .btn
-		+until-tablet
+		+until-768
 			order: 2
 
 	&__suggestion
 		margin-top: 20px
 
-		+until-tablet
+		+until-768
 			width: min-content
 			min-width: 240px
 			order: 1

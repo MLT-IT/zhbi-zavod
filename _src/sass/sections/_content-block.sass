@@ -12,17 +12,17 @@
 		font-size: 30px
 		line-height: 1.2
 
-		+until-tablet
+		+until-768
 			margin-bottom: 8px
 
 	&__preview
 		columns: 3
 		column-gap: 45px
 
-		+until-desktop
+		+until-992
 			columns: 2
 
-		+until-tablet
+		+until-768
 			columns: unset
 			display: flex
 			flex-direction: column
@@ -35,7 +35,7 @@
 			font-size: 16px
 			line-height: 1.5
 
-			+until-tablet
+			+until-768
 				margin-bottom: 8px
 
 				font-size: 14px
@@ -52,7 +52,7 @@
 
 		transition: .3s ease
 
-		+until-tablet
+		+until-768
 			font-size: 14px
 
 		&::before
@@ -85,11 +85,11 @@
 		columns: 3
 		column-gap: 45px
 
-		+until-desktop
+		+until-992
 			columns: 2
 			padding-top: 50px
 
-		+until-tablet
+		+until-768
 			columns: 1
 			padding-top: 35px
 
@@ -100,7 +100,7 @@
 
 			break-after: avoid-column
 
-			+until-tablet
+			+until-768
 				font-size: 18px
 
 			&:not(:last-child)
@@ -111,7 +111,7 @@
 			font-size: 16px
 			line-height: 1.5
 
-			+until-tablet
+			+until-768
 				font-size: 14px
 
 			&:not(:last-child)
@@ -132,7 +132,7 @@
 				font-size: 16px
 				line-height: 1.6
 
-				+until-tablet
+				+until-768
 					font-size: 14px
 
 				&::before

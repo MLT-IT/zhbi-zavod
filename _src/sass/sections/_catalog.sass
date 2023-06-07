@@ -1,7 +1,7 @@
 .catalog
 	padding-bottom: 50px
 
-	+until-tablet
+	+until-768
 		padding-bottom: 30px
 
 	&__body
@@ -14,11 +14,11 @@
 		grid-template-rows: auto 1fr
 		grid-gap: 10px 30px
 
-		+until-laptop
+		+until-1200
 			grid-template-columns: 180px auto
 			grid-gap: 10px 6px
 
-		+while-mob
+		+until-480
 			grid-template-columns: 100%
 			grid-gap: 20px 6px
 
@@ -26,7 +26,7 @@
 		grid-row: 1 / -1
 		z-index: 100
 
-		+until-laptop
+		+until-1200
 			grid-row: 1
 
 	&__body
@@ -34,10 +34,10 @@
 		grid-template-columns: 100%
 		grid-gap: 40px
 
-		+until-laptop
+		+until-1200
 			grid-column: 1 / -1
 
-		+until-tablet
+		+until-768
 			grid-gap: 30px
 
 	&__more
@@ -48,7 +48,7 @@
 		grid-template-columns: repeat(3, minmax(0, 1fr))
 		grid-gap: 20px 12px
 
-		+until-desktop
+		+until-992
 			grid-gap: 12px 6px
 
 		+media-until(600px)

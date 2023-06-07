@@ -7,7 +7,7 @@
 	background-color: var(--color-gray-lt)
 	border-radius: var(--border-radius-base)
 
-	+until-tablet
+	+until-768
 		align-items: center
 		padding: 20px 32px 30px
 
@@ -16,7 +16,7 @@
 		line-height: 1.5
 		text-align: right
 
-		+while-mob
+		+until-480
 			text-align: center
 
 	&__title
@@ -24,7 +24,7 @@
 
 		font-size: 20px
 
-		+while-mob
+		+until-480
 			margin-bottom: 5px
 
 			font-size: 16px
@@ -40,7 +40,7 @@
 
 		color: var(--color-gray)
 
-		+while-mob
+		+until-480
 			font-size: 12px
 
 			text-align: center
@@ -53,10 +53,10 @@
 		align-items: center
 		justify-content: space-between
 
-		+until-tablet
+		+until-768
 			display: grid
 			grid-template-columns: 100%
 			grid-gap: 32px
 
-		+while-mob
+		+until-480
 			margin-top: 5px
