@@ -6,7 +6,7 @@
 
 {block "page"}
 
-  {if $_modx->getPlaceholder('mspcs.option') ? || $_modx->getPlaceholder('mspcs.where') ?}
+  {if (($_modx->getPlaceholder('mspcs.option') is not empty) || ($_modx->getPlaceholder('mspcs.where') is not empty)) && ($_modx->resource.strictParent is empty)}
       {set $isSeoPage = 1}
   {else}
       {set $isSeoPage = 0}
@@ -32,7 +32,7 @@
 
   {set $tags = 'pdoResources' | snippet : $params}
 
-  <main class="layout__main">
+  <main class="layout__main" data-strict-parent="{$_modx->resource.strictParent | dump}" data-is-seo-page="{$isSeoPage | dump}">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">
@@ -90,7 +90,7 @@
       'totalVar' => 'total',
 
       'parents' => 'excludeIds' | snippet : [
-        'isSeoPage' => $isSeoPage,
+        'isSeoPage' => $isSeoPage
       ],
 
       'context' => $_modx->resource.context_key
