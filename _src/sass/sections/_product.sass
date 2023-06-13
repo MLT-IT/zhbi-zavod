@@ -72,9 +72,23 @@
 
     &__picture
         position: relative
-
         background-color: var(--color-white)
         border-radius: var(--border-radius-base)
+
+        @at-root .product.js-product_with-discount &
+            position: relative
+
+            &::before
+                right: 50px
+                top: 12px
+                width: 60px
+                height: 83px
+                content: ""
+                display: block
+                position: absolute
+                background: url(/assets/template/img/discount.png) no-repeat center center
+                background-size: contain
+                z-index: 5
 
     &__actions
         position: absolute
@@ -103,6 +117,29 @@
 
     +until-768
         padding: 20px 20px 25px
+
+    &__shipped
+        font-size: 14px
+        line-height: 1.7
+        align-items: center
+
+        +until-480
+            margin-bottom: 5px
+            font-size: 11px
+
+        &::before
+            width: 20px
+            height: 20px
+            margin-right: 7px
+            content: ""
+            display: inline-block
+            background: url(/assets/template/img/svg-sprite/shipped.svg) no-repeat center center
+            background-size: contain
+
+            +until-480
+                max-width: 12px
+                height: 12px
+                margin-right: 5px
 
     &__delivery-btn
         margin-top: 20px
@@ -161,6 +198,7 @@
 
         +until-480
             justify-content: center
+            margin-bottom: 10px
 
             .rating__star:not(:last-child)
                 margin-right: 3px
@@ -179,12 +217,13 @@
 
         +until-768
             flex-direction: column-reverse
+            align-items: flex-start
 
         &-title
             display: flex
             align-items: center
             font-weight: 400
-            font-size: 12px
+            font-size: 14px
             line-height: 1.7
 
             +until-480
@@ -315,6 +354,10 @@
     &__price
         margin-left: auto
         margin-top: 30px
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: flex-start
 
         +until-768
             order: 1
@@ -323,6 +366,39 @@
             margin-bottom: 10px
             flex: 1 1 100%
             text-align: center
+            align-items: center
+
+        @at-root .product.js-product_with-discount
+            .product-info__price-value
+                background-color: #fded7b
+                color: #d51c21
+                line-height: 1.0
+                cursor: pointer
+                margin-bottom: 6px
+                order: 1
+                transition: .3s
+
+                &:hover
+                    box-shadow: 0 0 30px rgba(211,85,60,.44)
+
+            .product-info__price
+                margin-top: 20px
+                color: #000
+
+                +until-768
+                    margin-top: 0
+
+                +until-480
+                    margin-top: 20px
+
+                &::after
+                    display: block
+                    content: ""
+                    order: 2
+                    width: 100%
+
+            .js-product__old-price
+                order: 3
 
         +until-480
             margin-top: 10px
@@ -403,3 +479,71 @@
 
     &__fast-buy
         grid-column: 1 / -1
+
+    &__price-mes
+        text-align: left
+        bottom: 68px
+        right: -54px
+        color: #fff
+        position: absolute
+        opacity: 0
+        pointer-events: none
+        padding: 16px
+        box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .4), 0 1.17px 2px rgba(0, 0, 0, 0.0196802), 0 1.4px 5px rgba(0, 0, 0, 0.03), 0 2px 10px rgba(0, 0, 0, 0.03), 0 2px 18px rgba(0, 0, 0, 0.04), 0 9px 33px rgba(0, 0, 0, 0.03)
+        width: 324px
+        background: #2e323d
+        border-radius: 8px
+        transition: opacity .2s ease-out
+        will-change: opacity
+
+        +until-768
+            right: auto
+            left: auto
+
+        +until-480
+            width: 300px
+            left: -20px
+            right: -20px
+            margin-left: auto
+            margin-right: auto
+
+        &::after
+            content: ""
+            position: absolute
+            width: 0
+            height: 0
+            border-left: 20px solid transparent
+            border-right: 20px solid transparent
+            border-top: 20px solid #2e323d
+            bottom: -7px
+            right: 90px
+
+            +until-768
+                right: auto
+                left: 50%
+                transform: translateX(-50%)
+
+        @at-root .product-info__price.active &
+            opacity: 1
+            pointer-events: auto
+
+    &__price-mes-header
+        font-weight: bold
+        margin-bottom: 8px
+        font-size: 16px
+
+    &__price-mes-body
+        font-size: 14px
+
+    &__price-mes-close
+        cursor: pointer
+        display: inline-block
+        position: absolute
+        right: 18px
+        top: 18px
+        line-height: 0.6
+
+        &::before
+            font-size: 27px
+            content: "\00d7"
+            display: inline-block

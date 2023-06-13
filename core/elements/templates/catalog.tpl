@@ -15,7 +15,7 @@
   {set $params = [
     'parents' => $_modx->resource.id,
     'templates' => '5',
-    'includeTVs' => 'mainImage',
+    'includeTVs' => 'mainImage,tagName',
     'tpl' => '@FILE chunks/create-menu/category-item.tpl',
     'context' => $_modx->resource.context_key,
     'sortby' => 'menuindex,id',

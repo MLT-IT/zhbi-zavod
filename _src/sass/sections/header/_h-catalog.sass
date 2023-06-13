@@ -18,14 +18,11 @@
     &__title
         position: sticky
         top: 0
-
         padding-bottom: 11px
-
         font-weight: 400
         font-size: 14px
         line-height: 1.2
         color: var(--color-gray)
-
         text-align: left
         user-select: none
 
@@ -84,6 +81,14 @@
     display: flex
     cursor: pointer
 
+    &__to-catalog
+        align-self: center
+        min-height: 0
+        line-height: 1.2
+
+        &:hover
+            border-color: transparent
+
     &_main
         padding-right: 12px
         text-decoration: none
@@ -124,13 +129,11 @@
 
     &__image
         display: block
-
         width: 100%
         height: 100%
-
         object-fit: contain
 
-    &__name
+    &__name, &_to-catalog
         font-weight: 400
         font-size: 14px
         line-height: 1.2

@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Добавление в бургер кнопки "Все производители"
     // -------------------------------
-    $('.h-catalog__column:first').append('<a class="btn btn_style_base" href="/catalog/">Все производители</a>');
+    $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item__to-catalog h-catalog-item__name h-catalog-item__name_bold " href="/catalog/">Все производители</a>');
 
 
     // -------------------------------

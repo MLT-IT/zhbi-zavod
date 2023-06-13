@@ -98,9 +98,6 @@ class myCustomFilter extends mse2FiltersHandler {
             }
 
 
-            // -------------------------------------------------------
-            // Сортировка опции "Производитель" на кирпичах
-            // -------------------------------------------------------
             if ($GLOBALS['modx']->resource->context_key == 'gazosilikatstroy') {
                 if ($options['name'] == 'proizvoditel') {
                     $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'СК (СтройКомплект)', 'Могилевский газосиликат', 'AEROC', 'Белорусский БЦК', 'YTONG', 'ЕАБ (ЕвроАэроБетон)', 'Н+Н', 'Bonolit', 'Забудова']);
@@ -108,6 +105,13 @@ class myCustomFilter extends mse2FiltersHandler {
 
                 if ($options['name'] == 'item_thickness') {
                     arsort($sorted);
+                }
+            }
+
+
+            if ($GLOBALS['modx']->resource->context_key == 'web') {
+                if ($options['name'] == 'proizvoditel') {
+                    $sorted = $this->sortByCustomOrder($sorted, $results, ['Rockwool', 'Технониколь', 'Penoplex', 'Knauf', 'Paroc', 'Ursa', 'Isover', 'Isoroc']);
                 }
             }
 

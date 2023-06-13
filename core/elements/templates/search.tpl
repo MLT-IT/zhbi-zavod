@@ -44,25 +44,25 @@
       'ajaxElemPagination' => '.sect-search__pagination',
       'ajax' => '1',
       'ajaxMode' => 'default',
-      'limit' => 2,
+      'limit' => 40,
       'setMeta' => 0,
       'sortby' => 'ids'
     ]}
+    {set $amount = $_modx->getPlaceholder('mSearchAmount')}
 
     <article class="best-products section search">
       <div class="best-products__container">
         <h1 class="section__title margin-bottom-md">{$_modx->resource.pagetitle}</h1>
           <p class="infoblocks__subtitle margin-bottom-md">
-            {if $data['amount'] > 0}
-              {set $amount = $_modx->getPlaceholder('mSearchAmount')}
+            {if $amount > 0}
               {set $text1 = '@FILE snippets/formOfWord.php' | snippet : [
-                'n' => $data['amount'],
+                'n' => $amount,
                 'f1' => 'Найден',
                 'f2' => 'Найдено',
                 'f5' => 'Найдено'
               ]}
               {set $text2 = '@FILE snippets/formOfWord.php' | snippet : [
-                'n' => $data['amount'],
+                'n' => $amount,
                 'f1' => 'результат',
                 'f2' => 'результата',
                 'f5' => 'результатов'

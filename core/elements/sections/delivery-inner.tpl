@@ -13,7 +13,7 @@
       <div class="mobile-block">макс. длина груза 4 м</div>
     </td>
     <td class="table__cell">4</td>
-    <td class="table__cell">от 1 200 руб</td>
+    <td class="table__cell">от 1 200 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -21,7 +21,7 @@
       <div class="mobile-block">макс. длина груза 4 м</div>
     </td>
     <td class="table__cell">4</td>
-    <td class="table__cell">от 1 700 руб</td>
+    <td class="table__cell">от 1 700 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -29,7 +29,7 @@
       <div class="mobile-block">макс. длина груза 6 м</div>
     </td>
     <td class="table__cell">6</td>
-    <td class="table__cell">от 1 900 руб</td>
+    <td class="table__cell">от 1 900 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -37,7 +37,7 @@
       <div class="mobile-block">макс. длина груза 6 м</div>
     </td>
     <td class="table__cell">6</td>
-    <td class="table__cell">от 2 000 руб</td>
+    <td class="table__cell">от 2 000 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -45,7 +45,7 @@
       <div class="mobile-block">макс. длина груза 8 м</div>
     </td>
     <td class="table__cell">8</td>
-    <td class="table__cell">от 3 500 руб</td>
+    <td class="table__cell">от 3 500 ₽</td>
   </tr>
   <tr class="table__row table__row_border_bold">
     <td class="table__cell">
@@ -53,7 +53,7 @@
       <div class="mobile-block">макс. длина груза 8 м</div>
     </td>
     <td class="table__cell">8</td>
-    <td class="table__cell">от 5 500 руб</td>
+    <td class="table__cell">от 5 500 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -61,7 +61,7 @@
       <div class="mobile-block">макс. длина груза 5 м</div>
     </td>
     <td class="table__cell">5</td>
-    <td class="table__cell">от 3 600 руб</td>
+    <td class="table__cell">от 3 600 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -69,7 +69,7 @@
       <div class="mobile-block">макс. длина груза 10 м</div>
     </td>
     <td class="table__cell">10</td>
-    <td class="table__cell">от 4 200 руб</td>
+    <td class="table__cell">от 4 200 ₽</td>
   </tr>
   <tr class="table__row">
     <td class="table__cell">
@@ -77,7 +77,7 @@
       <div class="mobile-block">макс. длина груза 14 м</div>
     </td>
     <td class="table__cell">14</td>
-    <td class="table__cell">от 6 500 руб</td>
+    <td class="table__cell">от 6 500 ₽</td>
   </tr>
   </tbody>
 </table>

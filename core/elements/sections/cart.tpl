@@ -29,8 +29,6 @@
         <div class="cart__item cart-item js-product" id="{$product.key}">
           <input name="id" value="{$product.id}" type="hidden">
           <div class="cart-item__picture">
-            <img class="cart-item__image" src="assets/template/pictures/products/product-1.png" alt="product">
-
             {var $image}
                 {if $product.thumb?}
                     <img class="cart-item__image" src="{$product.thumb}" alt="{$product.pagetitle}"  title="{$product.pagetitle}"/>
@@ -38,6 +36,7 @@
                     <img class="cart-item__image" src="{'assets_url' | option}components/minishop2/img/web/ms2_small.png" srcset="{'assets_url' | option}components/minishop2/img/web/ms2_small@2x.png 2x" alt="{$product.pagetitle}" title="{$product.pagetitle}"/>
                 {/if}
             {/var}
+            {$image}
 
             <div class="cart-item__actions">
               <button class="product-action product-action_favorite js-product__btn-fav"></button>

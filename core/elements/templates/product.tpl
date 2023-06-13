@@ -95,6 +95,10 @@
                   </span>
                 </div>
 
+                <div class="product-info__shipped mobile-flex">
+                    {'@FILE snippets/shippedToday.php' | snippet}
+                </div>
+
                 <div class="product-info__availability">
                   {if $_modx->context.key == 'gazosilikatstroy'}
                     {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
@@ -115,6 +119,10 @@
                     {/if}
                   {/if}
                   <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе 190 м3</div>
+                </div>
+
+                <div class="product-info__shipped pc-flex">
+                    {'@FILE snippets/shippedToday.php' | snippet}
                 </div>
 
               </div>
@@ -143,6 +151,12 @@
                           {$prodValues['outputOldPrice']}
                       </span>
                       ₽
+                    </div>
+
+                    <div class="product-info__price-mes">
+                        <p class="product-info__price-mes-header">Снижение цены!</p>
+                        <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
+                        <span class="product-info__price-mes-close"></span>
                     </div>
                   {/if}
                 </div>

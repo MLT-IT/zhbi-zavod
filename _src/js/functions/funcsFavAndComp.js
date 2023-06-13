@@ -8,7 +8,7 @@ export default {
     init
 };
 
-let $headerFav = $('.header__favorites');
+let $headerFav = $('.header__action_type_favorites');
 let $headerComp = $('.header__comparison');
 
 // Инициализация

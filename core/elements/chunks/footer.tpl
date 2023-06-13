@@ -13,24 +13,24 @@
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
-            <a class="footer__contact" href="tel:+78122109963">
+            <a class="footer__contact footer__contact_with-hover" href="tel:+78122109963">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
               <span class="footer__contact-value">{'phone' | option}</span>
             </a>
-            <a class="footer__contact" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
+            <a class="footer__contact footer__contact_with-hover" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
               </svg>
               <span class="footer__contact-value">{'email' | option}</span>
             </a>
-          <div class="footer__contact">
-            <svg class="footer__contact-icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
-            </svg>
-            <span class="footer__contact-value">{'address' | option}</span>
-          </div>
+            <div class="footer__contact">
+              <svg class="footer__contact-icon" aria-hidden="true">
+                <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
+              </svg>
+              <span class="footer__contact-value">{'address' | option}</span>
+            </div>
         </address>
 
         {*
@@ -67,6 +67,7 @@
           <p class="footer__nav-title">Каталог</p>
           <nav class="footer__nav-list">
             <a class="footer__nav-item" href="/o-kompanii/">О компании</a>
+            <a class="footer__nav-item" href="/contacts/">Контакты</a>
             <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
             <a class="footer__nav-item" href="/certs/">Сертификаты</a>
             <a class="footer__nav-item" href="/garantii/">Гарантии</a>

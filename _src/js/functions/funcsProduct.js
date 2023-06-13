@@ -576,6 +576,11 @@ function init(yandexMetrikaId) {
         });
     }
 
+    // Всплывашка на цене со скидкой
+    $('.js-product_with-discount .product-info__price-value, .js-product_with-discount .product-info__price-mes-close').on('click', function(e) {
+        e.stopPropagation();
+        $(this).closest('.product-info__price').toggleClass('active');
+    });
 }
 
 
@@ -803,7 +808,7 @@ function checkCart(unique_products) {
  * Работа с миникорзиной в шапке сайта (изменить кол-во, скрыть номерок, если товаров 0, показать номерок в противном случае).
  */
 function handleMiniCart(unique_products) {
-    const $cartInfoCountVal = $('.header__minicart');
+    const $cartInfoCountVal = $('.header__action_type_minicart');
 
     // Кол-во товаров в корзине
     let cartValue;
