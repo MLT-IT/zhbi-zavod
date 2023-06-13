@@ -118,7 +118,20 @@
                       </div>
                     {/if}
                   {/if}
-                  <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе 190 м3</div>
+
+                  {switch $_modx->resource.context_key}
+                    {case 'web'}
+                      {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
+                        'n' => $_modx->resource.stockNum,
+                        'f1' => 'упаковка',
+                        'f2' => 'упаковки',
+                        'f5' => 'упаковок'
+                      ]}
+                    {case 'gazosilikatstroy'}
+                      {set $unit = 'м3'}
+                  {/switch}
+
+                  <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
                 </div>
 
                 <div class="product-info__shipped pc-flex">

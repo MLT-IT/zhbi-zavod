@@ -135,15 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
     // -------------------------------
+    let $filterBtn = $('.catalog__filter');
     if (window.innerWidth >= 1200) {
         // Если мы на компах, то раскрываем фильтры прямо при загрузке страницы.
         $('.filter-item__top').click();
     } else {
+        let needExpandFilters = 1;
         // На телефонах надо делать иначе, в противном случае будет баг в фильтре с ценой (фильтр будет отображаться не полностью)
-        let $filterBtn = $('.catalog__filter');
-        $filterBtn.on('dropdowns-toggle', function () {
-            $filterBtn.off('dropdowns-toggle');
-            $('.filter-item__top').click();
+        $filterBtn.on('dropdown-toggle', function () {
+            if (needExpandFilters) {
+                $('.filter-item__top').click();
+                needExpandFilters = 0;
+            }
         });
     }
 
@@ -176,14 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     function fixAndUnfixHeader() {
         const $wrap = $('.wrap');
-        const cls = 'header-fixed';
+        const clsFixed = 'header-fixed';
+        const clsShadow = 'header-shadow';
         const $header = $('.header__bottom');
 
-        if ((window.innerWidth >= 992) && ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight()))) {
-            $wrap.removeClass(cls);
+        if ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight())) {
+            if (window.innerWidth >= 992) {
+                $wrap.removeClass(clsFixed);
+            }
+            $wrap.removeClass(clsShadow);
         } else {
             // Поскольку шапка становтся fixed, высота документа уменьшается. Из-за этого будет некрасивый скачок. И некоторый контент будет сложно прочитать. Чтобы этого избежать, добавляем padding-top величиной в высоту НЕФИКСИРОВАННОЙ шапки
-            $wrap.addClass(cls);
+            $wrap.addClass(clsFixed);
+            $wrap.addClass(clsShadow);
         }
         calcProperties.calcHeaderHeight();
     }
@@ -211,6 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 300);
     });
+
+
+    // --------------------------------
+    // Раскрытие / скрытие фильтров
+    // --------------------------------
+    $filterBtn.add('.filter__close-btn').on('dropdown-toggle', function() {
+        $('body').toggleClass('filters-expanded');
+    }).on('dropdown-close', function() {
+        $('body').removeClass('filters-expanded');
+    }).on('dropdown-close dropdown-toggle', function() {
+        if (window.innerWidth < 1200 && !$(this).hasClass('active')) {
+            if ($('.product-card_catalog').length < 6) {
+                $('html, body').animate({scrollTop: $('.js-catalog').position().top - 90}, 300);
+            }
+        }
+    });
+
 });
 
 function getYandexMetrikaId() {

@@ -16,6 +16,10 @@
     border: 3px solid transparent
     box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
 
+    +until-1200
+        @at-root .filters-expanded &
+            display: none
+
     +until-768
         right: 0
 

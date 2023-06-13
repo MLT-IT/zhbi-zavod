@@ -173,13 +173,16 @@
     &__right-burger
         display: none
 
+    &-shadow
+        .header__bottom
+            box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
+
     &-fixed
         .header__bottom
             position: fixed
             z-index: 1000
             width: 100%
             top: 0
-            box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
             padding-top: 15px
             padding-bottom: 15px
 
@@ -198,7 +201,7 @@
                 font-size: 18px
 
             +until-480
-                font-size: 15px
+                font-size: 20px
 
         .header__search
             &_screen

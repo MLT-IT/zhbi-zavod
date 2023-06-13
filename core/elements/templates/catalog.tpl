@@ -32,7 +32,7 @@
 
   {set $tags = 'pdoResources' | snippet : $params}
 
-  <main class="layout__main" data-strict-parent="{$_modx->resource.strictParent | dump}" data-is-seo-page="{$isSeoPage | dump}">
+  <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
       <article class="catalog-screen">

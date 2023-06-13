@@ -57,6 +57,9 @@ export default class Dropdowns {
         if (item.dataset.dropdown === 'responsive') {
             content.style.height = '0px'
         }
+
+        const event = new CustomEvent('dropdown-close')
+        item.dispatchEvent(event)
     }
 
     #toggle(item, content, title) {
@@ -79,7 +82,7 @@ export default class Dropdowns {
             }
         }
 
-        const event = new CustomEvent('dropdowns-toggle')
+        const event = new CustomEvent('dropdown-toggle')
         item.dispatchEvent(event)
     }
 }
