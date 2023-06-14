@@ -37,9 +37,9 @@ export default function initDistrictsMap() {
                     let tar = e.originalEvent.target;
                     let tarId = tar.properties.get('districtId');
                     districtsMap.geoObjects.each(function (d) {
-                        if (d.options.get('fillOpacity') !== 0.9) {
+                        if (d.options.get('fillOpacity') !== 0.6) {
                             if (d.properties.get('districtId') === tarId) {
-                                d.options.set({fillOpacity: 0.8});
+                                d.options.set({fillOpacity: 0.5});
                             } else {
                                 d.options.set({fillOpacity: 0.3});
                             }
@@ -49,7 +49,7 @@ export default function initDistrictsMap() {
 
                 myGeoObject.events.add('mouseleave', function (e) {
                     districtsMap.geoObjects.each(function (d) {
-                        if (d.options.get('fillOpacity') !== 0.9) {
+                        if (d.options.get('fillOpacity') !== 0.6) {
                             d.options.set({fillOpacity: 0.3});
                         }
                     });
@@ -60,7 +60,7 @@ export default function initDistrictsMap() {
                     let tarId = tar.properties.get('districtId');
                     districtsMap.geoObjects.each(function (d) {
                         if (d.properties.get('districtId') === tarId) {
-                            d.options.set({fillOpacity: 0.9});
+                            d.options.set({fillOpacity: 0.6});
                         } else {
                             d.options.set({fillOpacity: 0.3});
                         }

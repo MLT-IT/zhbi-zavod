@@ -33,8 +33,12 @@
 {/if}
 
 {* Получаем отзывы товара *}
-{set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
-{set $reviewsCount = $reviews | count}
+{if $_modx->resource.context_key == 'web'}
+  {set $reviewsCount = 0}
+{else}
+  {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
+  {set $reviewsCount = $reviews | count}
+{/if}
 
 {* Получаем видео товара *}
 {set $video = $_modx->resource.video}

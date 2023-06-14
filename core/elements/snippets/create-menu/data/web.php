@@ -14,11 +14,15 @@ function getMenuData() {
         $rockwool => [
             'column2' => [
                 [
-                    'uri' => '/rockwool/light-batts-scandic/',
+                    'uri' => '/rockwool/light-batts/',
+                    'name' => 'Лайт Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/light-batts/light-batts-scandic/',
                     'name' => 'Скандик Лайт Баттс',
                 ],
                 [
-                    'uri' => '/rockwool/light-batts-optima/',
+                    'uri' => '/rockwool/light-batts/light-batts-optima/',
                     'name' => 'Лайт Баттс Оптима',
                 ],
                 [
@@ -26,72 +30,8 @@ function getMenuData() {
                     'name' => 'Акустик Баттс',
                 ],
                 [
-                    'uri' => '/rockwool/acoustic-standart/',
-                    'name' => 'Акустик Стандарт',
-                ],
-                [
-                    'uri' => '/rockwool/arktic/',
-                    'name' => 'Арктик',
-                ],
-                [
-                    'uri' => '/rockwool/beton-element-batts/',
-                    'name' => 'Бетон Элемент Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/venti-batts/',
-                    'name' => 'Венти Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/kaviti-batts/',
-                    'name' => 'Кавити Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/kamin-batts/',
-                    'name' => 'Камин Баттс',
-                ],
-                [
                     'uri' => '/rockwool/karkas-batts/',
                     'name' => 'Каркас Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/light-batts/',
-                    'name' => 'Лайт Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/plaster-batts/',
-                    'name' => 'Пластер Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/standart/',
-                    'name' => 'Роквул Стандарт',
-                ],
-                [
-                    'uri' => '/rockwool/rokvul-tekh-batts/',
-                    'name' => 'Роквул Тех Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/rockfacade/',
-                    'name' => 'Рокфасад',
-                ],
-                [
-                    'uri' => '/rockwool/roof-batts/',
-                    'name' => 'Руф Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/sauna-batts/',
-                    'name' => 'Сауна Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/soput-tovary/',
-                    'name' => 'Сопутствующие товары',
-                ],
-                [
-                    'uri' => '/rockwool/sendvich-batts/',
-                    'name' => 'Сэндвич Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/teh-mat/',
-                    'name' => 'ТЕХ МАТ',
                 ],
                 [
                     'uri' => '/rockwool/fasad-batts/',
@@ -102,48 +42,108 @@ function getMenuData() {
                     'name' => 'Флор Баттс',
                 ],
                 [
-                    'uri' => '/rockwool/cilindry-navivnye/',
-                    'name' => 'Цилиндры навивные',
+                    'uri' => '/rockwool/arktic/',
+                    'name' => 'Арктик',
+                ],
+                [
+                    'uri' => '/rockwool/roof-batts/',
+                    'name' => 'Руф Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/venti-batts/',
+                    'name' => 'Венти Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/standart/',
+                    'name' => 'Роквул Стандарт',
                 ],
                 [
                     'uri' => '/rockwool/econom/',
                     'name' => 'Эконом',
                 ],
                 [
-                    'uri' => '/rockwool/conlit-sl-150/',
-                    'name' => 'CONLIT SL 150',
+                    'uri' => '/rockwool/teh-mat/',
+                    'name' => 'ТЕХ МАТ',
                 ],
                 [
-                    'uri' => '/rockwool/fire-batts/',
-                    'name' => 'Fire Batts',
+                    'uri' => '/rockwool/rockfacade/',
+                    'name' => 'Рокфасад',
                 ],
                 [
-                    'uri' => '/rockwool/ft-barrier/',
-                    'name' => 'FT BARRIER',
+                    'uri' => '/rockwool/rokvul-tekh-batts/',
+                    'name' => 'Роквул Тех Баттс',
                 ],
                 [
-                    'uri' => '/rockwool/industrial-batts-80/',
-                    'name' => 'Industrial Batts 80',
+                    'uri' => '/rockwool/soput-tovary/',
+                    'name' => 'Сопутствующие товары',
                 ],
                 [
-                    'uri' => '/rockwool/klimafix/',
-                    'name' => 'Klimafix',
+                    'uri' => '/rockwool/wired-mat/',
+                    'name' => 'WIRED MAT',
+                ],
+                [
+                    'uri' => '/rockwool/cilindry-navivnye/',
+                    'name' => 'Цилиндры навивные',
                 ],
                 [
                     'uri' => '/rockwool/lamella-mat-l/',
                     'name' => 'Lamella Mat',
                 ],
                 [
-                    'uri' => '/rockwool/prorox/',
-                    'name' => 'ProRox',
+                    'uri' => '/rockwool/conlit-sl-150/',
+                    'name' => 'CONLIT SL 150',
+                ],
+                [
+                    'uri' => '/rockwool/kaviti-batts/',
+                    'name' => 'Кавити Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/sauna-batts/',
+                    'name' => 'Сауна Баттс',
                 ],
                 [
                     'uri' => '/rockwool/searox/',
                     'name' => 'SeaRox',
                 ],
                 [
-                    'uri' => '/rockwool/wired-mat/',
-                    'name' => 'WIRED MAT',
+                    'uri' => '/rockwool/ft-barrier/',
+                    'name' => 'FT BARRIER',
+                ],
+                [
+                    'uri' => '/rockwool/fire-batts/',
+                    'name' => 'Fire Batts',
+                ],
+                [
+                    'uri' => '/rockwool/kamin-batts/',
+                    'name' => 'Камин Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/plaster-batts/',
+                    'name' => 'Пластер Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/klimafix/',
+                    'name' => 'Klimafix',
+                ],
+                [
+                    'uri' => '/rockwool/acoustic-standart/',
+                    'name' => 'Акустик Стандарт',
+                ],
+                [
+                    'uri' => '/rockwool/sendvich-batts/',
+                    'name' => 'Сэндвич Баттс',
+                ],
+                [
+                    'uri' => '/rockwool/prorox/',
+                    'name' => 'ProRox',
+                ],
+                [
+                    'uri' => '/rockwool/industrial-batts-80/',
+                    'name' => 'Industrial Batts 80',
+                ],
+                [
+                    'uri' => '/rockwool/beton-element-batts/',
+                    'name' => 'Бетон Элемент Баттс',
                 ],
             ],
             'column4' => [
@@ -259,124 +259,124 @@ function getMenuData() {
         $tn => [
             'column2' => [
                 [
-                    'uri' => '/tn/tekhnonikol-tekhnopleks/',
-                    'name' => 'XPS Техноплекс'
-                ],
-                [
-                    'uri' => '/tn/mat-tekhno/',
-                    'name' => 'Мат Техно'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozb/',
-                    'name' => 'Плита Техно ОЗБ'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozd/',
-                    'name' => 'Плита Техно ОЗД'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozm/',
-                    'name' => 'Плита Техно ОЗМ'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-t/',
-                    'name' => 'Плита Техно Т'
-                ],
-                [
-                    'uri' => '/tn/polimernye-gidroizolyacionnye-membrany/',
-                    'name' => 'Полимерные гидроизоляционные мембраны'
-                ],
-                [
-                    'uri' => '/tn/rulonnaya-zvukoizolyaciya/',
-                    'name' => 'Рулонная звукоизоляция'
-                ],
-                [
-                    'uri' => '/tn/soputstvuyushchie-tovary/',
-                    'name' => 'Сопутствующие товары Технониколь'
-                ],
-                [
                     'uri' => '/tn/carbon/',
                     'name' => 'Технониколь Carbon'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-greenguard/',
-                    'name' => 'Технониколь GreenGuard'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-logicpir/',
-                    'name' => 'Технониколь LOGICPIR'
-                ],
-                [
-                    'uri' => '/tn/bazalit/',
-                    'name' => 'Технониколь Базалит'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-izoboks/',
-                    'name' => 'Технониколь Изобокс'
-                ],
-                [
-                    'uri' => '/tn/plity-pir/',
-                    'name' => 'Технониколь Плиты PIR'
                 ],
                 [
                     'uri' => '/tn/tekhnonikol-roklajt/',
                     'name' => 'Технониколь Роклайт'
                 ],
                 [
-                    'uri' => '/tn/tekhnonikol-segmenty-i-polucilindry-xps/',
-                    'name' => 'Технониколь Сегменты и Полуцилиндры XPS'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-sendvich-tekhnonikol-c-xps/',
-                    'name' => 'Технониколь Сэндвич Ц-XPS'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-teploroll/',
-                    'name' => 'Технониколь Теплоролл'
-                ],
-                [
-                    'uri' => '/tn/zvukoizolyaciya-tekhnonikol-tekhnoakustik/',
-                    'name' => 'Технониколь Техноакустик'
-                ],
-                [
-                    'uri' => '/tn/tekhnoblok/',
-                    'name' => 'Технониколь Техноблок'
-                ],
-                [
-                    'uri' => '/tn/tekhnovent/',
-                    'name' => 'Технониколь Техновент'
-                ],
-                [
-                    'uri' => '/tn/tekhnolajt/',
-                    'name' => 'Технониколь Технолайт'
-                ],
-                [
                     'uri' => '/tn/tekhnoruf/',
                     'name' => 'Технониколь Техноруф'
                 ],
                 [
-                    'uri' => '/tn/tekhnosendvich/',
-                    'name' => 'Технониколь Техносэндвич'
+                    'uri' => '/tn/tekhnonikol-tekhnopleks/',
+                    'name' => 'XPS Техноплекс'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-logicpir/',
+                    'name' => 'Технониколь LOGICPIR'
                 ],
                 [
                     'uri' => '/tn/tekhnofas/',
                     'name' => 'Технониколь Технофас'
                 ],
                 [
-                    'uri' => '/tn/uteplitel-tekhnonikol-tekhnoflor/',
-                    'name' => 'Технониколь Технофлор'
+                    'uri' => '/tn/tekhnovent/',
+                    'name' => 'Технониколь Техновент'
                 ],
                 [
-                    'uri' => '/tn/tekhnonikol-shtukaturnyj-fasad/',
-                    'name' => 'Технониколь Штукатурный фасад'
+                    'uri' => '/tn/tekhnoblok/',
+                    'name' => 'Технониколь Техноблок'
+                ],
+                [
+                    'uri' => '/tn/tekhnolajt/',
+                    'name' => 'Технониколь Технолайт'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-izoboks/',
+                    'name' => 'Технониколь Изобокс'
                 ],
                 [
                     'uri' => '/tn/tekhnonikol-master-zvukozashchita/',
                     'name' => 'Технониколь Шумоизоляция'
                 ],
                 [
+                    'uri' => '/tn/plity-pir/',
+                    'name' => 'Технониколь Плиты PIR'
+                ],
+                [
+                    'uri' => '/tn/plita-tekhno-ozm/',
+                    'name' => 'Плита Техно ОЗМ'
+                ],
+                [
+                    'uri' => '/tn/zvukoizolyaciya-tekhnonikol-tekhnoakustik/',
+                    'name' => 'Технониколь Техноакустик'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-shtukaturnyj-fasad/',
+                    'name' => 'Технониколь Штукатурный фасад'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-sendvich-tekhnonikol-c-xps/',
+                    'name' => 'Технониколь Сэндвич Ц-XPS'
+                ],
+                [
+                    'uri' => '/tn/uteplitel-tekhnonikol-tekhnoflor/',
+                    'name' => 'Технониколь Технофлор'
+                ],
+                [
+                    'uri' => '/tn/polimernye-gidroizolyacionnye-membrany/',
+                    'name' => 'Полимерные гидроизоляционные мембраны'
+                ],
+                [
+                    'uri' => '/tn/bazalit/',
+                    'name' => 'Технониколь Базалит'
+                ],
+                [
+                    'uri' => '/tn/plita-tekhno-ozb/',
+                    'name' => 'Плита Техно ОЗБ'
+                ],
+                [
+                    'uri' => '/tn/plita-tekhno-t/',
+                    'name' => 'Плита Техно Т'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-greenguard/',
+                    'name' => 'Технониколь GreenGuard'
+                ],
+                [
+                    'uri' => '/tn/tekhnosendvich/',
+                    'name' => 'Технониколь Техносэндвич'
+                ],
+                [
+                    'uri' => '/tn/plita-tekhno-ozd/',
+                    'name' => 'Плита Техно ОЗД'
+                ],
+                [
                     'uri' => '/tn/cilindr-tekhno/',
                     'name' => 'Цилиндр Техно'
+                ],
+                [
+                    'uri' => '/tn/rulonnaya-zvukoizolyaciya/',
+                    'name' => 'Рулонная звукоизоляция'
+                ],
+                [
+                    'uri' => '/tn/mat-tekhno/',
+                    'name' => 'Мат Техно'
+                ],
+                [
+                    'uri' => '/tn/soputstvuyushchie-tovary/',
+                    'name' => 'Сопутствующие товары Технониколь'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-segmenty-i-polucilindry-xps/',
+                    'name' => 'Технониколь Сегменты и Полуцилиндры XPS'
+                ],
+                [
+                    'uri' => '/tn/tekhnonikol-teploroll/',
+                    'name' => 'Технониколь Теплоролл'
                 ],
             ],
             'column4' => [
@@ -496,51 +496,51 @@ function getMenuData() {
         $penoplex => [
             'column2' => [
                 [
-                    'uri' => '/45/',
-                    'name' => 'Пеноплэкс 45',
-                ],
-                [
-                    'uri' => '/geo/',
-                    'name' => 'Пеноплэкс ГЕО',
-                ],
-                [
-                    'uri' => '/komfort/',
-                    'name' => 'Пеноплэкс Комфорт',
-                ],
-                [
-                    'uri' => '/krovlya/',
-                    'name' => 'Пеноплэкс Кровля',
-                ],
-                [
-                    'uri' => '/osnova/',
-                    'name' => 'Пеноплэкс Основа',
-                ],
-                [
-                    'uri' => '/segmenty/',
-                    'name' => 'Пеноплэкс Сегменты',
-                ],
-                [
-                    'uri' => '/stena/',
-                    'name' => 'Пеноплэкс Стена',
-                ],
-                [
-                    'uri' => '/uklon/',
-                    'name' => 'Пеноплэкс Уклон',
-                ],
-                [
-                    'uri' => '/fasad/',
-                    'name' => 'Пеноплэкс Фасад',
-                ],
-                [
-                    'uri' => '/fundament/',
+                    'uri' => '/penoplex/fundament/',
                     'name' => 'Пеноплэкс Фундамент',
                 ],
                 [
-                    'uri' => '/extream/',
+                    'uri' => '/penoplex/komfort/',
+                    'name' => 'Пеноплэкс Комфорт',
+                ],
+                [
+                    'uri' => '/penoplex/osnova/',
+                    'name' => 'Пеноплэкс Основа',
+                ],
+                [
+                    'uri' => '/penoplex/geo/',
+                    'name' => 'Пеноплэкс ГЕО',
+                ],
+                [
+                    'uri' => '/penoplex/45/',
+                    'name' => 'Пеноплэкс 45',
+                ],
+                [
+                    'uri' => '/penoplex/stena/',
+                    'name' => 'Пеноплэкс Стена',
+                ],
+                [
+                    'uri' => '/penoplex/uklon/',
+                    'name' => 'Пеноплэкс Уклон',
+                ],
+                [
+                    'uri' => '/penoplex/extream/',
                     'name' => 'Пеноплэкс Экстрим',
                 ],
                 [
-                    'uri' => '/sop-tovary/',
+                    'uri' => '/penoplex/krovlya/',
+                    'name' => 'Пеноплэкс Кровля',
+                ],
+                [
+                    'uri' => '/penoplex/segmenty/',
+                    'name' => 'Пеноплэкс Сегменты',
+                ],
+                [
+                    'uri' => '/penoplex/fasad/',
+                    'name' => 'Пеноплэкс Фасад',
+                ],
+                [
+                    'uri' => '/penoplex/sop-tovary/',
                     'name' => 'Сопутствующие товары Penoplex',
                 ],
             ],
@@ -625,16 +625,16 @@ function getMenuData() {
         $knauf => [
             'column2' => [
                 [
-                    'uri' => '/knauf/greenterm/',
-                    'name' => 'GreenTERM',
+                    'uri' => '/knauf/teploknauf/',
+                    'name' => 'ТеплоКНАУФ',
                 ],
                 [
                     'uri' => '/knauf/professionalniy-segment-knauf-insuleyshn/',
                     'name' => 'Knauf Insulation',
                 ],
                 [
-                    'uri' => '/knauf/knauf-ekoroll/',
-                    'name' => 'Knauf Экоролл',
+                    'uri' => '/knauf/therm/',
+                    'name' => 'Кнауф Терм',
                 ],
                 [
                     'uri' => '/knauf/akustiknauf/',
@@ -645,16 +645,16 @@ function getMenuData() {
                     'name' => 'Кнауф мембраны',
                 ],
                 [
-                    'uri' => '/knauf/therm/',
-                    'name' => 'Кнауф Терм',
-                ],
-                [
                     'uri' => '/knauf/knauf-tisma/',
                     'name' => 'Кнауф Тисма',
                 ],
                 [
-                    'uri' => '/knauf/teploknauf/',
-                    'name' => 'ТеплоКНАУФ',
+                    'uri' => '/knauf/greenterm/',
+                    'name' => 'GreenTERM',
+                ],
+                [
+                    'uri' => '/knauf/knauf-ekoroll/',
+                    'name' => 'Knauf Экоролл',
                 ],
             ],
             'column4' => [
@@ -1449,6 +1449,7 @@ function getMenuData() {
 
     foreach ($data as $key => $values) {
         $data[$key]['column2'] = array_chunk($values['column2'], 12);
+        $data[$key]['column3'] = array_chunk($values['column3'], 6);
         $data[$key]['column4'] = array_chunk($values['column4'], 7);
     }
 

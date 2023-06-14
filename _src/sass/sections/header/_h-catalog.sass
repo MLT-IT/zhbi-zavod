@@ -65,10 +65,10 @@
 
     &__column-header
         padding-bottom: 11px
-        font-weight: 400
+        font-weight: bold
         font-size: 14px
         line-height: 1.2
-        color: var(--color-gray)
+        color: rgb(60, 60, 59)
         text-align: left
         user-select: none
 
@@ -77,9 +77,11 @@
     color: var(--color-black)
     margin-bottom: 17px
     vertical-align: top
-    min-height: 37px
     display: flex
     cursor: pointer
+
+    @at-root .gazosilikatstroy &
+        min-height: 37px
 
     &__to-catalog
         align-self: center
@@ -137,9 +139,11 @@
         font-weight: 400
         font-size: 14px
         line-height: 1.2
-        text-decoration: none
-        border-bottom: 1px solid var(--color-black-trans)
-        transition: color .3s ease, border-color .3s ease
+        text-decoration: underline
+        text-decoration-style: dashed
+        text-underline-offset: 4px
+        transition: color .3s ease, text-decoration-color .3s ease
+        text-decoration-color: var(--color-black-trans)
         color: inherit
 
         &_bold
@@ -150,7 +154,7 @@
 
         & .h-catalog-item
             &__name
-                border-color: transparent
+                text-decoration-color: transparent
 
             &__preview
                 background-color: var(--color-red)

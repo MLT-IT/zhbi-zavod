@@ -56,7 +56,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         case 'web':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];
-            $result['column3'] = ['title' => 'Толщина', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
             $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
             break;
         case 'gazosilikatstroy':

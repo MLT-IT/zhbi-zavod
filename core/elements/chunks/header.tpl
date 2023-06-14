@@ -1,4 +1,4 @@
-<header class="header" data-hello="1">
+<header class="header">
   <div class="header__mobile">
     <div class="header__container">
       <button class="js-burger-1 header__burger icon-btn icon-btn_style_red">
@@ -119,7 +119,7 @@
                             <div class="h-catalog__part">
                               {foreach $parts as $val}
                                 <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                                  <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                                  <a href="{$val['uri']}" class="h-catalog-item__name">{$val['name']}</a>
                                 </div>
                               {/foreach}
                             </div>

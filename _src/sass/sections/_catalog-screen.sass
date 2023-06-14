@@ -82,22 +82,6 @@
             transition: color .3s ease
             display: none
 
-            @media screen and (min-width: $bp992)
-                &:nth-of-type(n+6)
-                    display: flex
-
-            @media screen and (min-width: $bp768) and (max-width: bp-max($bp992))
-                &:nth-of-type(n+5)
-                    display: flex
-
-            @media screen and (min-width: $bp480) and (max-width: bp-max($bp768))
-                &:nth-of-type(n+4)
-                    display: flex
-
-            @media screen and (max-width: bp-max($bp480))
-                &:nth-of-type(n+3)
-                    display: flex
-
             +until-1200
                 font-size: 14px
 
@@ -109,23 +93,6 @@
 
             &:before
                 content: 'показать все'
-
-        &_type_default
-            @media screen and (min-width: $bp992)
-                &:nth-of-type(n+5)
-                    display: none
-
-            @media screen and (min-width: $bp768) and (max-width: bp-max($bp992))
-                &:nth-of-type(n+4)
-                    display: none
-
-            @media screen and (min-width: $bp480) and (max-width: bp-max($bp768))
-                &:nth-of-type(n+3)
-                    display: none
-
-            @media screen and (max-width: bp-max($bp480))
-                &:nth-of-type(n+2)
-                    display: none
 
         &:hover
             box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
