@@ -103,7 +103,7 @@
                     {'@FILE snippets/shippedToday.php' | snippet}
                 </div>
 
-                <div class="product-info__availability">
+                <div class="product-info__relinkav">
                   {if $_modx->context.key == 'gazosilikatstroy'}
                     {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
                     {if $relinkingData is not empty}
@@ -135,12 +135,25 @@
                       {set $unit = 'м3'}
                   {/switch}
 
-                  <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
+                  {if $relinkingData is empty}
+                    <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
+                  {/if}
                 </div>
 
-                <div class="product-info__shipped pc-flex">
-                    {'@FILE snippets/shippedToday.php' | snippet}
-                </div>
+                {if $relinkingData is not empty}
+                  <div class="product-info__avstock">
+                      <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                        На складе {$_modx->resource.stockNum} {$unit}
+                      </div>
+                      <div class="product-info__shipped pc-flex">
+                          {'@FILE snippets/shippedToday.php' | snippet}
+                      </div>
+                  </div>
+                {else}
+                  <div class="product-info__shipped pc-flex">
+                      {'@FILE snippets/shippedToday.php' | snippet}
+                  </div>
+                {/if}
 
               </div>
               <div class="product-info__bottom">

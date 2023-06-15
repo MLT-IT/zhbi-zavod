@@ -183,16 +183,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const clsShadow = 'header-shadow';
         const $header = $('.header__bottom');
 
+        // На мобилках шапка ВСЕГДА фиксированная
+        if (window.innerWidth < 992) {
+            $wrap.addClass(clsFixed);
+        }
+
+        // Если расстояние от начала страницы до шапки меньше нужного нам, то удаляем тень. А на больших экранах удаляем еще и класс для фиксации шапки
         if ($(window).scrollTop() <= ($header.outerHeight() + $('.header__top').outerHeight())) {
+            $wrap.removeClass(clsShadow);
             if (window.innerWidth >= 992) {
                 $wrap.removeClass(clsFixed);
             }
-            $wrap.removeClass(clsShadow);
         } else {
-            // Поскольку шапка становтся fixed, высота документа уменьшается. Из-за этого будет некрасивый скачок. И некоторый контент будет сложно прочитать. Чтобы этого избежать, добавляем padding-top величиной в высоту НЕФИКСИРОВАННОЙ шапки
-            $wrap.addClass(clsFixed);
+            // Если расстояние от начала страницы до шапки больше нужного, то добавляем тень. А на больших экранах еще и класс для фиксации шапки
             $wrap.addClass(clsShadow);
+            if (window.innerWidth >= 992) {
+                $wrap.addClass(clsFixed);
+            }
         }
+
+        // Переустанавливаем переменную, равную высоте шапки
         calcProperties.calcHeaderHeight();
     }
 
@@ -224,15 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --------------------------------
     // Раскрытие / скрытие фильтров
     // --------------------------------
-    $filterBtn.add('.filter__close-btn').on('dropdown-toggle', function() {
-        $('body').toggleClass('filters-expanded');
-    }).on('dropdown-close', function() {
-        $('body').removeClass('filters-expanded');
-    }).on('dropdown-close dropdown-toggle', function() {
-        if (window.innerWidth < 1200 && !$(this).hasClass('active')) {
-            if ($('.product-card_catalog').length < 6) {
-                $('html, body').animate({scrollTop: $('.js-catalog').position().top - 90}, 300);
-            }
+    $filterBtn.on('dropdown-close dropdown-toggle', function (e) {
+        const $body = $('body');
+
+        if ($(this).hasClass('active')) {
+            $body.addClass('filters-expanded');
+        } else {
+            $body.removeClass('filters-expanded');
         }
     });
 

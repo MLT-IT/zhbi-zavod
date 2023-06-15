@@ -506,16 +506,11 @@ var mSearch2 = {
                 var sup = label.find('sup').text();
                 var text = label.text().trim();
 
-
-                //////////////////////////
                 if (sup) {
                     title = text.replace(new RegExp(sup.replace('+', '\\+') + '$'), '');
                 } else {
                     title = text;
                 }
-
-                console.log('title = ', title)
-                //////////////////////////
 
                 $('[data-id="' + id + '"]', this.selected).remove();
                 if (input.is(':checked')) {
@@ -551,7 +546,6 @@ var mSearch2 = {
         var count = 0;
         var selected = [];
 
-        console.log('selections', this.selections);
         for (var i in this.selections) {
             if (!this.selections.hasOwnProperty(i) || !Object.keys(this.selections).length) {
                 continue;
@@ -565,12 +559,9 @@ var mSearch2 = {
                     tmp.push(this.selections[i][i2]);
                     count++;
                 }
-                ///////////////////////////////////
                 title = this.options['selected_wrapper_tpl']
                     .replace('[[+title]]', i)
                     .replace('_title_', i);
-                ///////////////////////////////////
-                console.log('another title', title);
 
                 selected.push(title + tmp.join(this.options['selected_values_delimeter']));
             }

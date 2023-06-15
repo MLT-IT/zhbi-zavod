@@ -212,7 +212,30 @@
             .rating__reviews, .product-info__availability-title
                 font-size: 11px
 
-    &__availability
+    &__availability-title
+        &_available
+            &::before
+                content: ''
+                width: 12px
+                height: 12px
+                flex-shrink: 0
+                background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='%2349BF63'/%3E%3Cpath d='M4 5.89474L5.51996 7.51469C5.56199 7.55949 5.6341 7.55615 5.67182 7.50766L8.4 4' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E")
+                background-position: center
+                background-repeat: no-repeat
+                background-size: 100%
+                margin-right: 12px
+                margin-left: 3px
+                margin-top: 3px
+
+                +until-480
+                    margin-right: 3px
+                    margin-top: 0
+                    margin-left: 0
+
+        +until-480
+            margin-right: auto
+
+    &__relinkav
         display: flex
         align-items: center
         justify-content: space-between
@@ -234,21 +257,13 @@
             +until-768
                 margin-left: 0
 
-            &_available
-                &::before
-                    content: ''
-                    width: 12px
-                    height: 12px
-                    flex-shrink: 0
-                    margin-right: 15px
-                    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='%2349BF63'/%3E%3Cpath d='M4 5.89474L5.51996 7.51469C5.56199 7.55949 5.6341 7.55615 5.67182 7.50766L8.4 4' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E")
-                    background-position: center
-                    background-repeat: no-repeat
-                    background-size: 100%
+    &__avstock
+        display: flex
+        flex-direction: column
+        margin-top: 20px
 
-                    +until-480
-                        margin-right: 5px
-
+        +until-480
+            display: none
 
     &__params
         display: flex

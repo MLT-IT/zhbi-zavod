@@ -45,14 +45,16 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
     // -------------------------------
     $(document).on('mse2_load pdopage_load', function (e, data) {
         let $catalogTop = $(".js-catalog");
-        if ($catalogTop) {
+        if ($catalogTop.length) {
             let title1OffsetTop = $catalogTop.offset().top;
-            if ($(window).scrollTop() > title1OffsetTop + 200 && e.type == 'mse2_load' && $(e.target.activeElement).is('.default-checkbox__input, .ui-slider-handle')) {
-                if ($('.product-card_catalog').length <= 6) {
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: title1OffsetTop
-                    }, 300);
-                }
+            if (e.type == 'mse2_load'
+                && $(e.target.activeElement).is('.default-checkbox__input, .ui-slider-handle')
+                && window.innerWidth >= 1200
+                && $('.product-card_catalog').length <= 6
+            ) {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: title1OffsetTop
+                }, 300);
             }
         }
 
@@ -61,24 +63,7 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             $('.msearch2message').text('Подходящих результатов не найдено.');
             funcsCatalog.getRemainder();
             funcsProduct.initStyledCounter();
-
-            // if ($('#mse2_filters').length) {
-            //     catalogH1FromGetParams();
-            // }
-
-            // funcsCatalog.wrapTitle();
-
-            // Кирилл сказал отменить сортировку по кол-ву результатов, поэтому я закомментировал ее вызов
-            // funcsCatalog.catalogSortFilters();
-
-            // Обновить lazyload, ведь новые товары, скорее всего, появились
             lazyLoadInstance.update();
-
-            // Изменить единицы измерения у появившихся карточек, если контекст - кирпич или деревянные фасады
-            // if ($('body.kirpich-m, body.fasady-pro').length) {
-            //     let lastKirpichUnit = funcsProduct.getLastKirpichUnit();
-            //     $catalog.find('.product-card__unit-link[data-val="' + lastKirpichUnit + '"]').eq(0).trigger('click_without_message');
-            // }
         }
     });
 

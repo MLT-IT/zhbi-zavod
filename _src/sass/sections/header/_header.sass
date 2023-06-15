@@ -137,6 +137,9 @@
         &:not(:last-child)
             margin-right: 10px
 
+        @at-root .mobilemenu-opened &
+            display: none
+
         &_type
             &_minicart
                 +until-992
