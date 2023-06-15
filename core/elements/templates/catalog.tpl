@@ -12,25 +12,7 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $params = [
-    'parents' => $_modx->resource.id,
-    'templates' => '5',
-    'includeTVs' => 'mainImage,tagName',
-    'tpl' => '@FILE chunks/create-menu/category-item.tpl',
-    'context' => $_modx->resource.context_key,
-    'sortby' => 'menuindex,id',
-    'sortdir' => 'ASC',
-    'depth' => 0,
-    'limit' => 0,
-  ]}
-
-  {if $_modx->resource.id == 4}
-      {set $resources = '93190,93191,93189,93185,93188,93192,93187,93186'}
-      {set $params['resources'] = $resources}
-      {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
-  {/if}
-
-  {set $tags = 'pdoResources' | snippet : $params}
+  {set $tags = 'getTags' | snippet}
 
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
@@ -45,15 +27,7 @@
             </div>
           {/if}
 
-          {if $tags is not empty}
-            <div class="catalog-screen__products">
-              <ul class="catalog-screen__items">
-                {$tags}
-                <li class="catalog-screen__item catalog-screen__item_type_more"></li>
-              </ul>
-            </div>
-          {/if}
-
+          {$tags}
         </div>
       </article>
     </section>
