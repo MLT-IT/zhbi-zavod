@@ -15,11 +15,12 @@
     {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
       'alias' => 'catalog'
     ]}
-    {set $data = '@FILE snippets/fast-search/fastSearch.php' | snippet}
+
+    {set $data = '@FILE snippets/fast-search/MLTSearch.php' | snippet}
 
     {'!pdoPage' | snippet : [
       'element' => 'msProducts',
-      'resources' => $data['ids'],
+      'resources' => $data,
       'tpl' => "@FILE chunks/product/listing-products-item-default.tpl",
       'includeThumbs' => 'webp',
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
@@ -44,7 +45,7 @@
       'ajaxElemPagination' => '.sect-search__pagination',
       'ajax' => '1',
       'ajaxMode' => 'default',
-      'limit' => 40,
+      'limit' => 39,
       'setMeta' => 0,
       'sortby' => 'ids'
     ]}
@@ -73,7 +74,7 @@
             {/if}
           </p>
 
-          {if $data['ids'] ?}
+          {if $data ?}
             <div id="pdopage" class="js-catalog">
               <div class="best-products__products rows">
                 {$_modx->getPlaceholder('mSearchResults')}

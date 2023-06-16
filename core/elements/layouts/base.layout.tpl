@@ -1,7 +1,8 @@
-{'@FILE snippets/fast-search/fastSearchAjax.php' | snippet : [
-'tplCategory' => '@FILE chunks/fast-search/category-item.tpl',
-'tplProduct' => '@FILE chunks/fast-search/product-item.tpl',
-'tplWrapper' => '@FILE chunks/fast-search/wrapper.tpl',
+{'@FILE snippets/fast-search/MLTSearch.php' | snippet : [
+  'tplCategory' => '@FILE chunks/fast-search/category-item.tpl',
+  'tplProduct' => '@FILE chunks/fast-search/product-item.tpl',
+  'tplWrapper' => '@FILE chunks/fast-search/wrapper.tpl',
+  'isInit' => 1
 ]}
 
 {$_modx->runSnippet('@FILE snippets/pushViewedProduct.php')}
