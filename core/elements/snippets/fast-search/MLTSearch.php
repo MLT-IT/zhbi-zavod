@@ -1,11 +1,17 @@
 <?php
 
-/*
-TODO:
-1. Зачем лишние join'ы с приоритетами?
-2. SQL-инъекция в поиске категорий.
-3. Не работает поиск по артикулу.
-5. Сравни с поиском на Общестрое - может, там что-то поновее есть.
+/**
+Поиск товаров и категорий.
+Что умеет поиск?
+1. Искать по артикулу.
+2. Искать по отдельному слову.
+3. Искать по габаритам, например: 600x200x50. Габариты можно переставлять местами. Подходят разделители: русская х, английская x, символ звездочка *.
+
+TODO: Что нужно добавить?
+1. Транслитеризация. Чтобы искать можно было по транслиту.
+2. Поиск по значению опциий.
+3. Поиск СЕО-выборок (хотя на СтройМаркете их нет).
+4. Строгий и НЕ строгий поиск (Через UNION. Или через SELECT, который выбирает из других SELECT, а у них уже есть дополнительный динамический столбец. Или через IF: If(name='name';1;10) as "PRIORITY").
 */
 
 
@@ -14,11 +20,11 @@ if (!class_exists('MLTSearch')) {
 
         // Служебные константы
         const REQUEST_TYPE_AJAX = 1; // Тип запроса - AJAX
-        const REQUEST_TYPE_NOT_AJAX = 2; // тип запроса - не AJAX
+        const REQUEST_TYPE_NOT_AJAX = 2; // Тип запроса - не AJAX
 
         // Лимиты для AJAX-поиска
-        const LIMIT_CATEGORIES = 16; // Макс. кол-во категорий
-        const LIMIT_PRODUCTS = 10; // Макс. кол-во товаров
+        const LIMIT_CATEGORIES = 16; // Макс. кол-во категорий при AJAX поиске
+        const LIMIT_PRODUCTS = 10; // Макс. кол-во товаров при AJAX поиске (их меньше, чем категорий, т.к. у них картинка, которая занимает высоту)
 
         // Поля класса
         protected $requestType; // Тип запроса: ajax / не ajax
@@ -35,6 +41,7 @@ if (!class_exists('MLTSearch')) {
          * @param $tplProduct
          * @param $tplCategory
          * @param $tplWrapper
+         * @param $isInit
          */
         public function __construct($tplProduct, $tplCategory, $tplWrapper, $isInit) {
             $this->tplProduct = $tplProduct;
@@ -60,8 +67,74 @@ if (!class_exists('MLTSearch')) {
                 return $this->returnData(null);
             }
 
-            // Составляем и запускаем запросы
-            return $this->returnData($this->getResultData());
+            // Объявляем нужные для работы переменные
+            $wherePagetitle = [];
+            $queryWordsArray = []; // Массив с плейсхолдерами для SQL-запроса
+            $index = 0;
+
+            // Цикл для каждого слова в поиске
+            foreach (explode(' ', $this->queryPhrase) as $queryWord) {
+                // Слово содержит запятую / точку
+                if (stristr($queryWord, ',') || stristr($queryWord, '.')) {
+                    $queryWord = preg_replace('/[, .]/', '[,\.]', $queryWord);
+                    $wherePagetitle[] = '`resources`.`pagetitle` REGEXP :queryWord' . $index;
+
+                    $queryWordsArray['queryWord' . $index] = $queryWord;
+                    $index++;
+                }
+                //
+                // Слово - это габариты, которые можно переставлять местами
+                else if (preg_match('/(^|\s)([0-9]+[xх*]{1}[0-9]+([xх*][0-9]+)?)($|\s)/iu', $queryWord, $match)) {
+                    // Получаем габариты
+                    $dimensions = $match[2];
+                    // Составляем перебор
+                    $dimensionsEnum = $this->getDimensionsEnum($dimensions);
+
+                    // Заполняем массивы для SQL-запроса
+                    $wherePagetitleOR = [];
+                    foreach ($dimensionsEnum as $val) {
+                        // Я использовал круглые скобки вместо квадратных, т.к. у нас в основном MySQL 5.7. Данная версия не поддерживает кириллицу в квадратных скобках
+                        $val = str_replace('x', '(х|Х|x|X|\\\\*)', $val);
+                        $wherePagetitleOR[] = '`resources`.`pagetitle` REGEXP :queryWord' . $index;
+
+                        $queryWordsArray['queryWord' . $index] = $val;
+                        $index++;
+                    }
+
+                    $wherePagetitle[] = '(' . implode(' OR ', $wherePagetitleOR) . ')';
+                }
+                //
+                // Обычная обработка слова
+                else {
+                    $queryWord = '%' . $queryWord . '%';
+                    $wherePagetitle[] = '`resources`.`pagetitle` LIKE :queryWord' . $index;
+
+                    $queryWordsArray['queryWord' . $index] = $queryWord;
+                    $index++;
+                }
+            }
+
+            // Подготавливаем переменные для составления SQL-запроса
+            $queryWordsArray['queryPhrase'] = '%' . $this->queryPhrase . '%';
+            $wherePagetitle = '(' . implode(' AND ', $wherePagetitle) . ')';
+            $where = $wherePagetitle . ' OR (`Data`.`article` LIKE :queryPhrase)';
+
+            // Получаем товары
+            $products = $this->findProducts($where, $queryWordsArray);
+
+            if ($products !== false) {
+                return $this->returnData($products);
+            }
+
+            // Если не удалось получить товары и если это AJAX, то попробуем хотя бы получить категории
+            if ($this->requestType == self::REQUEST_TYPE_AJAX) {
+                $categories = $this->findCategories($wherePagetitle, $queryWordsArray);
+                if ($categories !== false) {
+                    return $this->returnData($categories);
+                }
+            }
+
+            return $this->returnData(null);
         }
 
 
@@ -83,14 +156,14 @@ if (!class_exists('MLTSearch')) {
         /**
          * Подготавливает данные для занесения в чанк.
          */
-        protected function prepareData($resourcesData, $chunk) {
+        protected function wrapDataToChunk($data, $chunk) {
             global $modx;
             $result = '';
 
-            foreach ($resourcesData as $data) {
-                $menutitle = $data['menutitle'] ?: $data['pagetitle'];
-                $uri = $modx->pdoTools->makeUrl($data['id']);
-                $image = $data['thumb'] ?: '';
+            foreach ($data as $val) {
+                $menutitle = $val['menutitle'] ?: $val['pagetitle'];
+                $uri = $modx->pdoTools->makeUrl($val['id']);
+                $image = $val['thumb'] ?: '';
 
                 $result .= $modx->pdoTools->getChunk($chunk, [
                     'menutitle' => $menutitle,
@@ -104,10 +177,11 @@ if (!class_exists('MLTSearch')) {
 
 
         /**
-         * Составляет матрицу по габаритам. Это массив всех возможных значений.
+         * Составляет перебор всех возможных значений по габаритам. Это массив всех возможных значений.
          * @param $dimensions
+         * @return array
          */
-        private function getDimensionsMatrix($dimensions) {
+        private function getDimensionsEnum($dimensions) {
             // Разбиваем габариты на отдельные числа
             $dimensions = preg_split('/[xх*]/iu', $dimensions);
 
@@ -117,11 +191,11 @@ if (!class_exists('MLTSearch')) {
                 $indexes[$i + 1] = 0;
             }
 
-            // Составляем $dimensionsMatrix. Это матрица. Понять код сложно, я и сам не особо понимаю его 😅, я составлял его с помощью xdebug
-            $dimensionsMatrix = [];
+            // Составляем $dimensionsEnum. Это перебор всех возможных значений
+            $dimensionsEnum = [];
             for ($index1 = 0; $index1 < $count; $index1++) {
                 for ($k = 0; $k < $count - 1; $k++) {
-                    $dimensionsMatrix[$i . $index1 . $k] = $dimensions[$index1];
+                    $dimensionsEnum[$i . $index1 . $k] = $dimensions[$index1];
 
                     foreach ($indexes as $indexKey => $indexVal) {
                         $indexVal = ($index1 + $k + $indexKey) % $count;
@@ -133,60 +207,62 @@ if (!class_exists('MLTSearch')) {
                             }
                         }
 
-                        $dimensionsMatrix[$i . $index1 . $k] .= 'x' . $dimensions[$indexVal];
+                        $dimensionsEnum[$i . $index1 . $k] .= 'x' . $dimensions[$indexVal];
                     }
                 }
             }
 
             if ($count == 2) {
-                foreach ($dimensionsMatrix as $dim) {
-                    $dimensionsMatrix[] = preg_replace('/([xх*])/iu', '$1[0-9]+$1', $dim);
+                foreach ($dimensionsEnum as $dim) {
+                    $dimensionsEnum[] = preg_replace('/([xх*])/iu', '$1[0-9]+$1', $dim);
                 }
             }
-            return $dimensionsMatrix;
+            return $dimensionsEnum;
         }
 
 
-        private function getResultProducts($where, $queryWordsArray) {
+        /**
+         * Выборка товаров и их родителей (категорий)
+         * @param $where
+         * @param $queryWordsArray
+         * @return false|string
+         */
+        private function findProducts($where, $queryWordsArray) {
             global $modx;
 
             // SQL для поиска товаров (и их категорий)
-            // TODO: почему LIMIT здесь закомментирован?
-            $queryProducts = "SELECT `msProduct`.`id`";
+            $query = "SELECT `resources`.`id`";
 
             if ($this->requestType == self::REQUEST_TYPE_AJAX) {
                 // Для AJAX нужно не только id, но и другие значения
-                $queryProducts .= ", `msProduct`.`menutitle`, `msProduct`.`pagetitle`, `Data`.`thumb`, `Parent`.`id` AS parent_id, `Parent`.`pagetitle` AS parent_pagetitle, `Parent`.`menutitle` AS parent_menutitle ";
+                $query .= ", `resources`.`menutitle`, `resources`.`pagetitle`, `Data`.`thumb`, `Parent`.`id` AS parent_id, `Parent`.`pagetitle` AS parent_pagetitle, `Parent`.`menutitle` AS parent_menutitle ";
             }
 
-            $queryProducts .= " FROM `modx_site_content` AS `msProduct` 
-              LEFT JOIN `modx_ms2_products` `Data` ON `msProduct`.`id` =  `Data`.`id` 
-              LEFT JOIN `modx_site_tmplvar_contentvalues` `TVhitspage` ON `TVhitspage`.`contentid` = `msProduct`.`id` AND `TVhitspage`.`tmplvarid` = 7 
-              LEFT JOIN `modx_site_tmplvar_contentvalues` `TVpriority1` ON `TVpriority1`.`contentid` = `msProduct`.`id` AND `TVpriority1`.`tmplvarid` = 17";
+            $query .= " FROM `modx_site_content` AS `resources` 
+              LEFT JOIN `modx_ms2_products` `Data` ON `resources`.`id` =  `Data`.`id` 
+              LEFT JOIN `modx_site_tmplvar_contentvalues` `TVhitspage` ON `TVhitspage`.`contentid` = `resources`.`id` AND `TVhitspage`.`tmplvarid` = 7 
+              LEFT JOIN `modx_site_tmplvar_contentvalues` `TVpriority1` ON `TVpriority1`.`contentid` = `resources`.`id` AND `TVpriority1`.`tmplvarid` = 17";
 
             if ($this->requestType == self::REQUEST_TYPE_AJAX) {
-                $queryProducts .= " LEFT JOIN `modx_site_content` `Parent` ON `Parent`.`id` = `msProduct`.`parent`";
+                $query .= " LEFT JOIN `modx_site_content` `Parent` ON `Parent`.`id` = `resources`.`parent`";
             }
 
-            $queryProducts .= " WHERE  `msProduct`.`class_key` = 'msProduct'
-                    AND `msProduct`.`published` = 1
-                    AND `msProduct`.`deleted` = 0
-                    AND `msProduct`.`context_key` = '" . $modx->context->key . "'
+            $query .= " WHERE  `resources`.`class_key` = 'msProduct'
+                    AND `resources`.`published` = 1
+                    AND `resources`.`deleted` = 0
+                    AND `resources`.`context_key` = '" . $modx->context->key . "'
                     AND ($where)
-              GROUP BY msProduct.id
-              ORDER BY CAST(`TVpriority1`.`value` AS DECIMAL(13,3)) ASC, CAST(`TVhitspage`.`value` AS DECIMAL(13,3)) ASC
-              #LIMIT 10";
+              GROUP BY resources.id
+              ORDER BY CAST(`TVpriority1`.`value` AS DECIMAL(13,3)) ASC, CAST(`TVhitspage`.`value` AS DECIMAL(13,3)) ASC";
 
-            // Запускаем запрос
-            $stmt = $modx->prepare($queryProducts);
-            $queryResult = $stmt->execute($queryWordsArray);
-            // В запросе произошла ошибка?
-            if ($queryResult === false) {
+            if ($this->requestType == self::REQUEST_TYPE_AJAX) {
+                $query .= " LIMIT " . self::LIMIT_CATEGORIES;
+            }
+
+            $data = $this->runQueryAndFetchData($query, $queryWordsArray);
+            if ($data === false) {
                 return false;
             }
-
-            // Получаем и обрабатываем данные
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             if (!empty($data)) {
                 if ($this->requestType == self::REQUEST_TYPE_NOT_AJAX) {
@@ -212,9 +288,9 @@ if (!class_exists('MLTSearch')) {
                 }
 
                 // Подготавливаем товары для вывода
-                $products = $this->prepareData($productsValues, $this->tplProduct);
+                $products = $this->wrapDataToChunk($productsValues, $this->tplProduct);
                 // Подготавливаем категории для вывода
-                $categories = $this->prepareData($parentsValues, $this->tplCategory);
+                $categories = $this->wrapDataToChunk($parentsValues, $this->tplCategory);
 
                 // Обертываем данные в чанк
                 return $modx->pdoTools->getChunk($this->tplWrapper, [
@@ -227,28 +303,35 @@ if (!class_exists('MLTSearch')) {
         }
 
 
-        private function getResultCategories($whereCategories) {
+        /**
+         * Выборка категорий.
+         * @param $whereCategories
+         * @param $queryWordsArray
+         * @return false
+         */
+        private function findCategories($whereCategories, $queryWordsArray) {
             global $modx;
 
-            // TODO: Надо исправить SQL-инъекцию
-            $queryCategories = "SELECT `msProduct`.`id`, `msProduct`.`menutitle`, `msProduct`.`pagetitle`
-                  FROM `modx_site_content` AS `msProduct` 
-                  LEFT JOIN `modx_site_tmplvar_contentvalues` `TVhitspage` ON `TVhitspage`.`contentid` = `msProduct`.`id` AND `TVhitspage`.`tmplvarid` = 7 
-                  LEFT JOIN `modx_site_tmplvar_contentvalues` `TVpriority1` ON `TVpriority1`.`contentid` = `msProduct`.`id` AND `TVpriority1`.`tmplvarid` = 17 
-                  WHERE  `msProduct`.`class_key` = 'msCategory' 
-                        AND `msProduct`.`published` = 1 
-                        AND `msProduct`.`deleted` = 0 
-                        AND `msProduct`.`context_key` = '" . $modx->context->key . "'
+            $query = "SELECT `resources`.`id`, `resources`.`menutitle`, `resources`.`pagetitle`
+                  FROM `modx_site_content` AS `resources` 
+                  WHERE  `resources`.`class_key` = 'msCategory' 
+                        AND `resources`.`published` = 1 
+                        AND `resources`.`deleted` = 0 
+                        AND `resources`.`context_key` = '" . $modx->context->key . "'
                         AND ($whereCategories)  
-                  GROUP BY msProduct.id 
-                  ORDER BY CAST(`TVpriority1`.`value` AS DECIMAL(13,3)) ASC, CAST(`TVhitspage`.`value` AS DECIMAL(13,3)) ASC
+                  GROUP BY resources.id 
+                  ORDER BY id
                   LIMIT " . self::LIMIT_CATEGORIES;
 
-            $queryResult = $modx->query($queryCategories);
-            $data = $queryResult->fetchAll(PDO::FETCH_ASSOC);
+            // Удаляем последний аргумент из $queryWordsArray, потому что он не используется, но из-за его наличия будет ошибка
+            array_pop($queryWordsArray);
+            $data = $this->runQueryAndFetchData($query, $queryWordsArray);
+            if ($data === false) {
+                return false;
+            }
 
-            if (count($data)) {
-                $categories = $this->prepareData($data, $this->tplCategory);
+            if (!empty($data)) {
+                $categories = $this->wrapDataToChunk($data, $this->tplCategory);
                 $result = $modx->pdoTools->getChunk($this->tplWrapper, [
                     'categories' => $categories,
                 ]);
@@ -260,86 +343,44 @@ if (!class_exists('MLTSearch')) {
 
 
         /**
-         * Основная функция, возвращающая нужные данные.
+         * Запустить SQL-запрос и получить данные.
+         * @param $query
+         * @param $queryWordsArray
+         * @return array|false
          */
-        protected function getResultData() {
-            // Объявляем нужные для работы переменные
-            $wherePagetitle = [];
-            $wherePagetitleCategory = [];
-            $queryWordsArray = []; // Массив с плейсхолдерами для SQL-запроса
-            $index = 0;
+        private function runQueryAndFetchData($query, $queryWordsArray) {
+            global $modx;
 
-            // Цикл для каждого слова в поиске
-            foreach (explode(' ', $this->queryPhrase) as $queryWord) {
-                // Слово содержит запятую / точку
-                if (stristr($queryWord, ',') || stristr($queryWord, '.')) {
-
-                    $queryWord = preg_replace('/[, .]/', '[,\.]', $queryWord);
-                    $wherePagetitle[] = '`msProduct`.`pagetitle` REGEXP :queryWord' . $index;
-                    $wherePagetitleCategory[] = "`msProduct`.`pagetitle` REGEXP '$queryWord'";
-
-                    $queryWordsArray['queryWord' . $index] = $queryWord;
-                    $index++;
-                }
-                //
-                // Слово - это габариты, которые можно переставлять местами
-                else if (preg_match('/(^|\s)([0-9]+[xх*]{1}[0-9]+([xх*][0-9]+)?)($|\s)/iu', $queryWord, $match)) {
-
-                    // Получаем габариты
-                    $dimensions = $match[2];
-                    // Составляем матрицу
-                    $dimensionsMatrix = $this->getDimensionsMatrix($dimensions);
-
-                    // Заполняем массивы для SQL-запроса
-                    $wherePagetitleOR = [];
-                    $wherePagetitleCategoryOR = [];
-                    foreach ($dimensionsMatrix as $val) {
-                        $val = str_replace('x', '(х|Х|x|X|\\\\*)', $val);
-                        $wherePagetitleOR[] = '`msProduct`.`pagetitle` REGEXP :queryWord' . $index;
-                        $wherePagetitleCategoryOR[] = "`msProduct`.`pagetitle` REGEXP '$val'";
-
-                        $queryWordsArray['queryWord' . $index] = $val;
-                        $index++;
-                    }
-
-                    $wherePagetitle[] = '(' . implode(' OR ', $wherePagetitleOR) . ')';
-                    $wherePagetitleCategory[] = '(' . implode(' OR ', $wherePagetitleCategoryOR) . ')';
-                }
-                //
-                // Обычная обработка слова
-                else {
-                    $queryWord = '%' . $queryWord . '%';
-                    $wherePagetitle[] = '`msProduct`.`pagetitle` LIKE :queryWord' . $index;
-                    $wherePagetitleCategory[] = "`msProduct`.`pagetitle` LIKE '$queryWord'";
-
-                    $queryWordsArray['queryWord' . $index] = $queryWord;
-                    $index++;
-                }
+            // Запускаем запрос
+            $stmt = $modx->prepare($query);
+            $queryResult = $stmt->execute($queryWordsArray);
+            // В запросе произошла ошибка?
+            if ($queryResult === false) {
+                //$error = $stmt->errorInfo();
+                return false;
             }
+            // Получаем и обрабатываем данные
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 
-            // Составляем SQL-запрос
-            $queryWordsArray['queryPhrase'] = '%' . $this->queryPhrase . '%';
-            $wherePagetitle = '(' . implode(' AND ', $wherePagetitle) . ')';
-            $whereArticle = '(`Data`.`article` LIKE :queryPhrase)';
-            $where = $wherePagetitle . ' OR ' . $whereArticle;
-            $whereCategories = '(' . implode(' AND ', $wherePagetitleCategory) . ')';
 
-            // Получаем товары
-            $products = $this->getResultProducts($where, $queryWordsArray);
+        /**
+         * Транслитеризация строки $string по ключу $key.
+         * @param $string
+         * @param $key
+         * @return string
+         */
+        protected function translit($string, $key) {
+            $translit = [
+                'ru_en' => [
+                    'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'yo', 'ж' => 'zh', 'з' => 'z', 'и' => 'i', 'й' => 'j', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sh', 'ъ' => '``', 'ы' => 'y', 'ь' => '`', 'э' => 'e`', 'ю' => 'yu', 'я' => 'ya',
+                ],
+                'en_ru' => [
+                    'a' => 'а', 'b' => 'б', 'v' => 'в', 'g' => 'г', 'd' => 'д', 'e' => 'е', 'yo' => 'ё', 'zh' => 'ж', 'z' => 'з', 'i' => 'и',  'j' => 'й', 'k' => 'к', 'l' => 'л', 'm' => 'м', 'n' => 'н', 'o' => 'о', 'p' => 'п', 'r' => 'р', 's' => 'с', 't' => 'т', 'u' => 'у', 'f' => 'ф', 'h' => 'х', 'c' => 'ц', 'ch' => 'ч', 'sh' => 'ш', 'sch' => 'щ', '``' => 'ъ', 'y' => 'ы', '`' => 'ь', 'e`' => 'э', 'yu' => 'ю', 'ya' => 'я',
+                ]
+            ];
 
-            if ($products !== false) {
-                return $this->returnData($products);
-            }
-
-            // Если не удалось получить товары и если это AJAX, то попробуем хотя бы получить категории
-            if ($this->requestType == self::REQUEST_TYPE_AJAX) {
-                $categories = $this->getResultCategories($whereCategories);
-                if ($categories !== false) {
-                    return $this->returnData($categories);
-                }
-            }
-
-            return $this->returnData(null);
+            return strtr(mb_strtolower($string), $translit[$key]);
         }
     }
 }

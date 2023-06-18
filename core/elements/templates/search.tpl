@@ -15,41 +15,44 @@
     {set $parents = '@FILE snippets/getIdByAlias.php' | snippet : [
       'alias' => 'catalog'
     ]}
-
     {set $data = '@FILE snippets/fast-search/MLTSearch.php' | snippet}
 
-    {'!pdoPage' | snippet : [
-      'element' => 'msProducts',
-      'resources' => $data,
-      'tpl' => "@FILE chunks/product/listing-products-item-default.tpl",
-      'includeThumbs' => 'webp',
-      'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
-      'pageVarKey' => 'page',
-      'pageNavVar' => 'page.nav',
-      'parents' => 0,
-      'depth' => '10000',
-      'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
-      'tplPage' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</a>',
-      'tplPageActive' => '@INLINE <span class="active sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</span>',
-      'tplPageFirst' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_edge"><<</a>',
-      'tplPageLast' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_edge">>></a>',
-      'tplPagePrev' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_step"><</a>',
-      'tplPageNext' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_step">></a>',
-      'tplPageFirstEmpty' => '@INLINE ',
-      'tplPageLastEmpty' => '@INLINE ',
-      'tplPagePrevEmpty' => '@INLINE ',
-      'tplPageNextEmpty' => '@INLINE ',
-      'toPlaceholder' => 'mSearchResults',
-      'totalVar' => 'mSearchAmount',
-      'ajaxElemLink' => '.sect-search__pagination-item',
-      'ajaxElemPagination' => '.sect-search__pagination',
-      'ajax' => '1',
-      'ajaxMode' => 'default',
-      'limit' => 39,
-      'setMeta' => 0,
-      'sortby' => 'ids'
-    ]}
-    {set $amount = $_modx->getPlaceholder('mSearchAmount')}
+    {if $data ?}
+        {'!pdoPage' | snippet : [
+          'element' => 'msProducts',
+          'resources' => $data,
+          'tpl' => "@FILE chunks/product/listing-products-item-default.tpl",
+          'includeThumbs' => 'webp',
+          'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping',
+          'pageVarKey' => 'page',
+          'pageNavVar' => 'page.nav',
+          'parents' => 0,
+          'depth' => '10000',
+          'tplPageWrapper' => '@INLINE {$first}{$prev}{$pages}{$next}{$last}',
+          'tplPage' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</a>',
+          'tplPageActive' => '@INLINE <span class="active sect-search__pagination-item sect-search__pagination-item_type_num">{$pageNo}</span>',
+          'tplPageFirst' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_edge"><<</a>',
+          'tplPageLast' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_edge">>></a>',
+          'tplPagePrev' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_step"><</a>',
+          'tplPageNext' => '@INLINE <a href="{$href}" class="sect-search__pagination-item sect-search__pagination-item_type_step">></a>',
+          'tplPageFirstEmpty' => '@INLINE ',
+          'tplPageLastEmpty' => '@INLINE ',
+          'tplPagePrevEmpty' => '@INLINE ',
+          'tplPageNextEmpty' => '@INLINE ',
+          'toPlaceholder' => 'mSearchResults',
+          'totalVar' => 'mSearchAmount',
+          'ajaxElemLink' => '.sect-search__pagination-item',
+          'ajaxElemPagination' => '.sect-search__pagination',
+          'ajax' => '1',
+          'ajaxMode' => 'default',
+          'limit' => 39,
+          'setMeta' => 0,
+          'sortby' => 'ids'
+        ]}
+        {set $amount = $_modx->getPlaceholder('mSearchAmount')}
+    {else}
+        {set $amount = 0}
+    {/if}
 
     <article class="best-products section search">
       <div class="best-products__container">
