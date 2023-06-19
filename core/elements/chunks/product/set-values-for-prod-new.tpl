@@ -30,6 +30,7 @@
     'item_width' => $src['item_width'],
     'kolvoshm3' => $src['kolvoshm3'],
     'pallet_num' => $src['pallet_num'],
+    'tip' => $src['tip'],
 
     'isFractional' => $src['isFractional'],
   ]

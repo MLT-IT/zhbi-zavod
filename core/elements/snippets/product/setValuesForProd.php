@@ -18,184 +18,196 @@ $cacheOptions = [
 ];
 
 //if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
-    $result = [
-        // id и ключ товара
-        'prodId', // id товара, нужен для добавления товара в корзину
-        'productKey', // Ключ товара, нужен для изменения товара в корзине
+$result = [
+    // id и ключ товара
+    'prodId', // id товара, нужен для добавления товара в корзину
+    'productKey', // Ключ товара, нужен для изменения товара в корзине
 
-        // Цены
-        'defaultPrice', // Цена по умолчанию - нужна для расчета других цен на JS
-        'outputPrice', // Цена для красивого вывода
-        'defaultOldPrice', // Старая цена по умолчанию
-        'outputOldPrice', // Старая цена для красивого вывода
+    // Цены
+    'defaultPrice', // Цена по умолчанию - нужна для расчета других цен на JS
+    'outputPrice', // Цена для красивого вывода
+    'defaultOldPrice', // Старая цена по умолчанию
+    'outputOldPrice', // Старая цена для красивого вывода
 
-        // Переменные с разной информацией о товаре
-        'checkItems',  // Есть ли товар в избранном, в сравнении
-        'itemInCart', // Кол-во товара в корзине
-        'pricePer', // Цена за ...
-        'condition', // Возможность выбирать единицу измерения для добавления товара в корзину
+    // Переменные с разной информацией о товаре
+    'checkItems',  // Есть ли товар в избранном, в сравнении
+    'itemInCart', // Кол-во товара в корзине
+    'pricePer', // Цена за ...
+    'condition', // Возможность выбирать единицу измерения для добавления товара в корзину
 
-        // Переменные для дробного добавления товара в корзину
-        'isFractional',
-        'extraClass',
-        'dataMin',
+    // Переменные для дробного добавления товара в корзину
+    'isFractional',
+    'extraClass',
+    'dataMin',
 
-        // Коэффициенты
-        'itemUnits' => []
-    ];
+    // Коэффициенты
+    'itemUnits' => []
+];
 
-    // Подгружаем pdoTools, чтобы запускать файловые сниппеты
-    $pdoTools = $modx->getService('pdoTools');
-
-
-    // ------------------------------------
-    // Установка переменных с информацией о товаре
-    // ------------------------------------
-    // id товара, нужен для добавления товара в корзину
-    $result['prodId'] = $src['id'];
-
-    // Ключ товара, нужен для изменения товара в корзине
-    $result['productKey'] = str_replace(' ', '', $src['id'] . $src['price'] . $src['weight'] . '[]');
-
-    $decoratePriceRegex = '/\B(?=(\d{3})+(?!\d))/';
-    // Цена по умолчанию - нужна для расчета других цен на JS
-    $result['defaultPrice'] = str_replace([',', ' '], ['.', ''], $src['price']);
-    // Цена для красивого вывода
-    $result['outputPrice'] = str_replace(',', '.', preg_replace($decoratePriceRegex, ' ', $src['price']));
-    // Старая цена
-    if ($src['old_price']) {
-        // Старая цена по умолчанию
-        $result['defaultOldPrice'] = str_replace([',', ' '], ['.', ''], $src['old_price']);
-        // Старая цена для красивого вывода
-        $result['outputOldPrice'] = str_replace(',', '.', preg_replace($decoratePriceRegex, ' ', $src['old_price']));
-    }
-
-    // Цена за ...
-    $unit = $src['unit'][0];
-    if (empty($unit) || $unit == 'упаковка') {
-        $result['pricePer'] = 'упаковку';
-    } else if ($unit == 'тонна') {
-        $result['pricePer'] = 'тонну';
-    } else {
-        $result['pricePer'] = $unit;
-    }
-
-    // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
-    $result['condition'] = !in_array($src['parent'], [
-        93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336,
-
-        // isoroc
-        93247,93260,93259,93258,93257,93256,93255,93254,93253,93252,93251,93250,93249,93248,93233,93246,93245,93244,93243,93242,93241,93240,93239,93238,93237,93236,93235,93234
-    ]);
-
-    // Дробное добавление товара в корзину
-    if (in_array($modx->resource->template, [17, 20, 6, 21, 22])) {
-        $result['isFractional'] = $modx->resource->getTVValue('isFractional');
-    } else {
-        $result['isFractional'] = $src['isFractional'];
-    }
-    if ($isFractional == 1) {
-        $result['extraClass'] = ' custom-counter_type_fractional';
-        $result['dataMin'] = '0.01';
-    } else {
-        $result['extraClass'] = '';
-        $result['dataMin'] = '1';
-    }
+// Подгружаем pdoTools, чтобы запускать файловые сниппеты
+$pdoTools = $modx->getService('pdoTools');
 
 
-    // ------------------------------------
-    // Вычисление и установка коэффициентов
-    // ------------------------------------
-    // Единицы измерения для утеплителей
-    if (in_array($src['context_key'], ['web'])) {
-        $pm = str_replace(',', '.', $src['kolvo-pm'][0]);
-        $m2 = $src['ploshad_m2'][0];
-        $m3 = str_replace(',', '.', $src['obyem_m3'][0]);
+// ------------------------------------
+// Установка переменных с информацией о товаре
+// ------------------------------------
+// id товара, нужен для добавления товара в корзину
+$result['prodId'] = $src['id'];
 
-        if (!empty($src['v_upakovke'][0]) && in_array($src['parent'], [93441,93442,93443,93444,93445,93446,93447,93448,93449,93450,93451,93452,93453,93454,93455])) {
-            if (!in_array($src['parent'], [93452, 93450, 93453, 93454, 93455])) {
-                $upk = 1 / $src['v_upakovke'][0];
-                $pm = 1 / ($src['v_upakovke'][0] * (1 / $pm));
-                $m2 = 1 / ($src['v_upakovke'][0] * (1 / $m2));
-                $m3 = 1 / ($src['v_upakovke'][0] * (1 / $m3));
-            } else {
-                $list = $src['v_upakovke'][0];
-            }
+// Ключ товара, нужен для изменения товара в корзине
+$result['productKey'] = str_replace(' ', '', $src['id'] . $src['price'] . $src['weight'] . '[]');
+
+$decoratePriceRegex = '/\B(?=(\d{3})+(?!\d))/';
+// Цена по умолчанию - нужна для расчета других цен на JS
+$result['defaultPrice'] = str_replace([',', ' '], ['.', ''], $src['price']);
+// Цена для красивого вывода
+$result['outputPrice'] = str_replace(',', '.', preg_replace($decoratePriceRegex, ' ', $src['price']));
+// Старая цена
+if ($src['old_price']) {
+    // Старая цена по умолчанию
+    $result['defaultOldPrice'] = str_replace([',', ' '], ['.', ''], $src['old_price']);
+    // Старая цена для красивого вывода
+    $result['outputOldPrice'] = str_replace(',', '.', preg_replace($decoratePriceRegex, ' ', $src['old_price']));
+}
+
+// Цена за ...
+$unit = $src['unit'][0];
+if (empty($unit) || $unit == 'упаковка') {
+    $result['pricePer'] = 'упаковку';
+} else if ($unit == 'тонна') {
+    $result['pricePer'] = 'тонну';
+} else {
+    $result['pricePer'] = $unit;
+}
+
+// Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
+$result['condition'] = !in_array($src['parent'], [
+    93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336,
+
+    // isoroc
+    93247, 93260, 93259, 93258, 93257, 93256, 93255, 93254, 93253, 93252, 93251, 93250, 93249, 93248, 93233, 93246, 93245, 93244, 93243, 93242, 93241, 93240, 93239, 93238, 93237, 93236, 93235, 93234
+]);
+
+// Дробное добавление товара в корзину
+if (in_array($modx->resource->template, [17, 20, 6, 21, 22])) {
+    $result['isFractional'] = $modx->resource->getTVValue('isFractional');
+} else {
+    $result['isFractional'] = $src['isFractional'];
+}
+if ($isFractional == 1) {
+    $result['extraClass'] = ' custom-counter_type_fractional';
+    $result['dataMin'] = '0.01';
+} else {
+    $result['extraClass'] = '';
+    $result['dataMin'] = '1';
+}
+
+
+// ------------------------------------
+// Вычисление и установка коэффициентов
+// ------------------------------------
+// Единицы измерения для утеплителей
+if (in_array($src['context_key'], ['web'])) {
+    $pm = str_replace(',', '.', $src['kolvo-pm'][0]);
+    $m2 = $src['ploshad_m2'][0];
+    $m3 = str_replace(',', '.', $src['obyem_m3'][0]);
+
+    // Отдельные расчеты для пеноплекса
+    if (!empty($src['v_upakovke'][0]) && in_array($src['parent'], [93441, 93442, 93443, 93444, 93445, 93446, 93447, 93448, 93449, 93450, 93451, 93452, 93453, 93454, 93455])) {
+        if (!in_array($src['parent'], [93452, 93450, 93453, 93454, 93455])) {
+            $upk = 1 / $src['v_upakovke'][0];
+            $pm = 1 / ($src['v_upakovke'][0] * (1 / $pm));
+            $m2 = 1 / ($src['v_upakovke'][0] * (1 / $m2));
+            $m3 = 1 / ($src['v_upakovke'][0] * (1 / $m3));
+        } else {
+            $list = $src['v_upakovke'][0];
         }
     }
 
-    // Единицы измерения для газобетона
-    if (in_array($src['context_key'], ['gazosilikatstroy'])) {
-        if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
-            $thing = $src['kolvoshm3'][0];
+    // Отдельные расчеты для tn
+    if (
+        // Это tn
+        in_array($src['parent'], [93525, 93526, 93527, 93528, 93529, 93530, 93531, 93532, 93533, 93534, 93535, 93536, 93537, 93538, 93539, 93540, 93541, 93542, 93543, 93544, 93545, 93546, 93547, 93548, 93549, 93550, 93551, 93552, 93553, 93554, 93555, 93556, 93557, 93558, 93559, 93560, 93561, 93562, 93563, 93564, 93565, 93566, 93567, 93568, 93569, 93570, 93571, 93572, 93573, 93574, 93575, 93576, 93577, 93578, 93579, 93580, 93581, 93582, 93583, 93584, 93585, 93586, 93587, 93588, 93589, 93590, 93591, 93592, 93593, 93594, 93595, 93596, 93597, 93598, 93599, 93600, 93601, 93602, 93603, 93604, 93605, 93606, 93607, 93608, 93609, 93610, 93611, 93612, 93613, 93614, 93615, 93616, 93617, 93618, 93619, 93620, 93621, 93622, 93623, 93624, 93625, 93626, 93627, 93628, 93629, 93630]) &&
+        // Совпадает тип
+        in_array($src['tip'][0], ['Экструдированный пенополистирол', 'Пенополистирол']) &&
+        // В упаковке > 0
+        $src['v_upakovke'][0] > 0) {
+        $list = $src['v_upakovke'][0];
+    }
+}
 
-            if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
-                $pdn = 1 / ((1 / $thing) *  $src['pallet_num'][0]);
-            }
+// Единицы измерения для газобетона
+if (in_array($src['context_key'], ['gazosilikatstroy'])) {
+    if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
+        $thing = $src['kolvoshm3'][0];
+
+        if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
+            $pdn = 1 / ((1 / $thing) * $src['pallet_num'][0]);
         }
-
     }
 
-    // Установка itemUnits
-    $inf = 999999999999999999;
+}
 
-    // TODO: С помощью цикла код можно упростить
-    if (!empty($m2) && ($m2 > 0) && ($m2 < $inf)) {
-        $result['itemUnits']['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2'];
-    }
-    if (!empty($m3) && ($m3 > 0) && ($m3 < $inf)) {
-        $result['itemUnits']['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3'];
-    }
-    if (!empty($pm) && ($pm > 0) && ($pm < $inf)) {
-        $result['itemUnits']['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4'];
-    }
-    if (!empty($list) && ($list > 0) && ($list < $inf)) {
-        $result['itemUnits']['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5'];
-    }
-    if (!empty($thing) && ($thing > 0) && ($thing < $inf)) {
-        $result['itemUnits']['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6'];
-    }
-    if (!empty($pilomat_thing) && ($pilomat_thing > 0) && ($pilomat_thing < $inf)) {
-        $result['itemUnits']['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7'];
-    }
-    if (!empty($k_m2seam) && ($k_m2seam > 0) && ($k_m2seam < $inf)) {
-        $result['itemUnits']['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8'];
-    }
-    if (!empty($k_m3seam) && ($k_m3seam > 0) && ($k_m3seam < $inf)) {
-        $result['itemUnits']['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9'];
-    }
-    if (!empty($meter) && ($meter > 0) && ($meter < $inf)) {
-        $result['itemUnits']['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10'];
-    }
-    if (!empty($upk) && ($upk > 0) && ($upk < $inf)) {
-        $result['itemUnits']['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11'];
-    }
-    if (!empty($pdn) && ($pdn > 0) && ($pdn < $inf)) {
-        $result['itemUnits']['pdn'] = ['val' => $pdn, 'title' => 'поддон', 'id' => '12'];
-    }
+// Установка itemUnits
+$inf = 999999999999999999;
 
-    // ------------------------------------
-    // Финальные вычисления
-    // ------------------------------------
-    if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
-        foreach ($result['itemUnits'] as $key => $val) {
-            // Здесь происходит неявное приведение типов - числа в строку (функция replace ведь работает со строками). И замена запятой на точку. Зачем? См. в самом начале объяснение 2
-            $result['itemUnits'][$key] = str_replace(',', '.', $val);
-        }
-        $result['productKey'] = str_replace(',', '.', $result['productKey']);
+// TODO: С помощью цикла код можно упростить
+if (!empty($m2) && ($m2 > 0) && ($m2 < $inf)) {
+    $result['itemUnits']['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2'];
+}
+if (!empty($m3) && ($m3 > 0) && ($m3 < $inf)) {
+    $result['itemUnits']['m3'] = ['val' => $m3, 'title' => 'м3', 'id' => '3'];
+}
+if (!empty($pm) && ($pm > 0) && ($pm < $inf)) {
+    $result['itemUnits']['pm'] = ['val' => $pm, 'title' => 'п.м.', 'id' => '4'];
+}
+if (!empty($list) && ($list > 0) && ($list < $inf)) {
+    $result['itemUnits']['list'] = ['val' => $list, 'title' => 'лист', 'id' => '5'];
+}
+if (!empty($thing) && ($thing > 0) && ($thing < $inf)) {
+    $result['itemUnits']['thing'] = ['val' => $thing, 'title' => 'штуку', 'id' => '6'];
+}
+if (!empty($pilomat_thing) && ($pilomat_thing > 0) && ($pilomat_thing < $inf)) {
+    $result['itemUnits']['pilomat_thing'] = ['val' => $pilomat_thing, 'title' => 'штуку', 'id' => '7'];
+}
+if (!empty($k_m2seam) && ($k_m2seam > 0) && ($k_m2seam < $inf)) {
+    $result['itemUnits']['k_m2seam'] = ['val' => $k_m2seam, 'title' => 'м2', 'id' => '8'];
+}
+if (!empty($k_m3seam) && ($k_m3seam > 0) && ($k_m3seam < $inf)) {
+    $result['itemUnits']['k_m3seam'] = ['val' => $k_m3seam, 'title' => 'м3', 'id' => '9'];
+}
+if (!empty($meter) && ($meter > 0) && ($meter < $inf)) {
+    $result['itemUnits']['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10'];
+}
+if (!empty($upk) && ($upk > 0) && ($upk < $inf)) {
+    $result['itemUnits']['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11'];
+}
+if (!empty($pdn) && ($pdn > 0) && ($pdn < $inf)) {
+    $result['itemUnits']['pdn'] = ['val' => $pdn, 'title' => 'поддон', 'id' => '12'];
+}
+
+// ------------------------------------
+// Финальные вычисления
+// ------------------------------------
+if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
+    foreach ($result['itemUnits'] as $key => $val) {
+        // Здесь происходит неявное приведение типов - числа в строку (функция replace ведь работает со строками). И замена запятой на точку. Зачем? См. в самом начале объяснение 2
+        $result['itemUnits'][$key] = str_replace(',', '.', $val);
     }
+    $result['productKey'] = str_replace(',', '.', $result['productKey']);
+}
 
-    if (count($result['itemUnits']) < 1) {
-        $result['condition'] = false;
-    }
+if (count($result['itemUnits']) < 1) {
+    $result['condition'] = false;
+}
 
-    $result['productKey'] = md5($result['productKey']);
+$result['productKey'] = md5($result['productKey']);
 
 
-    // ------------------------------------
-    // Работа с кешем
-    // ------------------------------------
-    //$modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+// ------------------------------------
+// Работа с кешем
+// ------------------------------------
+//$modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
 //}
 
 // Есть ли товар в избранном, в сравнении
