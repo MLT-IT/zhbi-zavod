@@ -578,10 +578,17 @@ function init(yandexMetrikaId) {
     }
 
     // Всплывашка на цене со скидкой
-    $('.js-product_with-discount .product-info__price-value, .js-product_with-discount .product-info__price-mes-close').on('click', function(e) {
-        e.stopPropagation();
-        $(this).closest('.product-info__price').toggleClass('active');
-    });
+    if ($('.js-product_with-discount').length) {
+        let timeout = setTimeout(function () {
+            $('.product-info__price').removeClass('active');
+        }, 7000);
+        $('.js-product_with-discount .product-info__price-value, .js-product_with-discount .product-info__price-mes-close').on('click', function (e) {
+            e.stopPropagation();
+            clearTimeout(timeout);
+            $(this).closest('.product-info__price').toggleClass('active');
+        });
+    }
+
 }
 
 
