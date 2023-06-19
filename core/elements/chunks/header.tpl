@@ -20,16 +20,16 @@
         <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
       </div>
       <div class="header__actions">
-        <a href="tel:+7 (812) 627-13-90" class="header__action icon-btn icon-btn_style_black">
-          <svg class="icon-btn__icon" aria-hidden="true">
-            <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-          </svg>
-        </a>
-        <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
-          <svg class="icon-btn__icon" aria-hidden="true">
-            <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
-          </svg>
-        </a>
+          <a href="tel:+7 (812) 627-13-90" class="header__action icon-btn icon-btn_style_black">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+            </svg>
+          </a>
+          <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
+            <svg class="icon-btn__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
+            </svg>
+          </a>
       </div>
     </div>
   </div>
@@ -179,26 +179,32 @@
         </div>
         <a class="header__callback-btn btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
         <div class="header__actions">
-          {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
-          <a href="/favorites/" class="header__action_type_favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
-            <svg class="icon-btn__icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
-            </svg>
-          </a>
-          {set $favComp = $prodValues['checkItems']['comp'] | length}
-          {*
-          <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
-            <svg class="icon-btn__icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
-            </svg>
-          </a>
-          *}
-          {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
-          <a data-fancybox href="#callback" class="header__action_type_callback header__action icon-btn icon-btn_style_white">
-            <svg class="icon-btn__icon" aria-hidden="true">
-              <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-            </svg>
-          </a>
+            <div class="header__actions-pc">
+                {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
+                <a href="/favorites/" class="header__action_type_favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
+                  <svg class="icon-btn__icon" aria-hidden="true">
+                    <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
+                  </svg>
+                </a>
+                {set $favComp = $prodValues['checkItems']['comp'] | length}
+                {*
+                <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
+                  <svg class="icon-btn__icon" aria-hidden="true">
+                    <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
+                  </svg>
+                </a>
+                *}
+                {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
+                <a data-fancybox href="#callback" class="header__action_type_callback header__action icon-btn icon-btn_style_white">
+                  <svg class="icon-btn__icon" aria-hidden="true">
+                    <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+                  </svg>
+                </a>
+            </div>
+            <div class="header__actions-mobile">
+                <span class="btn btn_style_shadow header__actions-mobile-reset" data-dropdown-only-close="1" data-dropdown-body-doc=".filter">Сбросить фильтр</span>
+                <span class="btn btn_style_shadow header__actions-mobile-apply" data-dropdown-only-close="1" data-dropdown-body-doc=".filter">Применить</span>
+            </div>
         </div>
 
         <button class="js-burger-2 header__right-burger header__burger icon-btn icon-btn_style_red">

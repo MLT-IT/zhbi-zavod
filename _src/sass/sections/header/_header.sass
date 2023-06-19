@@ -4,6 +4,9 @@
         align-items: center
         justify-content: space-between
 
+    &__actions-mobile-reset
+        margin-right: 20px
+
     &__mobile
         position: relative
         padding: 20px 0
@@ -132,6 +135,18 @@
         display: flex
         align-items: center
         margin-left: auto
+
+        &-pc
+            display: flex
+            +until-480
+                display: none
+
+        &-mobile
+            display: none
+
+            @at-root .filters-expanded &
+                +until-480
+                    display: flex
 
     &__action
         &:not(:last-child)

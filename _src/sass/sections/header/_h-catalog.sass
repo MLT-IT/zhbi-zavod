@@ -83,17 +83,22 @@
     @at-root .gazosilikatstroy &
         min-height: 37px
 
-    &__to-catalog
+    &_to-catalog
         text-align: center
         min-height: 0
         line-height: 1.2
         padding-left: 60px
+        height: 37px
 
         &:hover
             text-decoration-color: transparent
             background-color: #f6f6f6
+            position: relative
 
-    &_main
+            &::after
+                visibility: visible
+
+    &_to-catalog, &_main
         padding-right: 12px
         text-decoration: none
 
@@ -108,6 +113,7 @@
             visibility: hidden
             margin-left: auto
 
+    &_main
         &.active
             background-color: #f6f6f6
             position: relative

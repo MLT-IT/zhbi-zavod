@@ -169,6 +169,10 @@
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>
+    <div class="burger-menu__link-to-catalog-wrap">
+      <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">Все производители</a>
+    </div>
+
   </div>
 </section>
 

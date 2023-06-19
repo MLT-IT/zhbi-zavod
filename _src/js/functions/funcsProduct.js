@@ -56,7 +56,8 @@ function init(yandexMetrikaId) {
     // -------------------------------
     // Работа со страницей товара с перелинковкой со списками
     // -------------------------------
-    if ($('.product-info__availability .euv-custom-select').length) {
+    const $productInfoSelect = $('.product-info .euv-custom-select');
+    if ($productInfoSelect.length) {
         let plugin_name = 'euv_custom_select';
         let toggleDuration = 200;
         let custom_select_visible_class = 'euv-custom-select_visible',
@@ -67,10 +68,10 @@ function init(yandexMetrikaId) {
         // -------------------------------
         // Стилизованный список
         // -------------------------------
-        let $select = $('.product-info .euv-custom-select');
+        let $productInfoSelect = $('.product-info .euv-custom-select');
 
         // Обработчик на клик по списку
-        $select.on('click', function (e) {
+        $productInfoSelect.on('click', function (e) {
             // Исключаем клик по подсказке или по кнопке для вызова подсказки
             let $target = $(e.target);
             if ($target.hasClass('filter-option__tip') ||
@@ -111,7 +112,7 @@ function init(yandexMetrikaId) {
             }
         });
 
-        $select.each(function () {
+        $productInfoSelect.each(function () {
             let $this = $(this);
             let $scroll = $this.find('.euv-custom-select__options-wrap-scroll');
 

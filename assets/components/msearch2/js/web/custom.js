@@ -96,6 +96,9 @@ var mSearch2 = {
         $(document).on('reset', this.options.filters, function () {
             return mSearch2.reset();
         });
+        $('.header__actions-mobile-reset').on('click', function() {
+            mSearch2.reset();
+        });
 
         for (i in this.startParams) {
             if (this.startParams.hasOwnProperty(i) && this.options.reset_skip.indexOf(i) === -1) {
