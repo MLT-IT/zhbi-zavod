@@ -115,9 +115,9 @@ $cacheOptions = [
         if (!empty($src['v_upakovke'][0]) && in_array($src['parent'], [93441,93442,93443,93444,93445,93446,93447,93448,93449,93450,93451,93452,93453,93454,93455])) {
             if (!in_array($src['parent'], [93452, 93450, 93453, 93454, 93455])) {
                 $upk = 1 / $src['v_upakovke'][0];
-                $pm = 1 / ($src['v_upakovke'][0] * (1 / $src['kolvo-pm'][0]));
-                $m2 = 1 / ($src['v_upakovke'][0] * (1 / $src['ploshad_m2'][0]));
-                $m3 = 1 / ($src['v_upakovke'][0] * (1 / $src['obyem_m3'][0]));
+                $pm = 1 / ($src['v_upakovke'][0] * (1 / $pm));
+                $m2 = 1 / ($src['v_upakovke'][0] * (1 / $m2));
+                $m3 = 1 / ($src['v_upakovke'][0] * (1 / $m3));
             } else {
                 $list = $src['v_upakovke'][0];
             }
