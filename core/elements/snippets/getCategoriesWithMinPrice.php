@@ -3,7 +3,6 @@
 class getCategoriesWithMinPrice {
 
     static protected $brandsIds;
-
     static protected $brandsAndCategories;
 
     static protected function getBrandsMinPrices() {
@@ -110,6 +109,7 @@ class getCategoriesWithMinPrice {
                     'isorok' => '93233,93234,93235,93236,93237,93238,93239,93240,93241,93242,93243,93244,93245,93246,93247,93248,93249,93250,93251,93252,93253,93254,93255,93256,93257,93258,93259,93260'
                 ];
                 break;
+
             case 'gazosilikatstroy':
                 static::$brandsIds = [
                     'lsr' => 101938,
@@ -122,6 +122,13 @@ class getCategoriesWithMinPrice {
                     'bonolit' => 101933,
                     'zabudova' => 101935,
                     'ytong' => 101931
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+
+            case 'kraska':
+                static::$brandsIds = [
+                    'lsr' => 102922,
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;

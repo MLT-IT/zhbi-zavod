@@ -3,6 +3,8 @@
     {set $logo = 'alterteplo-white.png'}
   {case 'gazosilikatstroy'}
     {set $logo = 'gazosilicatstroy-white.png'}
+  {case 'kraska'}
+    {set $logo = 'gazosilicatstroy-white.png'}
 {/switch}
 
 <footer class="footer">
@@ -166,6 +168,8 @@
           {set $params['parents'] = 0}
           {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
           {set $params['sortdir'] = 'ASC'}
+        {case 'kraska'}
+          {set $params['parents'] = 102655}
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>

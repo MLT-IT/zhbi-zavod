@@ -14,6 +14,9 @@
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
+        {case 'kraska'}
+          {set $logo = 'gazosilicatstroy.png'}
+          {set $logoMobile = 'gazosilicatstroy.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
@@ -42,6 +45,8 @@
               {set $text = 'утеплителей'}
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
+            {case 'kraska'}
+              {set $text = 'краски'}
           {/switch}
           Продажа {$text} в Санкт-Петербурге
         </span>

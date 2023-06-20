@@ -6,6 +6,8 @@
           {set $text = 'утеплителей'}
         {case 'gazosilikatstroy'}
           {set $text = 'газобетона'}
+        {case 'kraska'}
+          {set $text = 'краски'}
       {/switch}
       Продажа {$text} в Санкт-Петербурге
     </h1>

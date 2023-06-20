@@ -76,6 +76,8 @@
           {include "file:sections/uteplitel-info.tpl"}
         {case 'gazosilikatstroy'}
           {include "file:sections/gazobeton-info.tpl"}
+        {case 'kraska'}
+          {include "file:sections/gazobeton-info.tpl"}
       {/switch}
       {include "file:sections/faq.tpl"}
       {include "file:sections/contacts.tpl"}
