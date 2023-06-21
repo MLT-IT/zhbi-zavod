@@ -12,6 +12,11 @@ function getMenuData() {
 
     $data = [
         $rockwool => [
+            'column1' => [
+                'uri' => '/rockwool/',
+                'name' => 'Утеплитель Rockwool',
+                'img' => '/assets/template/img/brands/rockwool.jpg'
+            ],
             'column2' => [
                 [
                     'uri' => '/rockwool/light-batts/',
@@ -255,8 +260,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $tn => [
+            'column1' => [
+                'uri' => '/tn/',
+                'name' => 'Утеплитель Технониколь',
+                'img' => '/assets/template/img/brands/tehnonikol.jpg'
+            ],
             'column2' => [
                 [
                     'uri' => '/tn/carbon/',
@@ -492,8 +501,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $penoplex => [
+            'column1' => [
+                'uri' => '/penoplex/',
+                'name' => 'Утеплитель Penoplex',
+                'img' => '/assets/template/img/brands/penoplex.jpg'
+            ],
             'column2' => [
                 [
                     'uri' => '/penoplex/fundament/',
@@ -621,8 +634,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $knauf => [
+            'column1' => [
+                'uri' => '/knauf/',
+                'name' => 'Утеплитель Knauf',
+                'img' => '/assets/template/img/brands/brand-knauf.png'
+            ],
             'column2' => [
                 [
                     'uri' => '/knauf/teploknauf/',
@@ -767,6 +784,11 @@ function getMenuData() {
             ]
         ],
         $paroc => [
+            'column1' => [
+                'uri' => '/paroc/',
+                'name' => 'Утеплитель Paroc',
+                'img' => '/assets/template/img/brands/paroc.jpg'
+            ],
             'column2' => [
                 [
                     'uri' => '/paroc/oem-plityi/',
@@ -930,8 +952,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $ursa => [
+            'column1' => [
+                'uri' => '/ursa/',
+                'name' => 'Утеплитель Ursa',
+                'img' => '/assets/template/img/brands/ursa.png'
+            ],
             'column2' => [
                 [
                     'uri' => '/ursa/geo/',
@@ -1039,8 +1065,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $isover => [
+            'column1' => [
+                'uri' => '/isover/',
+                'name' => 'Утеплитель Isover',
+                'img' => '/assets/template/img/brands/isover.jpg'
+            ],
             'column2' => [
                 [
                     'uri' => '/isover/kim-al/',
@@ -1272,8 +1302,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $isoroc => [
+            'column1' => [
+                'uri' => '/isoroc/',
+                'name' => 'Утеплитель Isoroc',
+                'img' => '/assets/template/img/brands/isoroc.jpg'
+            ],
             'column2' => [
                 [
                     "uri" => "/isoroc/izolait/",

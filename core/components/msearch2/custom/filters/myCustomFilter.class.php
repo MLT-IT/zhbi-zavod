@@ -100,7 +100,20 @@ class myCustomFilter extends mse2FiltersHandler {
 
             if ($GLOBALS['modx']->resource->context_key == 'gazosilikatstroy') {
                 if ($options['name'] == 'proizvoditel') {
-                    $sorted = $this->sortByCustomOrder($sorted, $results, ['ЛСР', 'СК (СтройКомплект)', 'Могилевский газосиликат', 'AEROC', 'Белорусский БЦК', 'YTONG', 'ЕАБ (ЕвроАэроБетон)', 'Н+Н', 'Bonolit', 'Забудова']);
+                    $sorted = $this->sortByCustomOrder($sorted, $results, [
+                        'ЛСР',
+                        'СК (СтройКомплект)',
+                        'ЕАБ (ЕвроАэроБетон)',
+                        'Белорусский SLS',
+                        'Могилевский Газосиликат',
+                        'AEROC',
+                        'Могилевский КСИ',
+                        'Белорусский БЦК',
+                        'Н+Н',
+                        'Bonolit',
+                        'Забудова',
+                        'YTONG',
+                    ]);
                 }
 
                 if ($options['name'] == 'item_thickness') {

@@ -5,15 +5,22 @@ function getMenuData() {
     $sk = 101936;
     $eab = 101934;
     $aeroc = 101932;
-    $mogil = 101937;
+    $mogilksi = 101937;
     $bck = 101929;
     $hh = 101930;
     $bonolit = 101933;
     $zabudova = 101935;
     $ytong = 101931;
+    $sls = 103191;
+    $mogilgaz = 103192;
 
     $data = [
         $lsr => [
+            'column1' => [
+                'uri' => '/gazobeton-lsr/',
+                'name' => 'Газобетон ЛСР',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-lsr/?msoption|plotnost-ob=D200",
@@ -71,8 +78,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $sk => [
+            'column1' => [
+                'uri' => '/gazobeton-sk/',
+                'name' => 'Газобетон СК',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-sk/?msoption|plotnost-ob=D400",
@@ -146,8 +157,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $eab => [
+            'column1' => [
+                'uri' => '/gazobeton-eab/',
+                'name' => 'Газобетон (ЕвроАэроБетон)',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-eab/?msoption|plotnost-ob=D400",
@@ -195,8 +210,114 @@ function getMenuData() {
                 ],
             ]
         ],
-
+        $sls => [
+            'column1' => [
+                'uri' => '/gazobeton-belorusskij-sls/',
+                'name' => 'Газобетон Белорусский SLS',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|plotnost-ob=D400',
+                    'name' => 'D400'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|plotnost-ob=D500',
+                    'name' => 'D500'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|plotnost-ob=D600',
+                    'name' => 'D600'
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=100х250х625',
+                    'name' => '100х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=150х250х625',
+                    'name' => '150х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=200х250х625',
+                    'name' => '200х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=250х250х625',
+                    'name' => '250х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=300х250х625',
+                    'name' => '300х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=375х250х625',
+                    'name' => '375х250х625'
+                ],
+                [
+                    'uri' => '/gazobeton-belorusskij-sls/?msoption|razmer-mm=400х250х625',
+                    'name' => '400х250х625'
+                ],
+            ],
+        ],
+        $mogilgaz => [
+            'column1' => [
+                'uri' => '/gazobeton-mogilevskij-gazosilikat/',
+                'name' => 'Газобетон Могилевский Газосиликат',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|plotnost-ob=D400',
+                    'name' => 'D400'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|plotnost-ob=D500',
+                    'name' => 'D500'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|plotnost-ob=D600',
+                    'name' => 'D600'
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=100х250х600',
+                    'name' => '100х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=150х250х600',
+                    'name' => '150х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=200х250х600',
+                    'name' => '200х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=250х250х600',
+                    'name' => '250х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=300х250х600',
+                    'name' => '300х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=375х250х600',
+                    'name' => '375х250х600'
+                ],
+                [
+                    'uri' => '/gazobeton-mogilevskij-gazosilikat/?msoption|razmer-mm=400х250х600',
+                    'name' => '400х250х600'
+                ],
+            ],
+        ],
         $aeroc => [
+            'column1' => [
+                'uri' => '/gazobeton-aerok/',
+                'name' => 'Газобетон Аэрок',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-aerok/?msoption|plotnost-ob=D300",
@@ -246,63 +367,71 @@ function getMenuData() {
                 ],
             ]
         ],
-
-        $mogil => [
+        $mogilksi => [
+            'column1' => [
+                'uri' => '/mogilevskiy-gazobeton-ksi/',
+                'name' => 'Газобетон Могилевский КСИ',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D300",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|plotnost-ob=D300",
                     "name" => "D300"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D400",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|plotnost-ob=D400",
                     "name" => "D400"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D500",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|plotnost-ob=D500",
                     "name" => "D500"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|plotnost-ob=D600",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|plotnost-ob=D600",
                     "name" => "D600"
                 ],
             ],
             'column3' => [
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=300х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=300х250х625",
                     "name" => "300х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=100х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=100х250х625",
                     "name" => "100х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=150х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=150х250х625",
                     "name" => "150х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=200х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=200х250х625",
                     "name" => "200х250х625"
                 ],
 
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=250х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=250х250х625",
                     "name" => "250х250х625"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=375х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=375х250х625",
                     "name" => "375х250х625"
                 ],
                 [
-                    "uri" => "/mogilevskiy-gazobeton/?msoption|razmer-mm=400х250х625",
+                    "uri" => "/mogilevskiy-gazobeton-ksi/?msoption|razmer-mm=400х250х625",
                     "name" => "400х250х625"
                 ],
             ],
         ],
-
         $bck => [
+            'column1' => [
+                'uri' => '/bck-belorusskiy/',
+                'name' => 'Газобетон Белорусский (БЦК)',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/bck-belorusskiy/?msoption|plotnost-ob=D300",
@@ -352,8 +481,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $hh => [
+            'column1' => [
+                'uri' => '/gazobeton-hh/',
+                'name' => 'Газобетон H+H',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-hh/?msoption|plotnost-ob=D300",
@@ -403,8 +536,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $bonolit => [
+            'column1' => [
+                'uri' => '/gazobeton-bonolit/',
+                'name' => 'Газобетон Бонолит',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-bonolit/?msoption|plotnost-ob=D400",
@@ -419,7 +556,6 @@ function getMenuData() {
                     "name" => "D600"
                 ],
             ],
-
             'column3' => [
                 [
                     "uri" => "/gazobeton-bonolit/?msoption|razmer-mm=200х250х600",
@@ -479,8 +615,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $zabudova => [
+            'column1' => [
+                'uri' => '/gazobeton-zabudova/',
+                'name' => 'Газобетон Забудова',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-zabudova/?msoption|plotnost-ob=D400",
@@ -495,7 +635,6 @@ function getMenuData() {
                     "name" => "D600"
                 ],
             ],
-
             'column3' => [
                 [
                     "uri" => "/gazobeton-zabudova/?msoption|razmer-mm=100х250х625",
@@ -527,8 +666,12 @@ function getMenuData() {
                 ],
             ]
         ],
-
         $ytong => [
+            'column1' => [
+                'uri' => '/gazobeton-ytong/',
+                'name' => 'Газобетон Ytong (Ютонг)',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
             'column2' => [
                 [
                     "uri" => "/gazobeton-ytong/?msoption|plotnost-ob=D300",
@@ -547,7 +690,6 @@ function getMenuData() {
                     "name" => "D600"
                 ],
             ],
-
             'column3' => [
                 [
                     "uri" => "/gazobeton-ytong/?msoption|razmer-mm=300х250х625",

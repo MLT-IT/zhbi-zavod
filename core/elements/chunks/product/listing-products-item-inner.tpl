@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="product-card__body">
-  <a href="{$uri}" class="product-card__title">{$menutitle}</a>
+  <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
   {if $renderChars ?}
     <ul class="product-card__stats">
