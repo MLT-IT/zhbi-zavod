@@ -414,6 +414,9 @@ function init(yandexMetrikaId) {
     $(document).on('click click_without_message', '.js-product__volume-tab', function (event) {
         event.preventDefault();
         let $this = $(this);
+        if ($this.hasClass('active')) {
+            return;
+        }
         let val = $this.attr('data-val');
         $('.js-product__volume-tab[data-val="' + val + '"]').each(function (i, e) {
             handleUnitLink($(e), event.type == 'click_without_message' || i > 0);

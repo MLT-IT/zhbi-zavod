@@ -77,8 +77,8 @@
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
-              <div class="product-info__top">
 
+              <div class="product-info__top">
                 <div class="product-info__rating rating">
                   <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div>
                   <ul class="rating__stars">
@@ -133,44 +133,44 @@
                       ]}
                     {case 'gazosilikatstroy'}
                       {set $unit = 'м3'}
-                    {case 'kraska'}
-                      {set $unit = 'м3'}
                   {/switch}
 
-                  {if $relinkingData is empty}
-                    <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
+                  {if $_modx->resource.context_key != 'kraska'}
+                    {if $relinkingData is empty}
+                      <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
+                    {/if}
                   {/if}
                 </div>
 
-                {if $relinkingData is not empty}
-                  <div class="product-info__avstock">
-                      <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                        На складе {$_modx->resource.stockNum} {$unit}
-                      </div>
-                      <div class="product-info__shipped pc-flex">
-                          {'@FILE snippets/shippedToday.php' | snippet}
-                      </div>
-                  </div>
-                {else}
-                  <div class="product-info__shipped pc-flex">
-                      {'@FILE snippets/shippedToday.php' | snippet}
-                  </div>
+                {if $_modx->resource.context_key != 'kraska'}
+                  {if $relinkingData is not empty}
+                    <div class="product-info__avstock">
+                        <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                          На складе {$_modx->resource.stockNum} {$unit}
+                        </div>
+                        <div class="product-info__shipped pc-flex">
+                            {'@FILE snippets/shippedToday.php' | snippet}
+                        </div>
+                    </div>
+                  {else}
+                    <div class="product-info__shipped pc-flex">
+                        {'@FILE snippets/shippedToday.php' | snippet}
+                    </div>
+                  {/if}
                 {/if}
-
               </div>
+
               <div class="product-info__bottom">
                 <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
                   <input type="hidden" name="unit" value="1">
-                  {if $prodValues['condition']}
-                    <div class="product-card__volume">
-                      <ul class="product-info__volume-tabs">
-                        <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
-                        {foreach $prodValues['itemUnits'] as $val}
-                          <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
-                        {/foreach}
-                      </ul>
-                    </div>
-                  {/if}
+                  <div class="product-card__volume">
+                    <ul class="product-info__volume-tabs">
+                      <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
+                      {foreach $prodValues['itemUnits'] as $val}
+                        <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
+                      {/foreach}
+                    </ul>
+                  </div>
                 </div>
 
                 <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
@@ -332,7 +332,7 @@
                             {/if}
 
                             {if $previewSrc is empty}
-                                {if $lastElem in list ['dwg','xls','doc', 'rfa', 'odt', 'zip']}
+                                {if $lastElem in list ['dwg','xls','doc', 'rfa', 'odt', 'zip', 'docx']}
                                     {set $previewClass = 'certs-block__preview-download'}
                                 {else}
                                     {set $previewClass = 'certs-block__preview-view'}
