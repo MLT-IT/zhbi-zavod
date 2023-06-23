@@ -13,7 +13,9 @@
               {case 'gazosilikatstroy'}
                 {set $text = 'Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
               {case 'kraska'}
-                {set $text = 'Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
+                {set $text = 'Закажите краску сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
+              {case 'suhiesmesi'}
+                {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
             {/switch}
             {$text}
           </div>
@@ -56,6 +58,8 @@
         {case 'gazosilikatstroy'}
           {set $link = '/rasprodazha-so-sklada/'}
         {case 'kraska'}
+          {set $link = '/rasprodazha-so-sklada/'}
+        {case 'suhiesmesi'}
           {set $link = '/rasprodazha-so-sklada/'}
       {/switch}
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>

@@ -1,0 +1,5 @@
+<?php
+
+function getMenuData() {
+    return [];
+}

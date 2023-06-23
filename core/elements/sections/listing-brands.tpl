@@ -8,6 +8,8 @@
           {set $text = 'газобетона'}
         {case 'kraska'}
           {set $text = 'краски'}
+        {case 'suhiesmesi'}
+          {set $text = 'сухих смесей'}
       {/switch}
       Продажа {$text} в Санкт-Петербурге
     </h1>

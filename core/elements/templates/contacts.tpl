@@ -18,6 +18,8 @@
             {set $text = 'газобетона'}
           {case 'kraska'}
             {set $text = 'краски'}
+          {case 'suhiesmesi'}
+            {set $text = 'сухих смесей'}
         {/switch}
         {if $_modx->context.key == 'web'}
             {set $site_context = 'alterteplo'}

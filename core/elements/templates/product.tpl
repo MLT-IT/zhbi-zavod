@@ -135,14 +135,14 @@
                       {set $unit = 'м3'}
                   {/switch}
 
-                  {if $_modx->resource.context_key != 'kraska'}
+                  {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi']}
                     {if $relinkingData is empty}
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
                     {/if}
                   {/if}
                 </div>
 
-                {if $_modx->resource.context_key != 'kraska'}
+                {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi']}
                   {if $relinkingData is not empty}
                     <div class="product-info__avstock">
                         <div class="product-info__availability-title product-info__availability-title_available pc-flex">

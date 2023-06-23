@@ -132,6 +132,13 @@ class getCategoriesWithMinPrice {
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
+
+            case 'suhiesmesi':
+                static::$brandsIds = [
+                    'lsr' => 102922,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
         }
     }
 }
