@@ -44,29 +44,16 @@
     {* >>> Open Graph и Twitter Card  *}
     {set $micro_img = 'assets/template/img/logos/' ~ $site_context ~ '.svg'}
     {set $micro_title = 'Поставка '}
-    {if $site_context == 'krovlya'}
-        {set $micro_title = $micro_title ~ 'кровли'}
-    {elseif $site_context == 'kirpich-m'}
-        {set $micro_title = $micro_title ~ 'кирпича'}
-    {elseif $site_context == 'fasady-pro'}
-        {set $micro_title = $micro_title ~ 'деревянных фасадов'}
-    {elseif $site_context == 'fasad'}
-        {set $micro_title = $micro_title ~ 'фасадов'}
-    {elseif $site_context == 'armatura-178'}
-        {set $micro_title = $micro_title ~ 'арматуры'}
-    {elseif $site_context == 'asconcrete'}
-        {set $micro_title = $micro_title ~ 'асфальтобетона'}
-    {elseif $site_context == 'plitaosb'}
-        {set $micro_title = $micro_title ~ 'плит ОСБ'}
-    {elseif $site_context == 'pro-fanera'}
-        {set $micro_title = $micro_title ~ 'фанеры'}
-    {elseif $site_context == 'plity-mdvp'}
-        {set $micro_title = $micro_title ~ 'плит МДВП'}
-    {elseif $site_context == 'policarbonat'}
-        {set $micro_title = $micro_title ~ 'поликарбоната'}
-    {else}
-        {set $micro_title = $micro_title ~ 'утеплителя ' ~ $brand}
-    {/if}
+    {switch $_modx->resource.context_key}
+      {case 'web'}
+        {set $micro_title = $micro_title ~ 'утеплителя'}
+      {case 'gazosilikatstroy'}
+        {set $micro_title = $micro_title ~ 'газобетона'}
+      {case 'kraska'}
+        {set $micro_title = $micro_title ~ 'краски'}
+      {case 'suhiesmesi'}
+        {set $micro_title = $micro_title ~ 'сухих смесей'}
+    {/switch}
 
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}
     <meta property="og:locale" content="ru_RU" />
