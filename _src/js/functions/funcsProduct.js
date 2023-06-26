@@ -430,6 +430,10 @@ function init(yandexMetrikaId) {
     // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
+            if (typeof ym !== 'undefined' && $('body').is('.gazosilikatstroy, .alterteplo')) {
+                ym(93462693, 'reachGoal', 'korzina');
+            }
+
             // Работа с мини-корзиной
             handleMiniCart(response.data.unique_products);
         }
