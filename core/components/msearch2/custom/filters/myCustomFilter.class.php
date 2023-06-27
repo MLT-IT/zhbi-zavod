@@ -44,14 +44,15 @@ class myCustomFilter extends mse2FiltersHandler {
         }
 
         // Объединяем
-        $sortedElems = array_merge($resultElems, $sortedElems);
+        $sortedElems = $resultElems + $sortedElems;
+
         return $sortedElems;
     }
 
     public function sortFilters(array $results, $type = 'default', $options = []) {
         $sorted = [];
 
-        if ($type === 'options') {
+        if ($type == 'options') {
             // -------------------------------------------------------
             // Сортировка float значений по возрастанию (из-за точки они сортируются неправильно)
             // -------------------------------------------------------
@@ -128,12 +129,11 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
 
                 if ($options['name'] == 'produktovaya-lineyka') {
-
                     $sorted = $this->sortByCustomOrder($sorted, $results, [
                         // Rockwool
                         'Лайт Баттс',
-                        'Скандик Лайт Баттс', // отсутствует
-                        'Лайт Баттс Оптима', // отсутствует
+                        'Скандик Лайт Баттс',
+                        'Лайт Баттс Оптима',
                         'Акустик Баттс',
                         'Каркас Баттс',
                         'Фасад Баттс',
@@ -141,16 +141,16 @@ class myCustomFilter extends mse2FiltersHandler {
                         'Арктик',
                         'Руф Баттс',
                         'Венти Баттс',
-                        'Стандарт', // Роквул Стандарт
+                        'Стандарт',
                         'Эконом',
                         'ТЕХ МАТ',
                         'Рокфасад',
-                        'Тех Баттс', // Роквул Тех Баттс
-                        'Сопутствующие товары', // отсутствует
+                        'Тех Баттс',
+                        'Сопутствующие товары',
                         'WIRED MAT',
-                        'Цилиндры навивные', // отсутствует
-                        'LAMELLA MAT L', // Lamella Mat
-                        'CONLIT', // CONLIT SL 150
+                        'Цилиндры навивные',
+                        'LAMELLA MAT L',
+                        'CONLIT',
                         'Кавити Баттс',
                         'Сауна Баттс',
                         'SeaRox',
@@ -160,295 +160,78 @@ class myCustomFilter extends mse2FiltersHandler {
                         'Пластер Баттс',
                         'Klimafix',
                         'Акустик Стандарт',
-                        'Сэндвич Баттс', // отсутствует
+                        'Сэндвич Баттс',
                         'ProRox',
-                        'INDUSTRIAL BATTS', // Industrial Batts 80
+                        'INDUSTRIAL BATTS',
                         'Бетон Элемент Баттс',
 
                         // Технониколь
-                        'Carbon', // Технониколь Carbon
-                        'Роклайт', // Технониколь Роклайт
-                        'Техноруф', // Технониколь Техноруф
-                        'Техноплекс', // XPS Техноплекс
-                        'LOGICPIR', // Технониколь LOGICPIR
-                        'Технофас', // Технониколь Технофас
-                        'Техновент', // Технониколь Техновент
-                        'Техноблок', // Технониколь Техноблок
-                        'Технолайт', // Технониколь Технолайт
-                        'Изобокс', // Технониколь Изобокс
-                        'Master Звукозащита', // Технониколь Шумоизоляция
-                        'Плиты PIR', // Технониколь Плиты PIR
-                        'Техно ОЗМ', // Плита Техно ОЗМ
-                        'Техноакустик', // Технониколь Техноакустик
-                        'Штукатурный фасад', // Технониколь Штукатурный фасад
-                        'Сэндвич Ц-XPS', // Технониколь Сэндвич Ц-XPS
-                        'Технофлор', // Технониколь Технофлор
-                        'Полимерные гидроизоляционные мембраны', // отсутствует
-                        'Базалит', // Технониколь Базалит
-                        'Техно ОЗБ', // Плита Техно ОЗБ
-                        'Техно Т', // Плита Техно Т
-                        'GreenGuard', // Технониколь GreenGuard
-                        'Техносэндвич', // Технониколь Техносэндвич
-                        'Техно ОЗД', // Плита Техно ОЗД
+                        'Carbon',
+                        'Роклайт',
+                        'Техноруф',
+                        'Техноплекс',
+                        'LOGICPIR',
+                        'Технофас',
+                        'Техновент',
+                        'Техноблок',
+                        'Технолайт',
+                        'Изобокс',
+                        'Master Звукозащита',
+                        'Плиты PIR',
+                        'Техно ОЗМ',
+                        'Техноакустик',
+                        'Штукатурный фасад',
+                        'Сэндвич Ц-XPS',
+                        'Технофлор',
+                        'Полимерные гидроизоляционные мембраны',
+                        'Базалит',
+                        'Техно ОЗБ',
+                        'Техно Т',
+                        'GreenGuard',
+                        'Техносэндвич',
+                        'Техно ОЗД',
+                        'Цилиндр Техно',
+                        'Мат Техно',
+                        'Теплоролл',
+
+                        // Penoplex
+                        'Фундамент',
+                        'Комфорт',
+                        'Основа',
+                        'Гео',
+                        '45',
+                        'Стена',
+                        'Уклон',
+                        'Экстрим',
+                        'Кровля',
+                        'Сегменты',
+                        'Фасад',
 
                         // Knauf
-                        'ТеплоКНАУФ',
-                        'Инсулейшн', // Knauf Insulation
-                        'Терм', // Кнауф Терм
                         'АкустиКНАУФ',
-                        'Кнауф мембраны', // отсутствует
-                        'Кнауф Тисма', // отсутствует
+                        'Инсулейшн',
+                        'Терм',
+                        'ТеплоКНАУФ',
                         'GreenTERM',
-                        'Knauf Экоролл', // отсутствует
+
+                        // Paroc
+                        // Фильтр "Продуктовая линейка" полностью отличаются от тегов
+
+                        // Ursa
+                        'Geo',
+                        'Pureone',
+                        'XPS',
+                        'Terra',
+
+                        // Isover
+                        // Очень много разных элементов, пока пропустил. Лучше поставить задачу написать фильтры в нужном порядке кому-нибудь другому. А я потом внесу это в код.
+
+                        // Isoroc
+                        // Нет фильтра по продуктовым линейкам
                     ]);
                 }
             }
 
-
-            // -------------------------------------------------------
-            // Сортировка некоторых опций на кровле
-            // -------------------------------------------------------
-            if ($GLOBALS['modx']->resource->context_key == 'krovlya') {
-                switch (true) {
-                    case $options['name'] == 'collection' && $GLOBALS['modx']->resource->id == 16788:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Монтеррей', 'Супермонтеррей', 'Classic', 'Ламонтерра', 'Ламонтерра X', 'Kvinta Uno', 'Ламонтерра XL', 'Kvinta plus']);
-                        break;
-
-                    case $options['name'] == 'cvet':
-                        switch (true) {
-                            case in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 3005', 'RAL 6005', 'RAL 8004', 'RAL 8017', 'RR 32', 'RAL 7024', 'RAL 3009', 'RAL 5002']);
-                                break;
-
-                            case in_array($GLOBALS['modx']->resource->id, [12069, 16789, 11760, 37621, 76923]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, [
-                                    'RAL 3005',
-                                    'RAL 6005',
-                                    'RAL 8004',
-                                    'RAL 8017',
-                                    'RR 32',
-                                    'RAL 7024',
-                                    'RAL 3009',
-                                    'RAL 5002',
-                                    'NL805',
-                                    'RAL 1014',
-                                    'RAL 1015',
-                                    'RAL 1018',
-                                    'RAL 1035',
-                                    'RAL 2004',
-                                    'RAL 3003',
-                                    'RAL 3011',
-                                    'RAL 3013',
-                                    'RAL 3020',
-                                    'RAL 5005',
-                                    'RAL 5015',
-                                    'RAL 5018',
-                                    'RAL 5021',
-                                    'RAL 6002',
-                                    'RAL 6007',
-                                    'RAL 6018',
-                                    'RAL 6019',
-                                    'RAL 6020',
-                                    'RAL 7004',
-                                    'RAL 7005',
-                                    'RAL 7016',
-                                    'RAL 8019',
-                                    'RAL 9002',
-                                    'RAL 9003',
-                                    'RAL 9005',
-                                    'RAL 9006',
-                                    'RAL 9010',
-                                    'RR 11',
-                                    'RR 21',
-                                    'RR 22',
-                                    'RR 23',
-                                    'RR 29',
-                                    'RR 33',
-                                    'RR 35',
-                                    'RR 750',
-                                    'RR 887',
-                                ]);
-                                break;
-
-                            case in_array($GLOBALS['modx']->resource->id, [26581, 81051]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, [
-                                    'RAL 3005',
-                                    'RAL 6005',
-                                    'RAL 8004',
-                                    'RAL 8017',
-                                    'RR 32',
-                                    'RAL 7024',
-                                    'RAL 3009',
-                                    'RAL 5002',
-                                    'NL805',
-                                    'RAL 1014',
-                                    'RAL 1015',
-                                    'RAL 1018',
-                                    'RAL 1019',
-                                    'RAL 1035',
-                                    'RAL 2004',
-                                    'RAL 3003',
-                                    'RAL 3011',
-                                    'RAL 3020',
-                                    'RAL 5005',
-                                    'RAL 5015',
-                                    'RAL 5021',
-                                    'RAL 6002',
-                                    'RAL 6007',
-                                    'RAL 6011',
-                                    'RAL 6018',
-                                    'RAL 6019',
-                                    'RAL 6020',
-                                    'RAL 6033',
-                                    'RAL 7004',
-                                    'RAL 7005',
-                                    'RAL 7016',
-                                    'RAL 7035',
-                                    'RAL 7040',
-                                    'RAL 7044',
-                                    'RAL 8019',
-                                    'RAL 9002',
-                                    'RAL 9003',
-                                    'RAL 9005',
-                                    'RAL 9006',
-                                    'RAL 9010',
-                                    'RAL 9011',
-                                    'RR 11',
-                                    'RR 21',
-                                    'RR 23',
-                                    'RR 29',
-                                    'RR 33',
-                                    'RR 35',
-                                    'RR 750',
-                                    'RR 887',
-                                    'без покрытия',
-                                ]);
-                                break;
-                        }
-
-                        break;
-
-                    case $options['name'] == 'pokrytie':
-                        switch (true) {
-                            case in_array($GLOBALS['modx']->resource->id, [16788, 86214, 22594]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Полиэстер', 'Satin', 'Drap', 'PurLite Мatt', 'PURMAN®', 'Rooftop Matte']);
-                                break;
-
-                            case in_array($GLOBALS['modx']->resource->id, [12069, 16789, 11760, 37621, 76923]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, [
-                                    'Полиэстер',
-                                    'Satin',
-                                    'Drap',
-                                    'PurLite Мatt',
-                                    'PURMAN®',
-                                    'Rooftop Matte',
-                                    'AGNETA®',
-                                    'Atlas',
-                                    'CLOUDY®',
-                                    'Drap ST',
-                                    'GreenCoat Pural BT, matt',
-                                    'GreenСoat Pural BT',
-                                    'NormanMP',
-                                    'PURETAN®',
-                                    'Quarzit',
-                                    'Quarzit lite',
-                                    'Quarzit PRO Matt',
-                                    'Satin Мatt',
-                                    'VALORI',
-                                    'Velur',
-                                    'VikingMP®',
-                                    'VikingMP® E',
-                                    'Полиэстер в пленке',
-                                ]);
-                                break;
-
-                            case in_array($GLOBALS['modx']->resource->id, [26581, 81051]):
-                                $sorted = $this->sortByCustomOrder($sorted, $results, [
-                                    'Полиэстер',
-                                    'Satin',
-                                    'Drap',
-                                    'PURMAN®',
-                                    'Rooftop Matte',
-                                    'AGNETA®',
-                                    'Atlas',
-                                    'CLOUDY®',
-                                    'Drap ST',
-                                    'Drap TwinColor',
-                                    'ECOSTEEL®',
-                                    'ECOSTEEL® матовый',
-                                    'ECOSTEEL® текстурированный',
-                                    'GreenCoat Pural BT',
-                                    'GreenCoat Pural BT, matt',
-                                    'NormanMP',
-                                    'Print-double Elite',
-                                    'Print-double Premium',
-                                    'Print Elite',
-                                    'Print Premium',
-                                    'PURETAN®',
-                                    'PurLite Matt',
-                                    'PurPro Matt',
-                                    'Quarzit',
-                                    'Quarzit lite',
-                                    'Quarzit PRO Matt',
-                                    'Satin Matt',
-                                    'VALORI',
-                                    'Velur',
-                                    'VikingMP®',
-                                    'VikingMP® E',
-                                    'Поликарбонат',
-                                    'Полиэстер двусторонний',
-                                    'Полиэстер матовый двусторонний',
-                                    'Цинк',
-                                ]);
-                                break;
-                        }
-                        break;
-
-                    case $options['name'] == 'profil' && $GLOBALS['modx']->resource->id == 86214:
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['C20', 'C8', 'HC35', 'C10', 'C21', 'H75']);
-                        break;
-                }
-            }
-
-            // -------------------------------------------------------
-            // Сортировка производителей на контекстах
-            // -------------------------------------------------------
-            if ($options['name'] == 'proizvoditel') {
-                switch ($GLOBALS['modx']->resource->context_key) {
-                    case 'krovlya':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Технониколь', 'Katepal', 'Тегола', 'Icopal', 'Металл Профиль', 'Grand Line', 'Металл-Профиль']);
-                        break;
-
-                    case 'fasad':
-                        switch ($GLOBALS['modx']->resource->id) {
-                            case 36783:
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Grand Line', 'Docke', 'Альта-Профиль', 'Ю-Пласт', 'FineBer', 'VOX']);
-                            break;
-
-                            case 36793:
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Docke', 'Альта-Профиль', 'VOX', 'Ю-Пласт', 'Vilo', 'FineBer', 'Grand Line']);
-                                break;
-
-                            case 34819:
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Cedral', 'CM BORD', 'Decover', 'Фибратек', 'LATONIT', 'БЕТЭКО']);
-                                break;
-
-                            case 36784:
-                                $sorted = $this->sortByCustomOrder($sorted, $results, ['Аквасистем', 'Grand Line', 'Металл-Профиль']);
-                                break;
-                        }
-
-                        break;
-
-                    case 'plitaosb':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['Knauf', 'Волма', 'Gyproc', 'Nordeco', 'Green Board', 'Калевала ЭкоДом', 'Кроношпан', 'Муром', 'Талион (Ультралам)']);
-                        break;
-
-                    case 'plity-mdvp':
-                        $sorted = $this->sortByCustomOrder($sorted, $results, ['ISOPLAAT', 'STEICO', 'Белтермо']);
-                        break;
-                }
-            }
         }
 
         if (!empty($sorted)) {
