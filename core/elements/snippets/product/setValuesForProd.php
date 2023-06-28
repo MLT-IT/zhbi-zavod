@@ -132,7 +132,12 @@ if (in_array($src['context_key'], ['web'])) {
         in_array($src['tip'][0], ['Экструдированный пенополистирол', 'Пенополистирол']) &&
         // В упаковке > 0
         $src['v_upakovke'][0] > 0) {
-        $list = $src['v_upakovke'][0];
+
+        $upk = 1 / $src['v_upakovke'][0];
+        if (!empty($m3)) {
+            $m2 = $upk * $m2;
+            $m3 = $upk * $m3;
+        }
     }
 }
 
