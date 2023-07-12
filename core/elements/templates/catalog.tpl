@@ -32,11 +32,9 @@
       </article>
     </section>
 
-    {* >>> Листинг товаров *}
-    {'!mFilter2' | snippet : [
+    {set $params = [
       'element' => 'msProducts',
-      'suggestionsMaxFilters' => 2000,
-      'suggestionsMaxResults' => 100000,
+
       'filters' => $_modx->resource.listFilters ?: "",
       'includeThumbs' => 'webp',
       'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
@@ -64,11 +62,19 @@
       'totalVar' => 'total',
 
       'parents' => 'excludeIds' | snippet : [
-        'isSeoPage' => $isSeoPage
+      'isSeoPage' => $isSeoPage
       ],
 
       'context' => $_modx->resource.context_key
     ]}
+
+    {if $_modx->resource.context_key == 'gazosilikatstroy'}
+      {set $params['suggestionsMaxFilters'] = 2000}
+      {set $params['suggestionsMaxResults'] = 100000}
+    {/if}
+
+    {* >>> Листинг товаров *}
+    {'!mFilter2' | snippet : $params}
     {* <<< Листинг товаров *}
 
     {*
