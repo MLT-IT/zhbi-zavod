@@ -35,6 +35,8 @@
     {set $params = [
       'element' => 'msProducts',
 
+      'suggestions' => 0,
+
       'filters' => $_modx->resource.listFilters ?: "",
       'includeThumbs' => 'webp',
       'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
@@ -62,7 +64,7 @@
       'totalVar' => 'total',
 
       'parents' => 'excludeIds' | snippet : [
-      'isSeoPage' => $isSeoPage
+          'isSeoPage' => $isSeoPage
       ],
 
       'context' => $_modx->resource.context_key
