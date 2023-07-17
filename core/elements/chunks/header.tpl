@@ -15,8 +15,8 @@
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
         {case 'kraska'}
-          {set $logo = 'gazosilicatstroy.png'}
-          {set $logoMobile = 'gazosilicatstroy.png'}
+          {set $logo = 'kraska.png'}
+          {set $logoMobile = 'kraska.png'}
         {case 'suhiesmesi'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
@@ -49,7 +49,7 @@
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
             {case 'kraska'}
-              {set $text = 'краски'}
+              {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
           {/switch}
@@ -105,7 +105,13 @@
                   {foreach $menu['values'] as $catId => $catCols}
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                       <div class="h-catalog-item__preview">
-                        <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                          {if $catCols['column1']['img'] is not empty}
+                            <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                          {elseif $catCols['column1']['svg'] is not empty}
+                            <svg class="h-subinfo__svg" aria-hidden="true">
+                              <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>
+                            </svg>
+                          {/if}
                       </div>
                       <span class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</span>
                     </a>

@@ -25,6 +25,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Плотность', 'type' => 'simple'];
             $result['column3'] = ['title' => 'Размеры', 'type' => 'composite'];
             break;
+        case 'kraska':
+            $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Подраздел', 'type' => 'simple'];
+            break;
     }
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);

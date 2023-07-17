@@ -128,9 +128,29 @@ class getCategoriesWithMinPrice {
 
             case 'kraska':
                 static::$brandsIds = [
-                    'lsr' => 102922,
+                    'grunty' => 102922,
+                    'voddis' => 103255,
+                    'pokder' => 103193,
+                    'emali' => 117397,
+                    'laki' => 113157,
+                    'rastvoch' => 112001,
+                    'coleri' => 119822,
+                    'shpat' => 107936,
+                    'instr' => 120953,
+                    'dobsuh' => 107935,
                 ];
-                static::$brandsAndCategories = static::$brandsIds;
+                static::$brandsAndCategories = [
+                    'grunty' => '102922,103081,103082,103462,103463,107934',
+                    'voddis' => '103255',
+                    'pokder' => '103193,103194,103471,106607,112002,112003,115691',
+                    'emali' => '117397',
+                    'laki' => '113157',
+                    'rastvoch' => '112001,120195,120210',
+                    'coleri' => '119822',
+                    'shpat' => '107936,117692',
+                    'instr' => '120953',
+                    'dobsuh' => '107935',
+                ];
                 break;
 
             case 'suhiesmesi':

@@ -4,7 +4,7 @@
   {case 'gazosilikatstroy'}
     {set $logo = 'gazosilicatstroy-white.png'}
   {case 'kraska'}
-    {set $logo = 'gazosilicatstroy-white.png'}
+    {set $logo = 'kraska-white.png'}
   {case 'suhiesmesi'}
     {set $logo = 'gazosilicatstroy-white.png'}
 {/switch}

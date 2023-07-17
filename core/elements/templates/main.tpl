@@ -65,7 +65,7 @@
         </div>
       </article>
       {include "file:sections/listing-brands.tpl"}
-      {if $_modx->resource.context_key != 'web'}
+      {if $_modx->resource.context_key not in list ['web', 'kraska']}
         {include "file:sections/actions.tpl"}
       {/if}
       {include "file:sections/hits.tpl"}
