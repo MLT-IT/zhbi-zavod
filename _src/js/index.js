@@ -97,24 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -------------------------------
-    // Переключение вкладок в меню в шапке
-    // -------------------------------
-    let $hCatalogItem = $('.h-catalog-item_main');
-    $hCatalogItem.on('mouseenter', function (e) {
-        e.preventDefault();
-        let $this = $(this);
-
-        if ($this.hasClass('active')) {
-            return false;
-        }
-
-        $('.h-catalog-item.active').removeClass('active');
-        $this.addClass('active');
-        $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
-    });
-
-
-    // -------------------------------
     // Переключение типа покупателя в корзине
     // -------------------------------
     if ($('.popup_type_order').length) {
@@ -263,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if ($('.header-fixed').length) {
                 cls = 'body-blackout body-blackout_overhidden';
             } else {
-                cls = 'body-blackout'
+                cls = 'body-blackout';
             }
 
             clearTimeout(timeout);
@@ -275,23 +257,42 @@ document.addEventListener('DOMContentLoaded', () => {
                         e.preventDefault();
                         $body.removeClass('body-blackout body-blackout_overhidden');
                         clearTimeout(timeout);
-                        timeout = setTimeout(function() {
+                        timeout = setTimeout(function () {
                             $('.body-blackout__screen').remove();
                         }, 370);
                     });
                 }
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $body.addClass(cls);
                 }, 0);
             } else {
-                timeout = setTimeout(function() {
+                timeout = setTimeout(function () {
                     $body.removeClass('body-blackout body-blackout_overhidden');
                     $('.body-blackout__screen').remove();
                 }, 370);
             }
         });
     }
+    $('.h-catalog-item_to-catalog').on('hover');
+
+
+    // -------------------------------
+    // Переключение вкладок в меню в шапке
+    // -------------------------------
+    let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
+    $hCatalogItem.on('mouseenter', function (e) {
+        e.preventDefault();
+        let $this = $(this);
+
+        if ($this.hasClass('active')) {
+            return false;
+        }
+
+        $('.h-catalog-item.active, .h-catalog-item_to-catalog.active').removeClass('active');
+        $this.addClass('active');
+        $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
+    });
 
 });
 

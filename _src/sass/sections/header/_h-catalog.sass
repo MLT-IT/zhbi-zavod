@@ -113,10 +113,9 @@
             visibility: hidden
             margin-left: auto
 
-    &_main
         &.active
-            background-color: #f6f6f6
             position: relative
+            background-color: #f6f6f6
 
             .h-subinfo__svg
                 fill: #fff
@@ -160,8 +159,9 @@
         &_bold
             font-weight: 700
 
-    &:hover, &_main.active
+    &:hover, &_main.active, &_to-catalog.active
         color: var(--color-red)
+        text-decoration-color: transparent
 
         & .h-catalog-item
             &__name
