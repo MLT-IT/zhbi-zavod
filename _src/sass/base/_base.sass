@@ -89,6 +89,29 @@ body
         display: block
 
 // -------------------------------------
+// Стили для мобильных блоков и для ПК блоков
+// -------------------------------------
+.mobile-block
+    display: none !important
+    +until-480
+        display: block !important
+
+.mobile-flex
+    display: none !important
+    +until-480
+        display: flex !important
+
+.pc-block
+    display: block !important
+    +until-480
+        display: none !important
+
+.pc-flex
+    display: flex !important
+    +until-480
+        display: none !important
+
+// -------------------------------------
 // Разные стили без категории
 // -------------------------------------
 .secret, .hidden, .hidden-data
@@ -124,26 +147,25 @@ body
 .margin-bottom-md
     margin-bottom: 32px
 
-.mobile-block
-    display: none !important
-    +until-480
-        display: block !important
-
-.mobile-flex
-    display: none !important
-    +until-480
-        display: flex !important
-
-.pc-block
-    display: block !important
-    +until-480
-        display: none !important
-
-.pc-flex
-    display: flex !important
-    +until-480
-        display: none !important
-
 .compensate-for-scrollbar
     width: calc(100% - 17px)
     margin-right: 17px !important
+
+
+.body-blackout
+    //&_overhidden
+    overflow: hidden
+
+    &__screen
+        z-index: 999
+        background: #1e1e1e5c
+        transition: opacity .370s cubic-bezier(.22, .61, .36, 1)
+        right: 0
+        top: 0
+        bottom: 0
+        left: 0
+        opacity: 0
+        position: fixed
+
+        @at-root .body-blackout &
+            opacity: .9

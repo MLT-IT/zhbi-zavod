@@ -202,7 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Если расстояние от начала страницы до шапки больше нужного, то добавляем тень. А на больших экранах еще и класс для фиксации шапки
             $wrap.addClass(clsShadow);
             if (window.innerWidth >= 992) {
-                $wrap.addClass(clsFixed);
+                if (!$('.body-blackout').length) {
+                    $wrap.addClass(clsFixed);
+                }
             }
         }
 
@@ -247,6 +249,49 @@ document.addEventListener('DOMContentLoaded', () => {
             $body.removeClass('filters-expanded');
         }
     });
+
+
+    // --------------------------------
+    // Меню "Каталог"
+    // --------------------------------
+    let $headerCatalog = $('.header__catalog, .header__menu');
+    let timeout;
+    if ($headerCatalog.length) {
+        let $body = $('body');
+        $headerCatalog.on('dropdown-toggle', function () {
+            let cls;
+            if ($('.header-fixed').length) {
+                cls = 'body-blackout body-blackout_overhidden';
+            } else {
+                cls = 'body-blackout'
+            }
+
+            clearTimeout(timeout);
+            if ($headerCatalog.hasClass('active')) {
+                if (!$('.body-blackout__screen').length) {
+                    let $screen = $('<div class="body-blackout__screen"></div>').appendTo('body');
+
+                    $screen.on('click', function (e) {
+                        e.preventDefault();
+                        $body.removeClass('body-blackout body-blackout_overhidden');
+                        clearTimeout(timeout);
+                        timeout = setTimeout(function() {
+                            $('.body-blackout__screen').remove();
+                        }, 370);
+                    });
+                }
+
+                setTimeout(function() {
+                    $body.addClass(cls);
+                }, 0);
+            } else {
+                timeout = setTimeout(function() {
+                    $body.removeClass('body-blackout body-blackout_overhidden');
+                    $('.body-blackout__screen').remove();
+                }, 370);
+            }
+        });
+    }
 
 });
 
