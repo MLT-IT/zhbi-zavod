@@ -1,3 +1,4 @@
+{set $toCatalogBtnText = 'Все производители'}
 {switch $_modx->resource.context_key}
   {case 'web'}
     {set $logo = 'alterteplo-white.png'}
@@ -5,6 +6,7 @@
     {set $logo = 'gazosilicatstroy-white.png'}
   {case 'kraska'}
     {set $logo = 'kraska-white.png'}
+    {set $toCatalogBtnText = 'Все разделы'}
   {case 'suhiesmesi'}
     {set $logo = 'gazosilicatstroy-white.png'}
 {/switch}
@@ -178,7 +180,7 @@
       {$_modx->runSnippet('pdoResources', $params)}
     </div>
     <div class="burger-menu__link-to-catalog-wrap">
-      <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">Все производители</a>
+      <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">{$toCatalogBtnText}</a>
     </div>
 
   </div>

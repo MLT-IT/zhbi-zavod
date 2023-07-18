@@ -160,7 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Добавление в бургер кнопки "Все производители"
     // -------------------------------
-    $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">Все производители</a>');
+    let toCatalogBtnText = 'Все производители';
+    if ($('[data-ctx="kraska"]').length) {
+        toCatalogBtnText = 'Все разделы';
+    }
+    $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
 
 
     // -------------------------------

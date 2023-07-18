@@ -55,6 +55,9 @@
             max-width: 1200px
             left: -50px
 
+        @at-root .header-fixed &
+            max-height: calc(100vh - var(--header-height))
+
     &.active
         & .h-menu
             &__btn
