@@ -56,6 +56,8 @@
         {set $footer_nav_ids = '67217,67235,67203,67209,67192,67199'}
     {case 'plity-mdvp'}
         {set $brand = 'Плиты МДВП'}
+    {case 'krovelnyjstroymarket'}
+        {set $brand = 'Кровельный строймаркет'}
 {/switch}
 
 {$_modx->setPlaceholder('catalog_id', 'getCatalogId' | snippet : [

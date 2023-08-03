@@ -7,6 +7,8 @@
     {set $logo = 'kraska-white.png'}
   {case 'suhiesmesi'}
     {set $logo = 'gazosilicatstroy-white.png'}
+  {case 'krovelnyjstroymarket'}
+    {set $logo = 'krovelnyjstroymarket-white.png'}
 {/switch}
 
 <footer class="footer">
@@ -174,6 +176,8 @@
           {set $params['parents'] = 102655}
         {case 'suhiesmesi'}
           {set $params['parents'] = 105697}
+        {case 'krovelnyjstroymarket'}
+          {set $params['parents'] = 124193}
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>

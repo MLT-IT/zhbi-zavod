@@ -53,6 +53,8 @@
         {set $micro_title = $micro_title ~ 'ЛКМ (краски, эмали, шпатлевки)'}
       {case 'suhiesmesi'}
         {set $micro_title = $micro_title ~ 'сухих смесей'}
+      {case 'krovelnyjstroymarket'}
+        {set $micro_title = $micro_title ~ 'krovelnyjstroymarket'}
     {/switch}
 
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}

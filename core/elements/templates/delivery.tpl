@@ -25,6 +25,8 @@
                             {set $text = 'Закажите краску сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
                           {case 'suhiesmesi'}
                             {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+                          {case 'krovelnyjstroymarket'}
+                            {set $text = 'krovelnyjstroymarket'}
                         {/switch}
                         {$text}
                       </div>
