@@ -20,6 +20,8 @@
             {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
           {case 'suhiesmesi'}
             {set $text = 'сухих смесей'}
+          {case 'krovelnyjstroymarket'}
+            {set $text = 'krovelnyjstroymarket'}
         {/switch}
         {if $_modx->context.key == 'web'}
             {set $site_context = 'alterteplo'}

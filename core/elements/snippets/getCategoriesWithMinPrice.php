@@ -1,11 +1,13 @@
 <?php
 
-class getCategoriesWithMinPrice {
+class getCategoriesWithMinPrice
+{
 
     static protected $brandsIds;
     static protected $brandsAndCategories;
 
-    static protected function getBrandsMinPrices() {
+    static protected function getBrandsMinPrices()
+    {
         global $modx;
 
         // Устанавливаем переменные
@@ -38,7 +40,8 @@ class getCategoriesWithMinPrice {
         return $result;
     }
 
-    static protected function getBrandsValues() {
+    static protected function getBrandsValues()
+    {
         global $modx;
 
         $brands = array_keys(self::$brandsAndCategories);
@@ -65,7 +68,8 @@ class getCategoriesWithMinPrice {
         return $data;
     }
 
-    static public function getValues() {
+    static public function getValues()
+    {
         self::setVarsByContext();
         $brandsMinPrices = self::getBrandsMinPrices();
         $brandsValues = self::getBrandsValues();
@@ -76,7 +80,8 @@ class getCategoriesWithMinPrice {
         return $brandsValues;
     }
 
-    static protected function setVarsByContext() {
+    static protected function setVarsByContext()
+    {
         global $modx;
 
         switch ($modx->resource->context_key) {
@@ -156,6 +161,13 @@ class getCategoriesWithMinPrice {
             case 'suhiesmesi':
                 static::$brandsIds = [
                     'lsr' => 102922,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+
+            case 'krovelnyjstroymarket':
+                static::$brandsIds = [
+                    'kley' => 124275,
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;

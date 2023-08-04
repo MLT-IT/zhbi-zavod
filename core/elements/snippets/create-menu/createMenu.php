@@ -29,6 +29,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Подраздел', 'type' => 'simple'];
             break;
+        case 'krovelnyjstroymarket':
+            $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Подраздел', 'type' => 'simple'];
+            break;
     }
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);

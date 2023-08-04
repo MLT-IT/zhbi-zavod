@@ -20,6 +20,9 @@
         {case 'suhiesmesi'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
+        {case 'krovelnyjstroymarket'}
+          {set $logo = 'krovelnyjstroymarket.png'}
+          {set $logoMobile = 'krovelnyjstroymarket.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
@@ -52,6 +55,8 @@
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
+            {case 'krovelnyjstroymarket'}
+              {set $text = 'krovelnyjstroymarket'}
           {/switch}
           Продажа {$text} в Санкт-Петербурге
         </span>

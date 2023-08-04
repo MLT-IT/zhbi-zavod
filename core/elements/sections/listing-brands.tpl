@@ -10,6 +10,8 @@
           {set $text = 'лакокрасочных материалов'}
         {case 'suhiesmesi'}
           {set $text = 'сухих смесей'}
+        {case 'krovelnyjstroymarket'}
+          {set $text = 'krovelnyjstroymarket'}
       {/switch}
       Продажа {$text} в Санкт-Петербурге
     </h1>
