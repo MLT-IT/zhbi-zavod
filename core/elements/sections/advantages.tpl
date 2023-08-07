@@ -11,19 +11,19 @@
 
 <div class="advantages{$styleClass ? ' ' ~ $styleClass : ''}">
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-1.png" alt="advantage"></div>
+    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-1.png"></div>
     <p class="advantage__text">{$a1}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png" alt="advantage"></div>
+    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png"></div>
     <p class="advantage__text">{$a2}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-3.png" alt="advantage"></div>
+    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-3.png"></div>
     <p class="advantage__text">{$a3}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png" alt="advantage"></div>
+    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png"></div>
     <p class="advantage__text">{$a4}</p>
   </div>
 </div>

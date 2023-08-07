@@ -13,7 +13,7 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide banner">
                       <picture class="banner__bg">
-                        <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg" alt="banner">
+                        <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
                       </picture>
                       <div class="banner__title">
                         {switch $_modx->resource.context_key}

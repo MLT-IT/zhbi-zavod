@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide banner">
           <picture class="banner__bg">
-            <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg" alt="banner">
+            <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
           </picture>
           <div class="banner__title">
             {switch $_modx->resource.context_key}
@@ -52,7 +52,7 @@
   </div>
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
-      <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg" alt="banner"></picture>
+      <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg"></picture>
       <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
       {switch $_modx->resource.context_key}
         {case 'web'}
