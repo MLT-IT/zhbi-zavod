@@ -82,7 +82,7 @@
 
     @at-root .gazosilikatstroy &
         min-height: 37px
-
+    
     &_to-catalog
         text-align: center
         min-height: 0
@@ -145,6 +145,20 @@
         height: 100%
         object-fit: contain
 
+    &__name
+        &_with_label
+            position: relative 
+            &::after
+                position: absolute
+                display: inline-block 
+                content: ""
+                background: url(/assets/template/img/starnew.png) no-repeat center center
+                background-size: contain 
+                width: 20px
+                height: 20px
+                margin-left: 4px
+                margin-top: -2px
+        
     &__name, &_to-catalog
         font-weight: 400
         font-size: 14px

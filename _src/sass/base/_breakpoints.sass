@@ -11,92 +11,92 @@ $grid-breakpoints: ('screen-480': $bp480, 'screen-768': $bp768, 'screen-992': $b
     @return $val - 0.02
 
 @function breakpoint-min($name, $breakpoints: $grid-breakpoints)
-	$min: map-get($breakpoints, $name)
-	@return if($min != 0, $min, null)
+    $min: map-get($breakpoints, $name)
+    @return if($min != 0, $min, null)
 
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints)
-	$max: map-get($breakpoints, $name)
-	@return if($max and $max > 0, $max - 0.02, null)
+    $max: map-get($breakpoints, $name)
+    @return if($max and $max > 0, $max - 0.02, null)
 
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints)
-	$min: breakpoint-min($name, $breakpoints)
-	@if $min
-		@media (min-width: $min)
-			@content
-	@else
-		@content
+    $min: breakpoint-min($name, $breakpoints)
+    @if $min
+        @media (min-width: $min)
+            @content
+    @else
+        @content
 
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints)
-	$max: breakpoint-max($name, $breakpoints)
-	@if $max
-		@media (max-width: $max)
-			@content
-	@else
-		@content
+    $max: breakpoint-max($name, $breakpoints)
+    @if $max
+        @media (max-width: $max)
+            @content
+    @else
+        @content
 
 // -==========================================================================================================
 @mixin from-480()
-	@include media-breakpoint-up('screen-480')
-		@content
+    @include media-breakpoint-up('screen-480')
+        @content
 
 @mixin from-768()
-	@include media-breakpoint-up('screen-768')
-		@content
+    @include media-breakpoint-up('screen-768')
+        @content
 
 @mixin from-992()
-	@include media-breakpoint-up('screen-992')
-		@content
+    @include media-breakpoint-up('screen-992')
+        @content
 
 @mixin from-1200()
-	@include media-breakpoint-up('screen-1200')
-		@content
+    @include media-breakpoint-up('screen-1200')
+        @content
 
 @mixin from-1400()
-	@include media-breakpoint-up('screen-1400')
-		@content
+    @include media-breakpoint-up('screen-1400')
+        @content
 
 // -==========================================================================================================
 @mixin until-480()
-	@include media-breakpoint-down('screen-480')
-		@content
+    @include media-breakpoint-down('screen-480')
+        @content
 
 @mixin until-768()
-	@include media-breakpoint-down('screen-768')
-		@content
+    @include media-breakpoint-down('screen-768')
+        @content
 
 @mixin until-992()
-	@include media-breakpoint-down('screen-992')
-		@content
+    @include media-breakpoint-down('screen-992')
+        @content
 
 @mixin until-1200()
-	@include media-breakpoint-down('screen-1200')
-		@content
+    @include media-breakpoint-down('screen-1200')
+        @content
 
 @mixin until-1400()
-	@include media-breakpoint-down('screen-1400')
-		@content
+    @include media-breakpoint-down('screen-1400')
+        @content
 
 // -==========================================================================================================
 @mixin media-from($val)
-	@media (min-width: $val)
-		@content
+    @media (min-width: $val)
+        @content
 
 @mixin media-until($val)
-	@media (max-width: $val - 0.02)
-		@content
+    @media (max-width: $val - 0.02)
+        @content
 
 @mixin media-height($height, $width: 0)
-	@if($width != 0)
-		@media (max-height: $height) and (min-width: $width)
-			@content
-	@else
-		@media (max-height: $height)
-			@content
+    @if($width != 0)
+        @media (max-height: $height) and (min-width: $width)
+            @content
+    @else
+        @media (max-height: $height)
+            @content
 
 @mixin pointer-desk
-	@media (hover: hover) and (pointer: fine)
-		@content
+    @media (hover: hover) and (pointer: fine)
+        @content
 
 @mixin pointer-touch
-	@media (hover: none) and (pointer: coarse)
-		@content
+    @media (hover: none) and (pointer: coarse)
+        @content

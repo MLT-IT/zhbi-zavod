@@ -3,6 +3,7 @@
 function getMenuData() {
     $knauf = 93185;
     $rockwool = 93190;
+    $umatex = 124718;
     $tn = 93191;
     $penoplex = 93189;
     $isover = 93187;
@@ -259,6 +260,292 @@ function getMenuData() {
                     "name" => "150",
                 ],
             ]
+        ],
+        $umatex => [
+            'column1' => [
+                'uri' => '/yumateks-termo/',
+                'name' => 'Утеплитель Юматекс',
+                'img' => '/assets/template/img/brands/umatex.jpg',
+                'label' => true
+            ],
+            'column2' => [
+                [
+                    'uri' => '/yumateks-termo/smart-xl/',
+                    'name' => 'Smart (XL)'
+                ],
+                [
+                    'uri' => '/yumateks-termo/light/',
+                    'name' => 'Light'
+                ],
+                [
+                    'uri' => '/yumateks-termo/plus/',
+                    'name' => 'Plus'
+                ],
+                [
+                    'uri' => '/yumateks-termo/inwall/',
+                    'name' => 'InWall'
+                ],
+                [
+                    'uri' => '/yumateks-termo/fatio/',
+                    'name' => 'Fatio'
+                ],
+                [
+                    'uri' => '/yumateks-termo/linio-10/',
+                    'name' => 'Linio 10'
+                ],
+                [
+                    'uri' => '/yumateks-termo/linio-15/',
+                    'name' => 'Linio 15'
+                ],
+                [
+                    'uri' => '/yumateks-termo/linio-18/',
+                    'name' => 'Linio 18'
+                ],
+                [
+                    'uri' => '/yumateks-termo/linio-20/',
+                    'name' => 'Linio 20'
+                ],
+                [
+                    'uri' => '/yumateks-termo/linio-80/',
+                    'name' => 'Linio 80'
+                ],
+                [
+                    'uri' => '/yumateks-termo/fps-14/',
+                    'name' => 'FPS 14'
+                ],
+                [
+                    'uri' => '/yumateks-termo/fps-17/',
+                    'name' => 'FPS 17'
+                ],
+                [
+                    'uri' => '/yumateks-termo/grs-20/',
+                    'name' => 'GRS 20'
+                ],
+                [
+                    'uri' => '/yumateks-termo/rob-60/',
+                    'name' => 'ROB 60'
+                ],
+                [
+                    'uri' => '/yumateks-termo/rob-80/',
+                    'name' => 'ROB 80'
+                ],
+                [
+                    'uri' => '/yumateks-termo/rol-40/',
+                    'name' => 'ROL 40'
+                ],
+                [
+                    'uri' => '/yumateks-termo/rol-60/',
+                    'name' => 'ROL 60'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ros-30/',
+                    'name' => 'ROS 30'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ros-40/',
+                    'name' => 'ROS 40'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ros-50/',
+                    'name' => 'ROS 50'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ros-60/',
+                    'name' => 'ROS 60'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ros-80t/',
+                    'name' => 'ROS 80t'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ssb-1/',
+                    'name' => 'SSB 1'
+                ],
+                [
+                    'uri' => '/yumateks-termo/ssb-4/',
+                    'name' => 'SSB 4'
+                ],
+                [
+                    'uri' => '/yumateks-termo/was-120/',
+                    'name' => 'WAS 120'
+                ],
+                [
+                    'uri' => '/yumateks-termo/was-25/',
+                    'name' => 'WAS 25'
+                ],
+                [
+                    'uri' => '/yumateks-termo/was-35/',
+                    'name' => 'WAS 35'
+                ],
+                [
+                    'uri' => '/yumateks-termo/was-50/',
+                    'name' => 'WAS 50'
+                ],
+                [
+                    'uri' => '/yumateks-termo/cgl-20/',
+                    'name' => 'CGL 20'
+                ],
+            ],
+            'column3' => [
+                [
+                    'name' => '20',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=20'
+                ],
+                [
+                    'name' => '25',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=25'
+                ],
+                [
+                    'name' => '30',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=30'
+                ],
+                [
+                    'name' => '40',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=40'
+                ],
+                [
+                    'name' => '50',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=50'
+                ],
+                [
+                    'name' => '60',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=60'
+                ],
+                [
+                    'name' => '70',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=70'
+                ],
+                [
+                    'name' => '75',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=75'
+                ],
+                [
+                    'name' => '100',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=100'
+                ],
+                [
+                    'name' => '120',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=120'
+                ],
+                [
+                    'name' => '150',
+                    'uri' => '/yumateks-termo/?msoption|item_thickness=150'
+                ]
+            ],
+            'column4' => [
+                [
+                    'name' => 'Вентилируемые фасады',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B',
+                ],
+                [
+                    'name' => 'Вентилируемые фасады в двухслойных системах',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B%20%D0%B2%20%D0%B4%D0%B2%D1%83%D1%85%D1%81%D0%BB%D0%BE%D0%B9%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D1%85',
+                ],
+                [
+                    'name' => 'Внутренние стены (межкомнатные перегородки)',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%92%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B5%D0%BD%D1%8B%20(%D0%BC%D0%B5%D0%B6%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8)',
+                ],
+                [
+                    'name' => 'Для дверей',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9',
+                ],
+                [
+                    'name' => 'Для кровли',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8',
+                ],
+                [
+                    'name' => 'Для перегородок',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA',
+                ],
+                [
+                    'name' => 'Для перегородок и перекрытий',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9',
+                ],
+                [
+                    'name' => 'Для перекрытий',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9',
+                ],
+                [
+                    'name' => 'Для подвалов',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B2%D0%B0%D0%BB%D0%BE%D0%B2',
+                ],
+                [
+                    'name' => 'Для пола',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0',
+                ],
+                [
+                    'name' => 'Для потолка',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0',
+                ],
+                [
+                    'name' => 'Для потолков',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2',
+                ],
+                [
+                    'name' => 'Для стен',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD',
+                ],
+                [
+                    'name' => 'Для труб',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1',
+                ],
+                [
+                    'name' => 'Для фасада',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0',
+                ],
+                [
+                    'name' => 'Для фундамента',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0',
+                ],
+                [
+                    'name' => 'Звукоизоляция',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%97%D0%B2%D1%83%D0%BA%D0%BE%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F',
+                ],
+                [
+                    'name' => 'Камины и печи',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D1%8B%20%D0%B8%20%D0%BF%D0%B5%D1%87%D0%B8',
+                ],
+                [
+                    'name' => 'Каркасные конструкции',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D1%81%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8',
+                ],
+                [
+                    'name' => 'Мансарды',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%9C%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B',
+                ],
+                [
+                    'name' => 'Межэтажные перекрытия',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%9C%D0%B5%D0%B6%D1%8D%D1%82%D0%B0%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F',
+                ],
+                [
+                    'name' => 'Ненагружаемые конструкции',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%9D%D0%B5%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8',
+                ],
+                [
+                    'name' => 'Скатные кровли',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A1%D0%BA%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8',
+                ],
+                [
+                    'name' => 'Средний слой в кирпичной кладке',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%81%D0%BB%D0%BE%D0%B9%20%D0%B2%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B5',
+                ],
+                [
+                    'name' => 'Техническая изоляция',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F',
+                ],
+                [
+                    'name' => 'Универсальный',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9',
+                ],
+                [
+                    'name' => 'Чердачные перекрытия',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A7%D0%B5%D1%80%D0%B4%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F',
+                ],
+                [
+                    'name' => 'Штукатурные фасады',
+                    'uri' => '/yumateks-termo/?msoption|primenenie=%D0%A8%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B',
+                ],
+            ],
         ],
         $tn => [
             'column1' => [

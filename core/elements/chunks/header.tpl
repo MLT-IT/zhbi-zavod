@@ -118,7 +118,7 @@
                             </svg>
                           {/if}
                       </div>
-                      <span class="h-catalog-item__name h-catalog-item__name_bold">{$catCols['column1']['name']}</span>
+                      <span class="h-catalog-item__name h-catalog-item__name_bold{if $catCols['column1']['label']} h-catalog-item__name_with_label{/if}">{$catCols['column1']['name']}</span>
                     </a>
                     {if $activeCatId is empty}
                         {set $activeCatId = $catId}
