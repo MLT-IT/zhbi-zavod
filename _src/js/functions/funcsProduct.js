@@ -431,7 +431,8 @@ function init(yandexMetrikaId) {
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
             if (typeof ym !== 'undefined' && $('body').is('.gazosilikatstroy, .alterteplo')) {
-                ym(93462693, 'reachGoal', 'korzina');
+                ym(window.ymid, 'reachGoal', 'korzina');
+                console.log('Достигнута цель: korzina, id счетчика: ' + window.ymid);
             }
 
             // Работа с мини-корзиной

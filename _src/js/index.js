@@ -38,6 +38,10 @@ import mailChange from './modules/mailchanger';
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    waitForYm(null, function (counter, counterNum) {
+        window.ymid = counterNum;
+    });
+    
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
     $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
 
@@ -307,4 +311,20 @@ function getYandexMetrikaId() {
         case 'fasad':
             return 11111111;
     }
+}
+
+/** Ожидание загрузки счетчика Яндекс.Метрики
+ * @param {?(number|string)} ymCounterNum - номер счетчика, если известен
+ * @param {function} callback - получает аргументами объект и номер счетчика
+ * @param {number} interval - интервал проверки готовности счетчика
+ */
+function waitForYm(ymCounterNum, callback, interval) {
+    if (!callback) return;
+    if (!ymCounterNum) {
+        let metrikaObj  = (window.Ya && (window.Ya.Metrika || window.Ya.Metrika2)) || null;
+        ymCounterNum = (metrikaObj && metrikaObj.counters && (metrikaObj.counters() || [0])[0].id) || 0;
+    }
+    let ymCounterObj = window['yaCounter' + ymCounterNum] || null;
+    if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
+    setTimeout(function () { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
