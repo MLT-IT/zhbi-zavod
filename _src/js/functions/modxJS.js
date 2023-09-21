@@ -187,7 +187,7 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             //         }
             //     }
             // }
-
+           
             // Закрываем fancybox / выводим сообщение о благодарности
             let $popup = $form.closest('.popup');
             if ($popup.hasClass('js-thanks')) {
@@ -201,6 +201,11 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
                 $popup.prepend(html);
             } else {
                 parent.$.fancybox.close();
+            }
+            
+            if (typeof ym !== 'undefined') {
+                ym(93462900, 'reachGoal', 'succesbuyingform');
+                console.log('Достигнута цель: ' + 'succesbuyingform' + ', id счетчика: ' + window.ymid);
             }
         }
     });
