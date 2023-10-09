@@ -17,7 +17,7 @@
   <div class="footer__container">
     <div class="footer__left">
       <div class="footer__column"><a class="footer__logo" href="/">
-          <img class="footer__logo-image" src="assets/template/pictures/{$logo}" alt="monolit-logo"></a><span class="footer__copy">© 2010-{'' | date : "Y"}</span>
+          <img class="footer__logo-image" src="assets/template/pictures/{$logo}"></a><span class="footer__copy">© 2010-{'' | date : "Y"}</span>
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
@@ -104,19 +104,19 @@
         <p class="footer__payment-title">Мы принимаем к оплате:</p>
         <ul class="footer__payment-list">
           <li class="footer__payment-item">
-            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mir.png" alt="mir">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mir.png">
           </li>
           <li class="footer__payment-item">
-            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard.png" alt="mastercard">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard.png">
           </li>
           <li class="footer__payment-item">
-            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard-2.png" alt="mastercard-2">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/mastercard-2.png">
           </li>
           <li class="footer__payment-item">
-            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa-2.png" alt="visa-2">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa-2.png">
           </li>
           <li class="footer__payment-item">
-            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa.png" alt="visa">
+            <img class="footer__payment-image" src="assets/template/pictures/payment-systems/visa.png">
           </li>
         </ul>
       </div>
