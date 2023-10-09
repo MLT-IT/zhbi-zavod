@@ -1,6 +1,7 @@
 <?php
 
-function getMenuData() {
+function getMenuData()
+{
     $grunty = 102922;
     $voddis = 103255;
     $pokder = 103193;
@@ -15,8 +16,8 @@ function getMenuData() {
     $data = [
         $grunty => [
             'column1' => [
-                'uri' => '/grunty/',
-                'name' => 'Грунты',
+                'uri' => '/gruntovki/',
+                'name' => 'Грунтовки',
                 'svg' => 'paint-roller'
             ],
             'column2' => [
@@ -40,14 +41,20 @@ function getMenuData() {
         ],
         $voddis => [
             'column1' => [
-                'uri' => '/vodno-dispersionnyie-kraski/',
-                'name' => 'Водно-дисперсионные краски',
+                'uri' => '/kraski/',
+                'name' => 'Краски',
                 'svg' => 'kraska'
             ],
+            'column2' => [
+                [
+                    'uri' => '/vodno-dispersionnyie-kraski/',
+                    'name' => 'Водно-дисперсионные краски'
+                ]
+            ]
         ],
         $pokder => [
             'column1' => [
-                'uri' => '/vodno-dispersionnyie-kraski/',
+                'uri' => '/pokryitiya-dlya-dereva/',
                 'name' => 'Покрытия для дерева',
                 'svg' => 'pint'
             ],
@@ -123,6 +130,10 @@ function getMenuData() {
                 'svg' => 'putty-knife'
             ],
             'column2' => [
+                [
+                    "uri" => "/shpatlevki/",
+                    "name" => "Шпатлевки",
+                ],
                 [
                     "uri" => "/shpatlevki-gotovyie/",
                     "name" => "Готовые",
