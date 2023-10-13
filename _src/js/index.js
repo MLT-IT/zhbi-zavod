@@ -280,10 +280,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     $('.h-catalog-item_to-catalog').on('hover');
 
+    // -------------------------------
+    // Отображение столбцов меню (проверка активных элементов)
+    // -------------------------------
+    function displayMenuColumns() {
+        $('.h-catalog__column').not(':first').each(function() {
+            if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
+                $(this).addClass('disable');
+            } else {
+                $(this).removeClass('disable');
+            }
+        });
+    }
 
     // -------------------------------
     // Переключение вкладок в меню в шапке
     // -------------------------------
+    $('.h-catalog__column').not(':first').each(function() {
+        $(this).addClass('disable');
+    });
     let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
     $hCatalogItem.on('mouseenter', function(e) {
         e.preventDefault();
@@ -296,19 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.h-catalog-item.active, .h-catalog-item_to-catalog.active').removeClass('active');
         $this.addClass('active');
         $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
-
-        $('.h-catalog__column').not(':first').each(function() {
-            if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
-                $(this).addClass('disable');
-            } else {
-                $(this).removeClass('disable');
-            }
-        });
-
+        displayMenuColumns();
     });
-
-
-
 });
 
 function getYandexMetrikaId() {
