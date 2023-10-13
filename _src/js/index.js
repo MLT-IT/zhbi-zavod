@@ -299,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.h-catalog__column').not(':first').each(function() {
         $(this).addClass('disable');
     });
+    displayMenuColumns();
     let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
     $hCatalogItem.on('mouseenter', function(e) {
         e.preventDefault();
