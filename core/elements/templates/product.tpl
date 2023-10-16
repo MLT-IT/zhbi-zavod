@@ -202,6 +202,8 @@
             {switch $_modx->resource.context_key}
               {case 'gazosilikatstroy'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+              {case 'krovelnyjstroymarket'}
+                  <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
               {case 'web'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
               {case 'kraska'}
