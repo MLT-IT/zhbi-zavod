@@ -314,6 +314,35 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
         displayMenuColumns();
     });
+
+
+    $(document).ready(function() {
+        var $textBlock = $('.catalog-screen__text');
+
+        if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
+            var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
+            $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
+            $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
+
+            $toggleButton.on('click', function() {
+                $textBlock.toggleClass('expand');
+                if ($textBlock.hasClass('expand')) {
+                    $textBlock.animate({
+                        maxHeight: "2000px"
+                    }, 100, function() {});
+                    $toggleButton.text('Свернуть');
+                } else {
+                    $textBlock.animate({
+                        maxHeight: "80px"
+                    }, 100, function() {});
+                    $toggleButton.text('Читать полностью');
+                }
+            });
+        }
+
+    });
+
+
 });
 
 function getYandexMetrikaId() {
