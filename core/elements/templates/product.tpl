@@ -163,7 +163,7 @@
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
-                      {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+                      {if $_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17}
                           {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
                           {set $cvet = $_modx->resource.cvet[0]}
                       {/if}
