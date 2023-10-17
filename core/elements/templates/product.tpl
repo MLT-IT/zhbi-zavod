@@ -161,7 +161,158 @@
               </div>
 
               <div class="product-info__bottom">
-                <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
+                  {* Перелинковка характеристиками *}
+                  <div class="product-info__selected-characteristics">
+                      {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+                          {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
+                          {set $cvet = $_modx->resource.cvet[0]}
+                      {/if}
+
+                      {if $linksData.cvet?}
+                          <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
+                              <div class="product-card__select-span">
+                                  {if $_modx->resource.template == 17}
+                                      Цвет:
+                                  {/if}
+                                  {if $_modx->resource.template in list [20, 22]}
+                                      Оттенок:
+                                  {/if}
+                              </div>
+                              <div class="custom-select-wrap">
+                                  <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                          <span data-val="{$cvet}" class="euv-custom-select__input-value">{$cvet}</span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              <div class="euv-custom-select__options-wrap-scroll-inner">
+                                                  {foreach $linksData.cvet as $data}
+                                                      <div class="euv-custom-select__options-col">
+                                                          {foreach $data as $id => $val}
+                                                              {set $v = $val}
+                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
+                                                                  {$val}
+                                                              </a>
+                                                          {/foreach}
+                                                      </div>
+                                                  {/foreach}
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                      {if $linksData.collection?}
+                          <div class="product-card__select-wrap product-card__select-wrap_type_half">
+                              <div class="product-card__select-span">Коллекция:</div>
+                              <div class="custom-select-wrap">
+                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                            <span class="euv-custom-select__input-value">
+                                                {$_modx->resource.collection[0]}
+                                            </span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              {foreach $linksData.collection as $id => $val}
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val}
+                                                  </a>
+                                              {/foreach}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                      {if $linksData.item_thickness?}
+                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.cvet?} product-card__select-wrap_align_right{/if}">
+                              <div class="product-card__select-span">Толщина, мм:</div>
+                              <div class="custom-select-wrap">
+                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                          <span class="euv-custom-select__input-value">{$_modx->resource.item_thickness[0]}</span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              {foreach $linksData.item_thickness as $id => $val}
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val}
+                                                  </a>
+                                              {/foreach}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                      {if $linksData.pokrytie?}
+                          <div class="product-card__select-wrap product-card__select-wrap_type_full mt">
+                              <div class="product-card__select-span">Покрытие:</div>
+                              <div class="custom-select-wrap">
+                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                          <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}<span class="euv-custom-select__small-text">{$_modx->resource['vid-poverhnosti'][0]}</span></span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              {foreach $linksData.pokrytie as $id => $val}
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val} <span class="euv-custom-select__small-text">{$linksData['vid-poverhnosti'][$id]}</span>
+                                                  </a>
+                                              {/foreach}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                      {if $linksData.tip?}
+                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.tip?} product-card__select-wrap_align_right{/if}">
+                              <div class="product-card__select-span">Тип:</div>
+                              <div class="custom-select-wrap">
+                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                          <span class="euv-custom-select__input-value">{$_modx->resource.tip[0]}</span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              {foreach $linksData.tip as $id => $val}
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val}
+                                                  </a>
+                                              {/foreach}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                  </div>
+                  {* Конец перелинковка характеристиками *}
+
+              <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
                   <input type="hidden" name="unit" value="1">
                   <div class="product-card__volume">
                     <ul class="product-info__volume-tabs">
