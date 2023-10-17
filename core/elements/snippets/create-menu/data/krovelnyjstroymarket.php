@@ -22,7 +22,7 @@ function getMenuData()
             'column1' => [
                 'uri' => '/ondulin/',
                 'name' => 'Ондулин',
-                'svg' => ''
+                'svg' => 'assort-ondulin'
             ], 
             
             'column_vid' => [
@@ -46,7 +46,7 @@ function getMenuData()
             'column1' => [
                 'uri' => '/shifer/',
                 'name' => 'Шифер',
-                'svg' => ''
+                'svg' => 'assort-proflist'
             ], 
             'column_tip' => [
                 ["uri" => "/shifer/?msoption%7Ctip=%D0%92%D0%BE%D0%BB%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9", "name" => "Волновой"], 
@@ -65,7 +65,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/metallocherepica/", 
                 "name" => "Металлочерепица", 
-                'svg' => ''
+                'svg' => 'assort-cerepica'
             ], 
             'column_proizvoditel' => [
                 ["uri" => "/metallocherepitsya-grand-line/", "name" => "Металлочерепица Grand Line"], 
@@ -114,7 +114,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/myagkaya-cherepica/", 
                 "name" => "Гибкая черепица",
-                'svg' => ''
+                'svg' => 'assort-bit-krovlya'
             ], 
             'column_proizvoditel' => [
                 ["uri" => "/docke-pie-gibkaya-cherepica/", "name" => "Docke"], 
@@ -136,7 +136,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/rulonnaya-krovlya/",
                 "name" => "Рулонная кровля", 
-                'svg' => ''
+                'svg' => 'assort-rulon-krovlya'
             ], 
             'column_tip' => [
                 ["uri" => "/rulonnaya-krovlya/?msoption%7Ctip=%D0%9D%D0%B0%D0%BF%D0%BB%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D0%B0%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D1%8F", "name" => "Наплавляемая кровля"], 
@@ -166,7 +166,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/cementno-peschanaya-cherepica/", 
                 "name" => "Цементно-песчаная черепица",
-                'svg' => ''
+                'svg' => 'assort-natur-cerepica'
             ], 
             'column_tip' => [
                 ["uri" => "/cementno-peschanaya-cherepica-kriastak/", "name" => "Цементно-песчаная черепица Kriastak"], 
@@ -208,7 +208,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/keramicheskaya-cherepica/", 
                 "name" => "Керамическая черепица", 
-                'svg' => ''
+                'svg' => 'assort-ceramocherepica'
             ], 
             'column_type_tovara' => [
                 ["uri" => "/keramicheskaya-cherepica-braas/", "name" => "Керамическая черепица Braas"], 
@@ -234,7 +234,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/falcevaya-krovlya/",
                 "name" => "Фальцевая кровля",
-                'svg' => ''
+                'svg' => 'assort-falc-krovlya'
             ], 
             'column_type' => [
                 ["uri" => "/falcevaya-krovlya-grand-line-klikfalc/", "name" => "Кликфальц"], 
@@ -270,7 +270,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/proflist/",
                 "name" => "Профлист",
-                'svg' => ''
+                'svg' => 'assort-proflist'
             ], 
             'column_naznachenie' => [
                 ["uri" => "/profilirovannyy-list-dlya-zabora/", "name" => "Для забора"], 
@@ -308,7 +308,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/shtaketnik/", 
                 "name" => "Штакетник", 
-                'svg' => ''
+                'svg' => 'assort-proflist'
             ], 
             'column_proizvoditel' => [
                 ["uri" => "/shtaketnik-metall-profil/", "name" => "Металл Профиль"], 
@@ -336,9 +336,9 @@ function getMenuData()
         ], 
         $vodostochnaySystema => [
             'column1' => [
-                "uri" => "/shtaketnik/", 
-                "name" => "Штакетник", 
-                'svg' => ''
+                "uri" => "/vodostochnaya-sistema/",
+                "name" => "Водосточная система",
+                'svg' => 'assort-vodostoch'
             ], 
             'column_material' => [
                 ["uri" => "/pvh-plastikovye-vodostochnye-sistemy/", "name" => "ПВХ водостоки"], 
@@ -356,7 +356,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/sofity/", 
                 "name" => "Софиты",
-                'svg' => ''
+                'svg' => 'assort-sofity'
             ], 
             'column_material' => [
                 ["uri" => "/pvh-sofity/", "name" => "ПВХ софиты"], 
@@ -386,7 +386,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/dobornye-elementy/",
                 "name" => "Доборные элементы для кровли", 
-                'svg' => ''
+                'svg' => 'assort-dobor'
             ], 
             'column2' => [
                 ["uri" => "/j-profil/", "name" => "J-Профиль"], 
@@ -410,7 +410,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/komplektuyushhie/",
                 "name" => "Комплектующие",
-                'svg' => ''
+                'svg' => 'assort-soputtovary'
             ], 
             'column2' => [
                 ["uri" => "/mastiki-kraski/", "name" => "Мастики и краски"], 
