@@ -136,14 +136,16 @@
                   {/switch}
 
                   {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi','krovelnyjstroymarket']}
+                    {* При чем тут relinkingData ? *}
                     {if $relinkingData is empty}
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
                     {/if}
                   {/if}
                 </div>
 
-                {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi','krovelnyjstroymarket']}
-                  {if $relinkingData is not empty}
+                {if $_modx->resource.context_key not in list ['suhiesmesi','krovelnyjstroymarket']}
+                  {* При чем тут relinkingData ? *}
+                  {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
                     <div class="product-info__avstock">
                         <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                           На складе {$_modx->resource.stockNum} {$unit}
@@ -153,8 +155,16 @@
                         </div>
                     </div>
                   {else}
-                    <div class="product-info__shipped pc-flex">
-                        {'@FILE snippets/shippedToday.php' | snippet}
+                    <div class="product-info__avstock">
+                    {if $_modx->resource.context_key == 'kraska'}
+                        <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                          На складе {$_modx->resource.stockNum} {$unit}
+                        </div>
+                    {else}
+                      <div class="product-info__shipped pc-flex">
+                          {'@FILE snippets/shippedToday.php' | snippet}
+                      </div>
+                    {/if}
                     </div>
                   {/if}
                 {/if}
