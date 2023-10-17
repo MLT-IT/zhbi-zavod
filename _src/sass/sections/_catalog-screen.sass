@@ -11,7 +11,15 @@
         font-weight: 400
         font-size: 16px
         line-height: 1.5
+        overflow: hidden
+        max-height: 80px
+        position: relative
+        transition: 0.5s ease
 
+        &.expand
+            max-height: none
+            transition: 0.5s ease
+        
         +until-768
             font-size: 14px
 
@@ -20,6 +28,7 @@
 
         &:not(:last-child)
             margin-bottom: 20px
+        
 
     &__products
         display: grid
@@ -143,3 +152,10 @@
 
             +until-768
                 font-size: 12px
+
+.read-all-button
+    color: silver
+    margin-bottom: 1rem
+    cursor: pointer
+    display: inline-block
+    border-bottom: 1px dashed silver

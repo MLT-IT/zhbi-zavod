@@ -149,7 +149,7 @@
                       {else}
                           {foreach $catCols[$colKey] as $val}
                             <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                              <a href="{$val['uri']}" class="h-catalog-item__name h-catalog-item__name_bold">{$val['name']}</a>
+                              <a href="{$val['uri']}" class="h-catalog-item__name">{$val['name']}</a>
                             </div>
                           {/foreach}
                       {/if}
