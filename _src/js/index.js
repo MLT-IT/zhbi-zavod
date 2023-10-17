@@ -284,21 +284,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Отображение столбцов меню (проверка активных элементов)
     // -------------------------------
     function displayMenuColumns() {
-        $('.h-catalog__column').not(':first').each(function() {
+        $('.h-catalog__column').not(':first').each(function(index, element) {
             if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
                 $(this).addClass('disable');
             } else {
                 $(this).removeClass('disable');
             }
         });
+
+        $('.h-catalog__column:not(:first) .h-catalog-item__name').removeClass('h-catalog-item__name_bold');
+        $('.h-catalog__column:not(.disable):eq(1) .h-catalog-item__name').addClass('h-catalog-item__name_bold');
     }
 
     // -------------------------------
     // Переключение вкладок в меню в шапке
     // -------------------------------
-    $('.h-catalog__column').not(':first').each(function() {
-        $(this).addClass('disable');
-    });
     displayMenuColumns();
     let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
     $hCatalogItem.on('mouseenter', function(e) {

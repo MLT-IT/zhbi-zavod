@@ -32,12 +32,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             break;
         case 'krovelnyjstroymarket':
             $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
-            $result['column2'] = ['title' => '', 'type' => 'simple'];
+            $result['column2'] = ['title' => '', 'type' => 'composite'];
             $result['column_type_tovara'] = ['title' => 'Тип товара', 'type' => 'simple'];
             $result['column_vid'] = ['title' => 'Вид', 'type' => 'simple'];
             $result['column_tip'] = ['title' => 'Тип', 'type' => 'simple'];
             $result['column_proizvoditel'] = ['title' => 'Производитель', 'type' => 'simple'];
-            $result['column_cvet'] = ['title' => 'Цвет', 'type' => 'simple'];
+            $result['column_cvet'] = ['title' => 'Цвет', 'type' => 'composite'];
             $result['column_ottenok'] = ['title' => 'Оттенок', 'type' => 'simple'];
             $result['column_collection'] = ['title' => 'Коллекция', 'type' => 'simple'];
             $result['column_tolshina'] = ['title' => 'Толщина', 'type' => 'simple'];
