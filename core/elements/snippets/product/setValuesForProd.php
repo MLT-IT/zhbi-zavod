@@ -202,7 +202,7 @@ if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
     $result['productKey'] = str_replace(',', '.', $result['productKey']);
 }
 
-if (count($result['itemUnits']) < 1) {
+if (count($result['itemUnits']) < 1 && $src['context_key'] != 'kraska') {
     $result['condition'] = false;
 }
 
