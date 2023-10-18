@@ -22,13 +22,13 @@ import mapsLazyload from './modules/lazyload_maps';
 // MODULES
 // -------------------------------------
 import modxJS from './functions/modxJS';
-import {initSliders} from "./modules/sliders";
+import { initSliders } from "./modules/sliders";
 import calcProperties from "./utils/calcProperties";
 import initMobilemenu from "./modules/mobileMenu";
 import Dropdowns from "./modules/dropdowns";
 import Tabs from "./modules/tabs";
-import {initFancybox} from "./libs/fancybox";
-import {initSlimSelect} from "./libs/slimSelect";
+import { initFancybox } from "./libs/fancybox";
+import { initSlimSelect } from "./libs/slimSelect";
 import LazyLoad from "vanilla-lazyload";
 import FastSearch from './modules/fast_search';
 import shadowMap from './modules/shadow_map';
@@ -38,10 +38,10 @@ import mailChange from './modules/mailchanger';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    waitForYm(null, function (counter, counterNum) {
+    waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
-    
+
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
     $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Переключение типа покупателя в корзине
     // -------------------------------
     if ($('.popup_type_order').length) {
-        $('[name="CUSTOMER-TYPE"]').on('change', function () {
+        $('[name="CUSTOMER-TYPE"]').on('change', function() {
             let $this = $(this);
             let $wrapper = $this.closest('[data-forms-wrapper]');
             let $form = $wrapper.find('form[data-form="' + $this.val() + '"]');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         let needExpandFilters = 1;
         // На телефонах надо делать иначе, в противном случае будет баг в фильтре с ценой (фильтр будет отображаться не полностью)
-        $filterBtn.on('dropdown-toggle', function () {
+        $filterBtn.on('dropdown-toggle', function() {
             if (needExpandFilters) {
                 $('.filter-item__top').click();
                 needExpandFilters = 0;
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
     if ($catalogItemMoreBtn.length) {
-        $catalogItemMoreBtn.on('click', function () {
+        $catalogItemMoreBtn.on('click', function() {
             $catalogItemMoreBtn.parent().add($catalogItemMoreBtn).toggleClass('active');
         });
     }
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // TODO: добавь throttling
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         fixAndUnfixHeader();
     });
     fixAndUnfixHeader();
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Кнопка для скролла вверх
     // --------------------------------
     let $btn = $('.to-top-btn');
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(window).scrollTop() > window.innerHeight) {
             $btn.addClass('active');
         } else {
@@ -217,16 +217,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    $btn.on('click', function (e) {
+    $btn.on('click', function(e) {
         e.preventDefault();
-        $('html, body').animate({scrollTop: 0}, 300);
+        $('html, body').animate({ scrollTop: 0 }, 300);
     });
 
 
     // --------------------------------
     // Раскрытие / скрытие фильтров
     // --------------------------------
-    $filterBtn.on('dropdown-close dropdown-toggle', function (e) {
+    $filterBtn.on('dropdown-close dropdown-toggle', function(e) {
         const $body = $('body');
 
         if ($(this).hasClass('active')) {
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timeout;
     if ($headerCatalog.length) {
         let $body = $('body');
-        $headerCatalog.on('dropdown-toggle', function () {
+        $headerCatalog.on('dropdown-toggle', function() {
             let cls;
             if ($('.header-fixed').length) {
                 cls = 'body-blackout body-blackout_overhidden';
@@ -257,21 +257,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!$('.body-blackout__screen').length) {
                     let $screen = $('<div class="body-blackout__screen"></div>').appendTo('body');
 
-                    $screen.on('click', function (e) {
+                    $screen.on('click', function(e) {
                         e.preventDefault();
                         $body.removeClass('body-blackout body-blackout_overhidden');
                         clearTimeout(timeout);
-                        timeout = setTimeout(function () {
+                        timeout = setTimeout(function() {
                             $('.body-blackout__screen').remove();
                         }, 370);
                     });
                 }
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $body.addClass(cls);
                 }, 0);
             } else {
-                timeout = setTimeout(function () {
+                timeout = setTimeout(function() {
                     $body.removeClass('body-blackout body-blackout_overhidden');
                     $('.body-blackout__screen').remove();
                 }, 370);
@@ -280,12 +280,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     $('.h-catalog-item_to-catalog').on('hover');
 
+    // -------------------------------
+    // Отображение столбцов меню (проверка активных элементов)
+    // -------------------------------
+    function displayMenuColumns() {
+        $('.h-catalog__column').not(':first').each(function(index, element) {
+            if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
+                $(this).addClass('disable');
+            } else {
+                $(this).removeClass('disable');
+            }
+        });
+
+        $('.h-catalog__column:not(:first) .h-catalog-item__name').removeClass('h-catalog-item__name_bold');
+        $('.h-catalog__column:not(.disable):eq(1) .h-catalog-item__name').addClass('h-catalog-item__name_bold');
+    }
 
     // -------------------------------
     // Переключение вкладок в меню в шапке
     // -------------------------------
+    displayMenuColumns();
     let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
-    $hCatalogItem.on('mouseenter', function (e) {
+    $hCatalogItem.on('mouseenter', function(e) {
         e.preventDefault();
         let $this = $(this);
 
@@ -296,7 +312,36 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.h-catalog-item.active, .h-catalog-item_to-catalog.active').removeClass('active');
         $this.addClass('active');
         $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
+        displayMenuColumns();
     });
+
+
+    $(document).ready(function() {
+        var $textBlock = $('.catalog-screen__text');
+
+        if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
+            var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
+            $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
+            $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
+
+            $toggleButton.on('click', function() {
+                $textBlock.toggleClass('expand');
+                if ($textBlock.hasClass('expand')) {
+                    $textBlock.animate({
+                        maxHeight: "2000px"
+                    }, 100, function() {});
+                    $toggleButton.text('Свернуть');
+                } else {
+                    $textBlock.animate({
+                        maxHeight: "80px"
+                    }, 100, function() {});
+                    $toggleButton.text('Читать полностью');
+                }
+            });
+        }
+
+    });
+
 
 });
 
@@ -321,10 +366,10 @@ function getYandexMetrikaId() {
 function waitForYm(ymCounterNum, callback, interval) {
     if (!callback) return;
     if (!ymCounterNum) {
-        let metrikaObj  = (window.Ya && (window.Ya.Metrika || window.Ya.Metrika2)) || null;
+        let metrikaObj = (window.Ya && (window.Ya.Metrika || window.Ya.Metrika2)) || null;
         ymCounterNum = (metrikaObj && metrikaObj.counters && (metrikaObj.counters() || [0])[0].id) || 0;
     }
     let ymCounterObj = window['yaCounter' + ymCounterNum] || null;
     if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
-    setTimeout(function () { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
+    setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
