@@ -14,6 +14,11 @@
     *}
   </div>
 </div>
+{if $_modx->resource.context_key == 'kraska'}
+    <div class="product-card__article">
+      Арт. {$article} 
+    </div>
+{/if}
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
