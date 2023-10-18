@@ -14,11 +14,24 @@
     *}
   </div>
 </div>
+
 {if $_modx->resource.context_key == 'kraska'}
-    <div class="product-card__article">
-      Арт. {$article} 
+    <div class="product-card__middle">
+        <div class="product-card__article">
+            Арт. {$article} 
+        </div>
+        <div class="product-card__rating">
+            <ul class="rating__stars">
+              <li class="rating__star active"></li>
+              <li class="rating__star active"></li>
+              <li class="rating__star active"></li>
+              <li class="rating__star active"></li>
+              <li class="rating__star"></li>
+            </ul>
+        </div>
     </div>
 {/if}
+
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
