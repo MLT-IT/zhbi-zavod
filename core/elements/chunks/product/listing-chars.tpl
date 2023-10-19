@@ -41,6 +41,7 @@
       'vysota-volny' => $src['vysota-volny'],
       'ploshad_m2' => $src['ploshad_m2'],
       'teploprovodnost' => $src['teploprovodnost'],
-      'v_upakovke' => $src['v_upakovke']
+      'v_upakovke' => $src['v_upakovke'],
+      'stockNum' => $src['stockNum'],
   ]
 ]}
