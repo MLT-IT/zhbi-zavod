@@ -29,9 +29,11 @@ $cacheOptions = [
                     $charsValues = ['В наличии' => ['val' => [$src['stockNum'] . ' шт.']]];
                 }
 
+                $samovivoz = date('G') > 17 ? 'завтра' : 'сегодня';
+                
                 $charsValues = array_merge($charsValues, [
                     'Срок поставки' => ['val' => ['1-2 дня']],
-                    'Самовывоз' => ['val' => ['сегодня']],
+                    'Самовывоз' => ['val' => [$samovivoz]],
                     'Цвет' => ['val' => $src['cvet']],
                     'Оттенок' => ['val' => $src['ottenok']],
                     'Применение' => ['val' => $src['primenenie']],
