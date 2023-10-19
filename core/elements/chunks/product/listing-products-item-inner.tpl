@@ -35,6 +35,15 @@
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
+  {if $_modx->resource.context_key == 'kraska' && $src['vozmozhnost-kolerovki'][0] == 'да'}
+    <div class="product-card__tinting">
+        <div class="product-card__tinting-mes">
+            <div class="product-card__tinting-mes-header">Возможна колеровка</div>
+            <div class="product-card__tinting-mes-text">Данный материал можно заколеровать в выбранный вами цвет.</div>
+        </div>
+    </div>
+  {/if}
+
   {if $renderChars ?}
     <ul class="product-card__stats">
         {include "file:chunks/product/listing-chars.tpl"}
