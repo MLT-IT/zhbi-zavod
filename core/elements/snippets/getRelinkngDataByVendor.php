@@ -48,6 +48,8 @@ if (!class_exists('Relinking')) {
             $razmer = explode('х', $currentOptions['razmer-mm'][0]);
             $razmer = implode('х', [$razmer[0], $razmer[1]]) . '%';
 
+            $tip = $currentOptions['tip-bloka'][0];
+            
             $query = "SELECT 
             resources.`id`,
             resources.`uri`,
@@ -60,12 +62,14 @@ if (!class_exists('Relinking')) {
             LEFT JOIN modx_ms2_product_options proizvoditel ON proizvoditel.`key` = 'proizvoditel' AND proizvoditel.`product_id` = main.`product_id`
             LEFT JOIN modx_ms2_product_options plotnost ON plotnost.`key` = 'plotnost-ob' AND plotnost.`product_id` = main.`product_id`
             LEFT JOIN modx_ms2_product_options razmer ON razmer.`key` = 'razmer-mm' AND razmer.`product_id` = main.`product_id`
+            LEFT JOIN modx_ms2_product_options `tip-bloka` ON `tip-bloka`.`key` = 'tip-bloka' AND `tip-bloka`.`product_id` = main.`product_id`
             LEFT JOIN modx_site_content resources ON resources.`id` = main.`product_id`
             
             WHERE resources.`context_key` = '$context'
             AND proizvoditel.`value` != '$proizvoditel'
             AND main.`product_id` != $id
             AND razmer.`value` LIKE '$razmer'
+            AND `tip-bloka`.`value` = '$tip'
             AND main.`product_id` IN (
                 -- Получаем все товары с таким же хешем
                 SELECT `product_id`
