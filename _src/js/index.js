@@ -150,8 +150,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if ($('[data-ctx="kraska"]').length) {
         toCatalogBtnText = 'Все разделы';
     }
+    if ($('[data-ctx="krovelnyjstroymarket"]').length) {
+        toCatalogBtnText = 'Каталог материалов';
+    }
+
     $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
 
+    $('.h-menu__dropdown').scroll(function(){
+        $('.h-catalog__column').not(':first').css('padding-top', $(this).scrollTop())
+    });
 
     // -------------------------------
     // Раскрытие тегов
