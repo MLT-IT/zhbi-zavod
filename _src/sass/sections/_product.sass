@@ -26,6 +26,28 @@
         gap: 15px
         height: 552px
 
+
+        & .swiper-button-prev, & .swiper-button-next
+            @at-root [data-ctx="krovelnyjstroymarket"] &
+                width: 100%
+                position: absolute
+                left: 0
+                background: rgba(255, 255, 255, 0.8)
+
+        & .swiper-button-next
+            @at-root [data-ctx="krovelnyjstroymarket"] &
+                top: 0
+
+        & .swiper-button-prev
+            @at-root [data-ctx="krovelnyjstroymarket"] &
+                top: auto
+                bottom: 0
+
+
+        & .swiper-button-prev:after, & .swiper-button-next:after
+            transform: rotate(90deg)
+
+
         +until-1200
             height: auto
             grid-template-columns: 100%
@@ -47,6 +69,7 @@
 
             +until-1200
                 grid-row: 1
+
 
         &-slide,
         &-thumb
