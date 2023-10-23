@@ -1,7 +1,7 @@
 <article class="infoblocks section{$styleClass ? ' ' ~ $styleClass : ''}">
   <div class="infoblocks__container">
     <div class="infoblocks__content">
-      <h3 class="infoblocks__title section__title">Условия доставки материала</h3>
+      <span class="infoblocks__title section__title">Условия доставки материала</span>
       <p class="infoblocks__subtitle">Доставка стройматериалов по Санкт-Петербургу осуществляется по следующему тарифу (условия по ЛО уточняйте у менеджера):</p>
       <div class="table">
         {include 'file:sections/delivery-inner.tpl'}
