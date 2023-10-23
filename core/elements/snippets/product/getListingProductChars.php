@@ -44,7 +44,72 @@ $cacheOptions = [
             }
             break;
         
+        case $modx->resource->context_key == 'krovelnyjstroymarket':
+            if(in_array($modx->resource->id, [125621, 125619]))
+            {
+                // количество волн; высота волны, мм; толщина, мм; ширина, мм; длина, мм; площадь, м2
+                $charsValues = [
+                    'Количество волн' => ['val' => $src['kolichestvo-voln']],
+                    'Высота волны, мм' => ['val' => $src['vysota-volny']],
+                    'Толщина, мм' => ['val' => $src['item_thickness']],
+                    'Ширина, мм' => ['val' => $src['item_width']],
+                    'Длина, мм' => ['val' => $src['dlina']],
+                    'Площадь, м2' => ['val' => $src['ploshad_m2']],
+                ];
+            }
 
+            elseif($modx->resource->id == 125540)
+            {
+                $charsValues = [
+                    'Цвет' => ['val' => $src['cvet']],
+                    'Толщина, мм' => ['val' => $src['item_thickness']],
+                    'Ширина, мм' => ['val' => $src['item_width']],
+                    'Длина, мм' => ['val' => $src['item_length']],
+                ];
+            }
+
+            elseif($modx->resource->id == 125530)
+            {
+                $charsValues = [
+                    'Толщина, мм' => ['val' => $src['item_thickness']],
+                    'Производитель' => ['val' => $src['proizvoditel']],
+                    'Покрытие' => ['val' => $src['pokrytie']],
+                    'Цвет' => ['val' => $src['cvet']],
+                    'Вид поверхности' => ['val' => $src['vid-poverhnosti']],
+                ];
+            }
+
+            elseif($modx->resource->id == 125532)
+            {
+                $charsValues = [
+                    'Коллекция' => ['val' => $src['collection']],
+                    'Покрытие' => ['val' => $src['pokrytie']],
+                    'Оттенок' => ['val' => $src['ottenok']],
+                ];
+            }
+
+            elseif($modx->resource->id == 125535)
+            {
+                $charsValues = [
+                    'Коллекция' => ['val' => $src['collection']],
+                    'Покрытие' => ['val' => $src['pokrytie']],
+                    'Цвет' => ['val' => $src['cvet']],
+                    'Общая ширина' => ['val' => $src['obshaya-shirina']],
+                    'Полезная ширина' => ['val' => $src['poleznaya-shirina']],
+                ];
+            }
+
+            elseif($modx->resource->id == 165732)
+            {
+                $charsValues = [
+                    'Цвет' => ['val' => $src['cvet']],
+                    'Толщина' => ['val' => $src['item_thickness']],
+                    'Бренд' => ['val' => $src['brand']],
+                    'Вид' => ['val' => $src['vid']],
+                ];
+            }
+
+            break;
         // В остальных случаях
         default:
             $charsValues = [
