@@ -117,6 +117,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // -------------------------------
+    // Выравнивание названий товара
+    // -------------------------------
+    var rows = {};
+    let currentTop = 0;
+    let masRow = [];
+    $(".product-card__title").each(function(index){
+        let top = Math.ceil($(this).offset().top);
+        if(index == 0){
+            currentTop = top;
+        }
+        if(top == currentTop){
+            rows[top] = masRow;
+        }else{
+
+            masRow = [];
+            currentTop = top;
+        }
+        masRow.push($(this));
+    });
+
+    for (var key in rows) {
+        if (rows.hasOwnProperty(key)) {
+            let maxHeight = 0;
+            for(var keyRow in rows[key])
+            {
+                let objectRow = rows[key][keyRow];
+                if(objectRow.height() > maxHeight)
+                {
+                    maxHeight = objectRow.height();
+                }
+            }
+            for(var keyRow in rows[key])
+            {
+                let objectRow = rows[key][keyRow];
+                objectRow.height(maxHeight)
+            }
+        }
+    }
+
+    console.log(rows);
+
 
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
@@ -326,12 +368,12 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function() {
         var $textBlock = $('.catalog-screen__text');
 
-        if ($textBlock.length) {        
+        if ($textBlock.length) {
             if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
                 var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
                 $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
                 $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
-    
+
                 $toggleButton.on('click', function() {
                     $textBlock.toggleClass('expand');
                     if ($textBlock.hasClass('expand')) {
