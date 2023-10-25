@@ -49,6 +49,4 @@ if(!empty($parents)){
     $result = getCategories($parent);
 }
 
-print_r( $result );
-
 return $result;
