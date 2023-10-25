@@ -1,8 +1,8 @@
 {if $title is empty}
-    {set $title = 'Сопутствующие товары'}
+    {set $title = 'Похожие товары'}
 {/if}
 {if $output is not empty}
-<article class="other-products section section_view_bg" id="other-products">
+<article class="other-products section section_view_bg" id="simillar-products">
   <div class="other-products__container">
     <h2 class="other-products__title section__title">{$title}</h2>
     <div class="other-products__slider">

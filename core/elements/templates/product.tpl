@@ -61,6 +61,43 @@
     ]}
 {/if}
 
+{if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+    {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
+    {set $recommendProducts = 'msProducts' | snippet : [
+    'resources' => '-' ~ $_modx->resource.id,
+    'parents' => 125617,
+    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+    'tplWrapper' => '@FILE sections/related-products.tpl',
+    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+    'context' => $_modx->resource.context_key,
+    'includeThumbs' => 'webp',
+    'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
+    ]}
+
+    {* Получение характеристик товара в формате json за исключенимем цвет*}
+    {set $optionProduct = 'msProductOptions' | snippet : [
+    'tpl' => '@FILE chunks/charecter-json.tpl',
+    'ignoreOptions' => 'edizm,edizm2,cvet'
+    ]}
+
+
+    {* Похожие товары, отображаются товары с одинаковыми характеристиками кроме цвета *}
+    {set $simillarProducts = 'msProducts' | snippet : [
+    'resources' => '-' ~ $_modx->resource.id,
+    'parents' => 0,
+    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+    'tplWrapper' => '@FILE sections/simillar-products.tpl',
+    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+    'context' => $_modx->resource.context_key,
+    'includeThumbs' => 'webp',
+    'optionFilters' => $optionProduct,
+    ]}
+
+{/if}
+
+
+
+
 <main class="layout__main">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -397,7 +434,7 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
-          {if $recommendProducts ?}
+          {if $recommendProducts?}
             <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
           {/if}
         </div>
@@ -531,7 +568,8 @@
     </div>
   </article>
 
-  {$recommendProducts ?: ''}
+  {$recommendProducts?: ''}
+  {$simillarProducts ?: ''}
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
