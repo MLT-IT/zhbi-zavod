@@ -27,46 +27,49 @@
 
     {switch $_modx->resource.context_key}
       {case 'krovelnyjstroymarket'}
-        {set $imageBaner1 = "assets/template/pictures/promo/promo-1.jpg"}
-        {set $imageBanerMobile1 = "assets/template/pictures/promo/promo-1-mob.jpg"}
+        {set $imageBaner1 = "assets/template/pictures/promo/1.jpg"}
+        {set $imageBanerMobile1 = "assets/template/pictures/promo/1.jpg"}
         {set $titleBaner1 = "Бесплатный выезд замерщика"}
         {set $textBaner1 = ""}
         {set $linkBaner1 = "/akcii/"}
+        {set $colorText1 = "#fff"}
         {set $buttonLinkBaner1 = "Вызвать замерщика"}
 
-        {set $imageBaner2 = "assets/template/pictures/promo/promo-2-mob.jpg"}
-        {set $imageBanerMobile2 = "assets/template/pictures/promo/promo-2.jpg"}
+        {set $imageBaner2 = "assets/template/pictures/promo/2.jpg"}
+        {set $imageBanerMobile2 = "assets/template/pictures/promo/2.jpg"}
         {set $titleBaner2 = "Металлочерепица Grand Line от 380 руб/м2"}
         {set $textBaner2 = ""}
+        {set $colorText2 = "#fff"}
         {set $linkBaner2 = "/metall-profil-0.45/"}
 
-        {set $imageBaner3 = "assets/template/pictures/promo/promo-3.jpg"}
-        {set $imageBanerMobile3 = "assets/template/pictures/promo/promo-3-mob.jpg"}
+        {set $imageBaner3 = "assets/template/pictures/promo/3.jpg"}
+        {set $imageBanerMobile3 = "assets/template/pictures/promo/3.jpg"}
         {set $titleBaner3 = "Профлист от компании “Металл Профиль” от 280 руб/м2"}
         {set $textBaner3 = ""}
+        {set $colorText3 = "#fff"}
         {set $linkBaner3 = '/profilirovannyj-list-dlya-zabora-metall-profil/'}
 
     {/switch}
     <div class="promo__items">
       <div class="promo__item promo-block promo-block_view_big promo-block_style_white">
         <picture class="promo-block__bg">
-          <source srcset="assets/template/pictures/promo/promo-1-mob.jpg" media="(max-width: 768px)"><img class="promo-block__bg-img" src="assets/template/pictures/promo/promo-1.jpg">
+          <source srcset="{$imageBanerMobile1}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner1}">
         </picture>
-        <h3 class="promo-block__title">{$titleBaner1}</h3>
+        <h3 class="promo-block__title" {if $colorText1} style = "color:{$colorText1}" {/if}>{$titleBaner1}</h3>
         <p class="promo-block__text">{$textBaner1}</p><a class="promo-block__btn btn btn_style_white-trans" href="{$linkBaner1}">{$buttonLinkBaner1}</a>
       </div>
       <div class="promo__item promo-block">
         <picture class="promo-block__bg">
           <source srcset="{$imageBanerMobile2}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner2}">
         </picture>
-        <h3 class="promo-block__title">{$titleBaner2}</h3>
+        <h3 class="promo-block__title" {if $colorText2} style = "color:{$colorText2}" {/if}>{$titleBaner2}</h3>
         <p class="promo-block__text">{$textBaner2}</p><a class="promo-block__btn btn btn_style_base" href="{$linkBaner2}">{$buttonLinkBaner2}</a>
       </div>
       <div class="promo__item promo-block">
         <picture class="promo-block__bg">
-          <source srcset="{$imageBaner3}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBanerMobile3}">
+          <source srcset="{$imageBanerMobile3}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner3}">
         </picture>
-        <h3 class="promo-block__title">{$titleBaner3}</h3>
+        <h3 class="promo-block__title" {if $colorText3} style = "color:{$colorText3}" {/if}>{$titleBaner3}</h3>
         <p class="promo-block__text">{$textBaner3}</p><a class="promo-block__btn btn btn_style_trans" href="{$linkBaner3}">{$buttonLinkBaner2}</a>
       </div>
     </div>
