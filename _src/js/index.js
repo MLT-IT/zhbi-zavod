@@ -157,9 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    console.log(rows);
-
-
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
     // -------------------------------
@@ -206,9 +203,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Раскрытие тегов
     // -------------------------------
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
-    if ($catalogItemMoreBtn.length) {
+    if ($catalogItemMoreBtn.length && $(document).width() > 992) {
         $catalogItemMoreBtn.on('click', function() {
             $catalogItemMoreBtn.parent().add($catalogItemMoreBtn).toggleClass('active');
+        });
+    }
+
+    // Корректировка отображения меню на пк если элементов в списке категорий 5 то скрываем кнопку показать еще
+    if($('.catalog-screen__item').length == 6){
+        $('.catalog-screen__item').eq(4).css("display", "block")
+        $catalogItemMoreBtn.css('display', 'none')
+    }
+
+
+
+    if($('body').width() < 778){
+        var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
+
+        $('.burger-menu__catalog').append($buttonMore);
+        $('.bm-cat-item').each(function(index){
+            if(index > 2){
+                $(this).hide();
+            }
+        });
+        $buttonMore.click(function (){
+            if($buttonMore.text() == 'Скрыть'){
+                $('.bm-cat-item').each(function(index){
+                    if(index > 2){
+                        $(this).hide();
+                    }
+                });
+                $buttonMore.text('Показать больше');
+            }else{
+                $('.bm-cat-item').show();
+                $buttonMore.text('Скрыть');
+            }
         });
     }
 
@@ -368,6 +397,12 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function() {
         var $textBlock = $('.catalog-screen__text');
 
+        let maxHeight = '75px';
+        if($('body').width() < 778){
+            maxHeight = "40px";
+        }
+        $textBlock.css("maxHeight", maxHeight);
+
         if ($textBlock.length) {
             if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
                 var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
@@ -377,14 +412,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 $toggleButton.on('click', function() {
                     $textBlock.toggleClass('expand');
                     if ($textBlock.hasClass('expand')) {
+                        // анмация разворота блока
                         $textBlock.animate({
                             maxHeight: "2000px"
                         }, 100, function() {});
                         $toggleButton.text('Свернуть');
                     } else {
+                        // анмация закрытие блока
                         $textBlock.animate({
-                            maxHeight: "80px"
+                            maxHeight: maxHeight
                         }, 100, function() {});
+
                         $toggleButton.text('Читать полностью');
                     }
                 });
