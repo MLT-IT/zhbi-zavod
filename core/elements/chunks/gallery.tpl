@@ -39,7 +39,7 @@
           {/if}
 
           <div class="swiper-slide product__pictures-thumb">
-            <a href="{'site_url' | option}{$file['url']}" data-fancybox class="zoom-here" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" class="zoom-here" itemscope itemtype="http://schema.org/ImageObject">
               <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
             </a>
           </div>
