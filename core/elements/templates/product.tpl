@@ -170,9 +170,11 @@
                       ]}
                     {case 'gazosilikatstroy'}
                       {set $unit = 'м3'}
+                    {case 'krovelnyjstroymarket'}
+                     {set $unit = 'м2'}
                   {/switch}
 
-                  {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi','krovelnyjstroymarket']}
+                  {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi']}
                     {* При чем тут relinkingData ? *}
                     {if $relinkingData is empty}
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">На складе {$_modx->resource.stockNum} {$unit}</div>
@@ -180,7 +182,7 @@
                   {/if}
                 </div>
 
-                {if $_modx->resource.context_key not in list ['suhiesmesi','krovelnyjstroymarket']}
+                {if $_modx->resource.context_key not in list ['suhiesmesi']}
                   {* При чем тут relinkingData ? *}
                   {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
                     <div class="product-info__avstock">
