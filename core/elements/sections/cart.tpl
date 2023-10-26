@@ -97,7 +97,7 @@
     </p>
     <span class="cart-total__notion">Без учёта менеджерской скидки</span>
     <div class="cart-total__btns">
-      <button class="btn btn_style_shadow" data-fancybox href="#order">Перейти к оформлению</button><a class="btn btn_style_trans" href="/catalog/">Вернутся в каталог</a>
+      <button class="btn btn_style_shadow" data-fancybox href="#order">Перейти к оформлению</button><a class="btn btn_style_trans" onclick="history.back();" >Вернутся в каталог</a>
     </div>
   </div>
 </div>
