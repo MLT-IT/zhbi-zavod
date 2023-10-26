@@ -205,15 +205,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
     if ($catalogItemMoreBtn.length && $(document).width() > 992) {
         $catalogItemMoreBtn.on('click', function() {
-            $catalogItemMoreBtn.parent().add($catalogItemMoreBtn).toggleClass('active');
+            $(this).parent().add($catalogItemMoreBtn).toggleClass('active');
         });
     }
 
-    // Корректировка отображения меню на пк если элементов в списке категорий 5 то скрываем кнопку показать еще
-    if($('.catalog-screen__item').length == 6){
-        $('.catalog-screen__item').eq(4).css("display", "block")
-        $catalogItemMoreBtn.css('display', 'none')
-    }
+    $('.catalog-screen__items').each(function(){
+        // Корректировка отображения меню на пк если элементов в списке категорий 5 то скрываем кнопку показать еще
+        if($(this).children('.catalog-screen__item').length == 6){
+            $(this).children('.catalog-screen__item').eq(4).css("display", "block")
+            $(this).children('.catalog-screen__item_type_more').css('display', 'none')
+        }
+    });
+
 
 
 
