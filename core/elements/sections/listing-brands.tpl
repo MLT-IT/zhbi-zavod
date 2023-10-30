@@ -11,9 +11,13 @@
         {case 'suhiesmesi'}
           {set $text = 'сухих смесей'}
         {case 'krovelnyjstroymarket'}
-          {set $text = 'krovelnyjstroymarket'}
+          {set $text = $_modx->resource.pagetitle}
       {/switch}
-      Продажа {$text} в Санкт-Петербурге
+      {if $_modx->context.key == 'krovelnyjstroymarket'}
+          {$text}
+        {else}
+        Продажа {$text} в Санкт-Петербурге
+      {/if}
     </h1>
     <div class="products-preview__slider">
       <div class="swiper-container">
