@@ -46,6 +46,8 @@
     <div class="header__container">
       <div class="h-subinfo h-subinfo_color_grey">
         <span class="h-subinfo__text">
+          {set $beforeText = "Продажа"}
+          {set $afterText = "в Санкт-Петербурге"}
           {switch $_modx->resource.context_key}
             {case 'web'}
               {set $text = 'утеплителей'}
@@ -56,9 +58,11 @@
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
             {case 'krovelnyjstroymarket'}
-              {set $text = 'krovelnyjstroymarket'}
+              {set $beforeText = ""}
+              {set $text = 'Производство и продажа кровельных материалов'}
+              {set $afterText = ""}
           {/switch}
-          Продажа {$text} в Санкт-Петербурге
+          {$beforeText} {$text} {$afterText}
         </span>
       </div>
       <div class="h-subinfo h-subinfo_display_widescreen">

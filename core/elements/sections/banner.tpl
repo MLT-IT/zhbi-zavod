@@ -17,7 +17,7 @@
               {case 'suhiesmesi'}
                 {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
               {case 'krovelnyjstroymarket'}
-                {set $text = 'krovelnyjstroymarket'}
+                {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
             {/switch}
             {$text}
           </div>
@@ -53,7 +53,7 @@
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
       <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg"></picture>
-      <h2 class="banner__title">Ликвидация склада успей забрать!</h2>
+      <span class="banner__title">Ликвидация склада успей забрать!</span>
       {switch $_modx->resource.context_key}
         {case 'web'}
           {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}

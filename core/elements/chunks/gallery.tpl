@@ -6,19 +6,27 @@
 {set $altTitle = $_modx->resource.menutitle ?: $_modx->resource.pagetitle}
 
 <div class="product__pictures">
-  <div class="swiper-container product__pictures-thumbs">
-    <div class="swiper-wrapper">
-      {foreach $files as $key => $file}
-        {set $alt = $altTitle}
-        {if $key > 0}
-            {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
-        {/if}
 
-        <div class="swiper-slide product__pictures-thumb">
-          <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
+  <div class="swiper-container product__pictures-thumbs">
+      {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+          <div class="swiper-button-prev thumbs"></div>
+          <div class="swiper-button-next thumbs"></div>
+      {/if}
+        <div class="swiper-wrapper">
+          {foreach $files as $key => $file}
+            {set $alt = $altTitle}
+            {if $key > 0}
+                {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
+            {/if}
+
+
+            <div class="swiper-slide product__pictures-thumb">
+              <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
+            </div>
+
+          {/foreach}
         </div>
-      {/foreach}
-    </div>
+
   </div>
 
   <div class="product__picture">
@@ -31,7 +39,7 @@
           {/if}
 
           <div class="swiper-slide product__pictures-thumb">
-            <a href="{'site_url' | option}{$file['url']}" data-fancybox class="zoom-here" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" class="zoom-here" itemscope itemtype="http://schema.org/ImageObject">
               <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
             </a>
           </div>

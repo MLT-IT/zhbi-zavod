@@ -69,6 +69,7 @@ export function initSliders() {
         let productPicturesSliderThumbs;
         if (productPicturesSliderThumbsContainer) {
             productPicturesSliderThumbs = new Swiper(productPicturesSliderThumbsContainer, {
+
                 loop: false,
                 spaceBetween: 5,
                 slidesPerView: 3,
@@ -90,6 +91,10 @@ export function initSliders() {
         }
 
         const productPicturesSlider = new Swiper(productPicturesSliderContainer, {
+            navigation: {
+                nextEl: '.swiper-button-next.thumbs', // Селектор кнопки "Вперед"
+                prevEl: '.swiper-button-prev.thumbs', // Селектор кнопки "Назад"
+            },
             loop: true,
             spaceBetween: 0,
             slidesPerView: 1,
