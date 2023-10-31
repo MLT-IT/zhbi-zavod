@@ -1,6 +1,9 @@
 .filter
 	position: relative
 
+	.default-checkbox__label-text
+		order: 1
+	
 	&::before
 		content: ''
 		position: fixed
@@ -96,6 +99,9 @@
 		+until-1200
 			display: flex
 
+	.default-checkbox__label-text
+		display: flex 
+			
 .filter-item
 	background: var(--color-white)
 	box-shadow: var(--shadow-base)
@@ -340,3 +346,32 @@
 
 		&:hover, &:focus
 			border-color: var(--color-red)
+
+.filter-item
+	&_type
+		&_cvet, &_proizvoditel
+			.default-checkbox__label
+			  
+				&::after
+					border: 1px solid #000
+					border-radius: 3px
+					background-position: 50%
+					background-repeat: no-repeat
+					box-sizing: border-box
+					content: ""
+					display: block
+					flex-grow: 0
+					flex-shrink: 0
+					height: 20px
+					margin-right: 8px
+					width: 30px
+					order: 0
+					background-size: contain
+
+		&_cvet
+			.default-checkbox__label
+				+colors_to_selector('::after')  
+			  
+		&_proizvoditel
+			.default-checkbox__label
+				+brands_to_selector('::after')

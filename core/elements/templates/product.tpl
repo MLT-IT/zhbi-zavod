@@ -359,6 +359,17 @@
                 </div>
                 <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
               </div>
+              
+              {if $_modx->resource.context_key == 'kraska'}
+                  <div class="product-info__undertext">
+                    <p class="product-info__undertext-span">
+                      <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
+                    </p> 
+                    <p class="product-info__undertext-span">
+                      <span class="product-info__undertext-span-header">Доставка:</span> 1-2 дня
+                    </p>
+                  </div>
+              {/if}
             </div>
 
             {switch $_modx->resource.context_key}
@@ -367,8 +378,6 @@
               {case 'krovelnyjstroymarket'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
               {case 'web'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
-              {case 'kraska'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
             {/switch}
           </div>
