@@ -68,7 +68,7 @@
     {insert "file:chunks/product/get-data-attrs.tpl"}
     >
       <div class="product__container">
-        <h2 class="product__title section__title">{$_modx->resource.pagetitle}</h2>
+        <h1 class="product__title section__title">{$_modx->resource.pagetitle}</h1>
         <div class="product__body">
 
           {'!msGallery' | snippet : [
