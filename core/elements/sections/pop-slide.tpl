@@ -1,9 +1,28 @@
+{set $unit = 'м3'}
+
+
+{if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+  {if $key in list [125540, 125537,125536,125539,125533,125529]}
+      {set $unit = 'шт'}
+    {elseif $key in list[125531]}
+      {set $unit = 'лист'}
+    {elseif $key in list[125538]}
+      {set $unit = 'упаковку'}
+    {elseif $key in list[125541]}
+      {set $unit = 'п.м.'}
+    {else}
+      {set $unit = 'м2'}
+  {/if}
+{/if}
+
+
 <a href="{$uri}" class="swiper-slide preview-card">
   <div class="preview-card__picture">
     <img src="/assets/images/loader.svg" class="preview-card__image lazy" data-src="{$img}" alt="{$name}">
   </div>
   <p class="preview-card__name">{$name}</p>
-  <p class="preview-card__price">от {$minprice} ₽</p>
-  <span class="preview-card__notion">Стоимость за 1 м3</span>
+  <p class="preview-card__price">от {$minprice} ₽ </p>
+  <span class="preview-card__notion">Стоимость за 1 {$unit}</span>
   <span class="preview-card__btn btn btn_style_shadow">перейти</span>
 </a>
+

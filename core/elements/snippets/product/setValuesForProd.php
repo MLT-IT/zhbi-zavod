@@ -150,7 +150,16 @@ if (in_array($src['context_key'], ['gazosilikatstroy'])) {
             $pdn = 1 / ((1 / $thing) * $src['pallet_num'][0]);
         }
     }
+}
 
+// Единицы измерения для газобетона
+if (in_array($src['context_key'], ['krovelnyjstroymarket'])) {
+    if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
+        $m2 = $src['ploshad_m2'][0];
+    }
+    if (!empty($src['kolvom2upak']) && !empty($src['kolvom2upak'][0])) {
+        $upk = 1 / $src['kolvom2upak'][0];
+    }
 }
 
 // Установка itemUnits

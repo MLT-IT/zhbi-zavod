@@ -43,5 +43,11 @@
       'teploprovodnost' => $src['teploprovodnost'],
       'v_upakovke' => $src['v_upakovke'],
       'stockNum' => $src['stockNum'],
+      'vid-poverhnosti' => $src['vid-poverhnosti'],
+      'vid-poverhnosti' => $src['vid-poverhnosti'],
+      'pokrytie' => $src['pokrytie'],
+      'collection' => $src['collection'],
+      'vid' => $src['vid'],
+      'brand' => $src['brand'],
   ]
 ]}
