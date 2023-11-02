@@ -124,5 +124,16 @@ if (!class_exists('Relinking')) {
     }
 }
 
-$relinking = new Relinking();
-return $relinking->getData();
+$cacheName = $modx->resource->id;
+$cacheOptions = [
+    xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $modx->context->key . '/getRelinkngDataByVendor/' . $cacheName,
+];
+
+if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
+    $relinking = new Relinking();
+
+    $result = $relinking->getData();
+    $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+}
+
+return $result;
