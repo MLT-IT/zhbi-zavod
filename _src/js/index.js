@@ -117,6 +117,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // -------------------------------
+    // Выравнивание названий товара
+    // -------------------------------
+    var rows = {};
+    let currentTop = 0;
+    let masRow = [];
+    $(".product-card__title").each(function(index){
+        let top = Math.ceil($(this).offset().top);
+        if(index == 0){
+            currentTop = top;
+        }
+        if(top == currentTop){
+            rows[top] = masRow;
+        }else{
+
+            masRow = [];
+            currentTop = top;
+        }
+        masRow.push($(this));
+    });
+
+    for (var key in rows) {
+        if (rows.hasOwnProperty(key)) {
+            let maxHeight = 0;
+            for(var keyRow in rows[key])
+            {
+                let objectRow = rows[key][keyRow];
+                if(objectRow.height() > maxHeight)
+                {
+                    maxHeight = objectRow.height();
+                }
+            }
+            for(var keyRow in rows[key])
+            {
+                let objectRow = rows[key][keyRow];
+                objectRow.height(maxHeight)
+            }
+        }
+    }
 
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
@@ -150,16 +189,58 @@ document.addEventListener('DOMContentLoaded', () => {
     if ($('[data-ctx="kraska"]').length) {
         toCatalogBtnText = 'Все разделы';
     }
+    if ($('[data-ctx="krovelnyjstroymarket"]').length) {
+        toCatalogBtnText = 'Каталог материалов';
+    }
+
     $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
 
+    $('.h-menu__dropdown').scroll(function(){
+        $('.h-catalog__column').not(':first').css('padding-top', $(this).scrollTop())
+    });
 
     // -------------------------------
     // Раскрытие тегов
     // -------------------------------
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
-    if ($catalogItemMoreBtn.length) {
+    if ($catalogItemMoreBtn.length && $(document).width() > 992) {
         $catalogItemMoreBtn.on('click', function() {
-            $catalogItemMoreBtn.parent().add($catalogItemMoreBtn).toggleClass('active');
+            $(this).parent().add($catalogItemMoreBtn).toggleClass('active');
+        });
+    }
+
+    $('.catalog-screen__items').each(function(){
+        // Корректировка отображения меню на пк если элементов в списке категорий 5 то скрываем кнопку показать еще
+        if($(this).children('.catalog-screen__item').length == 6){
+            $(this).children('.catalog-screen__item').eq(4).css("display", "block")
+            $(this).children('.catalog-screen__item_type_more').css('display', 'none')
+        }
+    });
+
+
+
+
+    if($('body').width() < 778){
+        var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
+
+        $('.burger-menu__catalog').append($buttonMore);
+        $('.bm-cat-item').each(function(index){
+            if(index > 2){
+                $(this).hide();
+            }
+        });
+        $buttonMore.click(function (){
+            if($buttonMore.text() == 'Скрыть'){
+                $('.bm-cat-item').each(function(index){
+                    if(index > 2){
+                        $(this).hide();
+                    }
+                });
+                $buttonMore.text('Показать больше');
+            }else{
+                $('.bm-cat-item').show();
+                $buttonMore.text('Скрыть');
+            }
         });
     }
 
@@ -319,23 +400,32 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function() {
         var $textBlock = $('.catalog-screen__text');
 
-        if ($textBlock.length) {        
+        let maxHeight = '75px';
+        if($('body').width() < 778){
+            maxHeight = "40px";
+        }
+        $textBlock.css("maxHeight", maxHeight);
+
+        if ($textBlock.length) {
             if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
                 var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
                 $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
                 $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
-    
+
                 $toggleButton.on('click', function() {
                     $textBlock.toggleClass('expand');
                     if ($textBlock.hasClass('expand')) {
+                        // анмация разворота блока
                         $textBlock.animate({
                             maxHeight: "2000px"
                         }, 100, function() {});
                         $toggleButton.text('Свернуть');
                     } else {
+                        // анмация закрытие блока
                         $textBlock.animate({
-                            maxHeight: "80px"
+                            maxHeight: maxHeight
                         }, 100, function() {});
+
                         $toggleButton.text('Читать полностью');
                     }
                 });
