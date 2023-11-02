@@ -16,13 +16,13 @@ function getMenuData()
     $data = [
         $grunty => [
             'column1' => [
-                'uri' => '/gruntovki/',
+                'uri' => '/grunty/',
                 'name' => 'Грунтовки',
                 'svg' => 'paint-roller'
             ],
             'column2' => [
                 [
-                    "uri" => "/gruntovki/",
+                    "uri" => "/grunty/",
                     "name" => "Грунтовки",
                 ],
                 [
@@ -41,15 +41,47 @@ function getMenuData()
         ],
         $voddis => [
             'column1' => [
-                'uri' => '/kraski/',
+                'uri' => '/kraska/',
                 'name' => 'Краски',
                 'svg' => 'kraska'
             ],
             'column2' => [
                 [
-                    'uri' => '/vodno-dispersionnyie-kraski/',
+                    'uri' => '/vodno-dispersionnaya-kraska/',
                     'name' => 'Водно-дисперсионные краски'
-                ]
+                ],
+                [
+                    'uri' => '/kraska-dlya-vnutrennih-rabot/',
+                    'name' => 'Краски для внутренних работ'
+                ],
+                [
+                    'uri' => '/kraska-dlya-naruzhnyh-rabot/',
+                    'name' => 'Краски для фасада'
+                ],
+                [
+                    'uri' => '/aehrozolnaya-kraska/',
+                    'name' => 'Аэрозольные краски'
+                ],
+                [
+                    'uri' => '/alkidnaya-kraska/',
+                    'name' => 'Алкидные краски'
+                ],
+                [
+                    'uri' => '/rezinovaya-kraska/',
+                    'name' => 'Резиновые краски'
+                ],
+                [
+                    'uri' => '/kraska-fakturnaya/',
+                    'name' => 'Краска фактурная'
+                ],
+                [
+                    'uri' => '/silikonovaya-kraska/',
+                    'name' => 'Краска силиконовая'
+                ],
+                [
+                    'uri' => '/lateksnye-kraski/',
+                    'name' => 'Краска латексная'
+                ],
             ]
         ],
         $pokder => [
@@ -80,8 +112,12 @@ function getMenuData()
                     "name" => "Морилки",
                 ],
                 [
-                    "uri" => "/lazuri-dlya-dereva/",
-                    "name" => "Лазури для дерева",
+                    "uri" => "/pokryitie-dlya-dereva-solara-color/",
+                    "name" => "Solara Color",
+                ],
+                [
+                    "uri" => "/pokryitie-dlya-dereva-smart-color/",
+                    "name" => "Smart color",
                 ],
             ],
         ],
@@ -137,6 +173,14 @@ function getMenuData()
                 [
                     "uri" => "/shpatlevki-gotovyie/",
                     "name" => "Готовые",
+                ],
+                [
+                    "uri" => "/shpatlevka-solara-color/",
+                    "name" => "Solara Color",
+                ],
+                [
+                    "uri" => "/shpatlevka-smart-color/",
+                    "name" => "Smart color",
                 ],
             ],
         ],
