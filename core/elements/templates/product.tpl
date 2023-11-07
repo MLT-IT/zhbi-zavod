@@ -201,7 +201,7 @@
                     <div class="product-info__avstock">
                     {if $_modx->resource.context_key == 'kraska'}
                         <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                          На складе {$_modx->resource.stockNum} {$unit}
+                         В наличии {$_modx->resource.stockNum} {$unit}
                         </div>
                     {else}
                       <div class="product-info__shipped pc-flex">
