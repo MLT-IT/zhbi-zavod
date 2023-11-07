@@ -116,8 +116,12 @@
             <div class="product__info product-info">
 
               <div class="product-info__top">
+              {if $_modx->resource.article}
+                  <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
+              {/if}
                 <div class="product-info__rating rating">
                   <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div>
+
                   <ul class="rating__stars">
                     <li class="rating__star active"></li>
                     <li class="rating__star active"></li>
