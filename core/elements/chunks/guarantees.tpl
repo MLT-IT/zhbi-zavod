@@ -1,4 +1,16 @@
 <div class="infoblocks__advantages">
+
+
+{if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key == "kraska"}
+  <div class="infoblocks__vendor">
+    <div class="vendor-infoblock">
+      <div class="vendor-infoblock__icon" data-val="{$_modx->resource.proizvoditel.0}"></div>
+      <p class="vendor-infoblock__title"><a href="/catalog/?msoption|proizvoditel={$_modx->resource.proizvoditel.0}">{$_modx->resource.proizvoditel.0}</a></p>
+    </div>
+  </div>
+{/if}
+
+
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.png"></div>
@@ -9,7 +21,8 @@
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.png"></div>
-      <p class="advantage__title">Доставка и самовывоз</p>
+      <p class="advantage
+">Доставка и самовывоз</p>
       <p class="advantage__text">Вы можете заказать доставку по СПб и ЛО или оформить самовывоз с нашего склада в Санкт-Петербурге</p><a class="advantage__link link" href="/dostavka-i-oplata/">Условия доставки и самовывоза</a>
     </div>
   </div>
