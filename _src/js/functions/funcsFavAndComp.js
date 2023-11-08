@@ -16,8 +16,7 @@ function init() {
     // -------------------------------
     // Инициализация
     // -------------------------------
-    let $comparison = $('.sect-comparison');
-
+    let $comparison = $('.section.comparison');
     // Обработчики кнопок для добавления / удаления товара из избранного / сравнения
     $(document).on('click', '.js-product__btn-fav, .js-product__btn-compare', actionsHandler);
 
@@ -29,14 +28,14 @@ function init() {
         // Установка обработчика для переключателя "Только отличающиеся"
         $('.custom-toggler__input').on('change', function () {
             $comparison.toggleClass('sect-comparison_only-different');
-            // refreshOptions();
+            refreshOptions();
         });
 
         // Работа с характеристиками
-        // refreshOptions();
+        refreshOptions();
 
         // Установка обработчка для правильной высоты опций
-        // $(window).on('resize', setHeightToOptions);
+        //$(window).on('resize', setHeightToOptions);
     }
 }
 
@@ -138,6 +137,7 @@ function actionsHandler(e) {
     // Если мы находимся на странице сравнения
     // --------------------------------------------
     let $comparison = $('.comparison');
+
     if ($comparison.length) {
         // $('.title-1__sup').text(splitted.length + ' ' + functions.formOfWord(splitted.length, 'товар', 'товара', 'товаров'));
 
@@ -225,10 +225,10 @@ function refreshOptions() {
 
     // Установка переменных charsWrapSelector и removeDuplicates
     if ($('.custom-toggler__input').is(':checked')) {
-        charsWrapSelector = '.pop-slide__options-wrap_type_only-different';
+        charsWrapSelector = '.product-card__stats-wrap-only-different';
         removeDuplicates = true;
     } else {
-        charsWrapSelector = '.pop-slide__options-wrap_type_default';
+        charsWrapSelector = '.product-card__stats-wrap-default';
     }
 
     // Массив, где ключи - это название опций, а значения - это объект типа: {id товара: значение опции}
@@ -236,17 +236,20 @@ function refreshOptions() {
     // Массив с id товаров
     let itemsIds = [];
     // Массив с каточками товаров (jQuery)
-    let $productItems = $('.comp-slide');
+    let $productItems = $('.product-card.js-product');
 
     // Заполняем options и itemsIds
     $productItems.each(function () {
         let $this = $(this);
         let id = $this.find('[name="id"]').val();
+
         itemsIds.push(id);
-        $this.find('.pop-slide__options-wrap_type_source .pop-slide__option').each(function () {
+        $this.find('.product-card__chars-line').each(function () {
             let $opt = $(this);
-            let key = functions.trim($opt.find('.pop-slide__option-caption').html());
-            let val = functions.trim($opt.find('.pop-slide__option-value').html());
+            let key = functions.trim($opt.find('.product-card__chars-span').html());
+
+            let val = functions.trim($opt.find('.product-card__chars-val').html());
+            console.log(val);
             if (typeof options[key] === 'undefined') {
                 options[key] = [];
             }
@@ -271,7 +274,12 @@ function refreshOptions() {
 
         // Ищем опции-дубликаты, если это необходимо
         if (removeDuplicates) {
-            // Принцип следующий. Создается объект duplicateOpts. В него помещаются ключи - это значения опций. И значения - это кол-во таких значений. Потом проверяется кол-во ключей. Если ключ всего 1 для такой опции, то значения одинаковые у всех карточек на странице.
+            // Принцип следующий. Создается объект duplicateOpts.
+            // В него помещаются ключи - это значения опций.
+            // И значения - это кол-во таких значений.
+            // Потом проверяется кол-во ключей.
+            // Если ключ всего 1 для такой опции, то значения одинаковые
+            // у всех карточек на странице.
             let duplicateOpts = {};
             options[opt].forEach(function (x) {
 
@@ -290,6 +298,7 @@ function refreshOptions() {
             if (lengthDuplicates === 1 && lengthItems > 1) {
                 duplicates.push(opt);
             }
+
         }
     }
 
@@ -297,6 +306,7 @@ function refreshOptions() {
     if (removeDuplicates) {
         for (let opt in options) {
             if (duplicates.indexOf(opt) !== -1) {
+                console.log("Удален " + opt);
                 delete options[opt];
             }
         }
@@ -307,15 +317,15 @@ function refreshOptions() {
         $('.js-product input[name="id"][value="' + id + '"]').each(function () {
             // Контейнер, где находятся все опции
             let $optionsWrap = $(this).closest('.js-product').find(charsWrapSelector);
-
+            console.log($optionsWrap);
             // Очищаем этот контейнер
             $optionsWrap.html('');
 
             // Добавляем опции в контейнер
             for (let opt in options) {
-                let $htmlOption = $('<div class="pop-slide__option" data-title="' + opt + '">' +
-                    '   <div class="pop-slide__option-caption">' + opt + '</div>' +
-                    '   <div class="pop-slide__option-value">' + options[opt][id] + '</div>' +
+                let $htmlOption = $('<div class="product-card__chars-line" data-title="' + opt + '">' +
+                    '   <span class="product-card__chars-span">' + opt + '</span>' +
+                    '   <span class="product-card__chars-val">' + options[opt][id] + '</span>' +
                     '</div>');
 
                 if (opt === 'Цена без скидки') {
@@ -325,9 +335,9 @@ function refreshOptions() {
                 }
 
                 $htmlOption.mouseenter(function () {
-                    $(charsWrapSelector + ' .pop-slide__option[data-title="' + $(this).attr('data-title') + '"]').addClass('hover');
+                    $(charsWrapSelector + ' .product-card__chars-line[data-title="' + $(this).attr('data-title') + '"]').addClass('hover');
                 }).mouseleave(function () {
-                    $('.pop-slide__option.hover').removeClass('hover');
+                    $('.product-card__chars-line.hover').removeClass('hover');
                 });
             }
         });
@@ -343,7 +353,7 @@ function refreshOptions() {
  */
 function setHeightToOptions() {
     let itemsHeight = [];
-    $('.pop-slide__options-wrap:visible').find('.pop-slide__option').each(function () {
+    $('.product-card__stats-wrap:visible').find('.product-card__chars-line').each(function () {
         let $this = $(this);
         $this.css('height', '');
         let dataTitle = $this.attr('data-title');
@@ -357,6 +367,6 @@ function setHeightToOptions() {
     });
 
     for (let title in itemsHeight) {
-        $('.pop-slide__option[data-title="' + title + '"]').height(itemsHeight[title]);
+        $('.product-card__chars-line[data-title="' + title + '"]').height(itemsHeight[title]);
     }
 }

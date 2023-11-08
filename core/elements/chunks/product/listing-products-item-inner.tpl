@@ -2,7 +2,7 @@
 {if $_modx->getPlaceholder('checkItems') is null}
   {'!checkItems' | snippet}
 {/if}
-
+<input type="hidden" name="id" value="{$id}">
 <div class="product-card__picture">
   <a href="{$uri}" class="product-card__link">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
@@ -51,12 +51,14 @@
   {/if}
     {* Если сравнение вывод всех характеристик *}
     {if $_modx->resource.template == 15}
-        <ul class="product-card__stats">
+        <div class="product-card__stats-wrap product-card__stats-wrap-source">
             {'msProductOptions' | snippet : [
             'tpl' => "@FILE chunks/product/listing-options-standate.tpl" ,
             'product' => $id
             ]}
-        </ul>
+        </div>
+        <div class="pop-slide__options-wrap product-card__stats-wrap-default"></div>
+        <div class="pop-slide__options-wrap product-card__stats-wrap-only-different"></div>
     {/if}
 
   <div class="product-card__price">

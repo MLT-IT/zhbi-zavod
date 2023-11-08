@@ -212,6 +212,32 @@
 		display: flex
 		flex-direction: column
 
+		&-wrap
+			&-source,  &-only-different
+				display: none
+
+
+			&-default
+				@at-root .sect-comparison_only-different
+				display: none
+
+			&-only-different
+				@at-root .sect-comparison_only-different
+				display: block
+		//
+		//&-wrap-only-different
+		//	@at-root .sect-comparison_only-different
+		//		display: block
+		//
+		//&-wrap-default
+		//	@at-root .sect-comparison_only-different
+		//		display: none
+
+
+
+
+
+
 		&:not(:first-child)
 			margin-top: 22px
 			margin-bottom: -10px
@@ -527,8 +553,11 @@
 				padding: 6px
 
 	&__chars-line
+		padding-bottom: 3px
 		@media screen and (max-width: 768px)
 			margin-bottom: 10px
+		&.hover
+			background: #eee
 
 	&__chars-span
 		font-weight: bold

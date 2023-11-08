@@ -17,6 +17,15 @@
           <h2 class="section__title margin-bottom-md">{$_modx->resource.pagetitle}</h2>
             {set $resources = $_modx->getPlaceholder('checkItems')['comp'] | join : ','}
             {set $countResources =  $_modx->getPlaceholder('checkItems')['comp'] | length}
+
+            <label for="only-different-toggler" class="sect-comparison__custom-toggler custom-toggler">
+                        <span class="custom-toggler__span">
+                            <input class="custom-toggler__input" type="checkbox" id="only-different-toggler">
+                            <span class="custom-toggler__checkmark"></span>
+                        </span>
+                <span class="custom-toggler__text">Только отличающиеся</span>
+            </label>
+
             {if $resources != ''}
               <div class="best-products__products">
                 {'!msProducts' | snippet : [
