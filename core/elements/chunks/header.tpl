@@ -211,14 +211,12 @@
                     <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
                   </svg>
                 </a>
-                {set $favComp = $prodValues['checkItems']['comp'] | length}
-                {*
+                {set $favComp = $_modx->getPlaceholder('checkItems')['comp'] | length}
                 <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
                   <svg class="icon-btn__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
                   </svg>
                 </a>
-                *}
                 {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
                 <a data-fancybox href="#callback" class="header__action_type_callback header__action icon-btn icon-btn_style_white">
                   <svg class="icon-btn__icon" aria-hidden="true">

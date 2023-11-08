@@ -9,9 +9,9 @@
   </a>
   <div class="product-card__actions">
     <button class="product-action product-action_favorite js-product__btn-fav{if $prodValues['checkItems']['fav'][$id]?} active{/if}"></button>
-    {*
+
     <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
-    *}
+
   </div>
 </div>
 
@@ -49,6 +49,15 @@
         {include "file:chunks/product/listing-chars.tpl"}
     </ul>
   {/if}
+    {* Если сравнение вывод всех характеристик *}
+    {if $_modx->resource.template == 15}
+        <ul class="product-card__stats">
+            {'msProductOptions' | snippet : [
+            'tpl' => "@FILE chunks/product/listing-options-standate.tpl" ,
+            'product' => $id
+            ]}
+        </ul>
+    {/if}
 
   <div class="product-card__price">
     <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
@@ -62,6 +71,8 @@
       ₽
     </div>
   {/if}
+
+
 
   <input type="hidden" name="unit" value="1">
   {if $prodValues['condition']}
