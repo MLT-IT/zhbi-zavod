@@ -57,10 +57,11 @@
             'product' => $id
             ]}
         </div>
-        <div class="pop-slide__options-wrap product-card__stats-wrap-default"></div>
-        <div class="pop-slide__options-wrap product-card__stats-wrap-only-different"></div>
+        <div class="product-card__stats-wrap-default"></div>
+        <div class="product-card__stats-wrap-only-different"></div>
     {/if}
 
+<div>
   <div class="product-card__price">
     <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
   </div>
@@ -73,23 +74,24 @@
       ₽
     </div>
   {/if}
-
-
+        {if $prodValues['condition']}
+            <div class="product-card__volume">
+                <span class="product-card__volume-title">Цена за</span>
+                <div class="product-info__volume-tabs">
+                    <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+                    {foreach $prodValues['itemUnits'] as $val}
+                        <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+                    {/foreach}
+                </div>
+            </div>
+        {/if}
+    <div class="listing__product-elems-wrap product-card__bottom">
+        {include "file:chunks/product/product-elems.tpl" prodId=$id}
+    </div>
+</div>
 
   <input type="hidden" name="unit" value="1">
-  {if $prodValues['condition']}
-    <div class="product-card__volume">
-      <span class="product-card__volume-title">Цена за</span>
-      <div class="product-info__volume-tabs">
-        <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
-          {foreach $prodValues['itemUnits'] as $val}
-            <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
-          {/foreach}
-      </div>
-    </div>
-  {/if}
 
-  <div class="listing__product-elems-wrap product-card__bottom">
-      {include "file:chunks/product/product-elems.tpl" prodId=$id}
-  </div>
+
+
 </div>
