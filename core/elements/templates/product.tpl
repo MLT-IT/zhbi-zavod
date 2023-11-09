@@ -217,15 +217,21 @@
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
                       {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-                      {if $_modx->resource.context_key in list ['krovelnyjstroymarket', 'kraska'] && $_modx->resource.template == 17 || $_modx->resource.parent in list [125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226126138,126139,126140,126141,126142,126143,126144,126145,126146,126147,126148,126149,126150,126151,126152,126155,126156,126157]  }
+                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list [125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226126138,126139,126140,126141,126142,126143,126144,126145,126146,126147,126148,126149,126150,126151,126152,126155,126156,126157]  }
                           {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
                           {set $cvet = $_modx->resource.cvet[0]}
                       {/if}
 
+                      {if $_modx->resource.context_key in list ['kraska']}
+                          {set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
+                          {set $cvet = $_modx->resource.cvet[0]}
+                      {/if}
+
+
                       {if $linksData.cvet?}
                           <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
                               <div class="product-card__select-span">
-                                  {if $_modx->resource.template == 17}
+                                  {if $_modx->resource.template == 17 || $_modx->context.key == "kraska"}
                                       Цвет:
                                   {/if}
                                   {if $_modx->resource.template in list [20, 22]}
@@ -327,6 +333,31 @@
                                               {foreach $linksData.pokrytie as $id => $val}
                                                   <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
                                                       {$val} <span class="euv-custom-select__small-text">{$linksData['vid-poverhnosti'][$id]}</span>
+                                                  </a>
+                                              {/foreach}
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="custom-select-mobile-link"></div>
+                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                              </div>
+                          </div>
+                      {/if}
+
+                      {if $linksData.fasovka?}
+                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.fasovka?} product-card__select-wrap_align_right{/if}">
+                              <div class="product-card__select-span">Фасовка:</div>
+                              <div class="custom-select-wrap">
+                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
+                                      <div class="euv-custom-select__input">
+                                          <span class="euv-custom-select__input-value">{$_modx->resource.fasovka[0]}</span>
+                                      </div>
+                                      <span class="euv-custom-select__btn"></span>
+                                      <div class="euv-custom-select__options-wrap">
+                                          <div class="euv-custom-select__options-wrap-scroll">
+                                              {foreach $linksData.fasovka as $id => $val}
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val}
                                                   </a>
                                               {/foreach}
                                           </div>
