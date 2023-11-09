@@ -46,6 +46,10 @@
     {set $renderVideo = 1}
 {/if}
 
+{* Получаем рекомендации по применению *}
+{set $recommendForUse = $_modx->resource.recommendForUse}
+
+
 {if $_modx->resource.recommendIds ?}
     {set $recommendProducts = 'msProducts' | snippet : [
       'resources' => $_modx->resource.recommendIds,
@@ -497,6 +501,10 @@
           {if $recommendProducts?}
             <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
           {/if}
+
+        {if $recommendForUse | length > 0}
+            <a class="infoblocks__tab" href="javascript:;" data-tab="Рекомендации по применению">Рекомендации по применению</a>
+        {/if}
         </div>
       </div>
 
@@ -622,7 +630,19 @@
             </div>
           </div>
         {/if}
+
+
+          {if $recommendForUse | length > 0}
+              <div class="infoblocks__block" data-tab-page="Рекомендации по применению">
+                  <button class="infoblocks__block-title" data-tab="Рекомендации по применению">Рекомендации по применению</button>
+                  <div class="infoblocks__block-dropdown">
+                      {$recommendForUse}
+                  </div>
+              </div>
+          {/if}
+
       </div>
+
 
       {include "file:chunks/guarantees.tpl"}
     </div>
