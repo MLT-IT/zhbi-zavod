@@ -345,26 +345,23 @@
                       {/if}
 
                       {if $linksData.fasovka?}
-                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.fasovka?} product-card__select-wrap_align_right{/if}">
-                              <div class="product-card__select-span">Фасовка:</div>
-                              <div class="custom-select-wrap">
-                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                          <span class="euv-custom-select__input-value">{$_modx->resource.fasovka[0]}</span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              {foreach $linksData.fasovka as $id => $val}
+                          <div class="product-info__select-link mb-4"><span class="product-info__select-link-title">Фасовка:</span>
+                              <input type="hidden" name="unit" value="1">
+                              <div class="product-card__select-link">
+                                  <ul class="product-info__select-link-tabs">
+
+                                      {foreach $linksData.fasovka as $id => $val}
+                                          {if $_modx->resource.fasovka[0] != $val}
+                                              <li class="product-info__select-link-tab js-product__select-link-tab" data-val="{$val['id']}">
                                                   <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
                                                       {$val}
                                                   </a>
-                                              {/foreach}
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
+                                              </li>
+                                              {else}
+                                              <li class="product-info__select-link-tab js-product__select-link-tab active" data-val="1">{$_modx->resource.fasovka[0]}</li>
+                                          {/if}
+                                      {/foreach}
+                                  </ul>
                               </div>
                           </div>
                       {/if}

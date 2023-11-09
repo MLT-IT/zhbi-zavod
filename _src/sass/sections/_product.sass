@@ -342,7 +342,11 @@
         flex-wrap: wrap
         align-items: flex-start
 
-    &__volume
+
+    &__select-link
+        margin-bottom: 10px
+
+    &__volume, &__select-link
         display: flex
         flex-direction: column
 
@@ -398,6 +402,13 @@
 
             &.active
                 cursor: default
+
+            & a
+                font-weight: 500
+
+            &:hover a
+                color: #fff
+                transition: 0.35s
 
             +until-768
                 padding: 6px 3px 4px
