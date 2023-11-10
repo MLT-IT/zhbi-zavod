@@ -436,6 +436,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    $(".table__cell").each(function (cell){
+        if($(this).text().indexOf("²") != -1){
+            $(this).html($(this).html().replaceAll("²", "<span style='font-family: Sans-serif'>²</span>"))
+        }
+    });
+
 });
 
 function getYandexMetrikaId() {
@@ -466,3 +472,4 @@ function waitForYm(ymCounterNum, callback, interval) {
     if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
     setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
+
