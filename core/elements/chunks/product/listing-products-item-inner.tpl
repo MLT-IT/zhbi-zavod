@@ -2,6 +2,10 @@
 {if $_modx->getPlaceholder('checkItems') is null}
   {'!checkItems' | snippet}
 {/if}
+
+
+<div class="product-card__vendor-logo" data-val="{$proizvoditel[0]}"></div>
+
 <input type="hidden" name="id" value="{$id}">
 <div class="product-card__picture">
   <a href="{$uri}" class="product-card__link">

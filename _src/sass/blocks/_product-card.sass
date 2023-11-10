@@ -438,6 +438,7 @@
 
 	&_catalog
 		padding: 18px 18px 35px
+		position: relative
 
 		&:hover
 			box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
@@ -568,4 +569,23 @@
 
 		@media screen and (max-width: 768px)
 			display: block
+
+	&__vendor-logo
+		@at-root .kraska &
+			background: transparent
+			position: absolute
+			width: 70px
+			height: 70px
+			top: 10px
+			left: 10px
+			+brands_to_selector('::before')
+
+			&::before
+				content: ""
+				display: block
+				width: 100%
+				height: 100%
+				background-position: calc(50%) 50%
+				background-size: contain
+				background-repeat: no-repeat
 
