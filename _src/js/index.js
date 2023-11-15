@@ -120,42 +120,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Выравнивание названий товара
     // -------------------------------
-    var rows = {};
-    let currentTop = 0;
-    let masRow = [];
-    $(".product-card__title").each(function(index){
-        let top = Math.ceil($(this).offset().top);
-        if(index == 0){
-            currentTop = top;
-        }
-        if(top == currentTop){
-            rows[top] = masRow;
-        }else{
 
-            masRow = [];
-            currentTop = top;
-        }
-        masRow.push($(this));
-    });
-
-    for (var key in rows) {
-        if (rows.hasOwnProperty(key)) {
-            let maxHeight = 0;
-            for(var keyRow in rows[key])
-            {
-                let objectRow = rows[key][keyRow];
-                if(objectRow.height() > maxHeight)
-                {
-                    maxHeight = objectRow.height();
-                }
+    function alignment(selector) {
+        var rows = {};
+        let currentTop = 0;
+        let masRow = [];
+        $(selector).each(function (index) {
+            let top = Math.ceil($(this).offset().top);
+            if (index == 0) {
+                currentTop = top;
             }
-            for(var keyRow in rows[key])
-            {
-                let objectRow = rows[key][keyRow];
-                objectRow.height(maxHeight)
+            if (top == currentTop) {
+                rows[top] = masRow;
+            } else {
+
+                masRow = [];
+                currentTop = top;
+            }
+            masRow.push($(this));
+        });
+
+        for (var key in rows) {
+            if (rows.hasOwnProperty(key)) {
+                let maxHeight = 0;
+                for (var keyRow in rows[key]) {
+                    let objectRow = rows[key][keyRow];
+                    if (objectRow.height() > maxHeight) {
+                        maxHeight = objectRow.height();
+                    }
+                }
+                for (var keyRow in rows[key]) {
+                    let objectRow = rows[key][keyRow];
+                    objectRow.height(maxHeight)
+                }
             }
         }
     }
+
+    alignment(".product-card__title")
+    alignment(".product-card__stats")
 
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории
@@ -433,6 +436,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    $(".table__cell").each(function (cell){
+        if($(this).text().indexOf("²") != -1){
+            $(this).html($(this).html().replaceAll("²", "<span style='font-family: Sans-serif'>²</span>"))
+        }
+    });
+
 });
 
 function getYandexMetrikaId() {
@@ -463,3 +472,4 @@ function waitForYm(ymCounterNum, callback, interval) {
     if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
     setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
+

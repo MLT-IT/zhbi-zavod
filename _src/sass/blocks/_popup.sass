@@ -11,6 +11,10 @@
 .popup
 	display: none
 
+	&.popup-reviews
+		& .btn
+			width: 207px
+
 	.fancybox-close-small
 		filter: drop-shadow(0 4px 10px rgba(0,0,0,.25))
 		padding: 0
@@ -19,6 +23,37 @@
 		svg
 			fill: #fff
 			color: #fff
+
+	.full-stars
+		text-align: center
+		.rating-group
+			display: inline-flex
+			&:hover
+				label
+					svg
+						fill: #337AB7
+			input
+				&:hover
+					& ~ label
+						svg
+							fill: #BFE2FF
+		input
+			position: absolute
+			left: -9999px
+			&:checked
+				& ~ label
+					svg
+						fill: #BFE2FF
+		label
+			margin: 0
+			cursor: pointer
+			svg
+				margin: 2px
+				height: 40px
+				width: 40px
+				fill: #337AB7
+				transition: fill 0.3s
+
 
 	&.fancybox-content
 		background: transparent

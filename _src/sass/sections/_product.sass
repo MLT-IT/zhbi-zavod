@@ -139,13 +139,19 @@
     padding: 30px 40px 50px
     background-color: var(--color-white)
     border-radius: var(--border-radius-base)
+    &__article
+        margin-bottom: 10px
 
     &__undertext
         margin-top: 20px
 
     &__undertext-span
-        display: block 
-         
+        display: flex
+
+        & .icon
+            color: var(--color-red)
+            margin-right: 5px
+
         &:nth-of-type(1) 
             margin-bottom: 10px 
 	 
@@ -335,7 +341,11 @@
         flex-wrap: wrap
         align-items: flex-start
 
-    &__volume
+
+    &__select-link
+        margin-bottom: 10px
+
+    &__volume, &__select-link
         display: flex
         flex-direction: column
 
@@ -391,6 +401,13 @@
 
             &.active
                 cursor: default
+
+            & a
+                font-weight: 500
+
+            &:hover a
+                color: #fff
+                transition: 0.35s
 
             +until-768
                 padding: 6px 3px 4px

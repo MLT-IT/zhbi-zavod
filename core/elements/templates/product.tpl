@@ -116,8 +116,12 @@
             <div class="product__info product-info">
 
               <div class="product-info__top">
+              {if $_modx->resource.article}
+                  <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
+              {/if}
                 <div class="product-info__rating rating">
                   <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div>
+
                   <ul class="rating__stars">
                     <li class="rating__star active"></li>
                     <li class="rating__star active"></li>
@@ -197,7 +201,7 @@
                     <div class="product-info__avstock">
                     {if $_modx->resource.context_key == 'kraska'}
                         <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                          На складе {$_modx->resource.stockNum} {$unit}
+                         В наличии {$_modx->resource.stockNum} {$unit}
                         </div>
                     {else}
                       <div class="product-info__shipped pc-flex">
@@ -213,15 +217,21 @@
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
                       {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-                      {if $_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17 || $_modx->resource.parent in list [125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226126138,126139,126140,126141,126142,126143,126144,126145,126146,126147,126148,126149,126150,126151,126152,126155,126156,126157]  }
+                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list [125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226126138,126139,126140,126141,126142,126143,126144,126145,126146,126147,126148,126149,126150,126151,126152,126155,126156,126157]  }
                           {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
                           {set $cvet = $_modx->resource.cvet[0]}
                       {/if}
 
+                      {if $_modx->resource.context_key in list ['kraska']}
+                          {set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
+                          {set $cvet = $_modx->resource.cvet[0]}
+                      {/if}
+
+
                       {if $linksData.cvet?}
                           <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
                               <div class="product-card__select-span">
-                                  {if $_modx->resource.template == 17}
+                                  {if $_modx->resource.template == 17 || $_modx->context.key == "kraska"}
                                       Цвет:
                                   {/if}
                                   {if $_modx->resource.template in list [20, 22]}
@@ -334,6 +344,28 @@
                           </div>
                       {/if}
 
+                      {if $linksData.fasovka?}
+                          <div class="product-info__select-link mb-4"><span class="product-info__select-link-title">Фасовка:</span>
+                              <input type="hidden" name="unit" value="1">
+                              <div class="product-card__select-link">
+                                  <ul class="product-info__select-link-tabs">
+
+                                      {foreach $linksData.fasovka as $id => $val}
+                                          {if $_modx->resource.fasovka[0] != $val}
+                                              <li class="product-info__select-link-tab js-product__select-link-tab" data-val="{$val['id']}">
+                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
+                                                      {$val}
+                                                  </a>
+                                              </li>
+                                              {else}
+                                              <li class="product-info__select-link-tab js-product__select-link-tab active" data-val="1">{$_modx->resource.fasovka[0]}</li>
+                                          {/if}
+                                      {/foreach}
+                                  </ul>
+                              </div>
+                          </div>
+                      {/if}
+
                       {if $linksData.tip?}
                           <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.tip?} product-card__select-wrap_align_right{/if}">
                               <div class="product-card__select-span">Тип:</div>
@@ -402,10 +434,16 @@
               {if $_modx->resource.context_key == 'kraska'}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
-                      <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                        <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
+                    </svg>
+                    <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
                     </p> 
                     <p class="product-info__undertext-span">
-                      <span class="product-info__undertext-span-header">Доставка:</span> 1-2 дня
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                            <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
+                        </svg>
+                        <span class="product-info__undertext-span-header">Доставка:</span> 1-2 дня
                     </p>
                   </div>
               {/if}
@@ -437,9 +475,8 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Сертификаты">Сертификаты</a>
           {/if}
 
-          {if $reviewsCount > 0}
+
             <a class="infoblocks__tab" href="javascript:;" data-tab="Отзывы">Отзывы</a>
-          {/if}
 
           {if $renderVideo ?}
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
@@ -485,31 +522,46 @@
           </div>
         </div>
 
-        {if $reviewsCount > 0}
+
           <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
               <div class="reviews">
+              {foreach $reviews as $idx => $row}
+                  {if $row.status == 1}
+                      {set $statusPublishedReviews = true}
+                  {/if}
+              {/foreach}
+
+              {if $reviewsCount > 0 && $statusPublishedReviews}
                 <div class="reviews__slider">
                   <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
                     <div class="swiper-wrapper">
+
                       {foreach $reviews as $idx => $row}
-                        <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
-                          <p class="reviews__text">{$row.text}</p>
-                        </div>
+                          {if $row.status == 1}
+                            <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
+                              <p class="reviews__text">{$row.text}</p>
+                            </div>
+                          {/if}
                       {/foreach}
+
                     </div>
                   </div>
-                  <div class="swiper-buttons">
+
+                    <div class="swiper-buttons">
                     <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
                     <div class="swiper-button swiper-button-next"></div>
                   </div>
                 </div>
-                <a class="btn btn_style_shadow reviews__btn" href="#">Оставить отзыв</a>
+                  {else}
+                  <h3 class="py-5">Еще нет отзывов</h3>
+              {/if}
+                <a class="btn btn_style_shadow reviews__btn"  data-fancybox href="#review">Оставить отзыв</a>
               </div>
             </div>
           </div>
-        {/if}
+
 
         {if $renderCerts ?}
           <div class="infoblocks__block" data-tab-page="Сертификаты">

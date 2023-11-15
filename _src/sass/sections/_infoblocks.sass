@@ -226,7 +226,7 @@
             grid-gap: 20px
             padding-top: 20px
 
-    &__advantage
+    &__advantage,  &__vendor
         padding: 65px 20px 45px 40px
 
         background-color: var(--color-white)
@@ -235,7 +235,7 @@
         +until-1200
             padding: 45px 15px 25px 25px
 
-        & .advantage
+        & .advantage,  & .vendor-infoblock
             &__icon
                 width: 73px
                 height: 73px
@@ -252,6 +252,37 @@
                     width: 48px
                     height: 48px
 
+        & .vendor-infoblock
+
+            &__title
+                margin-bottom: 9px
+                font-style: normal
+                font-weight: 700
+                font-size: 20px
+                line-height: 1.2
+                margin-top: 10px
+            &__title a
+                color: #111
+                text-decoration: none
+
+            &__icon
+                border: 2px solid var(--color-red)
+                border-radius: 4px
+
+
+            &__icon::after
+                background-position: calc(50%) 50%
+                position: absolute
+                content: ""
+                display: block
+
+                background-size: contain
+                background-repeat: no-repeat
+                width: 80%
+                height: 100%
+
+            &__icon
+                +brands_to_selector('::after')
     &__bottom
         grid-column: 1/-1
         display: flex
@@ -318,7 +349,7 @@
         &_shadow
 
             & .infoblocks
-                &__advantage
+                &__advantage,  &__vendor
                     box-shadow: var(--shadow-base)
 
                 &__table
