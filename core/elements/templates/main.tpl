@@ -7,8 +7,8 @@
     {set $reviews = 'getSchemaReview' | snippet : ['idCat' => $idCat]}
 
     {* Минимальные / максимальные значения и общее количество товаров *}
-    {'!msGetProductsCount' | snippet : ['ids' => $idCat]}
-    {'!msGetProductsMinMaxPrice' | snippet : ['ids' => $idCat]}
+    {*'!msGetProductsCount' | snippet : ['ids' => $idCat]*}
+    {*'!msGetProductsMinMaxPrice' | snippet : ['ids' => $idCat]*}
 
     {* Микроразметка *}
     <script type="application/ld+json">

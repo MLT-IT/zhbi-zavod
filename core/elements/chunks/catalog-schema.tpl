@@ -15,8 +15,8 @@
     {$_modx->setPlaceholder('total_count', $dataForSchema['total_count'])}
     {set $reviews = 'getSchemaReview' | snippet : ['idCat' => $idCat]}
 {else}
-    {'!msGetProductsCount' | snippet}
-    {'!msGetProductsMinMaxPrice' | snippet}
+    {*'!msGetProductsCount' | snippet*}
+    {*'!msGetProductsMinMaxPrice' | snippet*}
     {set $reviews = 'getSchemaReview' | snippet}
 {/if}
 
