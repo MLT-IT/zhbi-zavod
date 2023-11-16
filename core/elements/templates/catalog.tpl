@@ -67,13 +67,10 @@
           'isSeoPage' => $isSeoPage
       ],
 
-      'context' => $_modx->resource.context_key
+      'context' => $_modx->resource.context_key,
+      'suggestionsMaxFilters' => 0,
+      'suggestionsMaxResults' => 0
     ]}
-
-    {if $_modx->resource.context_key == 'gazosilikatstroy'}
-      {set $params['suggestionsMaxFilters'] = 2000}
-      {set $params['suggestionsMaxResults'] = 100000}
-    {/if}
 
     {* >>> Листинг товаров *}
     {'!mFilter2' | snippet : $params}
