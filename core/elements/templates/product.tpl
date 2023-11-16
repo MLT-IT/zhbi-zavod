@@ -96,9 +96,7 @@
 {/if}
 
 
-
-
-<main class="layout__main">
+<main class="layout__main" xmlns="http://www.w3.org/1999/html">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
     <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
@@ -129,6 +127,7 @@
                     <li class="rating__star active"></li>
                     <li class="rating__star"></li>
                   </ul>
+                    <div id="collerovka"></div>
                   <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
                     {$reviewsCount}
                     {'@FILE snippets/formOfWord.php' | snippet : [
@@ -430,7 +429,7 @@
                 </div>
                 <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
               </div>
-              
+
               {if $_modx->resource.context_key == 'kraska'}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
@@ -438,7 +437,7 @@
                         <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
                     </svg>
                     <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
-                    </p> 
+                    </p>
                     <p class="product-info__undertext-span">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                             <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
@@ -629,6 +628,13 @@
 
       {include "file:chunks/guarantees.tpl"}
     </div>
+
+    {if $_modx->context.key == "kraska"}
+        <div class="infoblocks__container">
+            {include "file:chunks/calculator-kraski.tpl"}
+        </div>
+    {/if}
+
   </article>
 
   {$recommendProducts?: ''}

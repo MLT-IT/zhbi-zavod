@@ -39,14 +39,14 @@ module.exports = (env, args) => {
                     use: [
                         styleLoader,
 
-                        'css-loader',
+                        //'css-loader',
                         // Если хочется отключить проверку наличия картинок по указанным в CSS путям через webpack, то нужно раскомментировать этот код и закомментировать строку выше
-                        // {
-                        //     loader: 'css-loader',
-                        //     options: {
-                        //         url: false,
-                        //     }
-                        // },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                            }
+                        },
 
                         'postcss-loader',
                         {
@@ -121,12 +121,13 @@ module.exports = (env, args) => {
         },
         devServer: {
             contentBase: './',
+            stats: 'verbose',
             publicPath: '/assets/template/',
             hot: true,
             open: true,
             proxy: {
                 "/": {
-                    target: 'https://kraska.www-isoroc.ru/',
+                    target: 'http://kraski-st.local/',
                     secure: false,
                     changeOrigin: true
                 }
