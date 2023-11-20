@@ -5,10 +5,10 @@
     <div class="select-colors">
       <div  v-for="color in selectedColors" class="select-colors_item">
         <ColorItem :color="color"></ColorItem>
-        <button class="btn-select-color-remove" @click="selectedColors = selectedColors.filter(el => el.title != color.title)">x</button>
+        <button class="btn-select-color-remove" @click="selectedColors = selectedColors.filter(el => el.title != color.title); refreshFormProduct()">x</button>
       </div>
     </div>
-    <input v-for="selectColor in selectedColors" class="form-check-input" type="hidden" name="options['collerovka']" :value="selectColor.title" checked>
+
   </div>
   <div class="collerovka-container collerovka" v-if="openModal">
     <div class="collerovka-header-control control" @click="openModal = false">
@@ -18,9 +18,7 @@
       <h2>Выбор коллеровки</h2>
     </div>
     <div class="collerovka-body">
-      <div class="collerovka-body_interior" :style="currentColor.background"
-           style="background-image: url('/assets/template/img/interior/first-sweet-room.png');background-size:cover;background-repeat: no-repeat;background-position:bottom;">
-      </div>
+      <Interiors :color="currentColor"></Interiors>
       <div class="collerovka-body_colors colors">
         <input type="text" class="search-collerovka" v-model="searchColorText" placeholder="Поиск ">
         <div>
@@ -53,8 +51,9 @@
 <script>
 import ColorItem from "./blocks/ColorItem.vue";
 import Favorite from "./blocks/Favorite.vue";
+import Interiors from "./blocks/Interiors.vue";
 export default {
-  components: {Favorite, ColorItem},
+  components: {Interiors, Favorite, ColorItem},
   data(){
     return{
       openModal: false,
@@ -85,7 +84,6 @@ export default {
   mounted(){
     /* получение основных данных цветов */
     $.getJSON('/assets/template/json/collerovka.json', (json) => {
-      console.log(json);
       this.groupColors = json;
 
     }).then(() => {
@@ -117,12 +115,33 @@ export default {
     },
     // выбор цвета коллеровки в карточке товара
     pickColor(){
-      if(this.currentColor){
+      if(this.currentColor.title != ''){
         if(this.selectedColors.indexOf(this.currentColor) == -1){
           this.selectedColors.push(this.currentColor)
+          this.refreshFormProduct();
         }
       }
       this.openModal = false
+    },
+    refreshFormProduct(){
+      // форма
+      let form = document.getElementsByClassName('js-product__form-add')[0];
+
+      // если не существует
+      if(!document.getElementById('selected-collerovka-form')){
+        var optionsInput = document.createElement("div");
+        optionsInput.setAttribute("id", "selected-collerovka-form");
+        form.append(optionsInput);
+      }else{
+        optionsInput = document.getElementById('selected-collerovka-form');
+      }
+
+      let optionsHTML = '';
+      this.selectedColors.forEach(selectColor => {
+        optionsHTML +='<input  class="form-check-input" type="hidden" name="options[collerovka][]" value="' +selectColor.title + '">';
+      })
+      optionsInput.innerHTML  = optionsHTML;
+
     },
     // добавление товаров в избранное cookie
     addColorCookie(color){

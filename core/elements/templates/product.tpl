@@ -143,7 +143,11 @@
                     {'@FILE snippets/shippedToday.php' | snippet}
                 </div>
 
-              <div id="collerovka"></div>
+
+              {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
+                  <div id="collerovka"></div>
+              {/if}
+
 
                 <div class="product-info__relinkav">
                   {if $_modx->context.key == 'gazosilikatstroy'}
