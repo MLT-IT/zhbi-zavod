@@ -1,7 +1,15 @@
 
 <template>
-  <button class="btm-collerovka btn" @click="openModal = !openModal">Коллеровка</button>
-  <input class="form-check-input" type="checkbox" name="options['collerovka']" :value="currentColor.title" checked>
+  <div>
+    <button class="btm-collerovka btn" @click="openModal = !openModal">Коллеровка</button>
+    <div class="select-colors">
+      <div  v-for="color in selectedColors" class="select-colors_item">
+        <ColorItem :color="color"></ColorItem>
+        <button class="btn-select-color-remove" @click="selectedColors = selectedColors.filter(el => el.title != color.title)">x</button>
+      </div>
+    </div>
+    <input v-for="selectColor in selectedColors" class="form-check-input" type="hidden" name="options['collerovka']" :value="selectColor.title" checked>
+  </div>
   <div class="collerovka-container collerovka" v-if="openModal">
     <div class="collerovka-header-control control" @click="openModal = false">
       <div class="control-close">x</div>
@@ -35,118 +43,13 @@
         </div>
       </div>
     </div>
+    <div class="collerovka-bottom-control">
+      <button class="btn_style_shadow btn-select-collerovka" @click="pickColor">Выбрать</button>
+    </div>
   </div>
 </template>
 
-<style>
-.collerovka-container
-{
-  left: 0;
-  right: 0;
-  top:0;
-  margin: 2% auto;
-  background: #fff;
-  position: fixed;
-  width: 90%;
-  z-index: 9999;
-  padding: 30px;
-}
-.collerovka-header-control {
-  position: relative;
-}
-.control-close{
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 16px;
-  color: #6d6c6c;
-  cursor: pointer;
-}
-.collerovka-header h2 {
-  font-size: 24px;
-  border-bottom: 3px solid #d3553c;
-  padding-bottom: 4px;
-  margin-bottom: 15px;
-}
-.collerovka-body
-{
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-}
-.collerovka-body_interior
-{
-  margin: 20px;
-}
-.search-collerovka
-{
-  padding: 10px 15px;
-  border: none;
-  background: #eee;
-  width: 100%;
-}
-.colors-tabs{
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-}
-.color-tab{
-  color: #898989;
-  padding: 10px 15px;
-  border-bottom: 2px solid #eee;
-}
-.color-tab:hover{
-  cursor: pointer;
-}
-.color-tab.active{
-  border-bottom: 2px solid #717171;
-}
 
-.colors-items
-{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 450px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 20px;
-  grid-auto-rows: 55px;
-}
-.colors-item
-{
-  margin: 1px 2px;
-  color: #fff;
-  padding: 15px 20px;
-  transition: 0.3s;
-  z-index: 1;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  height: 50px;
-  position: relative;
-}
-.colors-item.active{
-  border: 2px solid #b2b2b2;
-}
-.colors-item:hover
-{
-  transform: scale(1.3);
-  transition: 0.3s;
-  z-index: 2;
-}
-
-.colors-item span{
-  background: inherit;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: invert(1) grayscale(1);
-  -webkit-filter: invert(1) grayscale(1);
-}
-
-</style>
 <script>
 import ColorItem from "./blocks/ColorItem.vue";
 import Favorite from "./blocks/Favorite.vue";
@@ -157,6 +60,7 @@ export default {
       openModal: false,
       // массив где хранятся все цвета
       groupColors:[],
+      selectedColors: [],
       // текущие цвета которые отоббражаются
       currentColors: [],
       // выбранный цвет
@@ -167,7 +71,9 @@ export default {
       searchColorText: "",
       // найденные в поиске цвета
       searchColorResult: [],
+      // избранные цвета
       favoriteColors: [],
+      // отображение избранного
       favorite: false
     }
   },
@@ -177,39 +83,55 @@ export default {
     }
   },
   mounted(){
+    /* получение основных данных цветов */
     $.getJSON('/assets/template/json/collerovka.json', (json) => {
       console.log(json);
       this.groupColors = json;
 
     }).then(() => {
-
+      // назначаем выбранные группы и отображаемые цвета на модальной форме
       this.selectGroup =  this.groupColors[0];
       this.currentColors = this.groupColors[0].items;
-      this.favoriteColors = this.$cookies.get('selectColors');
+      // избранныые товары достаем из cookie
+      this.favoriteColors = this.$cookies.get('favoriteColors');
     })
 
   },
   methods:{
+    // выбор группы
     selectedGroup(group){
       this.selectGroup = group;
       this.currentColors = group.items;
       this.searchColorText = "";
       this.favorite = false;
     },
+    // колбэкк удаление из избранного
     removeFavorite(color){
-      this.favoriteColors =  this.$cookies.get('selectColors');
+      this.favoriteColors =  this.$cookies.get('favoriteColors');
     },
+    // выбор цвета на форме для смены фона интерьера
     selectedColor(color){
       this.currentColor = color;
+      // добавление в избранное
       this.favoriteColors = this.addColorCookie(color);
     },
+    // выбор цвета коллеровки в карточке товара
+    pickColor(){
+      if(this.currentColor){
+        if(this.selectedColors.indexOf(this.currentColor) == -1){
+          this.selectedColors.push(this.currentColor)
+        }
+      }
+      this.openModal = false
+    },
+    // добавление товаров в избранное cookie
     addColorCookie(color){
       let cookieColor = [];
 
       // добавление в куки
-      if(this.$cookies.get('selectColors'))
+      if(this.$cookies.get('favoriteColors'))
       {
-        cookieColor = this.$cookies.get('selectColors');
+        cookieColor = this.$cookies.get('favoriteColors');
       }else{
         cookieColor = [];
       }
@@ -217,9 +139,10 @@ export default {
       if (!cookieColor.some(e => e.title === color.title)) {
         cookieColor.push(color);
       }
-      this.$cookies.set('selectColors', cookieColor);
+      this.$cookies.set('favoriteColors', cookieColor);
       return cookieColor;
     },
+    // поиск по цвету
     searchColor(search){
       this.searchColorResult = []
       this.groupColors.map(groupColor => {

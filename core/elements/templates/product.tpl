@@ -127,7 +127,7 @@
                     <li class="rating__star active"></li>
                     <li class="rating__star"></li>
                   </ul>
-                    <div id="collerovka"></div>
+
                   <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
                     {$reviewsCount}
                     {'@FILE snippets/formOfWord.php' | snippet : [
@@ -142,6 +142,8 @@
                 <div class="product-info__shipped mobile-flex">
                     {'@FILE snippets/shippedToday.php' | snippet}
                 </div>
+
+              <div id="collerovka"></div>
 
                 <div class="product-info__relinkav">
                   {if $_modx->context.key == 'gazosilikatstroy'}

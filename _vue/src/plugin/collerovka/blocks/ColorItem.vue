@@ -13,15 +13,15 @@ export default {
     removeColorCookie(color){
       let cookieColor = [];
       // добавление в куки
-      if(this.$cookies.get('selectColors'))
+      if(this.$cookies.get('favoriteColors'))
       {
-        cookieColor = this.$cookies.get('selectColors');
+        cookieColor = this.$cookies.get('favoriteColors``');
       }else{
         cookieColor = [];
       }
       cookieColor = cookieColor.filter(e => e.title != color.title);
 
-      this.$cookies.set('selectColors', cookieColor);
+      this.$cookies.set('favoriteColors``', cookieColor);
       this.callbackRemoveFavorite(color);
     },
 
