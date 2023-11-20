@@ -44,7 +44,6 @@ export default {
         this.indexInterior++;
       }
       this.currentInterior = this.interiors[this.indexInterior];
-      console.log(this.currentInterior );
     },
     prev(){
       if(this.indexInterior != 0)
@@ -52,7 +51,6 @@ export default {
         this.indexInterior--;
       }
       this.currentInterior = this.interiors[this.indexInterior];
-      console.log(this.currentInterior );
     }
   },
   mounted() {
