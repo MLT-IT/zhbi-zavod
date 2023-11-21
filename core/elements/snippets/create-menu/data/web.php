@@ -22,15 +22,19 @@ function getMenuData() {
                 [
                     'uri' => '/rockwool/light-batts/',
                     'name' => 'Лайт Баттс',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/rockwool/light-batts/light-batts-scandic/',
                     'name' => 'Скандик Лайт Баттс',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/rockwool/light-batts/light-batts-optima/',
                     'name' => 'Лайт Баттс Оптима',
+                    'popular'=>3,
                 ],
+
                 [
                     'uri' => '/rockwool/acoustic-batts/',
                     'name' => 'Акустик Баттс',
@@ -47,10 +51,7 @@ function getMenuData() {
                     'uri' => '/rockwool/floor-batts/',
                     'name' => 'Флор Баттс',
                 ],
-                [
-                    'uri' => '/rockwool/arktic/',
-                    'name' => 'Арктик',
-                ],
+                
                 [
                     'uri' => '/rockwool/roof-batts/',
                     'name' => 'Руф Баттс',
@@ -271,15 +272,18 @@ function getMenuData() {
             'column2' => [
                 [
                     'uri' => '/yumateks-termo/smart-xl/',
-                    'name' => 'Smart (XL)'
+                    'name' => 'Smart (XL)',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/yumateks-termo/light/',
-                    'name' => 'Light'
+                    'name' => 'Light',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/yumateks-termo/plus/',
-                    'name' => 'Plus'
+                    'name' => 'Plus',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/yumateks-termo/inwall/',
@@ -556,15 +560,18 @@ function getMenuData() {
             'column2' => [
                 [
                     'uri' => '/tn/carbon/',
-                    'name' => 'Технониколь Carbon'
+                    'name' => 'Технониколь Carbon',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/tn/tekhnonikol-roklajt/',
-                    'name' => 'Технониколь Роклайт'
+                    'name' => 'Технониколь Роклайт',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/tn/tekhnoruf/',
-                    'name' => 'Технониколь Техноруф'
+                    'name' => 'Технониколь Техноруф',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/tn/tekhnonikol-tekhnopleks/',
@@ -798,14 +805,17 @@ function getMenuData() {
                 [
                     'uri' => '/penoplex/fundament/',
                     'name' => 'Пеноплэкс Фундамент',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/penoplex/komfort/',
                     'name' => 'Пеноплэкс Комфорт',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/penoplex/osnova/',
                     'name' => 'Пеноплэкс Основа',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/penoplex/geo/',
@@ -931,14 +941,17 @@ function getMenuData() {
                 [
                     'uri' => '/knauf/teploknauf/',
                     'name' => 'ТеплоКНАУФ',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/knauf/professionalniy-segment-knauf-insuleyshn/',
                     'name' => 'Knauf Insulation',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/knauf/therm/',
                     'name' => 'Кнауф Терм',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/knauf/akustiknauf/',
@@ -1080,14 +1093,17 @@ function getMenuData() {
                 [
                     'uri' => '/paroc/oem-plityi/',
                     'name' => 'OEM плиты',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/paroc/zvukozashhitnaya-stroitelnaya-izolyacziya/',
                     'name' => 'Звукозащитная строительная изоляция',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/paroc/lamelnyie-matyi/',
                     'name' => 'Ламельные маты',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/paroc/matyi-dlya-ovk-i-promyishlennosti/',
@@ -1249,14 +1265,17 @@ function getMenuData() {
                 [
                     'uri' => '/ursa/geo/',
                     'name' => 'Ursa GEO',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/ursa/pureone/',
                     'name' => 'Ursa Pureone',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/ursa/ursa-seco/',
                     'name' => 'Ursa Seco',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/ursa/xps/',
@@ -1361,15 +1380,18 @@ function getMenuData() {
             'column2' => [
                 [
                     'uri' => '/isover/kim-al/',
-                    'name' => 'Изовер KIM-AL'
+                    'name' => 'Изовер KIM-AL',
+                    'popular'=>1,
                 ],
                 [
                     'uri' => '/isover/kv-050/',
-                    'name' => 'Изовер KV-050'
+                    'name' => 'Изовер KV-050',
+                    'popular'=>2,
                 ],
                 [
                     'uri' => '/isover/ol/',
-                    'name' => 'Изовер OL'
+                    'name' => 'Изовер OL',
+                    'popular'=>3,
                 ],
                 [
                     'uri' => '/isover/akustik/',
@@ -1598,15 +1620,18 @@ function getMenuData() {
             'column2' => [
                 [
                     "uri" => "/isoroc/izolait/",
-                    "name" => "Изолайт"
+                    "name" => "Изолайт",
+                    'popular'=>1,
                 ],
                 [
                     "uri" => "/isoroc/izovent/",
-                    "name" => "Изовент"
+                    "name" => "Изовент",
+                    'popular'=>2,
                 ],
                 [
                     "uri" => "/isoroc/izokor-s/",
-                    "name" => "Изокор-С"
+                    "name" => "Изокор-С",
+                    'popular'=>3,
                 ],
                 [
                     "uri" => "/isoroc/izoruf/",
@@ -1767,6 +1792,34 @@ function getMenuData() {
             ]
         ]
     ];
+
+
+    //==========сортировка продуктовой линейки по популярности и алфавиту НАЧАЛО=====================
+    
+    //правило сортировки по популярности и алфавиту
+    function cmp_function2($a, $b){
+        
+        //если есть популярность ставим вперед непопулярных
+        if(isset($a['popular'])&&!isset($b['popular'])){
+            return false;
+        }
+        if(!isset($a['popular'])&&isset($b['popular'])){
+            return true;
+        }
+        //если есть популярность у обоих сравниваем популрности (чем меньше число тем раньше выводит)
+        if(isset($a['popular'])&&isset($b['popular'])){
+            return ($a['popular'] > $b['popular']);
+        }
+        //если нет популярности у обоих сравниваем имена по алфавиту
+        if(!isset($a['popular'])&&!isset($b['popular'])){
+            return ($a['name'] > $b['name']);
+        }
+    }
+
+    foreach ($data as $key => $values){
+        uasort($data[$key]['column2'], 'cmp_function2');//сортируем по популярности
+    }
+    //==========сортировка продуктовой линейки по популярности и алфавиту КОНЕЦ=====================
 
     foreach ($data as $key => $values) {
         $data[$key]['column2'] = array_chunk($values['column2'], 12);

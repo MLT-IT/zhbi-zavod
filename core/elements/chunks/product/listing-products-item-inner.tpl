@@ -49,6 +49,12 @@
   {/if}
 
   {if $renderChars ?}
+    <span class="product-card__stats_trigger">
+      <svg class="svg icon-info" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+        <use xlink:href="/assets/template/img/svg-sprite.svg#icon-info"></use>
+      </svg>
+      Показать информацию
+    </span>
     <ul class="product-card__stats">
         {include "file:chunks/product/listing-chars.tpl"}
     </ul>
@@ -74,8 +80,7 @@
     <div class="js-product__old-price">
       <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
           {$prodValues['outputOldPrice']}
-      </span>
-      ₽
+      </span>&nbsp;₽
     </div>
   {/if}
         {if $prodValues['condition']}

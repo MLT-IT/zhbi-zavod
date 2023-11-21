@@ -390,7 +390,15 @@ function init() {
             lastW = window.innerWidth;
         }
     }
-
+    // -------------------------------------------
+    // Скрытие сортировок при выборе
+    // -------------------------------------------
+    $('.sorting__item').on('click', function (e) {
+        let $sortingbtn = $('.sorting__btn');
+        $sortingbtn.toggleClass('active');
+        let $sorting = $('.catalog__sorting');
+        $sorting.toggleClass('active');
+    });
 
     // -------------------------------------------
     // Раскрытие меню для фильтрации на мобилках
@@ -398,6 +406,15 @@ function init() {
     $('.listing__filter-button').on('click', function (e) {
         let $headerBtnsWrap = $('.header__btns-wrap');
         $headerBtnsWrap.toggleClass('closed');
+    });
+
+
+    // -------------------------------------------
+    // Открыть-закрыть статы в карточках каталога
+    // -------------------------------------------
+    $('.product-card__stats_trigger').on('click', function (e) {
+        $('.product-card_catalog').toggleClass('open_stats');
+        
     });
 
 
@@ -1361,3 +1378,12 @@ function wrapTitle() {
 //
 //     $discountBlock.insertAfter($items.eq(afterPosition));
 // }
+
+
+//ПОКАЗАТЬ ВСЕ В КАТЕГОРИЯХ
+if($('.catalog-screen__item_type_more').length){
+    $('.catalog-screen__item_type_more').on('click',function(){
+        console.log('click!');
+        $(this).parents('ul').toggleClass('active');
+    })
+}
