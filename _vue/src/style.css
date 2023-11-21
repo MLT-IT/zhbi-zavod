@@ -147,3 +147,9 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 55px;
 }
+.btm-collerovka-image
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}

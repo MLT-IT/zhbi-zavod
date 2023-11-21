@@ -25,13 +25,26 @@ export default defineConfig({
       }
     }
   },
+  base: "/_vue/assets/template/vue/",
   build: {
     outDir: 'assets/template/vue/',
     assetsDir: './',
     rollupOptions: {
       output: {
         entryFileNames: 'vue-main.js',
-        assetFileNames: "vue-main.[ext]",
+        assetFileNames: (assetInfo) => {
+          // assetInfo содержит информацию о ресурсе (например, имя и расширение)
+          // Вам нужно вернуть строку с новым именем файла
+
+          // Пример: изменить имена картинок, остальные оставить без изменений
+          if (assetInfo.name.endsWith('.css')) {
+
+            return `vue-main[extname]`;
+          }
+
+          // Для остальных ресурсов оставляем текущую структуру именования
+          return `${assetInfo.name}`;
+        },
       },
     },
   },

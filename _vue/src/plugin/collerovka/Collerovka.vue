@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <button class="btm-collerovka btn" @click="openModal = !openModal">Коллеровка</button>
+    <button class="btm-collerovka btn" @click="openModal = !openModal"><img class="btm-collerovka-image" src="@assets/color-palette.png" > Коллеровка</button>
     <div class="select-colors">
       <div  v-for="color in selectedColors" class="select-colors_item">
         <ColorItem :color="color"></ColorItem>
