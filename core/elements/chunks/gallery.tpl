@@ -9,8 +9,8 @@
 
   <div class="swiper-container product__pictures-thumbs">
       {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
-          <div class="swiper-button-prev thumbs"></div>
           <div class="swiper-button-next thumbs"></div>
+          <div class="swiper-button-prev thumbs"></div>
       {/if}
         <div class="swiper-wrapper">
           {foreach $files as $key => $file}
