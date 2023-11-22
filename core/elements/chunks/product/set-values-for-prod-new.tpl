@@ -31,7 +31,7 @@
     'kolvoshm3' => $src['kolvoshm3'],
     'pallet_num' => $src['pallet_num'],
     'tip' => $src['tip'],
-
+    'obshaya-shirina' => $src['obshaya-shirina'],
     'isFractional' => $src['isFractional'],
   ]
 ]}

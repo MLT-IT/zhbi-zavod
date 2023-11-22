@@ -12,6 +12,9 @@ $cacheOptions = [
 // Определяем, какие опции будут выводиться
 
 $samovivoz = date('G') > 17 ? 'завтра' : 'сегодня';
+$pdoTools = $modx->getService('pdoTools');
+
+
 
 switch (true) {
     // Газосиликат
@@ -180,7 +183,8 @@ switch (true) {
         break;
 
         case $modx->resource->context_key == 'krovelnyjstroymarket':
-            if(in_array($modx->resource->id, [125621, 125619]))
+
+            if(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => '125621,125619'])))
             {
                 // количество волн; высота волны, мм; толщина, мм; ширина, мм; длина, мм; площадь, м2
                 $charsValues = [
@@ -192,8 +196,19 @@ switch (true) {
                     'Площадь, м2' => ['val' => $src['ploshad_m2']],
                 ];
             }
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125537])))
+            {
+                $charsValues = [
+                    'Профиль' => ['val' => $src['profil']],
+                    'Толщина, мм' => ['val' => $src['item_thickness']],
+                    'Цвет' => ['val' => $src['cvet']],
+                    'Покрытие' => ['val' => $src['pokrytie']],
+                    'Общая ширина' => ['val' => $src['obshaya-shirina']],
+                    'Дата поставки' => ['val' => $src['obshaya-shirina']],
+                ];
+            }
 
-            elseif($modx->resource->id == 125540)
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125540])))
             {
                 $charsValues = [
                     'Цвет' => ['val' => $src['cvet']],
@@ -203,7 +218,7 @@ switch (true) {
                 ];
             }
 
-            elseif($modx->resource->id == 125530)
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125530])))
             {
                 $charsValues = [
                     'Толщина, мм' => ['val' => $src['item_thickness']],
@@ -214,7 +229,7 @@ switch (true) {
                 ];
             }
 
-            elseif($modx->resource->id == 125532)
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125532])))
             {
                 $charsValues = [
                     'Коллекция' => ['val' => $src['collection']],
@@ -223,7 +238,7 @@ switch (true) {
                 ];
             }
 
-            elseif($modx->resource->id == 125535)
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125535])))
             {
                 $charsValues = [
                     'Коллекция' => ['val' => $src['collection']],
@@ -234,7 +249,7 @@ switch (true) {
                 ];
             }
 
-            elseif($modx->resource->id == 165732)
+            elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 165732])))
             {
                 $charsValues = [
                     'Цвет' => ['val' => $src['cvet']],
