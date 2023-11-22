@@ -140,6 +140,9 @@
             display: flex
             // +until-480
             //     display: none
+             @at-root .filters-expanded &
+                +until-480
+                    display: none !important
 
         &-mobile
             display: none
@@ -305,3 +308,14 @@
         .h-subinfo__icon
             +until-480
                 display: none
+
+.filters-expanded
+    header
+        .header__bottom
+            .header__container
+                .header__toolbar
+                    .header__actions
+                        .header__actions-pc
+                            display: none !important
+                        .header__actions-mobile
+                            margin-bottom: 10px

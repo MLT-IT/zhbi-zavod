@@ -212,7 +212,10 @@
                   {/if}
                 {/if}
               </div>
-
+              <div class="product-info__top">
+                {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
+                {$linksData}
+              </div>
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">

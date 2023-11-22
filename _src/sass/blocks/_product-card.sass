@@ -149,7 +149,7 @@
 			text-decoration: none
 
 		+until-768
-			font-size: 12px
+			font-size: 16px
 			line-height: 1.3
 
 	&__subtitle
@@ -207,9 +207,48 @@
 
 					+until-992
 						font-size: 18px
+	&__stats_trigger
+		margin: 20px 0 0
+		width: 100%
+		display: flex
+		flex-direction: row
+		justify-content: flex-start
+		align-items: center
+		font-size: 12px
+		color: #808181
+		position: relative
+		cursor: pointer
+		user-select: none
+		padding-right: 20px
+		svg
+			fill: #808181
+			-ms-flex-negative: 0
+			flex-shrink: 0
+			height: 20px
+			width: 20px
+			margin-right: 8px
+		&:after
+			overflow: hidden
+			pointer-evens: none
+			transform-origin: center center
+			transition: transform .5s linear
+			transform: rotate(45deg) 
+			text-align: center
+			width: 8px
+			height: 8px
+			font-size: 24px
+			display: flex
+			justify-content: center
+			align-items: center
+			position: absolute
+			right: 5px
+			border: solid #323232
+			border-width: 0 2px 2px 0;
+			content: ""
+			color: #808181
 
 	&__stats
-		display: flex
+		display: none
 		flex-direction: column
 
 		&-wrap
@@ -281,6 +320,22 @@
 				+from-992
 					padding-top: 0
 
+
+	&.open_stats
+		.product-card__stats
+			display: flex
+			flex-direction: column
+		.product-card__stats_trigger
+			&:after
+				transform: rotate(-135deg)
+
+	&
+		+from-768
+				.product-card__stats
+					display: flex
+					flex-direction: column
+				.product-card__stats_trigger
+					display: none
 	&__stat
 		display: flex
 		align-items: flex-end
@@ -458,6 +513,8 @@
 
 			&__actions
 				& .product-action
+					width: 32px
+					height: 32px
 					+from-768
 						width: 36px
 						height: 36px
@@ -565,9 +622,10 @@
 
 	&__chars-span, &__chars-val
 		color: rgba(0, 0, 0, .6)
-		font-size: .750rem
+		font-size: 	12px
 
 		@media screen and (max-width: 768px)
+			font-size: 12px
 			display: block
 
 	&__vendor-logo
@@ -589,3 +647,5 @@
 				background-size: contain
 				background-repeat: no-repeat
 
+
+	

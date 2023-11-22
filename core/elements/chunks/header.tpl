@@ -174,13 +174,14 @@
             </button>
             <input name="query" class="search__input" fast-search-input="desktop" type="search" placeholder="Хочу найти...">
           </form>
-          <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile">
+          <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile1">
             <button type="submit" class="search__btn icon-btn icon-btn_style_red">
               <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
               </svg>
             </button>
-            <input name="query" class="search__input" fast-search-input="mobile" type="search" placeholder="Хочу найти...">
+            <input name="query" class="search__input" fast-search-input="mobile1" type="search" placeholder="Хочу найти1...">
+            
           </form>
         </div>
 
