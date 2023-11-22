@@ -89,7 +89,9 @@
                 <div class="product-info__volume-tabs">
                     <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
                     {foreach $prodValues['itemUnits'] as $val}
-                        <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+                        {if $prodValues['pricePer'] != $val['title']}
+                            <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+                        {/if}
                     {/foreach}
                 </div>
             </div>
