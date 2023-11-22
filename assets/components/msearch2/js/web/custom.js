@@ -102,7 +102,7 @@ var mSearch2 = {
 
         for (i in this.startParams) {
             if (this.startParams.hasOwnProperty(i) && this.options.reset_skip.indexOf(i) === -1) {
-                this.btn_reset.removeClass('hidden');
+                this.btn_reset?.removeClass('hidden');
                 break;
             }
         }
@@ -195,14 +195,15 @@ var mSearch2 = {
                     more.hide();
                 }
                 if (mse2Config['page'] > 1) {
-                    mse2Config['page'] = '';
-                    mSearch2.Hash.remove('page');
+                    // mse2Config['page'] = '';
+                    // mSearch2.Hash.remove('page');
                     mSearch2.load();
                 }
 
                 $(document).on('click', this.options['wrapper'] + ' ' + this.options['more'], function (e) {
                     e.preventDefault();
-                    mSearch2.addPage();
+                    let isButtonPaginate = true
+                    mSearch2.addPage(isButtonPaginate);
                 });
                 break;
 
@@ -218,8 +219,8 @@ var mSearch2 = {
                 });
 
                 if (mse2Config['page'] > 1) {
-                    mse2Config['page'] = '';
-                    mSearch2.Hash.remove('page');
+                    // mse2Config['page'] = '';
+                    // mSearch2.Hash.remove('page');
                     mSearch2.load();
                 }
                 break;
@@ -640,10 +641,10 @@ var mSearch2 = {
             this.loading = true;
         }
 
-        this.btn_reset.addClass('hidden');
+        this.btn_reset?.addClass('hidden');
         for (var i in params) {
             if (params.hasOwnProperty(i) && this.options.reset_skip.indexOf(i) === -1) {
-                this.btn_reset.removeClass('hidden');
+                this.btn_reset?.removeClass('hidden');
                 break;
             }
         }
@@ -1184,7 +1185,11 @@ var mSearch2 = {
         return this.submit();
     },
 
-    addPage: function () {
+    /**
+     * 
+     * @param {Boolean} isButtonPaginate - является ли пагинация кнопкой 
+     */
+    addPage: function (isButtonPaginate=false) {
         var pcre = new RegExp(mse2Config['pageVar'] + '[=|\/|-](\\d+)');
         var current = mse2Config['page'] || 1;
         $(this.options['pagination_link']).each(function () {
@@ -1194,7 +1199,12 @@ var mSearch2 = {
             if (page > current) {
                 mse2Config['page'] = (page != mse2Config['start_page']) ? page : '';
                 var tmp = mSearch2.getFilters();
-                delete(tmp['page']);
+                
+                // Если это пагинация не через кнопку, то очистить URL от page параметра
+                if(!isButtonPaginate){
+                    delete(tmp['page']);
+                }
+                    
                 mSearch2.Hash.set(tmp);
 
                 var params = mSearch2.getFilters();

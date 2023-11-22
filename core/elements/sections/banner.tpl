@@ -58,13 +58,13 @@
         {case 'web'}
           {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
         {case 'gazosilikatstroy'}
-          {set $link = '/rasprodazha-so-sklada/'}
+          {set $link = '#'}
         {case 'kraska'}
-          {set $link = '/rasprodazha-so-sklada/'}
+          {set $link = '#'}
         {case 'suhiesmesi'}
-          {set $link = '/rasprodazha-so-sklada/'}
+          {set $link = '#'}
         {case 'krovelnyjstroymarket'}
-          {set $link = '/rasprodazha-so-sklada/'}
+          {set $link = '#'}
       {/switch}
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
