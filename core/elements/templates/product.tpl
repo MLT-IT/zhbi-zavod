@@ -220,7 +220,7 @@
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
                       {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list [125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226125626,125627,125628,125629,125630,125631,125632,125633,126220,126221,126222,126223,126224,126225,126226126138,126139,126140,126141,126142,126143,126144,126145,126146,126147,126148,126149,126150,126151,126152,126155,126156,126157]  }
+                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
                           {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
                           {set $cvet = $_modx->resource.cvet[0]}
                       {/if}
@@ -435,7 +435,7 @@
                 </div>
                 <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
               </div>
-              
+
               {if $_modx->resource.context_key == 'kraska'}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
@@ -443,7 +443,7 @@
                         <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
                     </svg>
                     <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
-                    </p> 
+                    </p>
                     <p class="product-info__undertext-span">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                             <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
