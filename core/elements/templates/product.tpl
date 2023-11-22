@@ -625,12 +625,16 @@
             </div>
           </div>
         {/if}
+
+
+        {if $_modx->context.key == "krovelnyjstroymarket"}
           <div class="infoblocks__block" data-tab-page="Вопрос / Ответ">
               <button class="infoblocks__block-title" data-tab="Вопрос / Ответ">Вопрос / Ответ</button>
               <div class="infoblocks__block-dropdown">
                   {include "file:sections/faq.tpl"}
               </div>
           </div>
+        {/if}
 
       </div>
 
