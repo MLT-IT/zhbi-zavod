@@ -14,6 +14,23 @@ $cacheOptions = [
 $samovivoz = date('G') > 17 ? 'завтра' : 'сегодня';
 $pdoTools = $modx->getService('pdoTools');
 
+$arr = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря'
+];
+
+// Поскольку от 1 до 12, а в массиве, как мы знаем, отсчет идет от нуля (0 до 11),
+// то вычитаем 1 чтоб правильно выбрать уже из нашего массива.
 
 
 switch (true) {
@@ -198,13 +215,18 @@ switch (true) {
             }
             elseif(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => 125537])))
             {
+                // Завтрашний день
+                $dateNext = new DateTime();
+                $dateNext->modify('+1 days');
+                $dataNextText =  $dateNext->format('d') . ' ' .  $arr[ $dateNext->format('m')-1];
+
                 $charsValues = [
                     'Профиль' => ['val' => $src['profil']],
                     'Толщина, мм' => ['val' => $src['item_thickness']],
                     'Цвет' => ['val' => $src['cvet']],
                     'Покрытие' => ['val' => $src['pokrytie']],
                     'Общая ширина' => ['val' => $src['obshaya-shirina']],
-                    'Дата поставки' => ['val' => $src['obshaya-shirina']],
+                    'Дата поставки' => ['val' => [$dataNextText] ],
                 ];
             }
 
