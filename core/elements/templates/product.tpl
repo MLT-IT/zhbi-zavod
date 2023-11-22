@@ -482,8 +482,8 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
-          {if $recommendProducts?}
-            <a class="infoblocks__tab" href="{$_modx->resource.id | url}#other-products">Сопутствующие товары</a>
+          {if $_modx->context.key == "krovelnyjstroymarket"}
+            <a class="infoblocks__tab" href="javascript:;" data-tab="Вопрос / Ответ">Вопрос / Ответ</a>
           {/if}
         </div>
       </div>
@@ -625,6 +625,13 @@
             </div>
           </div>
         {/if}
+          <div class="infoblocks__block" data-tab-page="Вопрос / Ответ">
+              <button class="infoblocks__block-title" data-tab="Вопрос / Ответ">Вопрос / Ответ</button>
+              <div class="infoblocks__block-dropdown">
+                  {include "file:sections/faq.tpl"}
+              </div>
+          </div>
+
       </div>
 
       {include "file:chunks/guarantees.tpl"}
