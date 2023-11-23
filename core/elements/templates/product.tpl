@@ -184,8 +184,10 @@
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                           {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                               В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])}
+                              {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                              На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                             {else}
-                              На складе {$_modx->resource.stockNum} {$unit} 1
+                              На складе {$_modx->resource.stockNum} {$unit}
                           {/if}
                       </div>
                     {/if}
@@ -212,7 +214,9 @@
                     {else}
                       <div class="product-info__shipped pc-flex">
                         {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
-                            Дата производства при заказе сегодня: {'+1 days' | date : 'd.m.Y'}
+                            Дата производства при заказе сегодня: <span class="bold"> {'+2 days' | date : 'd.m.Y'} </span>
+                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                            Дата производства при заказе сегодня: <span class="bold"> {'+1 days' | date : 'd.m.Y'} </span>
                             {else}
                             {'@FILE snippets/shippedToday.php' | snippet}
                         {/if}
