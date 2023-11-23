@@ -30,13 +30,18 @@
           </div>
 
           <div class="colors-items" v-if="currentColors && !searchColorText && !favorite">
-            <ColorItem  v-for="color in currentColors" :color="color" :currentColor="currentColor" @click.self="selectedColor(color)" ></ColorItem>
+            <ColorItem  v-for="color in currentColors" :color="color" :currentColor="currentColor" :selectedColor="selectedColor" ></ColorItem>
           </div>
           <div class="colors-items search-modal" v-if="searchColorText">
             <ColorItem  v-for="color in searchColorResult" :color="color" :currentColor="currentColor" @click="selectedColor(color)" ></ColorItem>
           </div>
           <div class="colors-items colors-favorite" v-if="favorite && !searchColorText">
-            <ColorItem  v-for="color in favoriteColors" :color="color" :currentColor="currentColor" @click="selectedColor(color)" :callbackRemoveFavorite="removeFavorite" ></ColorItem>
+            <ColorItem  v-for="color in favoriteColors"
+                        :color="color"
+                        :currentColor="currentColor"
+                        :callbackRemoveFavorite="removeFavorite"
+                        :selectedColor="selectedColor"
+            ></ColorItem>
           </div>
         </div>
       </div>

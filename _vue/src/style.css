@@ -111,8 +111,10 @@
     -webkit-background-clip: text;
     color: transparent;
     font-weight: 600;
-    filter: invert(1) grayscale(1);
-    -webkit-filter: invert(1) grayscale(1);
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+   /* filter: invert(1) grayscale(1);
+    -webkit-filter: invert(1) grayscale(1);*/
 }
 .collerovka-bottom-control
 {
