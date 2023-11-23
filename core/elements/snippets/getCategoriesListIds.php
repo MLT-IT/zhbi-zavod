@@ -5,6 +5,27 @@
  * @return array idsCategory список id категорий
  */
 
+if(!function_exists('cacheCategories'))
+{
+    function cacheCategories($parent ){
+        global $modx;
+        $cacheFolder = 'getCategoriesListIds';
+        $cacheName = $parent;
+
+        $cacheOptions = [
+            xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cacheFolder,
+        ];
+
+        if(!$result = $modx->cacheManager->get($cacheName, $cacheOptions))
+        {
+            $result = getCategories($parent);
+            $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
+        }
+
+        return $result;
+    }
+}
+
 
 $result = [];
 
@@ -43,12 +64,11 @@ if(!function_exists('getCategories'))
 
 
 if(!empty($parents)){
-
     foreach($parents as $parent){
-        $result = array_merge($result, getCategories($parent));
+        $result = array_merge($result, cacheCategories($parent));
     }
 }else{
-    $result = array_merge($result, getCategories($parent));
+    $result = array_merge($result, cacheCategories($parent));
 }
 
 return $result;
