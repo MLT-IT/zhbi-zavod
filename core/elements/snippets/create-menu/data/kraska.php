@@ -112,6 +112,10 @@ function getMenuData()
                     "name" => "Морилки",
                 ],
                 [
+                    "uri" => "/lazuri-dlya-dereva/",
+                    "name" => "Лазури для дерева",
+                ],
+                [
                     "uri" => "/pokryitie-dlya-dereva-solara-color/",
                     "name" => "Solara Color",
                 ],
