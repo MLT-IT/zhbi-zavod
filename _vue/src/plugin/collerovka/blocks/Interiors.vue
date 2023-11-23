@@ -78,7 +78,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eeeeee69;
   cursor: pointer;
   height: 100%;
 }
@@ -92,7 +91,7 @@ export default {
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: -90px;
   margin: 0 40px;
   font-size: 12px;
   background: #eeeeee69;

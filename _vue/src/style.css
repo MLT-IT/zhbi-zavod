@@ -98,7 +98,8 @@
 .colors-item.active{
     border: 2px solid #b2b2b2;
 }
-.colors-item:hover
+
+.collerovka-body_colors .colors-item:hover
 {
     transform: scale(1.3);
     transition: 0.3s;
@@ -109,9 +110,9 @@
     background: inherit;
     -webkit-background-clip: text;
     color: transparent;
+    font-weight: 600;
     filter: invert(1) grayscale(1);
     -webkit-filter: invert(1) grayscale(1);
-    font-size: 14px;
 }
 .collerovka-bottom-control
 {
@@ -125,7 +126,8 @@
     font-weight: 600;
     border-radius: 5px;
     position: absolute;
-    right: 30px;
+    right: 54px;
+    width: 205px;
     top: 20px;
     cursor: pointer;
 }
@@ -152,4 +154,23 @@
     width: 30px;
     height: 30px;
     margin-right: 10px;
+}
+
+.product-form.select-colors .select-colors_item {
+    position: relative;
+}
+.product-form.select-colors .btn-select-color-remove {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 20px;
+    z-index: 1;
+    border: 0;
+    color: #fff;
+}
+.btm-collerovka:hover
+{
+    background-color:var(--color-red);
+    color: #fff;
+    background-blend-mode: multiply;
 }

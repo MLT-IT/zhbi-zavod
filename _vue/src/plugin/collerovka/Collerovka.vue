@@ -1,8 +1,8 @@
 
 <template>
   <div>
-    <button class="btm-collerovka btn" @click="openModal = !openModal"><img class="btm-collerovka-image" src="@assets/color-palette.png" > Коллеровка</button>
-    <div class="select-colors">
+    <ButtonCollerovka @click="openModal = !openModal"></ButtonCollerovka>
+    <div class="select-colors product-form">
       <div  v-for="color in selectedColors" class="select-colors_item">
         <ColorItem :color="color"></ColorItem>
         <button class="btn-select-color-remove" @click="selectedColors = selectedColors.filter(el => el.title != color.title); refreshFormProduct()">x</button>
@@ -35,7 +35,7 @@
           <div class="colors-items search-modal" v-if="searchColorText">
             <ColorItem  v-for="color in searchColorResult" :color="color" :currentColor="currentColor" @click="selectedColor(color)" ></ColorItem>
           </div>
-          <div class="colors-items colors-favorite" v-if="favorite">
+          <div class="colors-items colors-favorite" v-if="favorite && !searchColorText">
             <ColorItem  v-for="color in favoriteColors" :color="color" :currentColor="currentColor" @click="selectedColor(color)" :callbackRemoveFavorite="removeFavorite" ></ColorItem>
           </div>
         </div>
@@ -52,8 +52,9 @@
 import ColorItem from "./blocks/ColorItem.vue";
 import Favorite from "./blocks/Favorite.vue";
 import Interiors from "./blocks/Interiors.vue";
+import ButtonCollerovka from "./blocks/ButtonCollerovka.vue";
 export default {
-  components: {Interiors, Favorite, ColorItem},
+  components: {ButtonCollerovka, Interiors, Favorite, ColorItem},
   data(){
     return{
       openModal: false,
@@ -115,12 +116,13 @@ export default {
     },
     // выбор цвета коллеровки в карточке товара
     pickColor(){
-      if(this.currentColor.title != ''){
+      if(this.currentColor.title){
         if(this.selectedColors.indexOf(this.currentColor) == -1){
           this.selectedColors.push(this.currentColor)
           this.refreshFormProduct();
         }
       }
+      this.currentColor = {};
       this.openModal = false
     },
     refreshFormProduct(){
