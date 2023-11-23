@@ -1381,9 +1381,9 @@ function wrapTitle() {
 
 
 //ПОКАЗАТЬ ВСЕ В КАТЕГОРИЯХ
-if($('.catalog-screen__item_type_more').length){
-    $('.catalog-screen__item_type_more').on('click',function(){
-        console.log('click!');
-        $(this).parents('ul').toggleClass('active');
-    })
-}
+// if($('.catalog-screen__item_type_more').length){
+//     $('.catalog-screen__item_type_more').on('click',function(){
+//         let el = $(this).closest('.catalog-screen__items');
+//         el.toggleClass('active');
+//     })
+// }
