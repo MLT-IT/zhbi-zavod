@@ -42,7 +42,7 @@
       'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
       'tplOuter' => '@FILE sections/listing.tpl',
       'ajaxMode' => 'button',
-      'showEmptyFilters' => 1,
+      'showEmptyFilters' => 0,
       'limit' => 42,
 
       'tplFilter.outer.default' => '@FILE chunks/listing/filter-checkbox.tpl',
