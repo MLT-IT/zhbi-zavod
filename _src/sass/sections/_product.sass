@@ -202,7 +202,7 @@
         
         .euv-custom-select__option
             font-weight: 700
-         
+
         +until-768
             margin-top: 20px
             margin-right: 0
@@ -642,6 +642,22 @@
     font-weight: 700
 
 .euv-custom-select
+
+    &__option::before, &__input-value::before
+        content: ""
+        width: 40px
+        height: 20px
+        position: absolute
+        left: 20px
+
+    &__input-value::before
+        left: 0
+
+    &__option, &__input-value
+        +colors_to_selector('::before')
+
+    &__input
+        justify-content: center
 
     &__input, &__options-col, &__option
         color: #111
