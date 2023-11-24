@@ -1,0 +1,196 @@
+.wrap-calc
+  background: #fff
+  padding: 40px 35px
+  border: 2px solid var(--color-red)
+  border-radius: 10px
+  & .js-submit-calc
+    background-color: transparent
+    color: var(--color-red)
+    border: 1px solid var(--color-red)
+
+
+.calc-inputs-all
+  display: flex
+  justify-content: space-between
+
+.calc-inputs
+  display: flex
+  justify-content: start
+
+.calc-inputs-column
+  &.column-1
+    margin-right: 40px
+
+  &.column-2
+
+  .calc-input-wrap
+    margin-bottom: 35px
+
+.calc-label-group-input
+  font-weight: 900
+  font-size: 15px
+  margin-bottom: 15px
+
+.calc-input label
+  font-weight: 400
+  font-size: 14px
+  margin-bottom: 0
+
+.calc-input-radio input
+  width: 20px
+  height: 20px
+  margin: 0
+
+.calc-input
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-right: 20px
+
+.calc-inputs .calc-input:last-child
+  margin-right: 0
+
+.calc-input input[type="text"]
+  width: 40px
+  height: 30px
+  margin-left: 10px
+  border: 1px solid #bbbaba
+  text-align: center
+  padding: 8px 5px 7px
+
+.calc-input-radio
+  margin-right: 10px
+  position: relative
+  width: 20px
+  height: 20px
+
+.error-calc
+  color: red
+  margin-top: 20px
+
+  & div
+    margin: 3px
+    display: flex
+    justify-content: center
+    background-color: var(--color-red)
+    border: 1px solid var(--color-red)
+    color: var(--color-white)
+
+.result-calc
+  margin-top: 20px
+
+.line-result span
+  font-weight: 900
+  color: var(--color-red)
+
+.error-calc:empty, .result-calc:empty
+  margin-top: 0
+
+.calc_wrapper
+  margin-bottom: 60px
+
+.wrap-last-art
+  box-shadow: 0 0 0 1px #f2f2f2
+  padding: 30px 35px
+  margin-top: 100px
+
+  .to-all
+    text-align: right
+    display: block
+
+.wrap-last-art-label
+  font-size: 16px
+  margin-bottom: 20px
+
+.wrap-last-art .item
+  height: auto !important
+  margin: 0 0 14px !important
+
+  .title
+    padding: 10px 15px 0 !important
+
+  .inner-item
+    padding-bottom: 10px !important
+
+.flex-front-page-calc
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+  .calc-col
+    width: 890px
+    margin-right: 10px
+
+  .blog-col
+    width: 360px
+
+.calc-input-radio
+  input
+    position: absolute
+    overflow: hidden
+    z-index: 3
+    opacity: 0
+
+  span
+    position: absolute
+    margin-top: 0
+    margin-left: 0
+    width: 20px
+    z-index: 0
+    height: 20px
+    top: 0
+    overflow: hidden
+    border-radius: 50%
+    background-color: #fff
+    border: 1px solid #c2c2c2
+
+  input:checked + span:after
+    content: ''
+    position: absolute
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    background-color: var(--color-red)
+    top: 50%
+    left: 50%
+    margin: -4px 0 0 -4px
+
+.product-page-calc
+  .top_block
+    padding: 0
+
+  .calc_wrapper
+    margin-bottom: 0
+
+  .calc-inputs-all
+    justify-content: start
+
+  .wrap-calc
+    background: url(/images/calc.jpg) no-repeat 100% 50%
+
+@media (max-width: 1320px)
+  .wrap-last-art
+    display: none
+
+  .flex-front-page-calc .calc-col
+    margin-right: 0
+
+  .product-page-calc .wrap-calc
+    background: #fff
+
+@media (max-width: 960px)
+  .calc-inputs-all
+    flex-wrap: wrap
+
+@media (max-width: 640px)
+  .calc-inputs
+    flex-wrap: wrap
+
+  .calc-inputs-column .calc-input-wrap
+    margin-bottom: 15px
+
+  .calc-input
+    margin-bottom: 20px
+
+.company_bottom_block .row.wrap_md
+  margin: 0 !important

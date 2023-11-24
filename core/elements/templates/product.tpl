@@ -96,9 +96,7 @@
 {/if}
 
 
-
-
-<main class="layout__main">
+<main class="layout__main" xmlns="http://www.w3.org/1999/html">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
     <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
@@ -129,6 +127,7 @@
                     <li class="rating__star active"></li>
                     <li class="rating__star"></li>
                   </ul>
+
                   <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
                     {$reviewsCount}
                     {'@FILE snippets/formOfWord.php' | snippet : [
@@ -143,6 +142,12 @@
                 <div class="product-info__shipped mobile-flex">
                     {'@FILE snippets/shippedToday.php' | snippet}
                 </div>
+
+
+              {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
+                  <div id="collerovka"></div>
+              {/if}
+
 
                 <div class="product-info__relinkav">
                   {if $_modx->context.key == 'gazosilikatstroy'}
@@ -660,6 +665,13 @@
 
       {include "file:chunks/guarantees.tpl"}
     </div>
+
+    {if $_modx->context.key == "kraska"}
+        <div class="infoblocks__container">
+            {include "file:chunks/calculator-kraski.tpl"}
+        </div>
+    {/if}
+
   </article>
 
   {$recommendProducts?: ''}

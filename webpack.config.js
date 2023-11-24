@@ -121,12 +121,13 @@ module.exports = (env, args) => {
         },
         devServer: {
             contentBase: './',
+            stats: 'verbose',
             publicPath: '/assets/template/',
             hot: true,
             open: true,
             proxy: {
                 "/": {
-                    target: 'https://kraska.www-isoroc.ru/',
+                    target: 'http://kraski-st.local/',
                     secure: false,
                     changeOrigin: true
                 }

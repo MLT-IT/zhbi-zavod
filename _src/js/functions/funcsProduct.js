@@ -13,6 +13,12 @@ export default {
 
 // Инициализация
 function init(yandexMetrikaId) {
+
+    // -------------------------------
+    // Инициализация калькулятора краски
+    // -------------------------------
+    initCalculatorKraski()
+
     // -------------------------------
     // При фокусе по полю с количеством товара содержимое поля должно очищаться. При сбросе фокуса - восстанавливаться. Как на Петровиче.
     // -------------------------------
@@ -1052,4 +1058,100 @@ function setStepAndAmount($item, dontChangeAmount) {
     if (!dontChangeAmount) {
         $activeFormInput.val(newVal);
     }
+}
+
+function initCalculatorKraski(){
+    $('.calc-input input').keypress(function(e) {
+        if(e.which==43 || e.which==45) return false;
+        if(e.which!=48 && e.which!=49 && e.which!=50 && e.which!=51 && e.which!=52 && e.which!=53 && e.which!=54 && e.which!=55 && e.which!=56 && e.which!=57 && e.which!=46 && e.which!=44) return false;
+    });
+
+    function isInteger(num) {
+        return (num ^ 0) === num;
+    }
+
+    $('.js-submit-calc').click(function(){
+        var calc = $(this).closest('.wrap-calc'),
+            block_result = calc.find('.js-result-calc'),
+            block_error = calc.find('.js-error-calc'),
+            length = calc.find('#length').val().replace(',','.'),
+            width = calc.find('#width').val().replace(',','.'),
+            length1 = calc.find('#length1').val().replace(',','.'),
+            width1 = calc.find('#width1').val().replace(',','.'),
+            rashod = calc.find('#rashod').val().replace(',','.'),
+            layout = calc.find('#layout').val().replace(',','.'),
+            volume = calc.find('#volume').val().replace(',','.'),
+            add = calc.find('input[name="add"]:checked').val(),
+            coeff = 0,
+            sq = 0, sq_ex = 0, count_paint = 0, error = '', result = '';
+
+        block_error.html('');
+        calc.find('input').removeClass('error');
+
+        if(!length){
+            error += '<div>Заполните поле Длина</div>';
+            calc.find('#length').addClass('error');
+        }
+        if(!width){
+            error += '<div>Заполните поле Ширина</div>';
+            calc.find('#width').addClass('error');
+        }
+        if(!rashod){
+            error += '<div>Заполните поле Расход</div>';
+            calc.find('#rashod').addClass('error');
+        }
+        if(!layout){
+            error += '<div>Заполните поле Кол-во слоев</div>';
+            calc.find('#layout').addClass('error');
+        }
+        if(!volume){
+            error += '<div>Заполните поле Объем тары</div>';
+            calc.find('#volume').addClass('error');
+        }
+        if(length1 && !width1){
+            error += '<div>Заполните поле Ширина</div>';
+            calc.find('#width1').addClass('error');
+        }
+        if(!length1 && width1){
+            error += '<div>Заполните поле Длина</div>';
+            calc.find('#length1').addClass('error');
+        }
+
+        if(error){
+            block_error.html(error);
+        }
+
+        if(length && width && rashod && layout && volume){
+            sq = length * width;
+            if(length1 && width1){
+                sq_ex = length1 * width1;
+            }
+            sq = sq - sq_ex;
+            console.log(sq, rashod, layout, volume)
+            if(sq<=0 || rashod==0 || layout==0 || volume==0){
+                error = 'Проверьте корректность данных';
+                block_error.html(error);
+            }else{
+                result += '<div class="line-result"><span>Площадь окраски, кв. м:</span> '+ sq +'</div>';
+
+                if(add == 2){
+                    coeff = 1;
+                }else if(add == 3){
+                    coeff = 2;
+                }
+
+                count_paint = ((Math.ceil((sq/rashod)*100)/100)*layout*(1 + 0.05*coeff)).toFixed(2);
+
+                result += '<div class="line-result"><span>Количество краски, кг:</span> '+ (Math.ceil(count_paint * 100)/100) +'</div>';
+                result += '<div class="line-result"><span>Количество банок:</span> '+ Math.ceil(count_paint / volume) +'</div>';
+
+                if(!isInteger(count_paint / volume)){
+                    let no_use_point = (Math.ceil(count_paint / volume) * volume - Math.ceil(count_paint * 100)/100).toFixed(2);
+                    result += '<div class="line-result"><span>Неиспользуемая краска, кг:</span> '+ Math.ceil(no_use_point * 100)/100 +'</div>';
+                }
+
+                block_result.html(result);
+            }
+        }
+    });
 }

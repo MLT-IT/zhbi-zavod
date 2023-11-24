@@ -54,12 +54,25 @@
             <a href="{$product.id | url}" class="cart-item__title">
               {$product.pagetitle}
             </a>
+            {if $product.options['collerovka']}
+              <div>Коллеровка: </div>
+              <div class="select-colors">
+                {foreach $product.options['collerovka'] as $color}
+                  {set $colorData = '@FILE snippets/getCollerovkaJson.php' | snippet: [
+                  'colorName' => $color
+                  ]}
+                  <div class="colors-item" style="{$colorData['background']}"><span>{$colorData['title']}</span></div>
+                {/foreach}
+              </div>
+            {/if}
+
             <div class="cart-item__bottom">
               <div class="cart-item__price">
                 <p class="cart-item__price-value">{$product.price} ₽</p>
                 {if $product.old_price?}
                   <p class="cart-item__old-price-value">{$product.old_price} ₽</p>
                 {/if}
+
                 <span class="cart-item__price-notion">
                   {if ($product.unit[0] is empty) || ($product.unit[0] == 'упаковка')}
                       {set $priceUnit = 'упаковку'}
