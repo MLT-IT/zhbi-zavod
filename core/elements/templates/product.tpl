@@ -227,10 +227,16 @@
                   {/if}
                 {/if}
               </div>
+              
+              {if $_modx->resource.context_key == 'web'}
               <div class="product-info__top">
-                {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
-                {$linksData}
+                <div class="product-info__grid">
+                  {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
+                  {$linksData}
+                </div>
               </div>
+              {/if}
+            
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
