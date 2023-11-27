@@ -183,14 +183,16 @@
                      {set $unit = 'м2'}
                   {/switch}
 
-                  {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi']}
+                  {if $_modx->resource.context_key not in list ['kraska']}
                     {* При чем тут relinkingData ? *}
                     {if $relinkingData is empty}
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                           {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                               В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м2
-                              {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
                               На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
+                            {elseif $_modx->context.key == 'suhiesmesi'}
+                                В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
                             {else}
                               На складе {$_modx->resource.stockNum} {$unit}
                           {/if}
