@@ -1,6 +1,6 @@
 
 import { createApp } from 'vue'
-import './style.css'
+import './styles/style.sass'
 import Collerovka from "./plugin/collerovka/Collerovka.vue"
 import VueCookies from 'vue-cookies'
 

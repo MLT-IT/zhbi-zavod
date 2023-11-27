@@ -1,6 +1,5 @@
 <template>
-  <div class="collerovka-body_interior" :style="color.background + ';background-image: url(' + currentInterior.image + ')'"
-       style="background-size:cover;background-repeat: no-repeat;background-position:bottom;" >
+  <div class="collerovka-body_interior" :style="color.background + ';background-image: url(' + currentInterior.image + ')'">
 
     <div class="collerovka-body_interior-active">
       <div class="btn-interior-action prev" @click="prev" v-if="indexInterior != 0">
@@ -66,6 +65,12 @@ export default {
 </script>
 
 <style>
+.collerovka-body_interior
+{
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:bottom;
+}
 .collerovka-body_interior-active
 {
   width: 100%;
