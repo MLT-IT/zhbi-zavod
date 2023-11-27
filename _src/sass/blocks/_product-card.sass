@@ -629,13 +629,14 @@
 			display: block
 
 	&__vendor-logo
-		@at-root .kraska &
+		@at-root .kraska, .suhiesmesi &
 			background: transparent
 			position: absolute
 			width: 50px
 			height: 40px
 			top: 10px
 			left: 10px
+			z-index: 1
 			+brands_to_selector('::before')
 
 			&::before
