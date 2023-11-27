@@ -79,92 +79,35 @@ if ( $statement->execute()) {
     usort($items, 'sortByValue');
 
         
-    $result = $result.'<label class="relink_label" for="perelinkovka_2345">Толщина (мм)</label>';
-    $result = $result.'<select class="relink_select" id="perelinkovka_2345" >'; 
+    $options = "";
+    $selected= "";    
     foreach ($items as $item){
-        $selected="";
         if($item['product_id'] === $thisId){
-            $selected="selected";
+            $selected=$item['value'];
         }
-        $result = $result.'<option value="'.$url = $modx->makeUrl($item['product_id'], '', '', 'full').'" '.$selected.'>'.$item['value'].' мм</option>';
+        $options = $options.'<a href="'.$url = $modx->makeUrl($item['product_id'], '', '', 'full').'" class="euv-custom-select__option">'.$item['value'].' мм</a>';
     }
-    $result = $result.'</select>';
+
+
+
+    $result = $result.'<div class="product-info__relinkav">'; 
+    $result = $result.'<div class="product-info__euv-custom-select euv-custom-select">'; 
+
+    $result = $result.'<div class="euv-custom-select__input">';
+    $result = $result.'<span class="euv-custom-select__input-value">'.$selected.' мм</span>'; 
+    $result = $result.'</div>'; 
+    $result = $result.'<span class="euv-custom-select__btn"></span>';  
+
+    $result = $result.'<div class="euv-custom-select__options-wrap" style="display: none;">';
+
+    $result = $result.$options;
+
+    $result = $result.'</div>';
+    $result = $result.'</div>';
+    $result = $result.'</div>';
 }
 
 
 
 
 return $result;
-
-
-
-// $result = [
-//     'item_thickness' => [],
-// ];
-// $parentId = $modx->resource->parent;
-
-// if (!function_exists('composeOptionFilters')) {
-//     function composeOptionFilters($options) {
-//         global $modx;
-
-//         $optionValues = [];
-//         foreach ($options as $opt) {
-//             $val = $modx->resource->get($opt);
-//             if (is_null($val)) {
-//                 $optionValues[$opt . ':IS'] = null;
-//             } else {
-//                 if (is_array($val)) {
-//                     if (count($val) === 1) {
-//                         $optionValues[$opt . ':='] = reset($val);
-//                     }
-//                 }
-//             }
-//         }
-//         return json_encode($optionValues, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-//     }
-// }
-// if (!function_exists('getIdsFromString')) {
-//     function getIdsFromString($string) {
-//         if (empty($string)) {
-//             return [];
-//         } else {
-//             return explode(',', $string);
-//         }
-//     }
-// }
-
-// // Параметры для сниппетов почти везде одинаковые, заносим их в массив
-// $params = [
-//     'parents' => $parentId,
-//     'depth' => 100,
-//     'limit' => 0,
-//     'sortby' => 'id',
-//     'sortdir' => 'ASC',
-//     'resources' => '-' . $modx->resource->id,
-//     'returnIds' => '1',
-// ];
-// // Получаем id для всех опций. Это все товары в текущей категории, кроме текущего товара
-// $idsInParent = $modx->runSnippet('pdoResources', $params);
-
-// if (empty($idsInParent)) {
-//     return $result;
-// }
-// $idsForThickness = $modx->runSnippet('msProducts', array_merge($params, [
-//     'optionFilters' => composeOptionFilters(['item_thickness'])
-// ]));
-// $idsForThickness = getIdsFromString($idsForThickness);
-// $idsForThickness = array_flip($idsForThickness);
-
-// $arr = ['thickness' => $idsForThickness];
-// foreach ($arr as $arrKey => $data) {
-//     $i = 0;
-//     foreach ($data as $key => $val) {
-//         $arr[$arrKey][$key] = $i;
-//         $i++;
-//     }
-// }
-// $idsForThickness = $arr['thickness'];
-// $idsForThickness = array_flip($idsForThickness);
-// $ids = [
-//     'item_thickness' => $idsForThickness,
-// ];

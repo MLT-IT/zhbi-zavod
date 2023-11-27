@@ -622,6 +622,15 @@
             content: "\00d7"
             display: inline-block
 
+.product-info__grid
+    width: 100%
+    display: grid
+    gap: 10px
+    grid-template-columns: 1fr 1fr 
+    position: relative
+    +until-768
+        grid-template-columns: 1fr 
+
 .product-card
     &__select-wrap_type_half
         margin-bottom: 5px
