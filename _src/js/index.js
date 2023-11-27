@@ -415,6 +415,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
                 $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
 
+                // Скрытие текста внутри читать полностью, если блок внутри привышает область видлимости для того чтобы текст не обрубался
+                let maxHeight  = 80;
+                var sumChildHeight = 0;
+                $('.catalog-screen__text').children().each(function(){
+                    sumChildHeight += $(this).height();
+                    if(sumChildHeight > maxHeight){
+                        $(this).addClass("hide_text");
+                    }
+                });
+
                 $toggleButton.on('click', function() {
                     $textBlock.toggleClass('expand');
                     if ($textBlock.hasClass('expand')) {

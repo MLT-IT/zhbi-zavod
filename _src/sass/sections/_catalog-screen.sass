@@ -26,9 +26,16 @@
             list-style: disc
             margin-left: 20px
 
+        & .hide_text
+            display: none
+
         &.expand
             max-height: none
             transition: 0.5s ease
+
+            & .hide_text
+                display: block
+
 
         +until-768
             font-size: 14px
