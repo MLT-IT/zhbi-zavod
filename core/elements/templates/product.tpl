@@ -513,9 +513,6 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
-          {if $_modx->context.key == "krovelnyjstroymarket"}
-            <a class="infoblocks__tab" href="javascript:;" data-tab="Вопрос / Ответ">Вопрос / Ответ</a>
-          {/if}
         </div>
       </div>
 
@@ -658,15 +655,6 @@
         {/if}
 
 
-        {if $_modx->context.key == "krovelnyjstroymarket"}
-          <div class="infoblocks__block" data-tab-page="Вопрос / Ответ">
-              <button class="infoblocks__block-title" data-tab="Вопрос / Ответ">Вопрос / Ответ</button>
-              <div class="infoblocks__block-dropdown">
-                  {include "file:sections/faq.tpl"}
-              </div>
-          </div>
-        {/if}
-
       </div>
 
       {include "file:chunks/guarantees.tpl"}
@@ -682,6 +670,11 @@
 
   {$recommendProducts?: ''}
   {$simillarProducts ?: ''}
+
+    {if $_modx->context.key == "krovelnyjstroymarket"}
+        {include "file:sections/faq.tpl"}
+    {/if}
+
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
