@@ -79,19 +79,17 @@
     'tpl' => '@FILE chunks/charecter-json.tpl',
     'ignoreOptions' => 'edizm,edizm2,cvet'
     ]}
-
-
     {* Похожие товары, отображаются товары с одинаковыми характеристиками кроме цвета *}
-{*    {set $simillarProducts = 'msProducts' | snippet : [*}
-{*    'resources' => '-' ~ $_modx->resource.id,*}
-{*    'parents' => 0,*}
-{*    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',*}
-{*    'tplWrapper' => '@FILE sections/simillar-products.tpl',*}
-{*    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',*}
-{*    'context' => $_modx->resource.context_key,*}
-{*    'includeThumbs' => 'webp',*}
-{*    'optionFilters' => $optionProduct,*}
-{*    ]}*}
+    {set $simillarProducts = 'msProducts' | snippet : [
+    'resources' => $_modx->runSnippet("@FILE snippets/product/similarProductIdsFromOptions.php",
+                    ["jsonParams" => $optionProduct, 'returnString' => true, 'ignoreId' => $_modx->resource.id]),
+    'parents' => 0,
+    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+    'tplWrapper' => '@FILE sections/simillar-products.tpl',
+    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+    'context' => $_modx->resource.context_key,
+    'includeThumbs' => 'webp',
+    ]}
 
 {/if}
 
@@ -515,9 +513,6 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
-          {if $_modx->context.key == "krovelnyjstroymarket"}
-            <a class="infoblocks__tab" href="javascript:;" data-tab="Вопрос / Ответ">Вопрос / Ответ</a>
-          {/if}
         </div>
       </div>
 
@@ -660,15 +655,6 @@
         {/if}
 
 
-        {if $_modx->context.key == "krovelnyjstroymarket"}
-          <div class="infoblocks__block" data-tab-page="Вопрос / Ответ">
-              <button class="infoblocks__block-title" data-tab="Вопрос / Ответ">Вопрос / Ответ</button>
-              <div class="infoblocks__block-dropdown">
-                  {include "file:sections/faq.tpl"}
-              </div>
-          </div>
-        {/if}
-
       </div>
 
       {include "file:chunks/guarantees.tpl"}
@@ -682,8 +668,13 @@
 
   </article>
 
+    {if $_modx->context.key == "krovelnyjstroymarket"}
+        {include "file:sections/faq.tpl"}
+    {/if}
   {$recommendProducts?: ''}
   {$simillarProducts ?: ''}
+
+
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 

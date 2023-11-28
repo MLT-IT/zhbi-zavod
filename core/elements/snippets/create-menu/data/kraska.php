@@ -16,15 +16,11 @@ function getMenuData()
     $data = [
         $grunty => [
             'column1' => [
-                'uri' => '/grunty/',
+                'uri' => '/gruntovki/',
                 'name' => 'Грунтовки',
                 'svg' => 'paint-roller'
             ],
             'column2' => [
-                [
-                    "uri" => "/grunty/",
-                    "name" => "Грунтовки",
-                ],
                 [
                     "uri" => "/betonokontakt/",
                     "name" => "Бетоноконтакт",
@@ -170,10 +166,6 @@ function getMenuData()
                 'svg' => 'putty-knife'
             ],
             'column2' => [
-                [
-                    "uri" => "/shpatlevki/",
-                    "name" => "Шпатлевки",
-                ],
                 [
                     "uri" => "/shpatlevki-gotovyie/",
                     "name" => "Готовые",

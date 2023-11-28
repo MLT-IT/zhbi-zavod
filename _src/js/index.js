@@ -403,9 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function() {
         var $textBlock = $('.catalog-screen__text');
 
-        let maxHeight = '75px';
+        let maxHeight = '3em';
         if($('body').width() < 778){
-            maxHeight = "40px";
+            maxHeight = "3em";
         }
         $textBlock.css("maxHeight", maxHeight);
 
@@ -414,16 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
                 $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
                 $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
-
-                // Скрытие текста внутри читать полностью, если блок внутри привышает область видлимости для того чтобы текст не обрубался
-                let maxHeight  = 80;
-                var sumChildHeight = 0;
-                $('.catalog-screen__text').children().each(function(){
-                    sumChildHeight += $(this).height();
-                    if(sumChildHeight > maxHeight){
-                        $(this).addClass("hide_text");
-                    }
-                });
 
                 $toggleButton.on('click', function() {
                     $textBlock.toggleClass('expand');
