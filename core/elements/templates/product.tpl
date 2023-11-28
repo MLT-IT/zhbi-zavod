@@ -79,19 +79,17 @@
     'tpl' => '@FILE chunks/charecter-json.tpl',
     'ignoreOptions' => 'edizm,edizm2,cvet'
     ]}
-
-
     {* Похожие товары, отображаются товары с одинаковыми характеристиками кроме цвета *}
-{*    {set $simillarProducts = 'msProducts' | snippet : [*}
-{*    'resources' => '-' ~ $_modx->resource.id,*}
-{*    'parents' => 0,*}
-{*    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',*}
-{*    'tplWrapper' => '@FILE sections/simillar-products.tpl',*}
-{*    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',*}
-{*    'context' => $_modx->resource.context_key,*}
-{*    'includeThumbs' => 'webp',*}
-{*    'optionFilters' => $optionProduct,*}
-{*    ]}*}
+    {set $simillarProducts = 'msProducts' | snippet : [
+    'resources' => $_modx->runSnippet("@FILE snippets/product/similarProductIdsFromOptions.php",
+                    ["jsonParams" => $optionProduct, 'returnString' => true, 'ignoreId' => $_modx->resource.id]),
+    'parents' => 0,
+    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+    'tplWrapper' => '@FILE sections/simillar-products.tpl',
+    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+    'context' => $_modx->resource.context_key,
+    'includeThumbs' => 'webp',
+    ]}
 
 {/if}
 
@@ -668,12 +666,12 @@
 
   </article>
 
-  {$recommendProducts?: ''}
-  {$simillarProducts ?: ''}
-
     {if $_modx->context.key == "krovelnyjstroymarket"}
         {include "file:sections/faq.tpl"}
     {/if}
+  {$recommendProducts?: ''}
+  {$simillarProducts ?: ''}
+
 
   {include "file:sections/payment.tpl"}
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
