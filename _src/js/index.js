@@ -403,9 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
     $(document).ready(function() {
         var $textBlock = $('.catalog-screen__text');
 
-        let maxHeight = '75px';
+        let maxHeight = '3em';
         if($('body').width() < 778){
-            maxHeight = "40px";
+            maxHeight = "3em";
         }
         $textBlock.css("maxHeight", maxHeight);
 
