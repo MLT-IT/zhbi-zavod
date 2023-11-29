@@ -199,7 +199,7 @@ switch (true) {
         }
         break;
 
-        case $modx->resource->context_key == 'krovelnyjstroymarket':
+    case $modx->resource->context_key == 'krovelnyjstroymarket':
 
             if(in_array($src['parent'], $pdoTools->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => '125621,125619'])))
             {
@@ -280,10 +280,21 @@ switch (true) {
                     'Вид' => ['val' => $src['vid']],
                 ];
             }
-
             break;
+
+    case $modx->resource->context_key == 'suhiesmesi':
+
+        $charsValues = $pdoTools->runSnippet("@FILE snippets/product/charecters/getValueCharecterFromJson.php", [
+        'parent' => $src['parent'],
+        'contextKey' => "suhiesmesi",
+        'snippetDataCustom' => "@FILE snippets/product/charecters/dataCustomSnippet.php",
+        'src' => $src
+    ]);
+        break;
+
     // В остальных случаях
     default:
+
         $charsValues = [
             'Применение' => ['val' => $src['primenenie']],
             'Плотность, кг/м3' => ['val' => $src['plotnost']],

@@ -1,0 +1,38 @@
+[
+  {
+    "custom": "nalichie",
+    "name": "В наличии",
+    "key": "",
+    "value": " n шт."
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Применение",
+    "key": "oblast-primeneniya",
+    "value": ""
+  },
+  {
+    "name": "Фасовка",
+    "key": "ves-shtuki-kg",
+    "value": ""
+  },
+  {
+    "name": "Материал",
+    "key": "material",
+    "value": ""
+  },
+  {
+    "name": "Марка",
+    "key": "marka-prochnosti-pri-szhatii-ne-menee",
+    "value": ""
+  }
+]

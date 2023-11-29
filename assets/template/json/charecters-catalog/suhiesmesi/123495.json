@@ -1,0 +1,44 @@
+[
+  {
+    "name": "В наличии",
+    "key": "",
+    "custom": "nalichie",
+    "value": ""
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "custom": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "custom": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Применение ",
+    "key": "oblast-primeneniya",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Вид ",
+    "key": "vid",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Тип работ",
+    "key": "tip-rabot",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Тип помещения",
+    "key": "tip-pomeshcheniya",
+    "custom": "",
+    "value": ""
+  }
+]

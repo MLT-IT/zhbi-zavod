@@ -1,0 +1,48 @@
+[
+  {
+    "custom": "nalichie",
+    "name": "В наличии",
+    "key": "",
+    "value": " n шт."
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Вес",
+    "key": "ves-shtuki-kg",
+    "value": ""
+  },
+  {
+    "name": "Марка прочности",
+    "key": "marka-prochnosti-pri-szhatii-ne-menee",
+    "value": ""
+  },
+  {
+    "name": "Применение",
+    "key": "oblast-primeneniya",
+    "value": ""
+  },
+  {
+    "name": "Процент добавок",
+    "key": "mineralnyh-dobavok",
+    "value": ""
+  },
+  {
+    "name": "Цвет",
+    "key": "cvet",
+    "value": ""
+  },
+  {
+    "name": "Фасовка",
+    "key": "ves-shtuki-kg",
+    "value": ""
+  }
+]

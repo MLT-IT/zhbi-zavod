@@ -1,0 +1,45 @@
+[
+  {
+    "custom": "nalichie",
+    "name": "В наличии",
+    "key": "",
+    "value": ""
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "custom": "samovivoz",
+    "key": "",
+    "value": ""
+  },
+  [
+    {
+      "name": "Применение",
+      "key": "oblast-primeneniya",
+      "custom": "",
+      "value": ""
+    },
+    {
+      "name": "Назначение ",
+      "key": "naznachenie",
+      "custom": "",
+      "value": ""
+    },
+    {
+      "name": "Вид",
+      "key": "vid",
+      "custom": "",
+      "value": ""
+    },
+    {
+      "name": "Толщина слоя",
+      "key": "rekomenduemaya-tolshchina-sloya-naneseniya-mm",
+      "custom": "",
+      "value": ""
+    }
+  ]
+]

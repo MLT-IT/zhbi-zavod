@@ -49,5 +49,13 @@
       'collection' => $src['collection'],
       'vid' => $src['vid'],
       'brand' => $src['brand'],
+      'oblast-primeneniya' => $src['oblast-primeneniya'],
+      'polnoe-vysyhanie-chas' => $src['polnoe-vysyhanie-chas'],
+      'bez-zapaha' => $src['bez-zapaha'],
+      'tip-rabot' => $src['tip-rabot'],
+      'ves-shtuki-kg' => $src['ves-shtuki-kg'],
+      'mineralnyh-dobavok' => $src['mineralnyh-dobavok'],
+      'marka-prochnosti-pri-szhatii-ne-menee' => $src['marka-prochnosti-pri-szhatii-ne-menee'],
+      'rekomenduemaya-tolshchina-sloya-naneseniya-mm' => $src['rekomenduemaya-tolshchina-sloya-naneseniya-mm']
   ]
 ]}
