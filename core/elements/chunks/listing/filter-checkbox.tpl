@@ -6,6 +6,8 @@
         {set $keyClass = 'cvet'}
     {case 'msoption|proizvoditel'}
         {set $keyClass = 'proizvoditel'}
+    {case 'mse2_msoption|cvet-ral'}
+        {set $keyClass = 'cvet'}
 {/switch}
 
 <div data-disable-close class="filter-item{if $keyClass?} filter-item_type_{$keyClass}{/if}{if $idx >= $limit} filter-item_excess{/if}" id="mse2_{$key}"  data-key="{$key}" data-dropdown="responsive">
