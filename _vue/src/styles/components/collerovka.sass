@@ -145,6 +145,8 @@
 .product-form.select-colors
       .select-colors_item
             position: relative
+            & .colors-item
+                  margin-left: 0
 
       .btn-select-color-remove
             position: absolute
@@ -154,6 +156,12 @@
             z-index: 1
             border: 0
             color: #fff
+
+
+.cart__container .select-colors
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+      & .colors-item
+            margin-left: 0
 
 .btm-collerovka:hover
       background-color: var(--color-red)

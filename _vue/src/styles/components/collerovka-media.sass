@@ -2,6 +2,9 @@
       .colors-items
             height: 330px
 
+      .cart__container .select-colors
+            grid-template-columns: 1fr 1fr 1fr 1fr
+
 @include laptop
       .collerovka-container
             width: 95%
@@ -61,6 +64,9 @@
                   z-index: 1
                   width: 100%
 
+      .cart__container .select-colors
+            grid-template-columns: 1fr 1fr
+
 @include mobile
       .select-colors
             grid-template-columns: 1fr
@@ -69,6 +75,8 @@
             right: 10px
             top: -2px
 
+      .cart__container .select-colors
+            grid-template-columns: 1fr
 
       .collerovka-container
             width: 100%
@@ -107,3 +115,4 @@
                         padding: 9px 6px
                         font-size: 14px
                         text-align: center
+
