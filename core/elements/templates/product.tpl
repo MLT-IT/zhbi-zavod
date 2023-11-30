@@ -466,7 +466,7 @@
                 <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
               </div>
 
-              {if $_modx->resource.context_key == 'kraska'}
+              {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
