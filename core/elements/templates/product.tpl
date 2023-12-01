@@ -664,8 +664,8 @@
       {include "file:chunks/guarantees.tpl"}
     </div>
 
-    {if $_modx->context.key == "kraska"}
-        <div class="infoblocks__container">
+    {if $_modx->context.key == "kraska" && $_modx->resource.parent in list $_modx->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => '125345,117397']) }
+        <div class="infoblocks__container calculator-kraski">
             {include "file:chunks/calculator-kraski.tpl"}
         </div>
     {/if}
