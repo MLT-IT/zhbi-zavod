@@ -7,6 +7,7 @@
 	box-shadow: var(--shadow-base)
 	border-radius: var(--border-radius-base)
 	background-color: var(--color-white)
+	position: relative
 
 	+until-768
 		padding: 5px 5px 30px
@@ -29,6 +30,9 @@
 				max-width: 200px
 				max-height: 150px
 				padding: 10px
+
+		@at-root .comparison &
+			display: none
  
 		&::after 
 			content: "" 
@@ -255,13 +259,12 @@
 			&-source,  &-only-different
 				display: none
 
-
 			&-default
-				@at-root .sect-comparison_only-different
-				display: none
+				@at-root .sect-comparison_only-different &
+					display: none
 
 			&-only-different
-				@at-root .sect-comparison_only-different
+				@at-root .sect-comparison_only-different &
 				display: block
 		//
 		//&-wrap-only-different
