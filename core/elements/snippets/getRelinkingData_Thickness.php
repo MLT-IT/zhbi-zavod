@@ -92,7 +92,7 @@ if ( $statement->execute()) {
 
     $result = $result.'<div class="product-info__top"><div class="product-info__grid">';
     $result = $result.'<div class="product-info__relinkav_wrapper">'; 
-    $result = $result.'<span class="product-info__volume-title">Толщина</span>';
+    $result = $result.'<span class="product-info__volume-title">Толщина:</span>';
     $result = $result.'<div class="product-info__relinkav">'; 
     $result = $result.'<div class="product-info__euv-custom-select euv-custom-select">'; 
 
