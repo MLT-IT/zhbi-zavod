@@ -163,9 +163,10 @@ export default class FastSearch {
     // Закрытие модалки
     if (this.search_popup) {
       document.addEventListener('click', (event) => {
-        // Проверяем, является ли целевой элемент клика дочерним popup
+        // Проверяем, является ли целевой элемент клика дочерним popup или input или кнопкой поиска
         let inside = this.search_popup.contains(event.target);
-        if (!inside) {
+        let submit_btn = this.search_form.querySelector('button[type="submit"]')
+        if (!inside && !this.search_input.contains(event.target) && !submit_btn.contains(event.target)) {
           this.hidePopup()
           this.search_input.value = ''
         }
