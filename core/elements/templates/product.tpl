@@ -46,6 +46,7 @@
     {set $renderVideo = 1}
 {/if}
 
+
 {if $_modx->resource.recommendIds ?}
     {set $recommendProducts = 'msProducts' | snippet : [
       'resources' => $_modx->resource.recommendIds,
@@ -148,6 +149,12 @@
 
               {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
                   <div id="collerovka"></div>
+
+{*                  <a href="#calculator-kraski">*}
+{*                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-calculator-kraski"></use>*}
+{*                      Калькулятор краски*}
+{*                  </a>*}
+
               {/if}
 
 
@@ -282,7 +289,7 @@
                                                       <div class="euv-custom-select__options-col">
                                                           {foreach $data as $id => $val}
                                                               {set $v = $val}
-                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
+                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
                                                                   {$val}
                                                               </a>
                                                           {/foreach}
@@ -515,6 +522,10 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
+            {if $_modx->resource.recommendForUse != "" && $_modx->context.key in list ['suhiesmesi', 'kraska']}
+                <a class="infoblocks__tab" href="javascript:;" data-tab="Рекомендации по применению">Рекомендации по применению</a>
+            {/if}
+
         </div>
       </div>
 
@@ -525,7 +536,6 @@
             {$_modx->resource.content}
           </div>
         </div>
-
         <div class="infoblocks__block active" data-tab-page="Характеристики">
           <button class="infoblocks__block-title" data-tab="Характеристики">Характеристики</button>
           <div class="infoblocks__block-dropdown">
@@ -541,7 +551,6 @@
             </div>
           </div>
         </div>
-
         <div class="infoblocks__block" data-tab-page="Условия доставки">
           <button class="infoblocks__block-title" data-tab="Условия доставки">Условия доставки</button>
           <div class="infoblocks__block-dropdown">
@@ -551,9 +560,7 @@
             <div class="product-info__delivery-btn infoblocks__bottom"><a class="btn btn_style_shadow" data-fancybox="" href="#callback">заказать с доставкой</a></div>
           </div>
         </div>
-
-
-          <div class="infoblocks__block" data-tab-page="Отзывы">
+        <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
               <div class="reviews">
@@ -656,6 +663,14 @@
           </div>
         {/if}
 
+          {if $_modx->resource.recommendForUse != "" && $_modx->context.key in list ['suhiesmesi', 'kraska']}
+              <div class="infoblocks__block" data-tab-page="Рекомендации по применению">
+                  <button class="infoblocks__block-title" data-tab="Рекомендации по применению">Рекомендации по применению</button>
+                  <div class="infoblocks__block-dropdown custom-content">
+                      {$_modx->resource.recommendForUse}
+                  </div>
+              </div>
+         {/if}
 
       </div>
 
