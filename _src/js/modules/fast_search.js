@@ -1,15 +1,13 @@
 import functions from "../functions/functions";
 
 export default class FastSearch {
-  constructor(selector) {
+  constructor() {
     this.limit_category_items = 3;
-    this.check_device = this.checkDevice(); //console.log("device->"+this.check_device);
+    this.check_device = this.checkDevice();
 
     this.search_form = document.querySelector(
       `[fast-search-form="${this.check_device}"]`
     );
-    //console.log("form_active->"+this.search_form.getAttribute('class'));
-
     this.search_input = document.querySelector(
       `[fast-search-input="${this.check_device}"]`
     );
@@ -31,8 +29,8 @@ export default class FastSearch {
       this.addClosePopupButton();
     }
 
-    if(this.searchPopupInit()){this.addListener();}
-    
+    this.searchPopupInit();
+    this.addListener();
   }
 
   addClosePopupButton() {
@@ -49,7 +47,6 @@ export default class FastSearch {
 
   checkDevice() {
     if (window.innerWidth < 769) {
-      
       return "mobile";
     } else {
       return "desktop";
@@ -61,11 +58,18 @@ export default class FastSearch {
       this.hidePopup();
       return;
     }
-    //console.log("Начинаю поиск");
+
     clearInterval(this.search_timer);
     this.search_timer = setTimeout(() => {
       this.search_input.classList.add("search-loading");
-      //this.search_input.setAttribute("readonly", "true");
+      // this.search_input.setAttribute("readonly", "true");
+
+      // >>> Анимация загрузки
+      const img = document.createElement('img')
+      img.src = "/assets/images/loader.svg"
+      img.className = "header__search-loader"
+      this.search_form.insertBefore(img, this.search_input.nextSibling);
+      // <<<
 
       $.get(
         "/",
@@ -74,14 +78,13 @@ export default class FastSearch {
           query: this.search_input.value,
         },
         (data, status) => {
-          //console.log("Получил ответ");
           try {
             if (!this.search_input.value) {
               return;
             }
 
             if (status === "success" && data) {
-              this.showPopup(data); //console.log("Показываю попап");
+              this.showPopup(data);
             } else {
               this.hidePopup(
                 `К сожалению по запросу "${this.search_input.value}" ничего не найдено`
@@ -89,7 +92,7 @@ export default class FastSearch {
             }
           } finally {
             this.search_input.classList.remove("search-loading");
-            //console.log("Готово");
+            img.remove()
             // this.search_input.removeAttribute("readonly");
           }
         }
@@ -102,18 +105,8 @@ export default class FastSearch {
     search_popup.className = "fast-search";
     search_popup.style.display = "none";
 
-    let _popup=this.search_form.getElementsByClassName('fast-search');
-    if(_popup.length==0){
-      console.log('Ставим popup')
-      this.search_form.appendChild(search_popup);
-      this.search_popup = search_popup;
-      return true
-    }else{
-      console.log('Следующий попап не вставляем')
-      return false
-    }
-
-    
+    this.search_form.appendChild(search_popup);
+    this.search_popup = search_popup;
   }
 
   showPopup(html) {
@@ -155,26 +148,31 @@ export default class FastSearch {
     if (!this.search_input) {
       return;
     }
-    //console.log("Инпуты для собыий: ");
-    //console.log(this.search_input);
+
     ["input", " propertychange", " change"].forEach((event_name) => {
-      if(typeof this.search_input[event_name] === 'function'){
-        //console.log("событие на "+this.search_input.getAttribute("id")+" "+event_name+" уже есть")
-      }else{
-        this.search_input.addEventListener(
-          event_name,
-          () => {
-            this.searchStart();
-          },
-          this.searchStart.bind(this),
-          false
-        );
-        //console.log("повесил событие на "+this.search_input.getAttribute("id"))
-        
-        //console.log("=========================================================")
-      }
-      
+      this.search_input.addEventListener(
+        event_name,
+        () => {
+          this.searchStart();
+        },
+        this.searchStart.bind(this),
+        false
+      );
     });
+
+    // Закрытие модалки
+    if (this.search_popup) {
+      document.addEventListener('click', (event) => {
+        // Проверяем, является ли целевой элемент клика дочерним popup или input или кнопкой поиска
+        let inside = this.search_popup.contains(event.target);
+        let submit_btn = this.search_form.querySelector('button[type="submit"]')
+        if (!inside && !this.search_input.contains(event.target) && !submit_btn.contains(event.target)) {
+          this.hidePopup()
+          this.search_input.value = ''
+        }
+      });
+    }
+
   }
 
   // Скрывает элементы в длинном списке категории

@@ -85,11 +85,14 @@ if ( $statement->execute()) {
         if($item['product_id'] === $thisId){
             $selected=$item['value'];
         }
-        $options = $options.'<a href="'.$url = $modx->makeUrl($item['product_id'], '', '', 'full').'" class="euv-custom-select__option">'.$item['value'].' мм</a>';
+        if($item['value']!=""){
+            $options = $options.'<a href="'.$url = $modx->makeUrl($item['product_id'], '', '', 'full').'" class="euv-custom-select__option">'.$item['value'].' мм</a>';
+        }
     }
 
-
-
+    $result = $result.'<div class="product-info__top"><div class="product-info__grid">';
+    $result = $result.'<div class="product-info__relinkav_wrapper">'; 
+    $result = $result.'<span class="product-info__volume-title">Толщина</span>';
     $result = $result.'<div class="product-info__relinkav">'; 
     $result = $result.'<div class="product-info__euv-custom-select euv-custom-select">'; 
 
@@ -105,9 +108,15 @@ if ( $statement->execute()) {
     $result = $result.'</div>';
     $result = $result.'</div>';
     $result = $result.'</div>';
+    $result = $result.'</div>';
+    $result = $result.'</div></div>';
 }
 
 
+if($options!=""){
+    return $result;
+}
+else{
+    return "";
+}
 
-
-return $result;

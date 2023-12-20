@@ -1,5 +1,6 @@
 import functions from "./functions";
 import ImageZoom from 'js-image-zoom';
+import ReplacerImage from "../class/product/ReplacerImage.js";
 
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
@@ -1155,3 +1156,11 @@ function initCalculatorKraski(){
         }
     });
 }
+
+
+// замена изображений
+let replaceImage = new ReplacerImage('.colors-options .euv-custom-select__option',
+    '.euv-custom-select__option',
+    '.product__picture .product__pictures-image',
+    '.euv-custom-select__options-wrap');
+
