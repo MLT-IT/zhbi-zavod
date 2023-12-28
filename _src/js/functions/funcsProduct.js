@@ -1157,6 +1157,21 @@ function initCalculatorKraski(){
     });
 }
 
+let $poroductSlider = $(".swiper-container.product__pictures-slider");
+let heightProductSlider = $poroductSlider.height();
+let widthProductSlider = $poroductSlider.width();
+
+
+$(".slide-video").click(function (){
+    $(".iframe.lazy").each(function (){
+        let htmlEframe = $(this).html();
+        let htmlIframe = htmlEframe.replace("eframe", "iframe");
+        $(this).html(htmlIframe);
+        $(this).removeClass("lazy");
+    });
+    $(".swiper-slide.product__pictures-thumb iframe").attr("height", 400).attr("width", widthProductSlider);
+
+});
 
 // замена изображений
 let replaceImage = new ReplacerImage('.colors-options .euv-custom-select__option',

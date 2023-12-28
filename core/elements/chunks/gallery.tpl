@@ -14,7 +14,6 @@
       {/if}
         <div class="swiper-wrapper">
             <div class="swiper-slide product__pictures-thumb slide-video">
-                <a href="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" data-fancybox="product-image" class="zoom-here slide-video__link" itemscope itemtype="http://schema.org/ImageObject">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" fill="none">
                         <path d="M19.0717 19.8211C18.8817 19.8211 18.6917 19.7511 18.5417 19.6011C18.2517 19.3111 18.2517 18.8311 18.5417 18.5411C22.1517 14.9311 22.1517 9.06109 18.5417 5.46109C18.2517 5.17109 18.2517 4.69109 18.5417 4.40109C18.8317 4.11109 19.3117 4.11109 19.6017 4.40109C23.7917 8.59109 23.7917 15.4111 19.6017 19.6011C19.4517 19.7511 19.2617 19.8211 19.0717 19.8211Z" fill="#292D32"/>
                         <path d="M4.93031 19.8211C4.74031 19.8211 4.55031 19.7511 4.40031 19.6011C0.210312 15.4111 0.210312 8.59109 4.40031 4.40109C4.69031 4.11109 5.17031 4.11109 5.46031 4.40109C5.75031 4.69109 5.75031 5.17109 5.46031 5.46109C1.85031 9.07109 1.85031 14.9411 5.46031 18.5411C5.75031 18.8311 5.75031 19.3111 5.46031 19.6011C5.31031 19.7511 5.12031 19.8211 4.93031 19.8211Z" fill="#292D32"/>
@@ -24,7 +23,6 @@
                     </svg>
 
                     <span>Видео</span>
-                </a>
             </div>
           {foreach $files as $key => $file}
             {set $alt = $altTitle}
@@ -33,7 +31,7 @@
             {/if}
 
 
-            <div class="swiper-slide product__pictures-thumb">
+            <div class="swiper-slide product__pictures-thumb {if $key == 0}swiper-slide-thumb-active{/if}">
               <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}">
             </div>
 
@@ -49,17 +47,16 @@
 
           <div class="swiper-slide product__pictures-thumb">
               <a href="{$_modx->resource.videoProduct}" data-fancybox="product-image" class="zoom-here" itemscope itemtype="http://schema.org/ImageObject">
-
                   {set $src = "0MzAXoe3D2E"}
-
-                      <iframe width="100%" height="100%"
+                     {$_modx->runSnippet("@FILE snippets/lazyLoadYotube.php", ["iframe" => '
+                         <iframe width="100%" height="100%"
                               src="https://www.youtube.com/embed/0MzAXoe3D2E"
                               title="Видеообращение генерального директора"
                               frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                               allowfullscreen>
 
-                      </iframe>
-
+                         </iframe>
+                        '])}
               </a>
           </div>
 
