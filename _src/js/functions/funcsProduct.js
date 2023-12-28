@@ -1,7 +1,7 @@
 import functions from "./functions";
 import ImageZoom from 'js-image-zoom';
 import ReplacerImage from "../class/product/ReplacerImage.js";
-
+import Swiper from "swiper";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
@@ -1161,6 +1161,12 @@ let $poroductSlider = $(".swiper-container.product__pictures-slider");
 let heightProductSlider = $poroductSlider.height();
 let widthProductSlider = $poroductSlider.width();
 
+$(document).ready(function (){
+    if($(".slide-video").length > 0){
+        let sliderProduct = document.querySelector('.product__pictures-slider').swiper;
+        sliderProduct.slideNext();
+    }
+});
 
 $(".slide-video").click(function (){
     $(".iframe.lazy").each(function (){
