@@ -192,6 +192,8 @@
                      {set $unit = 'м2'}
                   {/switch}
 
+
+
                   {if $_modx->resource.context_key not in list ['kraska']}
                     {* При чем тут relinkingData ? *}
                     {if $relinkingData is empty}
@@ -254,6 +256,18 @@
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
+
+                      {if $_modx->context.key == 'suhiesmesi' }
+                          {$_modx->runSnippet("@FILE snippets/linking/linking-select.php", [
+                          'dependence' => ['cvet', 'ves-shtuki-kg'],
+                          'coincide' => ['tip', 'proizvoditel'],
+                          'tplFilter' => [
+                              'cvet' => '@FILE blocks/product/linking/linking-select-cvet.tpl',
+                              'ves-shtuki-kg' => '@FILE blocks/product/linking/linking-list-fasovka.tpl'
+                          ]
+                          ])}
+                      {/if}
+
                       {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
                       {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
                           {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
