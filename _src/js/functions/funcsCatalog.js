@@ -153,7 +153,7 @@ function init() {
     // Подсказка в чекбоксах в фильтрах
     // -------------------------------------------
     // Они есть только на кровле
-    if ($('body[data-ctx="kraska"]').length) {
+    if ($('body[data-ctx="krovelnyjstroymarket"]').length) {
         const PAGE_TYPE_CATALOG = 1;
         const PAGE_TYPE_PRODUCT = 2;
 

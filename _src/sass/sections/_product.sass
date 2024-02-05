@@ -652,11 +652,19 @@
 
 .euv-custom-select
 
+    &__options-wrap-scroll-inner
+        display: flex
+        gap: 20px
+    &__option
+        display: flex
+        justify-content: flex-start
+        gap: 10px
+            
     &__option::before, &__input-value::before
         content: ""
         width: 40px
         height: 20px
-        position: absolute
+        // position: absolute
         left: 20px
 
     &__input-value::before
