@@ -13,7 +13,8 @@
 Но тогда если в этих опциях попадутся поля с точкой они не будут правильно сортироваться.
 */
 
-class myCustomFilter extends mse2FiltersHandler {
+class myCustomFilter extends mse2FiltersHandler
+{
 
     /**
      * Функция позволяет отсортировать массив элементов $unsortedElems в порядке значений, находящихся в массиве $orderValues.
@@ -26,7 +27,8 @@ class myCustomFilter extends mse2FiltersHandler {
      * @param $orderValues - массив с ключами - в каком порядке сортировать элементы $unsortedElems.
      * @return array - массив с отсортированными элементами.
      */
-    private function sortByCustomOrder($sortedElems, $unsortedElems, $orderValues) {
+    private function sortByCustomOrder($sortedElems, $unsortedElems, $orderValues)
+    {
         // Сортируем элементы $unsortedElems в порядке $orderValues
         $resultElems = [];
         foreach ($orderValues as $key) {
@@ -49,7 +51,8 @@ class myCustomFilter extends mse2FiltersHandler {
         return $sortedElems;
     }
 
-    public function sortFilters(array $results, $type = 'default', $options = []) {
+    public function sortFilters(array $results, $type = 'default', $options = [])
+    {
         $sorted = [];
 
         if ($type == 'options') {
@@ -232,6 +235,34 @@ class myCustomFilter extends mse2FiltersHandler {
                 }
             }
 
+            if ($GLOBALS['modx']->resource->context_key == 'krovelnyjstroymarket') {
+                // Металлочерепица и потомки
+                if (in_array($GLOBALS['modx']->resource->id, [125530, 126226, 126221, 126220, 126222, 126223, 126224, 126225, 125631, 125632, 125633, 125627, 125628, 125629, 125630, 125626, 166018, 166019, 166020, 166021, 166022, 166023, 166024, 166025, 166026, 166027, 166028, 166029, 166030, 166031, 166032, 166033, 166034, 166035, 166036, 166037, 166038, 166936, 166937, 166938, 166939, 166940, 166941, 166942, 166943, 166944, 166945, 166946, 166947, 166948, 166949, 166950, 166951, 166952, 166953, 166954, 166955, 166997, 166998, 166999, 167000, 167001, 167002, 167003, 167004, 167005, 167006, 167007, 167008, 167009, 167010, 167011, 167012, 167013, 167014])) {
+                    switch ($options['name']) {
+                        case 'cvet':
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 7024', 'RAL 8017', 'RAL 3009', 'RAL 3005', 'RAL 6020', 'RAL 7004', 'RAL 5002', 'RAL 6005', 'RR 32', 'RAL 1014', 'RAL 1018', 'RAL 5015', 'RAL 7005', 'RAL 8019', 'RAL 5005', 'RAL 7016', 'RAL 9002', 'RAL 9006', 'RAL 8004', 'RAL 1015', 'RAL 3011', 'RAL 9005', 'NL805', 'RAL 1035', 'RAL 2004', 'RAL 3003', 'RAL 3013', 'RAL 3020', 'RAL 5018', 'RAL 5021', 'RAL 6002', 'RAL 6007', 'RAL 6018', 'RAL 6019', 'RAL 9003', 'RAL 9010', 'RR 11', 'RR 21', 'RR 22', 'RR 23', 'RR 29', 'RR 33', 'RR 35', 'RR 750', 'RR 887']);
+                            break;
+                    }
+                }
+
+                // Штакетник и потомки
+                if (in_array($GLOBALS['modx']->resource->id, [125541, 126157, 126155, 126156, 126150, 126151, 126152, 126148, 126149, 126146, 126147, 126144, 126145, 126142, 126143, 126140, 126141, 126138, 166988, 166989, 166990, 166991, 166992, 166993, 166994, 166995, 166996, 167019, 167020, 167021, 167022, 167023, 167024,])) {
+                    switch ($options['name']) {
+                        case 'cvet':
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 7024', 'RAL 8017', 'RAL 6005', 'RAL 3005', 'RAL 8019', 'RAL 7004', 'RAL 6019', 'RAL 7016', 'RAL 1014', 'RAL 5005']);
+                            break;
+                    }
+                }
+
+                // Профнастил и потомки
+                if (in_array($GLOBALS['modx']->resource->id, [125537, 126567, 126566, 126568, 126563, 126565, 126564, 126562, 126561, 126560, 126558, 126559, 126557, 126556, 126555, 126553, 126554, 126552, 126551, 126550, 126310, 126309, 126308, 126307, 126306, 126305, 126304, 126303, 126302, 126301, 126300, 126299, 126297, 126298, 126293, 126296, 126295, 126294, 126292, 126291, 126290, 126154, 126153, 166004, 166005, 166006, 166007, 166008, 166009, 166010, 166011, 166012, 166013, 166014, 166015, 166016, 166017, 166043, 166044, 166045, 166046, 166047, 166048, 166049, 166050, 166051, 166052, 166053, 166054, 166055, 166056, 166969, 166970, 166971, 166972, 166973, 166974, 166975, 166976, 166977, 166978, 166979, 166980, 166981, 166982, 166983, 166984, 166985, 166986, 166987,])) {
+                    switch ($options['name']) {
+                        case 'cvet':
+                            $sorted = $this->sortByCustomOrder($sorted, $results, ['RAL 3005', 'RAL 6005', 'RAL 8004', 'RAL 8017', 'RR 32', 'RAL 7024', 'RAL 3009', 'RAL 5002']);
+                            break;
+                    }
+                }
+            }
         }
 
         if (!empty($sorted)) {
