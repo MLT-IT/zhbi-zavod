@@ -99,6 +99,24 @@
 {/if}
 
 
+{* Указаны все категории из главных категорий 125530, 125530, 125541 *}
+{if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
+  {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
+  {set $cvet = $_modx->resource.cvet[0]}
+
+  {if $linksData.cvet?}
+    {set $colorsSorted = $_modx->runSnippet("@FILE snippets/linking/getSortedByPopColors.php", ["colorsArrays" => $linksData.cvet])}
+    {if $colorsSorted?}
+        {set $linksData.cvet = $_modx->runSnippet("@FILE snippets/linking/getSplitedColors.php", ["colorsArray" => $colorsSorted])}
+    {/if} 
+  {/if}
+{/if}
+
+{if $_modx->resource.context_key in list ['kraska']}
+{set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
+{set $cvet = $_modx->resource.cvet[0]}
+{/if}
+
 <main class="layout__main" xmlns="http://www.w3.org/1999/html">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -109,9 +127,15 @@
         <h1 class="product__title section__title">{$_modx->resource.pagetitle}</h1>
         <div class="product__body">
 
-          {'!msGallery' | snippet : [
-          'tpl' => '@FILE chunks/gallery.tpl',
-          ]}
+          <div class="product__body-left">
+            {'!msGallery' | snippet : [
+            'tpl' => '@FILE chunks/gallery.tpl',
+            ]}
+  
+            <div class="product__select-other-color">
+              {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+            </div>
+          </div>
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
@@ -245,7 +269,7 @@
                   {/if}
                 {/if}
               </div>
-              
+            
               {if $_modx->resource.context_key == 'web'}
               
                   {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
@@ -267,18 +291,6 @@
                           ]
                           ])}
                       {/if}
-
-                      {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
-                          {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
-                          {set $cvet = $_modx->resource.cvet[0]}
-                      {/if}
-
-                      {if $_modx->resource.context_key in list ['kraska']}
-                          {set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
-                          {set $cvet = $_modx->resource.cvet[0]}
-                      {/if}
-
 
                       {if $linksData.cvet?}
                           <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
