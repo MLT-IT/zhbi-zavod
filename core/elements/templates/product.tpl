@@ -132,9 +132,7 @@
             'tpl' => '@FILE chunks/gallery.tpl',
             ]}
   
-            <div class="product__select-other-color">
-              {include "file:blocks/product/linking/linking-select-other-color.tpl"}
-            </div>
+            {include "file:blocks/product/linking/linking-select-other-color.tpl"}
           </div>
 
           <div class="product__info-wrap">

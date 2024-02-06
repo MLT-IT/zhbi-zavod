@@ -1,5 +1,6 @@
 {if isset($linksData)}
     {if $colorsSorted?}
+    <div class="product__select-other-color">
         <div class="product__select-wrap">
             <div class="product__select-other-color-span">
                 Цветовая палитра:
@@ -16,5 +17,6 @@
                 </div>
             </div>
         </div>
+    </div>
     {/if}
 {/if}
