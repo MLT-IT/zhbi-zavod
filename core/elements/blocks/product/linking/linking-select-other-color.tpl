@@ -2,7 +2,7 @@
     {if $colorsSorted?}
         <div class="product__select-wrap">
             <div class="product__select-other-color-span">
-                Палитра цветов:
+                Цветовая палитра:
             </div>
             <div class="custom-select-other-color-wrap">
                 <div class="colors-options custom-select_scrollable">
