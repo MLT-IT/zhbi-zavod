@@ -87,14 +87,10 @@
 
         <link rel="canonical" href="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}">
 
-        {* Прелоадер *}
-        {if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']}
-          <script src="{$_modx->config['template_path']}js/preloader.js"></script>
-          <link rel="stylesheet" href="{$_modx->config['template_path']}css/preloader.css">
-        {/if}
+        
     {/block}
 </head>
-<body id="body" class="{$site_class}{if $_modx->resource.context_key in list ['kirpich-m', 'krovlya']} have-preloader{/if}{if $_modx->resource.mainCategory} main-category{else} not-main-category{/if}" data-ctx="{$_modx->resource.context_key}" data-resource-id="{$_modx->resource.id}">
+<body id="body" class="{$site_class} {if $_modx->resource.mainCategory} main-category{else} not-main-category{/if}" data-ctx="{$_modx->resource.context_key}" data-resource-id="{$_modx->resource.id}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
 </body>
