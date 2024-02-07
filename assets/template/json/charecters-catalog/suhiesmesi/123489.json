@@ -1,0 +1,44 @@
+[
+  {
+    "name": "В наличии",
+    "key": "",
+    "custom": "nalichie",
+    "value": ""
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "custom": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "custom": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Вес",
+    "key": "ves-shtuki-kg",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Фасовка",
+    "key": "fasovka",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Кол-во на поддоне",
+    "key": "pallet_num",
+    "custom": "",
+    "value": ""
+  },
+  {
+    "name": "Вес поддона",
+    "key": "ves-poddona-kg",
+    "custom": "",
+    "value": ""
+  }
+]

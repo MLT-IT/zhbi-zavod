@@ -1,0 +1,38 @@
+[
+  {
+    "custom": "nalichie",
+    "name": "В наличии",
+    "key": "",
+    "value": " n шт."
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Применение",
+    "key": "oblast-primeneniya",
+    "value": ""
+  },
+  {
+    "name": "Основа",
+    "key": "osnova",
+    "value": ""
+  },
+  {
+    "name": "Тип работ",
+    "key": "tip-rabot",
+    "value": ""
+  },
+  {
+    "name": "Цвет",
+    "key": "cvet",
+    "value": ""
+  }
+]

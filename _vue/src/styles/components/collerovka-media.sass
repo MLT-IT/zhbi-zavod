@@ -1,93 +1,118 @@
 @include desktop
-  .colors-items
-    height: 330px
+      .colors-items
+            height: 330px
+
+      .cart__container .select-colors
+            grid-template-columns: 1fr 1fr 1fr 1fr
 
 @include laptop
-  .collerovka-container
-    width: 95%
-    .collerovka-body
-      grid-template-columns: 3fr 4fr
+      .collerovka-container
+            width: 95%
 
-    .btn-select-collerovka
-      right: 20px
-      width: 158px
+            .collerovka-body
+                  grid-template-columns: 3fr 4fr
 
-    .interior-alert
-      margin: 0px
-      bottom: -100px
+            .btn-select-collerovka
+                  right: 20px
+                  width: 158px
 
-    .colors-items
-      grid-template-columns: 1fr 1fr 1fr
+            .interior-alert
+                  margin: 0px
+                  bottom: -100px
 
-    .colors-item
-      font-size: 14px
+            .colors-items
+                  grid-template-columns: 1fr 1fr 1fr
+
+            .colors-item
+                  font-size: 14px
 
 @include tablet
-  .collerovka-container
-    .collerovka-body
-      display: flex
-      flex-direction: column
+      .collerovka-container
+            .collerovka-body
+                  display: flex
+                  flex-direction: column
 
-      .collerovka-body_interior
-        height: 363px
-        margin-bottom: 100px
+                  .collerovka-body_colors .colors-item:hover
+                        transform: scale(1.1)
 
-        .interior-alert
-          bottom: -68px
+                  .collerovka-body_interior
+                        height: 363px
+                        margin-bottom: 100px
 
-      .collerovka-body_colors
-        .colors-items
-          height: 200px
+                        .interior-alert
+                              bottom: -68px
 
-    .color-tab
-      font-size: 14px
+                  .collerovka-body_colors
+                        .colors-items
+                              height: 100%
+                              max-height: 45vh
+
+
+            .color-tab
+                  font-size: 14px
+
+            .btn-select-collerovka
+                  width: 95%
+
+            .collerovka-bottom-control
+                  position: absolute
+                  align-items: center
+                  display: flex
+                  justify-content: center
+                  bottom: 20px
+                  left: 0
+                  z-index: 1
+                  width: 100%
+
+      .cart__container .select-colors
+            grid-template-columns: 1fr 1fr
 
 @include mobile
-  .select-colors
-    grid-template-columns: 1fr
+      .select-colors
+            grid-template-columns: 1fr
 
-  .control-close
-    right: 10px
-    top: -2px
-  .collerovka-bottom-control
-    position: absolute
-    bottom: 20px
-    left: 0
-    z-index: 1
-    width: 100%
+      .control-close
+            right: 10px
+            top: -2px
 
-  .collerovka-container
-    width: 100%
-    height: 100%
-    padding: 8px
-    .collerovka-header h2
-      margin-bottom: 0
+      .cart__container .select-colors
+            grid-template-columns: 1fr
 
-    .collerovka-body
-      .collerovka-body_interior
-        height: 200px
-        margin: 5px 0px
+      .collerovka-container
+            width: 100%
+            height: 100%
+            padding: 8px
 
-        .interior-alert
-          bottom: -95px
-          display: none
+            .collerovka-header h2
+                  margin-bottom: 0
 
-      .collerovka-body_colors
-        padding: 5px
-        .colors-items
-          padding: 0
-          grid-template-columns: 1fr 1fr
+            .collerovka-body
+                  .collerovka-body_interior
+                        height: 200px
+                        margin: 5px 0px
 
-    .colors-tabs
-      display: grid
-      grid-template-columns: 1fr 1fr
-      width: 85%
+                        .interior-alert
+                              bottom: -95px
+                              display: none
 
-      .favorite
-        right: -30px
-        margin: 10% auto
+                  .collerovka-body_colors
+                        padding: 5px
 
-      .color-tab
-        padding: 9px 6px
-        font-size: 14px
-        text-align: center
+                        .colors-items
+                              padding: 0
+                              grid-template-columns: 1fr 1fr
+
+            .colors-tabs
+                  display: grid
+                  grid-template-columns: 1fr 1fr
+                  width: 85%
+
+                  .favorite
+                        right: -30px
+                        margin: 10% auto
+
+                  .color-tab
+                        padding: 9px 6px
+                        font-size: 14px
+                        text-align: center
+

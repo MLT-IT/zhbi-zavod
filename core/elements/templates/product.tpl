@@ -46,6 +46,7 @@
     {set $renderVideo = 1}
 {/if}
 
+
 {if $_modx->resource.recommendIds ?}
     {set $recommendProducts = 'msProducts' | snippet : [
       'resources' => $_modx->resource.recommendIds,
@@ -98,6 +99,24 @@
 {/if}
 
 
+{* Указаны все категории из главных категорий 125530, 125530, 125541 *}
+{if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
+  {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
+  {set $cvet = $_modx->resource.cvet[0]}
+
+  {if $linksData.cvet?}
+    {set $colorsSorted = $_modx->runSnippet("@FILE snippets/linking/getSortedByPopColors.php", ["colorsArrays" => $linksData.cvet])}
+    {if $colorsSorted?}
+        {set $linksData.cvet = $_modx->runSnippet("@FILE snippets/linking/getSplitedColors.php", ["colorsArray" => $colorsSorted])}
+    {/if} 
+  {/if}
+{/if}
+
+{if $_modx->resource.context_key in list ['kraska']}
+{set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
+{set $cvet = $_modx->resource.cvet[0]}
+{/if}
+
 <main class="layout__main" xmlns="http://www.w3.org/1999/html">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -108,9 +127,13 @@
         <h1 class="product__title section__title">{$_modx->resource.pagetitle}</h1>
         <div class="product__body">
 
-          {'!msGallery' | snippet : [
-          'tpl' => '@FILE chunks/gallery.tpl',
-          ]}
+          <div class="product__body-left">
+            {'!msGallery' | snippet : [
+            'tpl' => '@FILE chunks/gallery.tpl',
+            ]}
+  
+            {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+          </div>
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
@@ -148,6 +171,12 @@
 
               {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
                   <div id="collerovka"></div>
+
+{*                  <a href="#calculator-kraski">*}
+{*                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-calculator-kraski"></use>*}
+{*                      Калькулятор краски*}
+{*                  </a>*}
+
               {/if}
 
 
@@ -185,14 +214,18 @@
                      {set $unit = 'м2'}
                   {/switch}
 
-                  {if $_modx->resource.context_key not in list ['kraska', 'suhiesmesi']}
+
+
+                  {if $_modx->resource.context_key not in list ['kraska']}
                     {* При чем тут relinkingData ? *}
                     {if $relinkingData is empty}
                       <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                           {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                               В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м2
-                              {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
                               На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
+                            {elseif $_modx->context.key == 'suhiesmesi'}
+                                В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
                             {else}
                               На складе {$_modx->resource.stockNum} {$unit}
                           {/if}
@@ -234,7 +267,7 @@
                   {/if}
                 {/if}
               </div>
-              
+            
               {if $_modx->resource.context_key == 'web'}
               
                   {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
@@ -245,17 +278,17 @@
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
                   <div class="product-info__selected-characteristics">
-                      {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-                      {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
-                          {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
-                          {set $cvet = $_modx->resource.cvet[0]}
-                      {/if}
 
-                      {if $_modx->resource.context_key in list ['kraska']}
-                          {set $linksData = 'getRelinking_ColorFasovkaType' | snippet}
-                          {set $cvet = $_modx->resource.cvet[0]}
+                      {if $_modx->context.key == 'suhiesmesi' }
+                          {$_modx->runSnippet("@FILE snippets/linking/linking-select.php", [
+                          'dependence' => ['cvet', 'ves-shtuki-kg'],
+                          'coincide' => ['tip', 'proizvoditel'],
+                          'tplFilter' => [
+                              'cvet' => '@FILE blocks/product/linking/linking-select-cvet.tpl',
+                              'ves-shtuki-kg' => '@FILE blocks/product/linking/linking-list-fasovka.tpl'
+                          ]
+                          ])}
                       {/if}
-
 
                       {if $linksData.cvet?}
                           <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
@@ -280,7 +313,7 @@
                                                       <div class="euv-custom-select__options-col">
                                                           {foreach $data as $id => $val}
                                                               {set $v = $val}
-                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
+                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
                                                                   {$val}
                                                               </a>
                                                           {/foreach}
@@ -462,7 +495,7 @@
                 <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
               </div>
 
-              {if $_modx->resource.context_key == 'kraska'}
+              {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -513,6 +546,10 @@
             <a class="infoblocks__tab" href="javascript:;" data-tab="Видео">Видео</a>
           {/if}
 
+            {if $_modx->resource.recommendForUse != "" && $_modx->context.key in list ['suhiesmesi', 'kraska']}
+                <a class="infoblocks__tab" href="javascript:;" data-tab="Рекомендации по применению">Рекомендации по применению</a>
+            {/if}
+
         </div>
       </div>
 
@@ -523,7 +560,6 @@
             {$_modx->resource.content}
           </div>
         </div>
-
         <div class="infoblocks__block active" data-tab-page="Характеристики">
           <button class="infoblocks__block-title" data-tab="Характеристики">Характеристики</button>
           <div class="infoblocks__block-dropdown">
@@ -539,7 +575,6 @@
             </div>
           </div>
         </div>
-
         <div class="infoblocks__block" data-tab-page="Условия доставки">
           <button class="infoblocks__block-title" data-tab="Условия доставки">Условия доставки</button>
           <div class="infoblocks__block-dropdown">
@@ -549,9 +584,7 @@
             <div class="product-info__delivery-btn infoblocks__bottom"><a class="btn btn_style_shadow" data-fancybox="" href="#callback">заказать с доставкой</a></div>
           </div>
         </div>
-
-
-          <div class="infoblocks__block" data-tab-page="Отзывы">
+        <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
               <div class="reviews">
@@ -654,14 +687,22 @@
           </div>
         {/if}
 
+          {if $_modx->resource.recommendForUse != "" && $_modx->context.key in list ['suhiesmesi', 'kraska']}
+              <div class="infoblocks__block" data-tab-page="Рекомендации по применению">
+                  <button class="infoblocks__block-title" data-tab="Рекомендации по применению">Рекомендации по применению</button>
+                  <div class="infoblocks__block-dropdown custom-content">
+                      {$_modx->resource.recommendForUse}
+                  </div>
+              </div>
+         {/if}
 
       </div>
 
       {include "file:chunks/guarantees.tpl"}
     </div>
 
-    {if $_modx->context.key == "kraska"}
-        <div class="infoblocks__container">
+    {if $_modx->context.key == "kraska" && $_modx->resource.parent in list $_modx->runSnippet("@FILE snippets/getCategoriesListIds.php", ['parent' => '125345,117397']) }
+        <div class="infoblocks__container calculator-kraski">
             {include "file:chunks/calculator-kraski.tpl"}
         </div>
     {/if}

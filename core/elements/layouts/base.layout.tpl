@@ -1,3 +1,4 @@
+{'@FILE snippets/ajax.php' | snippet}
 {'@FILE snippets/fast-search/MLTSearch.php' | snippet : [
   'tplCategory' => '@FILE chunks/fast-search/category-item.tpl',
   'tplProduct' => '@FILE chunks/fast-search/product-item.tpl',

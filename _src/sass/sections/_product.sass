@@ -28,6 +28,8 @@
 
 
         & .swiper-button-prev, & .swiper-button-next
+            @media screen and (max-width: 1200px)
+                display: none
             @at-root [data-ctx="krovelnyjstroymarket"] &
                 width: 100%
                 position: absolute
@@ -652,13 +654,24 @@
 
 .euv-custom-select
 
+    &__options-wrap-scroll-inner
+        @media screen and (min-width: 414px)
+            display: flex
+            gap: 20px
+        .euv-custom-select__option
+            display: flex
+            justify-content: flex-start
+            gap: 10px
+            &::before
+                position: static!important 
     &__option::before, &__input-value::before
         content: ""
         width: 40px
         height: 20px
         position: absolute
         left: 20px
-
+        @media screen and (max-width: 540px)
+            width: 25px
     &__input-value::before
         left: 0
 
@@ -695,3 +708,57 @@
     text-align: center
     width: 100%
     padding: 10px 20px
+    
+.product__select-other-color
+    margin: 30px 0
+    min-height: 253px
+    @media screen and (max-width: 992px)
+        display: none
+    .custom-select_scrollable
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        gap: 5px
+        height: 180px
+        overflow-y: scroll
+
+    &-span
+        font-weight: 800
+        margin-bottom: 10px
+
+    .custom-select-other-color-wrap
+        padding: 10px
+        border-radius: var(--border-radius-base)
+        background: #fff
+
+    .colors-select__option
+        position: relative
+        display: flex
+        gap: 10px
+        padding: 15px
+        transition: .3s
+        &:hover
+            opacity:.8
+        &:before
+            position: absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            left: 0
+        .filter-option__tip
+            z-index: 2
+            margin: 0
+            *
+                color: white
+                border-color: white
+        .colors-select__option-title
+            position: relative
+            z-index: 2
+            color: #fff
+
+        &[data-val="RAL 1014"], &[data-val="RAL 9003"], &[data-val="RAL 1015"], &[data-val="RR 22"], &[data-val="RAL 9010"], &[data-val="RAL 9002"], &[data-val="без покрытия"]
+            .colors-select__option-title
+                color: #000
+            .filter-option__tip
+                *
+                    color: #000
+                    border-color: #000

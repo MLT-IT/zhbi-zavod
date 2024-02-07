@@ -1,6 +1,7 @@
 import functions from "./functions";
 import ImageZoom from 'js-image-zoom';
-
+import ReplacerImage from "../class/product/ReplacerImage.js";
+import Swiper from "swiper";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
@@ -1155,3 +1156,32 @@ function initCalculatorKraski(){
         }
     });
 }
+
+let $poroductSlider = $(".swiper-container.product__pictures-slider");
+let heightProductSlider = $poroductSlider.height();
+let widthProductSlider = $poroductSlider.width();
+
+$(document).ready(function (){
+    if($(".slide-video").length > 0){
+        let sliderProduct = document.querySelector('.product__pictures-slider').swiper;
+        sliderProduct.slideNext();
+    }
+});
+
+$(".slide-video").click(function (){
+    $(".iframe.lazy").each(function (){
+        let htmlEframe = $(this).html();
+        let htmlIframe = htmlEframe.replace("eframe", "iframe");
+        $(this).html(htmlIframe);
+        $(this).removeClass("lazy");
+    });
+    $(".swiper-slide.product__pictures-thumb iframe").attr("height", 400).attr("width", widthProductSlider);
+
+});
+
+// замена изображений
+let replaceImage = new ReplacerImage('.colors-options .euv-custom-select__option',
+    '.euv-custom-select__option',
+    '.product__picture .product__pictures-image',
+    '.euv-custom-select__options-wrap');
+

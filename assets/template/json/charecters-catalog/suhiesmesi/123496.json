@@ -1,0 +1,38 @@
+[
+  {
+    "custom": "nalichie",
+    "name": "В наличии",
+    "key": "",
+    "value": ""
+  },
+  {
+    "name": "Срок поставки",
+    "key": "",
+    "value": "1-2 дня"
+  },
+  {
+    "name": "Самовывоз",
+    "key": "",
+    "value": "сегодня"
+  },
+  {
+    "name": "Применение",
+    "key": "oblast-primeneniya",
+    "value": ""
+  },
+  {
+    "name": "Объем",
+    "key": "obem-l",
+    "value": ""
+  },
+  {
+    "name": "Время полного высыхания",
+    "key": "polnoe-vysyhanie-chas",
+    "value": ""
+  },
+  {
+    "name": "Без запаха",
+    "key": "bez-zapaha",
+    "value": ""
+  }
+]

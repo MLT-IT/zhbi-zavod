@@ -153,14 +153,14 @@ function init() {
     // Подсказка в чекбоксах в фильтрах
     // -------------------------------------------
     // Они есть только на кровле
-    if ($('body[data-ctx="kraska"]').length) {
+    if ($('body[data-ctx="krovelnyjstroymarket"]').length || $('body[data-ctx="kraska"]').length) {
         const PAGE_TYPE_CATALOG = 1;
         const PAGE_TYPE_PRODUCT = 2;
 
         let pageType;
         if ($('.colors-options .euv-custom-select__option').length) {
             pageType = PAGE_TYPE_PRODUCT;
-        } else if ($('.default-checkbox__label').length) {
+        } else if ($('.default-checkbox__label').length && !$('body[data-ctx="krovelnyjstroymarket"]').length) {
             pageType = PAGE_TYPE_CATALOG;
         } else {
             return;

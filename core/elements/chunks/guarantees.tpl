@@ -1,7 +1,7 @@
 <div class="infoblocks__advantages">
 
 
-{if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key == "kraska"}
+{if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["kraska", "suhiesmesi"]}
   <div class="infoblocks__vendor">
     <div class="vendor-infoblock">
       <div class="vendor-infoblock__icon" data-val="{$_modx->resource.proizvoditel.0}"></div>
