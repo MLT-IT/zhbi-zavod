@@ -46,27 +46,12 @@
     {set $renderVideo = 1}
 {/if}
 
-
-{if $_modx->resource.recommendIds ?}
-    {set $recommendProducts = 'msProducts' | snippet : [
-      'resources' => $_modx->resource.recommendIds,
-      'sortby' => 'FIELD(msProduct.id, ' ~ $_modx->resource.recommendIds ~ ')',
-      'parents' => 0,
-      'depth' => 50,
-      'limit' => 42,
-      'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-      'tplWrapper' => '@FILE sections/related-products.tpl',
-      'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-      'context' => $_modx->resource.context_key,
-      'includeThumbs' => 'webp',
-    ]}
-{/if}
-
 {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
     {set $recommendProducts = 'msProducts' | snippet : [
     'resources' => '-' ~ $_modx->resource.id,
     'parents' => 125617,
+    'limit' => 42,
     'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
     'tplWrapper' => '@FILE sections/related-products.tpl',
     'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
@@ -75,18 +60,11 @@
     'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
     ]}
 
-    {* Получение характеристик товара в формате json за исключенимем цвет*}
-    {set $optionProduct = 'msProductOptions' | snippet : [
-    'tpl' => '@FILE chunks/charecter-json.tpl',
-    'ignoreOptions' => 'edizm,edizm2,cvet'
-    ]}
-    {set $idsSimillarProduct =  $_modx->runSnippet("@FILE snippets/product/similarProductIdsFromOptions.php",
-    ["jsonParams" => $optionProduct, 'returnString' => true, 'ignoreId' => $_modx->resource.id])}
-
-    {if !empty($idsSimillarProduct)}
+    {set $simillarProductIds = $_modx->resource.simillarProductIds}
+    {if $simillarProductIds}
         {* Похожие товары, отображаются товары с одинаковыми характеристиками кроме цвета *}
         {set $simillarProducts = 'msProducts' | snippet : [
-        'resources' => $idsSimillarProduct,
+        'resources' => $simillarProductIds,
         'parents' => 0,
         'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
         'tplWrapper' => '@FILE sections/simillar-products.tpl',
@@ -96,6 +74,19 @@
         ]}
     {/if}
 
+{elseif $_modx->resource.recommendIds ?}
+  {set $recommendProducts = 'msProducts' | snippet : [
+  'resources' => $_modx->resource.recommendIds,
+  'sortby' => 'FIELD(msProduct.id, ' ~ $_modx->resource.recommendIds ~ ')',
+  'parents' => 0,
+  'depth' => 50,
+  'limit' => 42,
+  'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+  'tplWrapper' => '@FILE sections/related-products.tpl',
+  'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+  'context' => $_modx->resource.context_key,
+  'includeThumbs' => 'webp',
+  ]}
 {/if}
 
 
