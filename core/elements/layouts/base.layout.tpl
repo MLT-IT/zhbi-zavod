@@ -93,5 +93,6 @@
 <body id="body" class="{$site_class} {if $_modx->resource.mainCategory} main-category{else} not-main-category{/if}" data-ctx="{$_modx->resource.context_key}" data-resource-id="{$_modx->resource.id}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
+    {$_modx->runSnippet('@FILE snippets/debug_placeholders.php')}
 </body>
 </html>
