@@ -21,11 +21,11 @@
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
-            <a class="footer__contact footer__contact_with-hover" href="tel:+78122109963">
+            <a class="footer__contact footer__contact_with-hover" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
-              <span class="footer__contact-value">{'phone' | option}</span>
+              <span class="footer__contact-value">{$_modx->getPlaceholder('localdata').offices.0.phone}</span>
             </a>
             <a class="footer__contact footer__contact_with-hover" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">
@@ -37,7 +37,7 @@
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
               </svg>
-              <span class="footer__contact-value">{'address' | option}</span>
+              <span class="footer__contact-value">{$_modx->getPlaceholder('localdata').offices.0.address}</span>
             </div>
         </address>
 

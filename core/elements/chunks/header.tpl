@@ -79,7 +79,7 @@
       <div class="h-subinfo h-subinfo_size_big">
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'phone' | option}">{'phone' | option}</a>
+        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">{$_modx->getPlaceholder('localdata').offices.0.phone}</a>
       </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
     </div>
   </div>

@@ -1,113 +1,33 @@
 {
 
     "domains":{
-        "minvata-78":{
+        "alterteplo":{
             "ctx_key":"web",
             "subdomains_banned":[],
             "subdomains_unique":[]
         },
-        "krovlyasp":{
-            "ctx_key":"krovlya",
+        "prostoteplo24":{
+            "ctx_key":"teplo24",
             "subdomains_banned":[],
             "subdomains_unique":[]
         },
-        "pro-fanera":{
-            "ctx_key":"pro-fanera",
+        "suhye-smesi":{
+            "ctx_key":"suhiesmesi",
             "subdomains_banned":[],
             "subdomains_unique":[]
         },
-        "www-fasad":{
-            "ctx_key":"fasad",
+        "osnova.spb":{
+            "ctx_key":"krovelnyjstroymarket",
             "subdomains_banned":[],
             "subdomains_unique":[]
         },
-        "pilomat-pro":{
-            "ctx_key":"pilomat",
+        "kraski-st":{
+            "ctx_key":"kraska",
             "subdomains_banned":[],
             "subdomains_unique":[]
         },
-        "plitaosb":{
-            "ctx_key":"plitaosb",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "kirpich-m":{
-            "ctx_key":"kirpich-m",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "www-minvata":{
-            "ctx_key":"rockwool",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "minvata-pro":{
-            "ctx_key":"paroc",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "pro-minvata":{
-            "ctx_key":"tn",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "minvata-spb":{
-            "ctx_key":"ursa",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "plity-epps":{
-            "ctx_key":"penoplex",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "minvata-178":{
-            "ctx_key":"isover",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "minvataspb78":{
-            "ctx_key":"isorok",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "minvataspb":{
-            "ctx_key":"umatex",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "policarbonat-spb":{
-            "ctx_key":"policarbonat",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "www-drova":{
-            "ctx_key":"drova",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "www-toplivnye-brikety":{
-            "ctx_key":"brikety",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "www-kamennyj-ugol":{
-            "ctx_key":"ugol",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "www-pellety":{
-            "ctx_key":"pellety",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "armatura-178":{
-            "ctx_key":"armatura-178",
-            "subdomains_banned":[],
-            "subdomains_unique":[]
-        },
-        "plity-mdvp":{
-            "ctx_key":"plity-mdvp",
+        "gazosilikatstroy":{
+            "ctx_key":"gazosilikatstroy",
             "subdomains_banned":[],
             "subdomains_unique":[]
         }

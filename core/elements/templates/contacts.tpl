@@ -86,7 +86,7 @@
                   </svg>
                   <div class="contact__content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <p class="contact__title">Офис:</p>
-                    <p class="contact__value">{'address' | option}</p>
+                    <p class="contact__value">{$_modx->getPlaceholder('localdata').offices.0.address}</p>
                   </div>
                 </div>
                 <div class="contact">
@@ -104,7 +104,7 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Номер телефона контактного центра:</p>
-                    <p class="contact__value"><span itemprop="telephone">{'phone' | option}</span>, доб 2</p>
+                    <p class="contact__value"><span itemprop="telephone">{$_modx->getPlaceholder('localdata').offices.0.phone}</span>, доб 2</p>
                   </div><a class="contact__link" href="tel:{'phone' | option}"></a>
                 </div>
                 <div class="contact contact_hover contact_type_mail">
