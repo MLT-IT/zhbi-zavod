@@ -37,7 +37,13 @@
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
               </svg>
-              <span class="footer__contact-value">{$_modx->getPlaceholder('localdata').offices.0.address}</span>
+              <span class="footer__contact-value">
+                    {if $_modx->getPlaceholder('localdata').local}
+                      <p class="contact__value">{$_modx->getPlaceholder('localdata').offices.0.address}</p>
+                    {else}
+                      <p class="contact__value">{'address' | option}</p>
+                    {/if}
+              </span>
             </div>
         </address>
 
