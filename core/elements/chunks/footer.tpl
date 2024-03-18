@@ -21,11 +21,14 @@
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
-            <a class="footer__contact footer__contact_with-hover" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">
+
+        {set $phone = $_modx->getPlaceholder('localdata').local ? $_modx->getPlaceholder('localdata').offices.0.phone : 'phone' | option}
+    
+        <a class="footer__contact footer__contact_with-hover" href="tel:{$phone}">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
-              <span class="footer__contact-value">{$_modx->getPlaceholder('localdata').offices.0.phone}</span>
+              <span class="footer__contact-value">{$phone}</span>
             </a>
             <a class="footer__contact footer__contact_with-hover" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">

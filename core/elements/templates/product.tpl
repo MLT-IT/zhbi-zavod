@@ -203,6 +203,8 @@
                       {set $unit = 'м3'}
                     {case 'krovelnyjstroymarket'}
                      {set $unit = 'м2'}
+                    {case default}
+                     {set $unit = 'м2'}
                   {/switch}
 
 
@@ -218,7 +220,7 @@
                             {elseif $_modx->context.key == 'suhiesmesi'}
                                 В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
                             {else}
-                              На складе {$_modx->resource.stockNum} {$unit}
+                              На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                           {/if}
                       </div>
                     {/if}
