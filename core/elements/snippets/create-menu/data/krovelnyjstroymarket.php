@@ -476,7 +476,7 @@ function getMenuData()
 
         if(array_key_exists('column_forma', $data[$key]))
         {
-            $data[$key]['column_forma'] = array_chunk($v['column_forma'], 10);
+            // $data[$key]['column_forma'] = array_chunk($v['column_forma'], 10);
         }
     }
     return $data;
