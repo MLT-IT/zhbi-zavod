@@ -294,6 +294,10 @@ function getMenuData()
                 ["uri" => "/proflist-dlya-fasada/", "name" => "Для фасада"],
                 ["uri" => "/proflist-dlya-garazha/", "name" => "Для гаража"],
             ],
+            'column_proizvoditel' => [
+                ["uri" => "/proflist-grand-line/", "name" => "Grand Line"],
+                ["uri" => "/proflist-metall-profil/", "name" => "Металл Профиль"],
+            ],
             'column_tolshina' => [
                 ["uri" => "/proflist/?msoption%7Citem_thickness=1", "name" => "1"],
                 ["uri" => "/proflist/?msoption%7Citem_thickness=0.8", "name" => "0.8"],

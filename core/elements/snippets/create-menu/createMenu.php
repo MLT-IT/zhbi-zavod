@@ -20,6 +20,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
             $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
             break;
+
         case 'gazosilikatstroy':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Плотность', 'type' => 'simple'];
@@ -30,6 +31,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Подраздел', 'type' => 'simple'];
             break;
+
         case 'krovelnyjstroymarket':
             $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
             $result['column2'] = ['title' => '', 'type' => 'composite'];
