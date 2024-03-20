@@ -21,7 +21,23 @@
           'limit' => 0,
           'sortby' => 'menuindex',
           'sortdir' => 'ASC',
-          'tplWrapper' => '@INLINE <div class="catalog-screen__products"><ul class="catalog-screen__items">[[+output]]<li class="catalog-screen__item catalog-screen__item_type_more"></li></ul></div>',
+          'tplWrapper' => '@INLINE <div class="catalog-screen__products catalog-screen__products_first"><ul class="catalog-screen__items">[[+output]]<li class="catalog-screen__item catalog-screen__item_type_more"></li></ul></div>',
+          'tvPrefix' => '',
+          'includeTVs' => 'showInDropdownPanel,mainImage',
+          'where' => '{"template:in":[27]}',
+
+          'totalVar' => 'total',
+          'setTotal' => 1,
+
+          'select' => 'menutitle,uri'
+        ])}
+        {$_modx->runSnippet('pdoResources', [
+          'tpl' => '@FILE chunks/create-menu/category-item.tpl',
+          'depth' => 0,
+          'limit' => 0,
+          'sortby' => 'menuindex',
+          'sortdir' => 'ASC',
+          'tplWrapper' => '@INLINE <div class="catalog-screen__products catalog-screen__products_second"><ul class="catalog-screen__items">[[+output]]<li class="catalog-screen__item catalog-screen__item_type_more"></li></ul></div>',
           'tvPrefix' => '',
           'includeTVs' => 'showInDropdownPanel,mainImage',
           'where' => '{"template:in":[28]}',
