@@ -143,6 +143,7 @@
     background-color: var(--color-white)
     border-radius: var(--border-radius-base)
     &__article
+        font-size: 12px
         margin-bottom: 10px
 
     &__undertext
@@ -165,6 +166,9 @@
         padding: 20px 20px 25px
 
     &__selected-characteristics
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
         width: 100%
         margin-top: 10px
 
@@ -237,7 +241,7 @@
 
     &__fast-buy
         width: 100%
-        margin-top: 10px
+        margin-top: 15px
 
         +until-768
             order: 4
@@ -355,7 +359,9 @@
         +until-768
             order: 2
             flex-direction: row
+            justify-content: center
             align-items: center
+            width: 100%
 
         +until-480
             order: 1
@@ -638,7 +644,6 @@
         margin-bottom: 5px
         margin-top: 5px
         width:  calc(50% - 6px)
-        display: inline-block
 
     &__select-wrap_type_full
         width: 100%
@@ -710,7 +715,7 @@
     padding: 10px 20px
     
 .product__select-other-color
-    margin: 30px 0
+    margin: 50px 0
     min-height: 253px
     @media screen and (max-width: 992px)
         display: none
