@@ -169,6 +169,7 @@
         display: flex
         flex-wrap: wrap
         justify-content: space-between
+        align-items: flex-end
         width: 100%
         margin-top: 10px
 
@@ -715,8 +716,10 @@
     padding: 10px 20px
     
 .product__select-other-color
-    margin: 50px 0
+    margin: 70px 0 50px
     min-height: 253px
+    @media screen and (max-width: 992px)
+        margin-top: 40px
     @media screen and (max-width: 992px)
         display: none
     .custom-select_scrollable
