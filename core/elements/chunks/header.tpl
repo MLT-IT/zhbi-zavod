@@ -93,8 +93,8 @@
           <button class="h-menu__btn btn btn_style_base">Меню</button>
           <div class="h-menu__dropdown">
             <nav class="h-nav">
-            <a class="h-nav__link" href="/akcii/">Акции</a>
             <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+            <a class="h-nav__link" href="/akcii/">Акции</a>
             <a class="h-nav__link" href="/o-kompanii/">О компании</a>
             <a class="h-nav__link" href="/contacts/">Контакты</a>
             </nav>

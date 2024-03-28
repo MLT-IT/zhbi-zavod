@@ -137,10 +137,10 @@
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
       <div class="burger-menu__nav-items">
-        <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
-        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
-        <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
-        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+      <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+      <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
+      <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+      <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
       </div>
     </nav>
 
