@@ -50,7 +50,7 @@
       'tplFilter.outer.price' => '@FILE chunks/listing/filter-number.tpl',
       'tplFilter.row.price' => '@FILE chunks/listing/filter-number-inner.tpl',
 
-      'aliases' => 'ms|price==price',
+      'aliases' => '@FILE snippets/getAliasesFromFilters.php' | snippet,
       'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
       'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping,stockNum',
 
