@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Раскрытие тегов
     // -------------------------------
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
-    if ($catalogItemMoreBtn.length && $(document).width() > 992) {
+    if ($catalogItemMoreBtn.length) { // && $(document).width() > 992
         $catalogItemMoreBtn.on('click', function() {
             $(this).parent().add($catalogItemMoreBtn).toggleClass('active');
         });
