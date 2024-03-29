@@ -123,7 +123,6 @@
               </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
             </div>
             <div class="contacts__map shadow-map" data-map-script="contacts-map-2">
-                
                     {if $_modx->getPlaceholder('localdata').local}
                       <iframe src="https://www.google.com/maps/d/u/0/embed?mid={$_modx->getPlaceholder('localdata').offices.0.gmap}" width="640" height="480"></iframe>
                     {else}

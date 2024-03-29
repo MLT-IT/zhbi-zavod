@@ -40,7 +40,7 @@
         {set $titleBaner2 = "Металлочерепица Grand Line от 380 руб/м2"}
         {set $textBaner2 = ""}
         {set $colorText2 = "#fff"}
-        {set $linkBaner2 = "/metall-profil-0.45/"}
+        {set $linkBaner2 = "/metallocherepitsya-grand-line/"}
 
         {set $imageBaner3 = "assets/template/pictures/promo/3.jpg"}
         {set $imageBanerMobile3 = "assets/template/pictures/promo/3.jpg"}
@@ -56,7 +56,7 @@
           <source srcset="{$imageBanerMobile1}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner1}">
         </picture>
         <h3 class="promo-block__title" {if $colorText1} style = "color:{$colorText1}" {/if}>{$titleBaner1}</h3>
-        <p class="promo-block__text">{$textBaner1}</p><a class="promo-block__btn btn btn_style_white-trans" href="{$linkBaner1}">{$buttonLinkBaner1}</a>
+        <p class="promo-block__text">{$textBaner1}</p><a class="promo-block__btn btn btn_style_base" href="{$linkBaner1}">{$buttonLinkBaner1}</a>
       </div>
       <div class="promo__item promo-block">
         <picture class="promo-block__bg">

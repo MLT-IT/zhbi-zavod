@@ -202,7 +202,19 @@
                     {case 'gazosilikatstroy'}
                       {set $unit = 'м3'}
                     {case 'krovelnyjstroymarket'}
-                     {set $unit = 'м2'}
+                      {set $randomStock = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 500, 'end'=> 2000]) }
+                      {if $_modx->resource.unit[0] == 'упаковка'}
+                        {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
+                        'n' => $randomStock,
+                        'f1' => 'упаковка',
+                        'f2' => 'упаковки',
+                        'f5' => 'упаковок'
+                        ]}
+                      {else}
+                        {set $unit = $_modx->resource.unit[0]}
+                      {/if}
+                    {case default}
+                     {set $unit = 'шт'}
                   {/switch}
 
 
@@ -214,11 +226,11 @@
                           {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                               В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м2
                             {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                              На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
+                              На складе {$randomStock} {$unit}
                             {elseif $_modx->context.key == 'suhiesmesi'}
                                 В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
                             {else}
-                              На складе {$_modx->resource.stockNum} {$unit}
+                              На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                           {/if}
                       </div>
                     {/if}
@@ -244,10 +256,10 @@
                         </div>
                     {else}
                       <div class="product-info__shipped pc-flex">
-                        {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
+                        {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
                             Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
                             {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                            Дата производства при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
+                            Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
                             {else}
                             {'@FILE snippets/shippedToday.php' | snippet}
                         {/if}

@@ -45,6 +45,9 @@
         grid-template-columns: 100%
         grid-gap: 9px
 
+        &:nth-of-type(3)
+            margin-top: 10px
+
         +until-480
             grid-gap: 5px
 
@@ -84,9 +87,10 @@
         display: flex
         align-items: center
         background-color: var(--color-white)
+        border: 1px solid var(--color-gray-lt)
         border-radius: var(--border-radius-base)
         transition: .3s
-        padding-right: 15px
+        padding: 7px
 
         &_type_more
             justify-content: center
@@ -96,10 +100,11 @@
             text-align: center
             letter-spacing: 0.05em
             text-transform: uppercase
-            color: var(--color-red)
+            color: var(--color-gray)
             cursor: pointer
             transition: color .3s ease
             display: none
+            background-color: var(--color-gray-lt)
 
             +until-1200
                 font-size: 14px
@@ -108,7 +113,7 @@
                 font-size: 12px
 
             &:hover
-                color: var(--color-black)
+                color: var(--color-red)
 
             &:before
                 content: 'показать все'
@@ -123,24 +128,24 @@
             padding: 5px
 
         &-picture
-            margin-right: 24px
+            // margin-right: 24px
             flex-shrink: 0
-            padding: 10px
-            width: 70px
-            height: 70px
+            padding: 0
+            width: 30px
+            height: 27px
             display: flex
             align-items: center
             justify-content: center
+            margin-right: 10px
 
             +until-1200
-                margin-right: 15px
-                width: 50px
-                height: 50px
+                // margin-right: 15px
+                width: 25px
+                height: 25px
 
             +until-768
-                width: 40px
-                height: 40px
-                padding: 5px
+                width: 20px
+                height: 20px
 
         &-image
             display: block
@@ -149,12 +154,13 @@
             object-fit: contain
 
         &-name
-            max-width: calc(100% - 94px)
+            // max-width: calc(100% - 94px)
             color: inherit
             text-decoration: none
-            font-weight: 700
-            font-size: 15px
+            font-weight: 400
+            font-size: 14px
             line-height: 1.3
+            margin-inline: auto
 
             +until-1200
                 max-width: calc(100% - 65px)
@@ -172,5 +178,7 @@
 
 .catalog-screen__item-background
     +colors_to_selector('')
+    border-radius: 6px
     height: 100%
     width: 100%
+    box-shadow: 0 0 2px inset #ddd

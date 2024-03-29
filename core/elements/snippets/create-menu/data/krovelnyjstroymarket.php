@@ -154,8 +154,8 @@ function getMenuData()
             'column_tip' => [
                 ["uri" => "/rulonnaya-krovlya/?tip=%D0%9D%D0%B0%D0%BF%D0%BB%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D0%B0%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D1%8F", "name" => "Наплавляемая кровля"],
                 ["uri" => "/pvh-membrany/", "name" => "ПВХ мембраны"],
-                ["uri" => "/slanczevaya-krovlya/", "name" => "Рулонная черепица"],
-                ["uri" => "/rulonnaya-cherepicza/", "name" => "Сланцевая кровля"],
+                ["uri" => "/rulonnaya-cherepicza/", "name" => "Рулонная черепица"],
+                ["uri" => "/slanczevaya-krovlya/", "name" => "Сланцевая кровля"],
             ],
             'column_proizvoditel' => [
                 ["uri" => "/rulonnaya-krovlya-tehnonikol/", "name" => "Технониколь"],
@@ -293,6 +293,10 @@ function getMenuData()
                 ["uri" => "/proflist-dlya-perekryitij/", "name" => "Для перекрытий"],
                 ["uri" => "/proflist-dlya-fasada/", "name" => "Для фасада"],
                 ["uri" => "/proflist-dlya-garazha/", "name" => "Для гаража"],
+            ],
+            'column_proizvoditel' => [
+                ["uri" => "/proflist-grand-line/", "name" => "Grand Line"],
+                ["uri" => "/proflist-metall-profil/", "name" => "Металл Профиль"],
             ],
             'column_tolshina' => [
                 ["uri" => "/proflist/?item_thickness=1", "name" => "1"],
@@ -472,7 +476,7 @@ function getMenuData()
 
         if(array_key_exists('column_forma', $data[$key]))
         {
-            $data[$key]['column_forma'] = array_chunk($v['column_forma'], 10);
+            // $data[$key]['column_forma'] = array_chunk($v['column_forma'], 10);
         }
     }
     return $data;

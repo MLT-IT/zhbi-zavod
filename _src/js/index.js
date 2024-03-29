@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toCatalogBtnText = 'Каталог материалов';
     }
 
-    $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
+    // $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
 
     $('.h-menu__dropdown').scroll(function(){
         $('.h-catalog__column').not(':first').css('padding-top', $(this).scrollTop())
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Раскрытие тегов
     // -------------------------------
     let $catalogItemMoreBtn = $('.catalog-screen__item_type_more');
-    if ($catalogItemMoreBtn.length && $(document).width() > 992) {
+    if ($catalogItemMoreBtn.length) { // && $(document).width() > 992
         $catalogItemMoreBtn.on('click', function() {
             $(this).parent().add($catalogItemMoreBtn).toggleClass('active');
         });
@@ -472,4 +472,3 @@ function waitForYm(ymCounterNum, callback, interval) {
     if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
     setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
-

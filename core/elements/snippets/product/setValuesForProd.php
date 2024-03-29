@@ -82,7 +82,10 @@ if (empty($unit) || $unit == 'упаковка') {
 
 // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
 $result['condition'] = !in_array($src['parent'], [
-    93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336,
+    93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336, 
+
+    // osnova.spb штакетник, профлист
+    125541, 125537,
 
     // isoroc
     93247, 93260, 93259, 93258, 93257, 93256, 93255, 93254, 93253, 93252, 93251, 93250, 93249, 93248, 93233, 93246, 93245, 93244, 93243, 93242, 93241, 93240, 93239, 93238, 93237, 93236, 93235, 93234
@@ -211,7 +214,7 @@ if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
     $result['productKey'] = str_replace(',', '.', $result['productKey']);
 }
 
-if (count($result['itemUnits']) < 1 && $src['context_key'] != 'kraska') {
+if (count($result['itemUnits']) < 1 && !in_array($src['context_key'],['kraska','krovelnyjstroymarket'])) {
     $result['condition'] = false;
 }
 
