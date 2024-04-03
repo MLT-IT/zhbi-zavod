@@ -20,16 +20,25 @@
 
 		+until-480
 			grid-template-columns: 100%
+			grid-template-areas: "top" "bottom"
 			grid-gap: 20px 6px
+			
+	&__top
+		+until-480
+			grid-area: top
 
 	&__sorting
 		margin-top: 20px
+
 	&__filter
 		grid-row: 1 / -1
 		z-index: 100
 
 		+until-1200
 			grid-row: 1
+		
+		+until-480
+			grid-area: bottom
 
 	&__body
 		display: grid

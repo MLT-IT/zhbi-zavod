@@ -93,6 +93,7 @@
         padding: 7px
 
         &_type_more
+            display: none
             justify-content: center
             font-weight: 700
             font-size: 16px
@@ -103,7 +104,6 @@
             color: var(--color-gray)
             cursor: pointer
             transition: color .3s ease
-            display: none
             background-color: var(--color-gray-lt)
 
             +until-1200
@@ -117,6 +117,7 @@
 
             &:before
                 content: 'показать все'
+                padding-top: 5px
 
         &:hover
             box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
@@ -169,7 +170,7 @@
             font-weight: 400
             font-size: 14px
             line-height: 1
-            margin-inline: auto
+            // margin-inline: auto
 
             +until-1200
                 max-width: calc(100% - 65px)
@@ -184,6 +185,11 @@
     cursor: pointer
     display: inline-block
     border-bottom: 1px dashed silver
+
+    +until-768
+        font-size: 14px
+    +until-480
+        font-size: 12px
 
 .catalog-screen__item-background
     +colors_to_selector('')

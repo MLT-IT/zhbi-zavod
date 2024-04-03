@@ -71,7 +71,7 @@
         <div class="product-card__stats-wrap-only-different"></div>
     {/if}
 
-<div>
+<div class="product-card">
   <div class="product-card__price">
     <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
   </div>

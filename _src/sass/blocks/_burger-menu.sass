@@ -4,13 +4,14 @@
     left: 0
     z-index: 100
 
-    width: 100%
+    width: 100dvw
     height: calc(var(--app-height) - var(--header-height))
 
     background-color: var(--color-gray-lt)
     opacity: 0
 
     overflow-y: auto
+    overflow-x: hidden
     pointer-events: none
     transition: opacity .3s ease
 
@@ -69,6 +70,7 @@
 
             +until-480
                 border-bottom: 1px solid var(--color-gray-md)
+                font-size: 13px
 
             &:first-child
                 padding-left: 10px
@@ -96,6 +98,7 @@
         flex-basis: 94px
         flex-shrink: 0
         margin-right: 20px
+        overflow: hidden
 
         &:hover
             .bm-cat-item__picture
@@ -120,6 +123,7 @@
 
     &__content
         padding-top: 10px
+        overflow: hidden
 
     &__name
         margin-bottom: 12px
