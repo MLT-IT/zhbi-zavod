@@ -30,6 +30,14 @@ function init() {
             $comparison.toggleClass('sect-comparison_only-different');
             refreshOptions();
         });
+        // Для нового переключателя Все/Только отличающиеся
+        const radios = document.querySelectorAll('.custom-toggle__input');
+        if(radios.length){
+            radios.forEach((opt) => opt.addEventListener('change', () => {
+                $comparison.toggleClass('sect-comparison_only-different');
+                refreshOptions();
+            }));
+        }
 
         // Работа с характеристиками
         refreshOptions();
@@ -230,6 +238,13 @@ function refreshOptions() {
     } else {
         charsWrapSelector = '.product-card__stats-wrap-default';
     }
+    // Установка переменных charsWrapSelector и removeDuplicates для нового тоглера
+    if ($('.custom-toggle__input').value === 'all') {
+        charsWrapSelector = '.product-card__stats-wrap-only-different';
+        removeDuplicates = true;
+    } else {
+        charsWrapSelector = '.product-card__stats-wrap-default';
+    }
 
     // Массив, где ключи - это название опций, а значения - это объект типа: {id товара: значение опции}
     let options = [];
@@ -249,14 +264,14 @@ function refreshOptions() {
             let key = functions.trim($opt.find('.product-card__chars-span').html());
 
             let val = functions.trim($opt.find('.product-card__chars-val').html());
-            console.log(val);
+            // console.log(val);
             if (typeof options[key] === 'undefined') {
                 options[key] = [];
             }
             options[key][id] = val;
         });
+        console.log('OPTIONS COUNT: ', options.length);
     });
-
     if (removeDuplicates) {
         // Массив с названием опций, которые являются одинаковыми во всех карточках
         var duplicates = [];
@@ -265,7 +280,7 @@ function refreshOptions() {
     // Проходимся по всем опциям
     for (let opt in options) {
         // Проходимся по всем товарам
-        itemsIds.forEach(function (id, index) {
+        itemsIds.forEach(function (id) {
             // У тех товаров, где опция не заполнена, ставим прочерк
             if (typeof options[opt][id] === 'undefined') {
                 options[opt][id] = '-';
@@ -317,7 +332,7 @@ function refreshOptions() {
         $('.js-product input[name="id"][value="' + id + '"]').each(function () {
             // Контейнер, где находятся все опции
             let $optionsWrap = $(this).closest('.js-product').find(charsWrapSelector);
-            console.log($optionsWrap);
+            // console.log($optionsWrap);
             // Очищаем этот контейнер
             $optionsWrap.html('');
 
