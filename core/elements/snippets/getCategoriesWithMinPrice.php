@@ -15,7 +15,7 @@ class getCategoriesWithMinPrice
         $join = '';
         foreach (self::$brandsAndCategories as $brand => $categoriesIds) {
             $select[] = "REPLACE(MIN($brand.price), '.00', '') AS $brand";
-            $join .= "LEFT JOIN modx_ms2_products as $brand ON $brand.id = resources.id AND resources.parent IN ($categoriesIds)";
+            $join .= " LEFT JOIN modx_ms2_products as $brand ON $brand.id = resources.id AND resources.parent IN ($categoriesIds)";
         }
         $select = implode(',', $select);
 
@@ -24,7 +24,6 @@ class getCategoriesWithMinPrice
         FROM modx_site_content AS resources
         INNER JOIN modx_ms2_products AS products ON products.id = resources.id
         $join";
-
         // Выполняем SQL-запрос
         $data = $modx->query($query);
         $data = $data->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +32,7 @@ class getCategoriesWithMinPrice
         // Заменяем ключи
         $result = [];
         foreach ($data as $key => $val) {
-            $result[self::$brandsIds[$key]] = $val;
+            $result[self::$brandsIds[$key]] = $val != NULL ? $val : '0'; // пришлось добавить по умолчанию 0, у некоторых brandsIds нет детей
         }
 
         // Возвращаем значение
@@ -150,6 +149,7 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = [
                     'grunty' => '102922,103081,103082,103462,103463,107934',
+                    // 'grunty' => '102922',
                     'voddis' => '103255',
                     'pokder' => '103193,103194,103471,106607,112002,112003,115691',
                     'emali' => '117397',
