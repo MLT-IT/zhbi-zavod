@@ -504,13 +504,13 @@
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                         <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
                     </svg>
-                    <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
+                    <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
                     </p>
                     <p class="product-info__undertext-span">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                             <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
                         </svg>
-                        <span class="product-info__undertext-span-header">Доставка:</span> 1-2 дня
+                        <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
                     </p>
                   </div>
               {/if}
