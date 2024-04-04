@@ -31,13 +31,10 @@ function init() {
             refreshOptions();
         });
         // Для нового переключателя Все/Только отличающиеся
-        const radios = document.querySelectorAll('.custom-toggle__input');
-        if(radios.length){
-            radios.forEach((opt) => opt.addEventListener('change', () => {
-                $comparison.toggleClass('sect-comparison_only-different');
-                refreshOptions();
-            }));
-        }
+        $('.custom-toggle__input').on('change', function () {
+            $comparison.toggleClass('sect-comparison_only-different');
+            refreshOptions();
+        });
 
         // Работа с характеристиками
         refreshOptions();
@@ -239,7 +236,7 @@ function refreshOptions() {
         charsWrapSelector = '.product-card__stats-wrap-default';
     }
     // Установка переменных charsWrapSelector и removeDuplicates для нового тоглера
-    if ($('.custom-toggle__input').value === 'all') {
+    if ($('.custom-toggle__input').is(':checked')) {
         charsWrapSelector = '.product-card__stats-wrap-only-different';
         removeDuplicates = true;
     } else {
@@ -270,7 +267,6 @@ function refreshOptions() {
             }
             options[key][id] = val;
         });
-        console.log('OPTIONS COUNT: ', options.length);
     });
     if (removeDuplicates) {
         // Массив с названием опций, которые являются одинаковыми во всех карточках
@@ -321,14 +317,14 @@ function refreshOptions() {
     if (removeDuplicates) {
         for (let opt in options) {
             if (duplicates.indexOf(opt) !== -1) {
-                console.log("Удален " + opt);
+                // console.log("Удален " + opt);
                 delete options[opt];
             }
         }
     }
 
     // Проходимся по всем карточкам и выводим опции
-    itemsIds.forEach(function (id, index) {
+    itemsIds.forEach(function (id) {
         $('.js-product input[name="id"][value="' + id + '"]').each(function () {
             // Контейнер, где находятся все опции
             let $optionsWrap = $(this).closest('.js-product').find(charsWrapSelector);

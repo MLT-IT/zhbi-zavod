@@ -1,5 +1,58 @@
 .comparison
-  .custom-toggler
+  &__toggle-title 
+    margin-bottom: 15px
+    font-size: 14px
+  .custom-toggle
+    position: relative
     margin-bottom: 20px
+    display: flex
+    gap: 10px
+    &__input
+      width: 0
+      height: 0
+      position: absolute
+      font-size: 0
+      opacity: 0
+      & + label
+        span:nth-of-type(1)
+          background-color: var(--color-red)
+          color: var(--color-white)
+          cursor: pointer
+          pointer-events: all
+        span:nth-of-type(2)
+          background-color: var(--color-white)
+          color: var(--color-red)
+          cursor: default
+          pointer-events: none
+      &:checked + label
+        span:nth-of-type(1)
+          background-color: var(--color-white)
+          color: var(--color-red)
+          cursor: default
+          pointer-events: none
+        span:nth-of-type(2)
+          background-color: var(--color-red)
+          color: var(--color-white)
+          cursor: pointer
+          pointer-events: all
+        
+    &__label
+
+    &__button
+      padding: 10px
+      border-radius: var(--border-radius-base)
+      border: 1px solid var(--color-red)
+      background-color: var(--color-white)
+      color: var(--color-red)
+      cursor: pointer
+      pointer-events: all
+      font-size: 14px
+      font-weight: 600
+      text-transform: uppercase
+      &:hover 
+        background-color: var(--color-red)
+        color: var(--color-white)
+      
+      
   // &__toggle
   //   margin-bottom: 20px
