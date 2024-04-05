@@ -14,6 +14,9 @@
       {set $unit = 'м2'}
   {/if}
 {/if}
+{if $_modx->resource.context_key == 'kraska'}
+  {set $unit = 'упаковку'}
+{/if}
 
 
 <a href="{$uri}" class="swiper-slide preview-card">
@@ -25,4 +28,3 @@
   <span class="preview-card__notion">Стоимость за 1 {$unit}</span>
   <span class="preview-card__btn btn btn_style_shadow">перейти</span>
 </a>
-
