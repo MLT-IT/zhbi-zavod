@@ -137,7 +137,7 @@ class getCategoriesWithMinPrice
             case 'kraska':
                 static::$brandsIds = [
                     'grunty' => 102922,
-                    'voddis' => 103255,
+                    // 'voddis' => 103255, // seo категория, не хочет выбирать, надо бы tv поле добавить и его читать
                     'pokder' => 103193,
                     'emali' => 117397,
                     'laki' => 113157,
@@ -149,8 +149,7 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = [
                     'grunty' => '102922,103081,103082,103462,103463,107934',
-                    // 'grunty' => '102922',
-                    'voddis' => '103255',
+                    // 'voddis' => '103255',
                     'pokder' => '103193,103194,103471,106607,112002,112003,115691',
                     'emali' => '117397',
                     'laki' => '113157',
@@ -160,6 +159,21 @@ class getCategoriesWithMinPrice
                     'instr' => '120953',
                     'dobsuh' => '107935',
                 ];
+
+                // static::$brandsAndCategories = [];
+                foreach (static::$brandsIds as $key => $value) {
+                    $childCats = $modx->runSnippet('pdoResources', [
+                        // 'tpl' => '@INLINE {$id},',
+                        'returnIds' => 1,
+                        'parents' => $value,
+                        'limit' => 0,
+                        'select' => 'id',
+                        'depth' => 999,
+                        'where' => '{"class_key":"msCategory"}'
+                    ]);
+                    static::$brandsAndCategories[$key] = $childCats ? static::$brandsIds[$key].','.$childCats : static::$brandsIds[$key];
+                }
+                // var_dump(static::$brandsAndCategories);
                 break;
 
             case 'suhiesmesi':
@@ -215,7 +229,8 @@ $cacheOptions = [
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     $result = getCategoriesWithMinPrice::getValues();
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
-};
+}
+;
 
 // Оборачиваем данные в чанк
 $pdo = $modx->getService('pdoTools');
