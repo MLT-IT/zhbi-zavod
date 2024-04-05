@@ -11,6 +11,9 @@
         {case 'web'}
           {set $logo = 'alterteplo.png'}
           {set $logoMobile = 'alterteplo.png'}
+        {case 'plitnye'}  
+          {set $logo = 'alterteplo.png'}
+          {set $logoMobile = 'alterteplo.png'}
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
@@ -53,6 +56,8 @@
               {set $text = 'утеплителей'}
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
+            {case 'plitnye'}
+              {set $text = 'плит'}  
             {case 'kraska'}
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}

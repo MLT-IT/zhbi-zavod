@@ -4,6 +4,8 @@
       {switch $_modx->resource.context_key}
         {case 'web'}
           {set $text = 'утеплителей'}
+        {case 'plitnye'}
+          {set $text = 'плит'}
         {case 'gazosilikatstroy'}
           {set $text = 'газобетона'}
         {case 'kraska'}
