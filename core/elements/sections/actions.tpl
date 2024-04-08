@@ -15,7 +15,7 @@
     {set $imageBanerMobile2 = "assets/template/pictures/promo/promo-2.jpg"}
     {set $titleBaner2 = "Газобетон D200 по 4 500 Ꝑ/м3"}
     {set $textBaner2 = "Скидка 20% на новый газобетон D200"}
-    {set $linkBaner2 = "/gazobeton-lsr/?msoption|plotnost-ob=D200"}
+    {set $linkBaner2 = "/gazobeton-lsr/?plotnost-ob=D200"}
     {set $buttonLinkBaner2 = "Узнать подробности акции"}
 
     {set $imageBaner3 = "assets/template/pictures/promo/promo-3.jpg"}

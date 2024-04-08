@@ -1,6 +1,7 @@
 <?
 if (!function_exists('composeOptionFilters')) {
-    function composeOptionFilters($options) {
+    function composeOptionFilters($options)
+    {
         global $modx;
 
         $optionValues = [];
@@ -20,7 +21,8 @@ if (!function_exists('composeOptionFilters')) {
     }
 }
 if (!function_exists('getIdsFromString')) {
-    function getIdsFromString($string) {
+    function getIdsFromString($string)
+    {
         if (empty($string)) {
             return [];
         } else {
@@ -29,8 +31,24 @@ if (!function_exists('getIdsFromString')) {
     }
 }
 
+if (!function_exists('findValueByPid')) {
+    function findValueByPid($array, $pid, $search_field = 'product_id')
+    {
+        foreach ($array as $element) {
+            if (isset($element[$search_field]) && $element[$search_field] == $pid) {
+                return $element['value'];
+            }
+        }
+        // Return null if the element with the required 'pid' is not found
+        return null;
+    }
+}
+
 $parentId = $modx->resource->parent;
 $thisId = $modx->resource->id;
+
+$additionalOption = 'plotnost'; // for Boswool
+$additionalPid = [168262];
 
 $thisThick;
 
@@ -50,73 +68,88 @@ $params = [
 $idsInParent = $modx->runSnippet('pdoResources', $params);
 
 $idsForThickness = $modx->runSnippet('msProducts', array_merge($params, [
-    'optionFilters' => composeOptionFilters(['item_width','item_length','produktovaya-lineyka'])
+    'optionFilters' => composeOptionFilters(['item_width', 'item_length', 'produktovaya-lineyka'])
 ]));
 
 
-$idsForThickness1 = str_replace(",",", ",$idsForThickness);
-$idsForThickness1 = "(".$idsForThickness1.")";
+$idsForThickness1 = str_replace(",", ", ", $idsForThickness);
+$idsForThickness1 = "(" . $idsForThickness1 . ")";
 
-$sql = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` in ".$idsForThickness1;
+// для Boswool добавка плотности, надо бы алгоритмизировать
+if (in_array($parentId, $additionalPid)) {
+    $sqlPlotnost = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'plotnost' AND `product_id` in " . $idsForThickness1;
+    $requestPlotnost = $modx->prepare($sqlPlotnost);
+    if ($requestPlotnost->execute()) {
+        $itemsPlotnost = $requestPlotnost->fetchAll(PDO::FETCH_ASSOC);
+        $thisPlot = $itemsPlotnost[0]['value'];
+        $itemsPlotnost[] = ['product_id' => $thisId, 'key' => 'plotnost', 'value' => $thisPlot];
+    }
+}
+
+$sql = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` in " . $idsForThickness1;
 $statement = $modx->prepare($sql);
-if ( $statement->execute()) {
+if ($statement->execute()) {
     $items = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
+
     //print_r($items);
 
-    $sql1 = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` = ".$thisId;
+    $sql1 = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` = " . $thisId;
     $statement1 = $modx->prepare($sql1);
-    if ( $statement1->execute()) {
+    if ($statement1->execute()) {
         $items1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
         $thisThick = $items1[0]['value'];
     }
 
 
-    function sortByValue($a, $b){
+    function sortByValue($a, $b)
+    {
         return $a['value'] > $b['value'];
     }
-    $items[]=['product_id'=>$thisId,'key'=>'item_thickness','value'=>$thisThick];
-    usort($items, 'sortByValue');
+    $items[] = ['product_id' => $thisId, 'key' => 'item_thickness', 'value' => $thisThick];
+    usort($items, 'sortByValue'); // SORTED
 
-        
+
     $options = "";
-    $selected= "";    
-    foreach ($items as $item){
-        if($item['product_id'] === $thisId){
-            $selected=$item['value'];
+    $selected = "";
+    foreach ($items as $item) {
+        // для Baswool добавка плотности, надо бы как-то алгоритмизировать
+        if (in_array($parentId, $additionalPid) && count($itemsPlotnost) > 0) {
+            $item['plotnost'] = findValueByPid($itemsPlotnost, $item['product_id']);
         }
-        if($item['value']!=""){
-            $options = $options.'<a href="'.$url = $modx->makeUrl($item['product_id'], '', '', 'full').'" class="euv-custom-select__option">'.$item['value'].' мм</a>';
+        if ($item['product_id'] === $thisId) {
+            $selected = $item['value'];
+        }
+        if ($item['value'] != "") {
+            $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? '(' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
         }
     }
+    var_dump($items);
 
-    $result = $result.'<div class="product-info__top"><div class="product-info__grid">';
-    $result = $result.'<div class="product-info__relinkav_wrapper">'; 
-    $result = $result.'<span class="product-info__volume-title">Толщина:</span>';
-    $result = $result.'<div class="product-info__relinkav">'; 
-    $result = $result.'<div class="product-info__euv-custom-select euv-custom-select">'; 
+    $result = $result . '<div class="product-info__top"><div class="product-info__grid">';
+    $result = $result . '<div class="product-info__relinkav_wrapper">';
+    $result = $result . '<span class="product-info__volume-title">Толщина' . ($item['plotnost'] ? ' (Плотность)' : '') . ':</span>';
+    $result = $result . '<div class="product-info__relinkav">';
+    $result = $result . '<div class="product-info__euv-custom-select euv-custom-select">';
 
-    $result = $result.'<div class="euv-custom-select__input">';
-    $result = $result.'<span class="euv-custom-select__input-value">'.$selected.' мм</span>'; 
-    $result = $result.'</div>'; 
-    $result = $result.'<span class="euv-custom-select__btn"></span>';  
+    $result = $result . '<div class="euv-custom-select__input">';
+    $result = $result . '<span class="euv-custom-select__input-value">' . $selected . ' мм' . ($item['plotnost'] ? ' (' . $item['plotnost'] . ' кг/м3)' : '') . '</span>';
+    $result = $result . '</div>';
+    $result = $result . '<span class="euv-custom-select__btn"></span>';
 
-    $result = $result.'<div class="euv-custom-select__options-wrap" style="display: none;">';
+    $result = $result . '<div class="euv-custom-select__options-wrap" style="display: none;">';
 
-    $result = $result.$options;
+    $result = $result . $options;
 
-    $result = $result.'</div>';
-    $result = $result.'</div>';
-    $result = $result.'</div>';
-    $result = $result.'</div>';
-    $result = $result.'</div></div>';
+    $result = $result . '</div>';
+    $result = $result . '</div>';
+    $result = $result . '</div>';
+    $result = $result . '</div>';
+    $result = $result . '</div></div>';
 }
 
 
-if($options!=""){
+if ($options != "") {
     return $result;
-}
-else{
+} else {
     return "";
 }
-
