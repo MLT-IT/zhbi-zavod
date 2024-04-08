@@ -123,7 +123,6 @@ if ($statement->execute()) {
             $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? '(' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
         }
     }
-    var_dump($items);
 
     $result = $result . '<div class="product-info__top"><div class="product-info__grid">';
     $result = $result . '<div class="product-info__relinkav_wrapper">';
