@@ -257,7 +257,7 @@
 	&__stats
 		display: none
 		flex-direction: column
-		overflow-y: auto
+		// overflow-y: auto
 		width: 100%
 
 		&-wrap
@@ -331,13 +331,13 @@
 			&:after
 				transform: rotate(-135deg)
 
-	&
-		+from-768
-			.product-card__stats
-				display: flex
-				flex-direction: column
-				.product-card__stats_trigger
-					display: none
+	+from-768
+		.product-card__stats
+			display: flex
+			flex-direction: column
+		.product-card__stats_trigger
+			display: none
+
 	&__stat
 		display: flex
 		align-items: flex-end
@@ -611,10 +611,10 @@
 				padding: 6px
 
 	&__chars-line
-		padding-bottom: 8px
-		margin-bottom: 10px
+		margin-bottom: 14px
+		// margin-bottom: 10px
 		@media screen and (max-width: 768px)
-			margin-bottom: 15px
+			margin-bottom: 12px
 		&.hover
 			background: #eee
 
