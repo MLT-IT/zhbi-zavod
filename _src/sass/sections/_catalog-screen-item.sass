@@ -1,4 +1,5 @@
 .catalog-screen__item_type
+
     @at-root .not-main-category &
         &_more
             @media screen and (min-width: $bp992)
@@ -32,6 +33,42 @@
 
             @media screen and (max-width: bp-max($bp480))
                 &:nth-of-type(n+4)
+                    display: none
+
+.catalog-screen__tag_type
+    @at-root .not-main-category &
+        &_more
+            @media screen and (min-width: $bp992)
+                &:nth-of-type(n+6)
+                    display: flex
+
+            @media screen and (min-width: $bp768) and (max-width: bp-max($bp992))
+                &:nth-of-type(n+5)
+                    display: flex
+
+            @media screen and (min-width: $bp480) and (max-width: bp-max($bp768))
+                &:nth-of-type(n+4)
+                    display: flex
+
+            @media screen and (max-width: bp-max($bp480))
+                &:nth-of-type(n+3)
+                    display: flex
+
+        &_default
+            @media screen and (min-width: $bp992)
+                &:nth-of-type(n+10)
+                    display: none
+
+            @media screen and (min-width: $bp768) and (max-width: bp-max($bp992))
+                &:nth-of-type(n+4)
+                    display: none
+
+            @media screen and (min-width: $bp480) and (max-width: bp-max($bp768))
+                &:nth-of-type(n+3)
+                    display: none
+
+            @media screen and (max-width: bp-max($bp480))
+                &:nth-of-type(n+2)
                     display: none
 
     @at-root .main-category &

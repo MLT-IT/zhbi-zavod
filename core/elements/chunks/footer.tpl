@@ -179,6 +179,8 @@
       {switch $_modx->resource.context_key}
         {case 'web'}
           {set $params['parents'] = 4}
+          {set $params['sortby'] = 'menuindex'}
+          {set $params['sortdir'] = 'ASC'}
         {case 'gazosilikatstroy'}
           {set $resources = '101938,101936,101934,101932,101937,101929,101930,101933,101935,101931'}
           {set $params['resources'] = $resources}
