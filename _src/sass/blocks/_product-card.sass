@@ -331,13 +331,14 @@
 			&:after
 				transform: rotate(-135deg)
 
-	+from-768
-		.product-card__stats
-			display: flex
-			flex-direction: column
-		.product-card__stats_trigger
-			display: none
-
+	&
+		+from-768
+				.product-card__stats
+					height: 100%
+					display: flex
+					flex-direction: column
+				.product-card__stats_trigger
+					display: none
 	&__stat
 		display: flex
 		align-items: flex-end
