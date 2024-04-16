@@ -16,7 +16,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/rockwool/',
                 'name' => 'Утеплитель Rockwool',
-                'img' => '/assets/template/img/brands/rockwool.jpg'
+                'img' => '/assets/template/img/brands-webp/rockwool.webp'
             ],
             'column2' => [
                 [
@@ -266,7 +266,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/yumateks-termo/',
                 'name' => 'Утеплитель Юматекс',
-                'img' => '/assets/template/img/brands/umatex.jpg',
+                'img' => '/assets/template/img/brands-webp/umatex.webp',
                 'label' => true
             ],
             'column2' => [
@@ -555,7 +555,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/tn/',
                 'name' => 'Утеплитель Технониколь',
-                'img' => '/assets/template/img/brands/tehnonikol.jpg'
+                'img' => '/assets/template/img/brands-webp/tehnonikol.webp'
             ],
             'column2' => [
                 [
@@ -799,7 +799,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/penoplex/',
                 'name' => 'Утеплитель Penoplex',
-                'img' => '/assets/template/img/brands/penoplex.jpg'
+                'img' => '/assets/template/img/brands-webp/penoplex.webp'
             ],
             'column2' => [
                 [
@@ -935,7 +935,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/knauf/',
                 'name' => 'Утеплитель Knauf',
-                'img' => '/assets/template/img/brands/brand-knauf.png'
+                'img' => '/assets/template/img/brands-webp/brand-knauf.webp'
             ],
             'column2' => [
                 [
@@ -1087,7 +1087,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/paroc/',
                 'name' => 'Утеплитель Paroc',
-                'img' => '/assets/template/img/brands/paroc.jpg'
+                'img' => '/assets/template/img/brands-webp/paroc.webp'
             ],
             'column2' => [
                 [
@@ -1259,7 +1259,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/ursa/',
                 'name' => 'Утеплитель Ursa',
-                'img' => '/assets/template/img/brands/ursa.png'
+                'img' => '/assets/template/img/brands-webp/ursa.webp'
             ],
             'column2' => [
                 [
@@ -1375,7 +1375,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/isover/',
                 'name' => 'Утеплитель Isover',
-                'img' => '/assets/template/img/brands/isover.jpg'
+                'img' => '/assets/template/img/brands-webp/isover.webp'
             ],
             'column2' => [
                 [
@@ -1615,7 +1615,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/isoroc/',
                 'name' => 'Утеплитель Isoroc',
-                'img' => '/assets/template/img/brands/isoroc.jpg'
+                'img' => '/assets/template/img/brands-webp/isoroc.webp'
             ],
             'column2' => [
                 [

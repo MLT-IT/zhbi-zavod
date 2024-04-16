@@ -10,13 +10,29 @@ function getMenuData() {
     $paroc = 93188;
     $ursa = 93192;
     $isoroc = 93186;
+    $tizol = 175241; // Утеплитель Тизол 
+    $baswool = 168218; // Утеплитель Baswool 
+    $ruspanel = 167836; // Утеплитель Ruspanel
+    $hotrock = 167657; // Утеплитель Hotrock
+    $xotpipe = 167718; // Утеплитель Xotpipe
+    $ecover = 167266; // Утеплитель Эковер
+    $timplex = 167264; // Утеплитель Тимплэкс
+    $isovol = 167265; // Утеплитель Изовол
+    $basfiber = 167263; // Утеплитель Basfiber
+    $termit = 167262; // Утеплитель Термит
+    $teplex = 167260; // Утеплитель Теплекс
+    $isomin = 167261; // Утеплитель Изомин
+    $brit = 167217; // Рулонная кровля Брит
+    // $dirok = 168256; // Рулонная кровля Дирок
+    // $isotec = 168257; // Рулонная кровля Isotec
+    // $beltep = 168258; // Рулонная кровля Белтеп
 
     $data = [
         $rockwool => [
             'column1' => [
                 'uri' => '/rockwool/',
                 'name' => 'Утеплитель Rockwool',
-                'img' => '/assets/template/img/brands/rockwool.jpg'
+                'img' => '/assets/template/img/brands-webp/rockwool.webp'
             ],
             'column2' => [
                 [
@@ -266,7 +282,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/yumateks-termo/',
                 'name' => 'Утеплитель Юматекс',
-                'img' => '/assets/template/img/brands/umatex.jpg',
+                'img' => '/assets/template/img/brands-webp/umatex.webp',
                 'label' => true
             ],
             'column2' => [
@@ -555,7 +571,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/tn/',
                 'name' => 'Утеплитель Технониколь',
-                'img' => '/assets/template/img/brands/tehnonikol.jpg'
+                'img' => '/assets/template/img/brands-webp/tehnonikol.webp'
             ],
             'column2' => [
                 [
@@ -799,7 +815,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/penoplex/',
                 'name' => 'Утеплитель Penoplex',
-                'img' => '/assets/template/img/brands/penoplex.jpg'
+                'img' => '/assets/template/img/brands-webp/penoplex.webp'
             ],
             'column2' => [
                 [
@@ -935,7 +951,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/knauf/',
                 'name' => 'Утеплитель Knauf',
-                'img' => '/assets/template/img/brands/brand-knauf.png'
+                'img' => '/assets/template/img/brands-webp/brand-knauf.webp'
             ],
             'column2' => [
                 [
@@ -1087,7 +1103,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/paroc/',
                 'name' => 'Утеплитель Paroc',
-                'img' => '/assets/template/img/brands/paroc.jpg'
+                'img' => '/assets/template/img/brands-webp/paroc.webp'
             ],
             'column2' => [
                 [
@@ -1259,7 +1275,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/ursa/',
                 'name' => 'Утеплитель Ursa',
-                'img' => '/assets/template/img/brands/ursa.png'
+                'img' => '/assets/template/img/brands-webp/ursa.webp'
             ],
             'column2' => [
                 [
@@ -1375,7 +1391,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/isover/',
                 'name' => 'Утеплитель Isover',
-                'img' => '/assets/template/img/brands/isover.jpg'
+                'img' => '/assets/template/img/brands-webp/isover.webp'
             ],
             'column2' => [
                 [
@@ -1615,7 +1631,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/isoroc/',
                 'name' => 'Утеплитель Isoroc',
-                'img' => '/assets/template/img/brands/isoroc.jpg'
+                'img' => '/assets/template/img/brands-webp/isoroc.webp'
             ],
             'column2' => [
                 [
@@ -1790,7 +1806,1225 @@ function getMenuData() {
                     "name" => "150",
                 ],
             ]
-        ]
+        ],
+        $tizol => [
+            'column1' => [
+                'uri' => '/uteplitel-tizol/',
+                'name' => 'Утеплитель Tizol',
+                'img' => '/assets/template/img/brands-webp/tizol.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-lajt-25/",
+                    "name" => "Euro-ЛАЙТ 25",
+                    "popular" => 1
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-lajt-30/",
+                    "name" => "Euro-ЛАЙТ 30"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-lajt-35/",
+                    "name" => "Euro-ЛАЙТ 35"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-lajt-50/",
+                    "name" => "Euro-ЛАЙТ 50"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-blok/",
+                    "name" => "Euro-БЛОК"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-vent/",
+                    "name" => "Euro-ВЕНТ"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-vent-v/",
+                    "name" => "Euro-ВЕНТ В"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-vent-n/",
+                    "name" => "Euro-ВЕНТ Н"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-ruf-n/",
+                    "name" => "Euro-РУФ Н"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-ruf/",
+                    "name" => "Euro-РУФ"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-ruf-v/",
+                    "name" => "Euro-РУФ В"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-ruf-v-super/",
+                    "name" => "Euro-РУФ В Супер"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-fasad/",
+                    "name" => "Euro-ФАСАД"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-fasad-optima/",
+                    "name" => "Euro-ФАСАД ОПТИМА"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-euro-fasad-universal/",
+                    "name" => "Euro-ФАСАД УНИВЕРСАЛ"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-blok-50/",
+                    "name" => "БЛОК 50"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-vent-v-90/",
+                    "name" => "ВЕНТ В 90"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-vent-n-40/",
+                    "name" => "ВЕНТ Н 40"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-n-90/",
+                    "name" => "РУФ Н 90"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-n-100/",
+                    "name" => "РУФ Н 100"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-n-110/",
+                    "name" => "РУФ Н 110"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-n-120/",
+                    "name" => "РУФ Н 120"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-135/",
+                    "name" => "РУФ 135"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-150/",
+                    "name" => "РУФ 150"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-v-160/",
+                    "name" => "РУФ В 160"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-ruf-v-170/",
+                    "name" => "РУФ В 170"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-fasad-100/",
+                    "name" => "ФАСАД 100"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-fasad-110/",
+                    "name" => "ФАСАД 110"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-myagkaya-pm-40/",
+                    "name" => "Плита мягкая ПМ-40"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-myagkaya-pm-50/",
+                    "name" => "Плита мягкая ПМ-50"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-60/",
+                    "name" => "Плита полужесткая ПП-60"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-70/",
+                    "name" => "Плита полужесткая ПП-70"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-80/",
+                    "name" => "Плита полужесткая ПП-80"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-100/",
+                    "name" => "Плита жесткая ПЖ-100"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-120/",
+                    "name" => "Плита жесткая ПЖ-120"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-140/",
+                    "name" => "Плита жесткая ПЖ-140"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-160/",
+                    "name" => "Плита повышенной жесткости ППЖ-160"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-180/",
+                    "name" => "Плита повышенной жесткости ППЖ-180"
+                ],
+                [
+                    "uri" => "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-200/",
+                    "name" => "Плита повышенной жесткости ППЖ-200"
+                ],               
+            ],
+            'column3' => [
+                [
+                    "name" => "20",
+                    "uri" => "/uteplitel-tizol/?item_thickness=20"
+                ],
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-tizol/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-tizol/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-tizol/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-tizol/?item_thickness=60"
+                ],
+                [
+                    "name" => "70",
+                    "uri" => "/uteplitel-tizol/?item_thickness=70"
+                ],
+                [
+                    "name" => "80",
+                    "uri" => "/uteplitel-tizol/?item_thickness=80"
+                ],
+                [
+                    "name" => "90",
+                    "uri" => "/uteplitel-tizol/?item_thickness=90"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-tizol/?item_thickness=100"
+                ],
+                [
+                    "name" => "110",
+                    "uri" => "/uteplitel-tizol/?item_thickness=110"
+                ],
+                [
+                    "name" => "120",
+                    "uri" => "/uteplitel-tizol/?item_thickness=120"
+                ],
+                [
+                    "name" => "130",
+                    "uri" => "/uteplitel-tizol/?item_thickness=130"
+                ],
+                [
+                    "name" => "140",
+                    "uri" => "/uteplitel-tizol/?item_thickness=140"
+                ],
+                [
+                    "name" => "150",
+                    "uri" => "/uteplitel-tizol/?item_thickness=150"
+                ],
+                [
+                    "name" => "160",
+                    "uri" => "/uteplitel-tizol/?item_thickness=160"
+                ],
+                [
+                    "name" => "170",
+                    "uri" => "/uteplitel-tizol/?item_thickness=170"
+                ],
+                [
+                    "name" => "180",
+                    "uri" => "/uteplitel-tizol/?item_thickness=180"
+                ],
+                [
+                    "name" => "190",
+                    "uri" => "/uteplitel-tizol/?item_thickness=190"
+                ],
+                [
+                    "name" => "200",
+                    "uri" => "/uteplitel-tizol/?item_thickness=200"
+                ],
+                [
+                    "name" => "210",
+                    "uri" => "/uteplitel-tizol/?item_thickness=210"
+                ],
+                [
+                    "name" => "220",
+                    "uri" => "/uteplitel-tizol/?item_thickness=220"
+                ],
+                [
+                    "name" => "230",
+                    "uri" => "/uteplitel-tizol/?item_thickness=230"
+                ],
+                [
+                    "name" => "240",
+                    "uri" => "/uteplitel-tizol/?item_thickness=240"
+                ],
+                [
+                    "name" => "250",
+                    "uri" => "/uteplitel-tizol/?item_thickness=250"
+                ]
+               
+            ]
+        ],
+        $baswool => [
+            'column1' => [
+                'uri' => '/uteplitel-baswool/',
+                'name' => 'Утеплитель Baswool',
+                'img' => '/assets/template/img/brands-webp/baswool.webp'
+            ],
+            'column2' => [
+
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool-ruf/",
+                    "name" => "Baswool Руф",
+                    "popular" => 1
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool-lajt/",
+                    "name" => "Baswool Лайт"
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool-fasad/",
+                    "name" => "Baswool Фасад"
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool-ruf-n/",
+                    "name" => "Baswool Руф Н"
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool-vent-fasad/",
+                    "name" => "Baswool Вент Фасад"
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/uteplitel-baswool/",
+                    "name" => "Baswool Стандарт"
+                ]
+                   
+                                  
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/isoroc/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+                [
+                    "uri" => "/uteplitel-baswool/?item_thickness=30",
+                    "name" => "30",
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/?item_thickness=40",
+                    "name" => "40",
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/?item_thickness=50",
+                    "name" => "50",
+                ],
+                [
+                    "uri" => "/uteplitel-baswool/?item_thickness=100",
+                    "name" => "100",
+                ],             
+            ]
+        ],
+        $ruspanel => [
+            'column1' => [
+                'uri' => '/uteplitel-ruspanel/',
+                'name' => 'Утеплитель Ruspanel',
+                'img' => '/assets/template/img/brands-webp/ruspanel.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-ruspanel/rpg-gradient/",
+                    "name" => "Ruspanel RPG Градиент"
+                ],
+                [
+                    "uri" => "/uteplitel-ruspanel/ship-paz/",
+                    "name" => "Ruspanel шип-паз"
+                ],
+                [
+                    "uri" => "/uteplitel-ruspanel/rpg-basic/",
+                    "name" => "Ruspanel RPG Basic"
+                ],
+                [
+                    "uri" => "/uteplitel-ruspanel/rpg-optima/",
+                    "name" => "Ruspanel RPG Optima"
+                ],
+                [
+                    "uri" => "/uteplitel-ruspanel/rpg-real/",
+                    "name" => "Ruspanel RPG Real"
+                ],
+                [
+                    "uri" => "/uteplitel-ruspanel/l-kromka/",
+                    "name" => "Ruspanel L кромка"
+                ],
+               
+                   
+                                  
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/isoroc/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+                [
+                    "name" => "6",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=6"
+                ],
+                [
+                    "name" => "10",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=10"
+                ],
+                [
+                    "name" => "12",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=12"
+                ],
+                [
+                    "name" => "15",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=15"
+                ],
+                [
+                    "name" => "20",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=20"
+                ],
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=60"
+                ],
+                [
+                    "name" => "80",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=80"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-ruspanel/?item_thickness=100"
+                ], 
+            ]
+        ],
+        $hotrock => [
+            'column1' => [
+                'uri' => '/uteplitel-hotrock/',
+                'name' => 'Утеплитель Hotrock',
+                'img' => '/assets/template/img/brands-webp/hotrock.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-hotrock/lajt-ehko/",
+                    "name" => "Лайт ЭКО"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/lajt/",
+                    "name" => "Лайт"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/blok/",
+                    "name" => "Блок"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/vent/",
+                    "name" => "Вент"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/vent-lajt/",
+                    "name" => "Вент Лайт"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/vent-pro/",
+                    "name" => "Вент ПРО"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/fasad/",
+                    "name" => "Фасад"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/fasad-lajt/",
+                    "name" => "Фасад Лайт"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/fasad-pro/",
+                    "name" => "Фасад ПРО"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/fasad-rebel/",
+                    "name" => "Фасад РЕБЕЛ"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/ruf-v-lajt/",
+                    "name" => "Руф В ЛАЙТ"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/ruf-v/",
+                    "name" => "Руф В"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/ruf-n/",
+                    "name" => "Руф Н"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/uteplitel-hotrock-ruf-n-lajt/",
+                    "name" => "Руф Н ЛАЙТ"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/ruf-n-pro/",
+                    "name" => "Руф Н ПРО"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/ruf-s/",
+                    "name" => "Руф С"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/flor/",
+                    "name" => "Флор"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/smart/",
+                    "name" => "Смарт"
+                ],
+                [
+                    "uri" => "/uteplitel-hotrock/akustik/",
+                    "name" => "Акустик"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=60"
+                ],
+                [
+                    "name" => "70",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=70"
+                ],
+                [
+                    "name" => "80",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=80"
+                ],
+                [
+                    "name" => "90",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=90"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=100"
+                ],
+                [
+                    "name" => "110",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=110"
+                ],
+                [
+                    "name" => "120",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=120"
+                ],
+                [
+                    "name" => "130",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=130"
+                ],
+                [
+                    "name" => "140",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=140"
+                ],
+                [
+                    "name" => "150",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=150"
+                ],
+                [
+                    "name" => "160",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=160"
+                ],
+                [
+                    "name" => "170",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=170"
+                ],
+                [
+                    "name" => "180",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=180"
+                ],
+                [
+                    "name" => "190",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=190"
+                ],
+                [
+                    "name" => "200",
+                    "uri" => "/uteplitel-hotrock/?item_thickness=200"
+                ],
+            ]
+        ],
+        $xotpipe => [
+            'column1' => [
+                'uri' => '/uteplitel-xotpipe/',
+                'name' => 'Утеплитель Xotpipe',
+                'img' => '/assets/template/img/brands-webp/xotpipe.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-tekhnicheskij-tr-80/",
+                    "name" => "Xotpipe TR-80"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr/",
+                    "name" => "МП-100 Xotpipe ME-TR"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-proshivnoj-wm-tr-80/",
+                    "name" => "Xotpipe WM-TR-80"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr-alu1/",
+                    "name" => "МП-100 Xotpipe ME-TR Alu1"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-proshivnoj-mp-100-wm-tr/",
+                    "name" => "МП-100 Xotpipe WM-TR"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr-st/",
+                    "name" => "МП-100 Xotpipe ME-TR ST"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-vysokotemperaturnyj-me-tr-80/",
+                    "name" => "Xotpipe ME-TR-80"
+                ],
+                [
+                    "uri" => "/uteplitel-xotpipe/mat-vysokotemperaturnyj-wm-tr-80-combi/",
+                    "name" => "Xotpipe WM-TR-80 Combi"
+                ],
+              
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=60"
+                ],
+                [
+                    "name" => "70",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=70"
+                ],
+                [
+                    "name" => "80",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=80"
+                ],
+                [
+                    "name" => "90",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=90"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=100"
+                ],
+                [
+                    "name" => "120",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=120"
+                ],
+                [
+                    "name" => "130",
+                    "uri" => "/uteplitel-xotpipe/?item_thickness=130"
+                ],
+            ]
+        ],
+        $ecover => [
+            'column1' => [
+                'uri' => '/uteplitel-ecover/',
+                'name' => 'Утеплитель Эковер',
+                'img' => '/assets/template/img/brands-webp/ecover.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-ecover/lajt-universal/",
+                    "name" => "Эковер Лайт Универсал"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/lajt/",
+                    "name" => "Эковер Лайт"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/standart/",
+                    "name" => "Эковер Стандарт"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/akustik/",
+                    "name" => "Эковер Акустик"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/krovlya/",
+                    "name" => "Эковер Кровля"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/krovlya-verh/",
+                    "name" => "Эковер Кровля Верх"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/krovlya-niz/",
+                    "name" => "Эковер Кровля Низ"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/krovlya-niz-standart/",
+                    "name" => "Эковер Кровля Низ Стандарт"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/ehkofasad/",
+                    "name" => "Эковер Экофасад"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/ehkofasad-optima/",
+                    "name" => "Эковер Экофасад Оптима"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/ekofasad-standart/",
+                    "name" => "Эковер Экофасад Стандарт"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/fasad-dekor-optima/",
+                    "name" => "Эковер Фасад-Декор Оптима"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/vent-fasad/",
+                    "name" => "Эковер Вент-Фасад"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/stehp/",
+                    "name" => "Эковер Стэп"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/stehp-plyus/",
+                    "name" => "Эковер Стэп Плюс"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/glavrosteplo-lajt-2/",
+                    "name" => "Эковер Главростепло Лайт 2"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/glavrosteplo-standart-2/",
+                    "name" => "Эковер Главростепло Стандарт 2"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/krovlya-niz-optima/",
+                    "name" => "Эковер Кровля Низ Оптима"
+                ],
+                [
+                    "uri" => "/uteplitel-ecover/fasad-dekor/",
+                    "name" => "Эковер Фасад-Декор"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "20",
+                    "uri" => "/uteplitel-ecover/?item_thickness=20"
+                ],
+                [
+                    "name" => "25",
+                    "uri" => "/uteplitel-ecover/?item_thickness=25"
+                ],
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-ecover/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-ecover/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-ecover/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-ecover/?item_thickness=60"
+                ],
+                [
+                    "name" => "70",
+                    "uri" => "/uteplitel-ecover/?item_thickness=70"
+                ],
+                [
+                    "name" => "80",
+                    "uri" => "/uteplitel-ecover/?item_thickness=80"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-ecover/?item_thickness=100"
+                ],
+                [
+                    "name" => "110",
+                    "uri" => "/uteplitel-ecover/?item_thickness=110"
+                ],
+                [
+                    "name" => "120",
+                    "uri" => "/uteplitel-ecover/?item_thickness=120"
+                ],
+                [
+                    "name" => "130",
+                    "uri" => "/uteplitel-ecover/?item_thickness=130"
+                ],
+                [
+                    "name" => "140",
+                    "uri" => "/uteplitel-ecover/?item_thickness=140"
+                ],
+                [
+                    "name" => "150",
+                    "uri" => "/uteplitel-ecover/?item_thickness=150"
+                ],
+                [
+                    "name" => "160",
+                    "uri" => "/uteplitel-ecover/?item_thickness=160"
+                ],
+                [
+                    "name" => "170",
+                    "uri" => "/uteplitel-ecover/?item_thickness=170"
+                ],
+                [
+                    "name" => "180",
+                    "uri" => "/uteplitel-ecover/?item_thickness=180"
+                ],
+                [
+                    "name" => "200",
+                    "uri" => "/uteplitel-ecover/?item_thickness=200"
+                ],
+                [
+                    "name" => "230",
+                    "uri" => "/uteplitel-ecover/?item_thickness=230"
+                ],
+            ]
+        ],
+        $timplex => [
+            'column1' => [
+                'uri' => '/uteplitel-timpleks/',
+                'name' => 'Утеплитель Тимплэкс',
+                'img' => '/assets/template/img/brands-webp/timplex.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-timpleks/45/",
+                    "name" => "Тимплэкс 45"
+                ],
+                [
+                    "uri" => "/uteplitel-timpleks/35/",
+                    "name" => "Тимплэкс 35"
+                ],
+              
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "20",
+                    "uri" => "/uteplitel-timpleks/?item_thickness=20"
+                ],
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-timpleks/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-timpleks/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-timpleks/?item_thickness=50"
+                ],
+                [
+                    "name" => "60",
+                    "uri" => "/uteplitel-timpleks/?item_thickness=60"
+                ],
+             
+            ]
+        ],
+        $isovol => [
+            'column1' => [
+                'uri' => '/uteplitel-izovol/',
+                'name' => 'Утеплитель Isovol',
+                'img' => '/assets/template/img/brands-webp/isovol.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-izovol/st-50/",
+                    "name" => "Изовол СТ-50"
+                ],
+                [
+                    "uri" => "/uteplitel-izovol/st-75-90/",
+                    "name" => "Изовол СТ-75/90"
+                ],
+                [
+                    "uri" => "/uteplitel-izovol/l-35/",
+                    "name" => "Изовол Л-35"
+                ],
+                [
+                    "uri" => "/uteplitel-izovol/l-25/",
+                    "name" => "Изобел Л-25"
+                ],
+                [
+                    "uri" => "/uteplitel-izovol/f-100-120-150/",
+                    "name" => "Изовол Ф-100/120/150"
+                ],
+                [
+                    "uri" => "/uteplitel-izovol/v-75-90/",
+                    "name" => "Изовол В-75/90"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-izovol/?item_thickness=50"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-izovol/?item_thickness=100"
+                ],
+               
+            ]
+        ],
+        $basfiber => [
+            'column1' => [
+                'uri' => '/uteplitel-basfiber/',
+                'name' => 'Утеплитель Basfiber',
+                'img' => '/assets/template/img/brands-webp/basfiber.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-basfiber/bazaltovaya-vata/",
+                    "name" => "Базальтовая вата BASFIBER"
+                ],
+                [
+                    "uri" => "/uteplitel-basfiber/bazaltovyij-karton/",
+                    "name" => "Базальтовый картон BASFIBER"
+                ],
+                [
+                    "uri" => "/uteplitel-basfiber/bazaltovyj-karton-s-folgoj/",
+                    "name" => "Базальтовый картон с фольгой BASFIBER"
+                ],
+                [
+                    "uri" => "/uteplitel-basfiber/bazaltovyj-mat-s-folgoj/",
+                    "name" => "Базальтовый мат с фольгой BASFIBER"
+                ],
+                [
+                    "uri" => "/uteplitel-basfiber/kopiya-bazaltovyij-mat/",
+                    "name" => "Базальтовый мат BASFIBER"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "6",
+                    "uri" => "/uteplitel-basfiber/?item_thickness=6"
+                ],
+                [
+                    "name" => "8",
+                    "uri" => "/uteplitel-basfiber/?item_thickness=8"
+                ],
+                [
+                    "name" => "10",
+                    "uri" => "/uteplitel-basfiber/?item_thickness=10"
+                ],
+                [
+                    "name" => "12",
+                    "uri" => "/uteplitel-basfiber/?item_thickness=12"
+                ],
+              
+            ]
+        ],
+        $termit => [
+            'column1' => [
+                'uri' => '/uteplitel-termit/',
+                'name' => 'Утеплитель Термит',
+                'img' => '/assets/template/img/brands-webp/termit.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-termit/sp/",
+                    "name" => "Термит SP"
+                ],
+                [
+                    "uri" => "/uteplitel-termit/xps/",
+                    "name" => "Термит XPS"
+                ],
+                [
+                    "uri" => "/uteplitel-termit/eps-prime/",
+                    "name" => "Термит EPS Prime"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "12.5",
+                    "uri" => "/uteplitel-termit/?item_thickness=12.5"
+                ],
+                [
+                    "name" => "20",
+                    "uri" => "/uteplitel-termit/?item_thickness=20"
+                ],
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-termit/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-termit/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-termit/?item_thickness=50"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-termit/?item_thickness=100"
+                ],
+               
+            ]
+        ],
+        $teplex => [
+            'column1' => [
+                'uri' => '/uteplitel-tepleks/',
+                'name' => 'Утеплитель Теплекс',
+                'img' => '/assets/template/img/brands-webp/teplex.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-tepleks/35/",
+                    "name" => "Теплекс 35"
+                ],
+                [
+                    "uri" => "/uteplitel-tepleks/45/",
+                    "name" => "Теплекс 45"
+                ],
+               
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-tepleks/?item_thickness=30"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-tepleks/?item_thickness=50"
+                ],
+               
+            ]
+        ],
+        $isomin => [
+            'column1' => [
+                'uri' => '/uteplitel-izomin/',
+                'name' => 'Утеплитель Изомин',
+                'img' => '/assets/template/img/brands-webp/isomin.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/uteplitel-izomin/flor/",
+                    "name" => "Изомин ФЛОР"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/lajt/",
+                    "name" => "Изомин ЛАЙТ"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/kaviti/",
+                    "name" => "Изомин КАВИТИ"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/venti/",
+                    "name" => "Изомин ВЕНТИ"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/ruf-n/",
+                    "name" => "Изомин РУФ-Н"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/ruf/",
+                    "name" => "Изомин РУФ"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/fasad/",
+                    "name" => "Изомин ФАСАД"
+                ],
+                [
+                    "uri" => "/uteplitel-izomin/ruf-v/",
+                    "name" => "Изомин РУФ-В"
+                ],
+            ],
+            // 'column4' => [
+            //     [
+            //         "uri" => "/uteplitel-hotrock/?primenenie=Для%20балкона/лоджии",
+            //         "name" => "Для балкона/лоджии",
+            //     ],
+            // ],
+            'column3' => [
+
+                [
+                    "name" => "30",
+                    "uri" => "/uteplitel-izomin/?item_thickness=30"
+                ],
+                [
+                    "name" => "40",
+                    "uri" => "/uteplitel-izomin/?item_thickness=40"
+                ],
+                [
+                    "name" => "50",
+                    "uri" => "/uteplitel-izomin/?item_thickness=50"
+                ],
+                [
+                    "name" => "100",
+                    "uri" => "/uteplitel-izomin/?item_thickness=100"
+                ],
+               
+            ]
+        ],
+        $brit => [
+            'column1' => [
+                'uri' => '/rulonnaya-krovlya-brit/',
+                'name' => 'Рулонная кровля Брит',
+                'img' => '/assets/template/img/brands-webp/brit.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/krovelniy-germetik-brit/",
+                    "name" => "Кровельный герметик Брит"
+                ],
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/lentyi-styikovochnyie/",
+                    "name" => "Ленты стыковочные"
+                ],
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/krovelnyie-mastiki/",
+                    "name" => "Кровельные мастики"
+                ],
+                
+            ],
+            'column4' => [
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/?morozostoykost=более%2050",
+                    "name" => "Более -50 ℃",
+                ],
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/?morozostoykost=минус%2025",
+                    "name" => "-25 ℃",
+                ],
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/?morozostoykost=минус%2035",
+                    "name" => "-35 ℃",
+                ],
+                [
+                    "uri" => "/rulonnaya-krovlya-brit/?morozostoykost=минус%2050",
+                    "name" => "-50 ℃",
+                ],
+            ],
+            'column3' => [
+
+                [
+                    "name" => "2.8",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=2.8"
+                ],
+                [
+                    "name" => "3",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=3"
+                ],
+                [
+                    "name" => "3.2",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=3.2"
+                ],
+                [
+                    "name" => "3.8",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=3.8"
+                ],
+                [
+                    "name" => "4",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=4"
+                ],
+                [
+                    "name" => "4.2",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=4.2"
+                ],
+                [
+                    "name" => "5",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=5"
+                ],
+                [
+                    "name" => "8",
+                    "uri" => "/rulonnaya-krovlya-brit/?item_thickness=8"
+                ],
+            ]
+        ],
     ];
 
 

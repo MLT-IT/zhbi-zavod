@@ -58,7 +58,8 @@
         grid-gap: 9px
 
         &.active
-            .catalog-screen__item
+            .catalog-screen__item,
+            .catalog-screen__tag
                 &_type
                     &_default
                         display: flex !important
@@ -83,7 +84,7 @@
         overflow: hidden
         transition: height .3s ease, opacity .3s ease
 
-    &__item
+    &__item, &__tag
         display: flex
         align-items: center
         background-color: var(--color-white)
@@ -180,6 +181,43 @@
 
             +until-768
                 font-size: 12px
+
+    &__tag
+        padding: 15px
+        min-height: 100px
+        font-weight: bold
+        +until-768
+            min-height: auto
+
+        &_type_more
+            color: var(--color-red)
+            cursor: pointer
+            transition: color .3s ease
+            background-color: var(--color-white)
+
+            +until-1200
+                font-size: 14px
+
+            +until-768
+                font-size: 12px
+
+            &:hover
+                color: var(--color-gray)
+        &-name
+            // max-width: calc(100% - 94px)
+            font-weight: 700
+            font-size: 16px
+
+        &-picture
+            width: 70px
+            height: 70px
+            margin-right: 10px
+            font-size: 0
+            // background-color: var(--color-gray-lt)
+            padding: 5px
+            border-radius: 6px
+        &-link
+            overflow-x: hidden
 
 .read-all-button
     color: silver
