@@ -1811,7 +1811,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/uteplitel-tizol/',
                 'name' => 'Утеплитель Tizol',
-                'img' => '/assets/template/img/brands-webp/isoroc.webp'
+                'img' => '/assets/template/img/brands-webp/tizol.webp'
             ],
             'column2' => [
                 [
