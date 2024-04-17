@@ -16,6 +16,19 @@
 class myCustomFilter extends mse2FiltersHandler
 {
 
+    private $debug = false;
+    private function debugArray(array $array, String $header)
+    {
+        if ($this->debug) {
+            echo "<div>";
+            echo "<strong>" . $header . "</strong><br>";
+            print_r($array);
+            echo "<br>";
+            echo "<br>";
+            echo "</div>";
+        }
+    }
+
     /**
      * Функция позволяет отсортировать массив элементов $unsortedElems в порядке значений, находящихся в массиве $orderValues.
      *
@@ -25,18 +38,36 @@ class myCustomFilter extends mse2FiltersHandler
      * @param $sortedElems - уже отсортированные по какому-либо алгоритму элементы.
      * @param $unsortedElems - еще неотсортированные элементы.
      * @param $orderValues - массив с ключами - в каком порядке сортировать элементы $unsortedElems.
+     * @param $alfavit_sort - Сортировать по алфавиту?
      * @return array - массив с отсортированными элементами.
      */
-    private function sortByCustomOrder($sortedElems, $unsortedElems, $orderValues)
+    private function sortByCustomOrder($sortedElems, $unsortedElems, $orderValues, $alfavit_sort = false)
     {
+
         // Сортируем элементы $unsortedElems в порядке $orderValues
         $resultElems = [];
+
+        $lowercaseUnsortedElems = array_change_key_case($unsortedElems, CASE_LOWER);
+
         foreach ($orderValues as $key) {
-            if (!empty($unsortedElems[$key])) {
+            $searchLowerCase = false;
+            foreach ($unsortedElems as  $keyUnsorted => $valueUnsorted) {
+                if (mb_strtolower($key) == mb_strtolower($keyUnsorted)) {
+                    $searchLowerCase = true;
+                    $resultElems[mb_strtolower($key)] = $valueUnsorted;
+                }
+            }
+            if (!empty($unsortedElems[$key]) and !$searchLowerCase) {
                 $resultElems[$key] = $unsortedElems[$key];
             }
         }
+        //echo "<div> ";
+        $this->debugArray($lowercaseUnsortedElems, "В нижнем регистре");
+        $this->debugArray($sortedElems, "Сортированные");
 
+        if ($alfavit_sort) {
+            asort($unsortedElems);
+        }
         // Добавляем остальные элементы, на всякий случай - вдруг программист при вызове этой функции в $orderValues передал не все ключи
         $diff = array_diff(array_keys($unsortedElems), array_keys($sortedElems));
         foreach ($diff as $key) {
@@ -45,10 +76,44 @@ class myCustomFilter extends mse2FiltersHandler
             }
         }
 
-        // Объединяем
-        $sortedElems = $resultElems + $sortedElems;
+        $mergeElems = [];
 
-        return $sortedElems;
+        foreach ($sortedElems as $sortedElem) {
+            $search = false;
+            foreach ($resultElems as $resultElem) {
+                if ($sortedElem['value'] == $resultElem['value']) {
+                    $search = true;
+                    break;
+                }
+            }
+            if (!$search) {
+                $mergeElems[] = $sortedElem;
+            }
+        }
+
+        $this->debugArray($mergeElems, "Merge");
+
+        // Объединяем
+        $sortedElems = array_merge($resultElems, $mergeElems);
+
+        //$this->debugArray($diff, "Ключи");
+        $this->debugArray($sortedElems, "Отсортированные");
+
+        $uniqueSort = [];
+
+        foreach ($sortedElems as $sortedElem) {
+            $search = false;
+            foreach ($uniqueSort as $uniqueElem) {
+                if ($sortedElem['title'] == $uniqueElem['title']) {
+                    $search = true;
+                }
+            }
+            if (!$search) {
+                $uniqueSort[] = $sortedElem;
+            }
+        }
+
+        return $uniqueSort;
     }
 
     public function sortFilters(array $results, $type = 'default', $options = [])
@@ -264,6 +329,22 @@ class myCustomFilter extends mse2FiltersHandler
                 }
             }
         }
+
+        // файл со значениямии фильтров sortFilterValue
+        require_once MODX_CORE_PATH . 'components/msearch2/custom/filters/JsonFiltersSort.php';
+        $category = sortFilterValueCategory($GLOBALS['modx']->resource->id, $GLOBALS['modx']->resource->context_key);
+        if (!empty($category)) {
+            foreach ($category['options']  as $option) {
+                if ($options['name'] == $option['option_key']) {
+                    $sorted = $this->sortByCustomOrder(
+                        $sorted,
+                        $results,
+                        $option['option_value']
+                    );
+                }
+            }
+        }
+
 
         if (!empty($sorted)) {
             return $sorted;
