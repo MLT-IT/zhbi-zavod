@@ -6,6 +6,8 @@
           {set $text = 'утеплителей'}
         {case 'plitnye'}
           {set $text = 'плит'}
+        {case 'stenovye'}
+          {set $text = 'стеновых материалов'}
         {case 'gazosilikatstroy'}
           {set $text = 'газобетона'}
         {case 'kraska'}

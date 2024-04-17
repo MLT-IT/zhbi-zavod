@@ -148,6 +148,21 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
+            case 'stenovye':
+                static::$brandsIds = [
+                    'lsr' => 101938,
+                    'sk' => 101936,
+                    'eab' => 101934,
+                    'aeroc' => 101932,
+                    'mogil' => 101937,
+                    'bck' => 101929,
+                    'hh' => 101930,
+                    'bonolit' => 101933,
+                    'zabudova' => 101935,
+                    'ytong' => 101931
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
             case 'kraska':
                 static::$brandsIds = [
                     'grunty' => 102922,

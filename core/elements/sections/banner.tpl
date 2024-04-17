@@ -12,6 +12,8 @@
                 {set $text = 'Закажите утеплитель сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'plitnye'}
                 {set $text = 'Закажите плиты сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'stenovye'}
+                {set $text = 'Закажите плиты сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'gazosilikatstroy'}
                 {set $text = 'Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
               {case 'kraska'}
@@ -60,6 +62,8 @@
         {case 'web'}
           {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
         {case 'plitnye'}
+          {set $link = '#'}
+        {case 'stenovye'}
           {set $link = '#'}
         {case 'gazosilikatstroy'}
           {set $link = '/rasprodazha-so-sklada/'}

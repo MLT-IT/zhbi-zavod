@@ -57,7 +57,9 @@
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
             {case 'plitnye'}
-              {set $text = 'плит'}  
+              {set $text = 'плит'}
+            {case 'stenovye'}
+              {set $text = 'стеновых материалов'}    
             {case 'kraska'}
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
