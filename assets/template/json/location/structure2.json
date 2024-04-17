@@ -29,7 +29,13 @@
         "gazosilikatstroy":{
             "ctx_key":"gazosilikatstroy",
             "subdomains_banned":[],
-            "subdomains_unique":[]
+            "subdomains_unique":[
+                "murmansk",
+                "petrozavodsk",
+                "sortavala",
+                "pskov",
+                "velikij-novgorod"
+            ]
         }
     },
     "subdomains_common":[

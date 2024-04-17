@@ -22,7 +22,7 @@
       <div class="footer__column">
         <address class="footer__contacts">
 
-        {set $phone = $_modx->getPlaceholder('localdata').local ? $_modx->getPlaceholder('localdata').offices.0.phone : 'phone' | option}
+        {set $phone = '!virtual_phone' | snippet: []}
     
         <a class="footer__contact footer__contact_with-hover" href="tel:{$phone}">
               <svg class="footer__contact-icon" aria-hidden="true">

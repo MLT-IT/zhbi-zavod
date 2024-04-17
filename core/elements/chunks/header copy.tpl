@@ -79,12 +79,12 @@
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
         </svg>
-        <a class="h-subinfo__link h-subinfo__link_type_mail" href="mailto:{'!virtual_email' | snippet: []}">{'!virtual_email' | snippet: []}</a>
+        <a class="h-subinfo__link h-subinfo__link_type_mail" href="mailto:{'email' | option}">{'email' | option}</a>
       </div>
       <div class="h-subinfo h-subinfo_size_big">
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'!virtual_phone' | snippet: ['type' => 'link']}">{'!virtual_phone' | snippet: []}</a>
+        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">{$_modx->getPlaceholder('localdata').offices.0.phone}</a>
       </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
     </div>
   </div>
@@ -200,7 +200,7 @@
           <div class="h-subinfo header__phone h-subinfo_size_big">
             <svg class="h-subinfo__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-            </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'!virtual_phone' | snippet: ['type'=>'link']}">{'!virtual_phone' | snippet: []}</a>
+            </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{'phone' | option}">{'phone' | option}</a>
           </div>
           <div class="h-subinfo header__schedule">
             <svg class="h-subinfo__icon" aria-hidden="true">
