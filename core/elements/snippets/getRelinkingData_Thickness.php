@@ -75,16 +75,6 @@ $idsForThickness = $modx->runSnippet('msProducts', array_merge($params, [
 $idsForThickness1 = str_replace(",", ", ", $idsForThickness);
 $idsForThickness1 = "(" . $idsForThickness1 . ")";
 
-// для Boswool добавка плотности, надо бы алгоритмизировать
-if (in_array($parentId, $additionalPid)) {
-    $sqlPlotnost = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'plotnost' AND `product_id` in " . $idsForThickness1;
-    $requestPlotnost = $modx->prepare($sqlPlotnost);
-    if ($requestPlotnost->execute()) {
-        $itemsPlotnost = $requestPlotnost->fetchAll(PDO::FETCH_ASSOC);
-        $thisPlot = $itemsPlotnost[0]['value'];
-        $itemsPlotnost[] = ['product_id' => $thisId, 'key' => 'plotnost', 'value' => $thisPlot];
-    }
-}
 
 $sql = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` in " . $idsForThickness1;
 $statement = $modx->prepare($sql);
@@ -111,16 +101,30 @@ if ($statement->execute()) {
 
     $options = "";
     $selected = "";
+    
+    $showThickness = count(array_column($items, 'value')) !== count(array_unique(array_column($items, 'value'))); // если дублируются значения толщины, тогда дополняем плотностью
+    // echo "ITEMS: ".count($items)." - ".count(array_unique($items))." (".print_r($items).")".PHP_EOL;
+    // добавка плотности, надо бы алгоритмизировать
+    if ($showThickness) {
+        $sqlPlotnost = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'plotnost' AND `product_id` in " . $idsForThickness1;
+        $requestPlotnost = $modx->prepare($sqlPlotnost);
+        if ($requestPlotnost->execute()) {
+            $itemsPlotnost = $requestPlotnost->fetchAll(PDO::FETCH_ASSOC);
+            $thisPlot = $itemsPlotnost[0]['value'];
+            $itemsPlotnost[] = ['product_id' => $thisId, 'key' => 'plotnost', 'value' => $thisPlot];
+        }
+    }
+
     foreach ($items as $item) {
         // для Baswool добавка плотности, надо бы как-то алгоритмизировать
-        if (in_array($parentId, $additionalPid) && count($itemsPlotnost) > 0) {
+        if ($showThickness && count($itemsPlotnost) > 0) {
             $item['plotnost'] = findValueByPid($itemsPlotnost, $item['product_id']);
         }
         if ($item['product_id'] === $thisId) {
             $selected = $item['value'];
         }
         if ($item['value'] != "") {
-            $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? '(' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
+            $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? ' (' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
         }
     }
 

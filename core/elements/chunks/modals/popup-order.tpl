@@ -2,7 +2,6 @@
   <div class="popup__block">
     <div class="popup__content" data-forms-wrapper>
 
-      {* Форма для физического лица *}
       <form method="POST" action class="popup__form" data-form="Физическое лицо" data-active="1">
         <div class="form">
           <h3 class="title-2 form__title">Оформление заказа</h3>
@@ -77,7 +76,6 @@
         </div>
       </form>
 
-      {* Форма для юридического лица *}
       <form method="POST" action class="popup__form" data-form="Юридическое лицо">
         <div class="form">
           <h3 class="title-2 form__title">Оформление заказа</h3>
