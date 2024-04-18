@@ -12,7 +12,17 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $tags = '@FILE snippets/getTags.php' | snippet}
+  {set $tags = '@FILE snippets/getTags.php' | snippet :[
+  'tpl' => '@FILE chunks/create-menu/tags-item.tpl',
+  'tplWrapper' => '@INLINE
+  <div class="catalog-screen__products">
+      <ul class="catalog-screen__items">
+          [[+output]]
+          <li class="catalog-screen__tag catalog-screen__tag_type_more"></li>
+      </ul>
+  </div>',
+  'idTagsBlock' => 'block-1'
+  ]}
 
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
