@@ -31,7 +31,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
     $categoryCustomTags = json_decode($categoryCustomTags, true);
 
     foreach ($categoryCustomTags as $val) {
-        if (($idTagsBlock && $val['id_tags_block'] !== $idTagsBlock)) continue;
+        if (($idTagsBlock && isset($val['id_tags_block']) && $val['id_tags_block'] !== $idTagsBlock)) continue;
 
         /**
          * selection - Выбранная категория из ресурсов
@@ -52,7 +52,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
         }
 
         $custom_tags_out .= $pdoTools->getChunk($tpl, [
-            'tv.mainImage' => '/' . $img,
+            'tv.mainImage' => $img,
             'menutitle' => $menutitle,
             'uri' => $uri
         ]);
