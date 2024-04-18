@@ -12,7 +12,7 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $tags = 'getTags' | snippet}
+  {set $tags = '@FILE snippets/getTags.php' | snippet}
 
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
