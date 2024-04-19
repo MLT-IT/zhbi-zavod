@@ -14,7 +14,7 @@
       <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
         <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
       </div>
-      {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+      {if $_modx->resource.context_key in list ['krovelnyjstroymarket','web']}
         {'@FILE snippets/getTags.php' | snippet :[
         'tpl' => '@FILE chunks/create-menu/category-item.tpl',
         'tplWrapper' => '@INLINE
