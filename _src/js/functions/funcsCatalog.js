@@ -18,6 +18,29 @@ if (!$discountBlock.length) {
 
 // Инициализация
 function init() {
+    // -------------------------------------------
+    // Уменьшение текста в тегах, если он слишком длинный
+    // -------------------------------------------
+    $(".catalog-screen__item-name").each(function (i, e) {
+        let $elem = $(e);
+
+        // Получаем и проверяем высоту
+        if ($elem.outerHeight() > 20) {
+            $elem.css("font-size", ".775rem");
+        }
+
+        // Красивый перенос для тегов с подобным названием: "Доска строганная 20 мм"
+        let text = $elem.text();
+        if (text.match(/(\d+ мм)/g)) {
+            text = text.replace(
+                /(\d+ мм)/g,
+                '<span style="white-space: nowrap; font-size: inherit;">$1</span>'
+            );
+            $elem.html(text);
+        }
+    });
+
+
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
     // Мы находимся на странице каталога?
@@ -79,7 +102,6 @@ function init() {
                 toggleFiltersbar();
             }
         });
-
 
         // ----------------------------
         // Эффект шторки для панели с фильтрами на мобилках
