@@ -8,7 +8,7 @@
     {set $logo = 'kraska-white.png'}
     {set $toCatalogBtnText = 'Все разделы'}
   {case 'suhiesmesi'}
-    {set $logo = 'gazosilicatstroy-white.png'}
+    {set $logo = 'suhiesmesi2.png'}
   {case 'krovelnyjstroymarket'}
     {set $logo = 'krovelnyjstroymarket-white.png'}
 {/switch}

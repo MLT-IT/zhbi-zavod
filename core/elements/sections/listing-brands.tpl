@@ -14,6 +14,8 @@
           {set $text = 'лакокрасочных материалов'}
         {case 'suhiesmesi'}
           {set $text = 'сухих смесей'}
+        {case 'beltermo'}
+          {set $text = 'сухих смесей'}
         {case 'krovelnyjstroymarket'}
           {set $text = $_modx->resource.pagetitle}
       {/switch}

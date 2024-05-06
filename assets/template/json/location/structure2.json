@@ -36,6 +36,16 @@
                 "pskov",
                 "velikij-novgorod"
             ]
+        },
+        "bsm-stroyka":{
+            "ctx_key":"suhiesmesi",
+            "subdomains_banned":[],
+            "subdomains_unique":[]
+        },
+        "www-beltermo":{
+            "ctx_key":" beltermo",
+            "subdomains_banned":[],
+            "subdomains_unique":[]
         }
     },
     "subdomains_common":[

@@ -21,8 +21,11 @@
           {set $logo = 'kraska.png'}
           {set $logoMobile = 'kraska.png'}
         {case 'suhiesmesi'}
-          {set $logo = 'gazosilicatstroy.png'}
-          {set $logoMobile = 'gazosilicatstroy.png'}
+          {set $logo = 'suhiesmesi.png'}
+          {set $logoMobile = 'suhiesmesi.png'}
+        {case 'beltermo'}
+          {set $logo = 'suhiesmesi.png'}
+          {set $logoMobile = 'suhiesmesi.png'}
         {case 'krovelnyjstroymarket'}
           {set $logo = 'krovelnyjstroymarket.png'}
           {set $logoMobile = 'krovelnyjstroymarket.png'}

@@ -207,7 +207,28 @@ class getCategoriesWithMinPrice
 
             case 'suhiesmesi':
                 static::$brandsIds = [
-                    'lsr' => 102922,
+                    
+                    'cement' => 123488,
+                    'cps' => 123489,
+                    'cley_gazobeton' => 123490,
+                    'cley_uteplitel' => 123491,
+                    'cley_pgp' => 123492,
+                    'cley_plitka' => 123493,
+                    'cladochnie_smesi' => 123494,
+
+                    'shtukaturka' => 123495,
+                    'gruntovka' => 123496,
+                    'smesi_pol'=> 123497,
+                    'shpatlevka' => 123498,
+                    'dobavki' => 123499,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+
+            case 'beltermo':
+                static::$brandsIds = [
+                    
+                    'cement' => 123488,
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
