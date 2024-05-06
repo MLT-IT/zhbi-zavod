@@ -123,7 +123,7 @@
                   <div class="h-catalog__column-header">{$menu['column1']['title']}</div>
                   {foreach $menu['values'] as $catId => $catCols}
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
-                      <div class="h-catalog-item__preview">
+                  <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
                           {if $catCols['column1']['img'] is not empty}
                             <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
                           {elseif $catCols['column1']['svg'] is not empty}

@@ -52,7 +52,7 @@
       {case 'suhiesmesi'}
         {set $micro_title = $micro_title ~ 'сухих смесей'}
       {case 'krovelnyjstroymarket'}
-        {set $micro_title = $micro_title ~ 'krovelnyjstroymarket'}
+        {set $micro_title = $micro_title ~ 'кровельных материалов'}
     {/switch}
 
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}
