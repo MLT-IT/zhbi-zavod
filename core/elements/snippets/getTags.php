@@ -60,6 +60,14 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
 }
 
 /**
+ * Если заполненно TV поле categoryCustomTags, тогда выводим только его 
+ */
+if ($categoryCustomTags)
+    return $pdoTools->getChunk($tplWrapper, [
+        'output' => $custom_tags_out
+    ]);
+
+/**
  * Теги по дочерним ресурсам
  */
 $params = [
@@ -90,4 +98,4 @@ $children_tags = $modx->runSnippet('pdoResources', $params);
 
 return $pdoTools->getChunk($tplWrapper, [
     'output' => $children_tags . $custom_tags_out
-]);;
+]);

@@ -27,7 +27,7 @@
         </div>
         {/if}',
         'idTagsBlock' => 'block-2',
-        '-where' => '{"template:in":[27]}',
+        'where' => '{"template:in":[27]}',
         ]}
 
         {'@FILE snippets/getTags.php' | snippet :[
@@ -42,7 +42,7 @@
         </div>
         {/if}',
         'idTagsBlock' => 'block-3',
-        '-where' => '{"template:in":[28]}',
+        'where' => '{"template:in":[28]}',
         ]}
      
       <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
