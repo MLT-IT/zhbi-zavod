@@ -18,27 +18,31 @@
         {'@FILE snippets/getTags.php' | snippet :[
         'tpl' => '@FILE chunks/create-menu/category-item.tpl',
         'tplWrapper' => '@INLINE
+        {if $output}
         <div class="catalog-screen__products catalog-screen__products_first">
           <ul class="catalog-screen__items">
-            [[+output]]
+            {$output}
             <li class="catalog-screen__item catalog-screen__item_type_more"></li>
           </ul>
-        </div>',
+        </div>
+        {/if}',
         'idTagsBlock' => 'block-2',
-        'where' => '{"template:in":[27]}',
+        '-where' => '{"template:in":[27]}',
         ]}
 
         {'@FILE snippets/getTags.php' | snippet :[
         'tpl' => '@FILE chunks/create-menu/category-item.tpl',
         'tplWrapper' => '@INLINE
+        {if $output}
         <div class="catalog-screen__products catalog-screen__products_second">
           <ul class="catalog-screen__items">
-            [[+output]]
+            {$output}
             <li class="catalog-screen__item catalog-screen__item_type_more"></li>
           </ul>
-        </div>',
+        </div>
+        {/if}',
         'idTagsBlock' => 'block-3',
-        'where' => '{"template:in":[28]}',
+        '-where' => '{"template:in":[28]}',
         ]}
      
       <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
