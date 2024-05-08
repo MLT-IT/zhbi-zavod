@@ -29,6 +29,9 @@
         {case 'krovelnyjstroymarket'}
           {set $logo = 'krovelnyjstroymarket.png'}
           {set $logoMobile = 'krovelnyjstroymarket.png'}
+        {case 'fibrofasad'}
+          {set $logo = 'fibrofasad.png'}
+          {set $logoMobile = 'fibrofasad.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
@@ -67,6 +70,8 @@
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
+            {case 'fibrofasad'}
+              {set $text = 'фиброфасадов'}
             {case 'krovelnyjstroymarket'}
               {set $beforeText = ""}
               {set $text = 'Производство и продажа кровельных материалов'}
@@ -125,7 +130,12 @@
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                   <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
                           {if $catCols['column1']['img'] is not empty}
-                            <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                            {if $catCols['column1']['img2'] is not empty}
+                              <img class="h-catalog-item__image _norm" src="{$catCols['column1']['img']}">
+                              <img class="h-catalog-item__image _hov" src="{$catCols['column1']['img2']}">
+                            {else}
+                              <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                            {/if}
                           {elseif $catCols['column1']['svg'] is not empty}
                             <svg class="h-subinfo__svg" aria-hidden="true">
                               <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>

@@ -16,6 +16,8 @@
           {set $text = 'сухих смесей'}
         {case 'beltermo'}
           {set $text = 'сухих смесей'}
+        {case 'fibrofasad'}
+          {set $text = 'фиброфасадов'}
         {case 'krovelnyjstroymarket'}
           {set $text = $_modx->resource.pagetitle}
       {/switch}
