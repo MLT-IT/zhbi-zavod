@@ -27,10 +27,13 @@ $pdoTools = $modx->getService('pdoTools');
  */
 $categoryCustomTags = $modx->resource->getTVValue('categoryCustomTags');
 $custom_tags_out = '';
+$resource_ids = []; // ID ресурсов собранных из TV поля
 if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
     $categoryCustomTags = json_decode($categoryCustomTags, true);
 
     foreach ($categoryCustomTags as $val) {
+        $resource_ids[] = $val['resource_id'];
+
         if (($idTagsBlock && isset($val['id_tags_block']) && $val['id_tags_block'] !== $idTagsBlock)) continue;
 
         /**
@@ -60,9 +63,10 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
 }
 
 /**
- * Если заполненно TV поле categoryCustomTags, тогда выводим только его 
+ * Условие для вывода только тегов из TV поля
+ * И если они были получены
  */
-if ($categoryCustomTags)
+if ($onlyCustomTags && !empty($custom_tags_out))
     return $pdoTools->getChunk($tplWrapper, [
         'output' => $custom_tags_out
     ]);
@@ -84,6 +88,11 @@ $params = [
 
 if ($where) {
     $params['where'] = $where;
+}
+
+// Не получаем ресурсы которые уже выводятся через TV
+if (!empty($resource_ids)) {
+    $params['resources'] = '-' . implode(',-', $resource_ids);
 }
 
 // if (!empty($tagsIds)) {

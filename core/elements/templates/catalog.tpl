@@ -23,7 +23,8 @@
       </ul>
   </div>
   {/if}',
-  'idTagsBlock' => 'block-1'
+  'idTagsBlock' => 'block-1',
+  'onlyCustomTags' => true
   ]}
 
   <main class="layout__main">
