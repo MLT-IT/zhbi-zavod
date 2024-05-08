@@ -21,7 +21,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/cement/',
                 'name' => 'Цемент',
-                'img' => '/assets/template/pictures/menu_ico/001.webp'
+                'img' => '/assets/template/pictures/menu_ico/001.webp',
+                'img2' => '/assets/template/pictures/menu_ico/001w.webp'
             ],
             'column2' => [
                 [
@@ -51,7 +52,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/cementno-peschanaya-smes/',
                 'name' => 'Цементно-песчаная смесь',
-                'img' => '/assets/template/pictures/menu_ico/002.webp'
+                'img' => '/assets/template/pictures/menu_ico/002.webp',
+                'img2' => '/assets/template/pictures/menu_ico/002w.webp'
             ],
             'column2' => [
                 
@@ -82,7 +84,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/klej-dlya-gazobetona/',
                 'name' => 'Клей для газобетона',
-                'img' => '/assets/template/pictures/menu_ico/003.webp'
+                'img' => '/assets/template/pictures/menu_ico/003.webp',
+                'img2' => '/assets/template/pictures/menu_ico/003w.webp'
             ],
             'column2' => [
                 
@@ -118,7 +121,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/klej-dlya-uteplitelya/',
                 'name' => 'Клей для утеплителя',
-                'img' => '/assets/template/pictures/menu_ico/006.webp'
+                'img' => '/assets/template/pictures/menu_ico/006.webp',
+                'img2' => '/assets/template/pictures/menu_ico/006w.webp'
             ],
             'column2' => [
                 
@@ -144,7 +148,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/klej-dlya-pgp/',
                 'name' => 'Клей для ПГП',
-                'img' => '/assets/template/pictures/menu_ico/008.webp'
+                'img' => '/assets/template/pictures/menu_ico/008.webp',
+                'img2' => '/assets/template/pictures/menu_ico/008w.webp'
             ],
             'column2' => [
                 
@@ -170,14 +175,16 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/klej-dlya-plitki/',
                 'name' => 'Клей для плитки',
-                'img' => '/assets/template/pictures/menu_ico/007.webp'
+                'img' => '/assets/template/pictures/menu_ico/007.webp',
+                'img2' => '/assets/template/pictures/menu_ico/007w.webp'
             ],
         ],
         $cladochnie_smesi => [
             'column1' => [
                 'uri' => '/kladochnaya-smes/',
                 'name' => 'Кладочные смеси',
-                'img' => '/assets/template/pictures/menu_ico/004.webp'
+                'img' => '/assets/template/pictures/menu_ico/004.webp',
+                'img2' => '/assets/template/pictures/menu_ico/004w.webp',
             ],
         ],
 
@@ -189,35 +196,40 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/shtukaturka/',
                 'name' => 'Штукатурка',
-                'img' => '/assets/template/pictures/menu_ico/005.webp'
+                'img' => '/assets/template/pictures/menu_ico/005.webp',
+                'img2' => '/assets/template/pictures/menu_ico/005w.webp'
             ],
         ],
         $gruntovka => [
             'column1' => [
                 'uri' => '/gruntovka/',
                 'name' => 'Грунтовка',
-                'img' => '/assets/template/pictures/menu_ico/011.webp'
+                'img' => '/assets/template/pictures/menu_ico/011.webp',
+                'img2' => '/assets/template/pictures/menu_ico/011w.webp'
             ],
         ],
         $smesi_pol => [
             'column1' => [
                 'uri' => '/smesi-dlya-pola/',
                 'name' => 'Смеси для пола',
-                'img' => '/assets/template/pictures/menu_ico/009.webp'
+                'img' => '/assets/template/pictures/menu_ico/009.webp',
+                'img2' => '/assets/template/pictures/menu_ico/009w.webp'
             ],
         ],
         $shpatlevka => [
             'column1' => [
                 'uri' => '/shpatlevka/',
                 'name' => 'Шпатлевка',
-                'img' => '/assets/template/pictures/menu_ico/012.webp'
+                'img' => '/assets/template/pictures/menu_ico/012.webp',
+                'img2' => '/assets/template/pictures/menu_ico/012w.webp'
             ],
         ],
         $dobavki => [
             'column1' => [
                 'uri' => '/dobavki-i-modifikatory/',
                 'name' => 'Добавки и модификаторы сухих смесей',
-                'img' => '/assets/template/pictures/menu_ico/010.webp'
+                'img' => '/assets/template/pictures/menu_ico/010.webp',
+                'img2' => '/assets/template/pictures/menu_ico/010w.webp'
             ],
         ],
     ];

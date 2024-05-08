@@ -43,7 +43,12 @@
             "subdomains_unique":[]
         },
         "www-beltermo":{
-            "ctx_key":" beltermo",
+            "ctx_key":"beltermo",
+            "subdomains_banned":[],
+            "subdomains_unique":[]
+        },
+        "fibrofasad-online":{
+            "ctx_key":"fibrofasad",
             "subdomains_banned":[],
             "subdomains_unique":[]
         }

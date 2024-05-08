@@ -11,6 +11,9 @@
     {set $logo = 'suhiesmesi2.png'}
   {case 'krovelnyjstroymarket'}
     {set $logo = 'krovelnyjstroymarket-white.png'}
+  {case 'fibrofasad'}
+    {set $logo = 'fibrofasad-white.png'}
+    
 {/switch}
 
 <footer class="footer">

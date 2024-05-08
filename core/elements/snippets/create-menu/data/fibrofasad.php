@@ -1,0 +1,117 @@
+<?php
+
+function getMenuData() {
+    $cement = 171121;
+    $cps = 171134;
+    
+
+
+    $data = [
+        $cement => [
+            'column1' => [
+                'uri' => '/fibrocementnyy-sayding/',
+                'name' => 'Фиброцементный сайдинг',
+                'img' => '/assets/images/products/173164/small/87b988ff99fa6412a47d049487c6c6eb.jpg',
+                
+            ],
+            'column2' => [
+                [
+                    'uri' => '/fibrocementnyy-sayding-kedral/',
+                    'name' => 'Фиброцементный сайдинг Кедрал',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-dekover/',
+                    'name' => 'Фиброцементный сайдинг Дековер',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-asahi/',
+                    'name' => 'Фиброцементный сайдинг Asahi',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-fcs-group/',
+                    'name' => 'Фиброцементный сайдинг FCS Group',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-fibra-plank/',
+                    'name' => 'Фиброцементный сайдинг FIBRA PLANK',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-latonit/',
+                    'name' => 'Фиброцементный сайдинг LATONIT',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-betehko/',
+                    'name' => 'Фиброцементный сайдинг БЕТЭКО',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-kanon/',
+                    'name' => 'Фиброцементный сайдинг Каньон',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-sm-bord/',
+                    'name' => 'Фиброцементный сайдинг СМ Борд',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnyy-sayding-fibratek/',
+                    'name' => 'Фиброцементный сайдинг Фибратек',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/komplektuyushchie-dlya-fibrocementnogo-saydinga/',
+                    'name' => 'Комплектующие для фиброцементного сайдинга',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/universalnye-dobornye-ehlementy-dlya-fibrocementnogo-saydinga/',
+                    'name' => 'Универсальные доборные элементы',
+                    'popular'=>1,
+                ],
+                
+            ],
+        ],
+        $cps => [
+            'column1' => [
+                'uri' => '/fibrocementnye-paneli/',
+                'name' => 'Фиброцементные панели',
+                'img' => '/assets/images/products/173397/small/d8a1b82f7da5149d9fa22ba467068edc.jpg',
+                
+            ],
+            'column2' => [
+                
+                [
+                    'uri' => '/fibrocementnye-paneli-kmew/',
+                    'name' => 'Фиброцементные панели Kmew',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnye-paneli-equitone/',
+                    'name' => 'Фиброцементные панели Equitone',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnye-paneli-nichiha/',
+                    'name' => 'Фиброцементные панели Nichiha',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrocementnye-paneli-betehko/',
+                    'name' => 'Фиброцементные панели БЕТЭКО',
+                    'popular'=>1,
+                ],
+                
+            ],
+        ],
+        
+    ];
+
+    return $data;
+}

@@ -40,7 +40,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         case 'suhiesmesi':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
-            
+            break;
+        case 'fibrofasad':
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Категория', 'type' => 'simple'];    
             break;
         case 'beltermo':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
