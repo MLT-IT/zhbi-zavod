@@ -1,4 +1,5 @@
 import functions from "./functions";
+import VisualFilter from "../class/filter/visual/VisualFilter";
 
 /**
  * Функции, относящиеся к шаблону Каталог (в основном работа с mFilter2).
@@ -1457,3 +1458,8 @@ function wrapTitle() {
 //         el.toggleClass('active');
 //     })
 // }
+let contexts = ["suhiesmesi", "krovelnyjstroymarket", "plitnye", "beltermo", "stenovye", "fibrofasad"];
+let currentContext = $("body").attr("data-ctx");
+if( contexts.indexOf(currentContext) != -1){
+    let visualFilter = new VisualFilter(".filter-item", ".filter-item__option", ".default-checkbox__label-text");
+}
