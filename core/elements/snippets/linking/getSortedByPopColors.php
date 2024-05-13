@@ -3,7 +3,7 @@
 // Сортируем RAL цвета по популярности по готовому шаблону
 
 if (!isset($colorsArrays)) return false;
-$colorsArray = $colorsArrays[0] + $colorsArrays[1]; // Приходит многомерный массив с цветами, объединяем в один
+$colorsArray = (array)$colorsArrays[0] + (array)$colorsArrays[1]; // Приходит многомерный массив с цветами, объединяем в один
 
 // echo '<pre>';
 // var_dump($colorsArray);
