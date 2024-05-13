@@ -135,16 +135,17 @@ class getCategoriesWithMinPrice
                 break;
             case 'plitnye':
                 static::$brandsIds = [
-                    'lsr' => 101938,
-                    'sk' => 101936,
-                    'eab' => 101934,
-                    'aeroc' => 101932,
-                    'mogil' => 101937,
-                    'bck' => 101929,
-                    'hh' => 101930,
-                    'bonolit' => 101933,
-                    'zabudova' => 101935,
-                    'ytong' => 101931
+                    'sk' => 178116,
+                    'bonolit' => 177263,
+                    'lsr' => 177288,
+                    
+                    'eab' => 177282,
+                    'aeroc' => 177289,
+                    'mogil' => 177299,
+                    'bck' => 177264,
+                    'hh' => 177296,
+                    'hh1' => 177042,
+                    
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
@@ -207,7 +208,7 @@ class getCategoriesWithMinPrice
 
             case 'suhiesmesi':
                 static::$brandsIds = [
-                    //123488, 123489, 123490,  123491,  123492,  123493,  123494,  123495,  123496,  123497,  123498
+                    //123488, 123489, 123490,  123491,  123492,  123493,  123494,  123495,  123496,  123497,  123498, 123499
                     'cement' => 123488,
                     'cps' => 123489,
                     'cley_gazobeton' => 123490,

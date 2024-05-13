@@ -13,7 +13,8 @@
     {set $logo = 'krovelnyjstroymarket-white.png'}
   {case 'fibrofasad'}
     {set $logo = 'fibrofasad-white.png'}
-    
+  {case 'plitnye'}  
+    {set $logo = 'plitnyematerialy2.png'}
 {/switch}
 
 <footer class="footer">

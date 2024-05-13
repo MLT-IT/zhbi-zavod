@@ -12,8 +12,8 @@
           {set $logo = 'alterteplo.png'}
           {set $logoMobile = 'alterteplo.png'}
         {case 'plitnye'}  
-          {set $logo = 'alterteplo.png'}
-          {set $logoMobile = 'alterteplo.png'}
+          {set $logo = 'plitnyematerialy.png'}
+          {set $logoMobile = 'plitnyematerialy.png'}
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
@@ -63,7 +63,7 @@
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
             {case 'plitnye'}
-              {set $text = 'плит'}
+              {set $text = 'плитных материалов'}
             {case 'stenovye'}
               {set $text = 'стеновых материалов'}    
             {case 'kraska'}
@@ -71,7 +71,8 @@
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
             {case 'fibrofasad'}
-              {set $text = 'фиброфасадов'}
+              {set $beforeText = ""}
+              {set $text = 'Официальные дилеры 13-ми производителей'}
             {case 'krovelnyjstroymarket'}
               {set $beforeText = ""}
               {set $text = 'Производство и продажа кровельных материалов'}

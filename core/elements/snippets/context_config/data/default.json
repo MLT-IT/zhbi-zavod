@@ -1,0 +1,12 @@
+{
+    "logo":{
+        "header":"",
+        "footer":""
+    },
+    "banner":{
+        "banner_wide":"",
+        "banner_mobile":"",
+        "banner_small":"",
+        "banner_text":""
+    }
+}
