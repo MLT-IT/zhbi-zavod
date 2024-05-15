@@ -14,6 +14,8 @@
     {set $a4 = 'Держим на складе более 8000 м2'}
   {case 'krovelnyjstroymarket'}
     {set $a1 = 'Предоставляем продукцию 15 производителей'}
+  {case 'beltermo'}
+    {set $a1 = 'Официальные дилеры продукции Белтермо'}
 {/switch}
 
 <div class="advantages{$styleClass ? ' ' ~ $styleClass : ''}">

@@ -20,6 +20,8 @@
           {set $text = 'фиброфасадов'}
         {case 'krovelnyjstroymarket'}
           {set $text = $_modx->resource.pagetitle}
+        {case 'beltermo'}
+          {set $text = 'изделий Белтермо'}
       {/switch}
       {if $_modx->context.key == 'krovelnyjstroymarket'}
           {$text}

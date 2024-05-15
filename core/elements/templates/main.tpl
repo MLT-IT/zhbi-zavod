@@ -78,6 +78,8 @@
           {include "file:sections/gazobeton-info.tpl"}
         {case 'kraska'}
           {include "file:sections/gazobeton-info.tpl"}
+        {case 'beltermo'}
+          {include "file:sections/gazobeton-info.tpl"}
         {case 'suhiesmesi'}
           {include "file:sections/gazobeton-info.tpl"}
         {case 'krovelnyjstroymarket'}

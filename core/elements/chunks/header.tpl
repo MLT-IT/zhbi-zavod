@@ -70,6 +70,8 @@
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
+            {case 'beltermo'}
+              {set $text = 'Белтермо'}
             {case 'fibrofasad'}
               {set $beforeText = ""}
               {set $text = 'Официальные дилеры 13-ми производителей'}
