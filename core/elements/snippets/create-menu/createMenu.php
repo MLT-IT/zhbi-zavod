@@ -46,9 +46,9 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Категория', 'type' => 'simple'];    
             break;
         case 'beltermo':
-            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
-            $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
-            
+            $result['column1'] = ['title' => 'Марка', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Толщина', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Тип кромки', 'type' => 'simple'];
             break;
         case 'kraska':
             $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];

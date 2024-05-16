@@ -16,7 +16,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/fanera/',
                 'name' => 'Фанера',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => 'assets/images/plitnye/fanera/fanera.webp'
             ],
             'column2' => [
                 [
@@ -200,7 +200,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/giprok-gipsokarton/',
                 'name' => 'Гипсокартон',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => 'assets/images/plitnye/gvl/gvl.jpg'
             ],
             'column2' => [
                 [

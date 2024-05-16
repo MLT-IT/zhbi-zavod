@@ -15,6 +15,8 @@
     {set $logo = 'fibrofasad-white.png'}
   {case 'plitnye'}  
     {set $logo = 'plitnyematerialy2.png'}
+  {case 'beltermo'}  
+    {set $logo = 'beltermo2.png'}
 {/switch}
 
 <footer class="footer">

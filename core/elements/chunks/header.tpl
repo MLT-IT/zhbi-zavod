@@ -24,14 +24,17 @@
           {set $logo = 'suhiesmesi.png'}
           {set $logoMobile = 'suhiesmesi.png'}
         {case 'beltermo'}
-          {set $logo = 'suhiesmesi.png'}
-          {set $logoMobile = 'suhiesmesi.png'}
+          {set $logo = 'beltermo.png'}
+          {set $logoMobile = 'beltermo.png'}
         {case 'krovelnyjstroymarket'}
           {set $logo = 'krovelnyjstroymarket.png'}
           {set $logoMobile = 'krovelnyjstroymarket.png'}
         {case 'fibrofasad'}
           {set $logo = 'fibrofasad.png'}
           {set $logoMobile = 'fibrofasad.png'}
+        {default}
+          {set $logo = $_modx->resource.context_key~'.png'}
+          {set $logoMobile = $_modx->resource.context_key~'.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
