@@ -229,7 +229,22 @@ class getCategoriesWithMinPrice
             case 'beltermo':
                 static::$brandsIds = [
                     
-                    'cement' => 123488,
+                    
+                    'top' => 178116,
+                    'floor' => 177263,
+                    'ultra' => 177288,
+                    'acoustic' => 177282,
+                    'underfloor' => 177282,
+                    'protection' => 177289,
+                    'room' => 177289,
+                    'kombi' => 177299,
+                    'universal' => 177264,
+                    'flex' => 177296,
+                    'multi' => 177042,
+                    'safe' => 177042,
+                    'instal' => 177042,
+                    'zell' => 177042,
+                    'mulcha' => 177042,
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;

@@ -27,6 +27,7 @@
               {case 'krovelnyjstroymarket'}
                 {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
 
+                
             {/switch}
             {$text}
           </div>
