@@ -12,6 +12,7 @@ class VisualFilter
         this.getJson("ottenok");
         this.getJson("cvet");
         this.getJson("proizvoditel");
+        this.getJson("profil");
         this.addStyle()
     }
 
