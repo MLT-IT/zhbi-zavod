@@ -230,21 +230,21 @@ class getCategoriesWithMinPrice
                 static::$brandsIds = [
                     
                     
-                    'top' => 178116,
-                    'floor' => 177263,
-                    'ultra' => 177288,
-                    'acoustic' => 177282,
-                    'underfloor' => 177282,
-                    'protection' => 177289,
-                    'room' => 177289,
-                    'kombi' => 177299,
-                    'universal' => 177264,
-                    'flex' => 177296,
-                    'multi' => 177042,
-                    'safe' => 177042,
-                    'instal' => 177042,
-                    'zell' => 177042,
-                    'mulcha' => 177042,
+                    'top' => 183965,
+                    'floor' => 183966,
+                    'ultra' => 183967,
+                    'acoustic' => 183968,
+                    'underfloor' => 183969,
+                    'protection' => 183970,
+                    'room' => 183971,
+                    'kombi' => 183972,
+                    'universal' => 183973,
+                    'flex' => 183974,
+                    'multi' => 183975,
+                    'safe' => 183976,
+                    'instal' => 183977,
+                    'zell' => 183978,
+                    'mulcha' => 183979,
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;

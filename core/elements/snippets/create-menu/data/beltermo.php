@@ -1,28 +1,28 @@
 <?php
 
 function getMenuData() {
-    $top = 178116;
-    $floor = 177263;
-    $ultra = 177288;
-    $acoustic = 177282;
-    $underfloor = 177282;
-    $protection = 177289;
-    $room = 177289;
-    $kombi = 177299;
-    $universal = 177264;
-    $flex = 177296;
-    $multi = 177042;
-    $safe = 177042;
-    $instal = 177042;
-    $zell = 177042;
-    $mulcha = 177042;
+    $top = 183971;
+    $floor = 183966;
+    $ultra = 183972;
+    $acoustic = 183965;
+    $underfloor = 183974;
+    $protection = 183975;
+    $room = 183970;
+    $kombi = 183968;
+    $universal = 183977;
+    $flex = 183973;
+    $multi = 183969;
+    $safe = 183976;
+    $instal = 183967;
+    $zell = 183978;
+    $mulcha = 183979;
 
     $data = [
         $top => [
             'column1' => [
                 'uri' => '/top/',
                 'name' => 'Top ',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184909/0d9d1e1d255c3ef88766a2ce23f69558.webp'
             ],
             'column2' => [
                 [
@@ -100,7 +100,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/floor/',
                 'name' => 'Floor',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184731/485927b060f1cdd2a3729b1fd9ac7e99.webp'
             ],
             'column2' => [
                 [
@@ -179,7 +179,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/ultra/',
                 'name' => 'Ultra',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184896/c32abf3cb3cee1db4d8b4c0f0074e30d.webp'
             ],
             'column2' => [
                 [
@@ -263,7 +263,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/acoustic/',
                 'name' => 'Acoustic',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184900/aca96a5cdc5b2a1bb5d713bcea6f431b.webp'
             ],
             'column2' => [
                 [
@@ -294,7 +294,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/underfloor/',
                 'name' => 'Underfloor',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184940/847a4d9347b0b3b438c1852447b22336.webp'
             ],
             'column2' => [
                 [
@@ -325,7 +325,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/protection/',
                 'name' => 'Protection',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184949/d3450888392883cfa4287c5fc20cdb4b.webp'
             ],
             'column2' => [
                 [
@@ -363,7 +363,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/room/',
                 'name' => 'Room',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184861/b3e3f41ae4d2caee1eb695714d1b404a.webp'
             ],
             'column2' => [
                 [
@@ -453,7 +453,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/kombi/',
                 'name' => 'Kombi',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184779/cc383a55def8c4533fa61678f0b854b2.webp'
             ],
             'column2' => [
                 [
@@ -551,7 +551,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/universal/',
                 'name' => 'Universal',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184997/85c7edfbce6e112d9e5b2fd725ccffdb.webp'
             ],
             'column2' => [
                 [
@@ -591,7 +591,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/flex/',
                 'name' => 'Flex',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184932/7815316c15a6e8e5495d50fd6b890be5.webp'
             ],
             'column2' => [
                 [
@@ -612,7 +612,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/multi/',
                 'name' => 'Multi',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/185308/4d1d5df51b70bc595aff5b0f8eb82968.webp'
             ],
             'column2' => [
                 [
@@ -681,7 +681,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/safe/',
                 'name' => 'Safe',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184973/2798abd98eeefadf3c786b2f31476e3e.webp'
             ],
             'column2' => [
                 [
@@ -716,7 +716,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/instal/',
                 'name' => 'Instal',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/184756/047bdde890b128194d3f2dd1c9f717b5.webp'
             ],
             'column2' => [
                 [
@@ -776,7 +776,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/zell/',
                 'name' => 'Zell',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/185008/9741929842921f6717aae3c282e0e25a.webp'
             ],
             'column2'=>[],
             'column3'=>[],
@@ -785,7 +785,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/mulcha/',
                 'name' => 'Мульча',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/images/products/185009/5e8ba7b38fb26172586a47d07f1a1adc.webp'
             ],
             'column2'=>[],
             'column3'=>[],
