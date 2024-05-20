@@ -200,7 +200,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/giprok-gipsokarton/',
                 'name' => 'Гипсокартон',
-                'img' => 'assets/images/plitnye/gvl/gvl.jpg'
+                'img' => 'assets/images/plitnye/gipsokarton/gipsokarton.jpg'
             ],
             'column2' => [
                 [
@@ -289,7 +289,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/ldsp/',
                 'name' => 'ЛДСП',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/177304/webp/0e5ad7358b07564e8e51c2d86006526d.webp'
             ],
             'column2' => [
                 [
@@ -362,7 +362,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/dsp-plity/',
                 'name' => 'ДСП',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/178030/webp/06c8e031eda4ac40aaa12714f7ff50c8.webp'
             ],
             'column2' => [
                 [
@@ -450,7 +450,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/osb-plity/',
                 'name' => 'ОСБ',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/177978/webp/371937725598db5dd48b7e790a9f7989.webp'
             ],
             'column2' => [
                 [
@@ -574,7 +574,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/csp-plity/',
                 'name' => 'ЦСП',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/177923/webp/34f36c4beb5e02ea7b50c110c1c4e3cd.webp'
             ],
             'column2' => [
                 [
@@ -658,7 +658,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gvl-gipsovoloknistye-plity/',
                 'name' => 'Гипсоволокнистые плиты',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => 'assets/images/plitnye/gvl/gvl.jpg'
             ],
             'column2' => [
                 [
@@ -711,7 +711,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/fibrolitovye-plity/',
                 'name' => 'Фибролитовые плиты',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/177937/webp/571c4d3ba0c5ad53f80721c9e5896d33.webp'
             ],
             'column2' => [
                 [
@@ -841,7 +841,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/plity-mdvp/',
                 'name' => 'МДВП',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'img' => '/assets/images/products/177225/webp/09c3398855225d27e4fc456a9dfcb458.webp'
             ],
             'column2' => [
                 [
