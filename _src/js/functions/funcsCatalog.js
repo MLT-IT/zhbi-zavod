@@ -183,7 +183,7 @@ function init() {
         let pageType;
         if ($('.colors-options .euv-custom-select__option').length) {
             pageType = PAGE_TYPE_PRODUCT;
-        } else if ($('.default-checkbox__label').length && $('body[data-ctx="krovelnyjstroymarket"]').length) {
+        } else if ($('.default-checkbox__label').length) {
             pageType = PAGE_TYPE_CATALOG;
         }
 
