@@ -135,16 +135,15 @@ class getCategoriesWithMinPrice
                 break;
             case 'plitnye':
                 static::$brandsIds = [
-                    'sk' => 178116,
-                    'bonolit' => 177263,
-                    'lsr' => 177288,
-                    
-                    'eab' => 177282,
-                    'aeroc' => 177289,
-                    'mogil' => 177299,
-                    'bck' => 177264,
-                    'hh' => 177296,
-                    'hh1' => 177042,
+                    'fanera' => 178116,
+                    'gipsokarton' => 177263,
+                    'ldsp' => 177288,
+                    'dsp' => 177282,
+                    'osb' => 177289,
+                    'csp' => 177299,
+                    'gidrovolokno' => 177264,
+                    'fibrolit' => 177296,
+                    'mdvp' => 177042,
                     
                 ];
                 static::$brandsAndCategories = static::$brandsIds;

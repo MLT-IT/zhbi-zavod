@@ -32,6 +32,9 @@
         {case 'fibrofasad'}
           {set $logo = 'fibrofasad.png'}
           {set $logoMobile = 'fibrofasad.png'}
+        {case 'fibrofasad2'}
+          {set $logo = 'fibrofasad.png'}
+          {set $logoMobile = 'fibrofasad.png'}
         {default}
           {set $logo = $_modx->resource.context_key~'.png'}
           {set $logoMobile = $_modx->resource.context_key~'.png'}
@@ -77,7 +80,12 @@
               {set $text = 'Белтермо'}
             {case 'fibrofasad'}
               {set $beforeText = ""}
-              {set $text = 'Официальные дилеры 13-ми производителей'}
+              {set $afterText = ""}
+              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
+            {case 'fibrofasad2'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
             {case 'krovelnyjstroymarket'}
               {set $beforeText = ""}
               {set $text = 'Производство и продажа кровельных материалов'}

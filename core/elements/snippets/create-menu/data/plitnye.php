@@ -16,7 +16,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/fanera/',
                 'name' => 'Фанера',
-                'img' => 'assets/images/plitnye/fanera/fanera.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/fanera.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/fanera1.webp'
             ],
             'column2' => [
                 [
@@ -200,7 +201,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/giprok-gipsokarton/',
                 'name' => 'Гипсокартон',
-                'img' => 'assets/images/plitnye/gipsokarton/gipsokarton.jpg'
+                'img' => 'assets/template/pictures/menu_ico/001/gipsokarton.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/gipsokarton1.webp'
             ],
             'column2' => [
                 [
@@ -289,7 +291,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/ldsp/',
                 'name' => 'ЛДСП',
-                'img' => '/assets/images/products/177304/webp/0e5ad7358b07564e8e51c2d86006526d.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/ldsp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/ldsp1.webp'
             ],
             'column2' => [
                 [
@@ -362,7 +365,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/dsp-plity/',
                 'name' => 'ДСП',
-                'img' => '/assets/images/products/178030/webp/06c8e031eda4ac40aaa12714f7ff50c8.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/dsp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/dsp1.webp'
             ],
             'column2' => [
                 [
@@ -450,7 +454,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/osb-plity/',
                 'name' => 'ОСБ',
-                'img' => '/assets/images/products/177978/webp/371937725598db5dd48b7e790a9f7989.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/osb.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/osb1.webp'
             ],
             'column2' => [
                 [
@@ -574,7 +579,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/csp-plity/',
                 'name' => 'ЦСП',
-                'img' => '/assets/images/products/177923/webp/34f36c4beb5e02ea7b50c110c1c4e3cd.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/csp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/csp1.webp'
             ],
             'column2' => [
                 [
@@ -658,7 +664,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gvl-gipsovoloknistye-plity/',
                 'name' => 'Гипсоволокнистые плиты',
-                'img' => 'assets/images/plitnye/gvl/gvl.jpg'
+                'img' => 'assets/template/pictures/menu_ico/001/gvl.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/gvl1.webp'
             ],
             'column2' => [
                 [
@@ -711,7 +718,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/fibrolitovye-plity/',
                 'name' => 'Фибролитовые плиты',
-                'img' => '/assets/images/products/177937/webp/571c4d3ba0c5ad53f80721c9e5896d33.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/fibrolit.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/fibrolit1.webp'
             ],
             'column2' => [
                 [
@@ -841,7 +849,8 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/plity-mdvp/',
                 'name' => 'МДВП',
-                'img' => '/assets/images/products/177225/webp/09c3398855225d27e4fc456a9dfcb458.webp'
+                'img' => 'assets/template/pictures/menu_ico/001/mdvp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/mdvp1.webp'
             ],
             'column2' => [
                 [

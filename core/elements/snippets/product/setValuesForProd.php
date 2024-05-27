@@ -168,6 +168,7 @@ if (in_array($src['context_key'], ['gazosilikatstroy'])) {
     }
 }
 
+
 // Единицы измерения для газобетона
 if (in_array($src['context_key'], ['krovelnyjstroymarket'])) {
     if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
@@ -177,6 +178,26 @@ if (in_array($src['context_key'], ['krovelnyjstroymarket'])) {
         $upk = 1 / $src['kolvom2upak'][0];
     }
 }
+
+// Единицы измерения для плитных
+if (in_array($src['context_key'], ['plitnie'])) {
+    if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
+        $m2 = $src['ploshad_m2'][0];
+    }
+    if (!empty($src['kolvom2upak']) && !empty($src['kolvom2upak'][0])) {
+        $upk = 1 / $src['kolvom2upak'][0];
+    }
+}
+// Единицы измерения для белтермо
+if (in_array($src['context_key'], ['beltermo'])) {
+    if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
+        $m2 = $src['ploshad_m2'][0];
+    }
+    if (!empty($src['kolvom2upak']) && !empty($src['kolvom2upak'][0])) {
+        $upk = 1 / $src['kolvom2upak'][0];
+    }
+}
+
 
 // Установка itemUnits
 $inf = 999999999999999999;

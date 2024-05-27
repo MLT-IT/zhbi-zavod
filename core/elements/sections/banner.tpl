@@ -22,6 +22,8 @@
                 {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'fibrofasad'}
                 {set $text = 'Закажите фиброцементный фасад сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'fibrofasad2'}
+                {set $text = 'Закажите фиброцементный фасад сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'beltermo'}
                 {set $text = 'Закажите плиты Белтермо сейчас <br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'krovelnyjstroymarket'}

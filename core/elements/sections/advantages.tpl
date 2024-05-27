@@ -18,6 +18,10 @@
     {set $a1 = 'Официальные дилеры продукции Белтермо'}
   {case 'plitnye'}
     {set $a1 = 'Предоставляем продукцию 15 производителей'}
+  {case 'fibrofasad'}
+    {set $a1 = 'Официальные дилеры 13-и производителей'}
+  {case 'fibrofasad2'}
+    {set $a1 = 'Официальные дилеры 13-и производителей'}
 {/switch}
 
 <div class="advantages{$styleClass ? ' ' ~ $styleClass : ''}">

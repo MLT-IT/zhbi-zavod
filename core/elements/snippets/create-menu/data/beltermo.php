@@ -95,6 +95,7 @@ function getMenuData() {
                 ],
                 
             ],
+            'column4' =>[],
         ],
         $floor => [
             'column1' => [
@@ -174,6 +175,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $ultra => [
             'column1' => [
@@ -258,6 +260,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $acoustic => [
             'column1' => [
@@ -289,6 +292,7 @@ function getMenuData() {
                 
             ],
             'column3'=>[],
+            'column4' =>[],
         ],
         $underfloor => [
             'column1' => [
@@ -320,6 +324,7 @@ function getMenuData() {
                 
             ],
             'column3'=>[],
+            'column4' =>[],
         ],
         $protection => [
             'column1' => [
@@ -358,6 +363,7 @@ function getMenuData() {
                 ],
                 
             ],
+            'column4' =>[],
         ],
         $room => [
             'column1' => [
@@ -448,6 +454,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $kombi => [
             'column1' => [
@@ -546,6 +553,7 @@ function getMenuData() {
                 ],
                 
             ],
+            'column4' =>[],
         ],
         $universal => [
             'column1' => [
@@ -586,6 +594,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $flex => [
             'column1' => [
@@ -607,6 +616,7 @@ function getMenuData() {
                 
             ],
             'column3'=>[],
+            'column4' =>[],
         ],
         $multi => [
             'column1' => [
@@ -676,6 +686,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $safe => [
             'column1' => [
@@ -711,6 +722,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $instal => [
             'column1' => [
@@ -771,6 +783,7 @@ function getMenuData() {
                 
                 
             ],
+            'column4' =>[],
         ],
         $zell => [
             'column1' => [
@@ -780,6 +793,7 @@ function getMenuData() {
             ],
             'column2'=>[],
             'column3'=>[],
+            'column4' =>[],
         ],
         $mulcha => [
             'column1' => [
@@ -789,6 +803,7 @@ function getMenuData() {
             ],
             'column2'=>[],
             'column3'=>[],
+            'column4' =>[],
         ],
         
         
