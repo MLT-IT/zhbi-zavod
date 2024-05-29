@@ -29,6 +29,13 @@
             {set $site_context = $_modx->context.key}
         {/if}
 
+        {set $phone = '!virtual_phone' | snippet }
+        {set $email = '!virtual_email' | snippet }
+        {set $address = 'address' | option}
+        {if $_modx->getPlaceholder('localdata').local}
+          {set $address = $_modx->getPlaceholder('localdata').offices.0.address}
+        {/if}
+
         {* >>> meta *}
         <meta itemprop="name" content="Продажа {$text} в Санкт-Петербурге">
         <meta itemprop="priceRange" content="От 250 RUB">
@@ -37,6 +44,7 @@
         {* <<< meta *}
 
         <div class="contacts__body">
+         {if !$_modx->getPlaceholder('localdata').local}
           <div class="contacts__block">
             <div class="contacts__info">
               <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
@@ -51,8 +59,8 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Телефон склада в {$storehouse1}:</p>
-                    <p class="contact__value">{'phone' | option}, доб 1</p>
-                  </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                    <p class="contact__value">{$phone}, доб 1</p>
+                  </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
                 <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
@@ -60,8 +68,8 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Телефон склада в {$storehouse2}:</p>
-                    <p class="contact__value">{'phone' | option}, доб 2</p>
-                  </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                    <p class="contact__value">{$phone}, доб 2</p>
+                  </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
                 <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
@@ -69,13 +77,14 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Телефон склада в {$storehouse3}:</p>
-                    <p class="contact__value">{'phone' | option}, доб 3</p>
-                  </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                    <p class="contact__value">{$phone}, доб 3</p>
+                  </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
               </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
             </div>
             <div class="contacts__map shadow-map" id="districts_map" data-map-script="districts_map"></div>
           </div>
+          {/if}
           <div class="contacts__block">
             <div class="contacts__info">
               <p class="contacts__text contacts__text_bold">Офис продаж</p>
@@ -86,11 +95,7 @@
                   </svg>
                   <div class="contact__content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                     <p class="contact__title">Офис:</p>
-                    {if $_modx->getPlaceholder('localdata').local}
-                      <p class="contact__value">{$_modx->getPlaceholder('localdata').offices.0.address}</p>
-                    {else}
-                      <p class="contact__value">{'address' | option}</p>
-                    {/if}
+                      <p class="contact__value">{$address}</p>
                   </div>
                 </div>
                 <div class="contact">
@@ -108,8 +113,8 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Номер телефона контактного центра:</p>
-                    <p class="contact__value"><span itemprop="telephone">{$_modx->getPlaceholder('localdata').offices.0.phone}</span>, доб 2</p>
-                  </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                    <p class="contact__value"><span itemprop="telephone">{$phone}</span>, доб 2</p>
+                  </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
                 <div class="contact contact_hover contact_type_mail">
                   <svg class="contact__icon" aria-hidden="true">
@@ -117,8 +122,8 @@
                   </svg>
                   <div class="contact__content">
                     <p class="contact__title">Почта для связи:</p>
-                    <p class="contact__value"><span itemprop="email">{'email' | option}</span></p>
-                  </div><a class="contact__link" href="mailto:{'email' | option}"></a>
+                    <p class="contact__value"><span itemprop="email">{$email}</span></p>
+                  </div><a class="contact__link" href="mailto:{$email}"></a>
                 </div>
               </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
             </div>

@@ -21,6 +21,13 @@
     {set $logo = 'beltermo2.png'}
 {/switch}
 
+{set $phone = '!virtual_phone' | snippet }
+{set $email = '!virtual_email' | snippet }
+{set $address = 'address' | option}
+{if $_modx->getPlaceholder('localdata').local}
+  {set $address = $_modx->getPlaceholder('localdata').offices.0.address}
+{/if}
+
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__left">
@@ -29,31 +36,24 @@
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
-
-        {set $phone = '!virtual_phone' | snippet: []}
-    
-        <a class="footer__contact footer__contact_with-hover" href="tel:{$phone}">
+            <a class="footer__contact footer__contact_with-hover" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
               <span class="footer__contact-value">{$phone}</span>
             </a>
-            <a class="footer__contact footer__contact_with-hover" href="mailto:{'email' | option}" data-replace-elem="footer__contact-value">
+            <a class="footer__contact footer__contact_with-hover" href="mailto:{$email}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
               </svg>
-              <span class="footer__contact-value">{'email' | option}</span>
+              <span class="footer__contact-value">{$email}</span>
             </a>
             <div class="footer__contact">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-location-sm"></use>
               </svg>
               <span class="footer__contact-value">
-                    {if $_modx->getPlaceholder('localdata').local}
-                      <p class="contact__value">{$_modx->getPlaceholder('localdata').offices.0.address}</p>
-                    {else}
-                      <p class="contact__value">{'address' | option}</p>
-                    {/if}
+                <p class="contact__value">{$address}</p>
               </span>
             </div>
         </address>
