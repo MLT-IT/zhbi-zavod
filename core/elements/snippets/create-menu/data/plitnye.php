@@ -1,1796 +1,1037 @@
 <?php
 
 function getMenuData() {
-    $knauf = 93185;
-    $rockwool = 93190;
-    $umatex = 124718;
-    $tn = 93191;
-    $penoplex = 93189;
-    $isover = 93187;
-    $paroc = 93188;
-    $ursa = 93192;
-    $isoroc = 93186;
+    $fanera = 178116;
+    $gipsokarton = 177263;
+    $ldsp = 177288;
+    $dsp = 177282;
+    $osb = 177289;
+    $csp = 177299;
+    $gidrovolokno = 177264;
+    $fibrolit = 177296;
+    $mdvp = 177042;
 
     $data = [
-        $rockwool => [
+        $fanera => [
             'column1' => [
-                'uri' => '/rockwool/',
-                'name' => 'Утеплитель Rockwool',
-                'img' => '/assets/template/img/brands-webp/rockwool.webp'
+                'uri' => '/fanera/',
+                'name' => 'Фанера',
+                'img' => 'assets/template/pictures/menu_ico/001/fanera.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/fanera1.webp'
             ],
             'column2' => [
                 [
-                    'uri' => '/rockwool/light-batts/',
-                    'name' => 'Лайт Баттс',
+                    'uri' => '/fanera/fsf/',
+                    'name' => 'Фанера ФСФ',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/rockwool/light-batts/light-batts-scandic/',
-                    'name' => 'Скандик Лайт Баттс',
-                    'popular'=>2,
+                    'uri' => '/fanera/fk/',
+                    'name' => 'Фанера ФК',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/rockwool/light-batts/light-batts-optima/',
-                    'name' => 'Лайт Баттс Оптима',
-                    'popular'=>3,
-                ],
-
-                [
-                    'uri' => '/rockwool/acoustic-batts/',
-                    'name' => 'Акустик Баттс',
+                    'uri' => '/fanera/laminirovannaya/',
+                    'name' => 'Ламинированная фанера',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/rockwool/karkas-batts/',
-                    'name' => 'Каркас Баттс',
+                    'uri' => '/fanera/transportnaya/',
+                    'name' => 'Транспортная фанера',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/rockwool/fasad-batts/',
-                    'name' => 'Фасад Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/floor-batts/',
-                    'name' => 'Флор Баттс',
+                    'uri' => '/fanera/bakelitovaya/',
+                    'name' => 'Бакелитовая фанера',
+                    'popular'=>1,
                 ],
                 
-                [
-                    'uri' => '/rockwool/roof-batts/',
-                    'name' => 'Руф Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/venti-batts/',
-                    'name' => 'Венти Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/standart/',
-                    'name' => 'Роквул Стандарт',
-                ],
-                [
-                    'uri' => '/rockwool/econom/',
-                    'name' => 'Эконом',
-                ],
-                [
-                    'uri' => '/rockwool/teh-mat/',
-                    'name' => 'ТЕХ МАТ',
-                ],
-                [
-                    'uri' => '/rockwool/rockfacade/',
-                    'name' => 'Рокфасад',
-                ],
-                [
-                    'uri' => '/rockwool/rokvul-tekh-batts/',
-                    'name' => 'Роквул Тех Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/soput-tovary/',
-                    'name' => 'Сопутствующие товары',
-                ],
-                [
-                    'uri' => '/rockwool/wired-mat/',
-                    'name' => 'WIRED MAT',
-                ],
-                [
-                    'uri' => '/rockwool/cilindry-navivnye/',
-                    'name' => 'Цилиндры навивные',
-                ],
-                [
-                    'uri' => '/rockwool/lamella-mat-l/',
-                    'name' => 'Lamella Mat',
-                ],
-                [
-                    'uri' => '/rockwool/conlit-sl-150/',
-                    'name' => 'CONLIT SL 150',
-                ],
-                [
-                    'uri' => '/rockwool/kaviti-batts/',
-                    'name' => 'Кавити Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/sauna-batts/',
-                    'name' => 'Сауна Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/searox/',
-                    'name' => 'SeaRox',
-                ],
-                [
-                    'uri' => '/rockwool/ft-barrier/',
-                    'name' => 'FT BARRIER',
-                ],
-                [
-                    'uri' => '/rockwool/fire-batts/',
-                    'name' => 'Fire Batts',
-                ],
-                [
-                    'uri' => '/rockwool/kamin-batts/',
-                    'name' => 'Камин Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/plaster-batts/',
-                    'name' => 'Пластер Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/klimafix/',
-                    'name' => 'Klimafix',
-                ],
-                [
-                    'uri' => '/rockwool/acoustic-standart/',
-                    'name' => 'Акустик Стандарт',
-                ],
-                [
-                    'uri' => '/rockwool/sendvich-batts/',
-                    'name' => 'Сэндвич Баттс',
-                ],
-                [
-                    'uri' => '/rockwool/prorox/',
-                    'name' => 'ProRox',
-                ],
-                [
-                    'uri' => '/rockwool/industrial-batts-80/',
-                    'name' => 'Industrial Batts 80',
-                ],
-                [
-                    'uri' => '/rockwool/beton-element-batts/',
-                    'name' => 'Бетон Элемент Баттс',
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20печи/камина",
-                    "name" => "Для печи/камина",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Под%20штукатурку",
-                    "name" => "Под штукатурку",
-                ],
-                [
-                    "uri" => "/rockwool/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
             ],
             'column3' => [
                 [
-                    "uri" => "/rockwool/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=25",
-                    "name" => "25",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=27",
-                    "name" => "27",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/rockwool/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $umatex => [
-            'column1' => [
-                'uri' => '/yumateks-termo/',
-                'name' => 'Утеплитель Юматекс',
-                'img' => '/assets/template/img/brands-webp/umatex.webp',
-                'label' => true
-            ],
-            'column2' => [
-                [
-                    'uri' => '/yumateks-termo/smart-xl/',
-                    'name' => 'Smart (XL)',
+                    'uri' => '/fanera/3-mm/',
+                    'name' => '3мм',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/light/',
-                    'name' => 'Light',
-                    'popular'=>2,
+                    'uri' => '/fanera/4-mm/',
+                    'name' => '4мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/plus/',
-                    'name' => 'Plus',
-                    'popular'=>3,
+                    'uri' => '/fanera/5-mm/',
+                    'name' => '5мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/inwall/',
-                    'name' => 'InWall'
+                    'uri' => '/fanera/6-mm/',
+                    'name' => '6мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/fatio/',
-                    'name' => 'Fatio'
+                    'uri' => '/fanera/6.5-mm/',
+                    'name' => '6.5мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/linio-10/',
-                    'name' => 'Linio 10'
+                    'uri' => '/fanera/7-mm/',
+                    'name' => '7мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/linio-15/',
-                    'name' => 'Linio 15'
+                    'uri' => '/fanera/8-mm/',
+                    'name' => '8мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/linio-18/',
-                    'name' => 'Linio 18'
+                    'uri' => '/fanera/9-mm/',
+                    'name' => '9мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/linio-20/',
-                    'name' => 'Linio 20'
+                    'uri' => '/fanera/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/linio-80/',
-                    'name' => 'Linio 80'
+                    'uri' => '/fanera/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/fps-14/',
-                    'name' => 'FPS 14'
+                    'uri' => '/fanera/15-mm/',
+                    'name' => '15мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/fps-17/',
-                    'name' => 'FPS 17'
+                    'uri' => '/fanera/18-mm/',
+                    'name' => '18мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/grs-20/',
-                    'name' => 'GRS 20'
+                    'uri' => '/fanera/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/rob-60/',
-                    'name' => 'ROB 60'
+                    'uri' => '/fanera/21-mm/',
+                    'name' => '21мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/rob-80/',
-                    'name' => 'ROB 80'
+                    'uri' => '/fanera/24-mm/',
+                    'name' => '24мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/rol-40/',
-                    'name' => 'ROL 40'
+                    'uri' => '/fanera/27-mm/',
+                    'name' => '27мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/rol-60/',
-                    'name' => 'ROL 60'
+                    'uri' => '/fanera/30-mm/',
+                    'name' => '30мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/ros-30/',
-                    'name' => 'ROS 30'
+                    'uri' => '/fanera/35-mm/',
+                    'name' => '35мм',
+                    'popular'=>1,
                 ],
                 [
-                    'uri' => '/yumateks-termo/ros-40/',
-                    'name' => 'ROS 40'
+                    'uri' => '/fanera/40-mm/',
+                    'name' => '40мм',
+                    'popular'=>1,
                 ],
-                [
-                    'uri' => '/yumateks-termo/ros-50/',
-                    'name' => 'ROS 50'
-                ],
-                [
-                    'uri' => '/yumateks-termo/ros-60/',
-                    'name' => 'ROS 60'
-                ],
-                [
-                    'uri' => '/yumateks-termo/ros-80t/',
-                    'name' => 'ROS 80t'
-                ],
-                [
-                    'uri' => '/yumateks-termo/ssb-1/',
-                    'name' => 'SSB 1'
-                ],
-                [
-                    'uri' => '/yumateks-termo/ssb-4/',
-                    'name' => 'SSB 4'
-                ],
-                [
-                    'uri' => '/yumateks-termo/was-120/',
-                    'name' => 'WAS 120'
-                ],
-                [
-                    'uri' => '/yumateks-termo/was-25/',
-                    'name' => 'WAS 25'
-                ],
-                [
-                    'uri' => '/yumateks-termo/was-35/',
-                    'name' => 'WAS 35'
-                ],
-                [
-                    'uri' => '/yumateks-termo/was-50/',
-                    'name' => 'WAS 50'
-                ],
-                [
-                    'uri' => '/yumateks-termo/cgl-20/',
-                    'name' => 'CGL 20'
-                ],
-            ],
-            'column3' => [
-                [
-                    'name' => '20',
-                    'uri' => '/yumateks-termo/?item_thickness=20'
-                ],
-                [
-                    'name' => '25',
-                    'uri' => '/yumateks-termo/?item_thickness=25'
-                ],
-                [
-                    'name' => '30',
-                    'uri' => '/yumateks-termo/?item_thickness=30'
-                ],
-                [
-                    'name' => '40',
-                    'uri' => '/yumateks-termo/?item_thickness=40'
-                ],
-                [
-                    'name' => '50',
-                    'uri' => '/yumateks-termo/?item_thickness=50'
-                ],
-                [
-                    'name' => '60',
-                    'uri' => '/yumateks-termo/?item_thickness=60'
-                ],
-                [
-                    'name' => '70',
-                    'uri' => '/yumateks-termo/?item_thickness=70'
-                ],
-                [
-                    'name' => '75',
-                    'uri' => '/yumateks-termo/?item_thickness=75'
-                ],
-                [
-                    'name' => '100',
-                    'uri' => '/yumateks-termo/?item_thickness=100'
-                ],
-                [
-                    'name' => '120',
-                    'uri' => '/yumateks-termo/?item_thickness=120'
-                ],
-                [
-                    'name' => '150',
-                    'uri' => '/yumateks-termo/?item_thickness=150'
-                ]
             ],
             'column4' => [
                 [
-                    'name' => 'Вентилируемые фасады',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B',
+                    'uri' => '/fanera/dlya-podelok/',
+                    'name' => 'Для поделок',
+                    'popular'=>1,
                 ],
                 [
-                    'name' => 'Вентилируемые фасады в двухслойных системах',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B%20%D0%B2%20%D0%B4%D0%B2%D1%83%D1%85%D1%81%D0%BB%D0%BE%D0%B9%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D1%85',
+                    'uri' => '/fanera/dlya-transporta/',
+                    'name' => 'Для транспорта',
+                    'popular'=>1,
                 ],
                 [
-                    'name' => 'Внутренние стены (межкомнатные перегородки)',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%92%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B5%D0%BD%D1%8B%20(%D0%BC%D0%B5%D0%B6%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8)',
-                ],
-                [
-                    'name' => 'Для дверей',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9',
-                ],
-                [
-                    'name' => 'Для кровли',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8',
-                ],
-                [
-                    'name' => 'Для перегородок',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA',
-                ],
-                [
-                    'name' => 'Для перегородок и перекрытий',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9',
-                ],
-                [
-                    'name' => 'Для перекрытий',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9',
-                ],
-                [
-                    'name' => 'Для подвалов',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B2%D0%B0%D0%BB%D0%BE%D0%B2',
-                ],
-                [
+                    'uri' => '/fanera/dlya-pola/',
                     'name' => 'Для пола',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0',
+                    'popular'=>1,
                 ],
                 [
+                    'uri' => '/fanera/dlya-lodok/',
+                    'name' => 'Для лодок',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fanera/dlya-opalubki/',
+                    'name' => 'Для опалубки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fanera/dlya-lazernoj-rezki/',
+                    'name' => 'Для лазерной резки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fanera/dlya-mebeli/',
+                    'name' => 'Для мебели',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fanera/dlya-igrushek/',
+                    'name' => 'Для игрушек',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fanera/dlya-potolka/',
                     'name' => 'Для потолка',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0',
+                    'popular'=>1,
                 ],
                 [
-                    'name' => 'Для потолков',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2',
-                ],
-                [
+                    'uri' => '/fanera/dlya-sten/',
                     'name' => 'Для стен',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD',
+                    'popular'=>1,
+                ]
+            ],
+        ],
+        $gipsokarton => [
+            'column1' => [
+                'uri' => '/giprok-gipsokarton/',
+                'name' => 'Гипсокартон',
+                'img' => 'assets/template/pictures/menu_ico/001/gipsokarton.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/gipsokarton1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/giprok-gipsokarton/gyproc/',
+                    'name' => 'Gyproc',
+                    'popular'=>1,
                 ],
                 [
-                    'name' => 'Для труб',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1',
+                    'uri' => '/giprok-gipsokarton/volma/',
+                    'name' => 'Волма',
+                    'popular'=>1,
                 ],
                 [
+                    'uri' => '/giprok-gipsokarton/knauf/',
+                    'name' => 'Knauf',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/profil-dlya-gipsokartona/',
+                    'name' => 'Профиль для гипсокартона',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/giprok-gipsokarton/6.5-mm/',
+                    'name' => '6.5мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/8-mm/',
+                    'name' => '8мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/9.5-mm/',
+                    'name' => '9.5мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/12.5-mm/',
+                    'name' => '12.5мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/15-mm/',
+                    'name' => '15мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/16-mm/',
+                    'name' => '16мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
+                ],
+               
+            ],
+            'column4' => [
+                [
+                    'uri' => '/giprok-gipsokarton/dlya-peregorodok/',
+                    'name' => 'Для перегородок',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/dlya-potolka/',
+                    'name' => 'Для потолка',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/dlya-ventilyaczii/',
+                    'name' => 'Для вентиляции',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/giprok-gipsokarton/dlya-sten/',
+                    'name' => 'Для стен',
+                    'popular'=>1,
+                ],
+            ],
+        ],
+        $ldsp => [
+            'column1' => [
+                'uri' => '/ldsp/',
+                'name' => 'ЛДСП',
+                'img' => 'assets/template/pictures/menu_ico/001/ldsp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/ldsp1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/ldsp/egger/',
+                    'name' => 'Egger',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/kronospan/',
+                    'name' => 'Kronospan',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/cleaf/',
+                    'name' => 'CLEAF',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/ldsp/8-mm/',
+                    'name' => '8мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/16-mm/',
+                    'name' => '16мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/18-mm/',
+                    'name' => '18мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/25-mm/',
+                    'name' => '25мм',
+                    'popular'=>1,
+                ],
+            ],
+            'column4' => [
+                [
+                    'uri' => '/ldsp/dlya-kuhni/',
+                    'name' => 'Для кухни',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/dlya-vannoj/',
+                    'name' => 'Для ванной',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/dlya-spalni/',
+                    'name' => 'Для спальни',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/dlya-sten/',
+                    'name' => 'Для стен',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/ldsp/dlya-pola/',
+                    'name' => 'Для пола',
+                    'popular'=>1,
+                ],
+            ],
+        ],
+        $dsp => [
+            'column1' => [
+                'uri' => '/dsp-plity/',
+                'name' => 'ДСП',
+                'img' => 'assets/template/pictures/menu_ico/001/dsp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/dsp1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/egger/',
+                    'name' => 'Egger',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/quickdeck/',
+                    'name' => 'QuickDeck',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/kronostar/',
+                    'name' => 'Kronostar',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/kronospan/',
+                    'name' => 'Kronospan',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/16-mm/',
+                    'name' => '16мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/18-mm/',
+                    'name' => '18мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/22-mm/',
+                    'name' => '22мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/25-mm/',
+                    'name' => '25мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/38-mm/',
+                    'name' => '38мм',
+                    'popular'=>1,
+                ],
+            ],
+            'column4' => [
+                [
+                    'uri' => '/dlya-mebeli/',
+                    'name' => 'Для мебели',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/dlya-interera/',
+                    'name' => 'Для интерьера',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/dlya-stellazhei/',
+                    'name' => 'Для стеллажей',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/dlya-taryi/',
+                    'name' => 'Для тары',
+                    'popular'=>1,
+                ],
+            ],
+        ],
+        $osb => [
+            'column1' => [
+                'uri' => '/osb-plity/',
+                'name' => 'ОСБ',
+                'img' => 'assets/template/pictures/menu_ico/001/osb.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/osb1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/osb-plity/kalevala-ehkodom/',
+                    'name' => 'Калевала ЭкоДом',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/kronoshpan/',
+                    'name' => 'Кроношпан',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/murom/',
+                    'name' => 'Муром',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/talion-ultralam/',
+                    'name' => 'Талион (Ультралам)',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/shpuntovannaya/',
+                    'name' => 'Шпунтованные ОСБ',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/osb-plity/6-mm/',
+                    'name' => '6мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/8-mm/',
+                    'name' => '8мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/9-mm/',
+                    'name' => '9мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/11-mm/',
+                    'name' => '11мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/15-mm/',
+                    'name' => '15мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/18-mm/',
+                    'name' => '18мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/22-mm/',
+                    'name' => '22мм',
+                    'popular'=>1,
+                ],
+            ],
+            'column4' => [
+                [
+                    'uri' => '/osb-plity/dlya-vneshnej-obshivki/',
+                    'name' => 'Для внешней обшивки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-vnutrennej-obshivki/',
+                    'name' => 'Для внутренней обшивки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-krovli/',
+                    'name' => 'Для кровли',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-pola/',
+                    'name' => 'Для пола',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-opalubki/',
+                    'name' => 'Для опалубки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-taryi/',
+                    'name' => 'Для тары',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/osb-plity/dlya-mebeli/',
+                    'name' => 'Для мебели',
+                    'popular'=>1,
+                ],
+                
+            ],
+        ],
+        $csp => [
+            'column1' => [
+                'uri' => '/csp-plity/',
+                'name' => 'ЦСП',
+                'img' => 'assets/template/pictures/menu_ico/001/csp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/csp1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/csp-plity/pod-kirpich/',
+                    'name' => 'ЦСП под кирпич',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/csp-plity/8-mm/',
+                    'name' => '8мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/16-mm/',
+                    'name' => '16мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
+                ],
+                
+            ],
+            'column4' => [
+                [
+                    'uri' => '/csp-plity/dlya-vneshnej-obshivki/',
+                    'name' => 'Для внешней обшивки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-vnutrennej-obshivki/',
+                    'name' => 'Для внутренней обшивки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-opalubki/',
+                    'name' => 'Для опалубки',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-krovli/',
+                    'name' => 'Для кровли',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-pola/',
+                    'name' => 'Для пола',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-podokonnika/',
+                    'name' => 'Для подоконника',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-potolka/',
+                    'name' => 'Для потолка',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/csp-plity/dlya-ventilyaczionnogo-koroba/',
+                    'name' => 'Для вентиляционного короба',
+                    'popular'=>1,
+                ],
+            ],
+        ],
+        $gidrovolokno => [
+            'column1' => [
+                'uri' => '/gvl-gipsovoloknistye-plity/',
+                'name' => 'Гипсоволокнистые плиты',
+                'img' => 'assets/template/pictures/menu_ico/001/gvl.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/gvl1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/knauf/',
+                    'name' => 'Knauf',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/12.5-mm/',
+                    'name' => '12.5мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
+                ],
+            ],
+            'column4' => [
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/dlya-sten/',
+                    'name' => 'Для стен',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/dlya-peregorodok/',
+                    'name' => 'Для перегородок',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/dlya-potolka/',
+                    'name' => 'Для потолка',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/gvl-gipsovoloknistye-plity/dlya-shumoizolyaczii/',
+                    'name' => 'Для шумоизоляции',
+                    'popular'=>1,
+                ],
+            ],
+        ],
+        $fibrolit => [
+            'column1' => [
+                'uri' => '/fibrolitovye-plity/',
+                'name' => 'Фибролитовые плиты',
+                'img' => 'assets/template/pictures/menu_ico/001/fibrolit.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/fibrolit1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/fibrolitovye-plity/nordeco/',
+                    'name' => 'Nordeco',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/green-board/',
+                    'name' => 'Green Board',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/fibrolitovye-plity/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/14-mm/',
+                    'name' => '14мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/15-mm/',
+                    'name' => '15мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/18-mm/',
+                    'name' => '18мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/22-mm/',
+                    'name' => '22мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/25-mm/',
+                    'name' => '25мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/35-mm/',
+                    'name' => '35мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/50-mm/',
+                    'name' => '50мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/100-mm/',
+                    'name' => '100мм',
+                    'popular'=>1,
+                ],
+                
+            ],
+            'column4' => [
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-akusticheskix-potolkov/',
+                    'name' => 'Для акустических потолков',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-obliczovki-sten/',
+                    'name' => 'Для облицовки стен',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-shumoizolyaczii/',
+                    'name' => 'Для шумоизоляции',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-krovli/',
+                    'name' => 'Для кровли',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-utepleniya/',
+                    'name' => 'Для утепления',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-fundamenta/',
+                    'name' => 'Для фундамента/цоколя',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-karkasnyix-sten-i-peregorodok/',
+                    'name' => 'Для каркасных стен и перегородок',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-ploskix-krovel/',
+                    'name' => 'Для плоских кровель',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/sip-texnologiya/',
+                    'name' => 'SIP технология',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-podvesnyix-potolkov/',
+                    'name' => 'Для подвесных потолков',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/fibrolitovye-plity/dlya-finishnoj-otdelki/',
+                    'name' => 'Для финишной отделки',
+                    'popular'=>1,
+                ],
+                
+            ],
+        ],
+        $mdvp => [
+            'column1' => [
+                'uri' => '/plity-mdvp/',
+                'name' => 'МДВП',
+                'img' => 'assets/template/pictures/menu_ico/001/mdvp.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/mdvp1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/plity-mdvp/beltermo/',
+                    'name' => 'Beltermo',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/isoplaat/',
+                    'name' => 'Isoplaat',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/steico/',
+                    'name' => 'Steico',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+                [
+                    'uri' => '/plity-mdvp/10-mm/',
+                    'name' => '10мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/12-mm/',
+                    'name' => '12мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/15-mm/',
+                    'name' => '15мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/19-mm/',
+                    'name' => '19мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/20-mm/',
+                    'name' => '20мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/22-mm/',
+                    'name' => '22мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/24-mm/',
+                    'name' => '24мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/25-mm/',
+                    'name' => '25мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/30-mm/',
+                    'name' => '30мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/35-mm/',
+                    'name' => '35мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/40-mm/',
+                    'name' => '40мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/50-mm/',
+                    'name' => '50мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/60-mm/',
+                    'name' => '60мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/80-mm/',
+                    'name' => '80мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/100-mm/',
+                    'name' => '100мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/120-mm/',
+                    'name' => '120мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/140-mm/',
+                    'name' => '140мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/150-mm/',
+                    'name' => '150мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/160-mm/',
+                    'name' => '160мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/180-mm/',
+                    'name' => '180мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/200-mm/',
+                    'name' => '200мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/220-mm/',
+                    'name' => '220мм',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/plity-mdvp/240-mm/',
+                    'name' => '240мм',
+                    'popular'=>1,
+                ],
+               
+            ],
+            'column4' => [
+                [
+                    'uri' => '/plity-mdvp/dlya-fasada/',
                     'name' => 'Для фасада',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0',
-                ],
-                [
-                    'name' => 'Для фундамента',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0',
-                ],
-                [
-                    'name' => 'Звукоизоляция',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%97%D0%B2%D1%83%D0%BA%D0%BE%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F',
-                ],
-                [
-                    'name' => 'Камины и печи',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D1%8B%20%D0%B8%20%D0%BF%D0%B5%D1%87%D0%B8',
-                ],
-                [
-                    'name' => 'Каркасные конструкции',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D1%81%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8',
-                ],
-                [
-                    'name' => 'Мансарды',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%9C%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B',
-                ],
-                [
-                    'name' => 'Межэтажные перекрытия',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%9C%D0%B5%D0%B6%D1%8D%D1%82%D0%B0%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F',
-                ],
-                [
-                    'name' => 'Ненагружаемые конструкции',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%9D%D0%B5%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8',
-                ],
-                [
-                    'name' => 'Скатные кровли',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A1%D0%BA%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8',
-                ],
-                [
-                    'name' => 'Средний слой в кирпичной кладке',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%81%D0%BB%D0%BE%D0%B9%20%D0%B2%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B5',
-                ],
-                [
-                    'name' => 'Техническая изоляция',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F',
-                ],
-                [
-                    'name' => 'Универсальный',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9',
-                ],
-                [
-                    'name' => 'Чердачные перекрытия',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A7%D0%B5%D1%80%D0%B4%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F',
-                ],
-                [
-                    'name' => 'Штукатурные фасады',
-                    'uri' => '/yumateks-termo/?primenenie=%D0%A8%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B',
-                ],
-            ],
-        ],
-        $tn => [
-            'column1' => [
-                'uri' => '/tn/',
-                'name' => 'Утеплитель Технониколь',
-                'img' => '/assets/template/img/brands-webp/tehnonikol.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/tn/carbon/',
-                    'name' => 'Технониколь Carbon',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/tn/tekhnonikol-roklajt/',
-                    'name' => 'Технониколь Роклайт',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/tn/tekhnoruf/',
-                    'name' => 'Технониколь Техноруф',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-tekhnopleks/',
-                    'name' => 'XPS Техноплекс'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-logicpir/',
-                    'name' => 'Технониколь LOGICPIR'
-                ],
-                [
-                    'uri' => '/tn/tekhnofas/',
-                    'name' => 'Технониколь Технофас'
-                ],
-                [
-                    'uri' => '/tn/tekhnovent/',
-                    'name' => 'Технониколь Техновент'
-                ],
-                [
-                    'uri' => '/tn/tekhnoblok/',
-                    'name' => 'Технониколь Техноблок'
-                ],
-                [
-                    'uri' => '/tn/tekhnolajt/',
-                    'name' => 'Технониколь Технолайт'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-izoboks/',
-                    'name' => 'Технониколь Изобокс'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-master-zvukozashchita/',
-                    'name' => 'Технониколь Шумоизоляция'
-                ],
-                [
-                    'uri' => '/tn/plity-pir/',
-                    'name' => 'Технониколь Плиты PIR'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozm/',
-                    'name' => 'Плита Техно ОЗМ'
-                ],
-                [
-                    'uri' => '/tn/zvukoizolyaciya-tekhnonikol-tekhnoakustik/',
-                    'name' => 'Технониколь Техноакустик'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-shtukaturnyj-fasad/',
-                    'name' => 'Технониколь Штукатурный фасад'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-sendvich-tekhnonikol-c-xps/',
-                    'name' => 'Технониколь Сэндвич Ц-XPS'
-                ],
-                [
-                    'uri' => '/tn/uteplitel-tekhnonikol-tekhnoflor/',
-                    'name' => 'Технониколь Технофлор'
-                ],
-                [
-                    'uri' => '/tn/polimernye-gidroizolyacionnye-membrany/',
-                    'name' => 'Полимерные гидроизоляционные мембраны'
-                ],
-                [
-                    'uri' => '/tn/bazalit/',
-                    'name' => 'Технониколь Базалит'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozb/',
-                    'name' => 'Плита Техно ОЗБ'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-t/',
-                    'name' => 'Плита Техно Т'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-greenguard/',
-                    'name' => 'Технониколь GreenGuard'
-                ],
-                [
-                    'uri' => '/tn/tekhnosendvich/',
-                    'name' => 'Технониколь Техносэндвич'
-                ],
-                [
-                    'uri' => '/tn/plita-tekhno-ozd/',
-                    'name' => 'Плита Техно ОЗД'
-                ],
-                [
-                    'uri' => '/tn/cilindr-tekhno/',
-                    'name' => 'Цилиндр Техно'
-                ],
-                [
-                    'uri' => '/tn/rulonnaya-zvukoizolyaciya/',
-                    'name' => 'Рулонная звукоизоляция'
-                ],
-                [
-                    'uri' => '/tn/mat-tekhno/',
-                    'name' => 'Мат Техно'
-                ],
-                [
-                    'uri' => '/tn/soputstvuyushchie-tovary/',
-                    'name' => 'Сопутствующие товары Технониколь'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-segmenty-i-polucilindry-xps/',
-                    'name' => 'Технониколь Сегменты и Полуцилиндры XPS'
-                ],
-                [
-                    'uri' => '/tn/tekhnonikol-teploroll/',
-                    'name' => 'Технониколь Теплоролл'
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/tn/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20окон",
-                    "name" => "Для окон",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Под%20штукатурку",
-                    "name" => "Под штукатурку",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20ванной%20комнаты",
-                    "name" => "Для ванной комнаты",
-                ],
-                [
-                    "uri" => "/tn/?primenenie=Для%20дверей%20и%20ворот",
-                    "name" => "Для дверей и ворот",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/tn/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/tn/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $penoplex => [
-            'column1' => [
-                'uri' => '/penoplex/',
-                'name' => 'Утеплитель Penoplex',
-                'img' => '/assets/template/img/brands-webp/penoplex.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/penoplex/fundament/',
-                    'name' => 'Пеноплэкс Фундамент',
+                    'uri' => '/plity-mdvp/dlya-perekryitij/',
+                    'name' => 'Для перекрытий',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/penoplex/komfort/',
-                    'name' => 'Пеноплэкс Комфорт',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/penoplex/osnova/',
-                    'name' => 'Пеноплэкс Основа',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/penoplex/geo/',
-                    'name' => 'Пеноплэкс ГЕО',
-                ],
-                [
-                    'uri' => '/penoplex/45/',
-                    'name' => 'Пеноплэкс 45',
-                ],
-                [
-                    'uri' => '/penoplex/stena/',
-                    'name' => 'Пеноплэкс Стена',
-                ],
-                [
-                    'uri' => '/penoplex/uklon/',
-                    'name' => 'Пеноплэкс Уклон',
-                ],
-                [
-                    'uri' => '/penoplex/extream/',
-                    'name' => 'Пеноплэкс Экстрим',
-                ],
-                [
-                    'uri' => '/penoplex/krovlya/',
-                    'name' => 'Пеноплэкс Кровля',
-                ],
-                [
-                    'uri' => '/penoplex/segmenty/',
-                    'name' => 'Пеноплэкс Сегменты',
-                ],
-                [
-                    'uri' => '/penoplex/fasad/',
-                    'name' => 'Пеноплэкс Фасад',
-                ],
-                [
-                    'uri' => '/penoplex/sop-tovary/',
-                    'name' => 'Сопутствующие товары Penoplex',
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/penoplex/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/penoplex/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/penoplex/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $knauf => [
-            'column1' => [
-                'uri' => '/knauf/',
-                'name' => 'Утеплитель Knauf',
-                'img' => '/assets/template/img/brands-webp/brand-knauf.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/knauf/teploknauf/',
-                    'name' => 'ТеплоКНАУФ',
+                    'uri' => '/plity-mdvp/dlya-vnutrennix-sten/',
+                    'name' => 'Для внутренних стен',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/knauf/professionalniy-segment-knauf-insuleyshn/',
-                    'name' => 'Knauf Insulation',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/knauf/therm/',
-                    'name' => 'Кнауф Терм',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/knauf/akustiknauf/',
-                    'name' => 'АкустиКНАУФ',
-                ],
-                [
-                    'uri' => '/knauf/knauf-membrany/',
-                    'name' => 'Кнауф мембраны',
-                ],
-                [
-                    'uri' => '/knauf/knauf-tisma/',
-                    'name' => 'Кнауф Тисма',
-                ],
-                [
-                    'uri' => '/knauf/greenterm/',
-                    'name' => 'GreenTERM',
-                ],
-                [
-                    'uri' => '/knauf/knauf-ekoroll/',
-                    'name' => 'Knauf Экоролл',
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/knauf/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20печи/камина",
-                    "name" => "Для печи/камина",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-                [
-                    "uri" => "/knauf/?primenenie=Под%20штукатурку",
-                    "name" => "Под штукатурку",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/knauf/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=27",
-                    "name" => "27",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/knauf/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $paroc => [
-            'column1' => [
-                'uri' => '/paroc/',
-                'name' => 'Утеплитель Paroc',
-                'img' => '/assets/template/img/brands-webp/paroc.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/paroc/oem-plityi/',
-                    'name' => 'OEM плиты',
+                    'uri' => '/plity-mdvp/dlya-vneshnix-sten/',
+                    'name' => 'Для внешних стен',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/paroc/zvukozashhitnaya-stroitelnaya-izolyacziya/',
-                    'name' => 'Звукозащитная строительная изоляция',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/paroc/lamelnyie-matyi/',
-                    'name' => 'Ламельные маты',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/paroc/matyi-dlya-ovk-i-promyishlennosti/',
-                    'name' => 'Маты для овк и промышленности',
-                ],
-                [
-                    'uri' => '/paroc/obshhestroitelnaya-teploizolyacziya/',
-                    'name' => 'Общестроительная теплоизоляция',
-                ],
-                [
-                    'uri' => '/paroc/ovk-matyi/',
-                    'name' => 'Овк маты',
-                ],
-                [
-                    'uri' => '/paroc/ovk-plityi/',
-                    'name' => 'Овк плиты',
-                ],
-                [
-                    'uri' => '/paroc/ognezashhitnaya-stroitelnaya-izolyacziya/',
-                    'name' => 'Огнезащитная строительная изоляция',
-                ],
-                [
-                    'uri' => '/paroc/plityi/',
-                    'name' => 'Плиты',
-                ],
-                [
-                    'uri' => '/paroc/proshivnyie-matyi/',
-                    'name' => 'Прошивные маты',
-                ],
-                [
-                    'uri' => '/paroc/teploizolyacziya-dlya-sendvich-panelej/',
-                    'name' => 'Теплоизоляция для сэндвич-панелей',
-                ],
-                [
-                    'uri' => '/paroc/teploizolyacziya-ploskix-krovel/',
-                    'name' => 'Теплоизоляция плоских кровель',
-                ],
-                [
-                    'uri' => '/paroc/teploizolyacziya-sten/',
-                    'name' => 'Теплоизоляция стен',
-                ],
-                [
-                    'uri' => '/paroc/teploizolyacziya-fundamenta-i-polov-na-grunte/',
-                    'name' => 'Теплоизоляция фундамента и полов на грунте',
-                ],
-                [
-                    'uri' => '/paroc/teploizolyacziya-shtukaturnyix-fasadov/',
-                    'name' => 'Теплоизоляция штукатурных фасадов',
-                ],
-                [
-                    'uri' => '/paroc/texnicheskie-otvodyi-i-segmentyi/',
-                    'name' => 'Технические отводы и сегменты',
-                ],
-                [
-                    'uri' => '/paroc/uteplenie-i-ognezashhita-potolkov-i-perekryitij/',
-                    'name' => 'Утепление и огнезащита потолков и перекрытий',
-                ],
-                [
-                    'uri' => '/paroc/cilindry/',
-                    'name' => 'Цилиндры',
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/paroc/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/paroc/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/paroc/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=25",
-                    "name" => "25",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/paroc/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $ursa => [
-            'column1' => [
-                'uri' => '/ursa/',
-                'name' => 'Утеплитель Ursa',
-                'img' => '/assets/template/img/brands-webp/ursa.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/ursa/geo/',
-                    'name' => 'Ursa GEO',
+                    'uri' => '/plity-mdvp/dlya-pola/',
+                    'name' => 'Для пола',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/ursa/pureone/',
-                    'name' => 'Ursa Pureone',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/ursa/ursa-seco/',
-                    'name' => 'Ursa Seco',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/ursa/xps/',
-                    'name' => 'Ursa XPS',
-                ],
-                [
-                    'uri' => '/ursa/terra/',
-                    'name' => 'Ursa Терра',
-                ],
-            ],
-            'column4' => [
-                [
-                    "uri" => "/ursa/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/ursa/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/ursa/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=25",
-                    "name" => "25",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/ursa/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $isover => [
-            'column1' => [
-                'uri' => '/isover/',
-                'name' => 'Утеплитель Isover',
-                'img' => '/assets/template/img/brands-webp/isover.webp'
-            ],
-            'column2' => [
-                [
-                    'uri' => '/isover/kim-al/',
-                    'name' => 'Изовер KIM-AL',
+                    'uri' => '/plity-mdvp/dlya-potolka/',
+                    'name' => 'Для потолка',
                     'popular'=>1,
                 ],
                 [
-                    'uri' => '/isover/kv-050/',
-                    'name' => 'Изовер KV-050',
-                    'popular'=>2,
-                ],
-                [
-                    'uri' => '/isover/ol/',
-                    'name' => 'Изовер OL',
-                    'popular'=>3,
-                ],
-                [
-                    'uri' => '/isover/akustik/',
-                    'name' => 'Изовер Акустик'
-                ],
-                [
-                    'uri' => '/isover/venti/',
-                    'name' => 'Изовер Венти'
-                ],
-                [
-                    'uri' => '/isover/ventfasad/',
-                    'name' => 'Изовер ВентФасад'
-                ],
-                [
-                    'uri' => '/isover/uteplitel-zvukozaschita/',
-                    'name' => 'Изовер Звукозащита'
-                ],
-                [
-                    'uri' => '/isover/karkas/',
-                    'name' => 'Изовер Каркас'
-                ],
-                [
-                    'uri' => '/isover/karkasnyi-dom/',
-                    'name' => 'Изовер Каркасный дом'
-                ],
-                [
-                    'uri' => '/isover/izover-klassik/',
-                    'name' => 'Изовер Классик'
-                ],
-                [
-                    'uri' => '/isover/kt-special/',
-                    'name' => 'Изовер КТ-Специал'
-                ],
-                [
-                    'uri' => '/isover/lait/',
-                    'name' => 'Изовер Лайт'
-                ],
-                [
-                    'uri' => '/isover/master-akustiki/',
-                    'name' => 'Изовер Мастер Акустики'
-                ],
-                [
-                    'uri' => '/isover/master-teplyh-kryh/',
-                    'name' => 'Изовер Мастер Теплых Крыш'
-                ],
-                [
-                    'uri' => '/isover/master-teplyh-sten/',
-                    'name' => 'Изовер Мастер Теплых Стен'
-                ],
-                [
-                    'uri' => '/isover/optimal/',
-                    'name' => 'Изовер Оптимал'
-                ],
-                [
-                    'uri' => '/isover/plavayuschii-pol/',
-                    'name' => 'Изовер Плавающий пол'
-                ],
-                [
-                    'uri' => '/isover/izover-poly-i-perekrytiya/',
-                    'name' => 'Изовер Полы и Перекрытия'
-                ],
-                [
-                    'uri' => '/isover/profi/',
-                    'name' => 'Изовер Профи'
-                ],
-                [
-                    'uri' => '/isover/ruf/',
-                    'name' => 'Изовер Руф'
-                ],
-                [
-                    'uri' => '/isover/sauna/',
-                    'name' => 'Изовер Сауна'
-                ],
-                [
-                    'uri' => '/isover/skatnaya-krovlya/',
-                    'name' => 'Изовер Скатная Кровля'
-                ],
-                [
-                    'uri' => '/isover/izover-special-tvin/',
-                    'name' => 'Изовер Специал Твин'
-                ],
-                [
-                    'uri' => '/isover/standart/',
-                    'name' => 'Изовер Стандарт'
-                ],
-                [
-                    'uri' => '/isover/sendvich-life/',
-                    'name' => 'Изовер Сэндвич Лайф'
-                ],
-                [
-                    'uri' => '/isover/teplaya-krysha/',
-                    'name' => 'Изовер Теплая Крыша'
-                ],
-                [
-                    'uri' => '/isover/teplo-i-tiho/',
-                    'name' => 'Изовер Тепло и Тихо'
-                ],
-                [
-                    'uri' => '/isover/teplye-steny/',
-                    'name' => 'Изовер Теплые Стены'
-                ],
-                [
-                    'uri' => '/isover/teplyj-dom/',
-                    'name' => 'Изовер Теплый Дом'
-                ],
-                [
-                    'uri' => '/isover/tihiy-dom/',
-                    'name' => 'Изовер Тихий Дом'
-                ],
-                [
-                    'uri' => '/isover/fasad/',
-                    'name' => 'Изовер Фасад'
-                ],
-                [
-                    'uri' => '/isover/flor/',
-                    'name' => 'Изовер Флор'
-                ],
-                [
-                    'uri' => '/isover/shtukaturnyi-fasad/',
-                    'name' => 'Изовер Штукатурный фасад'
-                ],
-                [
-                    'uri' => '/isover/sop-tovary/',
-                    'name' => 'Сопутствующие товары Изовер'
-                ]
-            ],
-            'column4' => [
-                [
-                    "uri" => "/isover/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20бани",
-                    "name" => "Для бани",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/isover/?primenenie=Для%20фундамента/цоколя",
-                    "name" => "Для фундамента/цоколя",
-                ],
-            ],
-            'column3' => [
-                [
-                    "uri" => "/isover/?item_thickness=20",
-                    "name" => "20",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=25",
-                    "name" => "25",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=75",
-                    "name" => "75",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/isover/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ],
-        $isoroc => [
-            'column1' => [
-                'uri' => '/isoroc/',
-                'name' => 'Утеплитель Isoroc',
-                'img' => '/assets/template/img/brands-webp/isoroc.webp'
-            ],
-            'column2' => [
-                [
-                    "uri" => "/isoroc/izolait/",
-                    "name" => "Изолайт",
+                    'uri' => '/plity-mdvp/dlya-krovli/',
+                    'name' => 'Для кровли',
                     'popular'=>1,
                 ],
                 [
-                    "uri" => "/isoroc/izovent/",
-                    "name" => "Изовент",
-                    'popular'=>2,
+                    'uri' => '/plity-mdvp/dlya-peregorodok/',
+                    'name' => 'Для перегородок',
+                    'popular'=>1,
                 ],
-                [
-                    "uri" => "/isoroc/izokor-s/",
-                    "name" => "Изокор-С",
-                    'popular'=>3,
-                ],
-                [
-                    "uri" => "/isoroc/izoruf/",
-                    "name" => "Изоруф"
-                ],
-                [
-                    "uri" => "/isoroc/izofas/",
-                    "name" => "Изофас"
-                ],
-                [
-                    "uri" => "/isoroc/izoflor/",
-                    "name" => "Изофлор"
-                ],
-                [
-                    "uri" => "/isoroc/p-125/",
-                    "name" => "П-125"
-                ],
-                [
-                    "uri" => "/isoroc/p-75/",
-                    "name" => "П-75"
-                ],
-                [
-                    "uri" => "/isoroc/pp-60/",
-                    "name" => "ПП-60"
-                ],
-                [
-                    "uri" => "/isoroc/pp-75/",
-                    "name" => "ПП-75"
-                ],
-                [
-                    "uri" => "/isoroc/pp-80/",
-                    "name" => "ПП-80"
-                ],
-                [
-                    "uri" => "/isoroc/ultralajt/",
-                    "name" => "УльтраЛайт"
-                ],
-                [
-                    "uri" => "/isoroc/super-tepliy/",
-                    "name" => "Супер Теплый"
-                ],
-                [
-                    "uri" => "/isoroc/plita-po-gostu/",
-                    "name" => "Плита по ГОСТу"
-                ],
-                [
-                    "uri" => "/isoroc/termozashhita/",
-                    "name" => "Термозащита"
-                ],
-                [
-                    "uri" => "/isoroc/klin/",
-                    "name" => "Клин"
-                ],
-                [
-                    "uri" => "/isoroc/komplektuyushhie-tovary/",
-                    "name" => "Комплектующие товары"
-                ],
-                [
-                    "uri" => "/isoroc/polimernyie-gidroizolyaczionnyie-membranyi/",
-                    "name" => "Полимерные гидроизоляционные мембраны"
-                ]
             ],
-            'column4' => [
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20балкона/лоджии",
-                    "name" => "Для балкона/лоджии",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20вентиляции",
-                    "name" => "Для вентиляции",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20кровли",
-                    "name" => "Для кровли",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20мансарды",
-                    "name" => "Для мансарды",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20перегородок",
-                    "name" => "Для перегородок",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20перекрытий",
-                    "name" => "Для перекрытий",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20печи/камина",
-                    "name" => "Для печи/камина",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20пола",
-                    "name" => "Для пола",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20потолка",
-                    "name" => "Для потолка",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20сайдинга",
-                    "name" => "Для сайдинга",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20стен",
-                    "name" => "Для стен",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20труб",
-                    "name" => "Для труб",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Для%20фасада",
-                    "name" => "Для фасада",
-                ],
-                [
-                    "uri" => "/isoroc/?primenenie=Крыши",
-                    "name" => "Крыши",
-                ]
-            ],
-            'column3' => [
-                [
-                    "uri" => "/isoroc/?item_thickness=27",
-                    "name" => "27",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=30",
-                    "name" => "30",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=40",
-                    "name" => "40",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=50",
-                    "name" => "50",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=60",
-                    "name" => "60",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=70",
-                    "name" => "70",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=100",
-                    "name" => "100",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=120",
-                    "name" => "120",
-                ],
-                [
-                    "uri" => "/isoroc/?item_thickness=150",
-                    "name" => "150",
-                ],
-            ]
-        ]
+        ],
+        
+        
     ];
 
 

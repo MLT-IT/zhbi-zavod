@@ -21,8 +21,7 @@
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.png"></div>
-      <p class="advantage
-">Доставка и самовывоз</p>
+      <p class="advantage__title">Доставка и самовывоз</p>
       <p class="advantage__text">Вы можете заказать доставку по СПб и ЛО или оформить самовывоз с нашего склада в Санкт-Петербурге</p><a class="advantage__link link" href="/dostavka-i-oplata/">Условия доставки и самовывоза</a>
     </div>
   </div>

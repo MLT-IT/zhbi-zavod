@@ -8,9 +8,17 @@
     {set $logo = 'kraska-white.png'}
     {set $toCatalogBtnText = 'Все разделы'}
   {case 'suhiesmesi'}
-    {set $logo = 'gazosilicatstroy-white.png'}
+    {set $logo = 'suhiesmesi2.png'}
   {case 'krovelnyjstroymarket'}
     {set $logo = 'krovelnyjstroymarket-white.png'}
+  {case 'fibrofasad'}
+    {set $logo = 'fibrofasad-white.png'}
+  {case 'fibrofasad2'}
+    {set $logo = 'fibrofasad-white.png'}
+  {case 'plitnye'}  
+    {set $logo = 'plitnyematerialy2.png'}
+  {case 'beltermo'}  
+    {set $logo = 'beltermo2.png'}
 {/switch}
 
 <footer class="footer">
@@ -197,6 +205,8 @@
           {set $params['parents'] = 0}
           {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
           {set $params['sortdir'] = 'ASC'}
+        {case 'fibrofasad'}
+          {set $params['resources'] = '171123,171056,171132,171090,171124'}
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>

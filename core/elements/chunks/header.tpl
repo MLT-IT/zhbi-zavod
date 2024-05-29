@@ -12,8 +12,8 @@
           {set $logo = 'alterteplo.png'}
           {set $logoMobile = 'alterteplo.png'}
         {case 'plitnye'}  
-          {set $logo = 'alterteplo.png'}
-          {set $logoMobile = 'alterteplo.png'}
+          {set $logo = 'plitnyematerialy.png'}
+          {set $logoMobile = 'plitnyematerialy.png'}
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
@@ -21,11 +21,23 @@
           {set $logo = 'kraska.png'}
           {set $logoMobile = 'kraska.png'}
         {case 'suhiesmesi'}
-          {set $logo = 'gazosilicatstroy.png'}
-          {set $logoMobile = 'gazosilicatstroy.png'}
+          {set $logo = 'suhiesmesi.png'}
+          {set $logoMobile = 'suhiesmesi.png'}
+        {case 'beltermo'}
+          {set $logo = 'beltermo.png'}
+          {set $logoMobile = 'beltermo.png'}
         {case 'krovelnyjstroymarket'}
           {set $logo = 'krovelnyjstroymarket.png'}
           {set $logoMobile = 'krovelnyjstroymarket.png'}
+        {case 'fibrofasad'}
+          {set $logo = 'fibrofasad.png'}
+          {set $logoMobile = 'fibrofasad.png'}
+        {case 'fibrofasad2'}
+          {set $logo = 'fibrofasad.png'}
+          {set $logoMobile = 'fibrofasad.png'}
+        {default}
+          {set $logo = $_modx->resource.context_key~'.png'}
+          {set $logoMobile = $_modx->resource.context_key~'.png'}
       {/switch}
 
       <div class="h-logo h-logo_mobile">
@@ -57,13 +69,23 @@
             {case 'gazosilikatstroy'}
               {set $text = 'газобетона'}
             {case 'plitnye'}
-              {set $text = 'плит'}
+              {set $text = 'плитных материалов'}
             {case 'stenovye'}
               {set $text = 'стеновых материалов'}    
             {case 'kraska'}
               {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
             {case 'suhiesmesi'}
               {set $text = 'сухих смесей'}
+            {case 'beltermo'}
+              {set $text = 'Белтермо'}
+            {case 'fibrofasad'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
+            {case 'fibrofasad2'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
             {case 'krovelnyjstroymarket'}
               {set $beforeText = ""}
               {set $text = 'Производство и продажа кровельных материалов'}
@@ -122,7 +144,12 @@
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
                   <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
                           {if $catCols['column1']['img'] is not empty}
-                            <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                            {if $catCols['column1']['img2'] is not empty}
+                              <img class="h-catalog-item__image _norm" src="{$catCols['column1']['img']}">
+                              <img class="h-catalog-item__image _hov" src="{$catCols['column1']['img2']}">
+                            {else}
+                              <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
+                            {/if}
                           {elseif $catCols['column1']['svg'] is not empty}
                             <svg class="h-subinfo__svg" aria-hidden="true">
                               <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>

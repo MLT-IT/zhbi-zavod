@@ -14,40 +14,37 @@
       <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
         <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
       </div>
-      {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
-        {$_modx->runSnippet('pdoResources', [
-          'tpl' => '@FILE chunks/create-menu/category-item.tpl',
-          'depth' => 0,
-          'limit' => 0,
-          'sortby' => 'menuindex',
-          'sortdir' => 'ASC',
-          'tplWrapper' => '@INLINE <div class="catalog-screen__products catalog-screen__products_first"><ul class="catalog-screen__items">[[+output]]<li class="catalog-screen__item catalog-screen__item_type_more"></li></ul></div>',
-          'tvPrefix' => '',
-          'includeTVs' => 'showInDropdownPanel,mainImage',
-          'where' => '{"template:in":[27]}',
+      
+        {'@FILE snippets/getTags.php' | snippet :[
+        'tpl' => '@FILE chunks/create-menu/category-item.tpl',
+        'tplWrapper' => '@INLINE
+        {if $output}
+        <div class="catalog-screen__products catalog-screen__products_first">
+          <ul class="catalog-screen__items">
+            {$output}
+            <li class="catalog-screen__item catalog-screen__item_type_more"></li>
+          </ul>
+        </div>
+        {/if}',
+        'idTagsBlock' => 'block-2',
+        'where' => '{"template:in":[27]}',
+        ]}
 
-          'totalVar' => 'total',
-          'setTotal' => 1,
-
-          'select' => 'menutitle,uri'
-        ])}
-        {$_modx->runSnippet('pdoResources', [
-          'tpl' => '@FILE chunks/create-menu/category-item.tpl',
-          'depth' => 0,
-          'limit' => 0,
-          'sortby' => 'menuindex',
-          'sortdir' => 'ASC',
-          'tplWrapper' => '@INLINE <div class="catalog-screen__products catalog-screen__products_second"><ul class="catalog-screen__items">[[+output]]<li class="catalog-screen__item catalog-screen__item_type_more"></li></ul></div>',
-          'tvPrefix' => '',
-          'includeTVs' => 'showInDropdownPanel,mainImage',
-          'where' => '{"template:in":[28]}',
-
-          'totalVar' => 'total',
-          'setTotal' => 1,
-
-          'select' => 'menutitle,uri'
-        ])}
-      {/if}
+        {'@FILE snippets/getTags.php' | snippet :[
+        'tpl' => '@FILE chunks/create-menu/category-item.tpl',
+        'tplWrapper' => '@INLINE
+        {if $output}
+        <div class="catalog-screen__products catalog-screen__products_second">
+          <ul class="catalog-screen__items">
+            {$output}
+            <li class="catalog-screen__item catalog-screen__item_type_more"></li>
+          </ul>
+        </div>
+        {/if}',
+        'idTagsBlock' => 'block-3',
+        'where' => '{"template:in":[28]}',
+        ]}
+     
       <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
         <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
         <div class="sorting__body">

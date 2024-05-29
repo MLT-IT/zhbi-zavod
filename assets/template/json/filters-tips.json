@@ -506,5 +506,231 @@
             "visual": "#252427;",
             "text": "сигнальный черный"
         }
+    },
+    "msoption|profil": {
+        "C10": {
+            "visual": "/assets/template/img/catalog/profil/C10.jpg",
+            "text": "C10"
+        },
+        "C10A": {
+            "visual": "/assets/template/img/catalog/profil/C10A.jpg",
+            "text": "C10A"
+        },
+        "C10AВ": {
+            "visual": "/assets/template/img/catalog/profil/C10AВ.jpg",
+            "text": "C10AВ"
+        },
+        "C10R": {
+            "visual": "/assets/template/img/catalog/profil/C10R.jpg",
+            "text": "C10R"
+        },
+        "C10В": {
+            "visual": "/assets/template/img/catalog/profil/C10В.jpg",
+            "text": "C10В"
+        },
+        "C10ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C10ПГ.jpg",
+            "text": "C10ПГ"
+        },
+        "C15": {
+            "visual": "/assets/template/img/catalog/profil/C15.jpg",
+            "text": "C15"
+        },
+        "C15ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C15ПГ.jpg",
+            "text": "C15ПГ"
+        },
+        "C17": {
+            "visual": "/assets/template/img/catalog/profil/C17.jpg",
+            "text": "C17"
+        },
+        "C17ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C17ПГ.jpg",
+            "text": "C17ПГ"
+        },
+        "C18": {
+            "visual": "/assets/template/img/catalog/profil/C18.jpg",
+            "text": "C18"
+        },
+        "C18ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C18ПГ.jpg",
+            "text": "C18ПГ"
+        },
+        "C20A": {
+            "visual": "/assets/template/img/catalog/profil/C20A.jpg",
+            "text": "C20A"
+        },
+        "C20R": {
+            "visual": "/assets/template/img/catalog/profil/C20R.jpg",
+            "text": "C20R"
+        },
+        "С20R": {
+            "visual": "/assets/template/img/catalog/profil/C20R.jpg",
+            "text": "С20R"
+        },
+        "C20В": {
+            "visual": "/assets/template/img/catalog/profil/C20В.jpg",
+            "text": "C20В"
+        },
+        "C21": {
+            "visual": "/assets/template/img/catalog/profil/C21.jpg",
+            "text": "C21"
+        },
+        "C21R": {
+            "visual": "/assets/template/img/catalog/profil/C21R.jpg",
+            "text": "C21R"
+        },
+        "C21ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C21ПГ.jpg",
+            "text": "C21ПГ"
+        },
+        "C44": {
+            "visual": "/assets/template/img/catalog/profil/C44.jpg",
+            "text": "C44"
+        },
+        "C44ПГ": {
+            "visual": "/assets/template/img/catalog/profil/C44ПГ.jpg",
+            "text": "C44ПГ"
+        },
+        "C8": {
+            "visual": "/assets/template/img/catalog/profil/C8.jpg",
+            "text": "C8"
+        },
+        "CC10": {
+            "visual": "/assets/template/img/catalog/profil/CC10.jpg",
+            "text": "CC10"
+        },
+        "CC10ПГ": {
+            "visual": "/assets/template/img/catalog/profil/CC10ПГ.jpg",
+            "text": "CC10ПГ"
+        },
+        "H114": {
+            "visual": "/assets/template/img/catalog/profil/H114.jpg",
+            "text": "H114"
+        },
+        "H57": {
+            "visual": "/assets/template/img/catalog/profil/H57.jpg",
+            "text": "H57"
+        },
+        "H60": {
+            "visual": "/assets/template/img/catalog/profil/H60.jpg",
+            "text": "H60"
+        },
+        "H60R": {
+            "visual": "/assets/template/img/catalog/profil/H60R.jpg",
+            "text": "H60R"
+        },
+        "H75": {
+            "visual": "/assets/template/img/catalog/profil/H75.jpg",
+            "text": "H75"
+        },
+        "H75R": {
+            "visual": "/assets/template/img/catalog/profil/H75R.jpg",
+            "text": "H75R"
+        },
+        "H80A": {
+            "visual": "/assets/template/img/catalog/profil/H80A.jpg",
+            "text": "H80A"
+        },
+        "HC35": {
+            "visual": "/assets/template/img/catalog/profil/HC35.jpg",
+            "text": "HC35"
+        },
+        "HC35R": {
+            "visual": "/assets/template/img/catalog/profil/HC35R.jpg",
+            "text": "HC35R"
+        },
+        "HC38": {
+            "visual": "/assets/template/img/catalog/profil/HC38.jpg",
+            "text": "HC38"
+        },
+        "HC44R": {
+            "visual": "/assets/template/img/catalog/profil/HC44R.jpg",
+            "text": "HC44R"
+        },
+        "МП10": {
+            "visual": "/assets/template/img/catalog/profil/МП10.jpg",
+            "text": "МП10"
+        },
+        "МП10ПГ": {
+            "visual": "/assets/template/img/catalog/profil/МП10ПГ.jpg",
+            "text": "МП10ПГ"
+        },
+        "МП18": {
+            "visual": "/assets/template/img/catalog/profil/МП18.jpg",
+            "text": "МП18"
+        },
+        "МП20": {
+            "visual": "/assets/template/img/catalog/profil/МП20.jpg",
+            "text": "МП20"
+        },
+        "МП20ПГ": {
+            "visual": "/assets/template/img/catalog/profil/МП20ПГ.jpg",
+            "text": "МП20ПГ"
+        },
+        "МП35": {
+            "visual": "/assets/template/img/catalog/profil/МП35.jpg",
+            "text": "МП35"
+        },
+        "Н114": {
+            "visual": "/assets/template/img/catalog/profil/Н114.jpg",
+            "text": "Н114"
+        },
+        "Н126": {
+            "visual": "/assets/template/img/catalog/profil/Н126.jpg",
+            "text": "Н126"
+        },
+        "Н150": {
+            "visual": "/assets/template/img/catalog/profil/Н150.jpg",
+            "text": "Н150"
+        },
+        "Н160": {
+            "visual": "/assets/template/img/catalog/profil/Н160.jpg",
+            "text": "Н160"
+        },
+        "Н57": {
+            "visual": "/assets/template/img/catalog/profil/Н57.jpg",
+            "text": "Н57"
+        },
+        "Н60": {
+            "visual": "/assets/template/img/catalog/profil/Н60.jpg",
+            "text": "Н60"
+        },
+        "Н75": {
+            "visual": "/assets/template/img/catalog/profil/Н75.jpg",
+            "text": "Н75"
+        },
+        "Н75R": {
+            "visual": "/assets/template/img/catalog/profil/Н75R.jpg",
+            "text": "Н75R"
+        },
+        "Н90": {
+            "visual": "/assets/template/img/catalog/profil/Н90.jpg",
+            "text": "Н90"
+        },
+        "HC13": {
+            "visual": "/assets/template/img/catalog/profil/НC13.jpg",
+            "text": "HC13"
+        },
+        "HC15": {
+            "visual": "/assets/template/img/catalog/profil/НC15.jpg",
+            "text": "HC15"
+        },
+        "HC18": {
+            "visual": "/assets/template/img/catalog/profil/НC18.jpg",
+            "text": "HC18"
+        },
+        "HC18ПГ": {
+            "visual": "/assets/template/img/catalog/profil/НC18ПГ.jpg",
+            "text": "HC18ПГ"
+        },
+        "HC44": {
+            "visual": "/assets/template/img/catalog/profil/НC44.jpg",
+            "text": "HC44"
+        },
+        "C8A": {
+            "visual": "/assets/template/img/catalog/profil/С8А.jpg",
+            "text": "C8A"
+        }
     }
 }

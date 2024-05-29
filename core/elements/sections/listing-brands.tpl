@@ -14,8 +14,14 @@
           {set $text = 'лакокрасочных материалов'}
         {case 'suhiesmesi'}
           {set $text = 'сухих смесей'}
+        {case 'beltermo'}
+          {set $text = 'сухих смесей'}
+        {case 'fibrofasad'}
+          {set $text = 'фиброфасадов'}
         {case 'krovelnyjstroymarket'}
           {set $text = $_modx->resource.pagetitle}
+        {case 'beltermo'}
+          {set $text = 'изделий Белтермо'}
       {/switch}
       {if $_modx->context.key == 'krovelnyjstroymarket'}
           {$text}

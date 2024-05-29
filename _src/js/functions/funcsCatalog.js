@@ -1,4 +1,5 @@
 import functions from "./functions";
+import VisualFilter from "../class/filter/visual/VisualFilter";
 
 /**
  * Функции, относящиеся к шаблону Каталог (в основном работа с mFilter2).
@@ -18,6 +19,29 @@ if (!$discountBlock.length) {
 
 // Инициализация
 function init() {
+    // -------------------------------------------
+    // Уменьшение текста в тегах, если он слишком длинный
+    // -------------------------------------------
+    $(".catalog-screen__item-name").each(function (i, e) {
+        let $elem = $(e);
+
+        // Получаем и проверяем высоту
+        if ($elem.outerHeight() > 20) {
+            $elem.css("font-size", ".775rem");
+        }
+
+        // Красивый перенос для тегов с подобным названием: "Доска строганная 20 мм"
+        let text = $elem.text();
+        if (text.match(/(\d+ мм)/g)) {
+            text = text.replace(
+                /(\d+ мм)/g,
+                '<span style="white-space: nowrap; font-size: inherit;">$1</span>'
+            );
+            $elem.html(text);
+        }
+    });
+
+
     // Перенос строки в названии в чанках товаров на pro-fanera и plitaosb
     wrapTitle();
     // Мы находимся на странице каталога?
@@ -79,7 +103,6 @@ function init() {
                 toggleFiltersbar();
             }
         });
-
 
         // ----------------------------
         // Эффект шторки для панели с фильтрами на мобилках
@@ -160,9 +183,9 @@ function init() {
         let pageType;
         if ($('.colors-options .euv-custom-select__option').length) {
             pageType = PAGE_TYPE_PRODUCT;
-        } else if ($('.default-checkbox__label').length && !$('body[data-ctx="krovelnyjstroymarket"]').length) {
+        } else if ($('.default-checkbox__label').length) {
             pageType = PAGE_TYPE_CATALOG;
-        } 
+        }
 
         if (pageType){
             $.getJSON(
@@ -172,7 +195,7 @@ function init() {
                   // В анимации используется setTimeout. Анимация активируется при клике. Если быстро покликать, то могут быть глюки в анимации. Чтобы их не было, нужно очищать timeout. Чтобы очищать timeout, нужно где-то его хранить. Данная переменная нужна для этой цели
                   let animationTimeout = null;
                   let positionTimeout = null;
-        
+
                   switch (pageType) {
                     case PAGE_TYPE_PRODUCT:
                       let key = "msoption|cvet";
@@ -240,8 +263,8 @@ function init() {
                             );
                             // Если нашли, то...
                             console.log($fltrVal.length);
+
                             if ($fltrVal.length) {
-                              alert();
                               // Определяем внутренний контент подсказки: это либо текст, либо (в некоторых случаях, например, для опции цвет) html-код
                               let tipContent;
                               if (keyFilter == "msoption|cvet") {
@@ -268,7 +291,32 @@ function init() {
                                   '</strong><span class="wintip__text">' +
                                   tipsData[keyFilter][value]["text"] +
                                   "</span></div></div>";
-                              } else {
+                              } else if (keyFilter == "msoption|profil") {
+
+                                    // Тут может быть либо путь к картинке, либо hex-код цвета
+                                    let cssBgValue;
+
+                                    if (
+                                        Array.from(tipsData[keyFilter][value]["visual"])[0] ==
+                                        "#"
+                                    ) {
+                                        cssBgValue = tipsData[keyFilter][value]["visual"];
+                                    } else {
+                                        cssBgValue =
+                                            "url('" +
+                                            tipsData[keyFilter][value]["visual"] +
+                                            "')";
+                                    }
+
+                                    tipContent =
+                                        '<div class="wintip__visual-text"><div class="wintip__visual" style="background: ' +
+                                        cssBgValue +
+                                        '"></div><div class="wintip__text-wrap"><strong class="wintip__header">' +
+                                        value +
+                                        '</strong><span class="wintip__text">' +
+                                        tipsData[keyFilter][value]["text"] +
+                                        "</span></div></div>";
+                                } else {
                                 tipContent = tipsData[keyFilter][value];
                               }
         
@@ -1435,3 +1483,8 @@ function wrapTitle() {
 //         el.toggleClass('active');
 //     })
 // }
+let contexts = ["suhiesmesi", "krovelnyjstroymarket", "plitnye", "beltermo", "stenovye", "fibrofasad"];
+let currentContext = $("body").attr("data-ctx");
+if( contexts.indexOf(currentContext) != -1){
+    let visualFilter = new VisualFilter(".filter-item", ".filter-item__option", ".default-checkbox__label-text");
+}

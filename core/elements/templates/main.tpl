@@ -65,7 +65,7 @@
         </div>
       </article>
       {include "file:sections/listing-brands.tpl"}
-      {if $_modx->resource.context_key not in list ['web', 'kraska']}
+      {if $_modx->resource.context_key not in list ['web', 'kraska', 'suhiesmesi', 'fibrofasad', 'plitnye','beltermo']}
         {include "file:sections/actions.tpl"}
       {/if}
       {include "file:sections/hits.tpl"}
@@ -77,6 +77,8 @@
         {case 'gazosilikatstroy'}
           {include "file:sections/gazobeton-info.tpl"}
         {case 'kraska'}
+          {include "file:sections/gazobeton-info.tpl"}
+        {case 'beltermo'}
           {include "file:sections/gazobeton-info.tpl"}
         {case 'suhiesmesi'}
           {include "file:sections/gazobeton-info.tpl"}

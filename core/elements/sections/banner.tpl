@@ -11,7 +11,7 @@
               {case 'web'}
                 {set $text = 'Закажите утеплитель сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'plitnye'}
-                {set $text = 'Закажите плиты сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+                {set $text = 'Закажите плитные материалы сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'stenovye'}
                 {set $text = 'Закажите плиты сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'gazosilikatstroy'}
@@ -19,9 +19,17 @@
               {case 'kraska'}
                 {set $text = 'Закажите краску сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'suhiesmesi'}
-                {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
+                {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'fibrofasad'}
+                {set $text = 'Закажите фиброцементный фасад сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'fibrofasad2'}
+                {set $text = 'Закажите фиброцементный фасад сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'beltermo'}
+                {set $text = 'Закажите плиты Белтермо сейчас <br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'krovelnyjstroymarket'}
                 {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
+
+                
             {/switch}
             {$text}
           </div>
