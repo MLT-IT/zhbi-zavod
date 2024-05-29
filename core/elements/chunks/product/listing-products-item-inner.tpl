@@ -57,6 +57,14 @@
     </span>
     <ul class="product-card__stats">
         {include "file:chunks/product/listing-chars.tpl"}
+        {if $_modx->resource.context_key == "fibrofasad"}
+            {$_modx->runSnippet("getCharacterCardProduct", [
+                "product" => $id,
+                "category" => $_modx->resource.id,
+                "context" => $_modx->resource.context_key,
+                "tpl" => "@FILE chunks/product/wizard-character-item.tpl"
+            ])}
+        {/if}
     </ul>
   {/if}
     {* Если сравнение вывод всех характеристик *}
