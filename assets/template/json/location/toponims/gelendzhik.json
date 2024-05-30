@@ -1,7 +1,9 @@
 {
+  "region": "krasnodar",
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
+      "email": "krasnodar",
       "address": "Геленджик, территория Южная промышленная зона, 18",
       "scale": 14,
       "coord": "",

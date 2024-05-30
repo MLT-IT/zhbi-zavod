@@ -1,7 +1,9 @@
 {
+  "region": "krasnodar",
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
+      "email": "krasnodar",
       "address": "Тихорецк, улица Жигуленко, 14/1",
       "scale": 14,
       "coord": "",

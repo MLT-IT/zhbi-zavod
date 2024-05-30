@@ -1,7 +1,9 @@
 {
+  "region": "krasnodar",
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
+      "email": "krasnodar",
       "address": "Армавир, Лабинская улица, 2Е",
       "scale": 14,
       "coord": "",

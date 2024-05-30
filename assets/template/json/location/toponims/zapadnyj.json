@@ -1,7 +1,9 @@
 {
+  "region": "krasnodar",
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
+      "email": "krasnodar",
       "address": "Западный, Краснодарская улица, 8",
       "scale": 14,
       "coord": "",

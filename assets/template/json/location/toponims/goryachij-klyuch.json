@@ -1,7 +1,9 @@
 {
+  "region": "krasnodar",
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
+      "email": "krasnodar",
       "address": "Горячий Ключ, улица Ковалёвой, 34",
       "scale": 14,
       "coord": "",
