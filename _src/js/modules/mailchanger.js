@@ -2,7 +2,7 @@ export default function mailChange(toMail = "stroym") {
   const TIMEOUT = 0;
   const links = document.querySelectorAll('a[href*="mailto"]');
   const fixEmail = (email) => {
-    const pattern = /(mailto:)?\s?(info|mail)(@.+)/;
+    const pattern = /(mailto:)\s?(.+)(@.+)/;
     return email.replace(pattern, toMail + "$3");
   };
 
