@@ -1,14 +1,15 @@
 export default function mailChange(toMail = "stroym") {
   const TIMEOUT = 0;
+  const region = document.body.dataset.region || toMail;
   const links = document.querySelectorAll('a[href*="mailto"]');
   const getNewEmail = (email) => {
     const pattern = /(mailto:)\s?(.+)(@.+)/;
-    return email.replace(pattern, toMail + "$3");
+    return email.replace(pattern, region + "$3");
   };
 
   const replaceEmailInHtml = (input) =>{
     const re = /<(.+)>(.+)(@.+)<\/(.+)>/;
-    return input.replace(re, "<$1>"+toMail+"$3</$4>")
+    return input.replace(re, "<$1>"+region+"$3</$4>")
   }
 
   links.forEach((n) => {
