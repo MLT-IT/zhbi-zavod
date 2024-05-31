@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Северный, Большевистская улица, 13/3",
       "scale": 14,
-      "coord": "",
       "gmap": "15__wywKTWxHCrLZTTAeJdmIN0zqkMbQ",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Северный, Большевистская улица, 13/3",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-NHCPCCQL",
+        "gazosilikatstroy.ru": "GTM-PJS6PR59",
+        "osnova.spb.ru": "GTM-T5KBMG7F"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446292",
+        "gazosilikatstroy.ru": "97447925",
+        "osnova.spb.ru": "97449159"
+      }
     }
   ],
   "toponim": {

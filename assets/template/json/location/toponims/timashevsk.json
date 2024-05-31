@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Тимашевск, Путевая улица, 64",
       "scale": 14,
-      "coord": "",
       "gmap": "1G8pbJl5i97Tr8ztd62W4AduTzJgeuYY",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Тимашевск, Путевая улица, 64",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-P4VRPTR7",
+        "gazosilikatstroy.ru": "GTM-5BCT3D2L",
+        "osnova.spb.ru": "GTM-W37D3VNQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446881",
+        "gazosilikatstroy.ru": "97448372",
+        "osnova.spb.ru": "97449736"
+      }
     }
   ],
   "toponim": {

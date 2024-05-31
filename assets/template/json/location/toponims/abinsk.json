@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Абинск, Фермерская улица, 15/1",
       "scale": 14,
-      "coord": "",
       "gmap": "1x5U6LxxVo0g-BsQ0dWi8jVKhVmEuUoM",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Абинск, Фермерская улица, 15/1",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-KBRD8TSG",
+        "gazosilikatstroy.ru": "GTM-T5B2NT42",
+        "osnova.spb.ru": "GTM-WFT5S4RJ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447474",
+        "gazosilikatstroy.ru": "97448707",
+        "osnova.spb.ru": "97450058"
+      }
     }
   ],
   "toponim": {

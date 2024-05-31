@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Усть-Лабинск, улица Тельмана, 36",
       "scale": 14,
-      "coord": "",
       "gmap": "15Tqr9aBwfi7MBvq7-4bb9UGi2a24MIE",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Усть-Лабинск, улица Тельмана, 36",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-T8Z7N557",
+        "gazosilikatstroy.ru": "GTM-PNCNPPPQ",
+        "osnova.spb.ru": "GTM-MDZ22MK6"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447576",
+        "gazosilikatstroy.ru": "97448817",
+        "osnova.spb.ru": "97450140"
+      }
     }
   ],
   "toponim": {

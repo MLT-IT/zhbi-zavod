@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Станица Северская, Промышленная улица, 4",
       "scale": 14,
-      "coord": "",
       "gmap": "1lAbPsrV2_h6R1i9DtKfey38HA-sNUlc",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Станица Северская, Промышленная улица, 4",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-PGTX8R75",
+        "gazosilikatstroy.ru": "GTM-WMSJN6LP",
+        "osnova.spb.ru": "GTM-PMF4NN4M"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447667",
+        "gazosilikatstroy.ru": "97448923",
+        "osnova.spb.ru": "97450198"
+      }
     }
   ],
   "toponim": {

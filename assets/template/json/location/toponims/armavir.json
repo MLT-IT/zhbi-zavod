@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Армавир, Лабинская улица, 2Е",
       "scale": 14,
-      "coord": "",
       "gmap": "1MMr0DnPVeV3D-eZFYbVV_1aD8SRec48",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Армавир, Лабинская улица, 2Е",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5NDDHHZZ",
+        "gazosilikatstroy.ru": "GTM-5HTBS7L2",
+        "osnova.spb.ru": "GTM-MNTSGHKQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446444",
+        "gazosilikatstroy.ru": "97448088",
+        "osnova.spb.ru": "97449298"
+      }
     }
   ],
   "toponim": {

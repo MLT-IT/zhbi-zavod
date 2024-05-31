@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Кропоткин, 3-й проезд, 2",
       "scale": 14,
-      "coord": "",
       "gmap": "1cWgXxnpwWkX_YQBN2zBjQBPSmvTAaLU",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Кропоткин, 3-й проезд, 2",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-TZ4KCK65",
+        "gazosilikatstroy.ru": "GTM-M9DLW8F4",
+        "osnova.spb.ru": "GTM-PTR5V9TF"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447410",
+        "gazosilikatstroy.ru": "97448679",
+        "osnova.spb.ru": "97450029"
+      }
     }
   ],
   "toponim": {

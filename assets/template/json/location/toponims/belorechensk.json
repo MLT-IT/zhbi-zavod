@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Белореченск, Бригадная улица, 1Г3",
       "scale": 14,
-      "coord": "",
       "gmap": "1x1xoCsl1UANLLCJKAfhyiwsV7eyI7ag",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Белореченск, Бригадная улица, 1Г3",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WWV8PD7F",
+        "gazosilikatstroy.ru": "GTM-P2NM2WQZ",
+        "osnova.spb.ru": "GTM-TPT924PM"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446459",
+        "gazosilikatstroy.ru": "97448122",
+        "osnova.spb.ru": "97449332"
+      }
     }
   ],
   "toponim": {

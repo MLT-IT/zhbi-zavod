@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Афипский, Дорожная улица, 5",
       "scale": 14,
-      "coord": "",
       "gmap": "1knJ_QNb3coO8iWeyfT00tzJvKV_ow4k",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Афипский, Дорожная улица, 5",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-PZF2LTFL",
+        "gazosilikatstroy.ru": "GTM-MTZ4G934",
+        "osnova.spb.ru": "GTM-PJ6G2RDS"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447253",
+        "gazosilikatstroy.ru": "97448583",
+        "osnova.spb.ru": "97449967"
+      }
     }
   ],
   "toponim": {

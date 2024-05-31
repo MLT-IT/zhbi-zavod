@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Сочи, переулок Бараташвили, 10",
       "scale": 14,
-      "coord": "",
       "gmap": "1RdpgmJv0ekeM-zVE1ygy6TlZ5sd9SaI",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Сочи, переулок Бараташвили, 10",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-KPLHB8M9",
+        "gazosilikatstroy.ru": "GTM-M6H2D3WF",
+        "osnova.spb.ru": "GTM-WC6T2559"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446111",
+        "gazosilikatstroy.ru": "97447845",
+        "osnova.spb.ru": "97449047"
+      }
     }
   ],
   "toponim": {

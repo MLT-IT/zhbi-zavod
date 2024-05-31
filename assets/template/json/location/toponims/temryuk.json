@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Темрюк, Западная улица, 17",
       "scale": 14,
-      "coord": "",
       "gmap": "1EPaFhCl55QzbECIZz9kkBUXcH31MELA",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Темрюк, Западная улица, 17",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5RP5BRLX",
+        "gazosilikatstroy.ru": "GTM-KXR8QZV8",
+        "osnova.spb.ru": "GTM-PTW9J7N3"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447014",
+        "gazosilikatstroy.ru": "97448435",
+        "osnova.spb.ru": "97449851"
+      }
     }
   ],
   "toponim": {

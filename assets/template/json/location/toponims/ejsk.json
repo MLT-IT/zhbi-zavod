@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Ейск, Ивановская улица, 110",
       "scale": 14,
-      "coord": "",
       "gmap": "1jHdy-X0UPjTR-3SZLysPgoDGfkeZXZM",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Ейск, Ивановская улица, 110",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5NCBKDD7",
+        "gazosilikatstroy.ru": "GTM-WWK26WNF",
+        "osnova.spb.ru": "GTM-MNZ245VG"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446487",
+        "gazosilikatstroy.ru": "97448165",
+        "osnova.spb.ru": "97449371"
+      }
     }
   ],
   "toponim": {

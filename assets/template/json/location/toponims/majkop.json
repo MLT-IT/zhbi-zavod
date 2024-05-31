@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Майкоп, Горная улица, 2",
       "scale": 14,
-      "coord": "",
       "gmap": "1bwYQGFzf6sVw4uaYM7Wfo-W-TVOXX8Q",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Майкоп, Горная улица, 2",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-W5LB5JL9",
+        "gazosilikatstroy.ru": "GTM-5NBSFJXS",
+        "osnova.spb.ru": "GTM-MRFCM357"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446410",
+        "gazosilikatstroy.ru": "97448043",
+        "osnova.spb.ru": "97449266"
+      }
     }
   ],
   "toponim": {

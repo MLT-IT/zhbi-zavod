@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Кореновск, Ленинградская улица, 27Б",
       "scale": 14,
-      "coord": "",
       "gmap": "1qQn0uxFAzCYW1q9CZTB_9dHVK_NtP84",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Кореновск, Ленинградская улица, 27Б",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WQLMX6T3",
+        "gazosilikatstroy.ru": "GTM-5L3RPMVQ",
+        "osnova.spb.ru": "GTM-572P9BM6"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447349",
+        "gazosilikatstroy.ru": "97448631",
+        "osnova.spb.ru": "97449995"
+      }
     }
   ],
   "toponim": {

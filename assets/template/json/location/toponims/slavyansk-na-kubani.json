@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Славянск-на-Кубани, Вокзальная улица, 19Б",
       "scale": 14,
-      "coord": "",
       "gmap": "1RMnPRKmscNIJ-a8Yu6qWwlGBRFVqcOA",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Славянск-на-Кубани, Вокзальная улица, 19Б",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-MB3WMG9R",
+        "gazosilikatstroy.ru": "GTM-PFJWNTHJ",
+        "osnova.spb.ru": "GTM-NBRSKSJ3"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446740",
+        "gazosilikatstroy.ru": "97448210",
+        "osnova.spb.ru": "97449411"
+      }
     }
   ],
   "toponim": {

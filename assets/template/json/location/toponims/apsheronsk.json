@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Апшеронск, улица Комарова, 72Г",
       "scale": 14,
-      "coord": "",
       "gmap": "1-W4xn6ztSSG0alhEdydR8HzQgoLlo2M",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Апшеронск, улица Комарова, 72Г",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-PXV2TQ4L",
+        "gazosilikatstroy.ru": "GTM-KDWPZRT4",
+        "osnova.spb.ru": "GTM-KQHX7H4G"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447637",
+        "gazosilikatstroy.ru": "97448885",
+        "osnova.spb.ru": "97450188"
+      }
     }
   ],
   "toponim": {
