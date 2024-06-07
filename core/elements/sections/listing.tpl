@@ -83,6 +83,10 @@
               {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
             {case 'krovelnyjstroymarket'}
               {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
+            {case 'tagnerud'}
+              {set $text = 'Закажите керамзит сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+            {case default}
+              {set $text = 'Закажите продукцию сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
           {/switch}
           {$text}
         </div>

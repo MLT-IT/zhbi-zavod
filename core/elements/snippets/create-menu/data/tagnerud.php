@@ -10,7 +10,7 @@ function getMenuData() {
         $tip => [
             'column1' => [
                 'uri' => '',
-                'name' => 'Тип',
+                'name' => 'По типу',
                 // 'img' => '/assets/template/pictures/menu_ico/001.webp',
                 // 'img2' => '/assets/template/pictures/menu_ico/001w.webp'
             ],
@@ -26,7 +26,7 @@ function getMenuData() {
         $frakzia => [
             'column1' => [
                 'uri' => '',
-                'name' => 'Фракция',
+                'name' => 'По фракции',
                 // 'img' => '/assets/template/pictures/menu_ico/002.webp',
                 // 'img2' => '/assets/template/pictures/menu_ico/002w.webp'
             ],
@@ -42,7 +42,7 @@ function getMenuData() {
         $upakovka => [
             'column1' => [
                 'uri' => '',
-                'name' => 'Упаковка',
+                'name' => 'По упаковке',
                 // 'img' => '/assets/template/pictures/menu_ico/003.webp',
                 // 'img2' => '/assets/template/pictures/menu_ico/003w.webp'
             ],
@@ -57,7 +57,7 @@ function getMenuData() {
         $razmer => [
             'column1' => [
                 'uri' => '',
-                'name' => 'Клей для утеплителя',
+                'name' => 'По размеру',
                 // 'img' => '/assets/template/pictures/menu_ico/006.webp',
                 // 'img2' => '/assets/template/pictures/menu_ico/006w.webp'
             ],

@@ -304,7 +304,26 @@ class getCategoriesWithMinPrice
                     ];
                     static::$brandsAndCategories = static::$brandsIds;
                 break;
-                default: break;
+                // тут не понятно, что вывести, пока оставлю (ted)
+                // case 'tagnerud':
+                //     static::$brandsIds = [
+                //         'catalog' => 196905,
+                //     ];
+                //     static::$brandsAndCategories = static::$brandsIds;
+                //     break;
+                default: 
+                    // тут надо бы какую-то базовую логику, тоже пока не понятно, повисит для мотивации (ted)
+                    // $catalogId = $modx->getObject('modResource', ['alias' => 'catalog'])->id;
+                    // $categories = $modx->runSnippet('pdoResources',[
+                    //     'returnIds' => 1,
+                    //     'depth' => 1,
+                    //     'where' => '{"class_key:=":"msCategory"}',
+                    // ]);
+                    // static::$brandsIds = [
+                    //     'catalog' => $catalogId,
+                    // ];
+                    // static::$brandsAndCategories = static::$brandsIds;
+                break;
         }
     }
 }

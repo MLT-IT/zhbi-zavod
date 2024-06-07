@@ -97,6 +97,8 @@
               {set $beforeText = ""}
               {set $text = 'Производство и продажа кровельных материалов'}
               {set $afterText = ""}
+            {case 'tagnerud'}
+              {set $text = 'керамзита'}
           {/switch}
           {$beforeText} {$text} {$afterText}
         </span>
@@ -149,7 +151,7 @@
                   <div class="h-catalog__column-header">{$menu['column1']['title']}</div>
                   {foreach $menu['values'] as $catId => $catCols}
                     <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
-                  <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
+                      <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
                           {if $catCols['column1']['img'] is not empty}
                             {if $catCols['column1']['img2'] is not empty}
                               <img class="h-catalog-item__image _norm" src="{$catCols['column1']['img']}">

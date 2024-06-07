@@ -22,10 +22,14 @@
           {set $text = $_modx->resource.pagetitle}
         {case 'beltermo'}
           {set $text = 'изделий Белтермо'}
+        {case 'tagnerud'}
+          {set $text = 'керамзита'}
+        {case default}
+          {set $text = 'строительных материалов'}
       {/switch}
       {if $_modx->context.key == 'krovelnyjstroymarket'}
           {$text}
-        {else}
+      {else}
         Продажа {$text} в Санкт-Петербурге
       {/if}
     </h1>
