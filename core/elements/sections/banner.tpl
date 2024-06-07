@@ -7,6 +7,8 @@
             <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
           </picture>
           <div class="banner__title">
+            {set $text = 'Закажите товар сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+
             {switch $_modx->resource.context_key}
               {case 'web'}
                 {set $text = 'Закажите утеплитель сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
@@ -28,8 +30,8 @@
                 {set $text = 'Закажите плиты Белтермо сейчас <br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
               {case 'krovelnyjstroymarket'}
                 {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
-              {case default}
-                {set $text = 'Закажите товар сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+              {case 'tagnerud'}
+                {set $text = 'Закажите керамзит сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку'}
             {/switch}
             {$text}
           </div>

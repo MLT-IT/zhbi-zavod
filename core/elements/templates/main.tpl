@@ -70,7 +70,7 @@
       {if $_modx->resource.context_key not in list ['web', 'kraska', 'suhiesmesi', 'fibrofasad', 'plitnye','beltermo']}
         {include "file:sections/actions.tpl"}
       {/if}
-      {* {include "file:sections/hits.tpl"} *}
+      {include "file:sections/hits.tpl"}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
 
       {switch $_modx->resource.context_key}
@@ -86,6 +86,8 @@
           {include "file:sections/gazobeton-info.tpl"}
         {case 'krovelnyjstroymarket'}
           {include "file:sections/gazobeton-info.tpl"}
+        {case 'tagnerud'}
+          {include "file:sections/tagnerud-info.tpl"}
       {/switch}
       {include "file:sections/faq.tpl"}
       {include "file:sections/contacts.tpl"}
