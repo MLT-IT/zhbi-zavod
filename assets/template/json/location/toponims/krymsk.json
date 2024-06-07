@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Крымск, улица Кирова, 154А",
       "scale": 14,
-      "coord": "",
       "gmap": "1v5ZkhyQdcVY28qn5g8qi8r-JZF8yp3M",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Крымск, улица Кирова, 154А",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WQDG6P6B",
+        "gazosilikatstroy.ru": "GTM-KNC8KLJS",
+        "osnova.spb.ru": "GTM-WNX2BVBQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446322",
+        "gazosilikatstroy.ru": "97447964",
+        "osnova.spb.ru": "97449194"
+      }
     }
   ],
   "toponim": {

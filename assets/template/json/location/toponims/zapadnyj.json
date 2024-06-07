@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Западный, Краснодарская улица, 8",
       "scale": 14,
-      "coord": "",
       "gmap": "1z9ap_f59Z-OTQ3QaVQNytxX79yi6meg",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Западный, Краснодарская улица, 8",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-N259JLKR",
+        "gazosilikatstroy.ru": "GTM-5G2HD9CS",
+        "osnova.spb.ru": "GTM-NJ3VJ7HC"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446855",
+        "gazosilikatstroy.ru": "97448337",
+        "osnova.spb.ru": "97449499"
+      }
     }
   ],
   "toponim": {

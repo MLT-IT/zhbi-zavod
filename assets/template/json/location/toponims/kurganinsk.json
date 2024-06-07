@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Курганинск, Кавказская улица, 6Д",
       "scale": 14,
-      "coord": "",
       "gmap": "1Q7pZaShySgJMBWxQOFU8DA8iogJT1wo",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Курганинск, Кавказская улица, 6Д",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-KSMKNXCD",
+        "gazosilikatstroy.ru": "GTM-M73D4487",
+        "osnova.spb.ru": "GTM-KHMKVX54"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447513",
+        "gazosilikatstroy.ru": "97448741",
+        "osnova.spb.ru": "97450088"
+      }
     }
   ],
   "toponim": {

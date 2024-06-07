@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Черноморское, Шейхларская улица, 15",
       "scale": 14,
-      "coord": "",
       "gmap": "1koJ-z-0oMuVC5RrocJ_B5hnvVXCWikg",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Черноморское, Шейхларская улица, 15",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-T7M67WP2",
+        "gazosilikatstroy.ru": "GTM-TH948WCB",
+        "osnova.spb.ru": "GTM-5P3TGF4X"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447603",
+        "gazosilikatstroy.ru": "97448856",
+        "osnova.spb.ru": "97450162"
+      }
     }
   ],
   "toponim": {

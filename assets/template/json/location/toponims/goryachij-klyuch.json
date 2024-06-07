@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Горячий Ключ, улица Ковалёвой, 34",
       "scale": 14,
-      "coord": "",
       "gmap": "1KlA_0ndCKoZasI3iFpNR7S3r0DNfpY0",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Горячий Ключ, улица Ковалёвой, 34",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-TL89HQF5",
+        "gazosilikatstroy.ru": "GTM-TMKJVDD7",
+        "osnova.spb.ru": "GTM-WF4WG338"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447088",
+        "gazosilikatstroy.ru": "97448468",
+        "osnova.spb.ru": "97449888"
+      }
     }
   ],
   "toponim": {

@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Новороссийск, Капитанский переулок, 16",
       "scale": 14,
-      "coord": "",
       "gmap": "1oWE8ign3MkRq7xfZBsIPPkTSwD-KewE",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Новороссийск, Капитанский переулок, 16",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-T89WQ5WB",
+        "gazosilikatstroy.ru": "GTM-P5SNSVWB",
+        "osnova.spb.ru": "GTM-TFZJBTLL"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446232",
+        "gazosilikatstroy.ru": "97447858",
+        "osnova.spb.ru": "97449074"
+      }
     }
   ],
   "toponim": {

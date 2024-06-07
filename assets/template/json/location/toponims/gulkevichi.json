@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Гулькевичи, Светлая улица, 1А",
       "scale": 14,
-      "coord": "",
       "gmap": "15s23n7yOTJa70LZKprk1R2IgWkZwdhs",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Гулькевичи, Светлая улица, 1А",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-MN7DLRCZ",
+        "gazosilikatstroy.ru": "GTM-WDVVGSKW",
+        "osnova.spb.ru": "GTM-TC7VJKK7"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446952",
+        "gazosilikatstroy.ru": "97448401",
+        "osnova.spb.ru": "97449799"
+      }
     }
   ],
   "toponim": {

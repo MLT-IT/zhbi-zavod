@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Туапсе, Харьковская улица, 42",
       "scale": 14,
-      "coord": "",
       "gmap": "1t_8PRfRnEDUsFLnvXEZbyklpy7RxAc8",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Туапсе, Харьковская улица, 42",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-M87RCQJH",
+        "gazosilikatstroy.ru": "GTM-T4G3PZMT",
+        "osnova.spb.ru": "GTM-NCVB93Z2"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447173",
+        "gazosilikatstroy.ru": "97448537",
+        "osnova.spb.ru": "97449922"
+      }
     }
   ],
   "toponim": {

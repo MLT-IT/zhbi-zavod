@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Лабинск, Химическая улица, 38",
       "scale": 14,
-      "coord": "",
       "gmap": "1HywCut0aQJVZFnFzTJzybRBVP4_q12g",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Лабинск, Химическая улица, 38",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WKT4VPWX",
+        "gazosilikatstroy.ru": "GTM-NFJGWFXH",
+        "osnova.spb.ru": "GTM-NPJDMMWD"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446275",
+        "gazosilikatstroy.ru": "97447891",
+        "osnova.spb.ru": "97449112"
+      }
     }
   ],
   "toponim": {

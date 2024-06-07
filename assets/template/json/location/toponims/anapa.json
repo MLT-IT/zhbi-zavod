@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Анапа, Супсехское шоссе, 87",
       "scale": 14,
-      "coord": "",
       "gmap": "1p3xDW0rGLZwlGrafadArCk6tS6Jwt3A",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Анапа, Супсехское шоссе, 87",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-N5S6LW65",
+        "gazosilikatstroy.ru": "GTM-K296GLDS",
+        "osnova.spb.ru": "GTM-N8SRGDHW"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446041",
+        "gazosilikatstroy.ru": "97447706",
+        "osnova.spb.ru": "97448960"
+      }
     }
   ],
   "toponim": {

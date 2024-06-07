@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Краснодар, Ольденбуржская улица, 75",
       "scale": 14,
-      "coord": "",
       "gmap": "1I3bmKZDIU2JYEeS-9X3dY107KaUCiwI",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Краснодар, Ольденбуржская улица, 75",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-KT4ZZ5S7",
+        "gazosilikatstroy.ru": "GTM-W3L8FRG7",
+        "osnova.spb.ru": "GTM-M44VFCT4"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446068",
+        "gazosilikatstroy.ru": "97447803",
+        "osnova.spb.ru": "97448999"
+      }
     }
   ],
   "toponim": {

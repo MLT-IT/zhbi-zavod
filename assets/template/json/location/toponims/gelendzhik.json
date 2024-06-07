@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Геленджик, территория Южная промышленная зона, 18",
       "scale": 14,
-      "coord": "",
       "gmap": "1eys_V1rYPllTKKry8RGSrDNH0HC3fo4",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Геленджик, территория Южная промышленная зона, 18",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5FS89W8M",
+        "gazosilikatstroy.ru": "GTM-NWMRMQ7H",
+        "osnova.spb.ru": "GTM-TFKDG4BX"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446370",
+        "gazosilikatstroy.ru": "97447999",
+        "osnova.spb.ru": "97449226"
+      }
     }
   ],
   "toponim": {

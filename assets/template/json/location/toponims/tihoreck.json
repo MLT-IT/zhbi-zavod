@@ -3,12 +3,20 @@
   "offices": [
     {
       "phone": "+7 (861) 203-37-42",
-      "email": "krasnodar",
-      "address": "Тихорецк, улица Жигуленко, 14/1",
       "scale": 14,
-      "coord": "",
       "gmap": "1sC29HNUoq088zSXiqcaXhTefTS-2GH0",
-      "bx_id": "9052039250"
+      "bx_id": "9052039250",
+      "address": "Тихорецк, улица Жигуленко, 14/1",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5VCQLTGQ",
+        "gazosilikatstroy.ru": "GTM-MCNV7SDC",
+        "osnova.spb.ru": "GTM-M2DP7BMQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446772",
+        "gazosilikatstroy.ru": "97448251",
+        "osnova.spb.ru": "97449465"
+      }
     }
   ],
   "toponim": {

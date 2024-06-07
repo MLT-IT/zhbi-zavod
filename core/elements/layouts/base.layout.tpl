@@ -63,6 +63,10 @@
         {set $brand = 'Кровельный строймаркет'}
 {/switch}
 
+{if $_modx->getPlaceholder('localdata').local}
+    {set $virtual_region = $_modx->getPlaceholder('localdata').region}
+{/if}
+
 {$_modx->setPlaceholder('catalog_id', 'getCatalogId' | snippet : [
     'context' => $_modx->context.key
 ])}
@@ -92,7 +96,7 @@
         
     {/block}
 </head>
-<body id="body" class="{$site_class} {if $_modx->resource.mainCategory} main-category{else} not-main-category{/if}" data-ctx="{$_modx->resource.context_key}" data-resource-id="{$_modx->resource.id}">
+<body id="body" class="{$site_class} {if $_modx->resource.mainCategory} main-category{else} not-main-category{/if}" data-ctx="{$_modx->resource.context_key}" data-resource-id="{$_modx->resource.id}" data-region="{$virtual_region}">
     {block 'body'}{/block}
     {block "end-body"}{/block}
     {$_modx->runSnippet('@FILE snippets/debug_placeholders.php')}
