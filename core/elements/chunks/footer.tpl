@@ -115,6 +115,35 @@
               ])}
             </nav>
           {/if}
+          {if $_modx->resource.context_key === 'tagnerud'}
+            {set $resources =  '196939,196940,196942,196943'}
+            <nav class="footer__nav-list">
+              <p class="footer__nav-group">По фракции:
+              {$_modx->runSnippet('pdoResources', [
+                'parents' => 0,
+                'depth' => 1000,
+                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'limit' => 0,
+                'resources' => $resources,
+                'sortby' => 'FIELD(id, '~$resources~')',
+                'sortdir' => 'ASC'
+              ])}
+              </p>
+            {set $resources =  '196948,196962,196966'}
+            
+              <p class="footer__nav-group">По размеру:
+              {$_modx->runSnippet('pdoResources', [
+                'parents' => 0,
+                'depth' => 1000,
+                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'limit' => 0,
+                'resources' => $resources,
+                'sortby' => 'FIELD(id, '~$resources~')',
+                'sortdir' => 'ASC'
+              ])}
+              </p>
+            </nav>
+          {/if}
         </div>
       </div>
       <div class="footer__payment">

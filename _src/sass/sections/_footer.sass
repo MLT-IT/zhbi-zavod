@@ -229,6 +229,18 @@
             +until-1200
                 grid-gap: 10px
 
+        &-group
+            display: flex
+            flex-direction: column
+            gap: 10px
+            +until-992
+                flex-direction: row
+                align-items: center
+                flex-wrap: wrap
+                gap: 20px 10px
+            &:not(:last-child)
+                margin-bottom: 20px
+
         &-item
             font-weight: 400
             font-size: 16px
