@@ -1,6 +1,6 @@
 <section class="advantages-section section">
   <div class="advantages-section__container">
-    <h2 class="advantages-section__title section__title">Выберете удобный способ оплаты</h2>
+    <h2 class="advantages-section__title section__title">Выберите удобный способ оплаты</h2>
     <div class="advantages section">
       <div class="advantages__item advantage">
         <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/payment/payment-1.svg"></div>

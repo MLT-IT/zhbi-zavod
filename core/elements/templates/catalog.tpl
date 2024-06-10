@@ -34,7 +34,7 @@
         <div class="catalog-screen__container">
           <h1 class="catalog-screen__title section__title">{$_modx->resource.pagetitle ?: $_modx->resource.menutitle} {if $.get.page > 1}(Страница {$.get.page}){/if}</h1>
 
-          {if $_modx->resource.content ?}
+          {if $_modx->resource.content && $_modx->resource.context_key not in list ['tagnerud'] }
             <div class="catalog-screen__text">
               {$_modx->resource.content}
             </div>
@@ -99,6 +99,9 @@
     *}
 
     {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
+    {if $_modx->resource.context_key == 'tagnerud'}
+          {include "file:sections/tagnerud-info.tpl"}
+    {/if}
     {include "file:sections/payment.tpl"}
     {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
   </main>
