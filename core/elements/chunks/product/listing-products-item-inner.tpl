@@ -56,14 +56,16 @@
       Показать информацию
     </span>
     <ul class="product-card__stats">
-        {include "file:chunks/product/listing-chars.tpl"}
-        {if $_modx->resource.context_key == "fibrofasad"}
+
+        {if $_modx->resource.context_key in list ["fibrofasad", "profnastil", "gibkaya-cherepiza", "metallocherepica", "falcevaya-krovlya", "bonolit"]}
             {$_modx->runSnippet("getCharacterCardProduct", [
                 "product" => $id,
                 "category" => $_modx->resource.id,
                 "context" => $_modx->resource.context_key,
                 "tpl" => "@FILE chunks/product/wizard-character-item.tpl"
             ])}
+            {else}
+            {include "file:chunks/product/listing-chars.tpl"}
         {/if}
     </ul>
   {/if}
