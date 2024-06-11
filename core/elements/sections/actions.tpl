@@ -49,6 +49,31 @@
         {set $colorText3 = "#fff"}
         {set $linkBaner3 = '/profilirovannyj-list-dlya-zabora-metall-profil/'}
 
+
+      {case 'tagnerud'}
+        {set $imageBaner1 = "assets/template/pictures/promo/tagnerud/banner_1.jpg"}
+        {set $imageBanerMobile1 = "assets/template/pictures/promo/tagnerud/banner_1.jpg"}
+        {set $titleBaner1 = "Скидка 20% на доставку керамзита"}
+        {set $textBaner1 = ""}
+        {set $linkBaner1 = ""}
+        {set $colorText1 = "#fff"}
+
+        {set $imageBaner2 = "assets/template/pictures/promo/tagnerud/banner_2.jpg"}
+        {set $imageBanerMobile2 = "assets/template/pictures/promo/tagnerud/banner_2.jpg"}
+        {set $titleBaner2 = "Керамзит в мешках от 80 Ꝑ/мешок"}
+        {set $textBaner2 = ""}
+        {set $colorText2 = "#fff"}
+        {set $linkBaner2 = "/catalog/v-meshkax/"}
+        {set $buttonLinkBaner2 = "КЕРАМЗИТ В МЕШКАХ"}
+
+        {set $imageBaner3 = "assets/template/pictures/promo/tagnerud/banner_3.jpg"}
+        {set $imageBanerMobile3 = "assets/template/pictures/promo/tagnerud/banner_3.jpg"}
+        {set $titleBaner3 = "Керамзит фракции 20-40 мм от 1 490 Ꝑ/м3"}
+        {set $textBaner3 = ""}
+        {set $colorText3 = "#fff"}
+        {set $linkBaner3 = '/catalog/frakczii-20-40/'}
+        {set $buttonLinkBaner3 = "КЕРАМЗИТ 20-40"}
+
     {/switch}
     <div class="promo__items">
       <div class="promo__item promo-block promo-block_view_big promo-block_style_white">
@@ -56,7 +81,15 @@
           <source srcset="{$imageBanerMobile1}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner1}">
         </picture>
         <h3 class="promo-block__title" {if $colorText1} style = "color:{$colorText1}" {/if}>{$titleBaner1}</h3>
-        <p class="promo-block__text">{$textBaner1}</p><a class="promo-block__btn btn btn_style_base" href="{$linkBaner1}">{$buttonLinkBaner1}</a>
+        <p class="promo-block__text">{$textBaner1}</p>
+          <a class="promo-block__btn btn btn_style_base" 
+          {if $linkBaner1 is empty}
+            href="#callback"
+            data-fancybox 
+          {else}
+            href="{$linkBaner1}"
+          {/if}
+          >{$buttonLinkBaner1}</a>
       </div>
       <div class="promo__item promo-block">
         <picture class="promo-block__bg">
@@ -70,7 +103,7 @@
           <source srcset="{$imageBanerMobile3}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner3}">
         </picture>
         <h3 class="promo-block__title" {if $colorText3} style = "color:{$colorText3}" {/if}>{$titleBaner3}</h3>
-        <p class="promo-block__text">{$textBaner3}</p><a class="promo-block__btn btn btn_style_trans" href="{$linkBaner3}">{$buttonLinkBaner2}</a>
+        <p class="promo-block__text">{$textBaner3}</p><a class="promo-block__btn btn btn_style_trans" href="{$linkBaner3}">{$buttonLinkBaner3}</a>
       </div>
     </div>
   </div>

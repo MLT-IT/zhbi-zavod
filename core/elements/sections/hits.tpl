@@ -1,3 +1,4 @@
+
 {set $hits = 'msProducts' | snippet : [
   'parents' => 0,
   'depth' => 50,
@@ -10,5 +11,9 @@
   'includeThumbs' => 'webp',
 ]}
 {if $hits?}
-  {include "file:sections/related-products.tpl" title='Хит продаж' output=$hits}
+  {set $hitsTitle = 'Хит продаж'}
+  {if $_modx->resource.context_key == 'tagnerud'}
+    {set $hitsTitle = 'Популярные товары'}
+  {/if}
+  {include "file:sections/related-products.tpl" title=$hitsTitle output=$hits}
 {/if}
