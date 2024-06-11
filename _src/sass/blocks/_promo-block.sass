@@ -76,9 +76,9 @@
 			& .promo-block
 				&__title
 					margin-bottom: 15px
-
 					font-size: 30px
-
+					@at-root [data-ctx="tagnerud"] &
+						color: var(--color-black-trans)
 					+until-992
 						margin-bottom: 10px
 
@@ -125,10 +125,14 @@
 			& .promo-block__title
 				background: rgba(211, 85, 60, 1)
 				padding: 7px 20px 7px
-				border-radius: 5px
-					
-
-
+				
 		.promo__item:nth-child(3)
 			& .promo-block__btn
 				background: rgba(255, 255, 255, 0.9)
+
+	@at-root [data-ctx="tagnerud"]
+		.promo__item:nth-child(3)
+			& .promo-block__title
+						color: #333 !important
+						z-index: 1
+					
