@@ -7,7 +7,7 @@
     {set $imageBaner1 = "assets/template/pictures/promo/promo-1.jpg"}
     {set $imageBanerMobile1 = "assets/template/pictures/promo/promo-1-mob.jpg"}
     {set $titleBaner1 = "Скидка 20% на доставку манипулятором"}
-    {set $textBaner1 = "Скидка 30% на доставку газобетона манипулятором при заказе от 60 м3"}
+    {set $textBaner1 = "Скидка 20% на доставку газобетона манипулятором при заказе от 60 м3"}
     {set $linkBaner1 = "/akcii/"}
     {set $buttonLinkBaner1 = "Узнать подробности акции"}
 
