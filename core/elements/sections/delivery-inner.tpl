@@ -1,3 +1,35 @@
+
+{switch $_modx->resource.context_key}
+{case 'tagnerud'}
+<table class="table__table table-delivery">
+  <tbody>
+    <tr class="table__row">
+      <th class="table__cell">
+        <span>Способ доставки</span>
+      </th>
+      <th class="table__cell">
+        <span>Стоимость доставки по Санкт-Петербургу</span>
+      </th>
+    </tr>
+    <tr class="table__row">
+      <td class="table__cell"> Самосвал 12 кубов </td>
+      <td class="table__cell"> от 1 200 руб </td>
+    </tr>
+    <tr class="table__row">
+      <td class="table__cell"> Самосвал 20 кубов </td>
+      <td class="table__cell"> от 1 700 руб </td>
+    </tr>
+    <tr class="table__row">
+      <td class="table__cell"> Самосвал 25 кубов </td>
+      <td class="table__cell"> от 1 900 руб </td>
+    </tr>
+    <tr class="table__row">
+      <td class="table__cell"> Самосвал 30 кубов </td>
+      <td class="table__cell"> от 2 000 руб </td>
+    </tr>
+  </tbody>
+</table>
+{case default}
 <table class="table__table table-delivery">
   <thead>
   <tr class="table__row">
@@ -81,3 +113,4 @@
   </tr>
   </tbody>
 </table>
+{/switch}

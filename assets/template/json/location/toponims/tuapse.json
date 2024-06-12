@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1t_8PRfRnEDUsFLnvXEZbyklpy7RxAc8",
+      "bx_id": "9052039250",
+      "address": "Туапсе, Харьковская улица, 42",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-M87RCQJH",
+        "gazosilikatstroy.ru": "GTM-T4G3PZMT",
+        "osnova.spb.ru": "GTM-NCVB93Z2"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447173",
+        "gazosilikatstroy.ru": "97448537",
+        "osnova.spb.ru": "97449922"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Туапсе",
+      "abr": "Туапсе",
+      "full": "Туапсе и Краснодарский край",
+      "abr_full": "Туапсе и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Туапсе и Краснодарском крае",
+      "abr": "в Туапсе",
+      "full": "в Туапсе и Краснодарском крае",
+      "abr_full": "в Туапсе и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Туапсе",
+      "abr": "по Туапсе",
+      "full": "по Туапсе и Краснодарскому краю",
+      "abr_full": "по Туапсе и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Туапсе",
+      "abr": "Туапсе",
+      "full": "Туапсе и Краснодарского края",
+      "abr_full": "Туапсе и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

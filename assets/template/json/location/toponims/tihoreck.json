@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1sC29HNUoq088zSXiqcaXhTefTS-2GH0",
+      "bx_id": "9052039250",
+      "address": "Тихорецк, улица Жигуленко, 14/1",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-5VCQLTGQ",
+        "gazosilikatstroy.ru": "GTM-MCNV7SDC",
+        "osnova.spb.ru": "GTM-M2DP7BMQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446772",
+        "gazosilikatstroy.ru": "97448251",
+        "osnova.spb.ru": "97449465"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Тихорецк",
+      "abr": "Тихорецк",
+      "full": "Тихорецк и Краснодарский край",
+      "abr_full": "Тихорецк и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Тихорецке и Краснодарском крае",
+      "abr": "в Тихорецке",
+      "full": "в Тихорецке и Краснодарском крае",
+      "abr_full": "в Тихорецке и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Тихорецку",
+      "abr": "по Тихорецку",
+      "full": "по Тихорецку и Краснодарскому краю",
+      "abr_full": "по Тихорецку и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Тихорецка",
+      "abr": "Тихорецка",
+      "full": "Тихорецка и Краснодарского края",
+      "abr_full": "Тихорецка и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

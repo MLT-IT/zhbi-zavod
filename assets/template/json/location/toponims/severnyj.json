@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "15__wywKTWxHCrLZTTAeJdmIN0zqkMbQ",
+      "bx_id": "9052039250",
+      "address": "Северный, Большевистская улица, 13/3",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-NHCPCCQL",
+        "gazosilikatstroy.ru": "GTM-PJS6PR59",
+        "osnova.spb.ru": "GTM-T5KBMG7F"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446292",
+        "gazosilikatstroy.ru": "97447925",
+        "osnova.spb.ru": "97449159"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Северный",
+      "abr": "Северный",
+      "full": "Северный и Краснодарский край",
+      "abr_full": "Северный и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Северном и Краснодарском крае",
+      "abr": "в Северном",
+      "full": "в Северном и Краснодарском крае",
+      "abr_full": "в Северном и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Северному",
+      "abr": "по Северному",
+      "full": "по Северному и Краснодарскому краю",
+      "abr_full": "по Северному и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Северного",
+      "abr": "Северного",
+      "full": "Северного и Краснодарского края",
+      "abr_full": "Северного и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

@@ -21,11 +21,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
             break;
         case 'plitnye':
-                $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
-                $result['column2'] = ['title' => 'Категория', 'type' => 'composite'];
-                $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
-                $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
-                break;
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Категория', 'type' => 'composite'];
+            $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
+            $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
+            break;
         case 'stenovye':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];
@@ -73,6 +73,12 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column_forma'] = ['title' => 'Форма', 'type' => 'simple'];
             $result['column_material'] = ['title' => 'Материал', 'type' => 'simple'];
             break;
+        case 'tagnerud':
+            $result['column1'] = ['title' => 'Керамзит', 'type' => 'simple'];
+            $result['column2'] = ['title' => '', 'type' => 'simple'];
+        default:
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Варианты', 'type' => 'simple'];
     }
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);

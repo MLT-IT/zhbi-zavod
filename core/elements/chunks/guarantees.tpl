@@ -10,7 +10,7 @@
   </div>
 {/if}
 
-
+  {if $_modx->resource.context_key not in list ["tagnerud"]}
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.png"></div>
@@ -18,6 +18,7 @@
       <p class="advantage__text">Заменим дефектный материал или вернём деньги</p><a class="advantage__link link" href="/garantii/">Условия возврата</a>
     </div>
   </div>
+  {/if}
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.png"></div>

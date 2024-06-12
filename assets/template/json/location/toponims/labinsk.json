@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1HywCut0aQJVZFnFzTJzybRBVP4_q12g",
+      "bx_id": "9052039250",
+      "address": "Лабинск, Химическая улица, 38",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WKT4VPWX",
+        "gazosilikatstroy.ru": "GTM-NFJGWFXH",
+        "osnova.spb.ru": "GTM-NPJDMMWD"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446275",
+        "gazosilikatstroy.ru": "97447891",
+        "osnova.spb.ru": "97449112"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Лабинск",
+      "abr": "Лабинск",
+      "full": "Лабинск и Краснодарский край",
+      "abr_full": "Лабинск и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Лабинске и Краснодарском крае",
+      "abr": "в Лабинске",
+      "full": "в Лабинске и Краснодарском крае",
+      "abr_full": "в Лабинске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Лабинску",
+      "abr": "по Лабинску",
+      "full": "по Лабинску и Краснодарскому краю",
+      "abr_full": "по Лабинску и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Лабинска",
+      "abr": "Лабинска",
+      "full": "Лабинска и Краснодарского края",
+      "abr_full": "Лабинска и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

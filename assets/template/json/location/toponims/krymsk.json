@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1v5ZkhyQdcVY28qn5g8qi8r-JZF8yp3M",
+      "bx_id": "9052039250",
+      "address": "Крымск, улица Кирова, 154А",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-WQDG6P6B",
+        "gazosilikatstroy.ru": "GTM-KNC8KLJS",
+        "osnova.spb.ru": "GTM-WNX2BVBQ"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446322",
+        "gazosilikatstroy.ru": "97447964",
+        "osnova.spb.ru": "97449194"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Крымск",
+      "abr": "Крымск",
+      "full": "Крымск и Краснодарский край",
+      "abr_full": "Крымск и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Крымске и Краснодарском крае",
+      "abr": "в Крымске",
+      "full": "в Крымске и Краснодарском крае",
+      "abr_full": "в Крымске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Крымску",
+      "abr": "по Крымску",
+      "full": "по Крымску и Краснодарскому краю",
+      "abr_full": "по Крымску и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Крымска",
+      "abr": "Крымска",
+      "full": "Крымска и Краснодарского края",
+      "abr_full": "Крымска и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

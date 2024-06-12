@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1RdpgmJv0ekeM-zVE1ygy6TlZ5sd9SaI",
+      "bx_id": "9052039250",
+      "address": "Сочи, переулок Бараташвили, 10",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-KPLHB8M9",
+        "gazosilikatstroy.ru": "GTM-M6H2D3WF",
+        "osnova.spb.ru": "GTM-WC6T2559"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97446111",
+        "gazosilikatstroy.ru": "97447845",
+        "osnova.spb.ru": "97449047"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Сочи",
+      "abr": "Сочи",
+      "full": "Сочи и Краснодарский край",
+      "abr_full": "Сочи и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Сочи и Краснодарском крае",
+      "abr": "в Сочи",
+      "full": "в Сочи и Краснодарском крае",
+      "abr_full": "в Сочи и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Сочи",
+      "abr": "по Сочи",
+      "full": "по Сочи и Краснодарскому краю",
+      "abr_full": "по Сочи и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Сочи",
+      "abr": "Сочи",
+      "full": "Сочи и Краснодарского края",
+      "abr_full": "Сочи и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

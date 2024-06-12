@@ -1,19 +1,31 @@
-export default function mailChange() {
-    const TIMEOUT = 0;
-    let links = document.querySelectorAll('a[href*="mailto"]');
+export default function mailChange(toMail = "stroym") {
+  const TIMEOUT = 0;
+  const region = document.body.dataset.region || toMail;
+  const links = document.querySelectorAll('a[href*="mailto"]');
+  const getNewEmail = (email) => {
+    const pattern = /(mailto:)\s?(.+)(@.+)/;
+    return email.replace(pattern, region + "$3");
+  };
 
-    links.forEach(n => {
-        n.innerHTML = n.innerHTML.replace('mail@' + document.location.host, 'stroym@' + document.location.host);
-        n.href = n.href.replace('mail@' + document.location.host, 'stroym@' + document.location.host);
-    });
+  const replaceEmailInHtml = (input) =>{
+    const re = /<(.+)>(.+)(@.+)<\/(.+)>/;
+    return input.replace(re, "<$1>"+region+"$3</$4>")
+  }
 
-    // На странице "Контакты" особая верстка, для нее нужен особый код
-    let contact = document.querySelector('.contact_type_mail');
-    let contactValue;
-    if (contact) {
-        contactValue = contact.querySelector('.contact__value');
+  links.forEach((n) => {
+    const oldMail = n.href;
+    const newMail = getNewEmail(oldMail);
+    if(n.innerHTML.length > 2) n.innerHTML = newMail;
+    n.href = `mailto:${newMail}`;
+  });
+
+  // На странице "Контакты" особая верстка, для нее нужен особый код
+  const contact = document.querySelector(".contact_type_mail");
+  let contactValue;
+  if (contact) {
+    contactValue = contact.querySelector(".contact__value");
+    if (contactValue) {
+      contactValue.innerHTML = `${replaceEmailInHtml(contactValue.innerHTML)}`;
     }
-    if (contactValue && contact) {
-        contactValue.innerHTML = contactValue.innerHTML.replace('mail@' + document.location.host, 'stroym@' + document.location.host);
-    }
+  }
 }

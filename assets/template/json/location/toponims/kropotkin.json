@@ -1,0 +1,60 @@
+{
+  "region": "krasnodar",
+  "offices": [
+    {
+      "phone": "+7 (861) 203-37-42",
+      "scale": 14,
+      "gmap": "1cWgXxnpwWkX_YQBN2zBjQBPSmvTAaLU",
+      "bx_id": "9052039250",
+      "address": "Кропоткин, 3-й проезд, 2",
+      "gtm_id": {
+        "alterteplo.ru": "GTM-TZ4KCK65",
+        "gazosilikatstroy.ru": "GTM-M9DLW8F4",
+        "osnova.spb.ru": "GTM-PTR5V9TF"
+      },
+      "yandex_id": {
+        "alterteplo.ru": "97447410",
+        "gazosilikatstroy.ru": "97448679",
+        "osnova.spb.ru": "97450029"
+      }
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Кропоткин",
+      "abr": "Кропоткин",
+      "full": "Кропоткин и Краснодарский край",
+      "abr_full": "Кропоткин и Краснодарский край"
+    },
+    "where": {
+      "standart": "в Кропоткине и Краснодарском крае",
+      "abr": "в Кропоткине",
+      "full": "в Кропоткине и Краснодарском крае",
+      "abr_full": "в Кропоткине и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Кропоткину",
+      "abr": "по Кропоткину",
+      "full": "по Кропоткину и Краснодарскому краю",
+      "abr_full": "по Кропоткину и Краснодарскому краю"
+    },
+    "what": {
+      "standart": "Кропоткина",
+      "abr": "Кропоткина",
+      "full": "Кропоткина и Краснодарского края",
+      "abr_full": "Кропоткина и Краснодарского края"
+    },
+    "oblast": {
+      "standart": "Краснодарский край",
+      "abr": "КК",
+      "any": "Краснодарского края",
+      "anyabr": "КК"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "КК",
+    "any": "Краснодарского края",
+    "anyabr": "КК"
+  }
+}

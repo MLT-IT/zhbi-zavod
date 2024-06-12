@@ -22,6 +22,8 @@
     {set $a1 = 'Официальные дилеры 13-и производителей'}
   {case 'fibrofasad2'}
     {set $a1 = 'Официальные дилеры 13-и производителей'}
+  {case 'tagnerud'}
+    {set $a1 = 'Поставляем керамзит в течение двух дней'}
 {/switch}
 
 <div class="advantages{$styleClass ? ' ' ~ $styleClass : ''}">
