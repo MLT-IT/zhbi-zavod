@@ -76,6 +76,10 @@ if (empty($unit) || $unit == 'упаковка') {
     $result['pricePer'] = 'упаковку';
 } else if ($unit == 'тонна') {
     $result['pricePer'] = 'тонну';
+} else if (in_array($unit, ['Мешок, шт'])) {
+    $result['pricePer'] = 'мешок';
+} else if (in_array($unit, ['1 м3'])) {
+    $result['pricePer'] = 'м3';
 } else {
     $result['pricePer'] = $unit;
 }
@@ -91,7 +95,10 @@ $result['condition'] = !in_array($src['parent'], [
     168218,168219,168220,168221,168222,168223,168224,168225,168226,168227,168228,  
 
     // isoroc
-    93247, 93260, 93259, 93258, 93257, 93256, 93255, 93254, 93253, 93252, 93251, 93250, 93249, 93248, 93233, 93246, 93245, 93244, 93243, 93242, 93241, 93240, 93239, 93238, 93237, 93236, 93235, 93234
+    93247, 93260, 93259, 93258, 93257, 93256, 93255, 93254, 93253, 93252, 93251, 93250, 93249, 93248, 93233, 93246, 93245, 93244, 93243, 93242, 93241, 93240, 93239, 93238, 93237, 93236, 93235, 93234,
+
+    // tagnerud
+    // 196940, 196937,
 ]);
 
 // Дробное добавление товара в корзину
@@ -197,6 +204,34 @@ if (in_array($src['context_key'], ['beltermo'])) {
         $upk = 1 / $src['kolvom2upak'][0];
     }
 }
+// Единицы измерения для tagnerud
+if (in_array($src['context_key'], ['tagnerud'])) {
+
+    if(in_array($unit,['Мешок, шт'])) {
+        if (!empty($src['obem'])) {
+            $vol = (int)filter_var($src['obem'][0], FILTER_SANITIZE_NUMBER_INT) / 1000;
+            // $result['itemUnits']['thing'] = ['val' => 1, 'title' => 'шт', 'id' => '6'];
+            $result['itemUnits']['m3'] = [
+                'val' => $vol, 
+                'title' => 'м3', 
+                'id' => '3'
+            ];
+        }
+    }
+    if(in_array($unit,['Биг-бэг, шт'])) {
+        if (!empty($src['obem'])) {
+            preg_match_all('#\d+.?\d?#',$src['obem'][0], $vol);
+            $vol = (float) $vol[0][0];
+            // $result['itemUnits']['thing'] = ['val' => 1, 'title' => 'шт', 'id' => '6'];
+            $result['itemUnits']['m3'] = [
+                'val' => $vol, 
+                'title' => 'м3', 
+                'id' => '3'
+            ];
+        }
+    }
+  
+}
 
 
 // Установка itemUnits
@@ -248,7 +283,7 @@ if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
     $result['productKey'] = str_replace(',', '.', $result['productKey']);
 }
 
-if (count($result['itemUnits']) < 1 && !in_array($src['context_key'],['kraska','krovelnyjstroymarket'])) {
+if (count($result['itemUnits']) < 1 && !in_array($src['context_key'],['kraska','krovelnyjstroymarket', 'tagnerud'])) {
     $result['condition'] = false;
 }
 

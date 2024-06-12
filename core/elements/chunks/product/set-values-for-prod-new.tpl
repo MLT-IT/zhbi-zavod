@@ -33,5 +33,6 @@
     'tip' => $src['tip'],
     'obshaya-shirina' => $src['obshaya-shirina'],
     'isFractional' => $src['isFractional'],
+    'obem' => $src['obem'],
   ]
 ]}
