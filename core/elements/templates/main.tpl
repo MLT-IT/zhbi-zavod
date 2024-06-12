@@ -67,10 +67,15 @@
       {if $_modx->resource.context_key not in list ['tagnerud']}
         {include "file:sections/listing-brands.tpl"}
       {/if}
+      {if $_modx->resource.context_key in list ['tagnerud']}
+        {include "file:sections/hits.tpl"}
+      {/if}
       {if $_modx->resource.context_key not in list ['web', 'kraska', 'suhiesmesi', 'fibrofasad', 'plitnye','beltermo']}
         {include "file:sections/actions.tpl"}
       {/if}
-      {include "file:sections/hits.tpl"}
+      {if $_modx->resource.context_key not in list ['tagnerud']}
+        {include "file:sections/hits.tpl"}
+      {/if}
       {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
 
       {switch $_modx->resource.context_key}
