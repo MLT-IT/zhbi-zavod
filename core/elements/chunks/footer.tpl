@@ -19,6 +19,15 @@
     {set $logo = 'plitnyematerialy2.png'}
   {case 'beltermo'}  
     {set $logo = 'beltermo2.png'}
+
+  {case 'profnastil'}
+    {set $logo = 'profnastil-white.png'}
+  {case 'gibkaya-cherepiza'}
+    {set $logo = 'gibkaya-cerepica-white.png'}
+  {case 'falcevaya-krovlya'}
+    {set $logo = 'falcevaya-krovlya-white.png'}
+  {case 'metallocherepica'}
+    {set $logo = 'metallocherepica-white.png'}
 {/switch}
 
 {set $phone = '!virtual_phone' | snippet }

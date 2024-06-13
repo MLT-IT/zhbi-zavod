@@ -24,6 +24,20 @@
     {set $a1 = 'Официальные дилеры 13-и производителей'}
   {case 'tagnerud'}
     {set $a1 = 'Поставляем керамзит в течение двух дней'}
+  {case 'profnastil'}
+    {set $a1 = 'Официальные дилеры Grand Line и Металл-Профиль'}
+    {set $a4 = ' Держим на складе более 15000 м2'}
+  
+
+  {case 'gibkaya-cherepiza'}
+    {set $a1 = 'Официальные дилеры более 6 брендов'}
+    {set $a4 = ' Держим на складе более 15000 м2'}
+  {case 'falcevaya-krovlya'}
+    {set $a1 = 'Официальные дилеры Grand Line и Металл-Профиль'}
+    {set $a4 = ' Держим на складе более 15000 м2'}
+  {case 'metallocherepica'}
+    {set $a1 = 'Официальные дилеры Grand Line и Металл-Профиль'}
+    {set $a4 = ' Держим на складе более 15000 м2'}
 {/switch}
 
 <div class="advantages{$styleClass ? ' ' ~ $styleClass : ''}">

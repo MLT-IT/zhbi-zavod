@@ -1,0 +1,26 @@
+{
+    "home_page" : {
+        "banner" : {
+            "main_banner_text" : "Продажа товара в Санкт-Петербурге и ЛО"
+        },
+        "advantages" : [
+            {
+                "ico":"assets/template/pictures/advantages/advantage-1.png",
+                "text":"Официальные дилеры 8-ми производителей"
+            },
+            {
+                "ico":"assets/template/pictures/advantages/advantage-2.png",
+                "text":"Более 40 складов по Санкт-Петербургу и Ленинградской области"
+            },
+            {
+                "ico":"assets/template/pictures/advantages/advantage-3.png",
+                "text":"Оплата после проверки материала"
+            },
+            {
+                "ico":"assets/template/pictures/advantages/advantage-4.png",
+                "text":"Держим на складе более 800 м3"
+            }
+        ]
+    }
+}
+

@@ -32,6 +32,14 @@
                 {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
               {case 'tagnerud'}
                 {set $text = 'Закажите керамзит сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку'}
+              {case 'profnastil'}
+                {set $text = 'Профнастил МП20<br> со скидкой 20%'}
+              {case 'gibkaya-cherepiza'}
+                {set $text = 'Гибкая черепица Технониколь<br> со скидкой 15%'}
+              {case 'falcevaya-krovlya'}
+                {set $text = 'Фальцевая кровля с бесплатной<br> доставкой от 200 тыс руб'}
+              {case 'metallocherepica'}
+                {set $text = 'Металлочерепица в размер<br> со скидкой 25%'}
             {/switch}
             {$text}
           </div>

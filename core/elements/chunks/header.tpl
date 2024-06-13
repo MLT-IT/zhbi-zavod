@@ -99,6 +99,25 @@
               {set $afterText = ""}
             {case 'tagnerud'}
               {set $text = 'керамзита'}
+            {case 'profnastil'}
+              {set $text = 'Продажа профнастила в Санкт-Петербурге и ЛО'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+
+            {case 'gibkaya-cherepiza'}
+              {set $text = 'Продажа гибкой черепицы в Санкт-Петербурге и ЛО'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+            {case 'falcevaya-krovlya'}
+              {set $text = 'Продажа фальцевой кровли в Санкт-Петербурге и ЛО'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+            {case 'metallocherepica'}
+              {set $text = 'Продажа металлочерепицы в Санкт-Петербурге и ЛО'}
+              {set $beforeText = ""}
+              {set $afterText = ""}
+
+
           {/switch}
           {$beforeText} {$text} {$afterText}
         </span>

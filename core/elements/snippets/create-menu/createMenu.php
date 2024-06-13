@@ -76,6 +76,9 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
         case 'tagnerud':
             $result['column1'] = ['title' => 'Керамзит', 'type' => 'simple'];
             $result['column2'] = ['title' => '', 'type' => 'simple'];
+        case 'profnastil':
+            $result['column1'] = ['title' => 'Применение', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Бренд', 'type' => 'simple'];
         default:
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Варианты', 'type' => 'simple'];

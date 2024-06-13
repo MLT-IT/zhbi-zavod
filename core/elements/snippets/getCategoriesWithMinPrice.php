@@ -148,6 +148,42 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
+
+            case 'profnastil':
+                static::$brandsIds = [
+                    'fanera' => 218619,
+                    'gipsokarton' => 218600,
+                    'ldsp' => 218645,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+
+            case 'gibkaya-cherepiza':
+                static::$brandsIds = [
+                    'fanera' => 229624,
+                    'gipsokarton' => 229631,
+                    'ldsp' => 229640,
+                    'fanera1' => 229646,
+                    'gipsokarton2' => 229670,
+                    'ldsp3' => 229672,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+            case 'falcevaya-krovlya':
+                static::$brandsIds = [
+                    'fanera' => 220387,
+                    'gipsokarton' => 220397,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+            case 'metallocherepica':
+                static::$brandsIds = [
+                    'fanera' => 226928,
+                    'gipsokarton1' => 226933,
+                    'gipsokarton' => 226942,
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
             case 'stenovye':
                 static::$brandsIds = [
                     'lsr' => 101938,
