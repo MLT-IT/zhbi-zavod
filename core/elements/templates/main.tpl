@@ -64,13 +64,13 @@
           {include "file:sections/advantages.tpl" styleClass='main-screen__advantages'}
         </div>
       </article>
-      {if $_modx->resource.context_key not in list ['tagnerud']}
+      {if $_modx->resource.context_key not in list ['tagnerud','profnastil']}
         {include "file:sections/listing-brands.tpl"}
       {/if}
       {if $_modx->resource.context_key in list ['tagnerud']}
         {include "file:sections/hits.tpl"}
       {/if}
-      {if $_modx->resource.context_key not in list ['web', 'kraska', 'suhiesmesi', 'fibrofasad', 'plitnye','beltermo']}
+      {if $_modx->resource.context_key not in list ['web', 'kraska', 'suhiesmesi', 'fibrofasad', 'plitnye','beltermo','profnastil']}
         {include "file:sections/actions.tpl"}
       {/if}
       {if $_modx->resource.context_key not in list ['tagnerud']}

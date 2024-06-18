@@ -41,6 +41,21 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
             break;
+
+            case 'gibkaya-cherepiza':
+                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+                $result['column2'] = ['title' => 'Серия', 'type' => 'simple'];
+                break;
+            case 'falcevaya-krovlya':
+                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+                $result['column2'] = ['title' => 'Серия', 'type' => 'simple'];
+                break;
+            case 'metallocherepica':
+                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+                $result['column2'] = ['title' => 'Коллекция', 'type' => 'simple'];
+                $result['column3'] = ['title' => 'Доборные элементы', 'type' => 'simple'];
+                break;
+
         case 'fibrofasad':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Категория', 'type' => 'simple'];    
@@ -81,7 +96,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Бренд', 'type' => 'simple'];
         default:
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
-            $result['column2'] = ['title' => 'Варианты', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
     }
 
     $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);

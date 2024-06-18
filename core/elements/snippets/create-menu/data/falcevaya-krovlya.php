@@ -1,0 +1,69 @@
+<?php
+
+function getMenuData() {
+    $gl = 220387;
+    $mp = 220396;
+    
+
+
+    $data = [
+        $gl => [
+            "column1" => [
+            "uri" => "falcevaya-krovlya-grand-line/",
+            "name" => "Grand Line",
+            "img" => "/assets/template/img/category/grand-line.jpg",
+            ],
+            "column2" => [
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc/",
+                "name" => "Кликфальц",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc-line/",
+                "name" => "Кликфальц Line",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc-mini/",
+                "name" => "Кликфальц Mini",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc-pro/",
+                "name" => "Кликфальц Pro",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc-pro-gofr/",
+                "name" => "Кликфальц Pro Gofr",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-klikfalc-pro-line/",
+                "name" => "Кликфальц Pro Line",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij/",
+                "name" => "Фальц двойной стоячий",
+            ],
+            [
+                "uri" => "falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij-line/",
+                "name" => "Фальц двойной стоячий Line",
+            ],
+            ],
+            
+        ],
+        $mp => [
+            "column1" => [
+                "uri" => "falcevaya-krovlya-metall-profil/",
+                "name" => "Металл Профиль",
+                "img" => "/assets/template/img/category/metallprofil.jpg",
+            ],
+            "column2" => [
+            [
+                "uri" => "falcevaya-krovlya-metall-profil-fastclick/",
+                "name" => "Металл Профиль FASTCLICK",
+            ],
+            ],
+        ],
+        
+    ];
+
+    return $data;
+}
