@@ -44,7 +44,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
 
             case 'gibkaya-cherepiza':
                 $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
-                $result['column2'] = ['title' => 'Серия', 'type' => 'simple'];
+                $result['column2'] = ['title' => 'Серия', 'type' => 'composite'];
                 break;
             case 'falcevaya-krovlya':
                 $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
