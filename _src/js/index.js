@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
    
     $('.catalog-screen__items').each(function(){
         // Корректировка отображения меню на пк если элементов в списке категорий 5 то скрываем кнопку показать еще
-        if($(this).children('.catalog-screen__item').length <= 6){
+        if($(this).children('.catalog-screen__item').length <= 5){
             // $(this).children('.catalog-screen__item').eq(4).css("display", "block")
             $(this).children('.catalog-screen__item_type_more').css('display', 'none')
         }
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     $('.catalog-screen__items').each(function(){
         // Корректировка отображения меню на пк если элементов в списке Тэгов 5 то скрываем кнопку показать еще
-        if($(this).children('.catalog-screen__tag').length <= 11){
+        if($(this).children('.catalog-screen__tag').length <= 10){
             // $(this).children('.catalog-screen__tag').eq(4).css("display", "block")
             $(this).children('.catalog-screen__tag_type_more').css('display', 'none')
         }
