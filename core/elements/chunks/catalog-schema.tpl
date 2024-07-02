@@ -54,7 +54,7 @@
         "offerCount": "{$_modx->getPlaceholder('total_count')}",
         "priceCurrency": "RUB"
     },
-    {if $reviews ?}
+    {if $reviews? && $reviews['reviewCount'] > 0}
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "{$reviews['ratingValue']}",
