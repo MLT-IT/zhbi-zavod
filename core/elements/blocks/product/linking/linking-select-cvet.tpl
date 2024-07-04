@@ -12,7 +12,14 @@
                     <div class="euv-custom-select__options-col">
                         {foreach $linksData[$key] as $id => $val}
                             {set $v = $val}
-                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
+                            {set $visual = $_modx->runSnippet("getVisualWizard",
+                                [
+                                    "options" => "cvet,ottenok",
+                                    "context"=> "",
+                                    "name"=> $val
+                                ]
+                            )}
+                            <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" class="euv-custom-select__option" data-color="{$visual['value']}" data-val="{$v}" data-value="{$val}">
                                 {$val}
                             </a>
                         {/foreach}

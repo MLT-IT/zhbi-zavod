@@ -515,3 +515,22 @@ function waitForYm(ymCounterNum, callback, interval) {
     if (ymCounterObj) return (callback(ymCounterObj, ymCounterNum), undefined);
     setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
 }
+
+
+$(document).ready(function() {
+    var $tags = $('.catalog-screen__tag-name');
+    var $button = $(".catalog-screen__tag_type_more");
+    var height = 75;
+    $button.click(function (){
+        if($tags.length > 0){
+            $tags.each(function (index, element) {
+                let $element = $(element);
+                let big = $element[0].scrollHeight > height;
+                if(big)
+                {
+                    $element.css('font-size', 14 + 'px');
+                }
+            });
+        }
+    })
+});
