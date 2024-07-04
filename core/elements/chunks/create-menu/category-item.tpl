@@ -5,7 +5,14 @@
         {if $image}
             <img class="catalog-screen__item-image" src="{$image}" alt="{$menutitle}">
         {/if}
-        <div class="catalog-screen__item-background" data-val="{$menutitle}"></div>
+            {set $visual = $_modx->runSnippet("getVisualWizard",
+                [
+                    "options" => "cvet,ottenok",
+                    "context"=> "",
+                    "name"=> $menutitle
+                ]
+            )}
+        <div class="catalog-screen__item-background wizard-background" data-color="{$visual['value']}" data-val="{$menutitle}"></div>
         </div>
         <div class="catalog-screen__item-name">{$_pls['tagName'] ?: $menutitle}</div>
     </a>
