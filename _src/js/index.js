@@ -382,6 +382,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Отображение столбцов меню (проверка активных элементов)
     // -------------------------------
+
+    // костыль для меню tagnerud, потому что так захотелось имъ
+     const isTagNerud = document.body.classList.contains('tagnerud')
+    //
+
     function displayMenuColumns() {
         $('.h-catalog__column').not(':first').each(function(index, element) {
             if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
@@ -392,17 +397,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         $('.h-catalog__column:not(:first) .h-catalog-item__name').removeClass('h-catalog-item__name_bold');
-        $('.h-catalog__column:not(.disable):eq(1) .h-catalog-item__name').addClass('h-catalog-item__name_bold');
+        // костыль для меню tagnerud
+        if(!isTagNerud) 
+            $('.h-catalog__column:not(.disable):eq(1) .h-catalog-item__name').addClass('h-catalog-item__name_bold');
     }
 
     // -------------------------------
     // Переключение вкладок в меню в шапке
     // -------------------------------
+
     displayMenuColumns();
-    let $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
+    const $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
+    
+
     $hCatalogItem.on('mouseenter', function(e) {
         e.preventDefault();
         let $this = $(this);
+
+        // костыль для меню tagnerud
+        if(isTagNerud){
+            const headers = {
+                'frakzia':'Фракция',
+                'upakovka':'Фасовка',
+                'tip':'Тип',
+                'razmer':'Размер',
+            }
+            const catId = $this.attr('data-cat-id');
+            $this.on('click', (e) => {
+                e.preventDefault(); // сделать некликабельными ссылки в левом столбце
+            });
+            const hCatalogItemName = headers[catId] || 'Варианты';
+            $('.h-catalog__column:nth-of-type(2) .h-catalog__column-header').text(hCatalogItemName);
+            $('.h-catalog__column:not(:first) .h-catalog-item__name').removeClass('h-catalog-item__name_bold');
+        }
+        //
 
         if ($this.hasClass('active')) {
             return false;
