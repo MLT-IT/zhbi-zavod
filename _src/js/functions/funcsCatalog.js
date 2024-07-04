@@ -1,5 +1,4 @@
 import functions from "./functions";
-import VisualFilter from "../class/filter/visual/VisualFilter";
 
 /**
  * Функции, относящиеся к шаблону Каталог (в основном работа с mFilter2).

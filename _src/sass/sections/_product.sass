@@ -210,7 +210,7 @@
         .euv-custom-select__input-value
             font-weight: bold
             color: var(--color-red)
-        
+
         .euv-custom-select__option
             font-weight: 700
 
@@ -678,21 +678,29 @@
             display: flex
             justify-content: flex-start
             gap: 10px
-            &::before
-                position: static!important 
-    &__option::before, &__input-value::before
-        content: ""
-        width: 40px
-        height: 20px
-        position: absolute
-        left: 20px
-        @media screen and (max-width: 540px)
-            width: 25px
-    &__input-value::before
-        left: 0
+            //&::before
+            //    position: static!important
+    //&__option::before, &__input-value::before
+    //    content: ""
+    //    width: 40px
+    //    height: 20px
+    //    position: absolute
+    //    left: 20px
+    //    @media screen and (max-width: 540px)
+    //        width: 25px
+    //&__input-value::before
+    //    left: 0
 
     &__option, &__input-value
-        +colors_to_selector('::before')
+
+    &__input-value
+        display: flex
+        align-items: center
+        width: 100%
+        height: 100%
+        svg
+            margin-right: 7px
+        //+colors_to_selector('::before')
 
     &__input
         justify-content: center

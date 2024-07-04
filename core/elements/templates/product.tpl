@@ -306,7 +306,14 @@
                               <div class="custom-select-wrap">
                                   <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
                                       <div class="euv-custom-select__input">
-                                          <span data-val="{$cvet}" class="euv-custom-select__input-value">{$cvet}</span>
+                                          {set $visual = $_modx->runSnippet("getVisualWizard",
+                                          [
+                                              "options" => "cvet,ottenok",
+                                              "context"=> "",
+                                              "name"=> $cvet
+                                          ]
+                                          )}
+                                          <span data-val="{$cvet}" class="euv-custom-select__input-value wizard-cube" data-color="{$visual['value']}" >{$cvet}</span>
                                       </div>
                                       <span class="euv-custom-select__btn"></span>
                                       <div class="euv-custom-select__options-wrap">
@@ -316,7 +323,14 @@
                                                       <div class="euv-custom-select__options-col">
                                                           {foreach $data as $id => $val}
                                                               {set $v = $val}
-                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" class="euv-custom-select__option" data-val="{$v}" data-value="{$val}">
+                                                              {set $visual = $_modx->runSnippet("getVisualWizard",
+                                                                  [
+                                                                      "options" => "cvet,ottenok",
+                                                                      "context"=> "",
+                                                                      "name"=> $val
+                                                                  ]
+                                                              )}
+                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}"  data-color="{$visual['value']}" class="euv-custom-select__option wizard-cube" data-val="{$v}" data-value="{$val}">
                                                                   {$val}
                                                               </a>
                                                           {/foreach}
