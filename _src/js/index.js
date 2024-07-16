@@ -36,6 +36,7 @@ import initDistrictsMap from './modules/districts_map';
 import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 
+import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
@@ -484,6 +485,12 @@ document.addEventListener('DOMContentLoaded', () => {
             $(this).html($(this).html().replaceAll("²", "<span style='font-family: Sans-serif'>²</span>"))
         }
     });
+
+    try{
+        new AdditionalFieldsCallbackForm();
+      }catch(error){
+        console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
+      }
 
 });
 

@@ -1,0 +1,87 @@
+.afcf
+    max-width: 335px
+    margin-bottom: 10px
+
+    &__description
+        color: #b1b2b3
+
+    &.opened &__opener
+        opacity: 1
+        pointer-events: all
+        height: max-content
+        margin-top: 10px
+
+    &.opened &__main-button:after
+        transform: rotate(227deg)
+        top: 24px
+
+    &__main-button
+        height: 50px
+        text-align: center
+        width: 100%
+        border: 2px solid
+        border-radius: 10px
+        position: relative
+        &:after
+            border: solid
+            border-radius: 1px
+            border-width: 0 3px 3px 0
+            content: ""
+            display: block
+            height: 6px
+            position: absolute
+            width: 6px
+            right: 15px
+            top: 19px
+            transform: rotate(43deg)
+            transition: .2s
+
+    &__opener
+        height: 0
+        opacity: 0
+        pointer-events: none
+        transition: .2s
+        background: #fff
+        display: flex
+        flex-direction: column
+        gap: 10px
+
+    &__field-group
+        display: flex
+        position: relative
+        grid-template-columns: 1fr 1fr
+        input:nth-child(2)
+            border-left: 2px solid #b1b2b3!important
+        input
+            width: 50%
+        //     max-width: 157px
+
+    input[type="text"]
+        background-color: #f8f8f8
+        border: 1px solid transparent
+        border-radius: 2px
+        color: #3c3c3b
+        padding-left: 14px
+        padding-right: 8px
+        transition: box-shadow .3s, border-color .3s
+        height: 45px
+
+    &__added-button
+        width: 10px
+        height: 10px
+        position: absolute
+        right: -7px
+        bottom: -7px
+        background: #ffffff
+        color: #898989
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 10px
+        border-radius: 50%
+        border: 1px solid
+        transition: .2s
+
+        &:hover
+            background: #898989
+            color: #fff
