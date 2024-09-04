@@ -1,0 +1,26 @@
+.showroom-gallery
+  &__wrapper
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    margin-inline: auto
+    justify-items: center
+    gap: 10px
+    +until-480
+      grid-template-columns: repeat(2, 1fr)
+
+  &__thumb a
+    display: block
+    cursor: zoom-in
+    border: 2px solid #ddd
+    border-radius: 10px
+    overflow: hidden
+    box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
+    transition: all .3s
+    &:hover
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, .15)
+
+  &__image
+    // border-radius: 10px
+    display: block
+    width: 100%
+    max-width: 350px
