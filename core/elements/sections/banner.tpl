@@ -74,8 +74,14 @@
   </div>
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
-      <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg"></picture>
-      <span class="banner__title">Ликвидация склада успей забрать!</span>
+      <picture class="banner__bg">
+       <img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg">
+      </picture>
+      {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+        <span class="banner__title">Выберите товар вживую в нашем шоу-руме!</span>
+      {else}
+        <span class="banner__title">Ликвидация склада успей забрать!</span>
+      {/if}
       {switch $_modx->resource.context_key}
         {case 'web'}
           {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
@@ -90,7 +96,7 @@
         {case 'suhiesmesi'}
           {set $link = '#'}
         {case 'krovelnyjstroymarket'}
-          {set $link = '#'}
+          {set $link = '/shourum/'}
       {/switch}
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
