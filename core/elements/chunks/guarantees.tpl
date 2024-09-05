@@ -1,6 +1,5 @@
 <div class="infoblocks__advantages">
 
-
 {if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["kraska", "suhiesmesi"]}
   <div class="infoblocks__vendor">
     <div class="vendor-infoblock">
@@ -19,6 +18,17 @@
     </div>
   </div>
   {/if}
+  {if $_modx->resource.context_key in list ["krovelnyjstroymarket"]}
+  <div class="infoblocks__advantage">
+    <div class="advantage">
+      <div class="advantage__icon"><img class="advantage__icon-image"
+          src="assets/template/pictures/advantages/advantage-8.png"></div>
+      <p class="advantage__title">Бесплатный выезд замерщика</p>
+      <p class="advantage__text">Наша компания предоставляет услугу бесплатного замера. Наш специалист произведет полный расчет необходимых материалов и поможет сократить расходы.
+      </p><a class="advantage__link link" href="/akcii/besplatnyij-zamer/">Заказать бесплатный замер</a>
+    </div>
+  </div>
+  {/if}
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.png"></div>
@@ -26,6 +36,7 @@
       <p class="advantage__text">Вы можете заказать доставку по СПб и ЛО или оформить самовывоз с нашего склада в Санкт-Петербурге</p><a class="advantage__link link" href="/dostavka-i-oplata/">Условия доставки и самовывоза</a>
     </div>
   </div>
+  {if $_modx->resource.context_key not in list ["krovelnyjstroymarket"]}
   <div class="infoblocks__advantage">
     <div class="advantage">
       <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-7.png"></div>
@@ -33,4 +44,5 @@
       <p class="advantage__text">Мы продаём товары как в розницу, так и оптом. В зависимости от объёмов заказа мы предоставляем клиентам персональные скидки</p>
     </div>
   </div>
+  {/if}
 </div>
