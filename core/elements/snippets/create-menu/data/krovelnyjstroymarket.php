@@ -138,11 +138,13 @@ function getMenuData()
                 ["uri" => "/myagkaya-cherepica-certainteed/", "name" => "CertainTeed"],
             ],
             'column_cvet' => [
-                ["uri" => "/seraya-gibkaya-cherepicza/", "name" => "серый"],
-                ["uri" => "/korichnevaya-gibkaya-cherepicza/", "name" => "коричневый"],
-                ["uri" => "/gibkaya-cherepica-sonata/", "name" => "соната"],
-                ["uri" => "krasnaya-gibkaya-cherepicza/", "name" => "красный"],
-                ["uri" => "/zelenaya-gibkaya-cherepicza/", "name" => "зеленый"],
+                ['uri' => '/seraya-gibkaya-cherepicza/', 'name' => 'Серый'],
+                ['uri' => '/korichnevaya-gibkaya-cherepicza/', 'name' => 'Коричневый'],
+                ['uri' => '/krasnaya-gibkaya-cherepicza/', 'name' => 'Красный'],
+                ['uri' => '/zelenaya-gibkaya-cherepicza/', 'name' => 'Зеленый'],
+                ['uri' => '/chernaya-gibkaya-cherepica/', 'name' => 'Черный'],
+                ['uri' => '/sinyaya-gibkaya-cherepica/', 'name' => 'Синий'],
+                ['uri' => '/pesochnaya-myagkaya-cherepica/', 'name' => 'Песочный'],
             ],
         ],
         $rulonaykrovlay => [
@@ -336,7 +338,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/shtaketnik/",
                 "name" => "Штакетник",
-                'svg' => 'assort-proflist'
+                'svg' => 'assort-proflist' 
             ],
             'column_proizvoditel' => [
                 ["uri" => "/shtaketnik-metall-profil/", "name" => "Металл Профиль"],
