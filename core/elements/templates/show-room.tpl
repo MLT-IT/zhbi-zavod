@@ -109,10 +109,18 @@
         </div>
       </div>
     </article>
+
     <article class="show-room section">
       <div class="show-room__container">
         <h1 class="margin-bottom-md section__title">Фотографии шоу-рума</h1>
         {include 'file:chunks/show-room/show-room-gallery.tpl'}
+      </div>
+    </article>  
+
+    <article class="show-room section">
+      <div class="show-room__container">
+        {* <h1 class="margin-bottom-md section__title">BANNER</h1> *}
+          {include 'file:chunks/show-room/banner-showroom.tpl'}
       </div>
     </article>  
 

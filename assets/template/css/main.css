@@ -7272,6 +7272,56 @@ div.euv-custom-select__input {
     padding: 10px; }
 .swiper-slide.product__pictures-thumb.slide-video span {
     margin-top: 10px; }
+.showroom-gallery__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-inline: auto;
+  justify-items: center;
+  gap: 10px; }
+.showroom-gallery__thumb a {
+  display: block;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15);
+          box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15);
+  -webkit-transition: all .3s;
+  transition: all .3s; }
+.showroom-gallery__thumb a:hover {
+    -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, .15);
+            box-shadow: 0 0 6px 1px rgba(0, 0, 0, .15); }
+.showroom-gallery__image {
+  display: block;
+  width: 100%;
+  max-width: 350px; }
+.showroom-banner {
+  background: linear-gradient(45deg, black, transparent);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; }
+.showroom-banner__wrapper {
+    padding: 30px 20px;
+    width: 100%; }
+.showroom-banner p {
+    color: white; }
+.showroom-banner__title {
+    font-size: 20px;
+    font-weight: 700; }
+.showroom-banner__description {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 400; }
+.showroom-banner__background {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
+.showroom-banner__background img {
+      min-width: 100%;
+      min-height: 100%; }
 .header__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10080,7 +10130,7 @@ div.euv-custom-select__input {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
-    margin-top: auto;
+    margin-top: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -12761,6 +12811,8 @@ div.euv-custom-select__input {
           margin-right: 5px; }
     .reviews__item {
       padding: 10px 15px; }
+    .showroom-gallery__wrapper {
+      grid-template-columns: repeat(2, 1fr); }
       .filters-expanded .header__actions-mobile {
         display: -webkit-box;
         display: -ms-flexbox;

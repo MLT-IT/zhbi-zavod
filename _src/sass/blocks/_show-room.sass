@@ -24,3 +24,32 @@
     display: block
     width: 100%
     max-width: 350px
+
+.showroom-banner
+  background: linear-gradient(45deg, black, transparent)
+  position: relative
+  overflow: hidden
+  border-radius: 10px
+  &__wrapper
+    padding: 30px 20px
+    width: 100%
+  p
+    color: white
+
+  &__title
+    font-size: 20px
+    font-weight: 700
+  
+  &__description
+    margin-top: 20px
+    font-size: 16px
+    font-weight: 400
+
+  &__background
+    position: absolute
+    width: 100%
+    z-index: -1
+    transform: translateY(-50%)
+    img
+      min-width: 100%
+      min-height: 100%
