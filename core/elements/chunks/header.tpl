@@ -41,6 +41,7 @@
       {/switch}
 
       {set $phone = '!virtual_phone' | snippet }
+      {set $phone_href = $phone | ereplace : '[^0-9+]' : ''}
       {set $email = '!virtual_email' | snippet }
       {set $address = 'address' | option}
       {if $_modx->getPlaceholder('localdata').local}
@@ -51,7 +52,7 @@
         <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
       </div>
       <div class="header__actions">
-          <a href="tel:+7 (812) 627-13-90" class="header__action icon-btn icon-btn_style_black">
+          <a href="tel:{$phone_href}" class="header__action icon-btn icon-btn_style_black">
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
             </svg>
@@ -136,7 +137,7 @@
       <div class="h-subinfo h-subinfo_size_big">
         <svg class="h-subinfo__icon" aria-hidden="true">
           <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }">{$phone}</a>
+        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone_href}">{$phone}</a>
       </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
     </div>
   </div>
@@ -259,7 +260,7 @@
           <div class="h-subinfo header__phone h-subinfo_size_big">
             <svg class="h-subinfo__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-            </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }">{$phone}</a>
+            </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone_href}">{$phone}</a>
           </div>
           <div class="h-subinfo header__schedule">
             <svg class="h-subinfo__icon" aria-hidden="true">
