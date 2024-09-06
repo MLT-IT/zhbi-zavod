@@ -338,7 +338,7 @@ function getMenuData()
             'column1' => [
                 "uri" => "/shtaketnik/",
                 "name" => "Штакетник",
-                'svg' => 'assort-shtaket' 
+                'svg' => 'assort-proflist' 
             ],
             'column_proizvoditel' => [
                 ["uri" => "/shtaketnik-metall-profil/", "name" => "Металл Профиль"],

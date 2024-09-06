@@ -8,6 +8,30 @@
         </form>
         <button class="filter__close-btn btn btn_style_base" data-dropdown-only-close="1" data-dropdown data-dropdown-body-doc=".filter">Закрыть и применить</button>
       </div>
+      {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+        {set $parentIds = $_modx->getParentIds($_modx->resource.id)}
+        {set $isZabor = ('125537' in list $parentIds) || ('125541' in list $parentIds) || ($_modx->resource.id in list [125537,125541])}
+        {* {set $isZabor = true} *}
+        <div class="side-banners">
+          {if $isZabor}
+            {include 'file:chunks/banners/side-banner.tpl' 
+            image='side-banner-2.jpg' 
+            title='Калькулятор расчёта забора' 
+            text='Удобный инструмент помогает сократить расходы' 
+            actionUrl='' 
+            actionText='Рассчитать забор'
+            }
+          {else}
+            {include 'file:chunks/banners/side-banner.tpl' 
+            image='side-banner-1.jpg' 
+            title='Калькулятор расчёта кровли' 
+            text='Удобный инструмент помогает сократить расходы' 
+            actionUrl='' 
+            actionText='Рассчитать кровлю'
+            }
+          {/if}  
+        </div>
+      {/if}
     </div>
 
     <div class="catalog__top">
