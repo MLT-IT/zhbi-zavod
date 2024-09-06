@@ -9,6 +9,9 @@
         <h1 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h1>
         <div class="content">
             {$_modx->resource.content}
+            {if $_modx->resource.alias == 'besplatnyij-zamer'}
+              {include "file:sections/zamer.tpl"}
+            {/if}
         </div>
       </div>
     </article>

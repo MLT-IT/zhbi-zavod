@@ -261,7 +261,7 @@ function init() {
                               '.filter-item__option[data-value="' + value + '"]'
                             );
                             // Если нашли, то...
-                            console.log($fltrVal.length);
+                            // console.log($fltrVal.length);
 
                             if ($fltrVal.length) {
                               // Определяем внутренний контент подсказки: это либо текст, либо (в некоторых случаях, например, для опции цвет) html-код

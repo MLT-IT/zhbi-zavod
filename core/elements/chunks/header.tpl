@@ -182,7 +182,7 @@
                             {/if}
                           {elseif $catCols['column1']['svg'] is not empty}
                             <svg class="h-subinfo__svg" aria-hidden="true">
-                              <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>
+                              <use xlink:href="assets/template/pictures/icons.svg?v=22#{$catCols['column1']['svg']}"></use>
                             </svg>
                           {/if}
                       </div>

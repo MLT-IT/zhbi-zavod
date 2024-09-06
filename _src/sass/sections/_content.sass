@@ -22,21 +22,33 @@
 	ul
 		margin-bottom: 25px
 		font-size: 14px
-		line-height: 26px
+		// line-height: 26px
 		padding-left: 40px
+		line-height: 150%
 
 		li
 			list-style-type: square
 
 	ol
 		list-style: decimal
-		padding-left: 20px
 		margin-bottom: 25px
+		padding-left: 15px
 		font-size: 14px
 		line-height: 26px
+		list-style-position: inside
+		line-height: 1.5
+		li
+			&::marker
+				color: var(--color-red)
+				font-weight: 600
+
+		&.spacious
+			li
+				&:not(:last-child)
+					margin-bottom: 15px 
+				
 
 	ol, ul
-		line-height: 150%
 		margin: 1em 0
 		font-size: 14px
 
@@ -65,6 +77,9 @@
 		margin-bottom: 22px
 		margin-top: 22px
 		line-height: 1.3em
+		font-weight: 500
+		font-size: 22px
+		line-height: 1.2
 
 	h3
 		margin-top: 18.72px
@@ -99,3 +114,12 @@
 
 	strong
 		font-weight: bold
+
+	blockquote
+		padding: 2vw
+		margin-block: 15px
+		border-radius: 10px
+		background-color: #f5f5f5
+		font-size: 16px
+		font-weight: 500
+		line-height: 1.4

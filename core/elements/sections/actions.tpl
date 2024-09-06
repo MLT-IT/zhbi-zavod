@@ -9,6 +9,7 @@
     {set $titleBaner1 = "Скидка 20% на доставку манипулятором"}
     {set $textBaner1 = "Скидка 20% на доставку газобетона манипулятором при заказе от 60 м3"}
     {set $linkBaner1 = "/akcii/"}
+    {set $customCssTitle1 = ""}
     {set $buttonLinkBaner1 = "Узнать подробности акции"}
 
     {set $imageBaner2 = "assets/template/pictures/promo/promo-2-mob.jpg"}
@@ -27,12 +28,14 @@
 
     {switch $_modx->resource.context_key}
       {case 'krovelnyjstroymarket'}
-        {set $imageBaner1 = "assets/template/pictures/promo/1.jpg"}
+        {set $imageBaner1 = "assets/template/pictures/promo/osnova/1.jpg"}
         {set $imageBanerMobile1 = "assets/template/pictures/promo/1.jpg"}
-        {set $titleBaner1 = "Бесплатный выезд замерщика"}
-        {set $textBaner1 = ""}
-        {set $linkBaner1 = "/akcii/"}
-        {set $colorText1 = "#fff"}
+        {set $titleBaner1 = "Точный расчет кровли<br> в подарок!"}
+        {set $textBaner1 = "Специалисты<br> произведут точный расчет<br> всех материалов <br>под Ваш заказ <br>бесплатно"}
+        {set $linkBaner1 = ""}
+        {set $colorText1 = "var(--color-red)"}
+        {set $customCssTitle1 = "background-color: transparent; padding: 0;"}
+        
         {set $buttonLinkBaner1 = "Вызвать замерщика"}
 
         {set $imageBaner2 = "assets/template/pictures/promo/2.jpg"}
@@ -80,8 +83,10 @@
         <picture class="promo-block__bg">
           <source srcset="{$imageBanerMobile1}" media="(max-width: 768px)"><img class="promo-block__bg-img" src="{$imageBaner1}">
         </picture>
-        <h3 class="promo-block__title" {if $colorText1} style = "color:{$colorText1}" {/if}>{$titleBaner1}</h3>
-        <p class="promo-block__text">{$textBaner1}</p>
+        <h3 class="promo-block__title" 
+          {if $colorText1}style = "color:{$colorText1}{if $customCssTitle1};{$customCssTitle1}{/if}"{/if}
+        >{$titleBaner1}</h3>
+        <p class="promo-block__text" {if $colorText1} style = "color:{$colorText1}"{/if}>{$textBaner1}</p>
           <a class="promo-block__btn btn btn_style_base" 
           {if $linkBaner1 is empty}
             href="#callback"
