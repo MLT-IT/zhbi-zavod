@@ -3,7 +3,8 @@
     display: grid
     grid-template-columns: repeat(3, 1fr)
     margin-inline: auto
-    justify-items: center
+    justify-items: stretch
+
     gap: 10px
     +until-480
       grid-template-columns: repeat(2, 1fr)
@@ -23,7 +24,7 @@
     // border-radius: 10px
     display: block
     width: 100%
-    max-width: 350px
+    // max-width: 350px
 
 .showroom-banner
   background: linear-gradient(45deg, black, transparent)
