@@ -11,14 +11,13 @@
       {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
         {set $parentIds = $_modx->getParentIds($_modx->resource.id)}
         {set $isZabor = ('125537' in list $parentIds) || ('125541' in list $parentIds) || ($_modx->resource.id in list [125537,125541])}
-        {* {set $isZabor = true} *}
         <div class="side-banners">
           {if $isZabor}
             {include 'file:chunks/banners/side-banner.tpl' 
             image='side-banner-2.jpg' 
             title='Калькулятор расчёта забора' 
             text='Удобный инструмент помогает сократить расходы' 
-            actionUrl='' 
+            actionUrl='/servisyi-rascheta/raschet-shtaketnika-dlya-zabora/' 
             actionText='Рассчитать забор'
             }
           {else}
@@ -26,7 +25,7 @@
             image='side-banner-1.jpg' 
             title='Калькулятор расчёта кровли' 
             text='Удобный инструмент помогает сократить расходы' 
-            actionUrl='' 
+            actionUrl='/servisyi-rascheta/raschet-krovli-iz-metallocherepiczyi/' 
             actionText='Рассчитать кровлю'
             }
           {/if}  
