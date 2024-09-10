@@ -10,14 +10,19 @@
 		line-height: 1.2
 
 	a
-		border-bottom: 1px dashed
 		text-decoration: none
 		&:not(.btn)
 			color: var(--color-red)
+			// border-bottom: 1px dashed
+			text-decoration: underline
+			text-decoration-style: dashed
+			text-decoration-thickness: 1px
+			text-underline-offset: 2px
 
 
 		&:hover
 			border-bottom-color: transparent
+			text-decoration: none
 
 	.title-1
 		margin-left: auto
@@ -129,3 +134,45 @@
 		font-size: 16px
 		font-weight: 500
 		line-height: 1.4
+
+
+	// Сервисы расчета
+	.sect-calc-list
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		gap: 10px
+		+until-768
+			grid-template-columns: repeat(2, 1fr)
+		
+		a[class*="wrap"]
+			border: none
+			text-decoration: none
+			&:hover
+				text-decoration: none
+				border: none
+		&__item
+			list-style: none
+			display: flex
+			flex-direction: column
+			align-items: center
+			gap: 10px
+			padding: 30px
+			border-radius: 10px
+			background-color: #fcfcfc
+			border: 1px solid #eee
+			overflow: hidden
+			transition: all .3s
+			+until-768
+				padding: 10px
+			&:hover
+				box-shadow: 0 0 6px #aaa
+			&-img-wrap
+				display: block
+				height: 100%
+
+			&-img
+				display: block
+				max-width: 100%
+			
+			&-link
+				text-align: center

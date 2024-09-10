@@ -182,7 +182,7 @@
                             {/if}
                           {elseif $catCols['column1']['svg'] is not empty}
                             <svg class="h-subinfo__svg" aria-hidden="true">
-                              <use xlink:href="assets/template/pictures/icons.svg?v=22#{$catCols['column1']['svg']}"></use>
+                              <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>
                             </svg>
                           {/if}
                       </div>
@@ -250,11 +250,23 @@
           </form>
         </div>
 
-        <nav class="header__nav h-nav">
-        <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>
-        <a class="h-nav__link" href="/akcii/">Акции</a>
-        <a class="h-nav__link" href="/o-kompanii/">О компании</a>
-        <a class="h-nav__link" href="/contacts/">Контакты</a>
+        <nav class="header__nav">
+        <ul class="h-nav">
+          <li class="h-nav__item"><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
+          <li class="h-nav__item"><a class="h-nav__link" href="/akcii/">Акции</a></li>
+          <li class="h-nav__item">
+            <a class="h-nav__link" href="/o-kompanii/">О компании</a>
+            {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+            <div class="h-nav__subnav h-subnav">
+            <ul class="h-subnav__wrapper">
+              <li class="h-nav__item"><a class="h-nav__link" href="/aaa/">Сервисы расчета</a></li>
+              <li class="h-nav__item"><a class="h-nav__link" href="/aaa/">Шоурум</a></li>
+            </ul>
+            </div>
+            {/if}
+          </li>
+          <li class="h-nav__item"><a class="h-nav__link" href="/contacts/">Контакты</a></li>
+          </ul>
         </nav>
         <div class="header__phonesched">
           <div class="h-subinfo header__phone h-subinfo_size_big">

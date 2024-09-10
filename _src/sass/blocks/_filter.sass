@@ -419,8 +419,20 @@
 
 		&_cvet
 			.default-checkbox__label
-				+colors_to_selector('::after')  
+				+colors_to_selector('::after')
 
 		&_proizvoditel
 			.default-checkbox__label
 				+brands_to_selector('::after')
+
+.filter-brand
+	display: block
+	width: 24px
+	height: 24px
+	position: relative
+	overflow: hidden
+	float: left
+	margin-right: 10px
+	background-position: center
+	background-repeat: no-repeat
+	background-size: contain
