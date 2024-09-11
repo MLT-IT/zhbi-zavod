@@ -37,7 +37,11 @@
       <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
         <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
       </div>
-      
+      {if ($_modx->resource.template in list ['36']) && ($.request.mode == 'test')}
+        {* CUSTOM TAGS *}
+        {include 'file:chunks/selectionFiltersExpanded/wrapper.tpl'}
+      {else}
+        {* common tags *}
         {'@FILE snippets/getTags.php' | snippet :[
         'tpl' => '@FILE chunks/create-menu/category-item.tpl',
         'tplWrapper' => '@INLINE
@@ -67,7 +71,7 @@
         'idTagsBlock' => 'block-3',
         'where' => '{"template:in":[28]}',
         ]}
-     
+      {/if}
       <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
         <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
         <div class="sorting__body">
