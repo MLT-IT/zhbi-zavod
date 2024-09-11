@@ -6,7 +6,7 @@
             "tpl" => "@FILE chunks/selectionFiltersExpanded/selectionsItem.tpl",
             "limit" => $_modx->resource.count_filter,
             'where' => '{"template:in":[28]}',
-            'idTagsBlock' => 'block-1'
+            'idTagsBlock' => 'block-4'
         ]}
     </div>
 
@@ -63,7 +63,7 @@
         "tpl" => "@FILE chunks/selectionFiltersExpanded/selectionsItem.tpl",
         "limit" => $_modx->resource.count_filter_color,
         'where' => '{"template:in":[27]}',
-        'idTagsBlock' => 'block-2'
+        'idTagsBlock' => 'block-5'
     ]}
     </div>
     <div class="custom-selections__groups">

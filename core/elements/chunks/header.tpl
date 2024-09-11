@@ -254,12 +254,24 @@
         <ul class="h-nav">
           <li class="h-nav__item"><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
           <li class="h-nav__item"><a class="h-nav__link" href="/akcii/">Акции</a></li>
+          {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+            <li class="h-nav__item">
+              <a class="h-nav__link" href="/servisyi-rascheta/">Сервисы расчета</a>
+              <div class="h-nav__subnav h-subnav">
+                <ul class="h-subnav__wrapper">
+                {'pdoResources' | snippet : [
+                  'parents' => '230724',
+                  'tpl' => '@INLINE <li class="h-nav__item"><a class="h-nav__link" href="{$uri}">{$menutitle}</a></li>'
+                ]}
+                </ul>
+              </div>
+            </li>
+          {/if}
           <li class="h-nav__item">
             <a class="h-nav__link" href="/o-kompanii/">О компании</a>
             {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
             <div class="h-nav__subnav h-subnav">
               <ul class="h-subnav__wrapper">
-                <li class="h-nav__item"><a class="h-nav__link" href="/servisyi-rascheta/">Сервисы расчета</a></li>
                 <li class="h-nav__item"><a class="h-nav__link" href="/shourum/">Шоурум</a></li>
               </ul>
             </div>
