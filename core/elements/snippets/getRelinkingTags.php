@@ -48,7 +48,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
         }
 
         $output .= $pdoTools->getChunk($tpl, [
-            'tv.mainImage' => $img,
+            'mainImage' => $img,
             'menutitle' => $title,
             'uri' => $uri
         ]);
@@ -77,6 +77,7 @@ else {
         'tplWrapper' => $tplTagsErapper,
         'templates' => '5,4,28',
         'includeTVs' => 'mainImage',
+        'tvPrefix' => '',
         'sortby' => 'menuindex,id',
         'sortdir' => 'ASC',
         'limit' => $limit,
@@ -86,9 +87,9 @@ else {
 
     
     // Спрятать ненужные теги на арматуре
-    if ($modx->resource->context_key == 'armatura-178') {
-        $params['where'] = '{"hidemenu:=": 0}';
-    }
+    // if ($modx->resource->context_key == 'armatura-178') {
+    //     $params['where'] = '{"hidemenu:=": 0}';
+    // }
 
     // Результат
     if (!empty($params['resources'])) {
