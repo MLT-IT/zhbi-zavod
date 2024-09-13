@@ -334,7 +334,7 @@ function init(yandexMetrikaId) {
         let $productItem = $this.closest('.js-product');
         let $formAdd = $productItem.find('.js-product__form-add');
         let $formChange = $productItem.find('.js-product__controls_action_change');
-        let $closestFormAdd = $(this).closest('.js-product__controls_action_add');
+        let $closestFormAdd = $productItem.find('.js-product__controls_action_add');
         let purposes = {};
 
         // Обновление input'ов в форме для изменения кол-ва товара
@@ -1184,4 +1184,3 @@ let replaceImage = new ReplacerImage('.colors-options .euv-custom-select__option
     '.euv-custom-select__option',
     '.product__picture .product__pictures-image',
     '.euv-custom-select__options-wrap');
-

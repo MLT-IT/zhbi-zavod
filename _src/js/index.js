@@ -37,6 +37,7 @@ import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
+import initSquareMetersHandler from './modules/squareMetersHandler.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
@@ -52,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     new Dropdowns();
     new Tabs();
+
+    initSquareMetersHandler();
 
     initSlimSelect(".default-select__select");
 

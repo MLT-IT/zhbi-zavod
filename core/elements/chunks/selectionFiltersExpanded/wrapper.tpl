@@ -58,13 +58,13 @@
         ])}
     </div> *}
     <div class="custom-selections__preview active">
-    {'@FILE snippets/getRelinkingTags.php' | snippet : [
-        "tplWrapper" => "@FILE chunks/selectionFiltersExpanded/selections.tpl",
-        "tpl" => "@FILE chunks/selectionFiltersExpanded/selectionsItem.tpl",
-        "limit" => $_modx->resource.count_filter_color,
-        'where' => '{"template:in":[27]}',
-        'idTagsBlock' => 'block-5'
-    ]}
+        {'@FILE snippets/getRelinkingTags.php' | snippet : [
+            "tplWrapper" => "@FILE chunks/selectionFiltersExpanded/selections.tpl",
+            "tpl" => "@FILE chunks/selectionFiltersExpanded/selectionsItem.tpl",
+            "limit" => $_modx->resource.count_filter_color,
+            'where' => '{"template:in":[27]}',
+            'idTagsBlock' => 'block-5'
+        ]}
     </div>
     <div class="custom-selections__groups">
         <div class="custom-selections__groups-wrapper">

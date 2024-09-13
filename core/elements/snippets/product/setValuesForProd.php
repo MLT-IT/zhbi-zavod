@@ -266,7 +266,7 @@ if (!empty($meter) && ($meter > 0) && ($meter < $inf)) {
     $result['itemUnits']['meter'] = ['val' => $meter, 'title' => 'метр', 'id' => '10'];
 }
 if (!empty($upk) && ($upk > 0) && ($upk < $inf)) {
-    $result['itemUnits']['upk'] = ['val' => $upk, 'title' => 'упаковка', 'id' => '11'];
+    $result['itemUnits']['upk'] = ['val' => $upk, 'title' => 'упаковку', 'id' => '11'];
 }
 if (!empty($pdn) && ($pdn > 0) && ($pdn < $inf)) {
     $result['itemUnits']['pdn'] = ['val' => $pdn, 'title' => 'поддон', 'id' => '12'];
