@@ -334,7 +334,7 @@ function init(yandexMetrikaId) {
         let $productItem = $this.closest('.js-product');
         let $formAdd = $productItem.find('.js-product__form-add');
         let $formChange = $productItem.find('.js-product__controls_action_change');
-        let $closestFormAdd = $(this).closest('.js-product__controls_action_add');
+        let $closestFormAdd = $productItem.find('.js-product__controls_action_add');
         let purposes = {};
 
         // Обновление input'ов в форме для изменения кол-ва товара
@@ -781,6 +781,8 @@ function getItemCount($productItem, count) {
     } else {
         if ($('body.kirpich-m').length) {
             count = Math.round(count);
+        } else if($('body.krovelnyjstroymarket').length) {
+            count = count;
         } else {
             count = Math.ceil(count);
         }
@@ -812,7 +814,11 @@ function calcPrice($productItem) {
                 value = 0;
             }
 
-            value = 1 / unitVal * value;
+            if (+$productItem.find('*[name="unit"]').val() === 13) {
+                value = unitVal;
+            } else {
+                value = 1 / unitVal * value;
+            }
             if ($('body.kirpich-m').length) {
                 value = Math.round(value);
             } else {
@@ -970,6 +976,7 @@ function getActiveUnitValue($productItem) {
         '10': $productItem.attr('data-meter'),
         '11': $productItem.attr('data-upk'),
         '12': $productItem.attr('data-pdn'),
+        '13': $productItem.attr('data-pdn_calced'),
     };
 
     // Обработка кол-ва единиц измерения
@@ -1184,4 +1191,3 @@ let replaceImage = new ReplacerImage('.colors-options .euv-custom-select__option
     '.euv-custom-select__option',
     '.product__picture .product__pictures-image',
     '.euv-custom-select__options-wrap');
-

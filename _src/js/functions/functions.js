@@ -194,6 +194,11 @@ function trim(str, charlist) {
   return str.replace(re, "");
 }
 
+/**
+ * 
+ * @param {jQuery} $productItem - объект jquery сразу на входе
+ * @returns 
+ */
 function getActiveForm($productItem) {
   let $formService;
   let $formAction;
@@ -287,4 +292,20 @@ function transformToAssocArray(prmstr) {
  */
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
+
+/**
+ * 
+ * @param {string} num Строка для форматирования 
+ * @returns 
+ */
+export function prettify(num) {
+  try {
+    var n = num;
+    var separator = " ";
+    return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + separator);
+  } catch {
+    return num;
+  }
 }

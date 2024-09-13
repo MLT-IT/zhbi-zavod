@@ -6,15 +6,14 @@ import '../sass/main.sass';
 window.jQuery = $;
 window.$ = $;
 
-
 // -------------------------------------
 // Импорт функций на JQuery
 // -------------------------------------
-import functions from './functions/functions.js';
+// import functions from './functions/functions.js';
+import './libs/inputFilter/inputFilter.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
-import inputFilter from './libs/inputFilter/inputFilter.js';
 import mapsLazyload from './modules/lazyload_maps';
 
 
@@ -37,6 +36,7 @@ import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
+import initSquareMetersHandler from './modules/squareMetersHandler.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     new Dropdowns();
     new Tabs();
+
+    initSquareMetersHandler();
 
     initSlimSelect(".default-select__select");
 
