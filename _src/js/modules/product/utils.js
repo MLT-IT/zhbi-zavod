@@ -14,25 +14,6 @@ export function prettify(num) {
 }
 
 
-/**
- * 
- * @param {HTMLElement} productItem - 
- * @returns 
- */
-export function getActiveForm(productItem, classInCart = "js-product-in-cart" ) {
-
-  if (productItem.hasClass(classInCart)) {
-    // Товар уже в корзине, нужно изменить кол-во
-    $formService = productItem.find(".js-product__form-change");
-    $formAction = productItem.find(".js-product__controls_action_change");
-  } else {
-    // Товара нет в корзине
-    $formService = productItem.find(".js-product__form-add");
-    $formAction = productItem.find(".js-product__controls_action_add");
-  }
-
-  return {
-    system: $formService,
-    action: $formAction,
-  }
+export function addCurrency(value, cur, template = () => `${value}${cur}`){
+  return template();
 }

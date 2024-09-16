@@ -1,13 +1,13 @@
-<div class="calcProduct ">
+<div class="calcProduct">
   <input type="hidden" class="calcWidth" name="width" value="{$settingCardKrovlya['width']}">
-  <input class="" value="{$prodValues['itemInCart']?:1}">
-  <span class="js-product__price" data-default="{$prodValues['defaultPrice']?:0}"
-      style="display:none!important"></span>
+  <input type="hidden"class="calcInCart" value="{$prodValues['itemInCart']?:1}">
+  <input type="hidden" class="js-product__price calcPrice" value="{$prodValues['defaultPrice']?:0}"
+      style="display:none!important">
 
 
     <div class="counter">
       <div class="counter-title">Длина листа, мм</div>
-      <div class="counter-controls counter custom-counter">
+      <div class="counter-controls counter custom-counter calcInput_length">
         <span class="decrease counter__btn custom-counter__btn_dir_less"></span>
         <input name="long" class="counter__input" value="{$settingCardKrovlya['minLength']}"
           data-min="{$settingCardKrovlya['minLength']}" data-max="{$settingCardKrovlya['maxLength']}"
@@ -17,7 +17,7 @@
     </div>
     <div class="counter">
       <div class="counter-title">Количество листов, шт.</div>
-      <div class="counter-controls counter">
+      <div class="counter-controls counter calcInput_count">
         <span class="decrease counter__btn"></span>
         <input name="count" class="counter__input" value="1" data-min="1" data-step="1">
         <span class="increase counter__btn counter__btn_plus"></span>
@@ -38,7 +38,7 @@
   <div class="js-product__controls js-product__controls_action_change">
     <div class="counter">
       <div class="counter-title">Длина листа, мм</div>
-      <div class="counter-controls counter custom-counter">
+      <div class="counter-controls counter custom-counter .calcInput_length">
         <span class="decrease counter__btn custom-counter__btn_dir_less"></span>
         <input name="long" class="counter__input" value="{$settingCardKrovlya['minLength']}"
           data-min="{$settingCardKrovlya['minLength']}" data-max="{$settingCardKrovlya['maxLength']}"
@@ -48,7 +48,7 @@
     </div>
     <div class="counter">
       <div class="counter-title">Количество листов, шт.</div>
-      <div class="counter-controls counter">
+      <div class="counter-controls counter  .calcInput_count">
         <span class="decrease counter__btn"></span>
         <input type="hidden" name="count" value="1">
         <span class="increase counter__btn counter__btn_plus"></span>

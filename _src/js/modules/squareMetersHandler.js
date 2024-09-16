@@ -1,95 +1,11 @@
-import { getActiveForm, prettify } from "./product/utils";
-
-// сильно завязано на бэкэнд, пока не придумал, что можно придумать, выводится в шаблоне как data-аттрибуты со значением коэффифиента умножения
-const unitsMap = {
-  '1': 1,
-  '2': 'data-m2',
-  '3': 'data-m3',
-  '4': 'data-pm',
-  '5': 'data-list',
-  '6': 'data-thing',
-  '7': 'data-pilomat_thing',
-  '8': 'data-k_m2seam',
-  '9': 'data-k_m3seam',
-  '10': 'data-meter',
-  '11': 'data-upk',
-  '12': 'data-pdn',
-};
+import CalculatorWidth from "./product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
-    // Находим все элементы с классом "counter"
-    const counters = document.querySelectorAll(".product-counter");
-    if (!counters) {
-      console.log("no counters on page");
-
-      return; // quietly stop script
-    }
-    // Проходимся по каждому счетчику
-    counters.forEach((counter) => {
-      const input = counter.querySelector(".counter__input");
-      const increaseBtn = counter.querySelector(".increase");
-      const decreaseBtn = counter.querySelector(".decrease");
-      const minValue = parseInt(input.dataset.min)
-        ? parseInt(input.dataset.min)
-        : 1;
-      const maxValue = parseInt(input.dataset.max)
-        ? parseInt(input.dataset.max)
-        : 10000000000000;
-      const step = parseInt(input.dataset.step); // Получаем шаг, если он задан
-      let previousValue = parseFloat(input.value); // Переменная для хранения предыдущего значения
-
-      const calculatorObject = initObjectCalculculatorSquareMeter();
-
-      calculculatorSquareMeter(calculatorObject);
-      handlerFormCalculatorSquareMeter(calculatorObject);
-
-      // Функция увеличения значения
-      increaseBtn.addEventListener("click", () => {
-        let value = parseFloat(input.value);
-        if (value < maxValue) {
-          input.value = value + step; // Округляем до двух знаков после запятой
-        }
-      });
-
-      // Функция уменьшения значения
-      decreaseBtn.addEventListener("click", () => {
-        let value = parseFloat(input.value);
-        if (value - step > minValue) {
-          input.value = value - step; // Округляем до двух знаков после запятой
-        } else {
-          input.value = minValue; // Округляем до двух знаков после запятой
-        }
-      });
-
-      // Запрет ввода всего кроме цифр через событие input
-      input.addEventListener("input", () => {
-        input.value = input.value.replace(/[^\d\.]/g, ""); // Оставляем только цифры и точку
-      });
-
-      // Сохранение предыдущего значения при фокусе
-      input.addEventListener("focus", () => {
-        previousValue = parseFloat(input.value);
-        input.value = ""; // Очищаем поле ввода при фокусе
-      });
-
-      // Проверка значения после потери фокуса
-      input.addEventListener("blur", () => {
-        if (input.value === "") {
-          input.value = previousValue; // Восстанавливаем предыдущее значение, если ничего не введено
-        } else {
-          let value = parseFloat(input.value);
-          // минимальное значение
-          if (value < minValue) {
-            input.value = minValue;
-          }
-          // максималдьное значение
-          if (value >= maxValue) {
-            input.value = maxValue;
-          }
-        }
-      });
-    });
+    const products = document.querySelectorAll('.js-product');
+    products.forEach((product) => {
+      new CalculatorWidth(product, () => console.log('Product calc created'))
+    })
   } catch (e) {
     console.error("Ошибка инициализации счетчиков", e);
   }

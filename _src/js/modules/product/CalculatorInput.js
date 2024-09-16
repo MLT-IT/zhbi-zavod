@@ -1,25 +1,31 @@
-export class CalculatorInput {
+export default class CalculatorInput {
   wrapper = null;
   selectors = {
     input: "input",
     inc: ".increment",
     dec: ".decrement",
   };
-  validators= {
+  validators = {
     min: 0,
-    max: 0,
-    step: 0,
+    max: 10,
+    step: 1,
   }
   onChange = () => {throw new Error('Input onChange not set')};
   _value = null;
 
-  constructor(wrapper, onChange) {
+  constructor(wrapper, onChange, initialValue = 0, config = {}) {
     try {
-      if (!wrapper instanceof HTMLElement)       {
-        throw new Error('Input element is invalid');
+      if (!wrapper instanceof HTMLElement){
+        const wrapperElement = document.querySelector(wrapper)
+        if(!wrapperElement || !wrapper){
+          throw new Error('Wrapper does not exist');
+        }
+        this.wrapper = wrapper;
       }  
-      
-      this.wrapper = wrapper;
+      if(config){
+        this.selectors = {...this.selectors, ...config.selectors}
+        this.validators = {...this.validators, ...config.validators}
+      }
       this.onChange = onChange;
       this.setValidatorValues();
       this.setEvents();
@@ -66,6 +72,7 @@ export class CalculatorInput {
       });
       inputNode.addEventListener('change', ({target}) => {
         inputNode.value = parseFloat(target.value);
+        this.value = inputNode.value;
         this.onChange(inputNode.value);
       });
       incNode.addEventListener('click', () => {

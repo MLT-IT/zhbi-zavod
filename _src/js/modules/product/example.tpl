@@ -17,33 +17,33 @@
 
 {* <div class="js-product"> *}
   <div class="product-calc">
-    <input type="hidden" class='calc-width' name="width" value="{$settingCardKrovlya['width']}">
+    <input type="hidden" class='calcWidth' name="width" value="{$settingCardKrovlya['width']}">
     <input type="hidden" class="ms-amount" value="{$prodValues['itemInCart']?:1}">
-    <input type="hidden" class="calcPrice" data-default="{$prodValues['defaultPrice']?:0}"
+    <input type="hidden" class="calcPrice" value="{$prodValues['defaultPrice']?:0}"
         style="display:none!important"></input>
 
-      <div class="product-calc__input calc-input">
+      <div class="product-calc__input calc-input calcInput">
         <div class="calc-input__title">Длина листа, мм</div>
         <div class="calc-input__input-wrapper">
-          <span class="calc-input__decrease calcMinus"></span>
+          <span class="calc-input__boutton calc-input__button_decrease decrease"></span>
           <input type="number" name="long" class="calcInput" value="{$settingCardKrovlya['minLength']}"
             min="{$settingCardKrovlya['minLength']}" max="{$settingCardKrovlya['maxLength']}"
             step="{$settingCardKrovlya['stepLength']}">
-          <span class="calc-input__increase"></span>
+          <span class="calc-input__increase increase"></span>
         </div>
       </div>
-      <div class="counter">
-        <div class="counter-title">Количество листов, шт.</div>
-        <div class="counter-controls counter">
-          <span class="decrease counter__btn"></span>
+      <div class="product-calc__input calc-input calcInput">
+        <div class="calc-input__title">Количество листов, шт.</div>
+        <div class="calc-input__input-wrapper">
+          <span class="calc-input__boutton calc-input__button_decrease decrease"></span>
           <input type="number" name="count" class="calcInput" value="1" min="1" step="1" max="10000">
-          <span class="increase counter__btn counter__btn_plus"></span>
+          <span class="calc-input__boutton calc-input__button_increase increase"></span>
         </div>
       </div>
-      <div class="resultSum">
-        <div class="resultSum-m2"><span class="title">ИТОГО: </span><span class="value"></span><span
+      <div class="caclResult">
+        <div class="caclResult__meter"><span class="title">ИТОГО: </span><span class="value"></span><span
             class="prefix">м2</span></div>
-        <div class="resultSum-rub"><span class="value"> </span><span class="prefix"> руб</span></div>
+        <div class="caclResult__volume"><span class="value"> </span><span class="prefix"> руб</span></div>
       </div>
 
     <div class="js-product__controls js-product__controls_action_add">
@@ -57,7 +57,7 @@
         <div class="counter-title">Длина листа, мм</div>
         <div class="counter-controls counter custom-counter">
           <span class="decrease counter__btn custom-counter__btn_dir_less"></span>
-          <input name="long" class="calcInput" value="{$settingCardKrovlya['minLength']}"
+          <input name="long" value="{$settingCardKrovlya['minLength']}"
             data-min="{$settingCardKrovlya['minLength']}" data-max="{$settingCardKrovlya['maxLength']}"
             data-step="{$settingCardKrovlya['stepLength']}">
           <span class="increase counter__btn counter__btn_plus custom-counter__btn_dir_more"></span>
@@ -71,10 +71,10 @@
           <span class="increase counter__btn counter__btn_plus"></span>
         </div>
       </div>
-      <div class="resultSum">
-        <div class="resultSum-m2"><span class="title">ИТОГО: </span><span class="value custom-counter__amount"></span><span
+      <div class="caclResult">
+        <div class="caclResult-m2"><span class="title">ИТОГО: </span><span class="value custom-counter__amount"></span><span
             class="prefix">м2</span></div>
-        <div class="resultSum-rub"><span class="value"> </span><span class="prefix">0 ₽</span></div>
+        <div class="caclResult-rub"><span class="value"> </span><span class="prefix">0 ₽</span></div>
       </div>
       <span class="js-product__price" data-default="{$prodValues['defaultPrice']?:0}"
         style="display:none!important"></span>
