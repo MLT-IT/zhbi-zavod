@@ -23,7 +23,7 @@ export class MsCartController {
       logger.log("Node invalid");
       return false;
     }
-    if (elem.classList.contains(this.config.selectors.product.wrapper.substr(1))) {
+    if (elem.classList.contains(this.config.selectors.product.wrapper.substring(1))) {
       // logger.log(`Product classes ${elem.classList}`)
       this.product = elem;
     } else {
@@ -52,19 +52,17 @@ export class MsCartController {
   }
 
   get isInCart() {
-    // inCartClassName устанавливается в другом коде вообще, по клику на кнопку "В корзину", здесь из ДОМ просто проверяем
-    logger.log(`Checking inCart status; Product classes: ${[...this.product.classList]}`)
+    // inCartClassName класс устанавливается в другом коде по клику В КОРЗИНУ, здесь из DOM просто проверяем
     return this.product.classList.contains(this.config.inCartClassName);
   }
 
   update(val) {
     try {
       const { form, action } = this.getFormAndAction();
-      action.addEventListener('click', (e) => logger.warn('Action button triggered', e.target))
       const countField = form.querySelector(this.config.selectors.forms.count);
       logger.log(`Product in cart: ${this.isInCart}`);
       logger.log(
-        `Updating cart volume = ${val} in place of ${
+        `Updating cart form volume = ${val} in place of ${
           countField.value
         }`
       );
@@ -79,7 +77,7 @@ export class MsCartController {
       if (this.isInCart) {
         // send hidden form of current product
         // already triggers in funcsProduct, but should certainly be here
-        logger.log("Product in cart, sending update to MS");
+        logger.warn("Sending update to MS Cart");
         action.click();
       }
     } catch (e) {

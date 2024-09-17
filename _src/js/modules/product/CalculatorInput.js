@@ -17,7 +17,7 @@ export default class CalculatorInput {
   };
   _value = 0;
 
-  constructor(wrapper, onChange, initialValue = 0, config = {}) {
+  constructor(wrapper, onChange, initialValue, config = {}) {
     try {
       if (!wrapper instanceof HTMLElement) {
         const wrapperElement = document.querySelector(wrapper);
@@ -35,7 +35,8 @@ export default class CalculatorInput {
           ...config.validators,
         };
       }
-      this._value = initialValue;
+      this.value = initialValue;
+      logger.warn(`Initial value is set to ${this.value}`);
       this.onChange = onChange;
       this.setValidatorValues();
       this.setEvents();
@@ -76,6 +77,7 @@ export default class CalculatorInput {
       max: +max || this.validatorConstraints.max,
       step: +step || this.validatorConstraints.step,
     };
+    logger.warn(`Validated for ${JSON.stringify(this.validatorConstraints)}`);
   }
 
   setEvents() {
@@ -91,33 +93,31 @@ export default class CalculatorInput {
         prevValue = +inputNode.value;
         inputNode.value = "";
       });
-      inputNode.addEventListener("blur", () => {
-        if (!inputNode.value && prevValue) {
+      inputNode.addEventListener("blur", ({ target }) => {
+        if (!target.value && prevValue) {
           this.value = prevValue;
         } else {
-          // inputNode.dispatchEvent(new Event("change"));
+          this.value = target.value;
         }
       });
 
       inputNode.addEventListener("change", () => {
-        this.onChange(this.value);
         logger.log("Change triggered");
+        this.onChange(this.value);
       });
       inputNode.addEventListener("input", ({ target }) => {
-        this.value = target.value;
+        // this.value = target.value;
         // this.onChange(this.value);
         // inputNode.dispatchEvent(new Event("change"));
         logger.log("Input triggered");
       });
 
       incNode.addEventListener("click", (e) => {
-        e.preventDefault();
         logger.warn("INC");
         this.value += step;
         inputNode.dispatchEvent(new Event("change"));
       });
       decNode.addEventListener("click", (e) => {
-        e.preventDefault();
         logger.warn("DEC");
         this.value -= step;
         inputNode.dispatchEvent(new Event("change"));
@@ -130,7 +130,8 @@ export default class CalculatorInput {
   validateInput(value) {
     const { min, max, step } = this.validatorConstraints;
     const constrainedValue = Math.max(min, Math.min(max, value)); // Clamp value within min and max
-    const result = Math.ceil(constrainedValue / step) * step;
+    const result = Math.round(constrainedValue / step) * step;
+    logger.log(`Validator converts ${value} to ${result}`);
     return result;
   }
 }
