@@ -24,7 +24,7 @@ export default class UnitController {
 
   constructor(product) {
     if (!product instanceof HTMLElement) {
-      throw new Error("Unit init failed");
+      throw new Error("Unit initialization failed");
     }
     this.product = product;
   }

@@ -781,6 +781,8 @@ function getItemCount($productItem, count) {
     } else {
         if ($('body.kirpich-m').length) {
             count = Math.round(count);
+        } else if($('body.krovelnyjstroymarket').length) {
+            count = count;
         } else {
             count = Math.ceil(count);
         }

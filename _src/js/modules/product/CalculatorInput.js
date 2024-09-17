@@ -1,3 +1,5 @@
+import logger from "../debug/Logger";
+
 export default class CalculatorInput {
   wrapper = null;
   selectors = {
@@ -5,51 +7,75 @@ export default class CalculatorInput {
     inc: ".increment",
     dec: ".decrement",
   };
-  validators = {
-    min: 0,
-    max: 10,
+  validatorConstraints = {
+    min: 1,
+    max: 10000,
     step: 1,
-  }
-  onChange = () => {throw new Error('Input onChange not set')};
-  _value = null;
+  };
+  onChange = () => {
+    throw new Error("Input onChange not set");
+  };
+  _value = 0;
 
   constructor(wrapper, onChange, initialValue = 0, config = {}) {
     try {
-      if (!wrapper instanceof HTMLElement){
-        const wrapperElement = document.querySelector(wrapper)
-        if(!wrapperElement || !wrapper){
-          throw new Error('Wrapper does not exist');
+      if (!wrapper instanceof HTMLElement) {
+        const wrapperElement = document.querySelector(wrapper);
+        if (!wrapperElement || !wrapper) {
+          throw new Error("Wrapper does not exist");
         }
-        this.wrapper = wrapper;
-      }  
-      if(config){
-        this.selectors = {...this.selectors, ...config.selectors}
-        this.validators = {...this.validators, ...config.validators}
+        this.wrapper = wrapperElement;
       }
+      this.wrapper = wrapper;
+
+      if (config) {
+        this.selectors = { ...this.selectors, ...config.selectors };
+        this.validatorConstraints = {
+          ...this.validatorConstraints,
+          ...config.validators,
+        };
+      }
+      this._value = initialValue;
       this.onChange = onChange;
       this.setValidatorValues();
       this.setEvents();
     } catch (e) {
-      console.error(e);
+      logger.error(e);
     }
   }
 
-  get value(){
+  get value() {
     return this._value;
   }
 
-  set value(val){
-    const {min,max} = this.validators;
-    if(+val && val < max && val > min){
-      this._value = val
-    } else {
-      throw new Error('Value incorrect')
+  set value(val) {
+    try {
+      const validValue = this.validateInput(val);
+      if (validValue) {
+        this._value = validValue;
+        const inputNode = this.wrapper.querySelector(this.selectors.input);
+        inputNode.value = validValue;
+      } else {
+        throw new Error(
+          `Value incorrect: ${val}, ${JSON.stringify(
+            this.validatorConstraints
+          )}`
+        );
+      }
+    } catch (e) {
+      logger.error(e);
     }
   }
 
-  setValidatorValues(){
-    const {min = 0, max = 1, step = 1} = inputNode;
-    this.validators = {min, max, step};
+  setValidatorValues() {
+    const inputNode = this.wrapper.querySelector(this.selectors.input);
+    inputNode.setAttribute("type", "number");
+    const { min, max, step } = inputNode;
+    this.validatorConstraints = {
+      min: +min || this.validatorConstraints.min,
+      max: +max || this.validatorConstraints.max,
+      step: +step || this.validatorConstraints.step,
+    };
   }
 
   setEvents() {
@@ -57,35 +83,54 @@ export default class CalculatorInput {
       const inputNode = this.wrapper.querySelector(this.selectors.input);
       const incNode = this.wrapper.querySelector(this.selectors.inc);
       const decNode = this.wrapper.querySelector(this.selectors.dec);
-      const {min, max, step} = inputNode;
+      const { min, max, step } = this.validatorConstraints;
 
       let prevValue = 0;
 
-      inputNode.addEventListener('focus', () => {
-        prevValue = inputNode.value;
-        inputNode.value = '';
+      inputNode.addEventListener("focus", () => {
+        prevValue = +inputNode.value;
+        inputNode.value = "";
       });
-      inputNode.addEventListener('blur', () => {
-        if(!inputNode.value && prevValue) {
-          inputNode.value = prevValue;
+      inputNode.addEventListener("blur", () => {
+        if (!inputNode.value && prevValue) {
+          this.value = prevValue;
+        } else {
+          // inputNode.dispatchEvent(new Event("change"));
         }
       });
-      inputNode.addEventListener('change', ({target}) => {
-        inputNode.value = parseFloat(target.value);
-        this.value = inputNode.value;
-        this.onChange(inputNode.value);
-      });
-      incNode.addEventListener('click', () => {
-        inputNode.stepUp();
-        inputNode.dispatchEvent(new Event("change"));
-      })
-      decNode.addEventListener('click', () => {
-        inputNode.stepDown();
-        inputNode.dispatchEvent(new Event("change"));
-      })
 
+      inputNode.addEventListener("change", () => {
+        this.onChange(this.value);
+        logger.log("Change triggered");
+      });
+      inputNode.addEventListener("input", ({ target }) => {
+        this.value = target.value;
+        // this.onChange(this.value);
+        // inputNode.dispatchEvent(new Event("change"));
+        logger.log("Input triggered");
+      });
+
+      incNode.addEventListener("click", (e) => {
+        e.preventDefault();
+        logger.warn("INC");
+        this.value += step;
+        inputNode.dispatchEvent(new Event("change"));
+      });
+      decNode.addEventListener("click", (e) => {
+        e.preventDefault();
+        logger.warn("DEC");
+        this.value -= step;
+        inputNode.dispatchEvent(new Event("change"));
+      });
     } catch (e) {
       throw e;
     }
+  }
+
+  validateInput(value) {
+    const { min, max, step } = this.validatorConstraints;
+    const constrainedValue = Math.max(min, Math.min(max, value)); // Clamp value within min and max
+    const result = Math.ceil(constrainedValue / step) * step;
+    return result;
   }
 }

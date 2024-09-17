@@ -1,7 +1,8 @@
+import logger from "../debug/Logger";
 import CalculatorInput from "./CalculatorInput";
-import { MsCartController } from "./MsCartAdapter";
+import { MsCartController } from "./MsCartController";
 import UnitController from "./UnitController";
-import { addCurrency, prettify } from "./utils";
+import { prettify } from "./utils";
 
 export default class CalculatorBase {
   product = null; // этот элемент ключевой и передается в другие объекты. стандартно это враппер .js-product в данный момент
@@ -10,16 +11,15 @@ export default class CalculatorBase {
     inCartCount: ".calcInCart",
     result: {
       wrapper: ".calcResult",
-      volume: `${this.wrapper}__volume`,
-      price: `${this.wrapper}__price`,
+      volume: `.calcResult_volume .value`,
+      price: `.calcResult_price .value`,
     },
     input: ".calcInput",
   };
-  _volume = 0;
-  priceBase = {
-    default: 0,
-  };
+  priceBase = 0;
   nodes = {}; // nodes tree with structure equal to selectors
+
+  _volume = 0;
 
   /**
    *
@@ -49,21 +49,23 @@ export default class CalculatorBase {
       this.callBack = callBack;
 
       if (customSelectors) {
-        this.selectors = { ...this.selectors, ...customSelectors };     
+        this.selectors = { ...this.selectors, ...customSelectors };
       }
-      this.initNodes();
+      this.nodes = this.initNodes();
       this.initInputs();
       this.unitController = new UnitController(this.product);
       this.cartHandler = new MsCartController(this.product);
-      this.priceBase = this.nodes.priceInput.value;
+
+      this.priceBase = this.cartHandler.price;
     } catch (e) {
-      console.log("Calculator instance construction error");
-      console.log(e);
+      logger.log("Calculator instance construction error", e);
     }
   }
 
   get unit() {
     const unit = this.unitController.getUnitValue();
+    logger.log(`Getting unit = ${unit}`);
+
     if (!unit) {
       throw new Error("Volume error");
     }
@@ -84,38 +86,37 @@ export default class CalculatorBase {
 
   initInputs() {
     const initialValue = this.nodes.inCartCount.value;
-
     const onChange = (val) => {
-      this.count = val;
+      this.count = +val;
       this.update();
     };
-
-    this.input = new CalculatorInput(
-      this.nodes.input,
-      onChange,
-      initialValue
-    );
+    this.input = new CalculatorInput(this.nodes.input, onChange, initialValue);
   }
 
-  initNodes(selectors = this.selectors, node = this.nodes) {
-    Object.keys(selectors).forEach((key) => {
-      // console.log(`setting ${key} by selector ${selectors[key].toString()}`);
-      if (typeof selectors[key] === "object" && !Array.isArray(selectors[key]) && !!selectors[key]) {
-        node[key] = {};
-        // console.log('nested selector: ', selectors[key]);
-        node[key] = this.initNodes(selectors[key], node[key]);
-      } else if (Array.isArray(selectors[key]) && selectors[key].length) {
-        node[key] = [];
-        for (let item in selectors[key]) {
-          node[key].push(this.initNodes(item, node[key]));
+  initNodes(selectors = this.selectors) {
+    const result = {};
+    for (const key in selectors) {
+      if (selectors.hasOwnProperty(key)) {
+        if (
+          typeof selectors[key] === "object" &&
+          !Array.isArray(selectors[key])
+        ) {
+          result[key] = this.initNodes(selectors[key]);
+        } else if (Array.isArray(selectors[key]) && selectors[key].length) {
+          result[key] = [];
+          for (let item of selectors[key]) {
+            result[key].push(this.initNodes(item));
+          }
+        } else if (typeof selectors[key] === "string") {
+          result[key] = this.product.querySelector(selectors[key]);
         }
-      } else {
-        node[key] = this.product.querySelector(selectors[key]);
       }
-    });
+    }
+    return result;
   }
 
   update() {
+    // logger.log(`Calculator update: ${this.volume}`);
     this.cartHandler.update(this.volume);
     this.render();
   }
@@ -124,12 +125,26 @@ export default class CalculatorBase {
     if ("result" in this.nodes) {
       this.nodes.result.volume.innerText = this.volume;
       this.nodes.result.price.innerText = this.formatPrice(
-        this.priceBase * this.volume
+        Math.ceil(this.priceBase * this.volume)
       );
     }
+    this.processCountersFallback();
   }
 
   formatPrice(value) {
-    return addCurrency(prettify(value), " руб.");
+    return prettify(value);
+    // return addCurrency(prettify(value), " руб.");
+  }
+
+  processCountersFallback(){
+    // a hook to update all .custom-counter__amount values, because it's used by funcsProduct
+    const counters = this.product.querySelectorAll('.custom-counter__amount');
+    if(counters.length) {
+      counters.forEach(counter => {
+        counter.value = this.volume;
+        counter.setAttribute('value', this.volume)
+      })
+    }
+    
   }
 }

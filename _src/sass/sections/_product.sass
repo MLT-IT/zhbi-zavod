@@ -443,7 +443,8 @@
             &.active
                 background-color: var(--color-red)
                 color: var(--color-white)
-
+    &__complex
+        display: flex
     &__price
         margin-left: auto
         margin-top: 30px
@@ -788,3 +789,25 @@
                 *
                     color: #000
                     border-color: #000
+.product-calculator
+    display: flex
+    align-items: center
+    &__inputs
+        display: flex
+        flex-direction: column
+        gap: 1em
+
+    &__result
+
+    .calculator-result
+        &__summary
+            &-title
+            &-volume
+            &-unit
+        
+        &__price
+            &-value
+                @extend .product-info__price-value
+            &-unit 
+                
+    .counter

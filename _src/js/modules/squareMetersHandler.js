@@ -1,13 +1,16 @@
+import logger from "./debug/Logger";
 import CalculatorWidth from "./product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
-    const products = document.querySelectorAll('.js-product');
+    const products = [document.querySelector(".js-product")];
+    logger.log(`FOUND ${products.length} PRODUCTS`);
+
     products.forEach((product) => {
-      new CalculatorWidth(product, () => console.log('Product calc created'))
-    })
+      new CalculatorWidth(product, () => logger.log("Product calc created"));
+    });
   } catch (e) {
-    console.error("Ошибка инициализации счетчиков", e);
+    logger.error("Ошибка инициализации счетчиков", e);
   }
 }
 
@@ -98,10 +101,10 @@ function calculculatorSquareMeterHandler(calculatorObject) {
  * @param count — параметр count представляет новое количество товаров в корзине.
  */
 function updateCountCart(productCart, count) {
-  const forms = getActiveForm(productCart); 
-  const systemForm = forms["system"]; // get HTML Element 
-  systemForm.querySelector('[name="count"]').setAttribute('value',`${count}`);
-  // console.log(`Found  product card, update count ${$systemForm.querySelector('[name="count"]').value} to ${count}`);
+  const forms = getActiveForm(productCart);
+  const systemForm = forms["system"]; // get HTML Element
+  systemForm.querySelector('[name="count"]').setAttribute("value", `${count}`);
+  logger.log(`Found  product card, update count ${$systemForm.querySelector('[name="count"]').value} to ${count}`);
   if (productCart.classList.contains("js-product-in-cart")) {
     systemForm.querySelector('[type="submit"]').click();
   }
