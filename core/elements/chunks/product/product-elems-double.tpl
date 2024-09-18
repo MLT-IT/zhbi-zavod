@@ -1,9 +1,11 @@
 {set $inCart = $prodValues['itemInCart']?:0}
 {set $listSize = ($settingCardKrovlya['width'] / 1000) * ($settingCardKrovlya['minLength'] / 1000)}
 {set $listCount = ($inCart / $listSize)?:$listSize}
-in cart: {$inCart}
-list size: {$settingCardKrovlya['width'] / 1000} * {$settingCardKrovlya['minLength'] / 1000} = {$listSize}
-lists: {$listCount}
+<!-- 
+in cart: {$inCart} 
+list size: {$settingCardKrovlya['width'] / 1000} * {$settingCardKrovlya['minLength'] / 1000} = {$listSize} 
+lists: {$listCount} 
+-->
 <div class="calcProduct product-info__volume">
   <input type="hidden" class="calcWidth" name="width" value="{$settingCardKrovlya['width']}">
   <input type="hidden"class="calcLength" value="{$settingCardKrovlya['minLength']}">
@@ -33,11 +35,11 @@ lists: {$listCount}
     <div class="calcResult product-calculator__result calculator-result  product-info__price">
       <div class="calcResult_volume calculator-result__summary">
         <span class="title calculator-result__summary-title">ИТОГО: </span>
-        <span class="value custom-counter__amount calculator-result__summary-volume">{$inCart?:$listSize | number_format : 2}</span>
+        <span class="value custom-counter__amount calculator-result__summary-volume">{$inCart?:$listSize | number:2}</span>
         <span class="prefix calculator-result__summary-unit"> м<sup>2</sup></span>
       </div>
       <div class="calcResult_price calculator-result__price">
-        <span class="value product-info__price-value">{(($inCart * $listSize)?:$listSize) * $prodValues['defaultPrice']}</span><span class="prefix"> ₽</span>
+        <span class="value product-info__price-value">{(($inCart ?: 1) * $prodValues['defaultPrice'])}</span><span class="prefix"> ₽</span>
       </div>
     </div>
   </div>

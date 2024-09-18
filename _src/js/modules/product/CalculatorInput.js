@@ -1,5 +1,9 @@
 import logger from "../debug/Logger";
 
+
+/**
+ * Класс для создания обработчика инпута
+ */
 export default class CalculatorInput {
   wrapper = null;
   selectors = {
@@ -17,6 +21,12 @@ export default class CalculatorInput {
   };
   _value = 0;
 
+  /**
+   * @param {HTMLElement|string} wrapper контейнер инпута
+   * @param {*} onChange колбэк из родителя
+   * @param {*} initialValue начальное значение
+   * @param {*} config дополнительный конфиг, если добавлены какие-то элементы или валидации
+   */
   constructor(wrapper, onChange, initialValue, config = {}) {
     try {
       if (!wrapper instanceof HTMLElement) {
@@ -49,6 +59,9 @@ export default class CalculatorInput {
     return this._value;
   }
 
+  /**
+   * Автоматически валидирует устанавливаемое значение
+   */
   set value(val) {
     try {
       const validValue = this.validateInput(val);
@@ -68,6 +81,9 @@ export default class CalculatorInput {
     }
   }
 
+  /**
+   * Инпуты подразумеваются числовые, в шаблоне расставляем min max step - здесь используем для валидации
+   */
   setValidatorValues() {
     const inputNode = this.wrapper.querySelector(this.selectors.input);
     inputNode.setAttribute("type", "number");
@@ -77,7 +93,6 @@ export default class CalculatorInput {
       max: +max || this.validatorConstraints.max,
       step: +step || this.validatorConstraints.step,
     };
-    logger.warn(`Validated for ${JSON.stringify(this.validatorConstraints)}`);
   }
 
   setEvents() {
@@ -85,7 +100,7 @@ export default class CalculatorInput {
       const inputNode = this.wrapper.querySelector(this.selectors.input);
       const incNode = this.wrapper.querySelector(this.selectors.inc);
       const decNode = this.wrapper.querySelector(this.selectors.dec);
-      const { min, max, step } = this.validatorConstraints;
+      const { step } = this.validatorConstraints;
 
       let prevValue = 0;
 
@@ -106,9 +121,6 @@ export default class CalculatorInput {
         this.onChange(this.value);
       });
       inputNode.addEventListener("input", ({ target }) => {
-        // this.value = target.value;
-        // this.onChange(this.value);
-        // inputNode.dispatchEvent(new Event("change"));
         logger.log("Input triggered");
       });
 
@@ -131,7 +143,9 @@ export default class CalculatorInput {
     const { min, max, step } = this.validatorConstraints;
     const constrainedValue = Math.max(min, Math.min(max, value)); // Clamp value within min and max
     const result = Math.round(constrainedValue / step) * step;
-    logger.log(`Validator converts ${value} to ${result}`);
+    if(value !== result){
+      logger.log(`Validator converted ${value} to ${result}`);
+    }
     return result;
   }
 }

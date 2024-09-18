@@ -2,7 +2,8 @@ class Logger {
   mode = null;
   // mode = 'dev';
   bgColors = {
-    log: "#448",
+    log: "#555",
+    info: "#448",
     warn: "#962",
     error: "#944",
   };
@@ -33,10 +34,18 @@ class Logger {
   getStyle = (name) =>
     `color: white; background-color: ${this.getBgColor(
       name
-    )}; padding: 5px 10px;`;
+    )}; padding: 2px 5px;`;
 
   custoMizeMethod(method) {
     if (method.name === "log") {
+      const result = (...args) => {
+        const [text, ...rest] = args;
+        method("%c%s", this.getStyle(method.name), `LOG: ${text}`, ...rest);
+      };
+      // debugger;
+      return result;
+    }
+    if (method.name === "info") {
       const result = (...args) => {
         const [text, ...rest] = args;
         method("%c%s", this.getStyle(method.name), `INFO: ${text}`, ...rest);

@@ -52,13 +52,14 @@ export default class CalculatorBase {
         this.selectors = { ...this.selectors, ...customSelectors };
       }
       this.nodes = this.initNodes();
-      this.initInputs();
+      this.storage = localStorage;
+      this.initInputs(); // depends on this.storage
       this.unitController = new UnitController(this.product);
       this.cartHandler = new MsCartController(this.product);
-
       this.priceBase = this.cartHandler.price;
+      this.render();
     } catch (e) {
-      logger.log("Calculator instance construction error", e);
+      logger.error("Calculator instance construction error", e);
     }
   }
 
@@ -78,10 +79,6 @@ export default class CalculatorBase {
 
   get price() {
     return this.priceBase * this.unit;
-  }
-
-  isInCart() {
-    return this.product.classList.contains("js-product-in-cart");
   }
 
   initInputs() {
@@ -123,10 +120,12 @@ export default class CalculatorBase {
 
   render() {
     if ("result" in this.nodes) {
-      this.nodes.result.volume.innerText = this.volume;
+      const {volume, priceBase} = this;
+      this.nodes.result.volume.innerText = volume;
       this.nodes.result.price.innerText = this.formatPrice(
-        Math.ceil(this.priceBase * this.volume)
+        Math.ceil(priceBase * volume)
       );
+      logger.log(`Render VOLUME: ${volume}, COST (${priceBase} x ${volume}): ${priceBase * volume}`)
     }
     this.processCountersFallback();
   }

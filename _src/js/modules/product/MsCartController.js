@@ -45,9 +45,13 @@ export class MsCartController {
       +priceNode.value ||
       +priceNode.dataset.val ||
       +priceNode.dataset.default ||
-      parseFloat(priceNode.innerText) ||
+      +parseFloat(priceNode.innerText) ||
       0;
-    // logger.log(`Base price is ${result}`);
+    if(result){
+      logger.log(`Base price is ${result}`);
+    } else {
+      logger.warn(`Base price is ${result}`);
+    }
     return result;
   }
 
