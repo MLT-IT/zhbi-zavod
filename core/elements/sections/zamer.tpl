@@ -1,7 +1,7 @@
 {if $_modx->resource.introtext}
   <div>{$_modx->resource.introtext}</div>
 {/if}
-<p><a class="btn btn_style_base  btn_style_compact" href="akcii/besplatnyij-zamer/">Заказать замер</a></p>
+<p><a class="btn btn_style_base  btn_style_compact" data-fancybox href="#callback">Заказать замер</a></p>
 <blockquote class="">Замер кровли проводится по стропильной системе. Мы создаем эскиз на каждый сегмент крыши, учитывая
   все скаты. После чего мы предоставляем полный и наглядный план Вашей кровли.</blockquote>
 <h2>Какие измерения необходимы?</h2>
@@ -48,7 +48,7 @@
    <img src="assets/images/content/zamer-2.png" alt="" width="400" />
   </div>
   <div class="flex flex-col flex-center">
-  <p><a class="btn btn_style_base" href="akcii/besplatnyij-zamer/">Заказать замер кровли</a></p>
-  <p><a class="btn btn_style_base" href="akcii/besplatnyij-zamer/">Заказать замер забора</a></p>
+  <p><a class="btn btn_style_base" data-fancybox href="#callback">Заказать замер кровли</a></p>
+  <p><a class="btn btn_style_base" data-fancybox href="#callback">Заказать замер забора</a></p>
   </div>
 </div>

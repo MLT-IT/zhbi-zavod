@@ -1,0 +1,129 @@
+.custom-selections
+  &_colors
+    margin-top: 20px
+  a
+    font-size: 14px
+    color: var(--colorblack)
+    text-decoration: none
+  &__preview,
+  &__groups
+    display: none
+    &.active
+      display: block
+    &-wrapper
+      display: flex
+      flex-direction: column
+      gap: 10px
+  &__tags
+    display: grid
+    grid-template-columns: repeat(5, minmax(0, 1fr))
+    gap: 9px
+
+  &__tag
+    list-style: none
+    background-color: var(--color-white)
+    border: 1px solid var(--color-gray-lt)
+    border-radius: var(--border-radius-base)
+    transition: .3s
+    padding: 7px
+    overflow: hidden
+    &:hover
+      box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
+    &-link
+      height: 100%
+      display: flex
+      align-items: center
+      gap: 10px
+
+
+    &-name
+      //
+    &-title
+      &:first-letter
+        text-transform: capitalize
+
+    &-image,
+    &-background
+      width: 30px
+      height: 30px
+      border-radius: var(--border-radius-base)
+    
+
+  &__groups
+
+  &__group
+
+
+
+  &__toggle
+    display: flex
+    align-items: center
+    // padding: 10px
+    +until-1200
+      font-size: 14px
+
+    +until-768
+      font-size: 12px
+    
+    
+    &-button
+      display: flex
+      align-items: center
+      font-weight: 700
+      font-size: 16px
+      line-height: 1
+      text-align: center
+      letter-spacing: 0.05em
+      text-transform: uppercase
+      color: var(--color-gray)
+      cursor: pointer
+      transition: color .3s ease
+      background-color: var(--color-gray-lt)
+      border-radius: var(--border-radius-base)
+      padding: 7px
+      text-decoration-style: dotted
+      text-decoration-thickness: 1px
+      text-underline-offset: .1em
+      &:hover
+        text-decoration: underline
+        color: var(--color-red)
+      &:before
+        content: 'показать все'
+        padding-top: 3px
+      &.active
+        &::before
+          content: 'скрыть'
+
+  dl
+    display: flex
+    align-items: center
+    gap: 15px
+
+  dd
+    display: flex
+    align-items: center
+    gap: 7px 20px
+    flex-wrap: wrap
+    a
+      display: flex
+      align-items: center
+      &:hover
+        color: #111
+
+    &.active
+      a
+        display: flex
+  dt
+    font-weight: 600
+    min-width: 100px
+
+    // @media(max-width: 772px)
+    //       dl
+    //             display: block
+
+    //       dd
+    //             margin-left: 0px
+    //             display: flex
+    //             flex-wrap: wrap
+    //       dt
+    //             width: 100%

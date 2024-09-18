@@ -11,14 +11,13 @@
       {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
         {set $parentIds = $_modx->getParentIds($_modx->resource.id)}
         {set $isZabor = ('125537' in list $parentIds) || ('125541' in list $parentIds) || ($_modx->resource.id in list [125537,125541])}
-        {* {set $isZabor = true} *}
         <div class="side-banners">
           {if $isZabor}
             {include 'file:chunks/banners/side-banner.tpl' 
             image='side-banner-2.jpg' 
             title='Калькулятор расчёта забора' 
             text='Удобный инструмент помогает сократить расходы' 
-            actionUrl='' 
+            actionUrl='/servisyi-rascheta/raschet-shtaketnika-dlya-zabora/' 
             actionText='Рассчитать забор'
             }
           {else}
@@ -26,7 +25,7 @@
             image='side-banner-1.jpg' 
             title='Калькулятор расчёта кровли' 
             text='Удобный инструмент помогает сократить расходы' 
-            actionUrl='' 
+            actionUrl='/servisyi-rascheta/raschet-krovli-iz-metallocherepiczyi/' 
             actionText='Рассчитать кровлю'
             }
           {/if}  
@@ -38,7 +37,11 @@
       <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
         <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
       </div>
-      
+      {if ($_modx->resource.template in list ['36']) && ($.request.mode == 'test')}
+        {* CUSTOM TAGS *}
+        {include 'file:chunks/selectionFiltersExpanded/wrapper.tpl'}
+      {else}
+        {* common tags *}
         {'@FILE snippets/getTags.php' | snippet :[
         'tpl' => '@FILE chunks/create-menu/category-item.tpl',
         'tplWrapper' => '@INLINE
@@ -68,7 +71,7 @@
         'idTagsBlock' => 'block-3',
         'where' => '{"template:in":[28]}',
         ]}
-     
+      {/if}
       <div class="catalog__sorting sorting" data-dropdown="" id="mse2_sort">
         <button class="sorting__btn btn btn_style_black-trans">По популярности</button>
         <div class="sorting__body">

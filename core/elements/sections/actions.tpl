@@ -29,7 +29,7 @@
     {switch $_modx->resource.context_key}
       {case 'krovelnyjstroymarket'}
         {set $imageBaner1 = "assets/template/pictures/promo/osnova/1.jpg"}
-        {set $imageBanerMobile1 = "assets/template/pictures/promo/1.jpg"}
+        {set $imageBanerMobile1 = "assets/template/pictures/promo/osnova/1.jpg"}
         {set $titleBaner1 = "Точный расчет кровли<br> в подарок!"}
         {set $textBaner1 = "Специалисты<br> произведут точный расчет<br> всех материалов <br>под Ваш заказ <br>бесплатно"}
         {set $linkBaner1 = ""}

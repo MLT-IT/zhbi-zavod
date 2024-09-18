@@ -46,6 +46,14 @@
     {set $renderVideo = 1}
 {/if}
 
+{* определяю гибкую черепицу *}
+{set $isGibkaya = $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125532])}
+
+{* определяю профлист и профлист для забора *}
+{set $isProflist = ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537])) || ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
+
+
+
 {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
     {set $recommendProducts = 'msProducts' | snippet : [
@@ -59,6 +67,37 @@
     'includeThumbs' => 'webp',
     'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
     ]}
+
+    {* Сопутствующие товары гибкой черепице *}
+    {if $isGibkaya}
+      {set $soput_options = [
+        'parents' => '126015,125951,125554',
+        'limit' => 30,
+        'depth' => 999,
+        'sortby' => '{"parent":"DESC"}',
+        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+        'tplWrapper' => '@FILE sections/related-products.tpl',
+        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+        'includeThumbs' => 'webp',
+        'optionFilters' => '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}',
+        ]}
+      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {/if}
+
+    {* Сопутствующие товары профлист и профлист для забора *}
+    {if $isProflist}
+      {set $soput_options = [
+        'parents' => '125533',
+        'limit' => 40,
+        'depth' => 999,
+        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+        'tplWrapper' => '@FILE sections/related-products.tpl',
+        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+        'includeThumbs' => 'webp',
+        'optionFilters' => '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}',
+        ]}
+      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {/if}
 
     {set $simillarProductIds = $_modx->resource.simillarProductIds}
     {if $simillarProductIds}
@@ -91,7 +130,7 @@
 
 
 {* Указаны все категории из главных категорий 125530, 125530, 125541 *}
-{if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125530,125541,125537'])  }
+{if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125532,125541,125537'])  }
   {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
   {set $cvet = $_modx->resource.cvet[0]}
 
@@ -226,7 +265,9 @@
                           {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                               В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м2
                             {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                              На складе {$randomStock} {$unit}
+                              {* гибкой черепице упаковки *}
+                              
+                              На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
                             {elseif $_modx->context.key == 'suhiesmesi'}
                                 В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
                             {else}
@@ -270,7 +311,7 @@
                   {/if}
                 {/if}
               </div>
-            
+
               {if $_modx->resource.context_key == 'web'}
               
                   {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
