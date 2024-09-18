@@ -167,10 +167,18 @@ if (in_array($src['context_key'], ['web'])) {
 // Единицы измерения для газобетона
 if (in_array($src['context_key'], ['gazosilikatstroy'])) {
     if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
-        $thing = $src['kolvoshm3'][0];
+        if (in_array($src['unit'][0], ['шт.', 'штука'])) {
+            $m3 = 1 / ($src['kolvoshm3'][0]);
+        } else {
+            $thing = $src['kolvoshm3'][0];
+        }
 
         if (!empty($src['pallet_num']) && !empty($src['pallet_num'][0])) {
-            $pdn = 1 / ((1 / $thing) * $src['pallet_num'][0]);
+            if (isset($thing)) {
+                $pdn = 1 / ((1 / $thing) * $src['pallet_num'][0]);
+            } else {
+                $pdn_calced = $src['price'] * $src['pallet_num'][0];
+            }
         }
     }
 }
@@ -270,6 +278,9 @@ if (!empty($upk) && ($upk > 0) && ($upk < $inf)) {
 }
 if (!empty($pdn) && ($pdn > 0) && ($pdn < $inf)) {
     $result['itemUnits']['pdn'] = ['val' => $pdn, 'title' => 'поддон', 'id' => '12'];
+}
+if (!empty($pdn_calced) && ($pdn_calced > 0) && ($pdn_calced < $inf)) {
+    $result['itemUnits']['pdn_calced'] = ['val' => $pdn_calced, 'title' => 'поддон', 'id' => '13'];
 }
 
 // ------------------------------------
