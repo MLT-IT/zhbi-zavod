@@ -57,7 +57,7 @@
         'select' => 'menutitle,uri'
         ])}
     </div> *}
-    <div class="custom-selections__preview active">
+    {* <div class="custom-selections__preview active">
         {'@FILE snippets/getRelinkingTags.php' | snippet : [
             "tplWrapper" => "@FILE chunks/selectionFiltersExpanded/selections.tpl",
             "tpl" => "@FILE chunks/selectionFiltersExpanded/selectionsItem.tpl",
@@ -76,5 +76,5 @@
                 <div class="custom-selections__toggle-button active"></div>
             </div>
         </div>
-    </div>
+    </div> *}
 </div>

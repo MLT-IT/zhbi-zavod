@@ -1,5 +1,5 @@
 class Logger {
-  mode = null;
+  debug = false;
   // mode = 'dev';
   bgColors = {
     log: "#555",
@@ -27,7 +27,7 @@ class Logger {
 
   get isDevMode() {
     // console.log(`DEBUG = ${process.env.DEBUG} (${typeof process.env.DEBUG})`);
-    return process.env.DEBUG === "true" || this.mode === "dev";
+    return process.env.DEBUG === "true" || this.debug;
   }
 
   getBgColor = (name) => this.bgColors[name];
@@ -73,8 +73,8 @@ class Logger {
   }
 
   setQueryMode = () => {
-    const queryMode = new URLSearchParams(window.location.search).get("mode");
-    this.mode = queryMode;
+    const queryMode = new URLSearchParams(window.location.search).get("logger");
+    this.debug = queryMode;
   };
 }
 

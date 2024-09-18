@@ -35,7 +35,7 @@ export default class CalculatorWidth extends CalculatorBase {
   get volume() {
     const volume =
       Math.round(100 * (this.count * this.widthM * this.lenM)) / 100;
-    logger.log(`Calculating volume = ${this.count} * ${this.widthM} * ${this.lenM} = ${volume}`);
+    // logger.log(`Calculating volume = ${this.count} * ${this.widthM} * ${this.lenM} = ${volume}`);
     return volume;
   }
 
