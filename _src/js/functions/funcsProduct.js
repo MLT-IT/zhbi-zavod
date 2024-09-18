@@ -812,7 +812,11 @@ function calcPrice($productItem) {
                 value = 0;
             }
 
-            value = 1 / unitVal * value;
+            if (+$productItem.find('*[name="unit"]').val() === 13) {
+                value = unitVal;
+            } else {
+                value = 1 / unitVal * value;
+            }
             if ($('body.kirpich-m').length) {
                 value = Math.round(value);
             } else {
@@ -970,6 +974,7 @@ function getActiveUnitValue($productItem) {
         '10': $productItem.attr('data-meter'),
         '11': $productItem.attr('data-upk'),
         '12': $productItem.attr('data-pdn'),
+        '13': $productItem.attr('data-pdn_calced'),
     };
 
     // Обработка кол-ва единиц измерения
