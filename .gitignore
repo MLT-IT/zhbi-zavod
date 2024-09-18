@@ -1,2 +1,5 @@
 node_modules/
 .vscode
+.idea
+assets/template/js/main.js
+assets/template/css/main.css
