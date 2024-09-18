@@ -3,11 +3,14 @@ import CalculatorWidth from "./product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
-    const products = [document.querySelector(".js-product")];
-    logger.log(`FOUND ${products.length} PRODUCTS`);
+    const calculators = [document.querySelector(".calcProduct")];
+    logger.log(`FOUND ${calculators.length} PRODUCTS`);
 
-    products.forEach((product) => {
-      new CalculatorWidth(product, () => logger.log("Product calc created"));
+    calculators.forEach((calculator) => {
+      const product = calculator.closest('.js-product')
+      if(product) {
+        new CalculatorWidth(product, () => logger.log("Product calc created"));
+      }
     });
   } catch (e) {
     logger.error("Ошибка инициализации счетчиков", e);
