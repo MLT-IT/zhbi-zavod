@@ -56,7 +56,7 @@ lists: {$listCount}
   </div>
   <div class="js-product__controls js-product__controls_action_change">
     <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active">
-      <span class="js-product__btn-in-cart-top-text">В корзине{$inCart ? " {$inCart}<span class='prefix'> м<sup>2</sup></span>" : ''}</span>
+      <span class="js-product__btn-in-cart-top-text">В корзине{$inCart ? ' <span class="custom-counter__amount">{$inCart}</span><span class="prefix"> м<sup>2</sup></span>' : ''}</span>
       <span class="js-product__btn-in-cart-bottom-text">Перейти</span>
     </a>
   </div>

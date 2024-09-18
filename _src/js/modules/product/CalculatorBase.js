@@ -120,12 +120,16 @@ export default class CalculatorBase {
 
   render() {
     if ("result" in this.nodes) {
-      const {volume, priceBase} = this;
+      const { volume, priceBase } = this;
       this.nodes.result.volume.innerText = volume;
       this.nodes.result.price.innerText = this.formatPrice(
         Math.ceil(priceBase * volume)
       );
-      logger.log(`Render VOLUME: ${volume}, COST (${priceBase} x ${volume}): ${priceBase * volume}`)
+      logger.log(
+        `Render VOLUME: ${volume}, COST (${priceBase} x ${volume}): ${
+          priceBase * volume
+        }`
+      );
     }
     this.processCountersFallback();
   }
@@ -135,15 +139,19 @@ export default class CalculatorBase {
     // return addCurrency(prettify(value), " руб.");
   }
 
-  processCountersFallback(){
+  processCountersFallback() {
     // a hook to update all .custom-counter__amount values, because it's used by funcsProduct
-    const counters = this.product.querySelectorAll('.custom-counter__amount');
-    if(counters.length) {
-      counters.forEach(counter => {
-        counter.value = this.volume;
-        counter.setAttribute('value', this.volume)
-      })
+    const counters = this.product.querySelectorAll(".custom-counter__amount");
+    if (counters.length) {
+      counters.forEach((counter) => {
+        const volume = this.volume;
+        counter.value = volume;
+        counter.setAttribute("value", volume);
+        if (counter.tagName.toLowerCase() !== 'input') {
+          logger.log(`Updated value text of ${counter.tagName}`);
+          counter.innerText = volume;
+        }
+      });
     }
-    
   }
 }
