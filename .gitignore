@@ -1,2 +1,9 @@
 node_modules/
 .vscode
+.idea
+.rsyncignore
+nohup.out
+rsync.sh
+sync.sh
+assets/template/js/main.js
+assets/template/css/main.css
