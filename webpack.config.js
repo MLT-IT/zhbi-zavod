@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const uglifyJsPlugin = require("babel-minify-webpack-plugin")
 const ExtractTextPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, args) => {
     const isProd = args.mode === 'production'
@@ -100,7 +101,8 @@ module.exports = (env, args) => {
                 $: "jquery",
                 jQuery: "jquery",
             }),
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
+            new Dotenv()
         ],
         optimization: {
             minimizer: [
@@ -127,7 +129,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'http://kraski-st.local/',
+                    target: 'http://stroymarket.local/',
                     secure: false,
                     changeOrigin: true
                 }

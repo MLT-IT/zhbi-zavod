@@ -1,5 +1,4 @@
 class Logger {
-  debug = false;
   // mode = 'dev';
   bgColors = {
     log: "#555",
@@ -9,25 +8,26 @@ class Logger {
   };
 
   constructor() {
-    this.setQueryMode();
-
-    for (const [methodName, methodFunction] of Object.entries(console)) {
-      this[methodName] = (...args) => {
-        if (this.isDevMode) {
-          // console.log(`DEVMODE`);
-          const method = this.custoMizeMethod(methodFunction);
-          return method(...args);
-        } else {
-          // console.log(`PRODUCTION`);
-          return () => null;
-        }
-      };
+    try{
+    const envDebug = process.env.DEBUG === "true";
+    const queryDebug = new URLSearchParams(window.location.search).get("debug");
+    this.debugMode = envDebug || queryDebug || false;
+    // console.log(`DEBUG = ${this.debugMode}: env = ${envDebug}, query = ${queryDebug}`);
+      for (const [methodName, methodFunction] of Object.entries(console)) {
+        this[methodName] = (...args) => {
+          if (this.debugMode) {
+            // console.error(`DEVMODE`);
+            const method = this.custoMizeMethod(methodFunction);
+            return method(...args);
+          } else {
+            // console.log(`PRODUCTION`);
+            return () => null;
+          }
+        };
+      }
+    } catch (e) {
+      console.log(`Error creating debugger`, e)
     }
-  }
-
-  get isDevMode() {
-    // console.log(`DEBUG = ${process.env.DEBUG} (${typeof process.env.DEBUG})`);
-    return process.env.DEBUG === "true" || this.debug;
   }
 
   getBgColor = (name) => this.bgColors[name];
@@ -72,10 +72,7 @@ class Logger {
     return method;
   }
 
-  setQueryMode = () => {
-    const queryMode = new URLSearchParams(window.location.search).get("logger");
-    this.debug = queryMode;
-  };
+
 }
 
 const logger = new Logger();
