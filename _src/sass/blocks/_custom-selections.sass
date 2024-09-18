@@ -3,7 +3,7 @@
     margin-top: 20px
   a
     font-size: 14px
-    color: var(--colorblack)
+    color: var(--color-black)
     text-decoration: none
   &__preview,
   &__groups
@@ -15,17 +15,18 @@
       flex-direction: column
       gap: 10px
   &__tags
-    display: grid
-    grid-template-columns: repeat(5, minmax(0, 1fr))
+    // display: grid
+    // grid-template-columns: repeat(5, minmax(0, 1fr))
+    display: flex
+    justify-content: flex-start
     gap: 9px
 
   &__tag
+    max-width: 200px
     list-style: none
-    background-color: var(--color-white)
-    border: 1px solid var(--color-gray-lt)
+    background-color: var(--color-gray-lt)
     border-radius: var(--border-radius-base)
     transition: .3s
-    padding: 7px
     overflow: hidden
     &:hover
       box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
@@ -37,17 +38,21 @@
 
 
     &-name
+      font-size: .87em
       //
     &-title
+      overflow: hidden
       &:first-letter
         text-transform: capitalize
 
     &-image,
     &-background
-      width: 30px
-      height: 30px
+      display: block
+      width: 50px
+      height: 50px
       border-radius: var(--border-radius-base)
-    
+    &-image
+      mix-blend-mode: multiply
 
   &__groups
 
@@ -75,10 +80,10 @@
       text-align: center
       letter-spacing: 0.05em
       text-transform: uppercase
-      color: var(--color-gray)
+      color: var(--color-black)
       cursor: pointer
       transition: color .3s ease
-      background-color: var(--color-gray-lt)
+      background-color: var(--color-gray-l)
       border-radius: var(--border-radius-base)
       padding: 7px
       text-decoration-style: dotted
@@ -105,6 +110,10 @@
     gap: 7px 20px
     flex-wrap: wrap
     a
+      height: 30px
+      max-width: unset
+      width: auto
+      padding-inline: 7px
       display: flex
       align-items: center
       &:hover

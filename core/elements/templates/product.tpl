@@ -313,9 +313,9 @@
                       <div class="product-info__shipped pc-flex">
                         {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
                             Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
-                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                        {elseif $_modx->context.key == 'krovelnyjstroymarket'}
                             Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
-                            {else}
+                        {else}
                             {'@FILE snippets/shippedToday.php' | snippet}
                         {/if}
 
@@ -375,12 +375,12 @@
                 
               <div class="product-info__actions">
                   {*  *}
-                  {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
-
+                  {if $isProflist and $settingCardKrovlya['width'] && $.request.mode == 'test'}
+                    {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
+                  {else}
+                    {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
+                  {/if}  
                   {*  *}
-
-
-                  {* {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id} *}
               </div>
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>
