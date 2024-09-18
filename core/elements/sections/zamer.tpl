@@ -48,7 +48,7 @@
    <img src="assets/images/content/zamer-2.png" alt="" width="400" />
   </div>
   <div class="flex flex-col flex-center">
-  <p><a class="btn btn_style_base" href="akcii/besplatnyij-zamer/">Заказать замер кровли</a></p>
-  <p><a class="btn btn_style_base" href="akcii/besplatnyij-zamer/">Заказать замер забора</a></p>
+  <p><a class="btn btn_style_base" data-fancybox href="#callback">Заказать замер кровли</a></p>
+  <p><a class="btn btn_style_base" data-fancybox href="#callback">Заказать замер забора</a></p>
   </div>
 </div>
