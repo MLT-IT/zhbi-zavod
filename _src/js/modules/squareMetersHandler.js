@@ -3,12 +3,12 @@ import CalculatorWidth from "./product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
-    const calculators = [document.querySelector(".calcProduct")];
+    const calculators = document.querySelectorAll(".calcProduct");
     logger.log(`FOUND ${calculators.length} PRODUCTS`);
 
     calculators.forEach((calculator) => {
-      const product = calculator.closest('.js-product')
-      if(product) {
+      const product = calculator.closest(".js-product");
+      if (product) {
         new CalculatorWidth(product, () => logger.log("Product calc created"));
       }
     });
@@ -107,7 +107,11 @@ function updateCountCart(productCart, count) {
   const forms = getActiveForm(productCart);
   const systemForm = forms["system"]; // get HTML Element
   systemForm.querySelector('[name="count"]').setAttribute("value", `${count}`);
-  logger.log(`Found  product card, update count ${$systemForm.querySelector('[name="count"]').value} to ${count}`);
+  logger.log(
+    `Found  product card, update count ${
+      $systemForm.querySelector('[name="count"]').value
+    } to ${count}`
+  );
   if (productCart.classList.contains("js-product-in-cart")) {
     systemForm.querySelector('[type="submit"]').click();
   }

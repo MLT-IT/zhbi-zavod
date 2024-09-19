@@ -9,10 +9,10 @@ class Logger {
 
   constructor() {
     try{
-    const envDebug = process.env.DEBUG === "true";
-    const queryDebug = new URLSearchParams(window.location.search).get("debug");
+    const envDebug = process.env.DEBUG;
+    const queryDebug = new URLSearchParams(window.location.search).get("log");
     this.debugMode = envDebug || queryDebug || false;
-    // console.log(`DEBUG = ${this.debugMode}: env = ${envDebug}, query = ${queryDebug}`);
+    console.log(`DEBUG = ${this.debugMode}: env = ${envDebug}, query = ${queryDebug}`);
       for (const [methodName, methodFunction] of Object.entries(console)) {
         this[methodName] = (...args) => {
           if (this.debugMode) {

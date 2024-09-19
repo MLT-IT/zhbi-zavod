@@ -792,7 +792,7 @@
 
 
 .product-calculator
-    --size: 40px
+    --size: 50px
     display: flex
     align-items: flex-start
     justify-content: space-between
@@ -811,7 +811,7 @@
         &__btn
             transform: none
             width: 100%
-            min-width: var(--size)
+            min-width: calc(var(--size) * 0.8)
             flex: 1
         &__input 
             font-size: 1em
@@ -827,6 +827,7 @@
         &-title
             font-size: .9em
             font-weight: 400
+            margin-bottom: .5em
             
     &__result
         @extend .product-info__price

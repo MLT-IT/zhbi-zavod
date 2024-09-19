@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const uglifyJsPlugin = require("babel-minify-webpack-plugin")
 const ExtractTextPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, args) => {
     const isProd = args.mode === 'production'
@@ -102,7 +101,9 @@ module.exports = (env, args) => {
                 jQuery: "jquery",
             }),
             new webpack.HotModuleReplacementPlugin(),
-            new Dotenv()
+            new webpack.DefinePlugin({
+                'process.env.DEBUG': !isProd,
+              }),
         ],
         optimization: {
             minimizer: [
