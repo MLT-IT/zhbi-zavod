@@ -32,14 +32,14 @@ lists: {$listCount}
         </div>
       </div>
     </div>
-    <div class="calcResult product-calculator__result calculator-result  product-info__price">
+    <div class="calcResult product-calculator__result calculator-result">
       <div class="calcResult_volume calculator-result__summary">
-        <span class="title calculator-result__summary-title">ИТОГО: </span>
+        <span class="title calculator-result__summary-title">Итого: </span>
         <span class="value custom-counter__amount calculator-result__summary-volume">{$inCart?:$listSize | number:2}</span>
         <span class="prefix calculator-result__summary-unit"> м<sup>2</sup></span>
       </div>
       <div class="calcResult_price calculator-result__price">
-        <span class="value product-info__price-value">{(($inCart ?: 1) * $prodValues['defaultPrice'])}</span><span class="prefix"> ₽</span>
+        <span class="calculator-result__price-value"><span class="value">{(($inCart ?: 1) * $prodValues['defaultPrice'])}</span><span class="prefix"> ₽</span></span>
       </div>
     </div>
   </div>
@@ -47,13 +47,15 @@ lists: {$listCount}
 
 
 
-<div class="product-info__actions">
+<div class="product-calculator__buttons product-info__actions">
+  <a href="/servisyi-rascheta/raschet-krovli-iz-profnastila/" class="btn btn_style_trans btn_calc">Рассчитать в калькуляторе кровли</a>
   <div class="js-product__controls js-product__controls_action_add">
     <input type="hidden" class="custom-counter__amount" value="{$inCart}">
     <span class="js-product__btn-to-cart js-product__to-cart product-card__add btn btn_style_shadow">
       <span class="product-card__add-text">В корзину</span>
     </span>
   </div>
+  <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
   <div class="js-product__controls js-product__controls_action_change">
     <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active">
       <span class="js-product__btn-in-cart-top-text">В корзине{$inCart ? ' <span class="custom-counter__amount">{$inCart}</span><span class="prefix"> м<sup>2</sup></span>' : ''}</span>
@@ -68,12 +70,12 @@ lists: {$listCount}
     <input name="id" value="{$prodValues['prodId']}">
     <input name="count" class="custom-counter__amount" value="1">
     <input name="ctx" value="{$_modx->resource.context_key}">
-    <button type="submit" name="ms2_action" value="cart/add">Добавить</button>
+    <button type="submit" name="ms2_action" value="cart/add"></button>
   </form>
   <form class="js-product__form-change ms2_form" method="post">
     <input name="key" value="{$prodValues['productKey']}">
     <input name="count" class="custom-counter__amount" value="{$inCart}">
     <input name="ctx" value="{$_modx->resource.context_key}">
-    <button type="submit" name="ms2_action" value="cart/change">Изменить кол-во</button>
+    <button type="submit" name="ms2_action" value="cart/change"></button>
   </form>
 </div>

@@ -11,7 +11,7 @@
   {if $visual['type'] == 'image' && $visual['value'] is not empty}
     {set $src = 'phpthumbon' | snippet : [
         'input' => $mainImage,
-        'options' => '&w=30&h=30&zc=1'
+        'options' => '&w=60&h=60&zc=1'
     ]}
     <img class="custom-selections__tag-image" src="{$src}" alt="">
   {elseif $visual['type'] == 'color' && $visual['value'] is not empty}

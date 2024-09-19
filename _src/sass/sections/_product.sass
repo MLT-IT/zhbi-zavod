@@ -789,28 +789,91 @@
                 *
                     color: #000
                     border-color: #000
+
+
 .product-calculator
+    --size: 40px
     display: flex
-    align-items: center
+    align-items: flex-start
+    justify-content: space-between
+    +until-768
+        justify-content: center 
+    gap: 10px
+    font-size: 16px
+    +until-768
+        font-size: 14px
+    +until-480
+        font-size: 12px
+
+    .counter
+        height: var(--size)
+        font-size: 14px
+        &__btn
+            transform: none
+            width: 100%
+            min-width: var(--size)
+            flex: 1
+        &__input 
+            font-size: 1em
+
     &__inputs
         display: flex
-        flex-direction: column
+        +until-768
+            flex-direction: column
         gap: 1em
     &__input
+        min-width: 175px
+        flex-basis: 30%
         &-title
-            font-weight: 500
+            font-size: .9em
+            font-weight: 400
             
     &__result
+        @extend .product-info__price
+        width: 100%
+        align-items: flex-end
+        margin: 0
+
+    &__buttons
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 10px
+        
+        .btn
+            margin: 0 !important
+            width: 100%
+            height: 3em
+            flex-basis: auto !important
+            grid-column: auto
+            &_calc
+                grid-column: span 2
+                display: flex
+                align-items: center
+                gap: 1em
+                order: unset
+                &::before
+                    content: url('/assets/template/img/icons/calc.svg')
+                    display: block
+                    height: 1.5em
+                    width: 1.5em
+                    margin-bottom: 2px
 
     .calculator-result
         &__summary
+            display: flex
+            flex-wrap: wrap
+            font-size: 1em
             &-title
+                font-size: 1em
+                align-self: flex-start
             &-volume
+                margin-left: 5px
             &-unit
         
         &__price
             &-value
                 @extend .product-info__price-value
+                color: var(--color-red)
             &-unit 
                 
     .counter

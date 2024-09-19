@@ -376,13 +376,16 @@
               <div class="product-info__actions">
                   {*  *}
                   {if $isProflist and $settingCardKrovlya['width'] && $.request.mode == 'test'}
+                    {set $skipOneClickButton = true}
                     {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
                   {else}
                     {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
                   {/if}  
                   {*  *}
               </div>
+              {if !$skipOneClickButton}
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
+              {/if}
             </div>
 
               {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
