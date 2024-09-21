@@ -20,6 +20,7 @@ export default class CalculatorBase {
   nodes = {}; // nodes tree with structure equal to selectors
 
   _volume = 0;
+  _listeners = []; // array of callbacks, called on render with Calculator this context!
 
   /**
    *
@@ -123,7 +124,7 @@ export default class CalculatorBase {
       const { volume, priceBase } = this;
       this.nodes.result.volume.innerText = volume;
       this.nodes.result.price.innerText = this.formatPrice(
-        Math.ceil(priceBase * volume)
+        Math.ceil(priceBase * volume).toFixed(0)
       );
       logger.log(
         `Render VOLUME: ${volume}, COST (${priceBase} x ${volume}): ${
@@ -132,6 +133,23 @@ export default class CalculatorBase {
       );
     }
     this.processCountersFallback();
+    this.processListeners();
+  }
+
+  processListeners() {
+    try {
+      this._listeners.forEach((fn) => fn.call(this));
+      this.callBack();
+    } catch (e) {
+      logger.error(`Failer execution of listeners`, e);
+    }
+  }
+
+  addListener(fn) {
+    if (typeof fn === "function") {
+      this._listeners.push(fn);
+    }
+    this.processListeners();
   }
 
   formatPrice(value) {
@@ -147,7 +165,7 @@ export default class CalculatorBase {
         const volume = this.volume;
         counter.value = volume;
         counter.setAttribute("value", volume);
-        if (counter.tagName.toLowerCase() !== 'input') {
+        if (counter.tagName.toLowerCase() !== "input") {
           logger.log(`Updated value text of ${counter.tagName}`);
           counter.innerText = volume;
         }

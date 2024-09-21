@@ -50,10 +50,13 @@
 {set $isGibkaya = $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125532])}
 
 {* определяю профлист и профлист для забора *}
-{set $isProflist = ($.request.mode == 'test') && (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537])) || ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153])))}
+{set $isProflist = ($.request.mode == 'test') && ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537]))}
+
+{* определяю отдельно профлист для забора *}
+{set $isProflistZ = ($.request.mode == 'test') && ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
 
 {* определяю штакетник  *}
-{set $isShtaketnik = ($.request.mode == 'test') && ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541]))}
+{set $isShtaketnik = ($.request.mode == 'test') && (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
 
 
 {*Настройка карточки кровли, центральное место *}
@@ -307,11 +310,11 @@
                           <div class="product-info__warranty pc-flex">
                               Гарантия на товар: 30 лет
                           </div>
-                          {if $settingCardKrovlya['width']}
+                          {* {if $settingCardKrovlya['width']}
                             <div class="product-info__width pc-flex">
                                 Ширина листа: {$settingCardKrovlya['width']} мм
                             </div>
-                          {/if}
+                          {/if} *}
                         {/if}
                       {/if}
                     </div>
@@ -333,7 +336,7 @@
                             <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                             В наличии {$_modx->resource.stockNum} {$unit}
                             </div>
-                        {else}
+                        {elseif !($isProflist || $isShtaketnik)}
                           <div class="product-info__shipped pc-flex">
                             {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
                                 Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
@@ -426,9 +429,12 @@
                 {/if}
               </div>
                 
+              {if $isShtaketnik && !$isProflist}
+                {include 'file:chunks/product/link-calculator.tpl'}
+              {/if}
               <div class="product-info__actions">
                   {*  *}
-                  {if $isProflist and $settingCardKrovlya['width'] && $.request.mode == 'test'}
+                  {if $isProflist and $settingCardKrovlya['width']}
                     {set $skipOneClickButton = true}
                     {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
                   {else}
@@ -458,10 +464,20 @@
                     </p>
                   </div>
               {/if}
+              {if $isProflist || $isShtaketnik}
+                  <div class="product-info__undertext">
+                    <p class="product-info__undertext-span">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                            <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
+                        </svg>
+                        <span class="product-info__undertext-span-header">Дата производства при заказе сегодня: </span> {'+2 days' | date : 'd.m.Y'}
+                    </p>
+                  </div>
+              {/if}
             </div>
 
 
-            {if $isProflist}
+            {if $isProflist || $isShtaketnik}
               <div class="blueprint-request">
                 <a class="blueprint-request__button" data-fancybox href="#blueprint">
                   <img src="/assets/template/img/icons/blueprint.png" alt="">
@@ -477,7 +493,9 @@
               {case 'gazosilikatstroy'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
               {case 'krovelnyjstroymarket'}
+                  {if !$isProflist && !$isShtaketnik}
                   <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                  {/if}
               {case 'web'}
                   <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
             {/switch}

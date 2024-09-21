@@ -260,10 +260,16 @@
         margin-bottom: 24px
         border-bottom: 1px solid var(--color-black-trans)
 
+        @at-root [data-ctx="krovelnyjstroymarket"] &
+            padding-bottom: 0
+            margin-bottom: 0
+
         +until-768
             margin-bottom: 5px
         +until-480
             margin-bottom: 0
+
+
 
     &__divider
         display: flex
@@ -272,6 +278,12 @@
             font-size: 24px
             font-weight: 500
             margin-top: 0
+
+    &__link-calculator
+        margin-top: 15px
+        width: 100%
+        .btn
+            margin: 0
 
     &__rating
         margin-bottom: 25px
@@ -410,7 +422,25 @@
         display: flex
         flex-wrap: wrap
         align-items: flex-start
-
+        .btn
+            width: 100%
+            flex-basis: auto !important
+            grid-column: auto
+            &_calc
+                height: 3.5em
+                margin: 0 !important
+                margin-left: 0 !important
+                grid-column: span 2
+                display: flex
+                align-items: center
+                gap: 1em
+                order: unset
+                &::before
+                    content: url('/assets/template/img/icons/calc.svg')
+                    display: block
+                    height: 1.5em
+                    width: 1.5em
+                    margin-bottom: 2px
 
     &__select-link
         margin-bottom: 10px
@@ -497,6 +527,9 @@
             &.active
                 background-color: var(--color-red)
                 color: var(--color-white)
+    
+
+
     &__complex
         display: flex
     &__price
@@ -885,38 +918,22 @@
             
     &__result
         @extend .product-info__price
-        width: 100%
-        align-items: flex-end
+        gap: 10px
         margin: 0
+        padding-left: .5em
 
     &__buttons
         display: grid
         grid-template-columns: 1fr 1fr
         gap: 10px
-        
+        margin-top: 1.1em
         .btn
+            height: 3.5em
             margin: 0 !important
-            width: 100%
-            height: 3em
-            flex-basis: auto !important
-            grid-column: auto
-            &_calc
-                grid-column: span 2
-                display: flex
-                align-items: center
-                gap: 1em
-                order: unset
-                &::before
-                    content: url('/assets/template/img/icons/calc.svg')
-                    display: block
-                    height: 1.5em
-                    width: 1.5em
-                    margin-bottom: 2px
 
     .calculator-result
         &__summary
             display: flex
-            flex-wrap: wrap
             font-size: 1em
             &-title
                 font-size: 1em
@@ -926,8 +943,10 @@
             &-unit
         
         &__price
+            white-space: nowrap
             &-value
                 @extend .product-info__price-value
+                font-size: clamp(20px,2vw,30px)
                 color: var(--color-red)
             &-unit 
                 

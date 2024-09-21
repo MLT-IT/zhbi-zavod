@@ -130,3 +130,19 @@
 			height: 32px
 
 			font-size: 14px
+
+	&_calc
+		grid-column: span 2
+		display: flex
+		align-items: center
+		gap: 1em
+		order: unset
+		&::before
+			content: url('/assets/template/img/icons/calc.svg')
+			display: block
+			height: 1.5em
+			width: 1.5em
+			margin-bottom: 2px
+		&:hover
+			&::before
+				fill: white

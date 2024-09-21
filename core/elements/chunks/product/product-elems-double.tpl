@@ -27,7 +27,7 @@ lists: {$listCount}
         <div class="product-calculator__input-title">Количество листов, шт.</div>
         <div class="calcInput_count counter">
           <span class="decrement counter__btn counter__btn_minus"></span>
-          <input name="count" class="counter__input" value="{$listCount|number:0}" min="1" step="1">
+          <input name="count" class="counter__input" value="{$listCount|number:0}" min="1" max="10000" step="1">
           <span class="increment counter__btn counter__btn_plus"></span>
         </div>
       </div>
@@ -35,7 +35,7 @@ lists: {$listCount}
     <div class="calcResult product-calculator__result calculator-result">
       <div class="calcResult_volume calculator-result__summary">
         <span class="title calculator-result__summary-title">Итого: </span>
-        <span class="value custom-counter__amount calculator-result__summary-volume">{$inCart?:$listSize | number:2}</span>
+        <span class="value flex-text custom-counter__amount calculator-result__summary-volume">{$inCart?:$listSize | number:2}</span>
         <span class="prefix calculator-result__summary-unit"> м<sup>2</sup></span>
       </div>
       <div class="calcResult_price calculator-result__price">
@@ -45,23 +45,23 @@ lists: {$listCount}
   </div>
 </div>
 
-
+{include 'file:chunks/product/link-calculator.tpl'}
 
 <div class="product-calculator__buttons product-info__actions">
-  <a href="/servisyi-rascheta/raschet-krovli-iz-profnastila/" class="btn btn_style_trans btn_calc">Рассчитать в калькуляторе кровли</a>
+
   <div class="js-product__controls js-product__controls_action_add">
     <input type="hidden" class="custom-counter__amount" value="{$inCart}">
     <span class="js-product__btn-to-cart js-product__to-cart product-card__add btn btn_style_shadow">
       <span class="product-card__add-text">В корзину</span>
     </span>
   </div>
-  <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
   <div class="js-product__controls js-product__controls_action_change">
     <a href="/cart/" class="product-card__add product-card__btn-in-cart btn btn_style_shadow active">
       <span class="js-product__btn-in-cart-top-text">В корзине{$inCart ? ' <span class="custom-counter__amount">{$inCart}</span><span class="prefix"> м<sup>2</sup></span>' : ''}</span>
       <span class="js-product__btn-in-cart-bottom-text">Перейти</span>
     </a>
   </div>
+  <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
 </div> 
 
 <div class="js-product__ms2-elems hidden">

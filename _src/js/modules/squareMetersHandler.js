@@ -8,8 +8,23 @@ export default function initSquareMetersHandler() {
 
     calculators.forEach((calculator) => {
       const product = calculator.closest(".js-product");
+      let currentSize; // closure
+      function togglePriceFontSize(size = 22) {
+        // this контекст будет заменен на контекст объекта CalculatorWidth
+        const isBig = this.priceBase * this.volume > 9999;
+        const haveResult = "result" in this.nodes;
+        if (haveResult) {
+          currentSize = currentSize || parseFloat(getComputedStyle(this.nodes.result.price).fontSize);
+          logger.log(`Result price font set to ${isBig ? size : currentSize}`);
+          this.nodes.result.price.style.fontSize = `${
+            isBig ? size : currentSize
+          }px`;
+        }
+      }
       if (product) {
-        new CalculatorWidth(product, () => logger.log("Product calc created"));
+        new CalculatorWidth(product, () =>
+          logger.log("Product calc created")
+        ).addListener(togglePriceFontSize);
       }
     });
   } catch (e) {

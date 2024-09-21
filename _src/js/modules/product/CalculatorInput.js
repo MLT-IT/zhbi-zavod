@@ -114,6 +114,9 @@ export default class CalculatorInput {
         } else {
           this.value = target.value;
         }
+        if(this.value != prevValue){
+          this.onChange(this.value);
+        }
       });
 
       inputNode.addEventListener("change", () => {
