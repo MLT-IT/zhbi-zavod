@@ -2,7 +2,7 @@ node_modules/
 .vscode
 .idea
 .env
-assets/template/js/main.js
-assets/template/css/main.css
 *sync*
 nohup*
+assets/template/js/main.js
+assets/template/css/main.css
