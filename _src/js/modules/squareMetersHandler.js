@@ -1,5 +1,5 @@
-import logger from "./debug/Logger";
-import CalculatorWidth from "./product/CalculatorWidth";
+import logger from "../../../core/elements/_modules/debug/Logger";
+import CalculatorWidth from "../../../core/elements/_modules/product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
