@@ -37,7 +37,7 @@
       <div class="catalog__selected-wrap" id="mse2_selected_wrapper">
         <div class="catalog__selected" id="mse2_selected" style="display: none;"></div>
       </div>
-      {if ($_modx->resource.template in list ['36']) && ($.request.mode == 'test')}
+      {if ($_modx->resource.template in list ['36'])}
         {* CUSTOM TAGS *}
         {include 'file:chunks/selectionFiltersExpanded/wrapper.tpl'}
       {else}

@@ -50,13 +50,13 @@
 {set $isGibkaya = $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125532])}
 
 {* определяю профлист и профлист для забора *}
-{set $isProflist = ($.request.mode == 'test') && ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537]))}
+{set $isProflist =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537]))}
 
 {* определяю отдельно профлист для забора *}
-{set $isProflistZ = ($.request.mode == 'test') && ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
+{set $isProflistZ =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
 
 {* определяю штакетник  *}
-{set $isShtaketnik = ($.request.mode == 'test') && (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
+{set $isShtaketnik =  (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
 
 
 {*Настройка карточки кровли, центральное место *}
