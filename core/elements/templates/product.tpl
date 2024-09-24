@@ -46,6 +46,7 @@
     {set $renderVideo = 1}
 {/if}
 
+{* этот кусок под osnova.spb.ru, вероятно при дальнейшей монстризации лучше сделать отдельный шаблон для кровли *}
 {* определяю гибкую черепицу *}
 {set $isGibkaya = $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125532])}
 
@@ -58,6 +59,11 @@
 {* определяю штакетник  *}
 {set $isShtaketnik =  (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
 
+{* определяю металлочерепицу  *}
+{set $isMetalloCherepica = ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125530]))}
+
+{* для калькулятора *}
+{set $isCustomCalculator = $isProflist || $isMetalloCherepica}
 
 {*Настройка карточки кровли, центральное место *}
 {set $settingCardKrovlya = [
@@ -68,54 +74,46 @@
     'minLength' => 500
 ]}
 {if $settingCardKrovlya['optionWidth']}
-    {set $settingCardKrovlya['width'] = $_modx->runSnippet("@FILE snippets/getOptionProduct.php", ['key' => $settingCardKrovlya['optionWidth']])}
+    {* для металлочерепицы важнее полезная ширина *}
+    {if $isMetalloCherepica}
+      {set $settingCardKrovlya['width'] = $_modx->runSnippet("@FILE snippets/getOptionProduct.php", ['key' => 'poleznaya-shirina'])}
+    {/if}
+    {if !$settingCardKrovlya['width']}
+      {set $settingCardKrovlya['width'] = $_modx->runSnippet("@FILE snippets/getOptionProduct.php", ['key' => $settingCardKrovlya['optionWidth']])}
+    {/if}
 {/if}
 {*  *}
 
 {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
-    {set $recommendProducts = 'msProducts' | snippet : [
-    'resources' => '-' ~ $_modx->resource.id,
-    'parents' => 125617,
-    'limit' => 42,
-    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-    'tplWrapper' => '@FILE sections/related-products.tpl',
-    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-    'context' => $_modx->resource.context_key,
-    'includeThumbs' => 'webp',
-    'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
+    {set $soput_options = [
+      'resources' => '-' ~ $_modx->resource.id,
+      'parents' => 125617,
+      'limit' => 42,
+      'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+      'tplWrapper' => '@FILE sections/related-products.tpl',
+      'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+      'context' => $_modx->resource.context_key,
+      'includeThumbs' => 'webp',
+      'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
     ]}
 
     {* Сопутствующие товары гибкой черепице *}
     {if $isGibkaya}
-      {set $soput_options = [
-        'parents' => '126015,125951,125554',
-        'limit' => 30,
-        'depth' => 999,
-        'sortby' => '{"parent":"DESC"}',
-        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-        'tplWrapper' => '@FILE sections/related-products.tpl',
-        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-        'includeThumbs' => 'webp',
-        'optionFilters' => '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}',
-        ]}
-      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+      {set $soput_options['parents'] = '126015,125951,125554'}
+      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
+      {set $soput_options['optionFilters'] = '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}'}
     {/if}
-
+      
     {* Сопутствующие товары профлист и профлист для забора *}
-    {if $isProflist}
-      {set $soput_options = [
-        'parents' => '125533',
-        'limit' => 40,
-        'depth' => 999,
-        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-        'tplWrapper' => '@FILE sections/related-products.tpl',
-        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-        'includeThumbs' => 'webp',
-        'optionFilters' => '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}',
-        ]}
-      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {if $isProflist || $isMetalloCherepica}
+      {set $soput_options['parents'] = '125533'}
+      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
+      {set $soput_options['optionFilters'] = '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}'}
     {/if}
+    {* здесь вызываем *}
+    {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {*  *}
 
     {set $simillarProductIds = $_modx->resource.simillarProductIds}
     {if $simillarProductIds}
@@ -147,7 +145,7 @@
 {/if}
 
 
-{* Указаны все категории из главных категорий 125530, 125530, 125541 *}
+{* Указаны все категории из главных категорий 125530, 32, 37, 41 *}
 {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125532,125541,125537'])  }
   {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
   {set $cvet = $_modx->resource.cvet[0]}
@@ -185,13 +183,13 @@
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
-            {if $_modx->resource.article && !($isProflist || $isShtaketnik)}
+            {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
               <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
             {/if}
               <div class="product-info__top">
                 <div class="product-info__divider">
                   <div>
-                    <div class="product-info__rating rating{if $isProflist || $isShtaketnik} abs{/if}">
+                    <div class="product-info__rating rating{if $isCustomCalculator || $isShtaketnik} abs{/if}">
                       {* <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div> *}
 
                       <ul class="rating__stars">
@@ -248,7 +246,7 @@
                         {/if}
                       {/if}
 
-                      {if $_modx->resource.article && ($isProflist || $isShtaketnik)}
+                      {if $_modx->resource.article && ($isCustomCalculator || $isShtaketnik)}
                         <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
                       {/if}
 
@@ -282,7 +280,7 @@
 
                       {if $_modx->resource.context_key not in list ['kraska']}
                         {* При чем тут relinkingData ? *}
-                        {if $isProflist}
+                        {if $isCustomCalculator}
                           <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                               Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
                           </div>
@@ -303,7 +301,7 @@
                           </div>
                         {/if}
 
-                        {if $isProflist || $isShtaketnik}
+                        {if $isCustomCalculator || $isShtaketnik}
                           <div class="product-info__prod-time pc-flex">
                               Срок изготовления: 2-3 дня
                           </div>
@@ -336,7 +334,7 @@
                             <div class="product-info__availability-title product-info__availability-title_available pc-flex">
                             В наличии {$_modx->resource.stockNum} {$unit}
                             </div>
-                        {elseif !($isProflist || $isShtaketnik)}
+                        {elseif !($isCustomCalculator || $isShtaketnik)}
                           <div class="product-info__shipped pc-flex">
                             {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
                                 Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
@@ -353,8 +351,8 @@
                     {/if}
                   </div>
                   <div>
-                  {* Перемещенный прайс для профлиста и штакетника *}
-                  {if $isProflist || $isShtaketnik}
+                    {* Перемещенный прайс для профлиста и штакетника *}
+                    {if $isCustomCalculator || $isShtaketnik}
                     <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
                       <b>Цена:</b>
                       <p class="product-info__price-value">
@@ -375,7 +373,8 @@
                         </div>
                       {/if}
                     </div>
-                  {/if}
+                    {/if}
+                    {*  *}
                   </div>
                 </div>
               </div>
@@ -391,50 +390,50 @@
                   {* Перелинковка характеристиками *}
                   {include 'file:chunks/product/product-relinking-block.tpl' linksData=$linksData}
                   {* Конец перелинковка характеристиками *}
-                {if !$isProflist && !$isShtaketnik}
-                <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
-                  <input type="hidden" name="unit" value="1">
-                  <div class="product-card__volume">
-                    <ul class="product-info__volume-tabs">
-                      <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
-                      {foreach $prodValues['itemUnits'] as $val}
-                          {if $prodValues['pricePer'] != $val['title']}
-                              <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
-                          {/if}
-                      {/foreach}
-                    </ul>
-                  </div>
-                </div>
-                
-                <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
-                  <p class="product-info__price-value">
-                    <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
-                  </p>
-                  {if $prodValues['outputOldPrice']?}
-                    <div class="js-product__old-price">
-                      <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
-                          {$prodValues['outputOldPrice']}
-                      </span>
-                      ₽
+                {if !$isCustomCalculator && !$isShtaketnik}
+                  <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
+                    <input type="hidden" name="unit" value="1">
+                    <div class="product-card__volume">
+                      <ul class="product-info__volume-tabs">
+                        <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
+                        {foreach $prodValues['itemUnits'] as $val}
+                            {if $prodValues['pricePer'] != $val['title']}
+                                <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
+                            {/if}
+                        {/foreach}
+                      </ul>
                     </div>
+                  </div>
+                  
+                  <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
+                    <p class="product-info__price-value">
+                      <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
+                    </p>
+                    {if $prodValues['outputOldPrice']?}
+                      <div class="js-product__old-price">
+                        <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
+                            {$prodValues['outputOldPrice']}
+                        </span>
+                        ₽
+                      </div>
 
-                    <div class="product-info__price-mes">
-                        <p class="product-info__price-mes-header">Снижение цены!</p>
-                        <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
-                        <span class="product-info__price-mes-close"></span>
+                      <div class="product-info__price-mes">
+                          <p class="product-info__price-mes-header">Снижение цены!</p>
+                          <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
+                          <span class="product-info__price-mes-close"></span>
+                      </div>
+                    {/if}
                     </div>
-                  {/if}
                   </div>
-                </div>
                 {/if}
               </div>
                 
-              {if $isShtaketnik && !$isProflist}
+              {if $isShtaketnik && !$isCustomCalculator}
                 {include 'file:chunks/product/link-calculator.tpl'}
               {/if}
               <div class="product-info__actions">
                   {*  *}
-                  {if $isProflist and $settingCardKrovlya['width']}
+                  {if $isCustomCalculator and $settingCardKrovlya['width']}
                     {set $skipOneClickButton = true}
                     {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
                   {else}
@@ -451,20 +450,20 @@
               {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                        <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
-                    </svg>
-                    <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                          <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
+                      </svg>
+                      <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
                     </p>
                     <p class="product-info__undertext-span">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                            <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
-                        </svg>
-                        <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                          <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
+                      </svg>
+                      <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
                     </p>
                   </div>
               {/if}
-              {if $isProflist || $isShtaketnik}
+              {if $isCustomCalculator || $isShtaketnik}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -474,10 +473,20 @@
                     </p>
                   </div>
               {/if}
+              {switch $_modx->resource.context_key}
+                {case 'gazosilikatstroy'}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                {case 'krovelnyjstroymarket'}
+                    {if !$isCustomCalculator && !$isShtaketnik}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                    {/if}
+                {case 'web'}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
+              {/switch}
             </div>
 
 
-            {if $isProflist || $isShtaketnik}
+            {if $isCustomCalculator || $isShtaketnik}
               <div class="blueprint-request">
                 <a class="blueprint-request__button" data-fancybox href="#blueprint">
                   <img src="/assets/template/img/icons/blueprint.png" alt="">
@@ -489,16 +498,7 @@
             {/if}
 
 
-            {switch $_modx->resource.context_key}
-              {case 'gazosilikatstroy'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
-              {case 'krovelnyjstroymarket'}
-                  {if !$isProflist && !$isShtaketnik}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
-                  {/if}
-              {case 'web'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
-            {/switch}
+           
           </div>
         </div>
       </div>
