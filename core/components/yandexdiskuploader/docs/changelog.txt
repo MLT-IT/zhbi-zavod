@@ -1,0 +1,11 @@
+1.0.2-beta
+==============
+- Fix uploading on libcurl 7.64.x
+
+1.0.1-beta
+==============
+- Usage with Fenom
+
+1.0.0-beta
+==============
+- Initial release

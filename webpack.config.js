@@ -100,7 +100,10 @@ module.exports = (env, args) => {
                 $: "jquery",
                 jQuery: "jquery",
             }),
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.DefinePlugin({
+                'process.env.DEBUG': !isProd,
+              }),
         ],
         optimization: {
             minimizer: [
@@ -127,7 +130,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'http://kraski-st.local/',
+                    target: 'http://stroymarket.local/',
                     secure: false,
                     changeOrigin: true
                 }

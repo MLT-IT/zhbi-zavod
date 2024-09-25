@@ -1,0 +1,40 @@
+.reviews-head
+  display: flex
+  flex-direction: row
+  gap: 1em
+  justify-content: space-between
+  align-items: center
+  border-radius: var(--border-radius-base)
+  background-color: var(--color-white)
+  box-shadow: var(--shadow-base)
+  padding: 10px
+  margin-top: 20px
+
+  +until-480
+		  flex-direction: column
+  
+  &__info
+  &__action
+    padding-right: 2em
+
+  .info
+    display: flex
+    flex-direction: column
+    gap: 10px
+    margin-bottom: 0px
+    .logo
+      img 
+        display: block
+    .details
+      display: flex
+      flex-wrap: wrap
+      align-items: center 
+      gap: 20px
+      &__rating
+        font-size: 26px
+        font-weight: 600
+      &__stars
+        display: flex
+        font-size: 30px
+        line-height: 1
+  

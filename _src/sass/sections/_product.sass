@@ -142,6 +142,10 @@
     padding: 30px 40px 50px
     background-color: var(--color-white)
     border-radius: var(--border-radius-base)
+    position: relative
+    +until-992
+        margin-top: 15px
+
     &__article
         font-size: 12px
         margin-bottom: 10px
@@ -256,13 +260,43 @@
         margin-bottom: 24px
         border-bottom: 1px solid var(--color-black-trans)
 
+        @at-root [data-ctx="krovelnyjstroymarket"] &
+            padding-bottom: 0
+            margin-bottom: 0
+
         +until-768
             margin-bottom: 5px
         +until-480
             margin-bottom: 0
 
+
+
+    &__divider
+        display: flex
+        justify-content: space-between
+        .product-info__price
+            font-size: 24px
+            font-weight: 500
+            margin-top: 0
+
+    &__link-calculator
+        margin-top: 15px
+        width: 100%
+        .btn
+            margin: 0
+
     &__rating
         margin-bottom: 25px
+
+        &.abs
+            position: absolute
+            margin: 0
+            top: -20px
+            left: 4px
+
+            .rating__reviews
+                line-height: 1
+                margin-top: 3px
 
         +until-480
             justify-content: center
@@ -278,6 +312,7 @@
             .rating__reviews, .product-info__availability-title
                 font-size: 14px
 
+
     &__availability-title
         font-size: 14px
         line-height: 1.7
@@ -287,8 +322,8 @@
         &_available
             &::before
                 content: ''
-                width: 12px
-                height: 12px
+                width: 14px
+                height: 14px
                 flex-shrink: 0
                 background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='%2349BF63'/%3E%3Cpath d='M4 5.89474L5.51996 7.51469C5.56199 7.55949 5.6341 7.55615 5.67182 7.50766L8.4 4' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E")
                 background-position: center
@@ -296,18 +331,49 @@
                 background-size: 100%
                 margin-right: 12px
                 margin-left: 3px
-                margin-top: 6px
+                margin-top: 4px
 
                 +until-480
                     margin-right: 3px
-                    margin-top: 4px
+                    margin-top: 2px
                     margin-left: 0
 
         +until-480
             margin-right: auto
+        .link
+            text-decoration: underline
+            border: 0
+
+    &__warranty
+        @extend .product-info__availability-title_available
+        font-size: 14px
+        line-height: 1.7
+        +until-768
+            font-size: 12px
+        &:before
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g ><path d="M9 12L11 14L15 9.99999M20 12C20 16.4611 14.54 19.6937 12.6414 20.683C12.4361 20.79 12.3334 20.8435 12.191 20.8712C12.08 20.8928 11.92 20.8928 11.809 20.8712C11.6666 20.8435 11.5639 20.79 11.3586 20.683C9.45996 19.6937 4 16.4611 4 12V8.21759C4 7.41808 4 7.01833 4.13076 6.6747C4.24627 6.37113 4.43398 6.10027 4.67766 5.88552C4.9535 5.64243 5.3278 5.50207 6.0764 5.22134L11.4382 3.21067C11.6461 3.13271 11.75 3.09373 11.857 3.07827C11.9518 3.06457 12.0482 3.06457 12.143 3.07827C12.25 3.09373 12.3539 3.13271 12.5618 3.21067L17.9236 5.22134C18.6722 5.50207 19.0465 5.64243 19.3223 5.88552C19.566 6.10027 19.7537 6.37113 19.8692 6.6747C20 7.01833 20 7.41808 20 8.21759V12Z" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>')
+    
+    &__prod-time
+        @extend .product-info__availability-title_available
+        font-size: 14px
+        line-height: 1.7
+        +until-768
+            font-size: 12px
+        &:before
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>')
+    
+    &__width
+        @extend .product-info__availability-title_available
+        font-size: 14px
+        line-height: 1.7
+        +until-768
+            font-size: 12px
+        &:before
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M6 12H18M6 12L8 9M6 12L8 15M18 12L16 9M18 12L16 15M21 21V3M3 21V3" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>')
+
 
     &__relinkav
-        display: flex
+        // display: flex
         align-items: center
         justify-content: space-between
 
@@ -356,7 +422,25 @@
         display: flex
         flex-wrap: wrap
         align-items: flex-start
-
+        .btn
+            width: 100%
+            flex-basis: auto !important
+            grid-column: auto
+            &_calc
+                height: 3.5em
+                margin: 0 !important
+                margin-left: 0 !important
+                grid-column: span 2
+                display: flex
+                align-items: center
+                gap: 1em
+                order: unset
+                &::before
+                    content: url('/assets/template/img/icons/calc.svg')
+                    display: block
+                    height: 1.5em
+                    width: 1.5em
+                    margin-bottom: 2px
 
     &__select-link
         margin-bottom: 10px
@@ -443,7 +527,11 @@
             &.active
                 background-color: var(--color-red)
                 color: var(--color-white)
+    
 
+
+    &__complex
+        display: flex
     &__price
         margin-left: auto
         margin-top: 30px
@@ -788,3 +876,101 @@
                 *
                     color: #000
                     border-color: #000
+
+
+.product-calculator
+    --size: 50px
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    +until-768
+        justify-content: center 
+    gap: 10px
+    font-size: 16px
+    +until-768
+        font-size: 14px
+    +until-480
+        font-size: 12px
+
+    .counter
+        height: var(--size)
+        font-size: 14px
+        &__btn
+            transform: none
+            width: 100%
+            min-width: calc(var(--size) * 0.8)
+            flex: 1
+        &__input 
+            font-size: 1em
+
+    &__inputs
+        display: flex
+        +until-768
+            flex-direction: column
+        gap: 1em
+    &__input
+        min-width: 175px
+        flex-basis: 30%
+        &-title
+            font-size: .9em
+            font-weight: 400
+            margin-bottom: .5em
+            
+    &__result
+        @extend .product-info__price
+        gap: 10px
+        margin: 0
+        padding-left: .5em
+
+    &__buttons
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 10px
+        margin-top: 1.1em
+        .btn
+            height: 3.5em
+            margin: 0 !important
+
+    .calculator-result
+        &__summary
+            display: flex
+            font-size: 1em
+            &-title
+                font-size: 1em
+                align-self: flex-start
+            &-volume
+                margin-left: 5px
+            &-unit
+        
+        &__price
+            white-space: nowrap
+            &-value
+                @extend .product-info__price-value
+                font-size: clamp(20px,2vw,30px)
+                color: var(--color-red)
+            &-unit 
+                
+.blueprint-request
+    &__button
+        text-decoration: none
+        color: var(--color-black)
+        margin-top: 20px
+        padding: 20px
+        display: flex
+        gap: 20px
+        justify-content: space-between
+        background-color: #eee
+        border-radius: 10px
+        transition: all .3s
+        &:hover
+            background-color: var(--color-white)
+        img
+            display: block
+            width: 60px
+            height: 60px
+    &__text
+        font-size: 24px
+        font-weight: 500
+        text-align: center
+        strong
+            font-weight: 600

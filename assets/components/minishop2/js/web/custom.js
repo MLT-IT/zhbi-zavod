@@ -284,7 +284,7 @@
             miniShop2.send(miniShop2.sendData.formData, miniShop2.Cart.callbacks.change, miniShop2.Callbacks.Cart.change);
         },
         status: function (status) {
-            if (status['total_count'] < 1) {
+            if (status['total_count'] < 0.01) {
                 // location.reload();
             }
             else {

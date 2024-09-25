@@ -68,8 +68,9 @@
         {if $_modx->resource.context_key == 'rockwool'}
           <script type="text/javascript">!function() { var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function() { VK.Retargeting.Init("VK-RTRG-1600323-9yJ6a"),VK.Retargeting.Hit() } ,document.head.appendChild(t) } ();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1600323-9yJ6a" style="position:fixed; left:-999px;" alt=""/></noscript>
         {/if}
-
+        {if !$_modx->config.localhost}
         <script src="//code.jivo.ru/widget/vAlrpVdYPO" async></script>
+        {/if}
         {* КОДЫ СЧЕТЧИКОВ *}
         {set $counters = '!virtual_counters' | snippet}
         {* <!-- {$counters | var_dump} --> *}

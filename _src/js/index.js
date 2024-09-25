@@ -6,15 +6,14 @@ import '../sass/main.sass';
 window.jQuery = $;
 window.$ = $;
 
-
 // -------------------------------------
 // Импорт функций на JQuery
 // -------------------------------------
-import functions from './functions/functions.js';
+// import functions from './functions/functions.js';
+import './libs/inputFilter/inputFilter.js';
 import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
-import inputFilter from './libs/inputFilter/inputFilter.js';
 import mapsLazyload from './modules/lazyload_maps';
 
 
@@ -37,6 +36,9 @@ import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
+import initSquareMetersHandler from './modules/squareMetersHandler.js';
+import collapseLongTexts from './modules/collapseLontTexts.js';
+import showMoreListing from './modules/showMoreListing.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
@@ -52,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     new Dropdowns();
     new Tabs();
+
+    initSquareMetersHandler();
 
     initSlimSelect(".default-select__select");
 
@@ -463,40 +467,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    $(document).ready(function() {
-        var $textBlock = $('.catalog-screen__text');
+    $(document).ready(function () {
+      collapseLongTexts();
 
-        let maxHeight = '3em';
-        if($('body').width() < 778){
-            maxHeight = "3em";
-        }
-        $textBlock.css("maxHeight", maxHeight);
-
-        if ($textBlock.length) {
-            if ($textBlock[0].scrollHeight > $textBlock.innerHeight()) {
-                var $toggleButton = $('<div class="read-all-button">Читать полностью</div>'); // Создаем кнопку через JS
-                $toggleButton.insertAfter($textBlock); // Добавляем кнопку после блока с текстом
-                $toggleButton.fadeIn(); // Показываем кнопку с эффектом fade-in
-
-                $toggleButton.on('click', function() {
-                    $textBlock.toggleClass('expand');
-                    if ($textBlock.hasClass('expand')) {
-                        // анмация разворота блока
-                        $textBlock.animate({
-                            maxHeight: "2000px"
-                        }, 100, function() {});
-                        $toggleButton.text('Свернуть');
-                    } else {
-                        // анмация закрытие блока
-                        $textBlock.animate({
-                            maxHeight: maxHeight
-                        }, 100, function() {});
-
-                        $toggleButton.text('Читать полностью');
-                    }
-                });
-            }
-        }
+      showMoreListing();
     });
 
     $(".table__cell").each(function (cell){

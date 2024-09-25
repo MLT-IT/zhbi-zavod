@@ -46,58 +46,74 @@
     {set $renderVideo = 1}
 {/if}
 
+{* этот кусок под osnova.spb.ru, вероятно при дальнейшей монстризации лучше сделать отдельный шаблон для кровли *}
 {* определяю гибкую черепицу *}
 {set $isGibkaya = $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125532])}
 
 {* определяю профлист и профлист для забора *}
-{set $isProflist = ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537])) || ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
+{set $isProflist =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125537]))}
 
+{* определяю отдельно профлист для забора *}
+{set $isProflistZ =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
 
+{* определяю штакетник  *}
+{set $isShtaketnik =  (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
+
+{* определяю металлочерепицу  *}
+{set $isMetalloCherepica = ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125530]))}
+
+{* для калькулятора *}
+{set $isCustomCalculator = $isProflist || $isMetalloCherepica}
+
+{*Настройка карточки кровли, центральное место *}
+{set $settingCardKrovlya = [
+    'width' => 0,
+    'optionWidth' => 'rabochaya-shirina',
+    'maxLength' => 12000,
+    'stepLength' => 500,
+    'minLength' => 500
+]}
+{if $settingCardKrovlya['optionWidth']}
+    {* для металлочерепицы важнее полезная ширина *}
+    {if $isMetalloCherepica}
+      {set $settingCardKrovlya['width'] = $_modx->runSnippet("@FILE snippets/getOptionProduct.php", ['key' => 'poleznaya-shirina'])}
+    {/if}
+    {if !$settingCardKrovlya['width']}
+      {set $settingCardKrovlya['width'] = $_modx->runSnippet("@FILE snippets/getOptionProduct.php", ['key' => $settingCardKrovlya['optionWidth']])}
+    {/if}
+{/if}
+{*  *}
 
 {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
-    {set $recommendProducts = 'msProducts' | snippet : [
-    'resources' => '-' ~ $_modx->resource.id,
-    'parents' => 125617,
-    'limit' => 42,
-    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-    'tplWrapper' => '@FILE sections/related-products.tpl',
-    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-    'context' => $_modx->resource.context_key,
-    'includeThumbs' => 'webp',
-    'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
+    {set $soput_options = [
+      'resources' => '-' ~ $_modx->resource.id,
+      'parents' => 125617,
+      'limit' => 42,
+      'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+      'tplWrapper' => '@FILE sections/related-products.tpl',
+      'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+      'context' => $_modx->resource.context_key,
+      'includeThumbs' => 'webp',
+      'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
     ]}
 
     {* Сопутствующие товары гибкой черепице *}
     {if $isGibkaya}
-      {set $soput_options = [
-        'parents' => '126015,125951,125554',
-        'limit' => 30,
-        'depth' => 999,
-        'sortby' => '{"parent":"DESC"}',
-        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-        'tplWrapper' => '@FILE sections/related-products.tpl',
-        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-        'includeThumbs' => 'webp',
-        'optionFilters' => '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}',
-        ]}
-      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+      {set $soput_options['parents'] = '126015,125951,125554'}
+      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
+      {set $soput_options['optionFilters'] = '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}'}
     {/if}
-
+      
     {* Сопутствующие товары профлист и профлист для забора *}
-    {if $isProflist}
-      {set $soput_options = [
-        'parents' => '125533',
-        'limit' => 40,
-        'depth' => 999,
-        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-        'tplWrapper' => '@FILE sections/related-products.tpl',
-        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-        'includeThumbs' => 'webp',
-        'optionFilters' => '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}',
-        ]}
-      {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {if $isProflist || $isMetalloCherepica}
+      {set $soput_options['parents'] = '125533'}
+      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
+      {set $soput_options['optionFilters'] = '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}'}
     {/if}
+    {* здесь вызываем *}
+    {set $recommendProducts = 'msProducts' | snippet : $soput_options}
+    {*  *}
 
     {set $simillarProductIds = $_modx->resource.simillarProductIds}
     {if $simillarProductIds}
@@ -129,7 +145,7 @@
 {/if}
 
 
-{* Указаны все категории из главных категорий 125530, 125530, 125541 *}
+{* Указаны все категории из главных категорий 125530, 32, 37, 41 *}
 {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125532,125541,125537'])  }
   {set $linksData = 'getRelinkingData_ColorSurfaceThickness' | snippet}
   {set $cvet = $_modx->resource.cvet[0]}
@@ -167,149 +183,200 @@
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
-
+            {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
+              <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
+            {/if}
               <div class="product-info__top">
-              {if $_modx->resource.article}
-                  <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
-              {/if}
-                <div class="product-info__rating rating">
-                  <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div>
+                <div class="product-info__divider">
+                  <div>
+                    <div class="product-info__rating rating{if $isCustomCalculator || $isShtaketnik} abs{/if}">
+                      {* <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div> *}
 
-                  <ul class="rating__stars">
-                    <li class="rating__star active"></li>
-                    <li class="rating__star active"></li>
-                    <li class="rating__star active"></li>
-                    <li class="rating__star active"></li>
-                    <li class="rating__star"></li>
-                  </ul>
+                      <ul class="rating__stars">
+                        <li class="rating__star active"></li>
+                        <li class="rating__star active"></li>
+                        <li class="rating__star active"></li>
+                        <li class="rating__star active"></li>
+                        <li class="rating__star"></li>
+                      </ul>
 
-                  <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
-                    {$reviewsCount}
-                    {'@FILE snippets/formOfWord.php' | snippet : [
-                      'n' => $reviewsCount,
-                      'f1' => 'отзыв',
-                      'f2' => 'отзыва',
-                      'f5' => 'отзывов'
-                    ]}
-                  </span>
-                </div>
-
-                <div class="product-info__shipped mobile-flex">
-                    {'@FILE snippets/shippedToday.php' | snippet}
-                </div>
-
-
-              {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
-                  <div id="collerovka"></div>
-
-{*                  <a href="#calculator-kraski">*}
-{*                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-calculator-kraski"></use>*}
-{*                      Калькулятор краски*}
-{*                  </a>*}
-
-              {/if}
-
-
-                <div class="product-info__relinkav">
-                  {if $_modx->context.key == 'gazosilikatstroy'}
-                    {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
-                    {if $relinkingData is not empty}
-                      <div class="product-info__euv-custom-select euv-custom-select">
-                        <div class="euv-custom-select__input">
-                          <span class="euv-custom-select__input-value">{$_modx->resource['proizvoditel'][0]}</span>
-                        </div>
-                        <span class="euv-custom-select__btn"></span>
-                        <div class="euv-custom-select__options-wrap">
-                          {foreach $relinkingData as $item}
-                            <a href="/{$item['uri']}" class="euv-custom-select__option">
-                              {$item['proizvoditel']}
-                            </a>
-                          {/foreach}
-                        </div>
-                      </div>
-                    {/if}
-                  {/if}
-
-                  {switch $_modx->resource.context_key}
-                    {case 'web'}
-                      {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
-                        'n' => $_modx->resource.stockNum,
-                        'f1' => 'упаковка',
-                        'f2' => 'упаковки',
-                        'f5' => 'упаковок'
-                      ]}
-                    {case 'gazosilikatstroy'}
-                      {set $unit = 'м3'}
-                    {case 'krovelnyjstroymarket'}
-                      {set $randomStock = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 500, 'end'=> 2000]) }
-                      {if $_modx->resource.unit[0] == 'упаковка'}
-                        {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
-                        'n' => $randomStock,
-                        'f1' => 'упаковка',
-                        'f2' => 'упаковки',
-                        'f5' => 'упаковок'
+                      <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
+                        {$reviewsCount}
+                        {'@FILE snippets/formOfWord.php' | snippet : [
+                          'n' => $reviewsCount,
+                          'f1' => 'отзыв',
+                          'f2' => 'отзыва',
+                          'f5' => 'отзывов'
                         ]}
-                      {else}
-                        {set $unit = $_modx->resource.unit[0]}
-                      {/if}
-                    {case default}
-                     {set $unit = 'шт'}
-                  {/switch}
-
-
-
-                  {if $_modx->resource.context_key not in list ['kraska']}
-                    {* При чем тут relinkingData ? *}
-                    {if $relinkingData is empty}
-                      <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                          {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
-                              В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м2
-                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                              {* гибкой черепице упаковки *}
-                              
-                              На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
-                            {elseif $_modx->context.key == 'suhiesmesi'}
-                                В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
-                            {else}
-                              На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
-                          {/if}
-                      </div>
-                    {/if}
-                  {/if}
-                </div>
-
-                {if $_modx->resource.context_key not in list ['suhiesmesi']}
-                  {* При чем тут relinkingData ? *}
-                  {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
-                    <div class="product-info__avstock">
-                        <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                          На складе {$_modx->resource.stockNum} {$unit}
-                        </div>
-                        <div class="product-info__shipped pc-flex">
-                            {'@FILE snippets/shippedToday.php' | snippet}
-                        </div>
+                      </span>
                     </div>
-                  {else}
-                    <div class="product-info__avstock">
-                    {if $_modx->resource.context_key == 'kraska'}
-                        <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                         В наличии {$_modx->resource.stockNum} {$unit}
-                        </div>
-                    {else}
-                      <div class="product-info__shipped pc-flex">
-                        {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
-                            Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
-                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                            Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
-                            {else}
-                            {'@FILE snippets/shippedToday.php' | snippet}
+
+                    <div class="product-info__shipped mobile-flex">
+                        {'@FILE snippets/shippedToday.php' | snippet}
+                    </div>
+
+
+                    {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
+                        <div id="collerovka"></div>
+
+                        {*                  <a href="#calculator-kraski">*}
+                        {*                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-calculator-kraski"></use>*}
+                        {*                      Калькулятор краски*}
+                        {*                  </a>*}
+
+                    {/if}
+
+                    <div class="product-info__relinkav">
+                      {if $_modx->context.key == 'gazosilikatstroy'}
+                        {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
+                        {if $relinkingData is not empty}
+                          <div class="product-info__euv-custom-select euv-custom-select">
+                            <div class="euv-custom-select__input">
+                              <span class="euv-custom-select__input-value">{$_modx->resource['proizvoditel'][0]}</span>
+                            </div>
+                            <span class="euv-custom-select__btn"></span>
+                            <div class="euv-custom-select__options-wrap">
+                              {foreach $relinkingData as $item}
+                                <a href="/{$item['uri']}" class="euv-custom-select__option">
+                                  {$item['proizvoditel']}
+                                </a>
+                              {/foreach}
+                            </div>
+                          </div>
+                        {/if}
+                      {/if}
+
+                      {if $_modx->resource.article && ($isCustomCalculator || $isShtaketnik)}
+                        <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
+                      {/if}
+
+                      {switch $_modx->resource.context_key}
+                        {case 'web'}
+                          {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
+                            'n' => $_modx->resource.stockNum,
+                            'f1' => 'упаковка',
+                            'f2' => 'упаковки',
+                            'f5' => 'упаковок'
+                          ]}
+                        {case 'gazosilikatstroy'}
+                          {set $unit = 'м3'}
+                        {case 'krovelnyjstroymarket'}
+                          {set $randomStock = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 500, 'end'=> 2000]) }
+                          {if $_modx->resource.unit[0] == 'упаковка'}
+                            {set $unit = '@FILE snippets/formOfWord.php' | snippet : [
+                            'n' => $randomStock,
+                            'f1' => 'упаковка',
+                            'f2' => 'упаковки',
+                            'f5' => 'упаковок'
+                            ]}
+                          {else}
+                            {set $unit = $_modx->resource.unit[0]}
+                          {/if}
+                        {case default}
+                        {set $unit = 'шт'}
+                      {/switch}
+
+
+
+                      {if $_modx->resource.context_key not in list ['kraska']}
+                        {* При чем тут relinkingData ? *}
+                        {if $isCustomCalculator}
+                          <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                              Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
+                          </div>
+                        {/if}
+                        {if $relinkingData is empty}
+                          <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                              {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
+                                  В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м<sup>2</sup>
+                                {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                                  {* гибкой черепице упаковки *}
+                                  
+                                  На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
+                                {elseif $_modx->context.key == 'suhiesmesi'}
+                                    В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
+                                {else}
+                                  На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
+                              {/if}
+                          </div>
                         {/if}
 
-                      </div>
-                    {/if}
+                        {if $isCustomCalculator || $isShtaketnik}
+                          <div class="product-info__prod-time pc-flex">
+                              Срок изготовления: 2-3 дня
+                          </div>
+                          <div class="product-info__warranty pc-flex">
+                              Гарантия на товар: 30 лет
+                          </div>
+                          {* {if $settingCardKrovlya['width']}
+                            <div class="product-info__width pc-flex">
+                                Ширина листа: {$settingCardKrovlya['width']} мм
+                            </div>
+                          {/if} *}
+                        {/if}
+                      {/if}
                     </div>
-                  {/if}
-                {/if}
+
+                    {if $_modx->resource.context_key not in list ['suhiesmesi']}
+                      {* При чем тут relinkingData ? *}
+                      {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
+                        <div class="product-info__avstock">
+                            <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                              На складе {$_modx->resource.stockNum} {$unit}
+                            </div>
+                            <div class="product-info__shipped pc-flex">
+                                {'@FILE snippets/shippedToday.php' | snippet}
+                            </div>
+                        </div>
+                      {else}
+                        <div class="product-info__avstock">
+                        {if $_modx->resource.context_key == 'kraska'}
+                            <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                            В наличии {$_modx->resource.stockNum} {$unit}
+                            </div>
+                        {elseif !($isCustomCalculator || $isShtaketnik)}
+                          <div class="product-info__shipped pc-flex">
+                            {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
+                                Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
+                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                                Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
+                            {else}
+                                {'@FILE snippets/shippedToday.php' | snippet}
+                            {/if}
+
+                          </div>
+                        {/if}
+                        </div>
+                      {/if}
+                    {/if}
+                  </div>
+                  <div>
+                    {* Перемещенный прайс для профлиста и штакетника *}
+                    {if $isCustomCalculator || $isShtaketnik}
+                    <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
+                      <b>Цена:</b>
+                      <p class="product-info__price-value">
+                        <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
+                      </p>
+                      {if $prodValues['outputOldPrice']?}
+                        <div class="js-product__old-price">
+                          <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
+                              {$prodValues['outputOldPrice']}
+                          </span>
+                          ₽
+                        </div>
+    
+                        <div class="product-info__price-mes">
+                            <p class="product-info__price-mes-header">Снижение цены!</p>
+                            <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
+                            <span class="product-info__price-mes-close"></span>
+                        </div>
+                      {/if}
+                    </div>
+                    {/if}
+                    {*  *}
+                  </div>
+                </div>
               </div>
 
               {if $_modx->resource.context_key == 'web'}
@@ -321,264 +388,117 @@
             
               <div class="product-info__bottom">
                   {* Перелинковка характеристиками *}
-                  <div class="product-info__selected-characteristics">
-
-                      {if $_modx->context.key == 'suhiesmesi' }
-                          {$_modx->runSnippet("@FILE snippets/linking/linking-select.php", [
-                          'dependence' => ['cvet', 'ves-shtuki-kg'],
-                          'coincide' => ['tip', 'proizvoditel'],
-                          'tplFilter' => [
-                              'cvet' => '@FILE blocks/product/linking/linking-select-cvet.tpl',
-                              'ves-shtuki-kg' => '@FILE blocks/product/linking/linking-list-fasovka.tpl'
-                          ]
-                          ])}
-                      {/if}
-
-                      {if $linksData.cvet?}
-                          <div class="product-card__select-wrap{if $_modx->resource.template == 22} product-card__select-wrap_type_full{else} product-card__select-wrap_type_half{/if}">
-                              <div class="product-card__select-span">
-                                  {if $_modx->resource.template == 17 || $_modx->context.key == "kraska"}
-                                      Цвет:
-                                  {/if}
-                                  {if $_modx->resource.template in list [20, 22]}
-                                      Оттенок:
-                                  {/if}
-                              </div>
-                              <div class="custom-select-wrap">
-                                  <div class="colors-options euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                          {set $visual = $_modx->runSnippet("getVisualWizard",
-                                          [
-                                              "options" => "cvet,ottenok",
-                                              "context"=> "",
-                                              "name"=> $cvet
-                                          ]
-                                          )}
-                                          <span data-val="{$cvet}" class="euv-custom-select__input-value wizard-cube" data-color="{$visual['value']}" >{$cvet}</span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              <div class="euv-custom-select__options-wrap-scroll-inner">
-                                                  {foreach $linksData.cvet as $data}
-                                                      <div class="euv-custom-select__options-col">
-                                                          {foreach $data as $id => $val}
-                                                              {set $v = $val}
-                                                              {set $visual = $_modx->runSnippet("getVisualWizard",
-                                                                  [
-                                                                      "options" => "cvet,ottenok",
-                                                                      "context"=> "",
-                                                                      "name"=> $val
-                                                                  ]
-                                                              )}
-                                                              <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}"  data-color="{$visual['value']}" class="euv-custom-select__option wizard-cube" data-val="{$v}" data-value="{$val}">
-                                                                  {$val}
-                                                              </a>
-                                                          {/foreach}
-                                                      </div>
-                                                  {/foreach}
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                              </div>
-                          </div>
-                      {/if}
-
-                      {if $linksData.collection?}
-                          <div class="product-card__select-wrap product-card__select-wrap_type_half">
-                              <div class="product-card__select-span">Коллекция:</div>
-                              <div class="custom-select-wrap">
-                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                            <span class="euv-custom-select__input-value">
-                                                {$_modx->resource.collection[0]}
-                                            </span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              {foreach $linksData.collection as $id => $val}
-                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                      {$val}
-                                                  </a>
-                                              {/foreach}
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                              </div>
-                          </div>
-                      {/if}
-
-                      {if $linksData.item_thickness?}
-                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.cvet?} product-card__select-wrap_align_right{/if}">
-                              <div class="product-card__select-span">Толщина, мм:</div>
-                              <div class="custom-select-wrap">
-                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                          <span class="euv-custom-select__input-value">{$_modx->resource.item_thickness[0]}</span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              {foreach $linksData.item_thickness as $id => $val}
-                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                      {$val}
-                                                  </a>
-                                              {/foreach}
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                              </div>
-                          </div>
-                      {/if}
-
-                      {if $linksData.pokrytie?}
-                          <div class="product-card__select-wrap product-card__select-wrap_type_full mt">
-                              <div class="product-card__select-span">Покрытие:</div>
-                              <div class="custom-select-wrap">
-                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                          <span class="euv-custom-select__input-value">{$_modx->resource.pokrytie[0]}<span class="euv-custom-select__small-text">{$_modx->resource['vid-poverhnosti'][0]}</span></span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              {foreach $linksData.pokrytie as $id => $val}
-                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                      {$val} <span class="euv-custom-select__small-text">{$linksData['vid-poverhnosti'][$id]}</span>
-                                                  </a>
-                                              {/foreach}
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                              </div>
-                          </div>
-                      {/if}
-
-                      {if $linksData.fasovka?}
-                          <div class="product-info__select-link mb-4"><span class="product-info__select-link-title">Фасовка:</span>
-                              <input type="hidden" name="unit" value="1">
-                              <div class="product-card__select-link">
-                                  <ul class="product-info__select-link-tabs">
-
-                                      {foreach $linksData.fasovka as $id => $val}
-                                          {if $_modx->resource.fasovka[0] != $val}
-                                              <li class="product-info__select-link-tab js-product__select-link-tab" data-val="{$val['id']}">
-                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                      {$val}
-                                                  </a>
-                                              </li>
-                                              {else}
-                                              <li class="product-info__select-link-tab js-product__select-link-tab active" data-val="1">{$_modx->resource.fasovka[0]}</li>
-                                          {/if}
-                                      {/foreach}
-                                  </ul>
-                              </div>
-                          </div>
-                      {/if}
-
-                      {if $linksData.tip?}
-                          <div class="product-card__select-wrap product-card__select-wrap_type_half{if $linksData.tip?} product-card__select-wrap_align_right{/if}">
-                              <div class="product-card__select-span">Тип:</div>
-                              <div class="custom-select-wrap">
-                                  <div class="euv-custom-select euv-custom-select_type_wide custom-select_scrollable">
-                                      <div class="euv-custom-select__input">
-                                          <span class="euv-custom-select__input-value">{$_modx->resource.tip[0]}</span>
-                                      </div>
-                                      <span class="euv-custom-select__btn"></span>
-                                      <div class="euv-custom-select__options-wrap">
-                                          <div class="euv-custom-select__options-wrap-scroll">
-                                              {foreach $linksData.tip as $id => $val}
-                                                  <a href="{$_modx->makeUrl($id, '', '', 'full')}" class="euv-custom-select__option">
-                                                      {$val}
-                                                  </a>
-                                              {/foreach}
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="custom-select-mobile-link"></div>
-                                  <div href="#select" data-fancybox="" class="custom-select-mobile-link"></div>
-                              </div>
-                          </div>
-                      {/if}
-
-                  </div>
+                  {include 'file:chunks/product/product-relinking-block.tpl' linksData=$linksData}
                   {* Конец перелинковка характеристиками *}
-
-              <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
-                  <input type="hidden" name="unit" value="1">
-                  <div class="product-card__volume">
-                    <ul class="product-info__volume-tabs">
-                      <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
-                      {foreach $prodValues['itemUnits'] as $val}
-                          {if $prodValues['pricePer'] != $val['title']}
-                             <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
-                          {/if}
-                      {/foreach}
-                    </ul>
+                {if !$isCustomCalculator && !$isShtaketnik}
+                  <div class="product-info__volume"><span class="product-info__volume-title">Цена за:</span>
+                    <input type="hidden" name="unit" value="1">
+                    <div class="product-card__volume">
+                      <ul class="product-info__volume-tabs">
+                        <li class="product-info__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</li>
+                        {foreach $prodValues['itemUnits'] as $val}
+                            {if $prodValues['pricePer'] != $val['title']}
+                                <li class="product-info__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</li>
+                            {/if}
+                        {/foreach}
+                      </ul>
+                    </div>
                   </div>
-                </div>
+                  
+                  <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
+                    <p class="product-info__price-value">
+                      <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
+                    </p>
+                    {if $prodValues['outputOldPrice']?}
+                      <div class="js-product__old-price">
+                        <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
+                            {$prodValues['outputOldPrice']}
+                        </span>
+                        ₽
+                      </div>
 
-                <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
-                  <p class="product-info__price-value">
-                    <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
-                  </p>
-                  {if $prodValues['outputOldPrice']?}
-                    <div class="js-product__old-price">
-                      <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
-                          {$prodValues['outputOldPrice']}
-                      </span>
-                      ₽
+                      <div class="product-info__price-mes">
+                          <p class="product-info__price-mes-header">Снижение цены!</p>
+                          <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
+                          <span class="product-info__price-mes-close"></span>
+                      </div>
+                    {/if}
                     </div>
-
-                    <div class="product-info__price-mes">
-                        <p class="product-info__price-mes-header">Снижение цены!</p>
-                        <p class="product-info__price-mes-body">Мы регулярно снижаем цены на наши товары, чтобы покупка у нас была еще выгоднее!</p>
-                        <span class="product-info__price-mes-close"></span>
-                    </div>
-                  {/if}
-                </div>
-                <div class="product-info__actions">
-                  {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
-                </div>
-                <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
+                  </div>
+                {/if}
               </div>
+                
+              {if $isShtaketnik && !$isCustomCalculator}
+                {include 'file:chunks/product/link-calculator.tpl'}
+              {/if}
+              <div class="product-info__actions">
+                  {*  *}
+                  {if $isCustomCalculator and $settingCardKrovlya['width']}
+                    {set $skipOneClickButton = true}
+                    {include "file:chunks/product/product-elems-double.tpl" prodId=$_modx->resource.id}
+                  {else}
+                    {include "file:chunks/product/product-elems.tpl" prodId=$_modx->resource.id}
+                  {/if}  
+                  {*  *}
+              </div>
+              {if !$skipOneClickButton}
+              <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
+              {/if}
+
+            </div>
 
               {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                        <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
-                    </svg>
-                    <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                          <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
+                      </svg>
+                      <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
                     </p>
+                    <p class="product-info__undertext-span">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                          <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
+                      </svg>
+                      <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
+                    </p>
+                  </div>
+              {/if}
+              {if $isCustomCalculator || $isShtaketnik}
+                  <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                             <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
                         </svg>
-                        <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
+                        <span class="product-info__undertext-span-header">Дата производства при заказе сегодня: </span> {'+2 days' | date : 'd.m.Y'}
                     </p>
                   </div>
               {/if}
+              {switch $_modx->resource.context_key}
+                {case 'gazosilikatstroy'}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                {case 'krovelnyjstroymarket'}
+                    {if !$isCustomCalculator && !$isShtaketnik}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                    {/if}
+                {case 'web'}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
+              {/switch}
             </div>
 
-            {switch $_modx->resource.context_key}
-              {case 'gazosilikatstroy'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
-              {case 'krovelnyjstroymarket'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
-              {case 'web'}
-                  <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
-            {/switch}
+
+            {if $isCustomCalculator || $isShtaketnik}
+              <div class="blueprint-request">
+                <a class="blueprint-request__button" data-fancybox href="#blueprint">
+                  <img src="/assets/template/img/icons/blueprint.png" alt="">
+                  <p class="blueprint-request__text">
+                    <strong>Отправьте чертеж</strong> и получите расчет материалов бесплатно
+                   </p>
+                </a>
+              </div>
+            {/if}
+
+
+           
           </div>
         </div>
       </div>
@@ -645,39 +565,43 @@
         <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
+              {if $_modx->context.key in ['krovelnyjstroymarket']}
+                {include 'file:_modules/mltreviews/chunks/product-page.tpl'}
+              {else}
               <div class="reviews">
-              {foreach $reviews as $idx => $row}
-                  {if $row.status == 1}
-                      {set $statusPublishedReviews = true}
-                  {/if}
-              {/foreach}
+                {foreach $reviews as $idx => $row}
+                    {if $row.status == 1}
+                        {set $statusPublishedReviews = true}
+                    {/if}
+                {/foreach}
 
-              {if $reviewsCount > 0 && $statusPublishedReviews}
-                <div class="reviews__slider">
-                  <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                    <div class="swiper-wrapper">
+                {if $reviewsCount > 0 && $statusPublishedReviews}
+                  <div class="reviews__slider">
+                    <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                      <div class="swiper-wrapper">
 
-                      {foreach $reviews as $idx => $row}
-                          {if $row.status == 1}
-                            <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
-                              <p class="reviews__text">{$row.text}</p>
-                            </div>
-                          {/if}
-                      {/foreach}
+                        {foreach $reviews as $idx => $row}
+                            {if $row.status == 1}
+                              <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
+                                <p class="reviews__text">{$row.text}</p>
+                              </div>
+                            {/if}
+                        {/foreach}
 
+                      </div>
+                    </div>
+
+                      <div class="swiper-buttons">
+                      <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
+                      <div class="swiper-button swiper-button-next"></div>
                     </div>
                   </div>
-
-                    <div class="swiper-buttons">
-                    <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
-                    <div class="swiper-button swiper-button-next"></div>
-                  </div>
-                </div>
-                  {else}
-                  <h3 class="py-5">Еще нет отзывов</h3>
-              {/if}
+                    {else}
+                    <h3 class="py-5">Еще нет отзывов</h3>
+                {/if}
                 <a class="btn btn_style_shadow reviews__btn"  data-fancybox href="#review">Оставить отзыв</a>
-              </div>
+              </div> 
+              {/if}
             </div>
           </div>
 

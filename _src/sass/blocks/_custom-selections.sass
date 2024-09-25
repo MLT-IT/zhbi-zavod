@@ -1,9 +1,11 @@
 .custom-selections
+  --size: 60px
+  +until-768
+    --size: 40px
   &_colors
     margin-top: 20px
   a
-    font-size: 14px
-    color: var(--colorblack)
+    color: var(--color-black)
     text-decoration: none
   &__preview,
   &__groups
@@ -14,80 +16,103 @@
       display: flex
       flex-direction: column
       gap: 10px
+
   &__tags
-    display: grid
-    grid-template-columns: repeat(5, minmax(0, 1fr))
+    // display: grid
+    // grid-template-columns: repeat(5, minmax(0, 1fr))
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
     gap: 9px
 
   &__tag
+    max-width: 240px
     list-style: none
-    background-color: var(--color-white)
-    border: 1px solid var(--color-gray-lt)
+    background-color: var(--color-gray-lt)
     border-radius: var(--border-radius-base)
     transition: .3s
-    padding: 7px
     overflow: hidden
+    padding-right: 5px
+    font-size: 15px
+    word-wrap: break-word
+    +until-1200
+      max-width: 210px
+      font-size: 13px
+    +until-768
+      max-width: 175px
+      font-size: 11px
+      flex-basis: 47%
     &:hover
       box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
     &-link
       height: 100%
       display: flex
       align-items: center
-      gap: 10px
-
+      gap: 5px
 
     &-name
-      //
+      // font-size: 16px
+      +until-1200
+        font-size: 14px
+      +until-768
+        font-size: 12px
     &-title
+      font-size: 1em
+      overflow: hidden
       &:first-letter
         text-transform: capitalize
-
+    &-picture 
+      padding: 5px
     &-image,
     &-background
-      width: 30px
-      height: 30px
+      display: block
+      width: var(--size)
+      height: var(--size)
       border-radius: var(--border-radius-base)
-    
+
+    &-image
+      mix-blend-mode: multiply
 
   &__groups
 
   &__group
 
-
-
   &__toggle
     display: flex
     align-items: center
+    min-height: var(--size)
     // padding: 10px
     +until-1200
       font-size: 14px
 
     +until-768
       font-size: 12px
-    
-    
+
     &-button
       display: flex
       align-items: center
       font-weight: 700
-      font-size: 16px
+      font-size: 1em
       line-height: 1
       text-align: center
       letter-spacing: 0.05em
       text-transform: uppercase
-      color: var(--color-gray)
+      color: var(--color-black)
       cursor: pointer
       transition: color .3s ease
-      background-color: var(--color-gray-lt)
+      background-color: var(--color-gray-l)
       border-radius: var(--border-radius-base)
-      padding: 7px
-      text-decoration-style: dotted
-      text-decoration-thickness: 1px
-      text-underline-offset: .1em
+      padding: 7px 15px
+      height: 100%
+
       &:hover
         text-decoration: underline
+        text-decoration-style: dotted
+        text-decoration-thickness: 1px
+        text-underline-offset: .1em
         color: var(--color-red)
       &:before
+        display: block
         content: 'показать все'
         padding-top: 3px
       &.active
@@ -104,7 +129,16 @@
     align-items: center
     gap: 7px 20px
     flex-wrap: wrap
+    +until-1200
+      font-size: 14px
+
+    +until-768
+      font-size: 12px
     a
+      height: 30px
+      max-width: unset
+      width: auto
+      padding-inline: 7px
       display: flex
       align-items: center
       &:hover

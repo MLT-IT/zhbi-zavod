@@ -7,7 +7,16 @@
       "name"=> $selectionLink.name
     ]
   )}
-  <div class="custom-selections__tag-background wizard-background" data-color="{$visual['value']}" data-val="{$selectionLink.name}"></div>
+  <!-- {$visual|print_r} -->
+  {if $visual['type'] == 'image' && $visual['value'] is not empty}
+    {set $src = 'phpthumbon' | snippet : [
+        'input' => $mainImage,
+        'options' => '&w=60&h=60&zc=1'
+    ]}
+    <img class="custom-selections__tag-image" src="{$src}" alt="">
+  {elseif $visual['type'] == 'color' && $visual['value'] is not empty}
+    <div class="custom-selections__tag-background wizard-background" data-color="{$visual['value']}" data-val="{$selectionLink.name}"></div>
+  {/if}
   <div class="custom-selections__tag-title">
           {$selectionLink.name}
   </div>
