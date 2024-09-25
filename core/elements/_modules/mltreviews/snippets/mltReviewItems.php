@@ -60,6 +60,7 @@ $items = $modx->getCollection('mltReview', $query);
 
 
 $output = '';
+$idx = 0;
 foreach ($items as $item) {
     if (
         ($user_reviews && !publishedUserReview($item)) || // Если это найденные неопубликованные отзывы пользователя и они меньше определенного времени - публикуем
@@ -78,8 +79,9 @@ foreach ($items as $item) {
         $rating_html .= "<span class='$ratingItemClass $active_class'></span>";
     }
     $rating_html .= "</div>";
-
-    $output .= $pdoTools->getChunk($tpl, array_merge(['rating_html' => $rating_html], $item->toArray()));
+    $itemArray = $item->toArray();
+    $itemArray['idx'] = $idx++;
+    $output .= $pdoTools->getChunk($tpl, array_merge(['rating_html' => $rating_html], $itemArray));
 }
 
 if (!empty($output)) {

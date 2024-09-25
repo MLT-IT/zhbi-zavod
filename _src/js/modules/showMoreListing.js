@@ -1,4 +1,5 @@
 import logger from "../../../core/elements/_modules/debug/Logger";
+import collapseLongTexts from "./collapseLontTexts";
 
 // по приколу сделал на прототипах: методы и свойства накидываются прямо на DOM элементы списков
 // всё, что нужно, это добавить класс из config.listClass к врапперу, остальное само будет работать
@@ -42,6 +43,7 @@ function showMore() {
       element.classList.remove("hidden");
     }
   });
+  collapseLongTexts(); // .hidden display:none, чтобы отрабатывало на открытых item
 }
 
 function makeMoreButton(list) {

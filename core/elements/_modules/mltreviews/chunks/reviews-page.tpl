@@ -1,7 +1,6 @@
+{include "file:chunks/svg-gradient.tpl" w=48 h=48}
 <div class="mlt-reviews">
-    <article class="content-block quote_block">
-        <button class="mlt-reviews__open-form btn btn_style_base" data-fancybox data-src="#mlt-reviews-form">Оставить отзыв</button>
-    </article>
+    {include 'file:chunks/banners/reviews-head.tpl'}
     
     {set $user_reviews = '!mltReviewItems' | snippet : [ 
         'user_reviews' => 1,
@@ -12,7 +11,7 @@
     ]}
     {if $user_reviews}
     <div class="mlt-reviews__user-reviews">
-        <div class="mlt-reviews__title small-title">На модерации</div>
+        <h2 class="mlt-reviews__title small-title section__title">На модерации</h2>
         {$user_reviews}
     </div>
     {/if}
@@ -26,14 +25,15 @@
 
     {if $all_reviews}
     <div class="mlt-reviews__all-reviews">
-        <div class="mlt-reviews__title">Отзывы о нашей работе</div>
+        <h2 class="mlt-reviews__title section__title">Отзывы о нашей работе</h2>
         {$all_reviews}
     </div>
     {else}
-        Пусто
+        Здесь пока нет отзывов.
     {/if}
 
-  
+    {include 'file:sections/about/sect-about-all.tpl'}
+
     <div class="popup" id="mlt-reviews-form">
         
             <div class="mlt-reviews__title">Оставить отзыв</div>

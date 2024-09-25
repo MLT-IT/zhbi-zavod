@@ -1,8 +1,8 @@
-<div class="mlt-reviews__item">
+<div class="mlt-reviews__item{if $idx >= 6} hidden{/if}">
   <div class="mlt-reviews__item-header">
     <div
       class="mlt-reviews__item-logo"
-      style="background-image: url('{$logo ?: '/assets/template/img/reviews/default.svg'}');"
+      style="background-image: url('{$avatar ?: '/assets/components/mltreviews/avatars/avatar.svg'}');"
     ></div>
     <div class="mlt-reviews__item-info">
       <div class="mlt-reviews__item-name">
