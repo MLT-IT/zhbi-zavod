@@ -78,6 +78,18 @@ class Logger {
 
 const logger = new Logger();
 
+const consoleProxy = new Proxy(console, {
+  get(target, property) {
+    if (typeof target[property] === 'function') {
+      return logger[property];
+    }
+    return target[property];
+  }
+});
+
+// Replace the global console object with the proxy
+globalThis.console = consoleProxy;
+
 export default logger;
 
 // log

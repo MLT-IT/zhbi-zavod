@@ -356,14 +356,14 @@
                     <div class="product-info__price{if $prodValues['outputOldPrice']?} active{/if}">
                       <b>Цена:</b>
                       <p class="product-info__price-value">
-                        <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽
+                        <span class="js-product__price" data-default="{$prodValues['defaultPrice']}">{$prodValues['outputPrice']}</span> ₽{$unit ? '/'~$unit :''}
                       </p>
                       {if $prodValues['outputOldPrice']?}
                         <div class="js-product__old-price">
                           <span class="js-product__old-price-val" data-default="{$prodValues['defaultOldPrice']}">
                               {$prodValues['outputOldPrice']}
                           </span>
-                          ₽
+                          ₽{$unit ? '/'~$unit :''}
                         </div>
     
                         <div class="product-info__price-mes">

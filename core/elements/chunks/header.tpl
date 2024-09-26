@@ -273,6 +273,7 @@
             <div class="h-nav__subnav h-subnav">
               <ul class="h-subnav__wrapper">
                 <li class="h-nav__item"><a class="h-nav__link" href="/shourum/">Шоурум</a></li>
+                <li class="h-nav__item"><a class="h-nav__link" href="/otzyivyi/">Отзывы</a></li>
               </ul>
             </div>
             {/if}
