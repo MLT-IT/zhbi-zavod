@@ -71,6 +71,8 @@ foreach ($items as $item) {
 
     if (!$item->published) continue;
 
+    if(isset($limit) && $idx > $limit) break;
+
     $rating_html = "<div class='$ratingRowClass'>";
     for ($i = 1; $i <= 5; $i++) {
         if ($i <= $item->rating) $active_class = 'active';

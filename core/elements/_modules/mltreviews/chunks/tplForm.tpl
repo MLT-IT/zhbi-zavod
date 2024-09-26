@@ -13,7 +13,7 @@
     </div>
     <div class="mlt-reviews__form-upload-wrapper">
       <input type="file" id="fileInput" class="mlt-reviews__form-file-input" />
-      <label for="fileInput" class="mlt-reviews__form-file-label">Прикрепить файлы</label>
+      <label for="fileInput" class="mlt-reviews__form-file-label">Прикрепить иконку</label>
     </div>
     <div class="mlt-reviews__form-field-row">
       <label>Поставьте оценку</label>
