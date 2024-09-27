@@ -10,31 +10,35 @@ export default function collapseLongTexts() {
     );
     textBlocks &&
       textBlocks.forEach((textBlock) => {
-        if (textBlock.innerText.length) {
-          if (textBlock.scrollHeight > textBlock.clientHeight) {
-            if (textBlock.parentElement.querySelector(`.${buttonClass}`)) {
-              logger.log("Skip existing long text wrap");
-              return;
-            }
-            logger.log("Creating long text collapse wrap");
-            textBlock.style.maxHeight = maxHeight;
-            const toggleButton = document.createElement("div");
-            toggleButton.classList.add(buttonClass);
-            toggleButton.innerText = "Читать полностью";
-            textBlock.insertAdjacentElement("afterend", toggleButton); // Добавляем кнопку после блока с текстом
-
-            toggleButton.addEventListener("click", () => {
-              textBlock.classList.toggle("expand");
-              if (textBlock.classList.contains("expand")) {
-                toggleButton.innerText = "Свернуть";
-                textBlock.style.maxHeight = "1000px";
-              } else {
-                toggleButton.innerText = "Читать полностью";
-                textBlock.style.maxHeight = maxHeight;
-              }
-            });
-          }
+        if (!textBlock.innerText.length) {
+          logger.log(`No text to collapse skip`);
+          return;
         }
+        if (textBlock.scrollHeight <= textBlock.clientHeight) {
+          logger.log(`Text is not high enough to collapse, skipping`);
+          return;
+        }
+        if (textBlock.parentElement.querySelector(`.${buttonClass}`)) {
+          logger.log("Skip existing long text wrap");
+          return;
+        }
+        logger.log("Creating long text collapse wrap");
+        textBlock.style.maxHeight = maxHeight;
+        const toggleButton = document.createElement("div");
+        toggleButton.classList.add(buttonClass);
+        toggleButton.innerText = "Читать полностью";
+        textBlock.insertAdjacentElement("afterend", toggleButton); // Добавляем кнопку после блока с текстом
+
+        toggleButton.addEventListener("click", () => {
+          textBlock.classList.toggle("expand");
+          if (textBlock.classList.contains("expand")) {
+            toggleButton.innerText = "Свернуть";
+            textBlock.style.maxHeight = "1000px";
+          } else {
+            toggleButton.innerText = "Читать полностью";
+            textBlock.style.maxHeight = maxHeight;
+          }
+        });
       });
   } catch (e) {
     logger.error("Error applying long-text wrap", e);

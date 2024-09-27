@@ -41,6 +41,9 @@ if (empty($tplOuter)) {
 
 $user_session = $_REQUEST['PHPSESSID'] ?: $_COOKIE['PHPSESSID'];
 
+$startCount = $startCount ?: 6;
+$limit = $limit ?: 0;
+
 $where = [];
 if ($user_reviews) {
     $where['session'] = $user_session;
@@ -61,6 +64,8 @@ $items = $modx->getCollection('mltReview', $query);
 
 $output = '';
 $idx = 0;
+
+
 foreach ($items as $item) {
     if (
         ($user_reviews && !publishedUserReview($item)) || // Если это найденные неопубликованные отзывы пользователя и они меньше определенного времени - публикуем
@@ -71,7 +76,7 @@ foreach ($items as $item) {
 
     if (!$item->published) continue;
 
-    if(isset($limit) && $idx > $limit) break;
+    if(isset($startCount) && $idx > $startCount) break;
 
     $rating_html = "<div class='$ratingRowClass'>";
     for ($i = 1; $i <= 5; $i++) {
@@ -82,14 +87,16 @@ foreach ($items as $item) {
     }
     $rating_html .= "</div>";
     $itemArray = $item->toArray();
-    $itemArray['idx'] = $idx++;
+    $itemArray['hidden'] = $idx++ > $startCount;
     $output .= $pdoTools->getChunk($tpl, array_merge(['rating_html' => $rating_html], $itemArray));
 }
 
 if (!empty($output)) {
     // Оборачиваем результаты
     $output = $pdoTools->getChunk($tplOuter, [
-        'items' => $output
+        'items' => $output,
+        'limit' => $limit,
+        'startCount' => $startCount
     ]);
 }
 

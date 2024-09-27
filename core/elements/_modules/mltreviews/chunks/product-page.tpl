@@ -5,13 +5,15 @@
     </div>
     <button class="mlt-reviews__open-form btn btn_style_base" data-fancybox data-src="#mlt-reviews-form">Оставить отзыв</button>
   </div>
+  {set $startCount = 5}
+  {set $limit = 20}
   {set $user_reviews = '!mltReviewItems' | snippet : [ 
     'user_reviews' => 1,
     'ratingRowClass' => 'mlt-reviews__item-rating',
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => 'tplItemReview',
     'tplOuter' => 'tplItemOuter',
-    'limit' => 3
+    'limit' => 3,
   ]}
   {if $user_reviews}
       <h2 class="mlt-reviews__title small-title section__title">На модерации</h2>
@@ -23,7 +25,8 @@
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => 'tplItemReview',
     'tplOuter' => 'tplItemOuter',
-    'limit' => 6
+    'limit' => $limit,
+    'startCount' => $startCount
   ]}
   {if !$reviews}
     {set $reviews ='!mltReviewItems' | snippet : [ 
@@ -31,7 +34,8 @@
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => 'tplItemReview',
     'tplOuter' => 'tplItemOuter',
-    'limit' => 6
+    'limit' => $limit,
+    'startCount' => $startCount
   ]}
   {/if}
 

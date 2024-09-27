@@ -72,8 +72,6 @@ class Logger {
     }
     return method;
   }
-
-
 }
 
 const logger = new Logger();
@@ -81,7 +79,7 @@ const logger = new Logger();
 const consoleProxy = new Proxy(console, {
   get(target, property) {
     if (typeof target[property] === 'function') {
-      return logger[property];
+      return logger.custoMizeMethod(target[property]);
     }
     return target[property];
   }

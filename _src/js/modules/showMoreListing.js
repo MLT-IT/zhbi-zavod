@@ -10,7 +10,8 @@ const config = {
   buttonClassName: "", // если добавляется, мало ли понадобится, можно на все кнопки накинуть строку целиком, например "btn btn_style_base"
   buttonTextOn: "Показать еще",
   buttonTextOff: "Скрыть",
-  groupSize: 6,
+  groupSize: 3,
+  startCount: 6,
 };
 
 export default function showMoreListing() {
@@ -18,8 +19,15 @@ export default function showMoreListing() {
   lists.length &&
     lists.forEach((list) => {
       logger.log("Creating show-more wrap");
-      list.groupSize = +(list.dataset.groupSize || config.groupSize); 
-      list.count = list.groupSize;
+      logger.log(
+        `Got dataset startCount = ${list.dataset.startCount}, groupSize = ${list.dataset.groupSize}`
+      );
+      list.groupSize = +(list.dataset.groupSize || config.groupSize);
+      list.count = +list.dataset.startCount || config.startCount;
+      if (!list.children.length || list.children.length < list.count) {
+        logger.log("Group is less than initial size, skip show-more");
+        return;
+      }
       list.children.length &&
         [...list.children].forEach((element, i) => {
           if (i >= list.count) {
@@ -47,10 +55,7 @@ function showMore() {
 }
 
 function makeMoreButton(list) {
-  if (
-    !list instanceof HTMLElement ||
-    list.children.length < list.groupSize
-  ) {
+  if (!list instanceof HTMLElement || list.children.length < list.groupSize) {
     logger.log(`Skip adding more button`);
     return;
   }
@@ -64,7 +69,7 @@ function makeMoreButton(list) {
       list.showMore();
       if (list.count >= list.children.length) {
         button.innerText = config.buttonTextOff;
-        list.count = 0;
+        list.count = list.startCount;
       } else {
         button.innerText = config.buttonTextOn;
       }

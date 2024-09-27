@@ -1,4 +1,4 @@
-<div class="mlt-reviews__item{if $idx >= 6} hidden{/if}">
+<div class="mlt-reviews__item{if $hidden} hidden{/if}">
   <div class="mlt-reviews__item-header">
     <div
       class="mlt-reviews__item-logo"

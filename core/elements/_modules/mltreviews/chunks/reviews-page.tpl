@@ -1,13 +1,15 @@
 {include "file:chunks/svg-gradient.tpl" w=48 h=48}
 <div class="mlt-reviews">
     {include 'file:chunks/banners/reviews-head.tpl'}
+    {set $startCount = 9}
     
     {set $user_reviews = '!mltReviewItems' | snippet : [ 
         'user_reviews' => 1,
         'ratingRowClass' => 'mlt-reviews__item-rating',
         'ratingItemClass' => 'mlt-reviews__item-rating-item',
         'tpl' => 'tplItemReview',
-        'tplOuter' => 'tplItemOuter'
+        'tplOuter' => 'tplItemOuter',
+        'limit' => 3
     ]}
     {if $user_reviews}
     <div class="mlt-reviews__user-reviews">
@@ -20,7 +22,8 @@
         'ratingRowClass' => 'mlt-reviews__item-rating',
         'ratingItemClass' => 'mlt-reviews__item-rating-item',
         'tpl' => 'tplItemReview',
-        'tplOuter' => 'tplItemOuter'
+        'tplOuter' => 'tplItemOuter',
+        'startCount' => $startCount
     ]}
 
     {if $all_reviews}
