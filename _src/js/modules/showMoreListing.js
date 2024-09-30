@@ -18,23 +18,25 @@ export default function showMoreListing() {
   const lists = document.querySelectorAll(`.${config.listClass}`);
   lists.length &&
     lists.forEach((list) => {
-      logger.log("Creating show-more wrap");
-      logger.log(
+      listingLog("Creating show-more wrap");
+      listingLog(
         `Got dataset startCount = ${list.dataset.startCount}, groupSize = ${list.dataset.groupSize}`
       );
       list.groupSize = +(list.dataset.groupSize || config.groupSize);
-      list.count = +list.dataset.startCount || config.startCount;
+      list.startCount = +list.dataset.startCount || config.startCount;
+      list.count = list.startCount;
       if (!list.children.length || list.children.length < list.count) {
-        logger.log("Group is less than initial size, skip show-more");
+        listingLog("Group is less than initial size, skip show-more");
         return;
       }
-      list.children.length &&
-        [...list.children].forEach((element, i) => {
-          if (i >= list.count) {
-            element.classList.add("hidden");
-          }
-        });
+      // list.children.length &&
+      //   [...list.children].forEach((element, i) => {
+      //     if (i >= list.count) {
+      //       element.classList.add("hidden");
+      //     }
+      //   });
       list.showMore = showMore;
+      list.showMore();
       makeMoreButton(list);
     });
 }
@@ -56,7 +58,7 @@ function showMore() {
 
 function makeMoreButton(list) {
   if (!list instanceof HTMLElement || list.children.length < list.groupSize) {
-    logger.log(`Skip adding more button`);
+    listingLog(`Skip adding more button`);
     return;
   }
   let button = list.parentElement.querySelector(`.${config.buttonClassBase}`);
@@ -65,15 +67,22 @@ function makeMoreButton(list) {
     button.className = `${config.buttonClassBase} ${config.buttonClassName}`;
     button.innerText = config.buttonTextOn;
     button.addEventListener("click", () => {
-      list.count += list.groupSize;
+      listingLog(`CURRENT COUNT: ${list.count}, ADDING: ${list.groupSize}, CHILDREN: ${list.children.length}`);
+      list.count += list.count ? list.groupSize : list.startCount;
+      listingLog(`ROUGH RESULT: ${list.count}`);
       list.showMore();
       if (list.count >= list.children.length) {
+        list.count = 0;
+        listingLog(`END OF LIST, COUNT IS: ${list.count}`);
         button.innerText = config.buttonTextOff;
-        list.count = list.startCount;
       } else {
         button.innerText = config.buttonTextOn;
       }
     });
     list.parentElement.append(button);
   }
+}
+
+function listingLog(...args){
+  return console.log('%c%s', 'background-color: #111',` showMore: `, ...args);
 }
