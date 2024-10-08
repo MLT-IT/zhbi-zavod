@@ -944,10 +944,14 @@
         
         &__price
             white-space: nowrap
-            &-value
-                @extend .product-info__price-value
+            &-value            
+                background-color: transparent
+                color: var(--color-black)
+                line-height: 1
+                font-weight: 500
                 font-size: clamp(20px,2vw,30px)
-                color: var(--color-red)
+                &:hover
+                    box-shadow: none
             &-unit 
                 
 .blueprint-request
@@ -974,13 +978,7 @@
         text-align: center
         strong
             font-weight: 600
-
-.product.js-product_with-discount .product-calculator .calculator-result__price-value
-    background-color: transparent
-    color: #000
-    &:hover
-        box-shadow: none
     
 .product.js-product_with-discount .product-calculator__result
     margin-top: 0
-    
+  
