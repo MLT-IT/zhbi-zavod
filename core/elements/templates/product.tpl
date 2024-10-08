@@ -546,7 +546,7 @@
                 <tbody>
                   {'msProductOptions' | snippet : [
                     'tpl' => '@FILE chunks/item-characters.tpl',
-                    'ignoreOptions' => 'edizm,edizm2'
+                    'ignoreOptions' => 'edizm,edizm2,grandlineid'
                   ]}
                 </tbody>
               </table>
