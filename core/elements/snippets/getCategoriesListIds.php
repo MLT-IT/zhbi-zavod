@@ -10,6 +10,7 @@ if (!function_exists('cacheCategories')) {
     function cacheCategories($parent)
     {
         global $modx;
+
         $cacheFolder = 'getCategoriesListIds';
         $cacheName = $parent;
 
@@ -64,4 +65,11 @@ if (!empty($parents)) {
     $result = array_merge($result, cacheCategories($parent));
 }
 
+/*
+$end_time = hrtime(true);
+echo "hrtime:".($end_time - $start_time);
+print_r($result);
+$output = ob_get_clean();
+file_put_contents(MODX_BASE_PATH."/output.txt", $output);
+*/
 return $result;
