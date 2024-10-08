@@ -5,17 +5,14 @@
  * @return array idsCategory список id категорий
  */
 
- //echo "getcatlistids";
-
+/*
 ob_start();
-
 $start_time = hrtime(true);
-
-$context = $modx->context->key;
+*/
 
 if(!function_exists('cacheCategories'))
 {
-    function cacheCategories($parent, $context){
+    function cacheCategories($parent){
         global $modx;
 
         $cacheFolder = 'getCategoriesListIds';
@@ -27,12 +24,12 @@ if(!function_exists('cacheCategories'))
 
         if(!$result = $modx->cacheManager->get($cacheName, $cacheOptions))
         {
-            $q = $modx->newQuery("msCategory", ["parent" => $parent, "context_key" => $context, "class_key" => "msCategory"]);
+            $q = $modx->newQuery("msCategory", ["parent" => $parent, "class_key" => "msCategory"]);
             $q->select("id");
              
             $st = $q->prepare();
-            echo $q->toSQL();
-            $result = getCategories($parent, $st, $context, "msCategory");
+            //echo $q->toSQL();
+            $result = getCategories($parent, $st, "msCategory");
             $modx->cacheManager->set($cacheName, $result, 0, $cacheOptions);
         }
 
@@ -52,15 +49,15 @@ if(!isset($parent)) return;
 if(!function_exists('getCategories'))
 {
     
-    function getCategories($parent, $st, $context)
+    function getCategories($parent, $st)
     {
         $result = [];
-        $st->execute([$parent, $context, "msCategory"]);
+        $st->execute([$parent, "msCategory"]);
         $r = $st->fetchAll(PDO::FETCH_COLUMN);
         $st->closeCursor();
         $result = array_merge($result, $r);
         foreach($r as $cat){
-            $result = array_merge(getCategories($cat, $st, $context), $result);
+            $result = array_merge(getCategories($cat, $st), $result);
         }
         $result[] = $parent;
         return $result;
@@ -69,17 +66,17 @@ if(!function_exists('getCategories'))
 
 if(!empty($parents)){
     foreach($parents as $parent){
-        $result = array_merge($result, cacheCategories($parent, $context));
+        $result = array_merge($result, cacheCategories($parent));
     }
 }else{
-    $result = array_merge($result, cacheCategories($parent, $context));
+    $result = array_merge($result, cacheCategories($parent));
 }
 
-
+/*
 $end_time = hrtime(true);
 echo "hrtime:".($end_time - $start_time);
 print_r($result);
 $output = ob_get_clean();
 file_put_contents(MODX_BASE_PATH."/output.txt", $output);
-
+*/
 return $result;
