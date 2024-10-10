@@ -229,7 +229,7 @@
                 font-size: 18px
 
             +until-480
-                font-size: 20px
+                font-size: 18px
 
         .header__search
             &_screen
@@ -327,3 +327,31 @@
                             display: none !important
                         .header__actions-mobile
                             margin-bottom: 10px
+
+
+.extranav
+    display: flex
+    gap: 10px
+    justify-content: center
+    padding-top: 10px
+    &__item
+        position: relative
+        list-style-type: none
+        padding: 5px
+        &:hover
+            .extranav__subnav
+                display: block
+    &__link
+        font-size: 14px
+        text-decoration: underline
+        text-decoration-thickness: 1px
+        color: var(--color-red)
+    span.extranav__link
+        text-decoration-style: dotted
+    
+    &__subnav
+        display: none
+        position: absolute
+        top: 100%
+        background-color: var(--color-gray-lt)
+        padding: 10px

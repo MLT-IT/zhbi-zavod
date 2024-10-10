@@ -76,10 +76,10 @@ foreach ($items as $item) {
 
     if (!$item->published) continue;
 
-    if(isset($startCount) && $idx > $startCount) break;
+    // if(isset($startCount) && $idx > $startCount) break;
 
     $rating_html = "<div class='$ratingRowClass'>";
-    for ($i = 1; $i <= 5; $i++) {
+    for ($i = 1; $i < $startCount; $i++) {
         if ($i <= $item->rating) $active_class = 'active';
         else $active_class = '';
 

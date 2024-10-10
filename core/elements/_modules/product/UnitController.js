@@ -12,6 +12,7 @@ const unitsMap = {
   10: "data-meter",
   11: "data-upk",
   12: "data-pdn",
+  13: 'data-pdn_calced',
 };
 
 export default class UnitController {
