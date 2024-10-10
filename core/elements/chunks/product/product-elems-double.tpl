@@ -47,7 +47,7 @@ lists: {$listCount}
 
 {include 'file:chunks/product/link-calculator.tpl'}
 
-<div class="product-calculator__buttons product-info__actions">
+<div class="product-calculator__buttons">
 
   <div class="js-product__controls js-product__controls_action_add">
     <input type="hidden" class="custom-counter__amount" value="{$inCart}">

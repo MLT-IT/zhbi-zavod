@@ -229,7 +229,7 @@
                 font-size: 18px
 
             +until-480
-                font-size: 18px
+                font-size: MAX(4vw, 14px)
 
         .header__search
             &_screen
@@ -330,10 +330,13 @@
 
 
 .extranav
-    display: flex
+    display: none
     gap: 10px
     justify-content: center
     padding-top: 10px
+    @at-root .krovelnyjstroymarket &
+        +until-480 
+            display: flex
     &__item
         position: relative
         list-style-type: none
@@ -345,7 +348,7 @@
         font-size: 14px
         text-decoration: underline
         text-decoration-thickness: 1px
-        color: var(--color-red)
+        color: var(--color-black)
     span.extranav__link
         text-decoration-style: dotted
     

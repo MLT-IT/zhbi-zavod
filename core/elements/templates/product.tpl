@@ -210,10 +210,11 @@
                         ]}
                       </span>
                     </div>
-
+                    {if !($isCustomCalculator || $isShtaketnik)}
                     <div class="product-info__shipped mobile-flex">
                         {'@FILE snippets/shippedToday.php' | snippet}
                     </div>
+                    {/if}
 
 
                     {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
@@ -450,13 +451,13 @@
               {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
-                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" class="icon" preserveAspectRatio="xMidYMid meet">
                           <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
                       </svg>
                       <span class="product-info__undertext-span-header">Самовывоз: </span> сегодня
                     </p>
                     <p class="product-info__undertext-span">
-                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" class="icon" preserveAspectRatio="xMidYMid meet">
                           <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
                       </svg>
                       <span class="product-info__undertext-span-header">Доставка: </span> 1-2 дня
@@ -483,8 +484,26 @@
                 {case 'web'}
                     <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
               {/switch}
-            </div>
+              </div>
 
+            {* Special osnova *}
+            {if $isCustomCalculator}
+            <div class="product-info__relinkav product-info mobile-flex">
+                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
+                    Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
+                </div>
+                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
+                    На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
+                </div>
+                <div class="product-info__prod-time mobile-flex">
+                    Срок изготовления: 2-3 дня
+                </div>
+                <div class="product-info__warranty mobile-flex">
+                    Гарантия на товар: 30 лет
+                </div>
+            </div>
+            {/if}
+            {* /Special *}
 
             {if $isCustomCalculator || $isShtaketnik}
               <div class="blueprint-request">

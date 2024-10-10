@@ -163,14 +163,13 @@
 
         &-dropdown
             +until-480
-                max-height: 1000px
-
+                max-height: 60vh
+                overflow-y: auto
                 transition: max-height .4s ease
-                overflow: hidden
 
             & > *:first-child
                 +until-480
-                    margin-top: 20px
+                    padding-top: 20px
 
         &:not(.active)
 

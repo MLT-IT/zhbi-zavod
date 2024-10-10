@@ -263,14 +263,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
 
     if($('body').width() < 778){
+        const skipButtonMore = document.body.classList.contains('krovelnyjstroymarket');
         var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
-
-        $('.burger-menu__catalog').append($buttonMore);
-        $('.bm-cat-item').each(function(index){
-            if(index > 2){
-                $(this).hide();
-            }
-        });
+        if(!skipButtonMore){
+            $('.burger-menu__catalog').append($buttonMore);
+            $('.bm-cat-item').each(function(index){
+                if(index > 2){
+                    $(this).hide();
+                }
+            });
+        }
         $buttonMore.click(function (){
             if($buttonMore.text() == 'Скрыть'){
                 $('.bm-cat-item').each(function(index){

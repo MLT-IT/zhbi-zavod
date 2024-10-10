@@ -238,7 +238,7 @@
         {case 'suhiesmesi'}
           {set $params['parents'] = 105697}
         {case 'krovelnyjstroymarket'}
-          {set $resources = '125531,125540,125530,125532,125538,125536,125534,125535,125537,125541,125528,125539,125533,125529'}
+          {set $resources = '125530,125532,125537,125541,125538,125536,125534,125535,125531,125540,125528,125539,125533,125529'}
           {set $params['resources'] = $resources}
           {set $params['parents'] = 0}
           {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
@@ -248,9 +248,11 @@
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>
+    {if $_modx->context.key not in ['krovelnyjstroymarket']}
     <div class="burger-menu__link-to-catalog-wrap">
       <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">{$toCatalogBtnText}</a>
     </div>
+    {/if}
 
   </div>
 </section>
