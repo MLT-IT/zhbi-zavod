@@ -328,5 +328,18 @@
         </button>
       </div>
     </div>
+    {if $_modx->context.key == 'krovelnyjstroymarket'}
+    <nav class="header__extranav extranav">
+      <li class="extranav__item"><span class="extranav__link">Сервисы расчета</a>
+        <ul class="extranav__subnav">
+              {'pdoResources' | snippet : [
+                'parents' => '230724',
+                'tpl' => '@INLINE <li class="extranav__item"><a class="extranav__link" href="{$uri}">{$menutitle}</a></li>'
+              ]}
+        </ul>
+      <li class="extranav__item"><a class="extranav__link" href="/dostavka-i-oplata/">Доставка</a>
+      <li class="extranav__item"><a class="extranav__link" href="/contacts/">Контакты</a>
+    </nav>
+    {/if}
   </div>
 </header>

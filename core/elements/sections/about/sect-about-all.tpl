@@ -1,3 +1,5 @@
+{include "file:chunks/svg-gradient.tpl" w=48 h=48}
+
 <section class="about">
       <div class="about__container">
 

@@ -184,7 +184,7 @@
           <div class="product__info-wrap">
             <div class="product__info product-info">
             {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
-              <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
+            <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
             {/if}
               <div class="product-info__top">
                 <div class="product-info__divider">
