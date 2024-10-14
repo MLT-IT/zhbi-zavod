@@ -12,21 +12,6 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $tags = '@FILE snippets/getTags.php' | snippet :[
-  'tpl' => '@FILE chunks/create-menu/tags-item.tpl',
-  'tplWrapper' => '@INLINE
-  {if $output}
-  <div class="catalog-screen__products">
-      <ul class="catalog-screen__items">
-          {$output}
-          <li class="catalog-screen__tag catalog-screen__tag_type_more"></li>
-      </ul>
-  </div>
-  {/if}',
-  'idTagsBlock' => 'block-1',
-  'onlyCustomTags' => true
-  ]}
-
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
       {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -45,64 +30,32 @@
       </article>
     </section>
 
-    {set $params = [
-      'element' => 'msProducts',
+    
+    <section class="section catalog-krovlya">
+      <div class="catalog-krovlya__container" itemscope itemtype="https://schema.org/Collection">
+      <meta itemprop="name" content="Каталог товаров для кровли">
+      {set $params = [
+        'depth' => 0,
+        'limit' => 0,
+        'tpl' => '@FILE chunks/catalog-krovlya-item.tpl',
+        'where' => '{"template:=":"5"}',
+        'includeTVs' => 'mainImage',
+        'tvPrefix' => ''
+      ]}
 
-      'suggestions' => 0,
+      {set $resources = '125530,125532,125537,125541,125538,125536,125534,125535,125531,125540,125528,125539,125533,125529'}
+      {set $params['resources'] = $resources}
+      {set $params['parents'] = 0}
+      {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
+      {set $params['sortdir'] = 'ASC'}
 
-      'filters' => $_modx->resource.listFilters ?: "",
-      'includeThumbs' => 'webp',
-      'tpls' => "@FILE chunks/product/listing-products-item-catalog.tpl",
-      'tplOuter' => '@FILE sections/listing.tpl',
-      'ajaxMode' => 'button',
-      'showEmptyFilters' => 0,
-      'limit' => 42,
-
-      'tplFilter.outer.default' => '@FILE chunks/listing/filter-checkbox.tpl',
-      'tplFilter.row.default' => '@FILE chunks/listing/filter-checkbox-option.tpl',
-      'tplFilter.outer.price' => '@FILE chunks/listing/filter-number.tpl',
-      'tplFilter.row.price' => '@FILE chunks/listing/filter-number-inner.tpl',
-
-      'aliases' => '@FILE snippets/getAliasesFromFilters.php' | snippet,
-      'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
-      'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping,stockNum',
-
-      'values_delimeter' => '~',
-      'context' => $_modx->resource.context_key,
-
-      'optionFilters' => $_modx->getPlaceholder('mspcs.option'),
-      'where' => $_modx->getPlaceholder('mspcs.where'),
-
-      'setMeta' => 0,
-      'totalVar' => 'total',
-
-      'parents' => 'excludeIds' | snippet : [
-          'isSeoPage' => $isSeoPage
-      ],
-
-      'context' => $_modx->resource.context_key,
-      'suggestionsMaxFilters' => 0,
-      'suggestionsMaxResults' => 0
-    ]}
-
-    {* >>> Листинг товаров *}
-    {'!mFilter2' | snippet : $params}
-    {* <<< Листинг товаров *}
-
-    {*
-    {switch $_modx->resource.context_key}
-      {case 'web'}
-        {include "file:sections/uteplitel-info.tpl"}
-      {case 'gazosilikatstroy'}
-        {include "file:sections/gazobeton-info.tpl"}
-    {/switch}
-    *}
+      {$_modx->runSnippet('pdoResources', $params)}
+      </div>
+    </section>
 
     {include "file:sections/delivery.tpl" styleClass='section_view_bg'}
-    {if $_modx->resource.context_key == 'tagnerud'}
-          {include "file:sections/tagnerud-info.tpl"}
-    {/if}
     {include "file:sections/payment.tpl"}
     {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
+
   </main>
 {/block}
