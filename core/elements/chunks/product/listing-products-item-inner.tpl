@@ -11,10 +11,20 @@
   <a href="{$uri}" class="product-card__link">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
   </a>
-  <div class="product-card__actions">
+  <div class="product-card__actions{if $idx == 1 ?} active{/if}">
     <button class="product-action product-action_favorite js-product__btn-fav{if $prodValues['checkItems']['fav'][$id]?} active{/if}"></button>
-
-    <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
+    {if $_modx->context.key in list ['krovelnyjstroymarket']}
+    <a href="/shourum/" rel="nofollow" class="product-action product-action_showroom"></a>
+      {if $idx == 1}
+      <div class="popup-mes">
+          {* <p class="popup-mes__header">Снижение цены!</p> *}
+          <p class="popup-mes__body">Товар можно посмотреть вживую в нашем шоу-руме!</p>
+          <span class="popup-mes__close"></span>
+      </div>
+      {/if}
+    {else}
+      <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
+    {/if}
 
   </div>
 </div>

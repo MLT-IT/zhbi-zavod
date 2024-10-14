@@ -2,6 +2,7 @@ import functions from "./functions";
 import ImageZoom from 'js-image-zoom';
 import ReplacerImage from "../class/product/ReplacerImage.js";
 import Swiper from "swiper";
+import initTooltipPopups from "../modules/toolTipPopup.js";
 /**
  * Функции, относящиеся к товару (добавление в корзину, изменение, удаление, переключение единиц измерения...).
  */
@@ -602,17 +603,7 @@ function init(yandexMetrikaId) {
         });
     }
 
-    // Всплывашка на цене со скидкой
-    if ($('.js-product_with-discount').length) {
-        let timeout = setTimeout(function () {
-            $('.product-info__price').removeClass('active');
-        }, 7000);
-        $('.js-product_with-discount .product-info__price-value, .js-product_with-discount .product-info__price-mes-close').on('click', function (e) {
-            e.stopPropagation();
-            clearTimeout(timeout);
-            $(this).closest('.product-info__price').toggleClass('active');
-        });
-    }
+   initTooltipPopups();
 
 }
 

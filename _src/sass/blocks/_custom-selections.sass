@@ -123,6 +123,9 @@
     display: flex
     align-items: center
     gap: 15px
+    +until-480
+      flex-direction: column
+      align-items: flex-start
 
   dd
     display: flex
@@ -134,13 +137,16 @@
 
     +until-768
       font-size: 12px
+      gap: 6px
+      justify-content: flex-start
     a
       height: 30px
       max-width: unset
-      width: auto
       padding-inline: 7px
       display: flex
       align-items: center
+      width: fit-content
+      flex-basis: auto
       &:hover
         color: #111
 
@@ -150,14 +156,3 @@
   dt
     font-weight: 600
     min-width: 100px
-
-    // @media(max-width: 772px)
-    //       dl
-    //             display: block
-
-    //       dd
-    //             margin-left: 0px
-    //             display: flex
-    //             flex-wrap: wrap
-    //       dt
-    //             width: 100%
