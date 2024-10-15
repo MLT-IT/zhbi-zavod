@@ -1,10 +1,9 @@
-import logger from "../../../core/elements/_modules/debug/Logger";
 import CalculatorWidth from "../../../core/elements/_modules/product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
     const calculators = document.querySelectorAll(".calcProduct");
-    logger.log(`FOUND ${calculators.length} PRODUCTS`);
+    console.log(`FOUND ${calculators.length} PRODUCTS`);
 
     calculators.forEach((calculator) => {
       const product = calculator.closest(".js-product");
@@ -15,7 +14,7 @@ export default function initSquareMetersHandler() {
         const haveResult = "result" in this.nodes;
         if (haveResult) {
           currentSize = currentSize || parseFloat(getComputedStyle(this.nodes.result.price).fontSize);
-          logger.log(`Result price font set to ${isBig ? size : currentSize}`);
+          console.log(`Result price font set to ${isBig ? size : currentSize}`);
           this.nodes.result.price.style.fontSize = `${
             isBig ? size : currentSize
           }px`;
@@ -23,12 +22,12 @@ export default function initSquareMetersHandler() {
       }
       if (product) {
         new CalculatorWidth(product, () =>
-          logger.log("Product calc created")
+          console.log("Product calc created")
         ).addListener(togglePriceFontSize);
       }
     });
   } catch (e) {
-    logger.error("Ошибка инициализации счетчиков", e);
+    console.error("Ошибка инициализации счетчиков", e);
   }
 }
 
@@ -124,7 +123,7 @@ export default function initSquareMetersHandler() {
 //   const forms = getActiveForm(productCart);
 //   const systemForm = forms["system"]; // get HTML Element
 //   systemForm.querySelector('[name="count"]').setAttribute("value", `${count}`);
-//   logger.log(
+//   console.log(
 //     `Found  product card, update count ${
 //       $systemForm.querySelector('[name="count"]').value
 //     } to ${count}`

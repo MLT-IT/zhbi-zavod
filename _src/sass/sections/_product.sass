@@ -287,7 +287,11 @@
             font-weight: 500
             margin-top: 0
             +until-480
-                align-items: flex-start
+                flex-direction: row
+                gap: 10px
+                align-items: flex-end
+                font-size: 20px
+                line-height: 1
 
     &__link-calculator
         margin-top: 15px
@@ -466,8 +470,12 @@
         display: flex
         flex-direction: column
         @at-root .krovelnyjstroymarket &
+            +until-768 
+                order: 0
             +until-480 
                 order: 0
+            
+
 
         +until-768
             order: 2
@@ -579,14 +587,12 @@
                 margin-bottom: 6px
                 order: 1
                 transition: .3s
+                @at-root .krovelnyjstroymarket &
+                    margin-bottom: 0
 
                 &:hover
                     box-shadow: 0 0 30px rgba(211,85,60,.44)
-                +until-480
-                    @at-root .krovelnyjstroymarket &
-                        font-size: 20px
-                        order: inherit
-                        margin: 0
+
 
 
             .product-info__price
@@ -599,6 +605,7 @@
                 +until-480
                     margin-top: 20px
                     @at-root .krovelnyjstroymarket &
+                        flex: 0
                         margin-top: 0
                         align-items: flex-end
                         font-size: 20px
@@ -633,6 +640,12 @@
             font-weight: 700
             font-size: 30px
             line-height: 1.5
+            +until-480
+                @at-root .krovelnyjstroymarket &
+                    font-size: 20px
+                    line-height: 1
+                    order: inherit
+                    margin: 0
 
     &__actions
         margin-top: 30px
@@ -999,14 +1012,14 @@
 
         &__summary
             display: flex
-            font-size: 16px
-            gap: 5px
+            gap: 3px
+            font-size: 12px
+            align-items: flex-end
             &-title
-                font-size: 1em
+                font-size: 1.2em
                 align-self: flex-start
             &-volume
 
-                margin-left: 5px
             &-unit
         
         &__price
@@ -1015,11 +1028,12 @@
                 background-color: transparent
                 color: var(--color-black)
                 line-height: 1
-                font-weight: 500
-                font-size: clamp(20px,2vw,30px)
+                font-weight: 700
+                font-size: clamp(26px,4vw,30px)
                 &:hover
                     box-shadow: none
             &-unit 
+                margin-left: 5px
                 
 .blueprint-request
     &__button
