@@ -219,7 +219,7 @@
         'depth' => 0,
         'limit' => 0,
         'tpl' => '@FILE chunks/create-menu/mobile-menu-item.tpl',
-        'where' => '{"template:=":"5"}',
+        'where' => '{"template:IN":[5,36]}',
         'includeTVs' => 'mainImage'
       ]}
       {switch $_modx->resource.context_key}

@@ -38,7 +38,7 @@
         'depth' => 0,
         'limit' => 0,
         'tpl' => '@FILE chunks/catalog-krovlya-item.tpl',
-        'where' => '{"template:=":"5"}',
+        'where' => '{"template:IN":[5,36]}',
         'includeTVs' => 'mainImage',
         'tvPrefix' => ''
       ]}

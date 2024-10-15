@@ -294,6 +294,8 @@
         width: 100%
         +until-480 
             margin: 0
+            padding-bottom: 1em
+            border-bottom: 1px solid var(--color-gray-md)
         .btn
             margin: 0
 
@@ -465,7 +467,7 @@
         flex-direction: column
         @at-root .krovelnyjstroymarket &
             +until-480 
-                order: 4
+                order: 0
 
         +until-768
             order: 2
@@ -580,6 +582,12 @@
 
                 &:hover
                     box-shadow: 0 0 30px rgba(211,85,60,.44)
+                +until-480
+                    @at-root .krovelnyjstroymarket &
+                        font-size: 20px
+                        order: inherit
+                        margin: 0
+
 
             .product-info__price
                 margin-top: 20px
@@ -592,6 +600,11 @@
                     margin-top: 20px
                     @at-root .krovelnyjstroymarket &
                         margin-top: 0
+                        align-items: flex-end
+                        font-size: 20px
+                        gap: 5px
+                        flex-direction: row
+                        white-space: nowrap
 
                 &::after
                     display: block
@@ -601,6 +614,9 @@
 
             .js-product__old-price
                 order: 3
+                +until-480
+                    @at-root .krovelnyjstroymarket &
+                        font-size: 15px
 
         +until-480
             // margin-top: 10px
@@ -626,7 +642,7 @@
                 display: flex
                 flex-direction: column
                 gap: 10px
-                margin-top: 0
+                margin-top: 10px
 
         .counter__btn, .counter
             +until-768
@@ -691,11 +707,12 @@
         grid-column: 1 / -1
 
     &__price-mes
-        text-align: left
+        position: absolute
+        z-index: 5
         bottom: 68px
         right: -54px
+        text-align: left
         color: #fff
-        position: absolute
         opacity: 0
         pointer-events: none
         padding: 16px
@@ -923,6 +940,8 @@
     +until-480
         font-size: 12px
         width: 100%
+        flex-wrap: wrap
+        justify-content: flex-start
 
     .counter
         height: var(--size)
@@ -937,22 +956,26 @@
 
     &__inputs
         display: flex
+        gap: 1em
         +until-768
             flex-direction: column
-        gap: 1em
+        +until-480 
+            flex-direction: row
+            flex-basis: 100%
+            justify-content: space-between
     &__input
         min-width: 175px
         flex-basis: 30%
+        +until-480 
+            min-width: 140px
         &-title
             font-size: .9em
             font-weight: 400
             margin-bottom: .5em
             
     &__result
-        @extend .product-info__price
-        gap: 10px
         margin: 0
-        padding-left: .5em
+        margin-top: 1em
 
     &__buttons
         display: grid
@@ -961,22 +984,28 @@
         margin-top: 1.1em
         +until-480 
             margin-top: 0
-            padding-bottom: 1em
-            border-bottom: 1px solid #aaa
+            padding-bottom: 5px
         .btn
             height: 3.5em
             margin: 0 !important
         
 
     .calculator-result
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        gap: 5px
         align-self: flex-start
+
         &__summary
             display: flex
-            font-size: 1em
+            font-size: 16px
+            gap: 5px
             &-title
                 font-size: 1em
                 align-self: flex-start
             &-volume
+
                 margin-left: 5px
             &-unit
         
@@ -1017,6 +1046,6 @@
         strong
             font-weight: 600
     
-.product.js-product_with-discount .product-calculator__result
-    margin-top: 0
+// .product.js-product_with-discount .product-calculator__result
+//     margin-top: 1em
   

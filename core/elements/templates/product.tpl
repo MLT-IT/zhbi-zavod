@@ -183,9 +183,9 @@
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
-            {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
+            {* {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
             <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
-            {/if}
+            {/if} *}
               <div class="product-info__top">
                 <div class="product-info__divider">
                   <div>
@@ -247,9 +247,9 @@
                         {/if}
                       {/if}
 
-                      {if $_modx->resource.article && ($isCustomCalculator || $isShtaketnik)}
+                      {* {if $_modx->resource.article && ($isCustomCalculator || $isShtaketnik)}
                         <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
-                      {/if}
+                      {/if} *}
 
                       {switch $_modx->resource.context_key}
                         {case 'web'}
@@ -429,9 +429,7 @@
                 {/if}
               </div>
                 
-              {if $isShtaketnik && !$isCustomCalculator}
-                {include 'file:chunks/product/link-calculator.tpl'}
-              {/if}
+
               <div class="product-info__actions">
                   {*  *}
                   {if $isCustomCalculator and $settingCardKrovlya['width']}
@@ -444,6 +442,10 @@
               </div>
               {if !$skipOneClickButton}
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
+              {/if}
+
+              {if $isShtaketnik && !$isCustomCalculator}
+                {include 'file:chunks/product/link-calculator.tpl'}
               {/if}
 
             </div>

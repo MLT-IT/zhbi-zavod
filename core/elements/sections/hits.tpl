@@ -1,5 +1,5 @@
 
-{set $hits = 'msProducts' | snippet : [
+{set $hits = '!msProducts' | snippet : [
   'parents' => 0,
   'depth' => 50,
   'limit' => 42,

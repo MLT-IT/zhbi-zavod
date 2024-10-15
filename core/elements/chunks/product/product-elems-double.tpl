@@ -45,8 +45,6 @@ lists: {$listCount}
   </div>
 </div>
 
-{include 'file:chunks/product/link-calculator.tpl'}
-
 <div class="product-calculator__buttons">
 
   <div class="js-product__controls js-product__controls_action_add">
@@ -63,6 +61,8 @@ lists: {$listCount}
   </div>
   <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
 </div> 
+
+{include 'file:chunks/product/link-calculator.tpl'}
 
 <div class="js-product__ms2-elems hidden">
   <form class="js-product__form-add ms2_form" method="post">
