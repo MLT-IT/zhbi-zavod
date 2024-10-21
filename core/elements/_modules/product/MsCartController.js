@@ -1,4 +1,3 @@
-import logger from "../debug/Logger";
 
 export class MsCartController {
   product = null;
@@ -20,11 +19,11 @@ export class MsCartController {
 
   constructor(elem) {
     if (!elem instanceof HTMLElement) {
-      logger.log("Node invalid");
+      console.log("Node invalid");
       return false;
     }
     if (elem.classList.contains(this.config.selectors.product.wrapper.substring(1))) {
-      // logger.log(`Product classes ${elem.classList}`)
+      // console.log(`Product classes ${elem.classList}`)
       this.product = elem;
     } else {
       this.product = document.querySelector(
@@ -32,7 +31,7 @@ export class MsCartController {
       );
     }
     if (!this.product) {
-      logger.log("Product with cart not found");
+      console.log("Product with cart not found");
       return false;
     }
   }
@@ -48,9 +47,9 @@ export class MsCartController {
       +parseFloat(priceNode.innerText) ||
       0;
     if(result){
-      logger.log(`Base price is ${result}`);
+      console.log(`Base price is ${result}`);
     } else {
-      logger.warn(`Base price is ${result}`);
+      console.warn(`Base price is ${result}`);
     }
     return result;
   }
@@ -64,15 +63,15 @@ export class MsCartController {
     try {
       const { form, action } = this.getFormAndAction();
       const countField = form.querySelector(this.config.selectors.forms.count);
-      logger.log(`Product in cart: ${this.isInCart}`);
-      logger.log(
+      console.log(`Product in cart: ${this.isInCart}`);
+      console.log(
         `Updating cart form volume = ${val} in place of ${
           countField.value
         }`
       );
       countField.setAttribute("value", val);
       countField.value = val;
-      logger.log(
+      console.log(
         `New form input value = ${
           countField.value
         }`
@@ -81,11 +80,11 @@ export class MsCartController {
       if (this.isInCart) {
         // send hidden form of current product
         // already triggers in funcsProduct, but should certainly be here
-        logger.warn("Sending update to MS Cart");
+        console.warn("Sending update to MS Cart");
         action.click();
       }
     } catch (e) {
-      logger.error("error updating cart", e);
+      console.error("error updating cart", e);
     }
   }
 

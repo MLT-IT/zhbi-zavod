@@ -39,6 +39,7 @@ import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additiona
 import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
+import '../../core/elements/_modules/debug/Logger.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {

@@ -1,4 +1,3 @@
-import logger from "../debug/Logger";
 import CalculatorInput from "./CalculatorInput";
 import { MsCartController } from "./MsCartController";
 import UnitController from "./UnitController";
@@ -60,13 +59,13 @@ export default class CalculatorBase {
       this.priceBase = this.cartHandler.price;
       this.render();
     } catch (e) {
-      logger.error("Calculator instance construction error", e);
+      console.error("Calculator instance construction error", e);
     }
   }
 
   get unit() {
     const unit = this.unitController.getUnitValue();
-    logger.log(`Getting unit = ${unit}`);
+    console.log(`Getting unit = ${unit}`);
 
     if (!unit) {
       throw new Error("Volume error");
@@ -114,7 +113,7 @@ export default class CalculatorBase {
   }
 
   update() {
-    // logger.log(`Calculator update: ${this.volume}`);
+    // console.log(`Calculator update: ${this.volume}`);
     this.cartHandler.update(this.volume);
     this.render();
   }
@@ -126,7 +125,7 @@ export default class CalculatorBase {
       this.nodes.result.price.innerText = this.formatPrice(
         Math.ceil(priceBase * volume).toFixed(0)
       );
-      logger.log(
+      console.log(
         `Render VOLUME: ${volume}, COST (${priceBase} x ${volume}): ${
           priceBase * volume
         }`
@@ -141,7 +140,7 @@ export default class CalculatorBase {
       this._listeners.forEach((fn) => fn.call(this));
       this.callBack();
     } catch (e) {
-      logger.error(`Failer execution of listeners`, e);
+      console.error(`Failer execution of listeners`, e);
     }
   }
 
@@ -166,7 +165,7 @@ export default class CalculatorBase {
         counter.value = volume;
         counter.setAttribute("value", volume);
         if (counter.tagName.toLowerCase() !== "input") {
-          logger.log(`Updated value text of ${counter.tagName}`);
+          console.log(`Updated value text of ${counter.tagName}`);
           counter.innerText = volume;
         }
       });

@@ -1,4 +1,3 @@
-import logger from "../../../core/elements/_modules/debug/Logger";
 import collapseLongTexts from "./collapseLontTexts";
 
 // по приколу сделал на прототипах: методы и свойства накидываются прямо на DOM элементы списков
@@ -43,7 +42,7 @@ export default function showMoreListing() {
 
 function showMore() {
   if (!this.children.length) {
-    logger.log(`Can't show more on empty`);
+    console.log(`Can't show more on empty`);
     return;
   }
   [...this.children].forEach((element, i) => {

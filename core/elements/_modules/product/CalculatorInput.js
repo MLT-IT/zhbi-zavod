@@ -1,6 +1,3 @@
-import logger from "../debug/Logger";
-
-
 /**
  * Класс для создания обработчика инпута
  */
@@ -46,12 +43,12 @@ export default class CalculatorInput {
         };
       }
       this.value = initialValue;
-      logger.warn(`Initial value is set to ${this.value}`);
+      console.warn(`Initial value is set to ${this.value}`);
       this.onChange = onChange;
       this.setValidatorValues();
       this.setEvents();
     } catch (e) {
-      logger.error(e);
+      console.error(e);
     }
   }
 
@@ -77,7 +74,7 @@ export default class CalculatorInput {
         );
       }
     } catch (e) {
-      logger.error(e);
+      console.error(e);
     }
   }
 
@@ -120,20 +117,20 @@ export default class CalculatorInput {
       });
 
       inputNode.addEventListener("change", () => {
-        logger.log("Change triggered");
+        console.log("Change triggered");
         this.onChange(this.value);
       });
       inputNode.addEventListener("input", ({ target }) => {
-        logger.log("Input triggered");
+        console.log("Input triggered");
       });
 
       incNode.addEventListener("click", (e) => {
-        logger.warn("INC");
+        console.warn("INC");
         this.value += step;
         inputNode.dispatchEvent(new Event("change"));
       });
       decNode.addEventListener("click", (e) => {
-        logger.warn("DEC");
+        console.warn("DEC");
         this.value -= step;
         inputNode.dispatchEvent(new Event("change"));
       });
@@ -147,7 +144,7 @@ export default class CalculatorInput {
     const constrainedValue = Math.max(min, Math.min(max, value)); // Clamp value within min and max
     const result = Math.round(constrainedValue / step) * step;
     if(value !== result){
-      logger.log(`Validator converted ${value} to ${result}`);
+      console.log(`Validator converted ${value} to ${result}`);
     }
     return result;
   }
