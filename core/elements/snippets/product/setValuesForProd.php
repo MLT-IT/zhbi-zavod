@@ -99,6 +99,9 @@ $result['condition'] = !in_array($src['parent'], [
 
     // tagnerud
     // 196940, 196937,
+
+    // plitnye
+    178116,177263,177282,177289,177299,177264,177042,177296,
 ]);
 
 // Дробное добавление товара в корзину
@@ -195,7 +198,7 @@ if (in_array($src['context_key'], ['krovelnyjstroymarket'])) {
 }
 
 // Единицы измерения для плитных
-if (in_array($src['context_key'], ['plitnie'])) {
+if (in_array($src['context_key'], ['plitnye'])) {
     if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
         $m2 = $src['ploshad_m2'][0];
     }

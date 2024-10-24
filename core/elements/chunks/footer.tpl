@@ -97,6 +97,7 @@
     </div>
     <div class="footer__right">
       <div class="footer__right-top">
+        {if $_modx->context.key !== 'plitnye'}
         <div class="footer__nav">
           <p class="footer__nav-title">Каталог</p>
           <nav class="footer__nav-list">
@@ -107,6 +108,20 @@
             <a class="footer__nav-item" href="/garantii/">Гарантии</a>
           </nav>
         </div>
+        {else}
+        <div class="footer__nav">
+          <p class="footer__nav-title">Покупателям</p>
+          <nav class="footer__nav-list">
+            <a class="footer__nav-item" href="/o-kompanii/">О компании</a>
+            <a class="footer__nav-item" href="/contacts/">Контакты</a>
+            <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
+            <a class="footer__nav-item" href="/akcii/">Акции</a>
+            <a class="footer__nav-item" href="/faq/">Вопросы и ответы</a>
+            <a class="footer__nav-item" href="/garantii/">Гарантии</a>
+            <a class="footer__nav-item" href="/otzyvy/">Отзывы</a>
+          </nav>
+        </div>
+        {/if}
         <div class="footer__nav footer__nav_categories">
           <p class="footer__nav-title">Популярные категории</p>
           {set $resources =  $_modx->config.popular_categories}

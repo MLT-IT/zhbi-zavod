@@ -641,8 +641,8 @@
                                 {set $lastElem = $splitted[$count - 1] | strtolower}
 
                                 {if $lastElem == 'pdf'}
-                                    {set $previewSrc = 'pdfToJpg' | snippet : [
-                                    'src' => '/assets/template/img/import/' ~ $ct.file,
+                                    {set $previewSrc = '@FILE: snippets/pdfToJpg.php' | snippet : [
+                                      'src' => '/assets/template/img/import/' ~ $ct.file,
                                     ]}
                                 {elseif ($lastElem in list ['jpg','jpeg','png','gif','webp'])}
                                     {set $previewSrc = '/assets/template/img/import/' ~ $ct.file}

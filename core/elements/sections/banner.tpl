@@ -86,7 +86,7 @@
         {case 'web'}
           {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
         {case 'plitnye'}
-          {set $link = '#'}
+          {set $link = '/likvidaciya-sklada/'}
         {case 'stenovye'}
           {set $link = '#'}
         {case 'gazosilikatstroy'}
