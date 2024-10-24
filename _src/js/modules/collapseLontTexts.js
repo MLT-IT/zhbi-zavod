@@ -1,4 +1,3 @@
-import logger from "../../../core/elements/_modules/debug/Logger";
 
 let maxHeight = "3em";
 const buttonClass = "read-all-button";
@@ -11,18 +10,18 @@ export default function collapseLongTexts() {
     textBlocks &&
       textBlocks.forEach((textBlock) => {
         if (!textBlock.innerText.length) {
-          logger.log(`No text to collapse skip`);
+          console.log(`No text to collapse skip`);
           return;
         }
         if (textBlock.scrollHeight <= textBlock.clientHeight) {
-          logger.log(`Text is not high enough to collapse, skipping`);
+          console.log(`Text is not high enough to collapse, skipping`);
           return;
         }
         if (textBlock.parentElement.querySelector(`.${buttonClass}`)) {
-          logger.log("Skip existing long text wrap");
+          console.log("Skip existing long text wrap");
           return;
         }
-        logger.log("Creating long text collapse wrap");
+        console.log("Creating long text collapse wrap");
         textBlock.style.maxHeight = maxHeight;
         const toggleButton = document.createElement("div");
         toggleButton.classList.add(buttonClass);
@@ -41,6 +40,6 @@ export default function collapseLongTexts() {
         });
       });
   } catch (e) {
-    logger.error("Error applying long-text wrap", e);
+    console.error("Error applying long-text wrap", e);
   }
 }
