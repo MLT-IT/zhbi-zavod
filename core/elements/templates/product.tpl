@@ -190,7 +190,7 @@
                 <div class="product-info__divider">
                   <div>
                     <div class="product-info__rating rating{if $isCustomCalculator || $isShtaketnik} abs{/if}">
-                      {* <div class="product-info__availability-title product-info__availability-title_available mobile-flex">На складе 190 м3</div> *}
+                      {* <div class="product-info__availability-title has-icon icon-checkmark mobile-flex">На складе 190 м3</div> *}
 
                       <ul class="rating__stars">
                         <li class="rating__star active"></li>
@@ -282,31 +282,37 @@
                       {if $_modx->resource.context_key not in list ['kraska']}
                         {* При чем тут relinkingData ? *}
                         {if $isCustomCalculator}
-                          <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                          <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
                               Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
                           </div>
                         {/if}
                         {if $relinkingData is empty}
-                          <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                              {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
-                                  В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м<sup>2</sup>
-                                {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                                  {* гибкой черепице упаковки *}
-                                  
-                                  На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
-                                {elseif $_modx->context.key == 'suhiesmesi'}
-                                    В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
-                                {else}
-                                  На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
-                              {/if}
-                          </div>
+
+                          {if $_modx->context.key == 'web'}
+                            {include "file:_modules/warehouses/sections/warehouse-remains.tpl"}
+                          {else}
+                            <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                                {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
+                                    В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м<sup>2</sup>
+                                  {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                                    {* гибкой черепице упаковки *}
+                                    
+                                    На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
+                                  {elseif $_modx->context.key == 'suhiesmesi'}
+                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
+                                  {else}
+                                    На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
+                                {/if}
+                            </div>
+                          {/if}
+
                         {/if}
 
                         {if $isCustomCalculator || $isShtaketnik}
-                          <div class="product-info__prod-time pc-flex">
+                          <div class="product-info__prod-time pc-flex has-icon icon-checkmark">
                               Срок изготовления: 2-3 дня
                           </div>
-                          <div class="product-info__warranty pc-flex">
+                          <div class="product-info__warranty pc-flex has-icon icon-checkmark">
                               Гарантия на товар: 30 лет
                           </div>
                           {* {if $settingCardKrovlya['width']}
@@ -322,7 +328,7 @@
                       {* При чем тут relinkingData ? *}
                       {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
                         <div class="product-info__avstock">
-                            <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                            <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
                               На складе {$_modx->resource.stockNum} {$unit}
                             </div>
                             <div class="product-info__shipped pc-flex">
@@ -332,7 +338,7 @@
                       {else}
                         <div class="product-info__avstock">
                         {if $_modx->resource.context_key == 'kraska'}
-                            <div class="product-info__availability-title product-info__availability-title_available pc-flex">
+                            <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
                             В наличии {$_modx->resource.stockNum} {$unit}
                             </div>
                         {elseif !($isCustomCalculator || $isShtaketnik)}
@@ -491,10 +497,10 @@
             {* Special osnova *}
             {if $isCustomCalculator}
             <div class="product-info__relinkav product-info mobile-flex">
-                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
+                <div class="product-info__availability-title has-icon icon-checkmark mobile-flex">
                     Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
                 </div>
-                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
+                <div class="product-info__availability-title has-icon icon-checkmark mobile-flex">
                     На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
                 </div>
                 <div class="product-info__prod-time mobile-flex">

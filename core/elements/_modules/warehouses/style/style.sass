@@ -1,0 +1,87 @@
+.warehouse-table
+      &__header
+            margin-bottom: 1rem
+
+      &__item
+            width: 100%
+
+.warehouse-contacts
+      .wrapper
+            display: flex
+            flex-direction: row
+            align-items: stretch
+            justify-content: space-between
+            @media screen and (max-width: 768px)
+                  flex-direction: column
+                  align-items: center
+      &__photo
+            max-width: 476px
+            img
+                  width: 100%
+                  border-radius: 10px
+      &__contacts
+            width: 100%
+            padding: 0 69px
+            margin-top: 10px
+            max-width: 674px
+            display: flex
+            flex-direction: column
+            @media screen and (max-width: 768px)
+                  padding: 0
+            h2
+                  font-size: 20px
+                  margin-bottom: 10px
+                  @media screen and (max-width: 768px)
+                        text-align: center
+            .contacts__item-key
+                  font-size: 15px
+                  font-weight: 700
+      &__callback
+            width: 100%
+            height: 43px
+            border-radius: 10px
+            @media screen and (max-width: 768px)
+                  padding: 0
+            &:last-child
+                  margin-top: 15px
+            &.callback-pickup
+                  color: #3c3c3b
+                  background-color: #fff !important
+                  border: 1px solid #3c3c3b
+                  &:hover
+                        background-color: #3c3c3b !important
+                        color: #fff
+                  span
+                        var(--color-red)
+                        margin-left: 3px
+
+.warehouse-remains
+      li:first-child
+            margin-bottom: 10px
+      &__item
+            display: flex
+            justify-content: space-between
+            position: relative
+            &[href]
+                  color: #000
+                  text-decoration: none
+                  &:hover
+                        opacity: .7
+            &::after
+                  content: ''
+                  position: absolute
+                  z-index: 0
+                  width: 100%
+                  border-bottom: 1px dashed var(--color-black-trans)
+                  bottom: 3px
+
+            span
+                  background: #fff
+                  position: relative
+                  z-index: 1
+                  &:first-child
+                        padding-right: 10px
+                  &:last-child
+                        padding-left: 10px
+            b
+                  font-weight: 500

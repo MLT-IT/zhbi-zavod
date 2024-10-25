@@ -49,6 +49,11 @@
 <div class="product-card__body">
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
+  {if $_modx->context.key == 'web'}
+    {set $data = "@FILE _modules/warehouses/snippets/warehouseRemains.php" | snippet : ['id' => $id]}
+    <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
+  {/if}
+
   {if $_modx->resource.context_key == 'kraska' && $src['vozmozhnost-kolerovki'][0] == 'да'}
     <div class="product-card__tinting">
         <div class="product-card__tinting-mes">

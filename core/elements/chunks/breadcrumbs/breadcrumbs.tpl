@@ -7,7 +7,8 @@
         'tplWrapper' => '@INLINE [[+output]]',
         'showHome' => 1,
         'showAtHome' => 0,
-        'hideSingle' => 1
+        'hideSingle' => 1,
+        'where' => '{"template:!=":0}'
       ]}
     </ul>
   </div>
