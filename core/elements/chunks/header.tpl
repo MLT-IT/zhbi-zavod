@@ -117,7 +117,8 @@
               {set $text = 'Продажа металлочерепицы в Санкт-Петербурге и ЛО'}
               {set $beforeText = ""}
               {set $afterText = ""}
-
+            {case 'kirpich-m5'}
+              {set $text = 'кирпича'}
 
           {/switch}
           {$beforeText} {$text} {$afterText}
