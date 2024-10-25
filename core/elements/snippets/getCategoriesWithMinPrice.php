@@ -10,6 +10,11 @@ class getCategoriesWithMinPrice
     {
         global $modx;
 
+        if (empty(self::$brandsAndCategories)) {
+            echo "Пустой массив brandsAndCategories";
+            return;
+        }
+
         // Устанавливаем переменные
         $select = [];
         $join = '';

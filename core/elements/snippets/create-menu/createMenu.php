@@ -8,7 +8,14 @@ $cacheOptions = [
 ];
 
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
-    require_once MODX_CORE_PATH . 'elements/snippets/create-menu/data/' . $context . '.php';
+    $data_path = MODX_CORE_PATH . 'elements/snippets/create-menu/data/' . $context . '.php';
+
+    if (!file_exists($data_path)) {
+        $modx->log(1, 'Не найден файл для содания меню ');
+        return;
+    }
+
+    require_once $data_path;
     $result = [
         'values' => getMenuData()
     ];
@@ -42,23 +49,23 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
             break;
 
-            case 'gibkaya-cherepiza':
-                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
-                $result['column2'] = ['title' => 'Серия', 'type' => 'composite'];
-                break;
-            case 'falcevaya-krovlya':
-                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
-                $result['column2'] = ['title' => 'Серия', 'type' => 'simple'];
-                break;
-            case 'metallocherepica':
-                $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
-                $result['column2'] = ['title' => 'Коллекция', 'type' => 'simple'];
-                $result['column3'] = ['title' => 'Доборные элементы', 'type' => 'simple'];
-                break;
+        case 'gibkaya-cherepiza':
+            $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Серия', 'type' => 'composite'];
+            break;
+        case 'falcevaya-krovlya':
+            $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Серия', 'type' => 'simple'];
+            break;
+        case 'metallocherepica':
+            $result['column1'] = ['title' => 'Производитель', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Коллекция', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Доборные элементы', 'type' => 'simple'];
+            break;
 
         case 'fibrofasad':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
-            $result['column2'] = ['title' => 'Категория', 'type' => 'simple'];    
+            $result['column2'] = ['title' => 'Категория', 'type' => 'simple'];
             break;
         case 'beltermo':
             $result['column1'] = ['title' => 'Марка', 'type' => 'simple'];
