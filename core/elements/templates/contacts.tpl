@@ -30,7 +30,7 @@
         {/if}
 
         {set $phone = '!virtual_phone' | snippet }
-        {set $email = '!virtual_email' | snippet }
+        {set $email = '@FILE snippets/utm/virtual_email.php' | snippet }
         {set $address = 'address' | option}
         {if $_modx->getPlaceholder('localdata').local}
           {set $address = $_modx->getPlaceholder('localdata').offices.0.address}

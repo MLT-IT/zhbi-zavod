@@ -42,7 +42,7 @@
 
       {set $phone = '!virtual_phone' | snippet }
       {set $phone_href = $phone | ereplace : '[^0-9+]' : ''}
-      {set $email = '!virtual_email' | snippet }
+      {set $email = '@FILE snippets/utm/virtual_email.php' | snippet }
       {set $address = 'address' | option}
       {if $_modx->getPlaceholder('localdata').local}
         {set $address = $_modx->getPlaceholder('localdata').offices.0.address}
