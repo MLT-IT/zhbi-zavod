@@ -179,6 +179,9 @@
             ]}
   
             {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+            {if $_modx->context.key == 'web'}
+              {include "file:chunks/product/rating.tpl"}
+            {/if}
           </div>
 
           <div class="product__info-wrap">
@@ -188,28 +191,10 @@
             {/if} *}
               <div class="product-info__top">
                 <div class="product-info__divider">
-                  <div>
-                    <div class="product-info__rating rating{if $isCustomCalculator || $isShtaketnik} abs{/if}">
-                      {* <div class="product-info__availability-title has-icon icon-checkmark mobile-flex">На складе 190 м3</div> *}
-
-                      <ul class="rating__stars">
-                        <li class="rating__star active"></li>
-                        <li class="rating__star active"></li>
-                        <li class="rating__star active"></li>
-                        <li class="rating__star active"></li>
-                        <li class="rating__star"></li>
-                      </ul>
-
-                      <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
-                        {$reviewsCount}
-                        {'@FILE snippets/formOfWord.php' | snippet : [
-                          'n' => $reviewsCount,
-                          'f1' => 'отзыв',
-                          'f2' => 'отзыва',
-                          'f5' => 'отзывов'
-                        ]}
-                      </span>
-                    </div>
+                  <div style="width: 100%;">
+                    {if $_modx->context.key !== 'web'}
+                      {include "file:chunks/product/rating.tpl"}
+                    {/if}
                     {if !($isCustomCalculator || $isShtaketnik)}
                     <div class="product-info__shipped mobile-flex">
                         {'@FILE snippets/shippedToday.php' | snippet}
@@ -219,12 +204,6 @@
 
                     {if '@FILE snippets/product/isCollerovka.php' | snippet: ['id' => $_modx->resource.id]}
                         <div id="collerovka"></div>
-
-                        {*                  <a href="#calculator-kraski">*}
-                        {*                      <use xlink:href="{$_modx->config['template_path']}img/svg-sprite.svg#icon-calculator-kraski"></use>*}
-                        {*                      Калькулятор краски*}
-                        {*                  </a>*}
-
                     {/if}
 
                     <div class="product-info__relinkav">
@@ -324,7 +303,7 @@
                       {/if}
                     </div>
 
-                    {if $_modx->resource.context_key not in list ['suhiesmesi']}
+                    {if $_modx->resource.context_key not in list ['suhiesmesi','web']}
                       {* При чем тут relinkingData ? *}
                       {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
                         <div class="product-info__avstock">

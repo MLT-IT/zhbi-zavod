@@ -13,4 +13,13 @@
     </a>
   </li>
   {/foreach}
+
+  <li class="warehouse-remains__item mt-13">
+    <span>Самовывоз со склада {'' | date : 'd.m'}</span>
+    <span><b>бесплатно</b></span>
+  </li>
+  <li class="warehouse-remains__item">
+    <span>Доставка {'+1 days' | date : 'd.m'}</span>
+    <span><b>от 949 руб.</b></span>
+  </li>
 </ul>
