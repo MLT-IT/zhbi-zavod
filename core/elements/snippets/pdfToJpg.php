@@ -76,6 +76,10 @@ if (!function_exists('imagick_create')) {
       $img->setImageFormat('jpg');
       $img->setImageCompressionQuality(85);
 
+      // фикс черного фона
+      $img->mergeImageLayers(Imagick::LAYERMETHOD_FLATTEN);
+      $img->setImageAlphaChannel(Imagick::ALPHACHANNEL_REMOVE);
+
       $success = $img->writeImage($resultPath);
       $img->clear();
       $img->destroy();

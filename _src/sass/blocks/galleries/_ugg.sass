@@ -1,0 +1,36 @@
+h3:has(+.ugg)
+  font-size: 1.5em
+  font-weight: 600
+  margin-block: 1em .5em
+  margin-left: 10px
+.ugg
+  position: relative
+  padding: 10px
+  border-radius: 10px
+  background-color: #fff
+
+  &__container
+    padding: 0
+  .slider-arrows
+    position: absolute
+    inset: 0
+    top: calc(50% - 20px)
+    display: flex
+    justify-content: space-between
+    width: 100%
+    .arrow
+      background-color: #fff
+      &-prev
+        left: 0
+      &-next
+        right: 0
+  .swiper-slide
+    a, img
+      display: block
+      margin-inline: auto
+    a
+      width: auto
+    img
+      width: 100%
+      max-width: 200px
+      object-fit: contain

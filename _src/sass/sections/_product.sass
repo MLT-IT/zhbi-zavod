@@ -217,6 +217,9 @@
         .euv-custom-select__input-value
             font-weight: bold
             color: var(--color-red)
+            svg
+                width: 30px
+                margin-left: -10px
 
         .euv-custom-select__option
             font-weight: 700
@@ -225,6 +228,39 @@
             margin-top: 20px
             margin-right: 0
             width: 100%
+    // plitnye product card
+    .services-links
+        display: flex
+        align-items: flex-end
+
+        &__relinking
+
+        &__buttons
+            display: flex
+            flex-wrap: wrap
+            width: 100%
+            justify-content: flex-start
+            align-items: center
+            gap: 15px
+            padding-left: 15px
+            +until-480
+                gap: 5px
+                justify-content: flex-start
+            .services-item
+                position: relative
+                margin: 0
+                +until-480 
+                    margin: 0
+                .popup-mes
+                    bottom : 110%
+            .btn
+                padding: 5px
+                height: 100%
+            img
+                width: 40px
+                +until-480 
+                    width: 30px
+    // /plitnye
 
     &__discount
         text-align: center
@@ -829,6 +865,10 @@
             gap: 10px
             //&::before
             //    position: static!important
+    &__options-wrap
+        @at-root .plitnye & 
+            max-height: 80vh
+            overflow: hidden auto
     //&__option::before, &__input-value::before
     //    content: ""
     //    width: 40px

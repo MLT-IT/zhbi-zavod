@@ -1,31 +1,78 @@
 .catalog-listing-banner
-  background: linear-gradient(to top, white 20%, transparent 50%)
+  $color: #fff
+  @at-root .krovelnyjstroymarket & 
+    $color: var(--color-red)
+    background: linear-gradient(to top, white 20%, transparent 50%)
+  @at-root .plitnye & 
+    $bgcolor: #D3553C
+    $color: #fff
+    background: linear-gradient(to bottom, opacify($bgcolor, 0.2) 20%, transparent 50%)
+
+  color: $color
   overflow: hidden
   border-radius: 10px
   padding: 0
   +until-480 
     height: 430px
+
+  &__background
+    @at-root .plitnye & 
+      bottom: 0
   &__wrapper
     padding: 30px 20px
     width: 100%
     position: absolute
     bottom: 10px
+    @at-root .plitnye & 
+      bottom: auto
+      top: 10px
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
   p
-    color: var(--color-red)
+    color: inherit
+    text-align: center
+  span
+    line-height: 1
+    &.accent
+      color: var(--color-red)
+      @at-root .plitnye &
+        color: #fcc42b
+    &.caps
+      text-transform: uppercase 
+    &.big
+      font-size: 2em
+    &.shadow 
+      text-shadow: 0 2px 5px var(--color-black)
 
   &__title
     font-size: 29px
     font-weight: 600
     text-align: center
+    @at-root .plitnye &
+        color: #fff
+        line-height: 1
     +until-768 
       font-size: 24px
     +until-480 
       font-size: 20px
+
+  .banner-title
+    display: flex
+    flex-direction: column
+    align-items: center 
+    
+    
   
   &__description
     margin-top: 20px
     font-size: 16px
     font-weight: 400
+    @at-root .plitnye &
+      font-size: 20px
+      +until-768 
+        font-size: 16px
 
   .banner__action
     padding-top: 20px
@@ -33,3 +80,5 @@
       height: 50px
       width: 90%
       margin-inline: auto
+      @at-root .plitnye & 
+        width: 100%
