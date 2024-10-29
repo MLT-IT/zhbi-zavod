@@ -4,12 +4,39 @@
 <main class="layout__main">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
 
-    <article class="inner section">
-      <div class="inner__container">
-        <h1 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h1>
-        {$_modx->resource.content}
-      </div>
-    </article>
+    <section class="warehouse-contacts">
+      <div class="wrapper">
+          <div class="warehouse-contacts__contacts">
+              <h2 class="warehouse-contacts__contacts-title">Контакты</h2>
+              <ul class="contacts__list">
+                  <li class="contacts__item">
+                      <div class="contacts__item-key"><span>Часы работы</span></div>
+                      <div class="contacts__item-value">
+                        Ежедневно с 8:00 до 21:00
+                      </div>
+                  </li>
+                  <li class="contacts__item">
+                      <div class="contacts__item-key"><span>Телефон</span></div>
+                      <a class="contacts__item-value" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">
+                          <span itemprop="telephone">
+                              {$_modx->getPlaceholder('localdata').offices.0.phone}
+                              (доб. 11)
+                          </span>
+                      </a>
+                  </li>
+                </ul>
+                <div class="warehouse-contacts__controls">
+                  <div class="btn btn_size_small btn_style_trans" data-src="#callback" data-fancybox="">РАССЧИТАТЬ СТОИМОСТЬ ДОСТАВКИ</div>
+                  <div class="btn btn_style_shadow" data-src="#callback" data-fancybox="">ОСТАВИТЬ ЗАЯВКУ НА САМОВЫВОЗ</div>
+                </div>
+            </div>
+            <div class="warehouse-contacts__photo">
+                {if $_modx->resource.mainImage}
+                    <img alt="{$_modx->resource.pagetitle}" src="{$_modx->resource.mainImage}">
+                {/if}   
+            </div>
+        </div>
+    </section>
 
   </main>
 

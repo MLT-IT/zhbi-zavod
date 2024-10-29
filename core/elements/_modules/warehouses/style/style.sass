@@ -6,24 +6,41 @@
             width: 100%
 
 .warehouse-contacts
+      .contacts__list
+            display: grid
+            gap: 16px
+            margin-bottom: 16px
       .wrapper
+            max-width: 1366px
+            margin: 0 auto
+            padding: 0 30px
+            box-sizing: content-box
+
             display: flex
             flex-direction: row
             align-items: stretch
             justify-content: space-between
+            gap: 16px
+
+            margin-bottom: 40px
             @media screen and (max-width: 768px)
                   flex-direction: column
                   align-items: center
       &__photo
-            max-width: 476px
+            background: #f5f5f5
+            width: 100%
+            border-radius: var(--border-radius-base)
+            overflow: hidden
+            max-height: 400px
             img
                   width: 100%
-                  border-radius: 10px
+                  height: 100%
+                  object-fit: cover
+                  object-position: center
       &__contacts
             width: 100%
-            padding: 0 69px
             margin-top: 10px
-            max-width: 674px
+            max-width: 400px
             display: flex
             flex-direction: column
             @media screen and (max-width: 768px)
@@ -54,6 +71,16 @@
                   span
                         var(--color-red)
                         margin-left: 3px
+
+      &__controls
+            display: flex
+            gap: 8px
+            align-items: center
+            flex-direction: column
+
+            .btn
+                  height: 100%
+                  width: 100%
 
 .warehouse-remains
       width: 100%
