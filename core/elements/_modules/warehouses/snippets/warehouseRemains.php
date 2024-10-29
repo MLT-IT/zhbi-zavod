@@ -40,8 +40,8 @@ foreach ($warehouses as &$warehouse) {
     $range_remains = $warehouse['range_remains'] ?: $default_range_remains;
     $range_remains = explode("-", $range_remains);
 
-    $begin = $range_remains[0];
-    $end = $range_remains[1];
+    $begin = (int)$range_remains[0];
+    $end = (int)$range_remains[1];
     $remains = include MODX_CORE_PATH . "elements/snippets/random.php";
 
     $warehouse['remains'] = $remains;

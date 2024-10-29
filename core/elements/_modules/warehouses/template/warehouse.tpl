@@ -7,7 +7,7 @@
     <section class="warehouse-contacts">
       <div class="wrapper">
           <div class="warehouse-contacts__contacts">
-              <h2 class="warehouse-contacts__contacts-title">Контакты</h2>
+              <h2 class="contacts__title section__title">Контакты</h2>
               <ul class="contacts__list">
                   <li class="contacts__item">
                       <div class="contact__title"><span>Часы работы</span></div>
