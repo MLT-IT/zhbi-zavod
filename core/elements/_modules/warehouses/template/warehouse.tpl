@@ -10,17 +10,16 @@
               <h2 class="warehouse-contacts__contacts-title">Контакты</h2>
               <ul class="contacts__list">
                   <li class="contacts__item">
-                      <div class="contacts__item-key"><span>Часы работы</span></div>
-                      <div class="contacts__item-value">
+                      <div class="contact__title"><span>Часы работы</span></div>
+                      <div class="contact__value">
                         Ежедневно с 8:00 до 21:00
                       </div>
                   </li>
                   <li class="contacts__item">
-                      <div class="contacts__item-key"><span>Телефон</span></div>
-                      <a class="contacts__item-value" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">
+                      <div class="contact__title"><span>Телефон</span></div>
+                      <a class="contact__value" href="tel:{$_modx->getPlaceholder('localdata').offices.0.phone}">
                           <span itemprop="telephone">
-                              {$_modx->getPlaceholder('localdata').offices.0.phone}
-                              (доб. 11)
+                              {$_modx->getPlaceholder('localdata').offices.0.phone}, доб. 1
                           </span>
                       </a>
                   </li>
