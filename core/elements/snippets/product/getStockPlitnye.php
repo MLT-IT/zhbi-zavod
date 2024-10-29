@@ -7,12 +7,14 @@ if (!$pdoTools) {
     return 'Error: Unable to initialize pdoTools service.';
 }
 
+$warehouse_template  = 39;
+$default_range_remains = "50-300";
 $unit = $unit ?: 'лист';
 
 if(!function_exists('fixUnit')){
   function fixUnit($value, $unit) {
     global $modx;
-    $pdoTools = $modx->getService('pdoTools', 'pdoTools');
+    $pdoTools = $modx->getService('pdoTools');
     if (!$pdoTools) {
         return 'Error: pdoTools is not initialized.';
     }
@@ -28,11 +30,19 @@ if(!function_exists('fixUnit')){
     else{
       $result = $unit;
     }
-    return $result ?: 'XXX';
+    return $result ?: '';
   }
 }
 
-$warehouses = [
+// when warehouse pages will be ready
+$context_key = $modx->context->key;
+$table_prefix = $modx->getOption('table_prefix');
+$query = "SELECT tv.`value` AS range_remains,c.menutitle AS `name`,c.uri AS link FROM {$table_prefix}site_content AS c LEFT JOIN {$table_prefix}site_tmplvar_contentvalues AS tv ON tv.contentid = c.id WHERE c.template = $warehouse_template AND c.context_key = '$context_key' AND c.published = 1 AND c.deleted = 0";
+
+$result = $modx->query($query);
+$warehouses = $result->fetchALL(PDO::FETCH_ASSOC);
+
+$warehouses = $warehouses ?: [
   ['name' => 'Дачное', 'link' => '#'],
   ['name' => 'Янино-1', 'link' => '#'],
   ['name' => 'Шушары', 'link' => '#'],
@@ -42,15 +52,19 @@ $warehouses = [
 
 $totalStock = 0;
 
-foreach ($warehouses as &$wh){
-  $wh['stock'] = $pdoTools->runSnippet('@FILE snippets/random.php', [
-    'begin' => 150, 
-    'end' => 900, 
-    'unique' => rand(0, 1000)
+foreach ($warehouses as &$warehouse) {
+  $range_remains = $warehouse['range_remains'] ?: $default_range_remains;
+  [$begin, $end] = array_map('intval',explode("-", $range_remains));
+
+  $warehouse['stock'] = $pdoTools->runSnippet('@FILE snippets/random.php', [
+    'begin' => $begin, 
+    'end' => $end, 
+    'unique' => md5($warehouse['name'])
   ]);
-  $wh['unit'] = fixUnit($wh['stock'], $unit) ;
-  $totalStock +=  $wh['stock'];
+  $warehouse['unit'] = fixUnit($warehouse['stock'], $unit) ;
+  $totalStock += $remains;
 }
+
 unset($wh);
 
 return [
