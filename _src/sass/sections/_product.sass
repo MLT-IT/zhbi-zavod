@@ -235,6 +235,22 @@
         font-size: 30px
         line-height: 1.2
         margin-top: 24px
+        
+        &.big
+            display: flex
+            align-items: center
+            gap: 16px
+            border-radius: var(--border-radius-base)
+            background: #fff
+            padding: 10px 20px
+            .product-info__discount-start:before
+                width: 75px!important
+                height: 75px!important
+        &-title
+            margin-bottom: 8px
+            font-size: 25px
+        &-text
+            font-size: 18px
 
     &__discount-start::before
         margin-right: 6px

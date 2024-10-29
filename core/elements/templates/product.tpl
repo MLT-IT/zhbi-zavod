@@ -469,7 +469,7 @@
                     <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
                     {/if}
                 {case 'web'}
-                    <p class="product-info__discount"><span class="product-info__discount-start">Льготная</span> доставка <span class="product-info__discount-end">1990 ₽</span></span></p>
+                    <div class="product-info__discount big"><span class="product-info__discount-start"></span><div><div class="product-info__discount-title">В комплекте дешевле!</div><div class="product-info__discount-text">Заказывайте утеплитель вместе с плитными материалами со скидкой до 30%</div></div></div>
               {/switch}
               </div>
 
