@@ -56,12 +56,12 @@
 			pointer-events: auto
 			
 	.popup-mes
-		text-align: left
+		position: absolute
 		bottom: 50px
 		right: -80px
 		z-index: 111
+		text-align: left
 		color: #fff
-		position: absolute
 		opacity: 0
 		pointer-events: none
 		padding: 16px
@@ -73,7 +73,7 @@
 
 		+until-768
 			width: 270px
-			left: -20px
+			right: 0
 
 		+until-480
 			width: 190px
@@ -94,8 +94,8 @@
 			bottom: -7px
 
 			+until-768
-				left: 70px
-				transform: translateX(-50%)
+				right: 0
+				// transform: translateX(-50%)
 			
 			+until-480 
 				right: 0px
@@ -108,6 +108,10 @@
 
 		&__body
 			font-size: 14px
+			a
+				text-decoration: underline
+				&:hover
+					text-decoration: none
 
 		&__close
 			cursor: pointer

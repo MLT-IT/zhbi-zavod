@@ -143,4 +143,25 @@ export function initSliders() {
             }
         });
     });
+
+    // галерея в карточке товара "Фото покупателей"
+    const uggSwiper = document.querySelector('.ugg');
+
+    if(uggSwiper){
+        new Swiper(uggSwiper.querySelector('.ugg__container'), {
+            slidesPerView: 3,
+            spaceBetween: 6,
+            loop: true,
+            navigation: {
+                prevEl: uggSwiper.querySelector('.swiper-button-prev') || null,
+                nextEl: uggSwiper.querySelector('.swiper-button-next') || null,
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 16,
+                    slidesPerView: 4
+                }
+            }
+        });
+    }
 }

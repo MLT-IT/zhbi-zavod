@@ -19,3 +19,12 @@
     </div>
   {/if}
 {/if}
+
+{if $_modx->resource.context_key in list ['plitnye']}
+  {set $total = $_modx->getPlaceholder('total')}
+  {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 1 && $total >= 2))}
+    <div class="product-card catalog-listing-banner block-bg">
+    {insert "file:chunks/product/listing-banner-plitnye.tpl"}
+    </div>
+  {/if}
+{/if}

@@ -16,29 +16,47 @@ export default function initTooltipPopups() {
   toolTipPopup();
 }
 
-function toolTipPopup(className = 'popup-mes', delay = 7000) {
+function toolTipPopup(
+  className = "popup-mes",
+  parentClassName = "product-card__actions",
+  delay = 7000
+) {
   const popUps = document.querySelectorAll(`.${className}`);
-  if(!popUps || !popUps.length) {
+  if (!popUps || !popUps.length) {
     return;
   }
   popUps.forEach((popItem) => {
-    const popParent = popItem.parentElement;
-    // popParent.style.position = 'relative';
-    popParent.classList.add('active')
-    const timer = setTimeout(() => {
-      popParent.classList.remove('active')
-    }, delay);
-    document.addEventListener('click', (e) => {
-      e.stopImmediatePropagation();
-      const {target} = e;
-      if(!target.closest(`.${className}`) || target.classList.contains(`${className}__close`)){
-        clearTimeout(timer);
-        popParent.classList.remove('active');
+    try {
+      const popParent = popItem.closest(`.${parentClassName}`);
+      if (!popParent) {
+        throw new Error("[toolTipPopup] cant find parent");
       }
-    })
-  } )
+      let timer = false;
+      // popParent.style.position = 'relative';
+      if (!popItem.classList.contains("noflash")) {
+        popParent.classList.add("active");
+        timer = setTimeout(() => {
+          popParent.classList.remove("active");
+        }, delay);
+      }
+      document.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const { target } = e;
+        // if (!target.closest(`.${className}`) || target.classList.contains(`${className}__close`)) {
+        if (target.closest(`.${parentClassName}`) !== popParent || target.classList.contains(`${className}__close`)) {
+          timer && clearTimeout(timer);
+          popParent.classList.remove("active");
+        } else {
+          console.log(target);
+          
+          popParent.classList.add("active");
+        }
+      });
+    } catch (e) {
+      console.warn("[toolTipPopup]", e);
+    }
+  });
 }
-
 
 /**
  * example usage

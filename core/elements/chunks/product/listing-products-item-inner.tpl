@@ -72,7 +72,7 @@
     </span>
     <ul class="product-card__stats">
 
-        {if $_modx->resource.context_key in list ["krovelnyjstroymarket", "fibrofasad", "profnastil", "gibkaya-cherepiza", "metallocherepica", "falcevaya-krovlya", "bonolit"]}
+        {if $_modx->resource.context_key in list ["krovelnyjstroymarket", "fibrofasad", "profnastil", "gibkaya-cherepiza", "metallocherepica", "falcevaya-krovlya", "bonolit", "plitnye"]}
             {$_modx->runSnippet("getCharacterCardProduct", [
                 "product" => $id,
                 "category" => $_modx->resource.id,
