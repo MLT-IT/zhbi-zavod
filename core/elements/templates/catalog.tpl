@@ -36,7 +36,15 @@
   {else}
     {set $tags = '@FILE snippets/getTags.php' | snippet :[
       'tpl' => '@FILE chunks/create-menu/tags-item.tpl',
-      'tplWrapper' => '@FILE chunks/create-menu/tags-outer.tpl',
+      'tplWrapper' => '@INLINE
+                      {if $output}
+                      <div class="catalog-screen__products">
+                          <ul class="catalog-screen__items">
+                              {$output}
+                              <li class="catalog-screen__tag catalog-screen__tag_type_more"></li>
+                          </ul>
+                      </div>
+                      {/if}',
       'idTagsBlock' => 'block-1',
       'onlyCustomTags' => true
     ]}
