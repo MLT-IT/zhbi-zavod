@@ -232,7 +232,7 @@
         </div>
 
         <div class="search header__search header__search_screen_desktop">
-          <form action="/search/" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
+          <form action="/search/" method="GET" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
             <button type="submit" class="search__btn icon-btn icon-btn_style_red">
               <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
@@ -240,7 +240,7 @@
             </button>
             <input name="query" class="search__input" fast-search-input="desktop" type="search" placeholder="Хочу найти...">
           </form>
-          <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile1">
+          <form action="/search/" method="GET" class="search__wrapper search_display_mobile" fast-search-form="mobile1">
             <button type="submit" class="search__btn icon-btn icon-btn_style_red">
               <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
