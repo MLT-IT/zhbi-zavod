@@ -197,12 +197,21 @@
 <section class="burger-menu">
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
+      {if $_modx->context.key == 'plitnye'}
       <div class="burger-menu__nav-items">
-      <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
-      <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
-      <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
-      <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
+        <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
+        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка</a>
+        <a class="burger-menu__nav-link" href="/otzyvy/">Отзывы</a>
       </div>
+      {else}
+      <div class="burger-menu__nav-items">
+        <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+        <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
+        <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+        <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
+      </div>
+      {/if}
     </nav>
 
     <div class="search header__search header__search_screen_mobile">
@@ -269,7 +278,7 @@
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>
-    {if $_modx->context.key not in ['krovelnyjstroymarket']}
+    {if $_modx->context.key not in ['krovelnyjstroymarket', 'plitnye']}
     <div class="burger-menu__link-to-catalog-wrap">
       <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">{$toCatalogBtnText}</a>
     </div>
