@@ -260,6 +260,12 @@
           {set $params['sortdir'] = 'ASC'}
         {case 'fibrofasad'}
           {set $params['resources'] = '171123,171056,171132,171090,171124'}
+        {case 'plitnye'}
+          {set $params['parents'] = 177020}
+          {set $params['depth'] = 1}
+          {set $params['limit'] = 15}
+          {set $params['sortby'] = 'menuindex'}
+          {set $params['sortdir'] = 'ASC'}
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>

@@ -279,6 +279,9 @@
             </div>
             {/if}
           </li>
+          {if $_modx->resource.context_key in list ['plitnye']}
+            <li class="h-nav__item"><a class="h-nav__link" href="/raspil-v-razmer/">Распил</a></li>
+          {/if}
           <li class="h-nav__item"><a class="h-nav__link" href="/contacts/">Контакты</a></li>
           </ul>
         </nav>
