@@ -16,6 +16,7 @@
 
 $warehouse_template  = 39;
 $default_range_remains = "50-300";
+$TV_IMAGE_ID = 5;
 
 // >>> Кэшируем получение складов в контексте для оптимизации в цикле листинга
 $cache_name = 'warehouseRemains';
@@ -26,7 +27,7 @@ $cache_options = [
 if (!$warehouses = $modx->cacheManager->get($cache_name, $cache_options)) {
     $context_key = $modx->context->key;
     $table_prefix = $modx->getOption('table_prefix');
-    $query = "SELECT tv.`value` AS range_remains,c.menutitle,c.pagetitle,c.uri FROM {$table_prefix}site_content AS c LEFT JOIN {$table_prefix}site_tmplvar_contentvalues AS tv ON tv.contentid = c.id WHERE c.template = $warehouse_template AND c.context_key = '$context_key' AND c.published = 1 AND c.deleted = 0";
+    $query = "SELECT tv.`value` AS range_remains,c.menutitle,c.pagetitle,c.uri FROM {$table_prefix}site_content AS c LEFT JOIN {$table_prefix}site_tmplvar_contentvalues AS tv ON tv.contentid = c.id AND tv.tmplvarid = $TV_IMAGE_ID WHERE c.template = $warehouse_template AND c.context_key = '$context_key' AND c.published = 1 AND c.deleted = 0";
 
     $result = $modx->query($query);
     $warehouses = $result->fetchALL(PDO::FETCH_ASSOC);
