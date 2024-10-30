@@ -1,4 +1,4 @@
-{$params = [
+{set $params = [
   'parents' => 0,
   'depth' => 50,
   'limit' => 42,
