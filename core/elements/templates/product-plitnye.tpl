@@ -153,9 +153,7 @@
                     ]}
                   </span>
                 </div>
-                <div class="product-info__shipped mobile-flex">
-                    {'@FILE snippets/shippedToday.php' | snippet}
-                </div>
+
 
 
                 <div class="product-info__relinkav">
@@ -259,26 +257,7 @@
               {/switch}
               </div>
 
-            {* Special osnova *}
-            
-            <div class="product-info__relinkav product-info mobile-flex">
-                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
-                    Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
-                </div>
-                <div class="product-info__availability-title product-info__availability-title_available mobile-flex">
-                    На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
-                </div>
-                <div class="product-info__prod-time mobile-flex">
-                    Срок изготовления: 2-3 дня
-                </div>
-                <div class="product-info__warranty mobile-flex">
-                    Гарантия на товар: 30 лет
-                </div>
-            </div>
-
-            {* /Special *}
-
-            {if $isCustomCalculator || $isShtaketnik}
+            {* {if $isCustomCalculator || $isShtaketnik}
               <div class="blueprint-request">
                 <a class="blueprint-request__button" data-fancybox href="#blueprint">
                   <img src="/assets/template/img/icons/blueprint.png" alt="">
@@ -287,9 +266,7 @@
                    </p>
                 </a>
               </div>
-            {/if}
-
-
+            {/if} *}
            
           </div>
         </div>

@@ -32,7 +32,7 @@ function toolTipPopup(
         throw new Error("[toolTipPopup] cant find parent");
       }
       let timer = false;
-      // popParent.style.position = 'relative';
+
       if (!popItem.classList.contains("noflash")) {
         popParent.classList.add("active");
         timer = setTimeout(() => {
@@ -43,19 +43,44 @@ function toolTipPopup(
         e.stopPropagation();
         const { target } = e;
         // if (!target.closest(`.${className}`) || target.classList.contains(`${className}__close`)) {
-        if (target.closest(`.${parentClassName}`) !== popParent || target.classList.contains(`${className}__close`)) {
+        if (
+          target.closest(`.${parentClassName}`) !== popParent ||
+          target.classList.contains(`${className}__close`)
+        ) {
           timer && clearTimeout(timer);
           popParent.classList.remove("active");
+          popItem.style = '';
         } else {
-          console.log(target);
-          
           popParent.classList.add("active");
+          fixModalPosition(popItem);
         }
       });
     } catch (e) {
-      console.warn("[toolTipPopup]", e);
+      console.warn("[toolTipPopup] Error", e);
     }
   });
+}
+
+/**
+ * 
+ * @param {HTMLElement} modal 
+ */
+function fixModalPosition(modal) {
+  const parent = modal.parentElement;
+  const parentLeft = parent.getBoundingClientRect().left;
+  const rect = modal.getBoundingClientRect();
+  const { left, width } = rect;
+  const { innerWidth } = window;
+  console.log(`left:${left}, width:${width}, innerWidth:${innerWidth}`);
+  
+  if (left < 0 ) {
+    // modal.style.transform = `translateX(90%)`;
+    modal.style.left = `${10 - parentLeft}px`;
+  }
+  if (left+width > innerWidth) {
+    // modal.style.transform = `translateX(-${Math.abs(left+width-innerWidth)+10}px)`;
+    modal.style.left = `${innerWidth - width - 10 + parentLeft}px`;
+  }
 }
 
 /**
