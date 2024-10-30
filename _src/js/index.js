@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Раскрытие верхних тегов
     // -------------------------------
-    let $catalogTagsMoreBtn = $('.catalog-screen__tag_type_more');
+    let $catalogTagsMoreBtn = $('[data-tag-show-more-btn]');
     if ($catalogTagsMoreBtn.length) { // && $(document).width() > 992
         $catalogTagsMoreBtn.on('click', function() {
             $(this).parent().add($catalogTagsMoreBtn).toggleClass('active');
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Корректировка отображения меню на пк если элементов в списке Тэгов 5 то скрываем кнопку показать еще
         if($(this).children('.catalog-screen__tag').length <= 10){
             // $(this).children('.catalog-screen__tag').eq(4).css("display", "block")
-            $(this).children('.catalog-screen__tag_type_more').css('display', 'none')
+            $(this).children('[data-tag-show-more-btn]').css('display', 'none')
         }
     });
     // -------------------------

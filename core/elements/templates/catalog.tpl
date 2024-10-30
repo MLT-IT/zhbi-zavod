@@ -12,20 +12,43 @@
       {set $isSeoPage = 0}
   {/if}
 
-  {set $tags = '@FILE snippets/getTags.php' | snippet :[
-  'tpl' => '@FILE chunks/create-menu/tags-item.tpl',
-  'tplWrapper' => '@INLINE
-  {if $output}
-  <div class="catalog-screen__products">
-      <ul class="catalog-screen__items">
-          {$output}
-          <li class="catalog-screen__tag catalog-screen__tag_type_more"></li>
-      </ul>
-  </div>
-  {/if}',
-  'idTagsBlock' => 'block-1',
-  'onlyCustomTags' => true
-  ]}
+  {if $_modx->resource.groupingTags}
+    {set $tags = "@FILE snippets/groupingTags.php" | snippet : [
+    'tplItem' => '@INLINE<li class="catalog-screen__tag">
+                            <a href="{$uri}" class="catalog-screen__tag-link">
+                              <div class="catalog-screen__tag-picture">
+                                {if $image}
+                                <img class="catalog-screen__tag-image" src="{$image}" />
+                                {/if}
+                              </div>
+                              <div class="catalog-screen__tag-name">
+                                {$name ?: $menutitle ?: $pagetitle}
+                              </div>
+                            </a>
+                          </li>'
+    'tplFirstItems' => '@INLINE <ul class="catalog-screen__items items-hidden">{$items}<li class="catalog-screen__tag_type_more" onclick="grouping_tags_outer.style.display=\'block\'; grouping_tags_first_outer.remove()" style="display: flex;align-items: center;"></li></ul>'
+    'tplItems' => '@INLINE <h2 class="section__title">{$group_title}</h2>
+                           <ul class="catalog-screen__items">
+                             {$items}
+                           </ul>'
+    'tplOuter' => '@INLINE <div class="catalog-screen__products" id="grouping_tags_first_outer">{$output_first}</div> <div class="catalog-screen__products" id="grouping_tags_outer" style="display:none;">{$output}</div>'
+    ]}
+  {else}
+    {set $tags = '@FILE snippets/getTags.php' | snippet :[
+      'tpl' => '@FILE chunks/create-menu/tags-item.tpl',
+      'tplWrapper' => '@INLINE
+                      {if $output}
+                      <div class="catalog-screen__products">
+                          <ul class="catalog-screen__items">
+                              {$output}
+                              <li class="catalog-screen__tag catalog-screen__tag_type_more"></li>
+                          </ul>
+                      </div>
+                      {/if}',
+      'idTagsBlock' => 'block-1',
+      'onlyCustomTags' => true
+    ]}
+  {/if}
 
   <main class="layout__main">
     <section class="section {if $tags is not empty}section_view_top{else}section_view_shrink{/if}">
