@@ -278,7 +278,7 @@
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>
-    {if $_modx->context.key not in ['krovelnyjstroymarket', 'plitnye']}
+    {if $_modx->context.key not in ['krovelnyjstroymarket', 'plitnye', 'web']}
     <div class="burger-menu__link-to-catalog-wrap">
       <a class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow" href="/catalog/">{$toCatalogBtnText}</a>
     </div>
