@@ -23,6 +23,7 @@ function getMenuData() {
     $teplex = 167260; // Утеплитель Теплекс
     $isomin = 167261; // Утеплитель Изомин
     $brit = 167217; // Рулонная кровля Брит
+    $gipskart = 230849; // Гипсокартон
     // $dirok = 168256; // Рулонная кровля Дирок
     // $isotec = 168257; // Рулонная кровля Isotec
     // $beltep = 168258; // Рулонная кровля Белтеп
@@ -3025,6 +3026,24 @@ function getMenuData() {
                 ],
             ]
         ],
+        
+        $gipskart => [
+            'column1' => [
+                'uri' => '/gipsokarton/',
+                'name' => 'Гипсокартон',
+                'img' => '/assets/template/img/brands-webp/volma.webp'
+            ],
+            'column5' => [
+                [
+                    "uri" => "/gipsokarton/volma/",
+                    "name" => "Волма"
+                ],
+                [
+                    "uri" => "/gipsokarton/knauf/",
+                    "name" => "Knauf"
+                ],                
+            ],
+        ]
     ];
 
 
@@ -3087,6 +3106,7 @@ function getMenuData() {
         $data[$key]['column2'] = array_chunk($values['column2'], 12);
         $data[$key]['column3'] = array_chunk($values['column3'], 6);
         $data[$key]['column4'] = array_chunk($values['column4'], 7);
+        $data[$key]['column5'] = array_chunk($values['column5'], 7);
     }
 
     return $data;

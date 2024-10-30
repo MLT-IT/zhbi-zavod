@@ -26,6 +26,7 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];
             $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
             $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
+            $result['column5'] = ['title' => 'Производитель', 'type' => 'composite'];
             break;
         case 'plitnye':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
