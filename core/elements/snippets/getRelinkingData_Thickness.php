@@ -76,14 +76,14 @@ $idsForThickness1 = str_replace(",", ", ", $idsForThickness);
 $idsForThickness1 = "(" . $idsForThickness1 . ")";
 
 
-$sql = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` in " . $idsForThickness1;
+$sql = "SELECT * FROM `modx_ms2_product_options` WHERE `key` != 'item_thickness' AND `key` = 'collection' AND `product_id` in " . $idsForThickness1;
 $statement = $modx->prepare($sql);
 if ($statement->execute()) {
     $items = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     //print_r($items);
 
-    $sql1 = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `product_id` = " . $thisId;
+    $sql1 = "SELECT * FROM `modx_ms2_product_options` WHERE `key` = 'item_thickness' AND `key` = 'collection' AND `product_id` = " . $thisId;
     $statement1 = $modx->prepare($sql1);
     if ($statement1->execute()) {
         $items1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
