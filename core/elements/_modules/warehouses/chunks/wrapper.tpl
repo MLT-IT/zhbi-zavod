@@ -1,9 +1,11 @@
-<div class="block-delivery">
-    <table class="block-delivery__table">
-        <tr>
-            <th class="pricetable-col">Товар</th>
-            <th class="pricetable-col">Количество листов в наличии</th>
-        </tr>
+<div class="table-wrapper">
+    <table class="table centered">
+        <thead>
+            <tr>
+                <th class="pricetable-col">Товар</th>
+                <th class="pricetable-col">Количество в наличии</th>
+            </tr>
+        </thead>
         <tbody>
             {$output}
         </tbody>

@@ -50,7 +50,7 @@
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
   {if $_modx->context.key == 'web'}
-    {set $data = "@FILE _modules/warehouses/snippets/warehouseRemains.php" | snippet : ['id' => $id]}
+    {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
   {/if}
 

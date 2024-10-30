@@ -1,4 +1,4 @@
-{set $data = "@FILE _modules/warehouses/snippets/warehouseRemains.php" | snippet}
+{set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet}
 <ul class="warehouse-remains">
   <li class="warehouse-remains__item">
     <span>Наличие на <b>{'' | date : 'd.m'}</b></span>
