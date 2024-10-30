@@ -159,22 +159,10 @@
 
 
                 <div class="product-info__relinkav">
-                  {set $stockData = $_modx->runSnippet('@FILE snippets/product/getStockPlitnye.php', ['unit' => $_modx->resource.unit[0]])}
-                  {* <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                      Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
-                  </div> *}
-
-                  <div class="product-info__availability-title pc-flex">
-                    <span class="bold">Наличие на {'' | date : 'd.m'}</span><span class="dot-separator"></span> <span class="bold">{$stockData.totalStock.value} {$stockData.totalStock.unit}</span>
-                  </div>
-                  {foreach $stockData.warehouses as $wh}
-                  <div class="product-info__availability-title pc-flex">
-                      <span>Склад {$wh.name}</span><span class="dot-separator"></span> {$wh.stock} {$wh.unit}
-                  </div>
-                  {/foreach}
-                  <div class="product-info__shipped pc-flex">
-                      <span>При оформлении заказа сегодня доставим</span><span class="dot-separator"></span><span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
-                  </div>
+                  {include "file:_modules/warehouses/sections/warehouse-remains.tpl"}
+                  
+                  {* {include "file:chunks/product/warehouse-plitnye.tpl"} *}
+                  
                   {* <div class="product-info__prod-time pc-flex">
                       Срок изготовления: 2-3 дня
                   </div>

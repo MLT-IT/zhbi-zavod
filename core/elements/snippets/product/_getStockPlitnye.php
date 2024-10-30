@@ -1,5 +1,7 @@
 <?php
 
+// не используется, оставил для справки, если понадобится unit выводить, используем warehouse-remains
+
 $pdoTools = $modx->getService('pdoTools', 'pdoTools');
 
 if (!$pdoTools) {
