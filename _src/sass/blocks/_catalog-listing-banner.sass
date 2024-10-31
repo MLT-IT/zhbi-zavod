@@ -1,14 +1,12 @@
 .catalog-listing-banner
-  $color: #fff
+  color: #fff
   @at-root .krovelnyjstroymarket & 
-    $color: var(--color-red)
+    color: var(--color-red)
     background: linear-gradient(to top, white 20%, transparent 50%)
   @at-root .plitnye & 
-    $bgcolor: #D3553C
-    $color: #fff
-    background: linear-gradient(to bottom, opacify($bgcolor, 0.2) 20%, transparent 50%)
+    color: #fff
+    background: linear-gradient(to bottom, opacify(#D3553C, 0.2) 20%, transparent 50%)
 
-  color: $color
   overflow: hidden
   border-radius: 10px
   padding: 0
