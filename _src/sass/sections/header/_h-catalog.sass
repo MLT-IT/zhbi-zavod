@@ -48,6 +48,12 @@
         &.disable
             display: none
 
+        @at-root .alterteplo &-wrapper
+            overflow-y: auto
+            max-height: 500px
+            margin-bottom: 20px
+            +Vscroll
+                
         &:nth-of-type(n+2)
             padding-left: 30px
 
@@ -56,7 +62,6 @@
             padding-right: 20px
             flex-basis: 285px
             flex-shrink: 0
-
             .h-catalog-item__name
                 margin-left: 20px
 
@@ -80,6 +85,8 @@
         color: rgb(60, 60, 59)
         text-align: left
         user-select: none
+        @at-root .alterteplo &
+            color: var(--color-red)
 
 .h-catalog-item
     align-items: center
