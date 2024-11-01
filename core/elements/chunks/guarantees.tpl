@@ -1,5 +1,35 @@
 <div class="infoblocks__advantages">
 
+{if $_modx->context.key == 'trotuarnaya-plitka'}
+{set $items = [
+  [
+  "image" => "assets/template/pictures/advantages/advantage-plit-1.png",
+  "title" => "Тротуарная плитка всегда на складе",
+  "text" => "Всегда храним на складе более 4000 м2 тротуарной плитки.<br>Максимальная загрузка производства 500 м2 в день."
+  ],  
+  [
+  "image" => "assets/template/pictures/advantages/advantage-plit-2.png",
+  "title" => "Бесплатный расчет материала",
+  "text" => "Наши менеджеры помогут Вам с выбором материала и бесплатно произведут расчёт всего заказа"
+  ], 
+  [
+  "image" => "assets/template/pictures/advantages/advantage-plit-3.png",
+  "title" => "Гарантия от производителя",
+  "text" => "Осуществляем замену дефектного материала со всеми издержками или возврат полной суммы заказа в течении 5 лет с момента заказа"
+  ], 
+]}
+{foreach $items as $item}
+<div class="infoblocks__advantage">
+  <div class="advantage">
+    <div class="advantage__icon">
+      <img class="advantage__icon-image" src="{$item['image']}"/>
+    </div>
+    <p class="advantage__title">{$item['title']}</p>
+    <p class="advantage__text">{$item['text']}</p>
+  </div>
+</div>
+{/foreach}
+{else}
 {if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["kraska", "suhiesmesi"]}
   <div class="infoblocks__vendor">
     <div class="vendor-infoblock">
@@ -45,4 +75,5 @@
     </div>
   </div>
   {/if}
+{/if}
 </div>

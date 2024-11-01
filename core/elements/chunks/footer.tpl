@@ -275,6 +275,9 @@
           {set $params['limit'] = 15}
           {set $params['sortby'] = 'menuindex'}
           {set $params['sortdir'] = 'ASC'}
+        {case 'trotuarnaya-plitka'}
+          {set $params['parents'] = 250499}
+          {set $params['resources'] = '250500,250501,250502'}
       {/switch}
       {$_modx->runSnippet('pdoResources', $params)}
     </div>

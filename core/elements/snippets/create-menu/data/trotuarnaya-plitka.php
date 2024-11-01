@@ -1,0 +1,134 @@
+<?php
+
+function getMenuData()
+{
+
+    $data = [
+        230500 => [
+            'column1' => [
+                "uri" => "prodazha-trotuarnoj-plitki-v-krasnodare/",
+                "name" => "Тротуарная плитка",
+                'svg' => 'assort-trot-plit'
+            ],
+            'column3' => [
+                ["uri" => "trotuarnaya-plitka/", "name" => "Тротуарная плитка"],
+                ["uri" => "bruschatka/", "name" => "Брусчатка (кирпичик)"],
+                ["uri" => "krupnoformatnye/", "name" => "Крупноформатная тротуарная плитка"],
+                ["uri" => "polimerpeschanaya-plitka/", "name" => "Полимерпесчаная плитка"],
+                ["uri" => "rezinovaya-plitka/", "name" => "Резиновая плитка"],
+            ],
+            'column5' => [
+                ["uri" => "technologia/vibropress/", "name" => "Вибропресс"],
+                ["uri" => "technologia/vibrolite/", "name" => "Вибролитье"],
+            ],
+            'column6' => [
+                ["uri" => "collection/staryj-gorod/", "name" => "Старый город", "hit" => true],
+                ["uri" => "collection/novyij-gorod/", "name" => "Новый город", "hit" => true],
+            ],
+            'column2' => [
+                ["uri" => "proizvoditely-plitki/braer-plitka/", "name" => "Браер"],
+                ["uri" => "proizvoditely-plitki/vybor-zdshelf/", "name" => "Выбор"],
+                ["uri" => "proizvoditely-plitki/fabrika-gotika-plitka/", "name" => "Фабрика Готика"],
+                ["uri" => "proizvoditely-plitki/342-mekhanicheskij-zavod-plitka/", "name" => "342 Механический завод"],
+                ["uri" => "proizvoditely-plitki/steinrus-plitka/", "name" => "Steinrus"],
+                ["uri" => "proizvoditely-plitki/kamennyij-vek-plitka/", "name" => "Каменный век"],
+                ["uri" => "proizvoditely-plitki/white-hills-plitka/", "name" => "White hills"],
+                ["uri" => "proizvoditely-plitki/siyan/", "name" => "Сиян"],
+                ["uri" => "proizvoditely-plitki/stellard/", "name" => "Stellard"],
+            ],
+            'column7' => [
+                ["uri" => "forma/kvadratnaya/", "name" => "Квадратная"],
+                ["uri" => "forma/pryamougolnaya/", "name" => "Прямоугольная"],
+                ["uri" => "forma/figurnaya/", "name" => "Фигурная"],
+                ["uri" => "forma/assorti/", "name" => "Ассорти"],
+            ],
+            'column4' => [
+                ["uri" => "material/beton/", "name" => "Бетон"],
+                ["uri" => "material/granit/", "name" => "Гранит"],
+                ["uri" => "material/polimerpesok/", "name" => "Полимерпесок"],
+                ["uri" => "material/rezinovaya-kroshka/", "name" => "Резиновая крошка"],
+                ["uri" => "material/klinkernaya-glina/", "name" => "Клинкерная глина"],
+            ],
+            'column8' => [
+                ["uri" => "cvet/seryij/", "name" => "Серый"],
+                ["uri" => "cvet/krasnyij/", "name" => "Красный"],
+                ["uri" => "cvet/belyij/", "name" => "Белый"],
+                ["uri" => "cvet/korichnevyij/", "name" => "Коричневый"],
+                ["uri" => "cvet/chernyij/", "name" => "Черный"],
+                ["uri" => "cvet/zheltyij/", "name" => "Желтый"],
+                ["uri" => "cvet/zelenyij/", "name" => "Зеленый"],
+                ["uri" => "cvet/bezhevyij/", "name" => "Бежевый"],
+            ]
+        ],
+        230501 => [
+            'column1' => [
+                "uri" => "/bordyuryi/",
+                "name" => "Бордюры",
+                'svg' => 'assort-bordyuryi'
+            ],
+            'column3' => [
+                ["uri" => "/sadovyj/", "name" => "Садовый бордюр"],
+                ["uri" => "/dorozhnyj/", "name" => "Дорожный бордюр"],
+                ["uri" => "/klinkernyj/", "name" => "Клинкерный бордюр"],
+                ["uri" => "/plastikovyj/", "name" => "Пластиковый бордюр"],
+                ["uri" => "/magistralnye/", "name" => "Магистральные бордюры"],
+                ["uri" => "/metallicheskie/", "name" => "Металлические бордюры"],
+                ["uri" => "/trotuarnyj/", "name" => "Тротуарный бордюр"],
+            ],
+            'column2' => [
+                ["uri" => "braer/", "name" => "Браер"],
+                ["uri" => "vyibor/", "name" => "Выбор"],
+                ["uri" => "zg-clinker/", "name" => "ZG-Clinker"],
+                ["uri" => "342-mexanicheskij-zavod/", "name" => "342 Механический завод"],
+                ["uri" => "steinrus/", "name" => "Steinrus"],
+            ],
+        ],
+        234702 => [
+            'column1' => [
+                "uri" => "/oblicovochnyj-kamen-dlya-cokolya/",
+                "name" => "Фасадная плитка",
+                'svg' => 'assort-oblickam'
+            ],
+            'column2' => [
+                ["uri" => "oblicovochnyj-kamen-dlya-cokolya/white-hills-cok/", "name" => "White hills"],
+                ["uri" => "oblicovochnyj-kamen-dlya-cokolya/leonardo-stoun-cok/", "name" => "Леонардо Стоун"],
+                ["uri" => "oblicovochnyj-kamen-dlya-cokolya/atlas-stone-cok/", "name" => "Atlas stone"],
+                ["uri" => "oblicovochnyj-kamen-dlya-cokolya/idealnyij-kamen-cok/", "name" => "Идеальный камень"],
+            ]
+        ],
+        230502 => [
+            'column1' => [
+                "uri" => "/materialyi-dlya-blagoustrojstva/",
+                "name" => "Материалы для благоустройства",
+                'svg' => 'assort-matblag'
+            ],
+            'sistmsh' => [
+                ["uri" => "sistema-moshcheniya/zatirka-dlya-shvov/", "name" => "Затирка для швов"],
+                ["uri" => "sistema-moshcheniya/klei-i-rastvory-dlya-ukladki/", "name" => "Клеи и растворы для укладки"],
+            ],
+            'sreduh' => [
+                ["uri" => "sredstva-dlya-uhoda/gidrofobizatoryi-i-ochistiteli/", "name" => "Гидрофобизаторы и очистители"],
+                ["uri" => "sredstva-dlya-uhoda/propitka-mokryj-kamen/", "name" => "Пропитка Мокрый камень"],
+            ],
+            'vodosis' => [
+                ["uri" => "vodootvodnye-sistemy/lotok-vodootvodnyij/", "name" => "Лоток водоотводный"],
+                ["uri" => "vodootvodnye-sistemy/reshetka-vodopriemnaya/", "name" => "Решетка водоприемная"],
+                ["uri" => "vodootvodnye-sistemy/dozhdepriemnik/", "name" => "Дождеприемник"],
+            ],
+            'matpodgovosn' => [[]],
+            'proizvod' => [
+                ["uri" => "proizvoditely-mdb/standartpark-mdb/", "name" => "Standartpark"],
+                ["uri" => "proizvoditely-mdb/quick-mix-mdb/", "name" => "Quick-mix"],
+                ["uri" => "proizvoditely-mdb/braer-mdb/", "name" => "Браер"],
+                ["uri" => "proizvoditely-mdb/gidrolica-mdb/", "name" => "Gidrolica"],
+                ["uri" => "proizvoditely-mdb/perel-mdb/", "name" => "Perel"],
+                ["uri" => "proizvoditely-mdb/white-hills-mdb/", "name" => "White hills"],
+                ["uri" => "proizvoditely-mdb/perfekta-mdb/", "name" => "Perfekta"],
+                ["uri" => "proizvoditely-mdb/tiprom-mdb/", "name" => "Типром"],
+            ]
+        ],
+
+    ];
+
+    return $data;
+}

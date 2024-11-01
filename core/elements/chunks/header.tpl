@@ -72,6 +72,10 @@
           {set $beforeText = "Продажа"}
           {set $afterText = "в Санкт-Петербурге"}
           {switch $_modx->resource.context_key}
+            {case 'trotuarnaya-plitka'}
+              {set $beforeText = ""}
+              {set $text = 'Производство и продажа тротуарной плитки'}
+              {set $afterText = ""}
             {case 'web'}
               {set $text = 'утеплителей'}
             {case 'gazosilikatstroy'}
@@ -184,7 +188,7 @@
                               {/if}
                             {elseif $catCols['column1']['svg'] is not empty}
                               <svg class="h-subinfo__svg" aria-hidden="true">
-                                <use xlink:href="assets/template/pictures/icons.svg#{$catCols['column1']['svg']}"></use>
+                                <use xlink:href="assets/template/pictures/icons.svg?{'file_version' | config}#{$catCols['column1']['svg']}"></use>
                               </svg>
                             {/if}
                         </div>

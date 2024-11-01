@@ -21,6 +21,21 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
     ];
 
     switch ($context) {
+        case 'trotuarnaya-plitka':
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Вид', 'type' => 'simple'];
+            $result['column5'] = ['title' => 'Технология', 'type' => 'simple'];
+            $result['column6'] = ['title' => 'Коллекция', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
+            $result['column7'] = ['title' => 'Форма', 'type' => 'simple'];
+            $result['column4'] = ['title' => 'Материал', 'type' => 'simple'];
+            $result['column8'] = ['title' => 'Цвет', 'type' => 'simple'];
+            $result['sistmsh'] = ['title' => 'Система мощения', 'type' => 'simple', 'uri' => 'sistema-moshcheniya/'];
+            $result['sreduh'] = ['title' => 'Средства для ухода', 'type' => 'simple', 'uri' => 'sredstva-dlya-uhoda/'];
+            $result['vodosis'] = ['title' => 'Водоотводные системы', 'type' => 'simple', 'uri' => 'vodootvodnye-sistemy/'];
+            $result['matpodgovosn'] = ['title' => 'Материалы для подготовки основания', 'type' => 'simple', 'uri' => 'materialy-dlya-podgotovki-osnovaniya/'];
+            $result['proizvod'] = ['title' => 'Производитель', 'type' => 'simple'];
+            break;
         case 'web':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];

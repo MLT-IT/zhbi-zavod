@@ -94,6 +94,9 @@
         <span id="mse2_total">{$total ?: 0}</span>
       </div>
 
+      {if $_modx->context.key == 'trotuarnaya-plitka'}
+        {include "file:sections/banners/trotuarnaya-plitka.tpl" small_banner_hide=true}
+      {else}
       <div class="banner">
         <picture class="banner__bg">
           <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
@@ -120,7 +123,7 @@
         <p class="banner__text">Акция до конца месяца</p>
         <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
       </div>
-
+      {/if}
 
     </div>
   </div>

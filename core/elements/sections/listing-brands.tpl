@@ -41,7 +41,11 @@
                 {set $resources = $_modx->config['popular_ids']}
             {/if}
 
-            {'@FILE snippets/getCategoriesWithMinPrice.php' | snippet}
+            {if $_modx->context.key == 'trotuarnaya-plitka'}
+              {'@FILE snippets/getCategoriesWithMinPriceStatic.php' | snippet}
+            {else}
+              {'@FILE snippets/getCategoriesWithMinPrice.php' | snippet}
+            {/if}
         </div>
       </div>
       <div class="swiper-buttons">

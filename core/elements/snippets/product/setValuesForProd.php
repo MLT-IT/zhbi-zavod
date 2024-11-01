@@ -187,6 +187,61 @@ if (in_array($src['context_key'], ['gazosilikatstroy'])) {
 }
 
 
+// Единицы измерения для trotuarnaya-plitka
+// if (in_array($src['context_key'], ['trotuarnaya-plitka'])) {
+//     $option_key = "kolichestvo-na-poddone-sht";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Бордюры – 250501
+//         if (in_array($src['parent'], [250501, 254677, 254678, 250509, 250510, 250511, 250513, 254679, 254680, 254681, 254426,])) {
+//             $pdn = $result['defaultPrice'] * $src[$option_key][0];
+//         }
+//     }
+
+//     $option_key = "item_length";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Металлические бордюры – 250514
+//         if (in_array($src['parent'], [250514])) {
+//             $thing = $result['defaultPrice'] * ($src[$option_key][0] / 1000);
+//         }
+//         // Пластиковый бордюр - 250512
+//         if (in_array($src['parent'], [250512])) {
+//             $pm = $result['defaultPrice'] / ($src[$option_key][0] / 1000);
+//         }
+//     }
+
+//     $option_key = "pallet_num";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Тротуарная плитка – 250500
+//         if (in_array($src['parent'], [250500, 255090, 255073, 255074, 255075, 255076, 255077, 255080, 255081, 255082, 255083, 255084, 255086, 255087, 250504, 250505, 250506, 254676, 254685, 254686, 254687, 254688, 254689, 254690, 254691, 254692])) {
+//             $pdn = $result['defaultPrice'] * $src[$option_key][0];
+//         }
+//     }
+
+//     $option_key = "kolvoshm2";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Клинкерная брусчатка – 254676
+//         if (in_array($src['parent'], [254676])) {
+//             $thing = $result['defaultPrice'] / $src[$option_key][0];
+//         }
+//     }
+
+//     $option_key = "massa";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Системы мощения – 250516
+//         if (in_array($src['parent'], [250516])) {
+//             $massa_kg = $result['defaultPrice'] / $src[$option_key][0];
+//         }
+//     }
+
+//     $option_key = "upakovka-l";
+//     if (!empty($src[$option_key]) && !empty($src[$option_key][0])) {
+//         // Гидрофобизаторы и очистители – 250517
+//         if (in_array($src['parent'], [250517, 255106, 255107, 255108,])) {
+//             $upakovka_l = $result['defaultPrice'] / $src[$option_key][0];
+//         }
+//     }
+// }
+
 // Единицы измерения для газобетона
 if (in_array($src['context_key'], ['krovelnyjstroymarket'])) {
     if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {

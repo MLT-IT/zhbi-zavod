@@ -60,7 +60,12 @@
     <main class="layout__main" data-template="main">
       <article class="main-screen section">
         <div class="main-screen__container">
-          {include "file:sections/banner.tpl"}
+          {if $_modx->context.key == ''}
+            {include "file:sections/banners/trotuarnaya-plitka.tpl"}
+          {else}
+            {include "file:sections/banner.tpl"}
+          {/if}
+          
           {include "file:sections/advantages.tpl" styleClass='main-screen__advantages'}
         </div>
       </article>
