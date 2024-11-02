@@ -71,7 +71,9 @@
                     {'pdoResources' | snippet :[
                         'parents' => $item['parents']
                         'where' => '{"class_key":"msProduct"}'
-                        'limit' => 100
+                        'limit' => 0
+                        'sortby' => '{"priority1":"ASC", "HitsPage":"ASC"}',
+                        'includeTVs' => 'priority1,HitsPage',
                         'tpl' => '@FILE _modules/warehouses/chunks/product-on-warehouse.tpl'
                         'tplWrapper' => '@FILE _modules/warehouses/chunks/wrapper.tpl'
                     ]}
