@@ -264,7 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
 
     if($('body').width() < 778){
-        const skipButtonMore = document.body.classList.contains('krovelnyjstroymarket') || document.body.classList.contains('alterteplo');
+        const skipButtonMore = document.body.classList.contains('krovelnyjstroymarket') 
+        || document.body.classList.contains('alterteplo')
+        || document.body.classList.contains('plitnye');
         var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
         if(!skipButtonMore){
             $('.burger-menu__catalog').append($buttonMore);

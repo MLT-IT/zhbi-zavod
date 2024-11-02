@@ -117,6 +117,7 @@
             <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
             <a class="footer__nav-item" href="/akcii/">Акции</a>
             <a class="footer__nav-item" href="/faq/">Вопросы и ответы</a>
+            <a class="footer__nav-item" href="/certs/">Сертификаты</a>
             <a class="footer__nav-item" href="/garantii/">Гарантии</a>
             <a class="footer__nav-item" href="/otzyvy/">Отзывы</a>
           </nav>
@@ -215,7 +216,7 @@
     </nav>
 
     <div class="search header__search header__search_screen_mobile">
-      <form action="/search/" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
+      <form action="/search/" method ="GET" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
         <button type="submit" class="search__btn icon-btn icon-btn_style_red">
           <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
@@ -224,7 +225,7 @@
         <input name="query" class="search__input" fast-search-input="desktop" type="search" placeholder="Хочу найти..." id="_inp44444444">
 
       </form>
-      <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile">
+      <form action="/search/" method ="GET" class="search__wrapper search_display_mobile" fast-search-form="mobile">
         <button type="submit" class="search__btn icon-btn icon-btn_style_red">
           <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
@@ -271,7 +272,7 @@
           {set $params['resources'] = '171123,171056,171132,171090,171124'}
         {case 'plitnye'}
           {set $params['parents'] = 177020}
-          {set $params['depth'] = 1}
+          {set $params['depth'] = 0}
           {set $params['limit'] = 15}
           {set $params['sortby'] = 'menuindex'}
           {set $params['sortdir'] = 'ASC'}

@@ -17,6 +17,9 @@
 {if $_modx->resource.context_key == 'kraska'}
   {set $unit = 'упаковку'}
 {/if}
+{if $_modx->resource.context_key == 'plitnye'}
+  {set $unit = 'лист'}
+{/if}
 
 
 <a href="{$uri}" class="swiper-slide preview-card">

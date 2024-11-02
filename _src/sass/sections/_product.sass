@@ -220,7 +220,8 @@
         margin-right: 20px
         @at-root .plitnye & 
             margin-right: 0
-            max-width: 200px
+            min-width: 150px
+            width: 100%
 
         .euv-custom-select__input-value
             font-weight: bold
@@ -241,21 +242,24 @@
         display: flex
         align-items: flex-end
         padding-top: 10px
+        gap: 1em
+        @at-root .plitnye &
+            justify-content: space-between
         +until-480 
             flex-direction: column
             align-items: center
             gap: 1em
 
         &__relinking
+            flex: 1
 
         &__buttons
             display: flex
             flex-wrap: wrap
-            width: 100%
-            justify-content: flex-start
+            justify-content: space-between
             align-items: center
             gap: 15px
-            padding-left: 15px
+            // padding-left: 15px
             +until-480
                 gap: 5px
                 justify-content: space-evenly
