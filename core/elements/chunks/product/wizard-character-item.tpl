@@ -4,7 +4,11 @@
    {$name}
    </span>
     <span class="product-card__chars-val">
-   {$value}
+      {if $value is array}
+            {$value | join : ', '}
+      {else}
+            {$value}
+      {/if}
    </span>
 </div>
 {/if}

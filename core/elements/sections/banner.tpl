@@ -46,31 +46,11 @@
           <p class="banner__text">Акция до конца месяца</p>
           <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
         </div>
-        {*
-        <div class="swiper-slide banner">
-          <picture class="banner__bg">
-            <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
-          </picture>
-          <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
-          <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
-        </div>
-        <div class="swiper-slide banner">
-          <picture class="banner__bg">
-            <source srcset="assets/template/pictures/main-screen/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/main-screen.jpg" alt="banner">
-          </picture>
-          <h2 class="banner__title">Закажите блоки сейчас<br> со <span class="text-highlighter">скидкой</span> — стройте весной</h2>
-          <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
-        </div>
-        *}
+
       </div>
       <div class="swiper-pagination"></div>
     </div>
-{*    <div class="swiper-buttons">*}
-{*      <div class="swiper-button swiper-button-prev"></div>*}
-{*      <div class="swiper-button swiper-button-next"></div>*}
-{*    </div>*}
+
   </div>
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
@@ -97,6 +77,8 @@
           {set $link = '#'}
         {case 'krovelnyjstroymarket'}
           {set $link = '/shourum/'}
+        {case 'trotuarnaya-plitka'}
+          {set $link = '/rasprodazha-so-sklada/'}
       {/switch}
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
