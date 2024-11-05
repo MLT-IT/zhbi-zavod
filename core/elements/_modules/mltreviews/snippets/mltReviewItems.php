@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var int $user_reviews - Если 1 то выведет ожидающие модерации отзывы пользователя
  * @var int $resource_id - ID ресурса к которому привязаны отзывы
@@ -44,7 +45,12 @@ $user_session = $_REQUEST['PHPSESSID'] ?: $_COOKIE['PHPSESSID'];
 $startCount = $startCount ?: 6;
 $limit = $limit ?: 0;
 
-$where = [];
+if (!empty($where)) {
+    $where = json_decode($where, true);
+} else {
+    $where = [];
+}
+
 if ($user_reviews) {
     $where['session'] = $user_session;
     $where['published'] = 0;
