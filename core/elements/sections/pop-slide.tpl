@@ -25,6 +25,6 @@
   </div>
   <p class="preview-card__name">{$name}</p>
   <p class="preview-card__price">от {$minprice} ₽ </p>
-  <span class="preview-card__notion">Стоимость за 1 {$unit}</span>
+  <span class="preview-card__notion">{$custom_unit ? $custom_unit : 'Стоимость за 1 ' ~ $unit}</span>
   <span class="preview-card__btn btn btn_style_shadow">перейти</span>
 </a>
