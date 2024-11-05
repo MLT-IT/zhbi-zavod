@@ -28,6 +28,8 @@
     {set $logo = 'falcevaya-krovlya-white.png'}
   {case 'metallocherepica'}
     {set $logo = 'metallocherepica-white.png'}
+  {case 'trotuarnaya-plitka'}
+    {set $logo = 'trotuarnaya-plitka-white.png'}
 {/switch}
 
 {set $phone = '!virtual_phone' | snippet }
