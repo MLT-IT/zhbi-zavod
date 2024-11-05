@@ -65,9 +65,9 @@ export default class FastSearch {
       // this.search_input.setAttribute("readonly", "true");
 
       // >>> Анимация загрузки
-      const img = document.createElement('img')
-      img.src = "/assets/images/loader.svg"
-      img.className = "header__search-loader"
+      const img = document.createElement("img");
+      img.src = "/assets/images/loader.svg";
+      img.className = "header__search-loader";
       this.search_form.insertBefore(img, this.search_input.nextSibling);
       // <<<
 
@@ -92,7 +92,7 @@ export default class FastSearch {
             }
           } finally {
             this.search_input.classList.remove("search-loading");
-            img.remove()
+            img.remove();
             // this.search_input.removeAttribute("readonly");
           }
         }
@@ -162,17 +162,28 @@ export default class FastSearch {
 
     // Закрытие модалки
     if (this.search_popup) {
-      document.addEventListener('click', (event) => {
+      document.addEventListener("click", (event) => {
         // Проверяем, является ли целевой элемент клика дочерним popup или input или кнопкой поиска
         let inside = this.search_popup.contains(event.target);
-        let submit_btn = this.search_form.querySelector('button[type="submit"]')
-        if (!inside && !this.search_input.contains(event.target) && !submit_btn.contains(event.target)) {
-          this.hidePopup()
-          this.search_input.value = ''
+        let submit_btns = this.search_form.querySelectorAll(
+          'button[type="submit"]'
+        );
+
+        // Проверяем, был ли клик внутри одной из кнопок отправки
+        let clickedSubmitBtn = Array.from(submit_btns).some((btn) =>
+          btn.contains(event.target)
+        );
+
+        if (
+          !inside &&
+          !this.search_input.contains(event.target) &&
+          !clickedSubmitBtn
+        ) {
+          this.hidePopup();
+          this.search_input.value = "";
         }
       });
     }
-
   }
 
   // Скрывает элементы в длинном списке категории
