@@ -181,6 +181,8 @@
             {include "file:blocks/product/linking/linking-select-other-color.tpl"}
             {if $_modx->context.key == 'web'}
               {include "file:chunks/product/rating.tpl"}
+
+              {include 'file:chunks/product/get-ugc-gallery.tpl'}
             {/if}
           </div>
 
@@ -191,7 +193,7 @@
             {/if} *}
               <div class="product-info__top">
                 <div class="product-info__divider">
-                  <div style="width: 100%;">
+                  <div>
                     {if $_modx->context.key !== 'web'}
                       {include "file:chunks/product/rating.tpl"}
                     {/if}

@@ -2,7 +2,7 @@
 <div class="mlt-reviews">
     {include 'file:chunks/banners/reviews-head.tpl'}
     {set $startCount = 9}
-    
+
     {set $user_reviews = '!mltReviewItems' | snippet : [ 
         'user_reviews' => 1,
         'ratingRowClass' => 'mlt-reviews__item-rating',
@@ -11,6 +11,7 @@
         'tplOuter' => 'tplItemOuter',
         'limit' => 3
     ]}
+
     {if $user_reviews}
     <div class="mlt-reviews__user-reviews">
         <h2 class="mlt-reviews__title small-title section__title">На модерации</h2>
@@ -18,13 +19,17 @@
     </div>
     {/if}
 
-    {set $all_reviews ='!mltReviewItems' | snippet : [ 
+    {set $params = [ 
         'ratingRowClass' => 'mlt-reviews__item-rating',
         'ratingItemClass' => 'mlt-reviews__item-rating-item',
         'tpl' => 'tplItemReview',
         'tplOuter' => 'tplItemOuter',
         'startCount' => $startCount
     ]}
+
+    {set $params['where'] = '{ "context": "'~$_modx->context.key~'" }'}
+    
+    {set $all_reviews ='!mltReviewItems' | snippet : $params}
 
     {if $all_reviews}
     <div class="mlt-reviews__all-reviews">

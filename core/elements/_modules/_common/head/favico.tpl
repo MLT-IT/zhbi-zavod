@@ -4,6 +4,8 @@
 {switch $_modx->resource.context_key}
 {case 'test'}
     {set $favico_folder = '/assets/template/img/favicons/test'}
+{case 'trotuarnaya-plitka'}
+    {set $favico_folder = '/assets/template/img/favicons/trotuarnaya-plitka'}
 {default}
     {set $favico_folder = '/assets/template/img/favicons/default'}
 {/switch}

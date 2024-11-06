@@ -41,7 +41,7 @@
                 {set $resources = $_modx->config['popular_ids']}
             {/if}
 
-            {if $_modx->context.key == 'trotuarnaya-plitka'}
+            {if $_modx->context.key in list ['trotuarnaya-plitka', 'web']}
               {'@FILE snippets/getCategoriesWithMinPriceStatic.php' | snippet}
             {else}
               {'@FILE snippets/getCategoriesWithMinPrice.php' | snippet}

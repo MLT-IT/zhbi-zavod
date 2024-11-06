@@ -158,6 +158,9 @@
             <nav class="h-nav">
             <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>
             <a class="h-nav__link" href="/akcii/">Акции</a>
+            {if $_modx->resource.context_key in list ['web']}
+              <a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a>
+            {/if}
             <a class="h-nav__link" href="/o-kompanii/">О компании</a>
             <a class="h-nav__link" href="/contacts/">Контакты</a>
             </nav>
@@ -290,6 +293,9 @@
           </li>
           {if $_modx->resource.context_key in list ['plitnye']}
             <li class="h-nav__item"><a class="h-nav__link" href="/raspil-v-razmer/">Распил</a></li>
+          {/if}
+          {if $_modx->resource.context_key in list ['web']}
+            <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
           {/if}
           <li class="h-nav__item"><a class="h-nav__link" href="/contacts/">Контакты</a></li>
           </ul>
