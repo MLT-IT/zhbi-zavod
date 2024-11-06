@@ -27,11 +27,8 @@
         'startCount' => $startCount
     ]}
 
-    {if $_modx->context.key in list ['web', 'krovelnyjstroymarket']}
-        {set $params['where'] = '{ "context": "'~$_modx->context.key~'" }'}
-    {else}
-        {set $params['where'] = '{ "context": "NULL" }'}
-    {/if}
+    {set $params['where'] = '{ "context": "'~$_modx->context.key~'" }'}
+    
     {set $all_reviews ='!mltReviewItems' | snippet : $params}
 
     {if $all_reviews}
