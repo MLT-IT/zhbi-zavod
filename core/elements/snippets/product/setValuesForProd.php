@@ -64,6 +64,10 @@ $result['defaultPrice'] = str_replace([',', ' '], ['.', ''], $src['price']);
 $result['outputPrice'] = str_replace(',', '.', preg_replace($decoratePriceRegex, ' ', $src['price']));
 // Старая цена
 if ($src['old_price']) {
+    preg_match('/\d(?:\s?\d)*/', $src['old_price'], $matches);
+    $src['old_price'] = str_replace(' ', '', $matches[0]);
+    $src['old_price'] = round($src['old_price']);
+    
     // Старая цена по умолчанию
     $result['defaultOldPrice'] = str_replace([',', ' '], ['.', ''], $src['old_price']);
     // Старая цена для красивого вывода
