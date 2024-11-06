@@ -85,7 +85,7 @@
                 </span>
               </div>
 
-              <form method="post" class="ms2_form cart-item__counter-form" role="form">
+              <form method="post" class="ms2_form cart-item__counter-form" role="form" data-cart-product-price="{$product.price}" data-cart-product-id="{$product.id}">
                 <input type="hidden" name="key" value="{$product.key}"/>
                 <div class="custom-counter cart-item__counter counter">
                   <span class="custom-counter__btn custom-counter__btn_dir_less counter__btn counter__btn_minus"></span>
@@ -96,6 +96,9 @@
                 <button class="btn btn-sm" type="submit" name="ms2_action" value="cart/change"></button>
               </form>
 
+              <div class="cart-item__bottom-summ">
+                Итого: <b><span data-cart-product-summ="{$product.id}">{$product.price * $product.count}</span> ₽</b>
+              </div>
             </div>
           </div>
         </div>

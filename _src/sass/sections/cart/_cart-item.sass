@@ -1,6 +1,6 @@
 .cart-item
 	position: relative
-	padding: 25px 100px 25px 25px
+	padding: 10px
 	display: flex
 	align-items: center
 	background-color: var(--color-white)
@@ -22,9 +22,9 @@
 		max-width: 237px
 
 	&__picture
-		flex: 0 1 273px
+		flex: 0 1 220px
 		height: 100%
-		padding: 35px
+		padding: 20px
 		margin-right: 40px
 		display: flex
 		align-items: center
@@ -143,10 +143,15 @@
 	&__body
 		display: flex
 		flex-direction: column
+		justify-content: center
+		width: 70%
+		+until-768
+			width: 100%
 
 	&__bottom
 		display: flex
 		align-items: flex-end
+		gap: 8px
 
 		+until-768
 			flex-wrap: wrap
@@ -155,10 +160,19 @@
 			flex-direction: column
 			align-items: center
 
+		&-summ
+			font-size: 30px
+			margin-left: auto
+			+until-768
+				font-size: 20px
+			+until-480
+				font-size: 16px
+				margin: auto
+
 	&__title
 		margin-bottom: 35px
 		font-weight: 700
-		font-size: 30px
+		font-size: 20px
 		line-height: 1.5
 		color: #1a0dab
 
@@ -214,7 +228,6 @@
 		+until-480
 			text-align: center
 
-
 		&:not(:last-child)
 			margin-right: 50px
 
@@ -227,13 +240,10 @@
 
 		&-value
 			font-weight: 700
-			font-size: 30px
+			font-size: 20px
 			line-height: 1.5
 
 			white-space: nowrap
-
-			+until-992
-				font-size: 24px
 
 			+until-768
 				font-size: 18px
@@ -243,7 +253,7 @@
 
 		&-notion
 			font-weight: 400
-			font-size: 16px
+			font-size: 14px
 			line-height: 1.5
 
 			color: var(--color-gray)

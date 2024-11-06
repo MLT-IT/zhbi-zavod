@@ -122,6 +122,7 @@
     };
     miniShop2.controller = function () {
         var self = this;
+        window._self = this;
         switch (self.sendData.action) {
             case 'cart/add':
                 miniShop2.Cart.add();
@@ -288,6 +289,31 @@
                 // location.reload();
             }
             else {
+
+                /**
+                 * Обновление у товаров итоговой суммы
+                 * На форму ставим data-cart-product-price и data-cart-product-id
+                 * Устанавливаем в любом блоке data-cart-product-summ="PRODUCT_ID" - результат расчета
+                 */
+                try{
+                    let $form = window._self.sendData.$form
+                    if($form){
+                        $form = $($form)
+                        let $count_elem = $($form)?.find('[name="count"]')
+                        if($count_elem){
+                            let product_count = $count_elem.val()
+                            let product_price = $form.data('cart-product-price')
+                            let product_id = $form.data('cart-product-id')
+
+                            let $total_elem = $(`[data-cart-product-summ="${product_id}"]`)
+                            let result = +product_price * +product_count
+                            $total_elem.text(result)
+                        }
+                    }
+                }catch{
+                    // console.error("Ошибка при расчете общей суммы товара");
+                }
+
                 //var $cart = $(miniShop2.Cart.cart);
                 var $miniCart = $(miniShop2.Cart.miniCart);
                 if (status['total_count'] > 0 && !$miniCart.hasClass(miniShop2.Cart.miniCartNotEmptyClass)) {
