@@ -6,12 +6,12 @@
     <div class="swiper-wrapper ugg__wrapper">
     {foreach $images as $img}
       {set $thumb = 'phpthumbon' | snippet : [
-        'input' => "{$img}",
+        'input' => "/assets/{$img}",
         'options' => '&w=200&h=170&zc=1'
       ]}
       <div class="swiper-slide ugg__slide">
         <div class="ugg__slide-wrapper">
-          <a data-fancybox="ugg" href="{$img}"><img src="{$thumb}" alt="" /></a>
+          <a data-fancybox="ugg" href="/assets/{$img}"><img src="{$thumb}" alt="" /></a>
         </div>
       </div>
     {/foreach}

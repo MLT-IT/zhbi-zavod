@@ -45,11 +45,11 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
             if (!$resource_fields) continue;
             $resource_fields = json_decode($resource_fields);
 
-            $img = $resource_fields->img;
+            $img = "/assets/".$resource_fields->img;
             $menutitle = $resource_fields->title;
             $uri = $resource_fields->uri;
         } elseif ($val['type'] == "creation") {
-            $img = $val['img'];
+            $img = "/assets/".$val['img'];
             $menutitle = $val['title'];
             $uri = $val['uri'];
         }
