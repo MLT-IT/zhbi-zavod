@@ -45,7 +45,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
             if (!$resource_fields) continue;
             $resource_fields = json_decode($resource_fields);
 
-            $img = "/assets/".$resource_fields->img;
+            $img = $resource_fields->img;
             $menutitle = $resource_fields->title;
             $uri = $resource_fields->uri;
         } elseif ($val['type'] == "creation") {
