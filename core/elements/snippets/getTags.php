@@ -49,7 +49,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
             $menutitle = $resource_fields->title;
             $uri = $resource_fields->uri;
         } elseif ($val['type'] == "creation") {
-            $img = $val['img'];
+            $img = "/assets/".$val['img'];
             $menutitle = $val['title'];
             $uri = $val['uri'];
         }
