@@ -188,7 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
     // Подмена Email'а
     // -------------------------------
-    mailChange();
+      
+    // Проверяем, есть ли в URL параметр utm_source
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // is_source - Определяется в плагине utm
+    if (!urlParams.has("utm_source") && (window.is_source == 0 || !window.is_source)) {
+        mailChange();
+    }
 
 
     // -------------------------------
