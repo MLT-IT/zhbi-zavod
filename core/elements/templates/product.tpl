@@ -193,7 +193,7 @@
             {/if} *}
               <div class="product-info__top">
                 <div class="product-info__divider">
-                  <div>
+                  <div class="{if $_modx->context.key == 'web'}width-100{/if}">
                     {if $_modx->context.key !== 'web'}
                       {include "file:chunks/product/rating.tpl"}
                     {/if}
