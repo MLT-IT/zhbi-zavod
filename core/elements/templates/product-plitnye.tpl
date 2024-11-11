@@ -321,7 +321,7 @@
             </div>
           </div>
         </div>
-        <div class="infoblocks__block active" data-tab-page="Калькулятор">
+        <div class="infoblocks__block" data-tab-page="Калькулятор">
           <button class="infoblocks__block-title" data-tab="Калькулятор">Калькулятор</button>
           <div class="infoblocks__block-dropdown">
             <div id="wall-calc"
