@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="/_vue/assets/template/vue/vue-main.css" >
     <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v={'file_version' | config}">
+    <link rel="stylesheet" href="{$_modx->config['template_path']}wall-calc/css/wall-calc.css?v={'file_version' | config}">
 
     {if $_modx->context.key == 'web'}
         {set $site_context = 'alterteplo'}
@@ -160,6 +161,7 @@
 {/block}
 {block "end-body"}
     <script src="{$_modx->config['template_path']}js/main.js?v={'file_version' | config}"></script>
+    <script type="module" src="{$_modx->config['template_path']}wall-calc/wall-calc.js?v={'file_version' | config}"></script>
     <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" async defer></script>
     <script src="/_vue/assets/template/vue/vue-main.js"></script>
 <!--

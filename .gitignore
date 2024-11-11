@@ -4,5 +4,7 @@ node_modules/
 .env
 *sync*
 nohup*
-assets/template/js/main.js
-assets/template/css/main.css
+assets/template/js/
+assets/template/css/
+assets/components/wall-calc
+assets/template/wall-calc
