@@ -6,5 +6,5 @@ node_modules/
 nohup*
 assets/template/js/
 assets/template/css/
-assets/components/wall-calc
-assets/template/wall-calc
+assets/components/wall-calc/
+assets/template/wall-calc/
