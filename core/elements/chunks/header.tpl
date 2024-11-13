@@ -298,6 +298,11 @@
             <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
           {/if}
           <li class="h-nav__item"><a class="h-nav__link" href="/contacts/">Контакты</a></li>
+          {if $_modx->resource.context_key in list ['plitnye']}
+            <li class="h-nav__item">
+              <a class="h-nav__link h-nav__link_calc" href="/calculator/" title="Калькулятор"></a>
+            </li>
+          {/if}
           </ul>
         </nav>
         <div class="header__phonesched">
