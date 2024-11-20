@@ -448,7 +448,7 @@ function init(yandexMetrikaId) {
     // Добавление товара в корзину. Вызывается при добавлении товара в корзину с карточки товара и со страницы товара
     miniShop2.Callbacks.Cart.add.response.success = function (response) {
         if (response.success) {
-            if (typeof ym !== 'undefined' && $('body').is('.gazosilikatstroy, .alterteplo')) {
+            if (typeof ym !== 'undefined' && $('body').is('.gazosilikatstroy, .alterteplo, .krovelnyjstroymarket')) {
                 ym(window.ymid, 'reachGoal', 'korzina');
                 console.log('Достигнута цель: korzina, id счетчика: ' + window.ymid);
             }
