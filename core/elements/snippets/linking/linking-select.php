@@ -126,6 +126,8 @@ if(!class_exists("Linking"))
             $products = $this->getParentIds();
             foreach ($this->dependence as $key) {
                 // получение товаров по у которых есть не пустая опция, из выборки товаров
+                if(empty($products))continue;
+
                 $idsProductsForOption = $this->getIdsForOptionKey($key, $products);
                 $idsProduct[$key] = [];
 
