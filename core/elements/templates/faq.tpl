@@ -7,7 +7,6 @@
             <div class="faq__container">
                 {include 'file:sections/faq.tpl' ispage=1}
                 {include "file:sections/payment.tpl"}
-                {include "file:sections/advantages.tpl"}
             </div>
         </article>
     </main>
