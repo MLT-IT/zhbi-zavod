@@ -267,8 +267,15 @@
                               Можно посмотреть в нашем&nbsp;<a class="link" href="/shourum/">шоу-руме</a>
                           </div>
                         {/if}
+                        {if $_modx->context.key == 'suhiesmesi'}
+                        <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                            Срок доставки: {'' | date : 'd.m.Y'}
+                        </div>
+                        <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                            Самовывоз: {'' | date : 'd.m.Y'}
+                        </div>
+                        {/if}
                         {if $relinkingData is empty}
-
                           {if $_modx->context.key == 'web'}
                             {include "file:_modules/warehouses/sections/warehouse-remains.tpl"}
                           {else}
@@ -280,7 +287,7 @@
                                     
                                     На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
                                   {elseif $_modx->context.key == 'suhiesmesi'}
-                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 35, 'end'=> 150])} шт
+                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} шт
                                   {else}
                                     На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                                 {/if}
