@@ -98,7 +98,7 @@
 
 <div>
   <div class="product-card__price">
-    <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽</p>
+    <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} / упаковка{/if}</p>
   </div>
 
   {if $prodValues['outputOldPrice']?}
