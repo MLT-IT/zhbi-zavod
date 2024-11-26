@@ -30,7 +30,7 @@
 </div>
 {/foreach}
 {else}
-{if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["kraska", "suhiesmesi"]}
+{if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["kraska"]}
   <div class="infoblocks__vendor">
     <div class="vendor-infoblock">
       <div class="vendor-infoblock__icon" data-val="{$_modx->resource.proizvoditel.0}"></div>
@@ -38,6 +38,15 @@
     </div>
   </div>
 {/if}
+
+  {if $_modx->resource.proizvoditel.0 && $_modx->resource.context_key in list ["suhiesmesi"]}
+    <div class="infoblocks__advantage">
+      <div class="advantage">
+        <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/advantages/advantage-9.png"></div>
+        <p class="advantage__title">Широкий ассортимент</p>
+        <p class="advantage__text">Подберем смесь под любую задачу — от отделки до крупных объектов</p></div>
+    </div>
+  {/if}
 
   {if $_modx->resource.context_key not in list ["tagnerud"]}
   <div class="infoblocks__advantage">
