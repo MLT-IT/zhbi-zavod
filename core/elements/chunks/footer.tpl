@@ -200,21 +200,43 @@
 <section class="burger-menu">
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
-      {if $_modx->context.key == 'plitnye'}
+      {switch $_modx->context.key}
+      {case 'plitnye'}
       <div class="burger-menu__nav-items">
         <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
         <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
         <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка</a>
         <a class="burger-menu__nav-link" href="/otzyvy/">Отзывы</a>
       </div>
-      {else}
+      {case 'kirpich-m5'}
+      <ul class="burger-menu__nav-items">
+        <li class="burger-menu__nav-item">
+          <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
+        </li>
+        <li class="burger-menu__nav-item">
+          <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
+        </li>
+        <li class="burger-menu__nav-item">
+          <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
+          <div class="burger-menu__submenu">
+            <ul>
+              <li><a class="burger-menu__sublink u-marginLeft16" href="/shourum/">Шоурум</a></li>
+              <li><a class="burger-menu__sublink has-icon icon-star" href="/otzyvy/">Отзывы</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="burger-menu__nav-item">
+          <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
+        </li>
+      </ul>
+      {default}
       <div class="burger-menu__nav-items">
         <a class="burger-menu__nav-link" href="/dostavka-i-oplata/">Доставка и оплата</a>
         <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
         <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
         <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>
       </div>
-      {/if}
+      {/switch}
     </nav>
 
     <div class="search header__search header__search_screen_mobile">

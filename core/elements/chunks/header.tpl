@@ -8,9 +8,9 @@
       </button>
 
       {switch $_modx->resource.context_key}
-        {case 'web'}
-          {set $logo = 'alterteplo.png'}
-          {set $logoMobile = 'alterteplo.png'}
+        {case 'kirpich-m5'}
+          {set $logo = 'kirpich-m5.png'}
+          {set $logoMobile = 'kirpich-m5.png'}
         {case 'plitnye'}  
           {set $logo = 'plitnyematerialy.png'}
           {set $logoMobile = 'plitnyematerialy.png'}
@@ -154,15 +154,30 @@
       <div class="header__toolbar">
         <div class="h-menu header__menu" data-dropdown>
           <button class="h-menu__btn btn btn_style_base">Меню</button>
+          {if $_modx->resource.context_key == 'kirpich-m5'}
+          {set $add_classes = 'u-marginLeft16'}
+          {else}
+          {set $add_classes = ''}
+          {/if}
           <div class="h-menu__dropdown">
-            <nav class="h-nav">
-            <a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a>
-            <a class="h-nav__link" href="/akcii/">Акции</a>
-            {if $_modx->resource.context_key in list ['web']}
-              <a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a>
-            {/if}
-            <a class="h-nav__link" href="/o-kompanii/">О компании</a>
-            <a class="h-nav__link" href="/contacts/">Контакты</a>
+            <nav>
+              <ul class="h-nav">
+                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/akcii/">Акции</a></li>
+                {switch $_modx->resource.context_key}
+                {case 'web'}
+                  <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
+                {case 'kirpich-m5'}
+                  {set $items}
+                  <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/shourum/">Шоурум</a></li>
+                  <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyvy/">Отзывы</a></li>
+                  {/set}
+                {default}
+                {/switch}
+                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/o-kompanii/">О компании</a></li>
+                {$items}
+                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/contacts/">Контакты</a></li>
+              </ul>
             </nav>
           </div>
         </div>
@@ -282,14 +297,30 @@
           {/if}
           <li class="h-nav__item">
             <a class="h-nav__link" href="/o-kompanii/">О компании</a>
-            {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
-            <div class="h-nav__subnav h-subnav">
-              <ul class="h-subnav__wrapper">
-                <li class="h-nav__item"><a class="h-nav__link" href="/shourum/">Шоурум</a></li>
-                <li class="h-nav__item"><a class="h-nav__link" href="/otzyivyi/">Отзывы</a></li>
-              </ul>
-            </div>
-            {/if}
+              {set $items = [
+                "sr" => ["text" => "Шоурум",
+                        "link" => "/shourum/"],
+                "fb" => ["text" => "Отзывы",
+                          "link" => "/otzyivyi/"]
+              ]}
+              {switch $_modx->resource.context_key}
+              {case 'krovelnyjstroymarket'}
+              {case 'kirpich-m5'}
+                {set $items["fb"]["link"] = "/otzyvy/"}
+                {set $items["fb"]["link_classes"] = "has-icon icon-star"}
+                {set $items["sr"]["link_classes"] = "u-marginLeft16"}
+              {default}
+                {set $items = null}
+              {/switch}
+              {if $items}
+                <div class="h-nav__subnav h-subnav">
+                  <ul class="h-subnav__wrapper">
+                    {foreach $items as $item}
+                    <li class="h-nav__item"><a class="h-nav__link {$item.link_classes}" href="{$item.link}">{$item.text}</a></li>
+                    {/foreach}
+                  </ul>
+                </div>
+              {/if}
           </li>
           {if $_modx->resource.context_key in list ['plitnye']}
             <li class="h-nav__item"><a class="h-nav__link" href="/raspil-v-razmer/">Распил</a></li>
