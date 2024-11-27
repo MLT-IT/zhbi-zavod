@@ -47,9 +47,20 @@
 {/if}
 
 <div class="product-card__body">
+    {if $_modx->resource.context_key == "suhiesmesi"}
+        <div class="product-info__rating rating">
+            <ul class="rating__stars">
+                <li class="rating__star active"></li>
+                <li class="rating__star active"></li>
+                <li class="rating__star active"></li>
+                <li class="rating__star active"></li>
+                <li class="rating__star active"></li>
+            </ul>
+        </div>
+    {/if}
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
-  {if $_modx->context.key == 'web'}
+  {if $_modx->context.key in list ['web', 'suhiesmesi']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
   {/if}
