@@ -40,11 +40,21 @@ import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
 import '../../core/elements/_modules/debug/Logger.js'
+import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
+    
+    const ctx = body.getAttribute('data-ctx');
+
+    switch(ctx){
+        case 'kirpich-m5':
+            const ourObjects = new OurObjects();
+            ourObjects.bind();
+        break;
+    }
 
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
     $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
@@ -56,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(js_burger_1){
         js_burger_1.addEventListener("click", (e) => {
             if(typeof window.mm_js_burger_1 !== "undefined")return;
-            const ctx = body.getAttribute('data-ctx');
+            //const ctx = body.getAttribute('data-ctx');
             let mm = null;
             switch(ctx){
                 case 'kirpich-m5':
@@ -74,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(js_burger_2){
         js_burger_2.addEventListener("click", (e) => {
             if(typeof window.mm_js_burger_2 !== "undefined")return;
-            const ctx = body.getAttribute('data-ctx');
+            //const ctx = body.getAttribute('data-ctx');
             let mm = null;
             switch(ctx){
                 case 'kirpich-m5':

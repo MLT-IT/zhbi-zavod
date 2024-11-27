@@ -1,0 +1,108 @@
+%css-arrow
+    content: ""
+    width: 6px
+    height: 6px
+    display: block
+    border: solid
+    border-width: 0 3px 3px 0
+    position: absolute
+    border-radius: 1px
+    border-color: var(--color-red)
+
+.sect-showroom-swiper
+
+
+    &__wrapper
+        margin-inline: auto
+        // display: flex
+
+    .showroom-swiper
+        margin-bottom: 60px 
+        width: 100%
+        overflow-x: hidden
+
+        &__image
+            display: block
+            cursor: zoom-in
+            max-width: 100%
+            margin-inline: auto
+            border-radius: 10px
+            border: 1px inset transparent
+            border-color: var(--color-red)
+
+        // Swiper overrides
+        .swiper-buttons 
+            position: relative
+            display: flex
+            gap: 16px
+            margin-bottom: 20px
+            top: auto
+            left: auto
+            width: auto
+            transform: none
+
+        .swiper-button
+            width: 40px
+            height: 40px
+            display: flex
+            align-items: center
+            justify-content: center
+            border: 1.5px solid
+            border-radius: 4px
+            position: static
+            margin: 0
+            transition: .3s
+
+            &-prev, &-next
+                width: 40px
+                height: 40px
+                display: flex
+                align-items: center
+                justify-content: center
+                border: 1.5px solid
+                border-radius: 4px
+                position: static
+                margin-top: 0
+                transition: .3s
+                border-color: var(--color-red)
+
+                &:hover
+                    background-color: var(--color-red)
+
+                    &:after
+                        border-color: var(--color-white)
+
+                &::after
+                    @extend %css-arrow
+                    width: 10px
+                    height: 10px
+                    transition: .3s
+
+            &-prev
+                margin-left: auto
+
+
+                &::after
+                    transform: rotate(130deg)
+                    margin-left: 5px
+
+            &-next
+                &::after
+                    transform: rotate(310deg)
+                    margin-right: 5px
+
+            &-disabled
+                cursor: auto
+                opacity: .35
+                pointer-events: none
+
+        .swiper-slide
+            width: auto
+
+        .swiper-pagination
+            &-bullets
+                width: 100%
+                display: flex
+            &-bullet
+                width: 100%
+                border-radius: 4px
