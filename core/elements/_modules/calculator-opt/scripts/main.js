@@ -196,5 +196,8 @@ function getDefaultHeaders() {
     };
 }
 
-// Инициализация приложения
-init();
+try{
+    init();
+}catch (e){
+
+}
