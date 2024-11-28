@@ -3,7 +3,7 @@
 {block "page"}
   <main class="layout__main">
 
-    {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
+    {insert "file:chunks/breadcrumbs/breadcrumbs.tpl"}
 
     <article class="contacts contacts_separate section">
       <div class="contacts__container">
