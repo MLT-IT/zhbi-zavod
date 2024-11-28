@@ -23,7 +23,7 @@ import mapsLazyload from './modules/lazyload_maps';
 import modxJS from './functions/modxJS';
 import { initSliders } from "./modules/sliders";
 import calcProperties from "./utils/calcProperties";
-import initMobilemenu from "./modules/mobileMenu";
+import {Mobilemenu, Mobilemenu_kirpichM5} from "./modules/mobileMenu";
 import Dropdowns from "./modules/dropdowns";
 import Tabs from "./modules/tabs";
 import { initFancybox } from "./libs/fancybox";
@@ -40,18 +40,67 @@ import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
 import '../../core/elements/_modules/debug/Logger.js'
+import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
+    
+    const ctx = body.getAttribute('data-ctx');
+
+    switch(ctx){
+        case 'kirpich-m5':
+            const ourObjects = new OurObjects();
+            ourObjects.bind();
+        break;
+    }
 
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
     $('#callback').find('.form__title').text('Оставьте свои контакты ниже');
 
     calcProperties.calcAppProperties();
-    initMobilemenu('.js-burger-1', '.burger-menu');
-    initMobilemenu('.js-burger-2', '.burger-menu');
+
+    const js_burger_1 =  document.querySelector('.js-burger-1');
+    const js_burger_2 =  document.querySelector('.js-burger-2');
+    if(js_burger_1){
+        js_burger_1.addEventListener("click", (e) => {
+            if(typeof window.mm_js_burger_1 !== "undefined")return;
+            //const ctx = body.getAttribute('data-ctx');
+            let mm = null;
+            switch(ctx){
+                case 'kirpich-m5':
+                    mm = Mobilemenu_kirpichM5;
+                break;
+                default:
+                    mm = Mobilemenu;
+                break;
+            }
+            console.log(mm);
+            window.mm_js_burger_1 = new mm('.js-burger-1', '.burger-menu');
+            window.mm_js_burger_1.toggleBurger(e);
+        });
+    }
+    if(js_burger_2){
+        js_burger_2.addEventListener("click", (e) => {
+            if(typeof window.mm_js_burger_2 !== "undefined")return;
+            //const ctx = body.getAttribute('data-ctx');
+            let mm = null;
+            switch(ctx){
+                case 'kirpich-m5':
+                    mm = Mobilemenu_kirpichM5;
+                break;
+                default:
+                    mm = Mobilemenu;
+                break;
+            }
+            window.mm_js_burger_2 = new mm('.js-burger-2', '.burger-menu');
+            window.mm_js_burger_2.toggleBurger(e);
+        });
+    }
+
+    //initMobilemenu('.js-burger-1', '.burger-menu');
+    //initMobilemenu('.js-burger-2', '.burger-menu');
     initSliders();
     new Dropdowns();
     new Tabs();

@@ -30,6 +30,24 @@
             margin: 0 -10px 25px
             padding: 10px 0 0
 
+        &-item
+            margin: 0 10px 8px
+            &:first-child
+                margin-left: 0
+                +until-480
+                    @at-root body[data-ctx='kirpich-m5'] &
+                        margin-left: 10px
+
+            &:last-child
+                margin-right: 0
+
+            &:hover > .burger-menu__submenu
+                opacity: 1
+                pointer-events: auto
+
+            +from-480
+                margin: 0 1px 8px
+
         &-items
             display: flex
             align-items: center
@@ -43,6 +61,8 @@
 
             +until-480
                 padding-bottom: 0
+                @at-root body[data-ctx='kirpich-m5'] &
+                    flex-wrap: wrap
 
             &::-webkit-scrollbar /* 1 - скроллбар */
                 appearance: none
@@ -90,6 +110,43 @@
         +until-768
             grid-template-columns: 100%
             grid-gap: 5px
+
+    &__submenu
+        display: block
+        background-color: var(--color-gray-lt)
+        border-radius: 10px
+        //height: 0
+        opacity: 0
+        pointer-events: none
+        overflow: hidden
+        padding: 10px 20px
+        position: absolute
+        -webkit-transition: opacity .3s ease
+        transition: opacity .3s ease
+        z-index: 2
+        position: absolute
+        max-width: 100%
+        & > ul > li
+            margin: 10px 0
+
+        &--visible
+            opacity: 1
+            pointer-events: auto
+
+    &__sublink
+        color: var(--color-black)
+        cursor: pointer
+        font-size: 13px
+        font-weight: 700
+        line-height: 1.2
+        margin-bottom: 4px
+        text-decoration: none
+        white-space: nowrap
+        &.has-icon.icon-star
+            &:before
+                width: 14px
+                height: 14px
+                font-size: 14px
 
 .bm-cat-item
     padding: 10px

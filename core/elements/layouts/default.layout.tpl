@@ -79,12 +79,14 @@
             {set $gtm_id = $counters.gtm_id}
             {set $yandex_id = $counters.yandex_id}
         {/if}
+        {if $yandex_id != ""}
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript">
             (function(m,e,t,r,i,k,a) { m[i]=m[i]||function() { (m[i].a=m[i].a||[]).push(arguments) } ;
                 m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) } )
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
             window.ymid = {$yandex_id};
+
             ym({$yandex_id}, "init", {
                 clickmap:true,
                 trackLinks:true,
@@ -94,7 +96,7 @@
             } );
         </script>
         <!-- /Yandex.Metrika counter -->
-
+        {/if}
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i) { w[l]=w[l]||[];w[l].push( { 'gtm.start':
                     new Date().getTime(),event:'gtm.js' } );var f=d.getElementsByTagName(s)[0],
