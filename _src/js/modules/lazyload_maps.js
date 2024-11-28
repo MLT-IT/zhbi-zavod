@@ -18,7 +18,9 @@ export default function mapsLazyload() {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const mapScript = document.querySelector('[data-map-id="' + entry.target.getAttribute('data-map-script') + '"]')
-                mapScript.setAttribute('src', mapScript.getAttribute('data-src'))
+                if(mapScript){
+                    mapScript.setAttribute('src', mapScript.getAttribute('data-src'))
+                }
                 observer.unobserve(entry.target)
             }
         })
