@@ -3,8 +3,12 @@
   {'!checkItems' | snippet}
 {/if}
 
-
-<div class="product-card__vendor-logo" data-val="{$proizvoditel[0]}"></div>
+{if $_modx->resource.context_key == "suhiesmesi" && $iconProduct}
+    <div class="product-card__icon" style="background-image: url({$iconProduct});" ></div>
+{/if}
+{if $_modx->resource.context_key != "suhiesmesi"}
+    <div class="product-card__vendor-logo" data-val="{$proizvoditel[0]}"></div>
+{/if}
 
 <input type="hidden" name="id" value="{$id}">
 <div class="product-card__picture">
@@ -109,7 +113,7 @@
 
 <div>
   <div class="product-card__price">
-    <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} / упаковка{/if}</p>
+      <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} <span style="font-size: 14px">/ упаковка</span>{/if}</p>
   </div>
 
   {if $prodValues['outputOldPrice']?}

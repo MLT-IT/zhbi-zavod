@@ -88,7 +88,7 @@
 
       'aliases' => '@FILE snippets/getAliasesFromFilters.php' | snippet,
       'sort' => 'tv|priority1:asc,tv|HitsPage:asc',
-      'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping,stockNum',
+      'includeTVs' => 'priority1,HitsPage,isFractional,productNotAvailable,freeShipping,stockNum,iconProduct',
 
       'values_delimeter' => '~',
       'context' => $_modx->resource.context_key,

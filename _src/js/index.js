@@ -40,13 +40,14 @@ import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
 import '../../core/elements/_modules/debug/Logger.js'
+import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
-    
+
     const ctx = body.getAttribute('data-ctx');
 
     switch(ctx){

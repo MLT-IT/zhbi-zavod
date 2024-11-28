@@ -1,0 +1,110 @@
+.calculator-opt
+  border: 1px solid #E53A20
+  border-radius: 12px
+  padding: 20px
+  max-width: 600px
+  color: #000
+
+  &__title
+    font-size: 18px
+    font-weight: 700
+    text-align: center
+    margin: 0
+
+
+  &__subtitle
+    font-size: 14px
+    text-align: center
+    color: #000
+    margin: 0
+
+  &__input
+    display: block
+    width: 100%
+    z-index: 11
+    position: relative
+    padding: 10px
+    margin: 10px 0 10px 0
+    border: 1px solid #E53A20
+    border-radius: 8px
+    &:focus
+      outline: none
+
+  &__quantity
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    &-input
+      display: flex
+      flex-direction: row
+      height: 40px
+      width: 122px
+      margin-top: 10px
+
+
+    .quantity__button
+      max-width: 30px
+      height: 40px
+      cursor: pointer
+
+    .quantity__value
+      font-size: 16px
+      font-weight: bold
+
+  &__prices
+    display: flex
+    flex-direction: column
+    justify-content: end
+    align-items: end
+
+    .price
+      font-size: 16px
+      margin: 5px 0
+
+      &__value
+        font-weight: 700
+
+  &__group
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin-top: 10px
+
+.search-result
+  position: relative
+  display: none
+  &.active
+    display: block
+
+  &__container
+    width: 100%
+    padding: 5px 0 0 0 !important
+    position: absolute
+    top: -14px
+    z-index: 10
+    background: #fff
+    border: 1px solid #eee
+
+.search-item
+  cursor: pointer
+  border-bottom: 1px solid #eee
+  padding: 7px 7px
+  &:hover
+    background: #f5f5f5
+
+.search-input
+  position: relative
+
+  &__close
+    display: none
+    position: absolute
+    right: 10px
+    top: 9px
+    color: #5e5e5e
+    cursor: pointer
+    font-weight: 600
+    z-index: 12
+
+    &.active
+      display: block

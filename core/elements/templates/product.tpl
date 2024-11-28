@@ -460,6 +460,12 @@
                     </p>
                   </div>
               {/if}
+              {if $_modx->resource.context_key in list ['suhiesmesi']}
+                  <div style="margin-top: 20px">
+                    {include "file:_modules/calculator-opt/chunks/calculator-opt.tpl" product=$_modx->resource}
+                  </div>
+              {/if}
+
               {if $isCustomCalculator || $isShtaketnik}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
