@@ -429,6 +429,52 @@ class getCategoriesWithMinPrice
                 //     ];
                 //     static::$brandsAndCategories = static::$brandsIds;
                 //     break;
+            case 'kirpich-m5':
+                /*
+                    Ключ - алиас для таблицы с товарами, может быть любым
+                    значение - одна категория, либо список через запятую. Категории будут выведены на фронтенд
+                */
+                static::$brandsIds = [
+                    'oblicovochnyi' => 231027,
+                    'stroitelnyi' => 231028,
+                    'bruschatka' => 231029,
+                    'dekor' => 231030,
+                    'kamen' => 231031,
+                    'kerambloki' => 231032,
+                    'pechnoi' => 231033,
+                    'kladochsmes' => 231034,
+                    'lsr_kirpich' => 231035,
+                    'peregorod_blok' => 231036,
+                    'plitka_naves' => 231037,
+                    'plitka_pechi_kam' => 231038,
+                    'silikat_kirpich' => 231039,
+                    'fasad_plit' => 231040,
+                    'fasad_dekor' => 231041
+                ];
+                /*
+                    Ключ - алиас для таблицы с товарами, может быть любым
+                    значение - одна категория, лиюо список через запятую, по товарам которой определяется минимальная цена
+                */
+                static::$brandsAndCategories = [
+                    'oblicovochnyi' => 231027,
+                    'stroitelnyi' => 231028,
+                    'bruschatka' => '231088,231089,231090',//231029,
+                    'dekor' => 231030,
+                    'kamen' => 231031,
+                    'kerambloki' => 231032,
+                    'pechnoi' => '231068,231069,231070,231071',//231033,
+                    'kladochsmes' => '231083,231084,231085,231086,231087',//231034,
+                    'lsr_kirpich' => '231074,231075',//231035,
+                    
+                    'peregorod_blok' => 231036,
+
+                    'plitka_naves' => 231037,
+                    'plitka_pechi_kam' => 231038,
+                    'silikat_kirpich' => 231039,
+                    'fasad_plit' => '231078,231079,231080',//231040,
+                    'fasad_dekor' => '231081,321082'//231041 
+                ];//static::$brandsIds;
+                break;
             default:
                 // тут надо бы какую-то базовую логику, тоже пока не понятно, повисит для мотивации (ted)
                 // $catalogId = $modx->getObject('modResource', ['alias' => 'catalog'])->id;

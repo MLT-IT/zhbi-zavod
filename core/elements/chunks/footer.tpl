@@ -129,18 +129,42 @@
           <p class="footer__nav-title">Популярные категории</p>
           {set $resources =  $_modx->config.popular_categories}
           {if $resources ?}
-            <nav class="footer__nav-list">
-              {$_modx->runSnippet('pdoResources', [
-                'parents' => 0,
-                'depth' => 1000,
-                'context' => $_modx->resource.context_key,
-                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
-                'limit' => 0,
-                'resources' => $resources,
-                'sortby' => 'FIELD(id, '~$resources~')',
-                'sortdir' => 'ASC'
+              {set $lines = $_modx->runSnippet('pdoResources', [
+                  'parents' => 0,
+                  'depth' => 1000,
+                  'offset' => 3,
+
+                  'context' => $_modx->resource.context_key,
+                  'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                  'limit' => 0,
+                  'resources' => $resources,
+                  'sortby' => 'FIELD(id, '~$resources~')',
+                  'sortdir' => 'ASC'
               ])}
-            </nav>
+            {if $_modx->resource.context_key === 'kirpich-m5'}
+              <nav class="footer__nav-list">
+                <div class="footer__nav-list-col">
+                  {'@FILE snippets/columns.php' | snippet : [
+                    'input' => $lines
+                    'separator' => "\n"
+                    'columns' => 2,
+                    'column' => 1
+                  ]}
+                </div>
+                <div class="footer__nav-list-col">
+                  {'@FILE snippets/columns.php' | snippet : [
+                    'input' => $lines
+                    'separator' => "\n"
+                    'columns' => 2,
+                    'column' => 2
+                  ]}
+                </div>
+              </nav>
+            {else}
+              <nav class="footer__nav-list">
+                {$lines}
+              </nav>
+            {/if}
           {/if}
           {if $_modx->resource.context_key === 'tagnerud'}
             {set $resources =  '196939,196940,196942,196943'}

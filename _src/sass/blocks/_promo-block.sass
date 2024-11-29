@@ -66,6 +66,8 @@
 	&_view
 		&_big
 			padding: 60px 60px 45px
+			@at-root body[data-ctx="kirpich-m5"] &
+				padding: 60px 60px 100px
 
 			+until-992
 				padding: 40px 60px 35px
@@ -77,7 +79,7 @@
 				&__title
 					margin-bottom: 15px
 					font-size: 30px
-					@at-root [data-ctx="tagnerud"] &
+					@at-root body[data-ctx="tagnerud"] &
 						color: var(--color-black-trans)
 					+until-992
 						margin-bottom: 10px
@@ -119,7 +121,7 @@
 	padding-top: 40px
 .section_view_bg
 
-	@at-root [data-ctx="krovelnyjstroymarket"]
+	@at-root body[data-ctx="krovelnyjstroymarket"]
 		.promo__item:nth-child(1)
 
 			& .promo-block__title
@@ -130,9 +132,18 @@
 			& .promo-block__btn
 				background: rgba(255, 255, 255, 0.9)
 
-	@at-root [data-ctx="tagnerud"]
+	@at-root body[data-ctx="tagnerud"]
 		.promo__item:nth-child(3)
 			& .promo-block__title
 						color: #333 !important
 						z-index: 1
+
+	@at-root body[data-ctx="kirpich-m5"]
+		.promo__item:nth-child(2), .promo__item:nth-child(3)
+			& .promo-block__title
+				padding: 11px 8px
+				border-radius: 4px
+				display: inline
+				background: var(--color-yellow)
+
 					

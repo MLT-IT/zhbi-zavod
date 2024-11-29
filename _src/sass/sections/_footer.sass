@@ -268,10 +268,16 @@
 
                         +until-1200
                             grid-template-columns: 100%
+                            @at-root body[data-ctx='kirpich-m5'] &
+                                grid-gap: 0
 
                     &-item
                         &:hover
                             color: var(--color-white)
+
+    &__nav-list-col
+        > *
+            display: block
 
     &__payment
         flex: 1 1 100%

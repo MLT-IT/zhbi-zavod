@@ -112,8 +112,10 @@
     {/if}
 
 <div>
+
+<div class="product-card__price-line">
   <div class="product-card__price">
-      <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} <span style="font-size: 14px">/ упаковка</span>{/if}</p>
+    <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} <span style="font-size: 14px">/ упаковка</span>{/if}</p>
   </div>
 
   {if $prodValues['outputOldPrice']?}
@@ -123,19 +125,21 @@
       </span>&nbsp;₽
     </div>
   {/if}
-        {if $prodValues['condition']}
-            <div class="product-card__volume">
-                <span class="product-card__volume-title">Цена за</span>
-                <div class="product-info__volume-tabs">
-                    <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
-                    {foreach $prodValues['itemUnits'] as $val}
-                        {if $prodValues['pricePer'] != $val['title']}
-                            <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
-                        {/if}
-                    {/foreach}
-                </div>
-            </div>
-        {/if}
+</div>
+
+  {if $prodValues['condition']}
+    <div class="product-card__volume">
+        <span class="product-card__volume-title">Цена за</span>
+        <div class="product-info__volume-tabs">
+            <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+            {foreach $prodValues['itemUnits'] as $val}
+                {if $prodValues['pricePer'] != $val['title']}
+                    <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+  {/if}
     <div class="listing__product-elems-wrap product-card__bottom">
         {include "file:chunks/product/product-elems.tpl" prodId=$id}
     </div>

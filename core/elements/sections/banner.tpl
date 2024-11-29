@@ -4,7 +4,16 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide banner">
           <picture class="banner__bg">
-            <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
+            {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-mob.webp'}
+            {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
+            <source srcset="{$file}" media="(max-width: 480px)" type="image/webp">
+            {/if}
+            <source srcset="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-mob.jpg" media="(max-width: 480px)">
+            {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen.webp'}
+            {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
+            <source srcset="{$file}" type="image/webp" >
+            {/if}
+            <img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen.jpg">
           </picture>
           <div class="banner__title">
             {set $text = 'Закажите товар сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
@@ -40,11 +49,22 @@
                 {set $text = 'Фальцевая кровля с бесплатной<br> доставкой от 200 тыс руб'}
               {case 'metallocherepica'}
                 {set $text = 'Металлочерепица в размер<br> со скидкой 25%'}
+              {case 'kirpich-m5'}
+                {set $text = 'Распродажа облицовочного<br> кирпича!'}
+                {set $caption = 'Керамический кирпич ЛСР от 29 руб./шт!'}
+                {set $btn = 'Перейти'}
+                {set $link = '/oblicovochnye/'}
             {/switch}
             {$text}
           </div>
-          <p class="banner__text">Акция до конца месяца</p>
-          <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
+          <p class="banner__text">{$caption ?: 'Акция до конца месяца'}</p>
+          <div class="banner__action">
+            {if $link}
+              <a href="{$link}" class="banner__btn btn btn_style_yellow">{$btn ?: 'Заказать со скидкой'}</a>
+            {else}
+              <span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">{$btn ?: 'Заказать со скидкой'}</span>
+            {/if}
+          </div>
         </div>
 
       </div>
@@ -55,6 +75,10 @@
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
       <picture class="banner__bg">
+        {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-sm.webp'}
+        {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
+        <source srcset="{$file}" type="image/webp" >
+        {/if}
        <img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg">
       </picture>
       {if $_modx->resource.context_key == 'krovelnyjstroymarket'}
@@ -79,6 +103,8 @@
           {set $link = '/shourum/'}
         {case 'trotuarnaya-plitka'}
           {set $link = '/rasprodazha-so-sklada/'}
+        {default}
+          {set $link = '/akcii/'}
       {/switch}
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
