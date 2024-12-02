@@ -261,9 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // $('.h-catalog__column:first').append('<a class="h-catalog-item h-catalog-item_to-catalog h-catalog-item__name h-catalog-item__name_bold" href="/catalog/">' + toCatalogBtnText + '</a>');
 
-    $('.h-menu__dropdown').scroll(function(){
-        $('.h-catalog__column').not(':first').css('padding-top', $(this).scrollTop())
-    });
+    // $('.h-menu__dropdown').scroll(function(){
+    //     $('.h-catalog__column').not(':first').css('padding-top', $(this).scrollTop())
+    // });
 
     // -------------------------------
     // Раскрытие тегов каталога
@@ -474,8 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //
 
     function displayMenuColumns() {
-        $('.h-catalog__column').not(':first').each(function(index, element) {
-            if ($(this).find('.h-catalog-item_dependent.active').length === 0) {
+        $('.h-catalog__column,.h-catalog-v2__column').not(':first').each(function(index, element) {
+            if ($(this).find('.h-catalog-item_dependent.active,.h-catalog-v2-item_dependent.active').length === 0) {
                 $(this).addClass('disable');
             } else {
                 $(this).removeClass('disable');
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------
 
     displayMenuColumns();
-    const $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog');
+    const $hCatalogItem = $('.h-catalog-item_main, .h-catalog-item_to-catalog, .h-catalog-v2-item_main, .h-catalog-v2-item_to-catalog');
     
 
     $hCatalogItem.on('mouseenter', function(e) {
@@ -525,6 +525,11 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.h-catalog-item.active, .h-catalog-item_to-catalog.active').removeClass('active');
         $this.addClass('active');
         $('.h-catalog-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
+
+        $('.h-catalog-v2-item.active, .h-catalog-v2-item_to-catalog.active').removeClass('active');
+        $this.addClass('active');
+        $('.h-catalog-v2-item_dependent[data-cat-id=' + $this.attr('data-cat-id') + ']').addClass('active');
+
         displayMenuColumns();
     });
 
