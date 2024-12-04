@@ -4,6 +4,38 @@
   padding: 20px
   max-width: 600px
   color: #000
+  &__action
+    margin-top: 20px
+    button, a
+      background: var(--color-red)
+      padding: 15px
+      border: none
+      width: 100%
+      cursor: pointer
+      text-transform: uppercase
+      font-size: 16px
+      color: #fff
+      font-weight: 700
+      transition: 0.3s
+      border-radius: var(--border-radius-base)
+
+      &:hover
+        background: var(--color-red-dr)
+        transition: 0.3s
+
+    a
+      background: #73b017
+      display: block
+      text-decoration: none
+      text-align: center
+      span
+        font-weight: 500
+        text-transform: none
+        letter-spacing: 0.05em
+
+      &:hover
+        background: #45670f
+        transition: 0.3s
 
   &__title
     font-size: 18px

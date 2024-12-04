@@ -287,7 +287,7 @@
                                     
                                     На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
                                   {elseif $_modx->context.key == 'suhiesmesi'}
-                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} шт
+                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 2000])} шт
                                   {else}
                                     На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                                 {/if}

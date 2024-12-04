@@ -52,13 +52,13 @@
 
 <div class="product-card__body">
     {if $_modx->resource.context_key == "suhiesmesi"}
-        <div class="product-info__rating rating">
+        <div class="product-info__rating rating ">
             <ul class="rating__stars">
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
             </ul>
         </div>
     {/if}
@@ -69,7 +69,7 @@
     <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
   {/if}
   {if $_modx->context.key in list ['suhiesmesi']}
-      <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['id' => $id, 'begin' => 100, 'end'=> 200])} уп.</div>
+      <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['id' => $id, 'begin' => 100, 'end'=> 2000])} уп.</div>
   {/if}
 
 
