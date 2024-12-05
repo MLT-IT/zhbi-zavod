@@ -20,6 +20,9 @@
 {if $_modx->resource.context_key == 'suhiesmesi'}
   {set $unit = 'упаковку'}
 {/if}
+{if $_modx->resource.context_key == 'kirpich-m5'}
+  {set $unit = 'шт.'}
+{/if}
 {if $_modx->resource.context_key == 'plitnye'}
   {set $unit = 'лист'}
 {/if}

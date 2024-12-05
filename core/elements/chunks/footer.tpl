@@ -240,14 +240,15 @@
         <li class="burger-menu__nav-item">
           <a class="burger-menu__nav-link" href="/akcii/">Акции</a>
         </li>
+        <li class="burger-menu__nav-item"><a class="burger-menu__nav-link" href="/shourum/">Шоурум</a></li>
+        <li class="burger-menu__nav-item"><a class="burger-menu__nav-link has-icon icon-star" href="/otzyvy/">Отзывы</a></li>
         <li class="burger-menu__nav-item">
           <a class="burger-menu__nav-link" href="/o-kompanii/">О компании</a>
-          <div class="burger-menu__submenu">
-            <ul>
-              <li><a class="burger-menu__sublink u-marginLeft16" href="/shourum/">Шоурум</a></li>
-              <li><a class="burger-menu__sublink has-icon icon-star" href="/otzyvy/">Отзывы</a></li>
-            </ul>
-          </div>
+
+          {*<div class="burger-menu__submenu">
+            <ul><li><a class="burger-menu__sublink has-icon icon-star" href="/otzyvy/">Отзывы</a></li></ul>
+          </div>*}
+
         </li>
         <li class="burger-menu__nav-item">
           <a class="burger-menu__nav-link" href="/contacts/">Контакты</a>

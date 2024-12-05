@@ -101,6 +101,10 @@
             &:last-child
                 padding-right: 10px
 
+            &.has-icon.icon-star:before
+                +until-480
+                    top: -2px
+
     &__catalog
         display: grid
         grid-template-columns: repeat(2, minmax(0, 1fr))
