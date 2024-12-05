@@ -9,7 +9,7 @@
           <div class="h-nav__subnav h-subnav">
             <ul class="h-subnav__wrapper">
               {foreach $item.submenu as $subitem}
-                <li class="h-nav__item"><a class="h-nav__link {$subitem.link_classes}" href="/{$subitem.url}">{$subitem.text}</a></li>
+                <li class="h-nav__item"><a class="h-nav__link {$subitem.link_classes}" href="{$subitem.url}">{$subitem.text}</a></li>
               {/foreach}
             </ul>
           </div>
