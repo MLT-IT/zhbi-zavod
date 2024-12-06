@@ -119,7 +119,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/bruschatka-i-moshchenie/',
                 'name' => 'Брусчатка и мощение',
-                'img' => '/assets/template/pictures/menu_ico/'.$ctx.'/pechnoj-kirpich.webp',
+                'img' => '/assets/template/pictures/menu_ico/'.$ctx.'/bruschatka-i-moshchenie.webp',
                 //'img2' => '/assets/template/pictures/menu_ico/001w.webp'
             ],
             'column2' => [
