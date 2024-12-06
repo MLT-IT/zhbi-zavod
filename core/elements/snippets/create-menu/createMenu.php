@@ -111,6 +111,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column_forma'] = ['title' => 'Форма', 'type' => 'simple'];
             $result['column_material'] = ['title' => 'Материал', 'type' => 'simple'];
             break;
+        case 'kirpich-m5':
+            $result['column1'] = ['title' => 'Раздел', 'type' => 'simple'];
+            $result['column2'] = ['title' => '', 'type' => 'composite'];
+            break;
         case 'tagnerud':
             $result['column1'] = ['title' => 'Керамзит', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Фракция', 'type' => 'simple'];
