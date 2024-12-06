@@ -33,12 +33,24 @@
 {/if}
 
 {* Получаем отзывы товара *}
+{switch $_modx->resource.context_key}
+{case 'web'}
+  {set $reviewsCount = 0}
+{case 'kirpich-m5'}
+  {set $reviewsCount = 21}
+{default}
+  {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
+  {set $reviewsCount = $reviews | count}
+{/switch}
+
+{*
 {if $_modx->resource.context_key == 'web'}
   {set $reviewsCount = 0}
 {else}
   {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
   {set $reviewsCount = $reviews | count}
 {/if}
+*}
 
 {* Получаем видео товара *}
 {set $video = $_modx->resource.video}
@@ -586,7 +598,7 @@
         <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
-              {if $_modx->context.key in ['krovelnyjstroymarket']}
+              {if $_modx->context.key in ['krovelnyjstroymarket', 'kirpich-m5']}
                 {include 'file:_modules/mltreviews/chunks/product-page.tpl'}
               {else}
               <div class="reviews">
