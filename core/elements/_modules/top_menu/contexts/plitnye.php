@@ -16,6 +16,7 @@ $data = [
     'text' => 'Контакты'],
     ['url' => '/calculator/',
     'text' => '',
+    'link_classes' => 'h-nav__link_calc',
     'attribs' => 'title="Калькулятор"'],
 ];
 
