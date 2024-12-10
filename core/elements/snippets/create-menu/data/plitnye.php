@@ -10,6 +10,7 @@ function getMenuData() {
     $gidrovolokno = 177264;
     $fibrolit = 177296;
     $mdvp = 177042;
+    $mdf = 230898;
 
     $data = [
         $fanera => [
@@ -868,6 +869,11 @@ function getMenuData() {
                     'name' => 'Steico',
                     'popular'=>1,
                 ],
+                [
+                    'uri' => '/plity-mdvp/knauf/',
+                    'name' => 'Knauf',
+                    'popular'=>1,
+                ],
             ],
             'column3' => [
                 [
@@ -1028,6 +1034,43 @@ function getMenuData() {
                     'name' => 'Для перегородок',
                     'popular'=>1,
                 ],
+            ],
+        ],
+        $mdf => [
+            'column1' => [
+                'uri' => '/mdf-plity/',
+                'name' => 'МДФ',
+                'img' => 'assets/template/pictures/menu_ico/001/mdf.webp',
+                'img2' => 'assets/template/pictures/menu_ico/001/mdf1.webp'
+            ],
+            'column2' => [
+                [
+                    'uri' => '/mdf-plity/kastamonu/',
+                    'name' => 'Kastamonu',
+                    'popular'=>1,
+                ],
+                [
+                    'uri' => '/mdf-plity/zheshart-upg/',
+                    'name' => 'Жешарт (UPG)',
+                    'popular'=>1,
+                ],
+            ],
+            'column3' => [
+               
+                // [
+                //     'uri' => '/plity-mdvp/240-mm/',
+                //     'name' => '240мм',
+                //     'popular'=>1,
+                // ],
+               
+            ],
+            'column4' => [
+               
+                // [
+                //     'uri' => '/plity-mdvp/dlya-peregorodok/',
+                //     'name' => 'Для перегородок',
+                //     'popular'=>1,
+                // ],
             ],
         ],
         
