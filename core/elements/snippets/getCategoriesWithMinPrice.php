@@ -45,7 +45,7 @@ class getCategoriesWithMinPrice
                 $result[self::$brandsIds[$key]] = $val != NULL ? $val : '0'; // пришлось добавить по умолчанию 0, у некоторых brandsIds нет детей
             }
         }
-
+        
         // Возвращаем значение
         return $result;
     }
@@ -402,23 +402,47 @@ class getCategoriesWithMinPrice
 
             case 'fibrofasad':
                 static::$brandsIds = [
-                    'ondulin' => 171056,
-                    'shifer' => 171090,
-                    'cherepitsa' => 171123,
-                    'gibkayacherepitsa' => 171124,
-                    'rulonaykrovlay' => 171126,
-                    'cementnoPesochnayCherepitsa' => 171127,
-                    'keramichheskayCherepitsa' => 171128,
-                    'faltsevayKrovlay' => 171130,
-                    'proflist' => 171132,
-                    'shtaketnik' => 171133,
-                    'vodostochnaySystema' => 171103,
-                    'sofiti' => 171137,
+                    // 'ondulin' => 171056,
+                    // 'shifer' => 171090,
+                    // 'cherepitsa' => 171123,
+                    // 'gibkayacherepitsa' => 171124,
+                    // 'rulonaykrovlay' => 171126,
+                    // 'cementnoPesochnayCherepitsa' => 171127,
+                    // 'keramichheskayCherepitsa' => 171128,
+                    // 'faltsevayKrovlay' => 171130,
+                    // 'proflist' => 171132,
+                    // 'shtaketnik' => 171133,
+                    // 'vodostochnaySystema' => 171103,
+                    // 'sofiti' => 171137,
 
-                    'komplektuyshie1' => 171135,
-                    'komplektuyshie2' => 171162,
-                    'komplektuyshie3' => 171178,
-                    'komplektuyshie4' => 171186,
+                    // 'komplektuyshie1' => 171135,
+                    // 'komplektuyshie2' => 171162,
+                    // 'komplektuyshie3' => 171178,
+                    // 'komplektuyshie4' => 171186,
+                    
+                    'ondulin' => 171090,
+                    'shifer' => 171056,
+                    'cherepitsa' => 171133,
+                    'gibkayacherepitsa' => 171128,
+                    'rulonaykrovlay' => 171123,
+                    'cementnoPesochnayCherepitsa' => 171124,
+                    'keramichheskayCherepitsa' => 171126,
+                    'faltsevayKrovlay' => 171127,
+                    'proflist' => 171130,
+                    'shtaketnik' => 171132,
+                ];
+                
+                static::$customPrices = [
+                    'ondulin' => 476,
+                    'shifer' => 790,
+                    'cherepitsa' => 260,
+                    'gibkayacherepitsa' => 448,
+                    'rulonaykrovlay' => 3213,
+                    'cementnoPesochnayCherepitsa' => 171,
+                    'keramichheskayCherepitsa' => 1120,
+                    'faltsevayKrovlay' => 690,
+                    'proflist' => 420,
+                    'shtaketnik' => 375
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;

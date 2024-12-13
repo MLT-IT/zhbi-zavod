@@ -274,6 +274,12 @@ if (in_array($src['context_key'], ['beltermo'])) {
         $upk = 1 / $src['kolvom2upak'][0];
     }
 }
+// Единицы измерения для белтермо
+if (in_array($src['context_key'], ['fibrofasad'])) {
+    if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
+        $m2 = $src['ploshad_m2'][0];
+    }
+}
 // Единицы измерения для tagnerud
 if (in_array($src['context_key'], ['tagnerud'])) {
 
@@ -306,7 +312,6 @@ if (in_array($src['context_key'], ['tagnerud'])) {
 
 // Установка itemUnits
 $inf = 999999999999999999;
-
 // TODO: С помощью цикла код можно упростить
 if (!empty($m2) && ($m2 > 0) && ($m2 < $inf)) {
     $result['itemUnits']['m2'] = ['val' => $m2, 'title' => 'м2', 'id' => '2'];

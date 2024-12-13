@@ -171,6 +171,34 @@
               </p>
             </nav>
           {/if}
+          {if $_modx->resource.context_key === 'fibrofasad'}
+            {set $resources =  '171090,171056,171128,171133,171123,171124'}
+            <nav class="footer__nav-list">
+              <p class="footer__nav-group">
+              {$_modx->runSnippet('pdoResources', [
+                'parents' => 0,
+                'depth' => 1000,
+                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'limit' => 0,
+                'resources' => $resources,
+                'sortby' => 'FIELD(id, '~$resources~')',
+                'sortdir' => 'ASC'
+              ])}
+              </p>
+            {set $resources =  '171178,171135,171162,171186'}
+              <p class="footer__nav-group">
+              {$_modx->runSnippet('pdoResources', [
+                'parents' => 0,
+                'depth' => 1000,
+                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'limit' => 0,
+                'resources' => $resources,
+                'sortby' => 'FIELD(id, '~$resources~')',
+                'sortdir' => 'ASC'
+              ])}
+              </p>
+            </nav>
+          {/if}
         </div>
       </div>
       <div class="footer__payment">

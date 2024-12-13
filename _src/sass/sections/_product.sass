@@ -391,6 +391,9 @@
                 line-height: 1
                 margin-top: 3px
 
+        .rating__reviews
+            line-height: 1
+
         +until-480
             justify-content: center
             margin-bottom: 10px
@@ -436,6 +439,32 @@
         .link
             text-decoration: underline
             border: 0
+
+        &-important
+            color: rgba(73, 191, 99, 1)
+
+    &__availability-list
+        margin-bottom: 20px
+        padding-left: 22px
+        font-size: 14px
+        line-height: 1.7
+
+        li
+            display: flex
+            align-items: flex-end
+
+        strong
+            display: flex
+            flex: 1
+            margin-left: 0.5em
+            font-weight: 500
+
+            &:after
+                content: ''
+                flex: 1
+                margin-bottom: 8px
+                border-bottom: 1px dotted #000000
+
 
     &__warranty
         // @extend .product-info__availability-title_available

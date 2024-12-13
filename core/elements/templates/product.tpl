@@ -56,6 +56,9 @@
 {* определяю отдельно профлист для забора *}
 {set $isProflistZ =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 126153]))}
 
+{* определяю фиброцементный фасад Дековер и Кедрал *}
+{set $isFibrofasadDK =  ($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '171090, 171056']))}
+
 {* определяю штакетник  *}
 {set $isShtaketnik =  (($_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => 125541])) || $isProflistZ)}
 
@@ -144,6 +147,38 @@
   ]}
 {/if}
 
+{if $isFibrofasadDK}
+  {set $simillarProductsParams = [
+    'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
+    'tplWrapper' => '@FILE sections/simillar-products.tpl',
+    'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
+    'context' => $_modx->resource.context_key,
+    'includeThumbs' => 'webp',
+  ]}
+  
+  {$_modx->setPlaceholder('isFibrofasadDK', true)}
+
+  {if $_modx->resource.parent == 171090}
+    {$_modx->setPlaceholder('simillarProductsId', 1)}
+    {set $simillarProductsParams['parents'] = 171158}
+    {set $simillarProductsParams['optionFilters'] = '{"ottenok:=" : "'~$_modx->resource["ottenok.value"]~'"}'}
+    {set $simillarProductsComp = 'msProducts' | snippet : $simillarProductsParams}
+
+    {$_modx->setPlaceholder('simillarProductsId', 2)}
+    {set $simillarProductsParams['parents'] = 171092}
+    {set $simillarProductsDob = 'msProducts' | snippet : $simillarProductsParams}
+  {else}
+    {$_modx->setPlaceholder('simillarProductsId', 1)}
+    {set $simillarProductsParams['parents'] = 171085}
+    {set $simillarProductsParams['optionFilters'] = '{"ottenok:=" : "'~$_modx->resource["ottenok.value"]~'"}'}
+    {set $simillarProductsComp = 'msProducts' | snippet : $simillarProductsParams}
+    
+    {$_modx->setPlaceholder('simillarProductsId', 2)}
+    {set $simillarProductsParams['parents'] = 171060}
+    {set $simillarProductsParams['optionFilters'] = '{"cvet:=" : "'~$_modx->resource["cvet.value"]~'"}'}
+    {set $simillarProductsDob = 'msProducts' | snippet : $simillarProductsParams}
+  {/if}
+{/if}
 
 {* Указаны все категории из главных категорий 125530, 32, 37, 41 *}
 {if ($_modx->resource.context_key == 'krovelnyjstroymarket' && $_modx->resource.template == 17) || $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125532,125541,125537'])  }
@@ -163,6 +198,10 @@
 {set $cvet = $_modx->resource.cvet[0]}
 {/if}
 
+{if $_modx->resource.context_key in list ['fibrofasad']}
+{set $linksData = 'getRelinkingData_Ottenok' | snippet}
+{/if}
+
 <main class="layout__main" xmlns="http://www.w3.org/1999/html">
   <section class="section section_view_top">
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
@@ -178,7 +217,10 @@
             'tpl' => '@FILE chunks/gallery.tpl',
             ]}
   
-            {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+            {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
+            {if $linksData.ottenok? && !$isParentsCategoriesDobor}
+              {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+            {/if}
             {if $_modx->context.key == 'web'}
               {include "file:chunks/product/rating.tpl"}
 
@@ -199,7 +241,11 @@
                     {/if}
                     {if !($isCustomCalculator || $isShtaketnik)}
                     <div class="product-info__shipped mobile-flex">
+                      {if $_modx->context.key == 'fibrofasad'}
+                        Доставка со склада <span class="bold">&nbsp;{'+2 days' | date : 'd.m.Y'}&nbsp;</span> при заказе сегодня
+                      {else}
                         {'@FILE snippets/shippedToday.php' | snippet}
+                      {/if}
                     </div>
                     {/if}
 
@@ -208,6 +254,7 @@
                         <div id="collerovka"></div>
                     {/if}
 
+                    {if $_modx->context.key != 'fibrofasad'}
                     <div class="product-info__relinkav">
                       {if $_modx->context.key == 'gazosilikatstroy'}
                         {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
@@ -311,10 +358,37 @@
                         {/if}
                       {/if}
                     </div>
+                    {/if}
 
                     {if $_modx->resource.context_key not in list ['suhiesmesi','web']}
                       {* При чем тут relinkingData ? *}
-                      {if ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
+                      {if $_modx->resource.context_key == 'fibrofasad'}
+                        <div class="product-info__avstock">
+                            <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                              <span class="product-info__availability-title-important">В наличии&nbsp;</span> на складах: 
+                            </div>
+                            <ul class="product-info__availability-list">
+                              <li>
+                                Склад <strong>Мурино</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230804])}шт.</span>
+                              </li>
+                              <li>
+                                Склад <strong>Гатчина</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230810])}шт.</span>
+                              </li>
+                              <li>
+                                Склад <strong>Шушары</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230821])}шт.</span>
+                              </li>
+                              <li>
+                                Склад <strong>Красное село</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230827])}шт.</span>
+                              </li>
+                              <li>
+                                Склад <strong>Всеволожск</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230838])}шт.</span>
+                              </li>
+                            </ul> 
+                            <div class="product-info__shipped pc-flex">
+                              Доставка со склада <span class="bold">&nbsp;{'+2 days' | date : 'd.m.Y'}&nbsp;</span> при заказе сегодня
+                            </div>
+                        </div>
+                      {elseif ($relinkingData is not empty) && ($_modx->resource.context_key != 'kraska')}
                         <div class="product-info__avstock">
                             <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
                               На складе {$_modx->resource.stockNum} {$unit}
@@ -331,11 +405,11 @@
                             </div>
                         {elseif !($isCustomCalculator || $isShtaketnik)}
                           <div class="product-info__shipped pc-flex">
-                            {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541'])}
+                            {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541,171134,171121'])}
                                 Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
-                            {elseif $_modx->context.key == 'krovelnyjstroymarket'}
-                                Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
-                            {else}
+                                {elseif $_modx->context.key == 'krovelnyjstroymarket'}
+                                  Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
+                                {else}
                                 {'@FILE snippets/shippedToday.php' | snippet}
                             {/if}
 
@@ -717,6 +791,23 @@
 
   {$recommendProducts?: ''}
   {$simillarProducts ?: ''}
+
+  {if $isFibrofasadDK}
+    <div class="other-products-wrapper">
+      <div class="other-products__container">
+        <div class="other-products__controls">
+          <a href="#simillar-products1" class="btn btn_style_shadow other-products__control active js-toggle-other-products">
+            Комплектующие элементы
+          </a>
+          <a href="#simillar-products2" class="btn btn_style_shadow other-products__control js-toggle-other-products">
+            Доборные элементы
+          </a>
+        </div>
+      </div>
+    {$simillarProductsComp ?: ''}
+    {$simillarProductsDob ?: ''}
+    </div>
+  {/if}
 
   {if $_modx->context.key == "krovelnyjstroymarket"}
     {include "file:sections/faq.tpl"}

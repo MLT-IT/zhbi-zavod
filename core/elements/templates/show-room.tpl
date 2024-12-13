@@ -119,6 +119,13 @@
 
     <article class="show-room section">
       <div class="show-room__container">
+        <h2 class="margin-bottom-md section__title">Наши объекты</h2>
+        {insert 'file:chunks/show-room/show-room-objects.tpl'}
+      </div>
+    </article>  
+
+    <article class="show-room section">
+      <div class="show-room__container">
         {* <h1 class="margin-bottom-md section__title">BANNER</h1> *}
           {insert 'file:chunks/show-room/banner-showroom.tpl'}
       </div>
