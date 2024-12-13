@@ -20,7 +20,7 @@
           </article>
         {/if}
 
-        {set $certs = 'getAllCerts' | snippet}
+        {set $certs = '@FILE snippets/getAllCerts.php' | snippet : ['context' => $_modx->resource.context_key]}
         {include 'file:chunks/certs.tpl'}
       </div>
     </article>

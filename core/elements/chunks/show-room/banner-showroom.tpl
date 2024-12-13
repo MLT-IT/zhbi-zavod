@@ -16,7 +16,13 @@
 {/switch}
 <div class="showroom-banner">
   <div class="showroom-banner__background">
-    <img src="/assets/template/banners/{$site_context}/banner-showroom-bg.jpg" alt="">
+    <picture>
+      {set $file = 'assets/template/banners/'~$site_context~'/banner-showroom-bg.webp'}
+      {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
+      <source srcset="{$file}" type="image/webp">
+      {/if}
+      <img src="assets/template/banners/{$site_context}/banner-showroom-bg.jpg">
+    </picture>
   </div>
   <div class="showroom-banner__wrapper">
     <p class="showroom-banner__title">Посмотрите товары в нашем Шоу-руме <br>онлайн</p>

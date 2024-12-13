@@ -89,6 +89,8 @@ if (empty($unit) || $unit == 'упаковка') {
 }
 
 // Выводить ли возможность выбирать единицу измерения для добавления товара в корзину
+// Перечислены id категорий. Для них возможность выбора единицы измерений будет выключена
+//
 $result['condition'] = !in_array($src['parent'], [
     93450, 93452, 93199, 93232, 93551, 93554, 93555, 93291, 93336, 
 
@@ -105,8 +107,10 @@ $result['condition'] = !in_array($src['parent'], [
     // 196940, 196937,
 
     // plitnye
-    178116,177263,177282,177289,177299,177264,177042,177296,
+    178116,177263,177282,177289,177299,177264,177042,177296
 ]);
+
+//$result['condition'] = true;
 
 // Дробное добавление товара в корзину
 if (in_array($modx->resource->template, [17, 20, 6, 21, 22])) {
@@ -361,7 +365,7 @@ if (!empty($modx->getPlaceholder('checkFloatTrouble'))) {
     $result['productKey'] = str_replace(',', '.', $result['productKey']);
 }
 
-if (count($result['itemUnits']) < 1 && !in_array($src['context_key'],['kraska','krovelnyjstroymarket', 'tagnerud'])) {
+if (count($result['itemUnits']) < 1 && !in_array($src['context_key'],['kraska','krovelnyjstroymarket', 'tagnerud', 'kirpich-m5'])) {
     $result['condition'] = false;
 }
 

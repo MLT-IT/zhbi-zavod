@@ -18,6 +18,12 @@ if (!class_exists('shippedToday')) {
                         'f5' => 'упаковок'
                     ]);
                     break;
+                case 'kirpich-m5':
+                    $min = 900;
+                    $max = 2000;
+                    $vol = $this->getVol($max, $min);
+                    $unit = 'шт.';
+                    break;
                 case 'gazosilikatstroy':
                     $max = 154;
                     $vol = $this->getVol($max);
@@ -35,15 +41,15 @@ if (!class_exists('shippedToday')) {
             return preg_replace($patterns, $replacements, date('d F Y'));
         }
 
-        protected function getVol($max) {
+        protected function getVol($max, $min = 0) {
             $hour = (int) date('H');
             $step = $max / 17;
             if ($hour < 7) {
-                return 0;
+                return $min;
             } elseif ($hour >= 7 && $hour <= 23) {
-                return round($step * ($hour - 6));
+                return max($min, round($step * ($hour - 6)));
             } else {
-                return $step * 17;
+                return max($min, $step * 17);
             }
         }
     }

@@ -1,0 +1,4 @@
+{ 
+  "url": "{$uri}", 
+  "text": "{$menutitle}" 
+},

@@ -96,6 +96,8 @@
           {include "file:sections/gazobeton-info.tpl"}
         {case 'krovelnyjstroymarket'}
           {include "file:sections/gazobeton-info.tpl"}
+        {case 'trotuarnaya-plitka'}
+          {include "file:sections/gazobeton-info.tpl"}
         {case 'tagnerud'}
           {include "file:sections/tagnerud-info.tpl"}
       {/switch}

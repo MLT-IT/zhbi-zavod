@@ -52,22 +52,26 @@
 
 <div class="product-card__body">
     {if $_modx->resource.context_key == "suhiesmesi"}
-        <div class="product-info__rating rating">
+        <div class="product-info__rating rating ">
             <ul class="rating__stars">
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
-                <li class="rating__star active"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
+                <li class="rating__star active suhiesmesi"></li>
             </ul>
         </div>
     {/if}
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
-  {if $_modx->context.key in list ['web', 'suhiesmesi']}
+  {if $_modx->context.key in list ['web']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
   {/if}
+  {if $_modx->context.key in list ['suhiesmesi']}
+      <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['id' => $id, 'begin' => 100, 'end'=> 2000])} уп.</div>
+  {/if}
+
 
   {if $_modx->resource.context_key == 'kraska' && $src['vozmozhnost-kolerovki'][0] == 'да'}
     <div class="product-card__tinting">
@@ -112,8 +116,10 @@
     {/if}
 
 <div>
+
+<div class="product-card__price-line">
   <div class="product-card__price">
-      <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} <span style="font-size: 14px">/ упаковка</span>{/if}</p>
+    <p class="product-card__price-value"><span data-default="{$prodValues['defaultPrice']}" class="js-product__price">{$prodValues['outputPrice']}</span> ₽ {if $_modx->resource.context_key in list ["suhiesmesi"]} <span style="font-size: 14px">/ упаковка</span>{/if}</p>
   </div>
 
   {if $prodValues['outputOldPrice']?}
@@ -123,19 +129,21 @@
       </span>&nbsp;₽
     </div>
   {/if}
-        {if $prodValues['condition']}
-            <div class="product-card__volume">
-                <span class="product-card__volume-title">Цена за</span>
-                <div class="product-info__volume-tabs">
-                    <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
-                    {foreach $prodValues['itemUnits'] as $val}
-                        {if $prodValues['pricePer'] != $val['title']}
-                            <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
-                        {/if}
-                    {/foreach}
-                </div>
-            </div>
-        {/if}
+</div>
+
+  {if $prodValues['condition']}
+    <div class="product-card__volume">
+        <span class="product-card__volume-title">Цена за</span>
+        <div class="product-info__volume-tabs">
+            <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+            {foreach $prodValues['itemUnits'] as $val}
+                {if $prodValues['pricePer'] != $val['title']}
+                    <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+  {/if}
     <div class="listing__product-elems-wrap product-card__bottom">
         {include "file:chunks/product/product-elems.tpl" prodId=$id}
     </div>

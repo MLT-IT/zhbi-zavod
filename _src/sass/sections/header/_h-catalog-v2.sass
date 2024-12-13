@@ -1,0 +1,216 @@
+.h-catalog-v2
+    display: flex
+    align-items: flex-start
+    &-subcategories
+        display: flex
+        flex-wrap: wrap
+        flex-direction: column
+        height: 430px
+        gap: 15px
+        width: max-content
+    &-categories
+        padding-right: 20px
+        border-right: 1px solid var(--color-black-trans)
+        margin-right: 20px
+        width: 260px
+
+    &__parts-wrap
+        display: flex
+
+    // &__part
+    //     &:nth-last-of-type(n+2)
+    //         margin-right: 14px
+
+    &__row
+        &:last-child
+            & .h-catalog-v2
+                &__item
+                    padding-bottom: 0
+
+    &__title
+        position: sticky
+        top: 0
+        padding-bottom: 11px
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.2
+        color: var(--color-gray)
+        text-align: left
+        user-select: none
+
+        &::before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: -1
+            width: 100%
+            height: calc(100% + 18px)
+            background-color: var(--color-white)
+
+    &__item
+        padding-bottom: 10px
+        vertical-align: top
+
+    &__column
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+
+        &.disable
+            display: none
+
+        // &:nth-of-type(n+2)
+        //     padding-left: 30px
+
+        // &:nth-of-type(1)
+        //     position: relative
+        //     padding-right: 20px
+        //     flex-basis: 285px
+        //     flex-shrink: 0
+
+        //     .h-catalog-item__name
+        //         margin-left: 20px
+
+        //     &::after
+        //         display: block
+        //         position: absolute
+        //         content: ""
+        //         border-right: 1px solid var(--color-black-trans)
+        //         right: 0
+        //         top: 28px
+        //         height: calc(100% - 38px)
+
+        // &:nth-of-type(2)
+        //     min-width: 285px
+    &__column-header:not(:first-child)
+        margin-top: 15px
+    &__column-header
+        margin-bottom: 10px
+        font-weight: bold
+        font-size: 14px
+        line-height: 1.2
+        color: rgb(60, 60, 59)
+        text-align: left
+        user-select: none
+
+.h-catalog-v2-item
+    align-items: center
+    color: var(--color-black)
+    margin-bottom: 15px
+    vertical-align: top
+    display: flex
+    cursor: pointer
+
+    &_to-catalog
+        text-align: center
+        min-height: 0
+        line-height: 1.2
+        padding-left: 60px
+        height: 37px
+
+        &:hover
+            text-decoration-color: transparent
+            background-color: #f6f6f6
+            position: relative
+
+            &::after
+                visibility: visible
+    &_main
+        gap: 10px
+    &_to-catalog, &_main
+        padding-right: 12px
+        text-decoration: none
+        @at-root .tagnerud &
+            min-height: 37px
+        &::after
+            display: block
+            content: ""
+            border: solid black
+            border-width: 0 1.5px 1.5px 0
+            padding: 3px
+            transform: rotate(-45deg)
+            right: 10px
+            visibility: hidden
+            margin-left: auto
+
+        &.active
+            position: relative
+            background-color: #f6f6f6
+
+            .h-subinfo__svg
+                fill: #fff
+
+            &::after
+                visibility: visible
+
+    &_dependent
+        align-self: flex-start
+        display: none
+
+        &.active
+            display: flex
+
+    &__preview
+        flex-shrink: 0
+        padding: 5px
+        width: 40px
+        height: 37px
+        // margin-right: 20px
+        border-radius: 6px
+        transition: background-color .3s ease
+        &-wide
+            width: 100px
+
+    &__image
+        display: block
+        width: 100%
+        height: 100%
+        object-fit: contain
+        &._hov
+            display: none
+
+    &__name
+        // margin-left: 20px
+        &_with_label
+            position: relative
+            &::after
+                position: absolute
+                display: inline-block
+                content: ""
+                background: url(/assets/template/img/starnew.png) no-repeat center center
+                background-size: contain
+                width: 20px
+                height: 20px
+                margin-left: 4px
+                margin-top: -2px
+
+    &__name, &_to-catalog
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.2
+        text-decoration: underline
+        text-decoration-style: dashed
+        text-underline-offset: 4px
+        transition: color .3s ease, text-decoration-color .3s ease
+        text-decoration-color: var(--color-black-trans)
+        color: inherit
+
+        &_bold
+            font-weight: 700
+
+    &:hover, &_main.active, &_to-catalog.active
+        color: var(--color-red)
+        text-decoration-color: transparent
+
+        & .h-catalog-v2-item
+            &__name
+                text-decoration-color: transparent
+
+            &__preview
+                background-color: var(--color-red)
+            &__image
+                &._hov
+                    display: block
+                &._norm
+                    display: none

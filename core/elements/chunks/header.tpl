@@ -167,6 +167,8 @@
                 {switch $_modx->resource.context_key}
                 {case 'web'}
                   <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
+                {case 'trotuarnaya-plitka'}
+                  <li class="h-nav__item"><a class="h-nav__link" href="/otzyvy/">Отзывы</a></li>
                 {case 'kirpich-m5'}
                   {set $items}
                   <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/shourum/">Шоурум</a></li>
@@ -182,81 +184,11 @@
           </div>
         </div>
 
-        {set $menu = '@FILE snippets/create-menu/createMenu.php' | snippet}
-
-        <div class="h-menu header__catalog" data-dropdown>
-          <button class="h-menu__btn btn btn_style_base">Каталог</button>
-          <div class="h-menu__dropdown">
-            <a class="h-menu__link-to-catalog" href="/catalog/">Перейти в каталог</a>
-            <div class="h-catalog">
-
-              <div class="h-catalog__column">
-                  <div class="h-catalog__column-header">{$menu['column1']['title']}</div>
-                  <div class="h-catalog__column-wrapper">
-                    {foreach $menu['values'] as $catId => $catCols}
-                      <a href="{$catCols['column1']['uri']}" class="h-catalog-item h-catalog-item_main{$activeCatId ? '' : ' active'}" data-cat-id="{$catId}">
-                      {if $catCols['column1']['svg'] || $catCols['column1']['img'] || $catCols['column1']['img2']}
-                        <div class="h-catalog-item__preview {if $_modx->resource.context_key in ['web']}h-catalog-item__preview-wide{/if}">
-                            {if $catCols['column1']['img'] is not empty}
-                              {if $catCols['column1']['img2'] is not empty}
-                                <img class="h-catalog-item__image _norm" src="{$catCols['column1']['img']}">
-                                <img class="h-catalog-item__image _hov" src="{$catCols['column1']['img2']}">
-                              {else}
-                                <img class="h-catalog-item__image" src="{$catCols['column1']['img']}">
-                              {/if}
-                            {elseif $catCols['column1']['svg'] is not empty}
-                              <svg class="h-subinfo__svg" aria-hidden="true">
-                                <use xlink:href="assets/template/pictures/icons.svg?{'file_version' | config}#{$catCols['column1']['svg']}"></use>
-                              </svg>
-                            {/if}
-                        </div>
-                      {/if}
-                        <span class="h-catalog-item__name h-catalog-item__name_bold{if $catCols['column1']['label']} h-catalog-item__name_with_label{/if}">{$catCols['column1']['name']}</span>
-                      </a>
-                      {if $activeCatId is empty}
-                          {set $activeCatId = $catId}
-                      {/if}
-                    {/foreach}
-                  </div>
-                  {if $_modx->context.key == 'web'}
-                  <a class="h-menu__link-to-catalog" href="/catalog/">Все производители</a>
-                  {/if}
-              </div>
-
-              {foreach $menu as $colKey => $colValues}
-                {if $colKey in list ['values', 'column1']}
-                    {continue}
-                {/if}
-
-                <div class="h-catalog__column">
-                  <div class="h-catalog__column-header">{$colValues['title']}</div>
-                    {foreach $menu['values'] as $catId => $catCols}
-                      {if $colValues['type'] == 'composite'}
-                        <div class="h-catalog__parts-wrap">
-                          {foreach $catCols[$colKey] as $parts}
-                            <div class="h-catalog__part">
-                              {foreach $parts as $val}
-                                <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                                  <a href="{$val['uri']}" class="h-catalog-item__name">{$val['name']}</a>
-                                </div>
-                              {/foreach}
-                            </div>
-                          {/foreach}
-                        </div>
-                      {else}
-                          {foreach $catCols[$colKey] as $val}
-                            <div class="h-catalog-item h-catalog-item_dependent{$activeCatId == $catId ? ' active' : ''}" data-cat-id="{$catId}">
-                              <a href="{$val['uri']}" class="h-catalog-item__name">{$val['name']}</a>
-                            </div>
-                          {/foreach}
-                      {/if}
-                    {/foreach}
-                </div>
-              {/foreach}
-
-            </div>
-          </div>
-        </div>
+        {if $_modx->context.key == 'trotuarnaya-plitka'}
+          {include "file:chunks/desktop-catalog-menu/v2.tpl"}
+        {else}
+          {include "file:chunks/desktop-catalog-menu/v1.tpl"}
+        {/if}
 
         <div class="search header__search header__search_screen_desktop">
           <form action="/search/" method="GET" class="search__wrapper search search_display_desktop" fast-search-form="desktop">
@@ -278,67 +210,8 @@
           </form>
         </div>
 
-        <nav class="header__nav">
-        <ul class="h-nav">
-          <li class="h-nav__item"><a class="h-nav__link" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-          <li class="h-nav__item"><a class="h-nav__link" href="/akcii/">Акции</a></li>
-          {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
-            <li class="h-nav__item">
-              <a class="h-nav__link" href="/servisyi-rascheta/">Сервисы расчета</a>
-              <div class="h-nav__subnav h-subnav">
-                <ul class="h-subnav__wrapper">
-                {'pdoResources' | snippet : [
-                  'parents' => '230724',
-                  'tpl' => '@INLINE <li class="h-nav__item"><a class="h-nav__link" href="{$uri}">{$menutitle}</a></li>'
-                ]}
-                </ul>
-              </div>
-            </li>
-          {/if}
-          <li class="h-nav__item">
-            <a class="h-nav__link" href="/o-kompanii/">О компании</a>
-              {set $items = [
-                "sr" => ["text" => "Шоурум",
-                        "link" => "/shourum/"],
-                "fb" => ["text" => "Отзывы",
-                          "link" => "/otzyivyi/"]
-              ]}
-              {switch $_modx->resource.context_key}
-              {case 'krovelnyjstroymarket'}
-              {case 'kirpich-m5'}
-                {set $items["fb"]["link"] = "/otzyvy/"}
-                {set $items["fb"]["link_classes"] = "has-icon icon-star"}
-                {set $items["sr"]["link_classes"] = "u-marginLeft16"}
-              {default}
-                {set $items = null}
-              {/switch}
-              {if $items}
-                <div class="h-nav__subnav h-subnav">
-                  <ul class="h-subnav__wrapper">
-                    {foreach $items as $item}
-                    <li class="h-nav__item"><a class="h-nav__link {$item.link_classes}" href="{$item.link}">{$item.text}</a></li>
-                    {/foreach}
-                  </ul>
-                </div>
-              {/if}
-          </li>
-          {if $_modx->resource.context_key in list ['plitnye']}
-            <li class="h-nav__item"><a class="h-nav__link" href="/raspil-v-razmer/">Распил</a></li>
-          {/if}
-          {if $_modx->resource.context_key in list ['web']}
-            <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
-          {/if}
-          {if $_modx->resource.context_key in list ['fibrofasad']}
-            <li class="h-nav__item"><a class="h-nav__link" href="/shourum/">Наш шоурум</a></li>
-          {/if}
-          <li class="h-nav__item"><a class="h-nav__link" href="/contacts/">Контакты</a></li>
-          {if $_modx->resource.context_key in list ['plitnye']}
-            <li class="h-nav__item">
-              <a class="h-nav__link h-nav__link_calc" href="/calculator/" title="Калькулятор"></a>
-            </li>
-          {/if}
-          </ul>
-        </nav>
+        {insert 'file:_modules/top_menu/top_menu.tpl'}
+        
         <div class="header__phonesched">
           <div class="h-subinfo header__phone h-subinfo_size_big">
             <svg class="h-subinfo__icon" aria-hidden="true">
