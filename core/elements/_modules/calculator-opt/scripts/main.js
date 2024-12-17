@@ -18,10 +18,14 @@ const selectors = {
 // Основная инициализация
 function init() {
     const elements = getElements(selectors);
+    try{
+        calculatePrice(elements.searchInput);
+        setupSearchHandlers(elements);
+        setupCounterHandlers(elements);
+    } catch (e){
+        console.log(e);
+    }
 
-    calculatePrice(elements.searchInput);
-    setupSearchHandlers(elements);
-    setupCounterHandlers(elements);
 }
 
 // Получение всех необходимых элементов
@@ -122,7 +126,7 @@ function fetchSearchResults(query) {
         type: "POST",
         headers: getDefaultHeaders(),
         contentType: "application/json",
-        data: JSON.stringify({ query }),
+        data: JSON.stringify({ query, context: "suhiesmesi"  }),
     });
 }
 
@@ -194,7 +198,7 @@ function fetchCalculate(productId, count) {
         type: "POST",
         headers: getDefaultHeaders(),
         contentType: "application/json",
-        data: JSON.stringify({ productId, count }),
+        data: JSON.stringify({ productId, count}),
     });
 }
 
