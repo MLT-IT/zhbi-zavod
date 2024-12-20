@@ -28,6 +28,7 @@ $query = $request['query'];
 $product_id = $request['id'];
 $context = $request['context'] ?: 'web';
 
+
 if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'fetch' || (empty($query) && empty($product_id))) {
     die(json_encode(['error' => 'Headers not set or empty query']));
 }
@@ -63,24 +64,32 @@ $c->leftJoin('msProductOption', 'item_length', "item_length.product_id = msProdu
 $c->leftJoin('msProductOption', 'item_width', "item_width.product_id = msProductData.id AND item_width.key = 'item_width'");
 
 if (!empty($query)) {
+
+
     if (preg_match('/^\w+-\d+/', $query)) {
         // Add WHERE condition for 'article' field
         $c->where([
             'msProductData.article:LIKE' => "%{$query}%",
             'AND:modResource.context_key:=' => $context
         ]);
+
     } else {
         $whereSt = [
-            'OR:modResource.pagetitle:LIKE' => "%{$query}%",
+            'modResource.pagetitle:LIKE' => "%{$query}%",
             'OR:modResource.menutitle:LIKE' => "%{$query}%",
-            'AND:modResource.context_key:=' => $context
         ];
+        $whereContext = ['modResource.context_key:=' => $context];
+
+
         // get total
         $countQuery = $modx->newQuery('modResource');
         $countQuery->where($whereSt);
+        $countQuery->where($whereContext);
         $totalCount = $modx->getCount('modResource', $countQuery);
 
         $c->where($whereSt);
+        $c->where($whereContext);
+
 
         // add limits to query if total is big
         if ($totalCount && $totalCount > $perPage) {
@@ -92,7 +101,6 @@ if (!empty($query)) {
         'modResource.id:=' => "{$product_id}"
     ]);
 }
-
 
 
 // Execute the query
