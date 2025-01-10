@@ -169,6 +169,10 @@
                   <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
                 {case 'trotuarnaya-plitka'}
                   <li class="h-nav__item"><a class="h-nav__link" href="/otzyvy/">Отзывы</a></li>
+                {case 'gazosilikatstroy'}
+                  {set $items}
+                    <li class="h-nav__item"><a class="h-nav__link" href="/otzyvy/">Отзывы</a></li>
+                  {/set}
                 {case 'kirpich-m5'}
                   {set $items}
                   <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/shourum/">Шоурум</a></li>
