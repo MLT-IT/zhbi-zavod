@@ -108,6 +108,9 @@
             <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
             <a class="footer__nav-item" href="/certs/">Сертификаты</a>
             <a class="footer__nav-item" href="/garantii/">Гарантии</a>
+            {if $_modx->context.key in list ["gazosilikatstroy"]}
+              <a class="footer__nav-item" href="/otzyvy/">Отзывы</a>
+            {/if}
           </nav>
         </div>
         {else}
