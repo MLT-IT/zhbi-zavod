@@ -381,19 +381,19 @@
                             </div>
                             <ul class="product-info__availability-list">
                               <li>
-                                Склад <strong>Мурино</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230804])}шт.</span>
+                                Склад <a href="{$_modx->makeUrl(230804)}"><strong>Мурино</strong></a> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230804])}шт.</span>
                               </li>
                               <li>
-                                Склад <strong>Гатчина</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230810])}шт.</span>
+                                Склад <a href="{$_modx->makeUrl(230821)}"><strong>Гатчина</strong></a> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230810])}шт.</span>
                               </li>
                               <li>
-                                Склад <strong>Шушары</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230821])}шт.</span>
+                                Склад <a href="{$_modx->makeUrl(230827)}"><strong>Шушары</strong></a> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230821])}шт.</span>
                               </li>
                               <li>
-                                Склад <strong>Красное село</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230827])}шт.</span>
+                                Склад <a href="{$_modx->makeUrl(230810)}"><strong>Красное село</strong></a> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230827])}шт.</span>
                               </li>
                               <li>
-                                Склад <strong>Всеволожск</strong> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230838])}шт.</span>
+                                Склад <a href="{$_modx->makeUrl(230838)}"><strong>Всеволожск</strong></a> <span>{$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 3000, 'id' => 230838])}шт.</span>
                               </li>
                             </ul> 
                             <div class="product-info__shipped pc-flex">

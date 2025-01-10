@@ -278,7 +278,7 @@ if (in_array($src['context_key'], ['beltermo'])) {
         $upk = 1 / $src['kolvom2upak'][0];
     }
 }
-// Единицы измерения для белтермо
+// Единицы измерения для фиброфасад
 if (in_array($src['context_key'], ['fibrofasad'])) {
     if (!empty($src['ploshad_m2']) && !empty($src['ploshad_m2'][0])) {
         $m2 = $src['ploshad_m2'][0];

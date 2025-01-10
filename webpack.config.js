@@ -130,7 +130,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'https://fibrofasad-online/',
+                    target: 'https://kirpich-m5/',
                     secure: false,
                     changeOrigin: true
                 }
