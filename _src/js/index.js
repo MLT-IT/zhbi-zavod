@@ -601,3 +601,27 @@ $(document).ready(function() {
         }
     })
 });
+
+
+// Табы Сопутствующих товаров для Дековер и Кедрал. Контекст fibrofasad-online.ru
+$('.js-toggle-other-products').click(function(e){
+    e.preventDefault();
+
+    var _this = $(this);
+
+    if (!_this.hasClass('active')){
+        var targetSectiontId = _this.attr('href');
+        var targetSection = $(targetSectiontId);
+        var activeControl = $('.js-toggle-other-products.active');
+        var hiddenSectionId = activeControl.attr('href');
+        var hiddenSection = $(hiddenSectionId);
+
+        console.log(hiddenSection);
+
+        $('.js-toggle-other-products.active').removeClass('active');
+        hiddenSection.css({'position': 'absolute', 'opacity': 0});
+
+        _this.addClass('active');
+        targetSection.css({'position': 'relative', 'opacity': 1});
+    }
+});

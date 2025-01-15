@@ -26,6 +26,9 @@
 {if $_modx->resource.context_key == 'plitnye'}
   {set $unit = 'лист'}
 {/if}
+{if $_modx->resource.context_key == 'fibrofasad'}
+  {set $unit = 'шт'}
+{/if}
 
 
 <a href="{$uri}" class="swiper-slide preview-card">
