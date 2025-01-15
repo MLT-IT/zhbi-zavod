@@ -804,16 +804,24 @@
   {$recommendProducts?: ''}
   {$simillarProducts ?: ''}
 
-  {if $isFibrofasadDK}
+  {* msProducts у пустого возвращает строку из 4х символов, трим не сработал *}
+  {set $isSimillarProductsComp = strlen($simillarProductsComp) > 10}
+  {set $isSimillarProductsDob = strlen($simillarProductsDob) > 10}
+
+  {if $isFibrofasadDK && $isSimillarProductsComp || $isSimillarProductsDob}
     <div class="other-products-wrapper">
       <div class="other-products__container">
         <div class="other-products__controls">
-          <a href="#simillar-products1" class="btn btn_style_shadow other-products__control active js-toggle-other-products">
+          {if $isSimillarProductsComp}
+          <a href="#simillar-products1" class="other-products__control active js-toggle-other-products">
             Комплектующие элементы
           </a>
-          <a href="#simillar-products2" class="btn btn_style_shadow other-products__control js-toggle-other-products">
+          {/if}
+          {if $isSimillarProductsDob}
+          <a href="#simillar-products2" class="other-products__control js-toggle-other-products">
             Доборные элементы
           </a>
+          {/if}
         </div>
       </div>
     {$simillarProductsComp ?: ''}
