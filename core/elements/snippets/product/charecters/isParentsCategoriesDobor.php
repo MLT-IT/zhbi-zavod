@@ -8,3 +8,5 @@ foreach ($parentIds as $parentId){
         return true;
     }
 }
+
+return false;

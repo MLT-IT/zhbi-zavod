@@ -228,11 +228,9 @@
             {'!msGallery' | snippet : [
             'tpl' => '@FILE chunks/gallery.tpl',
             ]}
-  
-            {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
-            {if $linksData.ottenok? && !$isParentsCategoriesDobor}
-              {include "file:blocks/product/linking/linking-select-other-color.tpl"}
-            {/if}
+
+           {include "file:blocks/product/linking/linking-select-other-color.tpl"}
+
             {if $_modx->context.key == 'web'}
               {include "file:chunks/product/rating.tpl"}
 
