@@ -76,6 +76,7 @@
         {set $counters = '!virtual_counters' | snippet}
         {* <!-- {$counters | var_dump} --> *}
         {if $counters | length}
+            {set $gtag = $counters.gtag}
             {set $gtm_id = $counters.gtm_id}
             {set $yandex_id = $counters.yandex_id}
         {/if}
@@ -97,6 +98,18 @@
         </script>
         <!-- /Yandex.Metrika counter -->
         {/if}
+        {if $gtag != ""}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={$gtag}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', '{$gtag}');
+        </script>
+        {/if}
+        {if $gtm_id != ""}
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i) { w[l]=w[l]||[];w[l].push( { 'gtm.start':
                     new Date().getTime(),event:'gtm.js' } );var f=d.getElementsByTagName(s)[0],
@@ -105,6 +118,9 @@
             } )(window,document,'script','dataLayer', '{$gtm_id}');
         </script>
         <!-- End Google Tag Manager -->
+        {/if}
+
+        
 
         {* Данный код нужен, чтобы загрузку скриптов не ждал preloader
         <noscript><div><img src="https://mc.yandex.ru/watch/86222209" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -133,13 +149,18 @@
 
 {block 'body'}
     {if $_modx->getPlaceholder('checkHost') == 'prod'}
+        {if $yandex_id}
         <!-- Yandex.Metrika counter -->
         <noscript><div><img src="https://mc.yandex.ru/watch/{$yandex_id}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
+        {/if}
+
+        {if $gtm_id}
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={$gtm_id}"
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        {/if}
     {/if}
 
     {block "header-mobile"}

@@ -20,6 +20,8 @@
     {set $a1 = 'Предоставляем продукцию 15 производителей'}
   {case 'fibrofasad'}
     {set $a1 = 'Официальные дилеры 13-и производителей'}
+    {set $a2 = 'Наши комплектующие экономят до 30% в смете на фасадные работы'}
+    {set $a4 = 'Оперативно доставим материал на объект'}
   {case 'fibrofasad2'}
     {set $a1 = 'Официальные дилеры 13-и производителей'}
   {case 'tagnerud'}
@@ -46,7 +48,13 @@
     <p class="advantage__text">{$a1}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png"></div>
+    <div class="advantage__icon">
+    {if $_modx->resource.context_key == 'fibrofasad'}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.svg">
+    {else}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png">
+    {/if}
+    </div>
     <p class="advantage__text">{$a2}</p>
   </div>
   <div class="advantages__item advantage">
@@ -54,7 +62,13 @@
     <p class="advantage__text">{$a3}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png"></div>
+    <div class="advantage__icon">
+    {if $_modx->resource.context_key == 'fibrofasad'}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.svg">
+    {else}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png">
+    {/if}
+    </div>
     <p class="advantage__text">{$a4}</p>
   </div>
 </div>

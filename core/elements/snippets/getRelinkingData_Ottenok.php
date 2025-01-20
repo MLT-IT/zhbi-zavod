@@ -1,4 +1,4 @@
-<?
+<?php
 if (!function_exists('composeOptionFilters')) {
     function composeOptionFilters($options)
     {
@@ -52,18 +52,22 @@ $additionalPid = [168262];
 
 $thisOttenok;
 
-$result = "";
+$result = ['ottenok' => [
+    'items' => [],
+    'selected' => ''
+]];
 
 // Параметры для сниппетов почти везде одинаковые, заносим их в массив
 $params = [
     'parents' => $parentId,
-    'depth' => 100,
+    'depth' => 0,
     'limit' => 0,
     'sortby' => 'id',
     'sortdir' => 'ASC',
     'resources' => '-' . $thisId,
     'returnIds' => '1',
 ];
+
 // Получаем id для всех опций. Это все товары в текущей категории, кроме текущего товара
 $idsInParent = $modx->runSnippet('pdoResources', $params);
 
@@ -102,39 +106,49 @@ if ($statement->execute()) {
     usort($items, 'sortByValue'); // SORTED
 
 
-    $options = "";
-    $selected = "";
-    
+    // $options = "";
+    // $selected = "";
+    $uniqueOptions = [];
 
     foreach ($items as $item) {
 
         if ($item['product_id'] === $thisId) {
-            $selected = $item['value'];
+            $result['ottenok']['selected'] = $item['value'];
         }
+        
+        if (isset($uniqueOptions[$item['value']]) && $uniqueOptions[$item['value']] == 1) continue;
+
         if ($item['value'] != "") {
-            $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . "</a>";
+            
+            $result['ottenok']['items'][] = $item;
+            // $options .= '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . "</a>";
         }
+
+        $uniqueOptions[$item['value']] = 1;
     }
 
-    $result = '
-    ITEMS: '.count($items).'
-    <div class="product-info__top"><div class="product-info__grid">
-        <div class="product-info__relinkav_wrapper">
-          <span class="product-info__volume-title">Оттенок:</span>
-          <div class="product-info__relinkav">
-            <div class="product-info__euv-custom-select euv-custom-select">
-              <div class="euv-custom-select__input">
-                <span class="euv-custom-select__input-value">' . $selected . '</span>
-              </div>
-              <span class="euv-custom-select__btn"></span>
-              <div class="euv-custom-select__options-wrap" style="display: none;">
-              '.$options.'
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>';
+    // $result[] = '
+    // <div class="product-info__top"><div class="product-info__grid">
+    //     <div class="product-info__relinkav_wrapper">
+    //       <span class="product-info__volume-title">Оттенок:</span>
+    //       <div class="product-info__relinkav">
+    //         <div class="product-info__euv-custom-select euv-custom-select">
+    //           <div class="euv-custom-select__input">
+    //             <span class="euv-custom-select__input-value">' . $selected . '</span>
+    //           </div>
+    //           <span class="euv-custom-select__btn"></span>
+    //           <div class="euv-custom-select__options-wrap" style="display: none;">
+    //           '.$options.'
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    // </div>';
 }
 
 
-return $options ? $result : 'ITEMS: '. print_r($items);
+if (count($result['ottenok']['items'])) {
+    return $result;
+} else {
+    return "";
+}

@@ -187,3 +187,29 @@
         </div>
     </div>
 {/if}
+
+{set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
+{if $linksData.ottenok? && !$isParentsCategoriesDobor}
+<div class="product-card__select-wrap product-card__select-wrap_type_half">
+    <div class="product-info__top"><div class="product-info__grid">
+        <div class="product-info__relinkav_wrapper">
+        <span class="product-info__volume-title">Оттенок:</span>
+        <div class="product-info__relinkav">
+            <div class="product-info__euv-custom-select euv-custom-select">
+            <div class="euv-custom-select__input">
+                <span class="euv-custom-select__input-value">{$linksData.ottenok.selected}</span>
+            </div>
+            <span class="euv-custom-select__btn"></span>
+            <div class="euv-custom-select__options-wrap" style="display: none;">
+                {foreach $linksData.ottenok.items as $item}
+                    <a href="{$_modx->makeUrl($item['product_id'], '', '', 'full')}" class="euv-custom-select__option">
+                        {$item['value']}
+                    </a>
+                {/foreach}
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{/if}
