@@ -11,7 +11,9 @@ $data = [
   ['url' => '/o-kompanii/',
     'text' => 'О компании'],
   ['url' => '/otzyvy/',
-    'text' => 'Отзывы'],
+    'text' => 'Отзывы',
+     'link_classes' => 'has-icon icon-star'
+  ],
   ['url' => '/contacts/',
     'text' => 'Контакты']
 ];

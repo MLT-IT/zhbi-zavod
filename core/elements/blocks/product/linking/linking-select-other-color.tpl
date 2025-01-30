@@ -1,4 +1,5 @@
 {if isset($linksData)}
+
     {if $colorsSorted?}
     <div class="product__select-other-color">
         <div class="product__select-wrap">
@@ -26,7 +27,7 @@
         </div>
     </div>
 
-    {elseif $_modx->context.key == 'fibrofasad'}
+    {elseif $_modx->context.key == 'fibrofasad' && !$_modx->runSnippet("@FILE snippets/product/charecters/isParentsCategoriesDobor.php") }
         <div class="product__select-other-color">
             <div class="product__select-wrap">
                 <div class="product__select-other-color-span">
