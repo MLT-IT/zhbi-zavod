@@ -230,7 +230,7 @@
             ]}
   
             {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
-            {if $linksData.ottenok? && !$isParentsCategoriesDobor}
+            {if $linksData.ottenok? && !$isParentsCategoriesDobor && $_modx->resource.context_key in list ['fibrofasad']}
               {include "file:blocks/product/linking/linking-select-other-color.tpl"}
             {/if}
             {if $_modx->context.key == 'web'}
@@ -805,8 +805,8 @@
   {$simillarProducts ?: ''}
 
   {* msProducts у пустого возвращает строку из 4х символов, трим не сработал *}
-  {set $isSimillarProductsComp = strlen($simillarProductsComp) > 10}
-  {set $isSimillarProductsDob = strlen($simillarProductsDob) > 10}
+  {set $isSimillarProductsComp = strlen($simillarProductsComp) > 100}
+  {set $isSimillarProductsDob = strlen($simillarProductsDob) > 100}
 
   {if $isFibrofasadDK && $isSimillarProductsComp || $isSimillarProductsDob}
     <div class="other-products-wrapper">
@@ -818,7 +818,7 @@
           </a>
           {/if}
           {if $isSimillarProductsDob}
-          <a href="#simillar-products2" class="other-products__control js-toggle-other-products">
+          <a href="#simillar-products2" class="other-products__control {if !$isSimillarProductsComp}active{/if} js-toggle-other-products">
             Доборные элементы
           </a>
           {/if}

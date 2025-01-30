@@ -110,16 +110,18 @@
       </div>
     </article>
 
-    <article class="show-room section">
-      <div class="show-room__container">
-        <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
-        {insert 'file:chunks/show-room/show-room-gallery.tpl'}
-      </div>
-    </article>  
-
+    {if $_modx->context.key != 'kirpich-m5'}
     <article class="show-room section">
       <div class="show-room__container">
         <h2 class="margin-bottom-md section__title">Наши объекты</h2>
+        {insert 'file:chunks/show-room/show-room-gallery.tpl'}
+      </div>
+    </article>
+    {/if}
+
+    <article class="show-room section">
+      <div class="show-room__container">
+        <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
         {insert 'file:chunks/show-room/show-room-objects.tpl'}
       </div>
     </article>  
