@@ -239,6 +239,21 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
+                
+            case 'gbi-zavod78':
+                static::$brandsIds = [
+                    'dorsroy' => 255831,
+                    'zhilstroy' => 255835,
+                    'elzhogr' => 255833,
+                    'communic' => 255834,
+                    'zheleznodor' => 255836,
+                    'energ' => 255837,
+                    'most' => 255870,
+                    'bu' => 255832,
+                    'blago' => 255830
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
 
             case 'gibkaya-cherepiza':
                 static::$brandsIds = [

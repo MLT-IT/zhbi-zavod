@@ -54,6 +54,8 @@
                 {set $caption = 'Керамический кирпич ЛСР от 29 руб./шт!'}
                 {set $btn = 'Перейти'}
                 {set $link = '/oblicovochnye/'}
+              {case 'zbi500'}
+                {set $text = 'Закажите ЖБИ сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку манипулятором'}
             {/switch}
             {$text}
           </div>
@@ -103,6 +105,8 @@
           {set $link = '/shourum/'}
         {case 'trotuarnaya-plitka'}
           {set $link = '/rasprodazha-so-sklada/'}
+        {case 'zbi500'}
+          {set $link = '#'}
         {default}
           {set $link = '/akcii/'}
       {/switch}
