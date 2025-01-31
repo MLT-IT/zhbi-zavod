@@ -54,3 +54,49 @@
     img
       min-width: 100%
       min-height: 100%
+
+.showroom-objects
+  &__slider
+    +from-768
+      margin-top: -70px
+
+  .swiper
+    &-wrapper
+      +from-768
+        padding: 70px 0 15px
+
+    &-slide
+      border: 2px solid #ddd
+      border-radius: 10px
+      overflow: hidden
+      box-shadow: 0 3px 6px 1px rgba(0, 0, 0, .15)
+
+      a
+        cursor: zoom-in
+
+    &-buttons
+      +from-768
+        justify-content: flex-end
+        column-gap: 10px
+        top: 0
+        left: 0
+        width: 100%
+        transform: none
+
+    &-button
+      color: var(--color-white)
+      background-color: var(--color-red)
+      box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
+
+      &-disabled
+        color: var(--color-red)
+        background-color: var(--color-white)
+
+        &:hover
+          background-color: var(--color-white)
+
+  &__image
+    display: block
+    width: 100%
+    height: 100%
+    object-fit: cover

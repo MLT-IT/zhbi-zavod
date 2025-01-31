@@ -10,7 +10,7 @@ $files = scandir($path);
 $res_list = [];
 foreach($files as $file) {
     if($file == '.' || $file == '..') continue;
-    if(strstr($file, $file_suffix) && strstr($file, '.jpg')) {
+    if(strstr($file, $file_suffix) && (strstr($file, '.jpg') || strstr($file, '.png'))) {
       $res_list[] = $file;
     }
 }

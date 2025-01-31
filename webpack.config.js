@@ -35,7 +35,7 @@ module.exports = (env, args) => {
                     }
                 },
                 {
-                    test: /\.(sass)$/,
+                    test: /\.(s[ac]ss)$/,
                     use: [
                         styleLoader,
 
@@ -130,7 +130,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'http://alterteplo/',
+                    target: 'https://fibrofasad-online/',
                     secure: false,
                     changeOrigin: true
                 }

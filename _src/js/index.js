@@ -42,11 +42,14 @@ import showMoreListing from './modules/showMoreListing.js';
 import '../../core/elements/_modules/debug/Logger.js'
 import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
+import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
+
+    addClipboardIcons();
 
     const ctx = body.getAttribute('data-ctx');
 
@@ -600,4 +603,28 @@ $(document).ready(function() {
             });
         }
     })
+});
+
+
+// Табы Сопутствующих товаров для Дековер и Кедрал. Контекст fibrofasad-online.ru
+$('.js-toggle-other-products').click(function(e){
+    e.preventDefault();
+
+    var _this = $(this);
+
+    if (!_this.hasClass('active')){
+        var targetSectiontId = _this.attr('href');
+        var targetSection = $(targetSectiontId);
+        var activeControl = $('.js-toggle-other-products.active');
+        var hiddenSectionId = activeControl.attr('href');
+        var hiddenSection = $(hiddenSectionId);
+
+        console.log(hiddenSection);
+
+        $('.js-toggle-other-products.active').removeClass('active');
+        hiddenSection.css({'position': 'absolute', 'opacity': 0});
+
+        _this.addClass('active');
+        targetSection.css({'position': 'relative', 'opacity': 1});
+    }
 });

@@ -164,4 +164,26 @@ export function initSliders() {
             }
         });
     }
+
+    const showroomSliderContainer = document.querySelector('.showroom-objects__slider');
+
+    if (showroomSliderContainer){
+        const showroomSlider = new Swiper(showroomSliderContainer.querySelector('.swiper-container'), {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            navigation: {
+                prevEl: showroomSliderContainer.querySelector('.swiper-button-prev') || null,
+                nextEl: showroomSliderContainer.querySelector('.swiper-button-next') || null,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3
+                },
+                1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 15
+                }
+            }
+        })
+    }
 }

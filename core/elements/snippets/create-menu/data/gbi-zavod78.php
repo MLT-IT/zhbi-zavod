@@ -1,6 +1,6 @@
 <?php
 
-function getMenuData() { // zbi500fix
+function getMenuData() { // gbi-zavod78fix
     $dorsroy = 255831;
     $zhilstroy = 255835;
     $elzhogr = 255833;

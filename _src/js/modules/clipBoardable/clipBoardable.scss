@@ -1,0 +1,37 @@
+.clipBoardable {
+  position: relative;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
+  .tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #33333399;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    &:after {
+      display: none;
+    }
+  }
+
+  .clipboard-icon {
+    // margin-left: 10px;
+    cursor: cell;
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

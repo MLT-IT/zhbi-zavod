@@ -1,8 +1,8 @@
-{set $relinkingStandart = '@FILE modules/product-card/getGostTuOption.php' | snippet}
+{set $relinkingStandart = '@FILE _modules/product-card/getGostTuOption.php' | snippet}
 <section class="section section_view_top">
   {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
   <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
-  {insert "file:chunks/product/get-data-attrs.tpl"}
+  {include "file:chunks/product/get-data-attrs.tpl"}
   >
     <div class="product__container">
       <h1 class="product__title section__title">{$_modx->resource.pagetitle}</h1>
@@ -136,23 +136,6 @@
               </div>
               <button data-fancybox="" href="#callback" class="product-info__fast-buy btn btn_style_trans">Купить в 1 клик</button>
             </div>
-
-            {* {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
-                <div class="product-info__undertext">
-                  <p class="product-info__undertext-span">
-                  <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                      <use xlink:href="/assets/template/img/svg-sprite.svg#icon-location-product"></use>
-                  </svg>
-                  <span class="product-info__undertext-span-header">Самовывоз:</span> сегодня
-                  </p>
-                  <p class="product-info__undertext-span">
-                      <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16pt" height="16pt" class="icon" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
-                          <use xlink:href="/assets/template/img/svg-sprite.svg#icon-delivery-product"></use>
-                      </svg>
-                      <span class="product-info__undertext-span-header">Доставка:</span> 1-2 дня
-                  </p>
-                </div>
-            {/if} *}
           </div>
 
           {* <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p> *}
@@ -214,7 +197,7 @@
             {/if}
           </div>
           <div class="product-subbody__right">
-            {include 'file:blocks/product/zbi500/action-banner.tpl'}
+            {include 'file:blocks/product/gbi-zavod78/action-banner.tpl'}
           </div>
       </div>
 

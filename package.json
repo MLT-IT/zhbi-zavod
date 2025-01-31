@@ -62,6 +62,7 @@
     "dependencies": {
         "@fancyapps/fancybox": "^3.5.7",
         "animate.css": "^4.1.1",
+        "copy-to-clipboard": "^3.3.3",
         "jquery-ui-touch-punch": "^0.2.3",
         "js-cookie": "^3.0.1",
         "js-image-zoom": "^0.7.0",

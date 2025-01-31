@@ -26,7 +26,7 @@
           {set $text = 'керамзита'}
         {case 'kirpich-m5'}
           {set $text = 'кирпича'}
-        {case 'zbi500'}
+        {case 'gbi-zavod78'}
           {set $text = 'ЖБИ'}
         {case default}
           {set $text = 'строительных материалов'}
