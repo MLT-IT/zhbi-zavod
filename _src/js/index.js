@@ -44,6 +44,18 @@ import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    if (!document.querySelector(".js-product.js-product_with-discount .tooltip")) return;
+    const {PvaTooltip} = await import(
+      /* webpackChunkName: "dynamics_1" */ "./modules/pvaTooltip.js"
+    );
+    const prodTooltip = new PvaTooltip(".js-product.js-product_with-discount .tooltip");
+    prodTooltip.bind();
+  } catch (t) {
+    //console.error(t);
+  }
+});
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;

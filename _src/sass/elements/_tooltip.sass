@@ -1,0 +1,71 @@
+.tooltip
+    text-align: left
+    bottom: 44px
+    right: calc(50% - 128px)
+    color: #fff
+    position: absolute
+    opacity: 0
+    pointer-events: none
+    padding: 16px 34px 16px 16px
+    box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .4), 0 1.17px 2px rgba(0, 0, 0, 0.0196802), 0 1.4px 5px rgba(0, 0, 0, 0.03), 0 2px 10px rgba(0, 0, 0, 0.03), 0 2px 18px rgba(0, 0, 0, 0.04), 0 9px 33px rgba(0, 0, 0, 0.03)
+    width: 324px
+    background: #2e323d
+    border-radius: 8px
+    transition: opacity .2s ease-out
+    will-change: opacity
+    z-index: 100
+
+    +until-768
+        right: calc(50% - 178px)
+
+    +until-480
+        width: 300px
+        margin: 0 auto
+        right: calc(50% - 165px)
+    +until-350
+        right: -9px
+
+    &::after
+        content: ""
+        position: absolute
+        width: 0
+        height: 0
+        border-left: 20px solid transparent
+        border-right: 20px solid transparent
+        border-top: 20px solid #2e323d
+        bottom: -7px
+        right: 90px
+
+        +until-768
+            right: auto
+            left: 50%
+            transform: translateX(-50%)
+
+        +until-350
+            right: -11px
+            left: auto
+
+    &--active
+        opacity: 1
+        pointer-events: auto
+
+    &__header
+        font-weight: bold
+        margin-bottom: 8px
+        font-size: 16px
+
+    &__body
+        font-size: 14px
+
+    &__close
+        cursor: pointer
+        display: inline-block
+        position: absolute
+        right: 18px
+        top: 18px
+        line-height: 0.6
+
+        &::before
+            font-size: 27px
+            content: "\00d7"
+            display: inline-block
