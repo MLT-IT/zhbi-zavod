@@ -49,6 +49,10 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column3'] = ['title' => 'Толщина', 'type' => 'composite'];
             $result['column4'] = ['title' => 'Применение', 'type' => 'composite'];
             break;
+        case 'gbi-zavod78':
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => '', 'type' => 'composite'];
+            break;
         case 'stenovye':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Продуктовая линейка', 'type' => 'composite'];

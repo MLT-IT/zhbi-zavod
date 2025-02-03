@@ -42,7 +42,17 @@ switch (true) {
         ];
         break;
 
+    // ЖБИ
+    case $modx->resource->context_key == 'gbi-zavod78':
+        $charsValues = [
+            'Категория' => ['val' => $src['kategoriya']],
+            'Длина, мм' => ['val' => $src['dlina-mm']],
+            'Ширина, мм' => ['val' => $src['shirina-mm']],
+            'Высота, мм' => ['val' => $src['vysota-mm']],
+            'Вес, т' => ['val' => $src['massa-t']],
+        ];
 
+        break;
     // Краска
     case $modx->resource->context_key == 'kraska':
         // Краски

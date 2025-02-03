@@ -35,7 +35,7 @@ module.exports = (env, args) => {
                     }
                 },
                 {
-                    test: /\.(sass)$/,
+                    test: /\.(s[ac]ss)$/,
                     use: [
                         styleLoader,
 

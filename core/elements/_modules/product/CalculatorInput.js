@@ -32,8 +32,9 @@ export default class CalculatorInput {
           throw new Error("Wrapper does not exist");
         }
         this.wrapper = wrapperElement;
+      } else {
+        this.wrapper = wrapper;
       }
-      this.wrapper = wrapper;
 
       if (config) {
         this.selectors = { ...this.selectors, ...config.selectors };

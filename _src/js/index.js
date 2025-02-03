@@ -3,8 +3,8 @@ import '../sass/main.sass';
 // -------------------------------------
 // Подключение JQuery
 // -------------------------------------
-window.jQuery = $;
-window.$ = $;
+// window.jQuery = $;
+// window.$ = $;
 
 // -------------------------------------
 // Импорт функций на JQuery
@@ -21,7 +21,6 @@ import mapsLazyload from './modules/lazyload_maps';
 // MODULES
 // -------------------------------------
 import modxJS from './functions/modxJS';
-import { initSliders } from "./modules/sliders";
 import calcProperties from "./utils/calcProperties";
 import {Mobilemenu, Mobilemenu_kirpichM5} from "./modules/mobileMenu";
 import Dropdowns from "./modules/dropdowns";
@@ -34,19 +33,23 @@ import shadowMap from './modules/shadow_map';
 import initDistrictsMap from './modules/districts_map';
 import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
+import initSliders from "./modules/sliders";
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
 import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
-import '../../core/elements/_modules/debug/Logger.js'
 import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
+import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
         window.ymid = counterNum;
     });
+
+    addClipboardIcons();
 
     const ctx = body.getAttribute('data-ctx');
 
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //initMobilemenu('.js-burger-1', '.burger-menu');
     //initMobilemenu('.js-burger-2', '.burger-menu');
-    initSliders();
+    // initSliders();
     new Dropdowns();
     new Tabs();
 
@@ -625,3 +628,17 @@ $('.js-toggle-other-products').click(function(e){
         targetSection.css({'position': 'relative', 'opacity': 1});
     }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await initSliders();
+    try {
+      if (!document.querySelector(".js-product.js-product_with-discount .tooltip")) return;
+      const {PvaTooltip} = await import(
+        /* webpackChunkName: "dynamics_1" */ "./modules/pvaTooltip.js"
+      );
+      const prodTooltip = new PvaTooltip(".js-product.js-product_with-discount .tooltip");
+      prodTooltip.bind();
+    } catch (t) {
+    //   console.error(t);
+    }
+  });
