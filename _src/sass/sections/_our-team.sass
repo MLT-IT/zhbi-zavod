@@ -1,0 +1,30 @@
+.our-team
+  display: grid
+  gap: clamp(10px, 2vw, 20px)
+  margin-top: 1.5em
+  grid-template-columns: repeat(2, 1fr)
+  +until-768
+    grid-template-columns: 1fr
+  &__card
+    padding: clamp(10px, 2vw, 20px)
+
+  &__section
+    margin-block: 2em
+  .team-card
+    background-color: #ffffff
+    border-radius: 10px
+    box-shadow: var(--shadow-card)
+    &__head
+      display: flex
+      gap: 1em
+      margin-bottom: 2em
+      h3
+        font-weight: 600
+        margin-bottom: 10px
+      img
+        display: block
+        max-width: 75px
+        max-height: 75px
+        object-fit: contain
+        border-radius: 5px
+      

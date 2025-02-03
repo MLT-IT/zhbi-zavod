@@ -108,7 +108,6 @@
               {set $text = 'Продажа профнастила в Санкт-Петербурге и ЛО'}
               {set $beforeText = ""}
               {set $afterText = ""}
-
             {case 'gibkaya-cherepiza'}
               {set $text = 'Продажа гибкой черепицы в Санкт-Петербурге и ЛО'}
               {set $beforeText = ""}
@@ -123,6 +122,10 @@
               {set $afterText = ""}
             {case 'kirpich-m5'}
               {set $text = 'кирпича'}
+            {case 'gbi-zavod78'}
+              {set $text = 'ЖБИ'}
+            {case default}
+              {set $text = 'строительных товаров'}
 
           {/switch}
           {$beforeText} {$text} {$afterText}

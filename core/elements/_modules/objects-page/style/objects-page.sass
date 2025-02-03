@@ -1,0 +1,221 @@
+.objects
+  #yMapObjects
+    width: 100%
+    height: 40dvh
+    min-height: 300px
+
+    
+.objects-list
+  h2
+    font-size: 1.5em
+    font-weight: bold
+    padding-block: 2em 1em
+
+  &__map
+    margin-top: 1.5em
+
+  &__item
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  .object
+    display: flex
+    align-items: center
+    flex-direction: column
+    max-width: 800px
+    background-color: #eeeeee77
+    box-shadow: 0 4px 4px #DCB7B0
+
+    border-radius: 15px
+    padding: 15px
+    // max-height: 60dvh
+
+    &__gallery
+      width: 100%
+      // flex-basis: 40%
+      // flex: 1
+      // max-width: 300px
+
+    &__icon
+      width: 30px
+      height: 30px
+      margin-right: 1em
+      display: inline-block
+
+    &__details
+      flex: 1
+      padding-top: 10px
+      height: 100%
+      overflow-y: auto
+      a
+        color: var(--color-red)
+      ul 
+        list-style: inside disc
+      p
+        margin-bottom: 1rem
+        
+      .description 
+
+        margin-top: auto
+
+      em
+        font-weight: 600
+
+    &__header
+      width: 100%
+      padding-block: 10px
+      h3
+        border-bottom: 1px inset #eee
+        padding-bottom: .8em
+      p
+        padding-block: 1em
+        font-weight: 500
+
+    &__name, &__year
+      font-weight: 600  
+    &__year
+      margin-left: auto
+
+    h3
+        display: flex
+        align-items: center
+        margin: 0
+        padding-bottom: 0
+        font-weight: 600
+
+
+.objects-group
+  position: relative
+  .swiper 
+    width: 100%
+    height: 65dvh
+    margin-left: auto
+    margin-right: auto
+    overflow: clip visible
+  .group-nav
+    position: absolute
+    z-index: 2
+    top: calc(50% - 25px)
+    width: 110%
+    max-width: 99dvw
+    left: 50%
+    transform: translateX(-50%)
+    display: flex
+    justify-content: space-between
+    +until-1200
+      top: 90%
+    .group-button-next,
+    .group-button-prev 
+      text-shadow: 0 0 5px #33333344
+      background-color: var(--color-red)
+      width: 30px
+      height: 30px
+
+      &:hover 
+        text-shadow: 0 2px 10px #333333
+
+      &::after 
+        color: #fff
+
+      &.swiper-button-disabled
+        opacity: 0.5
+        pointer-events: none
+
+
+
+.thumbs-gallery 
+  .swiper 
+    width: 100%
+    height: 300px
+    margin-left: auto
+    margin-right: auto
+    overflow: hidden
+
+  a 
+    padding: 3px
+    border: 0
+    cursor: zoom-in
+  
+
+  .swiper-slide 
+    text-align: center
+    font-size: 18px
+    background: #fff
+    display: flex
+    justify-content: center
+    align-items: center
+    background-size: cover
+    background-position: center
+
+    img 
+      display: block
+      border-radius: 3px
+      overflow: hidden
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  .mySwiper2 
+    height: 80%
+    width: 100%
+    position: relative
+
+    .swiper-button-next,
+    .swiper-button-prev 
+      text-shadow: 0 0 5px #33333344
+      position: absolute
+
+      &:hover 
+        text-shadow: 0 2px 10px #333333
+
+      &::after 
+        font-size: 30px
+
+
+
+  .mySwiper 
+    height: 20%
+    box-sizing: border-box
+    padding: 10px 0
+    position: relative
+
+    .swiper-nav
+      position: absolute
+      width: 100%
+      display: flex
+      justify-content: space-between
+      top: calc(50% - 30px/2)
+
+    .swiper-button-next,
+    .swiper-button-prev 
+      text-shadow: 0 0 5px #33333344
+      width: 30px
+      height: 30px
+      background-color: var(--color-red)
+      color: #fff
+      &:hover 
+        text-shadow: 0 2px 10px #333333
+
+      
+    img 
+      cursor: pointer
+    
+
+    .swiper-slide 
+      width: 25%
+      height: 100%
+      opacity: 0.4
+    
+
+    .swiper-slide-thumb-active 
+      opacity: 1
+    
+// overrides for simple gallery
+.simple-gallery
+  .mySwiper
+    height: auto 
+    .swiper-slide
+      opacity: 1
+      a
+        cursor: zoom-in

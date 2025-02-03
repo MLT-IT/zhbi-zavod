@@ -41,7 +41,7 @@
               </div>
 
               {if $_modx->context.key == "web"}
-                  {include "file:modules/warehouse/sections/warehouse-remains.tpl"}
+                  {include "file:_modules/warehouse/sections/warehouse-remains.tpl"}
               {/if}
               <div class="product-info__shipped mobile-flex">
                   {'@FILE snippets/shippedToday.php' | snippet}
