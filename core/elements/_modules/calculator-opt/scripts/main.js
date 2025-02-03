@@ -54,18 +54,18 @@ function setupSearchHandlers({ searchInput, searchResultBlock, searchResultConta
 
 // Добавление обработчиков для счетчика
 function setupCounterHandlers({ countInput, buttonPlus, buttonMinus, searchInput }) {
-    countInput.addEventListener("blur", () => handleCounterBlur(countInput, searchInput));
-    buttonPlus.addEventListener("click", (e) => { e.preventDefault(); updateCounter(countInput, 1, searchInput)});
-    buttonMinus.addEventListener("click", (e) => { e.preventDefault(); updateCounter(countInput, -1, searchInput)});
+    countInput?.addEventListener("blur", () => handleCounterBlur(countInput, searchInput));
+    buttonPlus?.addEventListener("click", (e) => { e.preventDefault(); updateCounter(countInput, 1, searchInput)});
+    buttonMinus?.addEventListener("click", (e) => { e.preventDefault(); updateCounter(countInput, -1, searchInput)});
 }
 
 // Обработчики фокуса и потери фокуса
 function addFocusHandler(searchInput, searchResultBlock) {
-    searchInput.addEventListener("focus", () => toggleSearchResult(searchResultBlock, true));
+    searchInput?.addEventListener("focus", () => toggleSearchResult(searchResultBlock, true));
 }
 
 function addBlurHandler(searchInput, searchResultBlock) {
-    searchInput.addEventListener("blur", () => {
+    searchInput?.addEventListener("blur", () => {
         setTimeout(() => toggleSearchResult(searchResultBlock, false), 400);
     });
 }
@@ -151,6 +151,7 @@ function setupSearchItemClickHandlers(container, resultBlock, searchInput) {
 // Логика клика по элементу поиска
 function handleSearchItemClick(item, searchInput, resultBlock) {
     const span = item.querySelector(selectors.searchItemSpan);
+    if(!span) return;
     searchInput.value = span.textContent;
     const productId = span.getAttribute("data-product-id");
     searchInput.setAttribute("data-product-id", productId);
@@ -179,6 +180,10 @@ function isNumericString(value) {
 
 // Расчет цены
 function calculatePrice(searchInput) {
+    if(!searchInput) {
+        console.log('No search input');
+        return 0;
+    }
     const productId = searchInput.getAttribute("data-product-id");
     const countInput = document.querySelector(selectors.countInput);
     const priceBlock = document.querySelector(selectors.priceBlock);

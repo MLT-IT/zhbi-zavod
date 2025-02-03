@@ -3,8 +3,8 @@ import '../sass/main.sass';
 // -------------------------------------
 // Подключение JQuery
 // -------------------------------------
-window.jQuery = $;
-window.$ = $;
+// window.jQuery = $;
+// window.$ = $;
 
 // -------------------------------------
 // Импорт функций на JQuery
@@ -39,7 +39,6 @@ import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additiona
 import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
-import '../../core/elements/_modules/debug/Logger.js'
 import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
