@@ -2,7 +2,7 @@
     {set $title = 'Похожие товары'}
 {/if}
 {if $output is not empty}
-<article class="other-products section section_view_bg" id="simillar-products{$_modx->getPlaceholder('simillarProductsId')}" style="{$_modx->getPlaceholder('simillarProductsId') == 2 ? 'position: absolute; opacity: 0' : ''}">
+<article class="other-products section section_view_bg" id="simillar-products{$_modx->getPlaceholder('simillarProductsId')}" style="{$_modx->getPlaceholder('isSimillarProductsComp') && $_modx->getPlaceholder('simillarProductsId') == 2 ? 'position: absolute; opacity: 0' : ''}">
   <div class="other-products__container">
   {if !$_modx->getPlaceholder('isFibrofasadDK')}
     <h2 class="other-products__title section__title">{$title}</h2>

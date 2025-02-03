@@ -175,6 +175,7 @@
     {set $simillarProductsParams['parents'] = 171158}
     {set $simillarProductsParams['optionFilters'] = '{"ottenok:=" : "'~$_modx->resource["ottenok.value"]~'"}'}
     {set $simillarProductsComp = 'msProducts' | snippet : $simillarProductsParams}
+    {$_modx->setPlaceholder('isSimillarProductsComp', strlen($simillarProductsComp) > 100)}
 
     {$_modx->setPlaceholder('simillarProductsId', 2)}
     {set $simillarProductsParams['parents'] = 171092}
@@ -184,6 +185,7 @@
     {set $simillarProductsParams['parents'] = 171085}
     {set $simillarProductsParams['optionFilters'] = '{"ottenok:=" : "'~$_modx->resource["ottenok.value"]~'"}'}
     {set $simillarProductsComp = 'msProducts' | snippet : $simillarProductsParams}
+    {$_modx->setPlaceholder('isSimillarProductsComp', strlen($simillarProductsComp) > 100)}
     
     {$_modx->setPlaceholder('simillarProductsId', 2)}
     {set $simillarProductsParams['parents'] = 171060}
@@ -805,20 +807,19 @@
   {$simillarProducts ?: ''}
 
   {* msProducts у пустого возвращает строку из 4х символов, трим не сработал *}
-  {set $isSimillarProductsComp = strlen($simillarProductsComp) > 100}
   {set $isSimillarProductsDob = strlen($simillarProductsDob) > 100}
 
-  {if $isFibrofasadDK && $isSimillarProductsComp || $isSimillarProductsDob}
+  {if $isFibrofasadDK && $_modx->getPlaceholder('isSimillarProductsComp') || $isSimillarProductsDob}
     <div class="other-products-wrapper">
       <div class="other-products__container">
         <div class="other-products__controls">
-          {if $isSimillarProductsComp}
+          {if $_modx->getPlaceholder('isSimillarProductsComp')}
           <a href="#simillar-products1" class="other-products__control active js-toggle-other-products">
             Комплектующие элементы
           </a>
           {/if}
           {if $isSimillarProductsDob}
-          <a href="#simillar-products2" class="other-products__control {if !$isSimillarProductsComp}active{/if} js-toggle-other-products">
+          <a href="#simillar-products2" class="other-products__control {if !$_modx->getPlaceholder('isSimillarProductsComp')}active{/if} js-toggle-other-products">
             Доборные элементы
           </a>
           {/if}
