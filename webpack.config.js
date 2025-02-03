@@ -96,10 +96,10 @@ module.exports = (env, args) => {
             new ExtractTextPlugin({
                 filename: 'css/[name].css'
             }),
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-            }),
+            // new webpack.ProvidePlugin({
+            //     // $: "jquery",
+            //     // jQuery: "jquery",
+            // }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.DefinePlugin({
                 'process.env.DEBUG': !isProd,
@@ -113,6 +113,16 @@ module.exports = (env, args) => {
                     }
                 })
             ],
+            runtimeChunk: 'single',
+            splitChunks: {
+                chunks: 'initial',
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendors',
+                    },   
+                }
+            }
         },
         resolve: {
             extensions: ['*', '.js']
@@ -120,7 +130,8 @@ module.exports = (env, args) => {
         output: {
             path: __dirname + '/assets/template/',
             publicPath: '/assets/template/',
-            filename: 'js/[name].js'
+            filename: 'js/[name].js',
+            chunkFilename: 'js/[name].js'
         },
         devServer: {
             contentBase: './',
@@ -130,7 +141,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'https://fibrofasad-online/',
+                    target: 'http://stroymarket.local/',
                     secure: false,
                     changeOrigin: true
                 }
