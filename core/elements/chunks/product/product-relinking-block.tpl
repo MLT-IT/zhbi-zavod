@@ -189,7 +189,7 @@
 {/if}
 
 {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
-{if $linksData.ottenok? && !$isParentsCategoriesDobor}
+{if $linksData.ottenok? && !$isParentsCategoriesDobor && $_modx->resource.context_key in list ['fibrofasad']}
 <div class="product-card__select-wrap product-card__select-wrap_type_half">
     <div class="product-info__top"><div class="product-info__grid">
         <div class="product-info__relinkav_wrapper">
