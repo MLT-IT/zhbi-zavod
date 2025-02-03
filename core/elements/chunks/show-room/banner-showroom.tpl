@@ -1,3 +1,7 @@
+{set $isBannerVisible = true}
+{set $title = 'Посмотрите товары в нашем Шоу-руме <br>онлайн'}
+{set $description = 'Наши специалисты ознакомят Вас с нашим ассортиментом <br>и проведут бесплатную консультацию.'}
+{set $button = 'Отправить заявку'}
 {switch $_modx->resource.context_key}
 {case 'web'}
   {set $link = '/akcii/likvidacziya-sklada-uspej-zabrat/'}
@@ -13,7 +17,14 @@
   {set $link = '#'}
 {case 'krovelnyjstroymarket'}
   {set $link = '/shourum/'}
+{case 'fibrofasad'}
+  {set $isBannerVisible = true}
+  {set $title = 'Фиброцементный сайдинг от лучших производителей!'}
+  {set $description = 'В нашем ассортименте представлены гладкие и фактурные панели и сайдинг.'}
+  {set $button = 'Перейти в каталог'}
 {/switch}
+
+{if $isBannerVisible}
 <div class="showroom-banner">
   <div class="showroom-banner__background">
     <picture>
@@ -25,10 +36,9 @@
     </picture>
   </div>
   <div class="showroom-banner__wrapper">
-    <p class="showroom-banner__title">Посмотрите товары в нашем Шоу-руме <br>онлайн</p>
-    <p class="showroom-banner__description"> 
-    Наши специалисты ознакомят Вас с нашим ассортиментом <br>
-    и проведут бесплатную консультацию. </p>
-    <div class="banner__action"><a class="banner__btn btn btn_style_yellow" data-fancybox href="#showRoom">Отправить заявку</a></div>
+    <p class="showroom-banner__title">{$title}</p>
+    <p class="showroom-banner__description">{$description}</p>
+    <div class="banner__action"><a class="banner__btn btn btn_style_base" data-fancybox href="#showRoom">{$button}</a></div>
   </div>
 </div>
+{/if}

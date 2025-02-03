@@ -40,7 +40,7 @@
                             {set $visual = $_modx->runSnippet("getVisualWizard",
                             [
                                 "options" => "ottenok",
-                                "context"=> "",
+                                "context"=> "fibrofasad",
                                 "name"=> $item['value']
                                 ]
                             )}
