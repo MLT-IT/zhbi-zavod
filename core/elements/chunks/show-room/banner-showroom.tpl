@@ -1,4 +1,5 @@
 {set $isBannerVisible = true}
+{set $isLinkToFBCatalog = false}
 {set $title = 'Посмотрите товары в нашем Шоу-руме <br>онлайн'}
 {set $description = 'Наши специалисты ознакомят Вас с нашим ассортиментом <br>и проведут бесплатную консультацию.'}
 {set $button = 'Отправить заявку'}
@@ -18,7 +19,7 @@
 {case 'krovelnyjstroymarket'}
   {set $link = '/shourum/'}
 {case 'fibrofasad'}
-  {set $isBannerVisible = true}
+  {set $isLinkToFBCatalog = true}
   {set $title = 'Фиброцементный сайдинг от лучших производителей!'}
   {set $description = 'В нашем ассортименте представлены гладкие и фактурные панели и сайдинг.'}
   {set $button = 'Перейти в каталог'}
@@ -38,7 +39,7 @@
   <div class="showroom-banner__wrapper">
     <p class="showroom-banner__title">{$title}</p>
     <p class="showroom-banner__description">{$description}</p>
-    <div class="banner__action"><a class="banner__btn btn btn_style_base" data-fancybox href="#showRoom">{$button}</a></div>
+    <div class="banner__action"><a class="banner__btn btn btn_style_base" {if $isLinkToFBCatalog}href="{$_modx->makeUrl(125346)}"{else}data-fancybox href="#showRoom"{/if}>{$button}</a></div>
   </div>
 </div>
 {/if}
