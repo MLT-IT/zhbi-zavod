@@ -9,7 +9,7 @@
       <div class="our-team">
         <div class="our-team__card team-card">
           <div class="team-card__head">
-            <img src="/assets/images/zhbi500/team/gendir.jpg" alt="">
+            <img src="/assets/images/zbi500/team/gendir.jpg" alt="">
             <div class="team-card__title">
               <h3>Генеральный директор</h3>
               <p>Козырев Александр Дмитриевич</p>
@@ -23,7 +23,7 @@
         <div class="our-team__card team-card">
           <div class="team-card__head">
             <div class="team-card__title">
-              <h3>Отдел продаж Москва</h3>
+              <h3>Отдел продаж Краснодар</h3>
               <p>Руководитель отдела: Надежда Спецова</p>
             </div>
           </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="our-team__card team-card">
           <div class="team-card__head">
-            <img src="/assets/images/zhbi500/team/dolly.png" alt="">
+            <img src="/assets/images/zbi500/team/dolly.png" alt="">
             <div class="team-card__title">
               <h3>Отдел закупок</h3>
               <p>Руководитель отдела: Глеб Кузьмичев</p>
@@ -48,7 +48,7 @@
         </div>
         <div class="our-team__card team-card">
           <div class="team-card__head">
-            <img src="/assets/images/zhbi500/team/calculate.png" alt="">
+            <img src="/assets/images/zbi500/team/calculate.png" alt="">
             <div class="team-card__title">
               <h3>Отдел бухгалтерии</h3>
               <p>Главный бухгалтер: Нина Петровна Жилина</p>
@@ -60,19 +60,19 @@
         </div>
         <div class="our-team__card team-card">
           <div class="team-card__head">
-            <img src="/assets/images/zhbi500/team/factory.png" alt="">
+            <img src="/assets/images/zbi500/team/factory.png" alt="">
             <div class="team-card__title">
               <h3>Производство</h3>
               <p>Начальник производства: Олег Юрьевич Семашко</p>
             </div>
           </div>
           <div class="team-card__details">
-            <p>Олег Юрьевич обеспечивает бесперебойную работу наших производств. Являясь специалистом в своем деле и обладая многолетним опытом руководства производством ЖБИ и бетонными заводами, он стал опорой и гарантом успеха компании на строительном рынке Москвы и Московской области.</p>
+            <p>Олег Юрьевич обеспечивает бесперебойную работу наших производств. Являясь специалистом в своем деле и обладая многолетним опытом руководства производством ЖБИ и бетонными заводами, он стал опорой и гарантом успеха компании на строительном рынке Санкт-Петербурга и Ленинградской области.</p>
           </div>
         </div>
         <div class="our-team__card team-card">
           <div class="team-card__head">
-            <img src="/assets/images/zhbi500/team/logistic.png" alt="">
+            <img src="/assets/images/zbi500/team/logistic.png" alt="">
             <div class="team-card__title">
               <h3>Отдел логистики</h3>
               <p>Начальник отдела: Дмитрий Кармазин</p>
