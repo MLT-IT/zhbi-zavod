@@ -1,0 +1,158 @@
+{
+  "menu": [
+    {
+      "title": "Каталог",
+      "type": "submenu",
+      "submenu_id": "catalog",
+      "image": "assets/images/menu/catalog.jpg",
+      "items": [
+        {
+          "title": "Утеплитель Технониколь",
+          "icon": "/assets/template/img/brands/tehnonikol.jpg",
+          "url": "/tn/"
+        },
+        {
+          "title": "Утеплитель Rockwool",
+          "icon": "/assets/template/img/brands/rockwool.jpg",
+          "url": "/rockwool/"
+        },
+        {
+          "title": "Утеплитель Knauf",
+          "icon": "/assets/template/img/brands/brand-knauf.png",
+          "url": "/knauf/"
+        },
+        {
+          "title": "Утеплитель Пеноплекс",
+          "icon": "/assets/template/img/brands/penoplex.jpg",
+          "url": "/penoplex/"
+        },
+        {
+          "title": "Утеплитель Isover",
+          "icon": "/assets/template/img/brands/isover.jpg",
+          "url": "/isover/"
+        },
+        {
+          "title": "Утеплитель Урса",
+          "icon": "/assets/template/img/brands/ursa.png",
+          "url": "/ursa/"
+        },
+        {
+          "title": "Утеплитель Isoroc",
+          "icon": "/assets/template/img/brands/isoroc.jpg",
+          "url": "/ursa/"
+        },
+        {
+          "title": "Утеплитель Изовол",
+          "icon": "/assets/template/img/brands/izovol_result.jpg",
+          "url": "/uteplitel-izovol/"
+        },
+        {
+          "title": "Утеплитель Paroc",
+          "icon": "/assets/template/img/brands/paroc.jpg",
+          "url": "/paroc/"
+        },
+        {
+          "title": "Утеплитель Hotrock",
+          "icon": "/assets/template/img/brands/new/hotrock.png",
+          "url": "/uteplitel-hotrock/"
+        },
+        {
+          "title": "Утеплитель Изомин",
+          "icon": "/assets/template/img/brands/izomin_result.jpg",
+          "url": "/uteplitel-izomin/"
+        },
+        {
+          "title": "Утеплитель Юматекс",
+          "icon": "/assets/template/img/brands/umatex.jpg",
+          "url": "/yumateks-termo/"
+        },
+        {
+          "title": "Утеплитель Теплекс",
+          "icon": "/assets/template/img/brands/new/тимплэкс.jpg",
+          "url": "/uteplitel-tepleks/"
+        },
+        {
+          "title": "Утеплитель Эковер",
+          "icon": "/assets/template/img/brands/new/эковер.png",
+          "url": "/uteplitel-ecover/"
+        },
+        {
+          "title": "Утеплитель Дирок",
+          "icon": "/assets/template/img/brands/new/dirock.png",
+          "url": "/uteplitel-dirok/"
+        },
+        {
+          "title": "Утеплитель Белтеп",
+          "icon": "/assets/template/img/brands/new/beltep.png",
+          "url": "/uteplitel-beltep/"
+        },
+        {
+          "title": "Утеплитель Тизол",
+          "icon": "/assets/template/img/brands/new/тизол.png",
+          "url": "/uteplitel-tizol/"
+        },
+        {
+          "title": "Утеплитель Термит",
+          "icon": "/assets/template/img/brands/thermit.jpg",
+          "url": "/uteplitel-thermit/"
+        },
+        {
+          "title": "Утеплитель Isotec",
+          "icon": "/assets/template/img/brands/isotec.png",
+          "url": "/uteplitel-izotek/"
+        },
+        {
+          "title": "Утеплитель Ruspanel",
+          "icon": "/assets/template/img/brands/new/руспанель.png",
+          "url": "/uteplitel-ruspanel/"
+        },
+        {
+          "title": "Утеплитель Брит",
+          "icon": "/assets/template/img/brands/BRITE.png",
+          "url": "/rulonnaya-krovlya-brit/"
+        },
+        {
+          "title": "Утеплитель Basfiber",
+          "icon": "/assets/template/img/brands/new/basfiber.png",
+          "url": "/uteplitel-basfiber/"
+        },
+        {
+          "title": "Утеплитель Xotpipe",
+          "icon": "/assets/template/img/brands/new/xotpipe.jpg",
+          "url": "/uteplitel-xotpipe/"
+        },
+        {
+          "title": "Утеплитель Тимплэкс",
+          "icon": "/assets/template/img/brands/new/templex.png",
+          "url": "/uteplitel-timpleks/"
+        }
+      ]
+    },
+    {
+      "title": "О компании",
+      "url": "/o-kompanii/",
+      "type": "link"
+    },
+    {
+      "title": "Акции",
+      "url": "/akcii/",
+      "type": "link"
+    },
+    {
+      "title": "Доставка и оплата",
+      "url": "/dostavka-i-oplata/",
+      "type": "link"
+    },
+    {
+      "title": "Отзывы",
+      "url": "/otzyvy/",
+      "class": "h-nav__link--star",
+      "type": "link"
+    },
+    {
+      "title": "Контакты",
+      "url": "/contacts/",
+      "type": "link"
+    }
+  ]
+}

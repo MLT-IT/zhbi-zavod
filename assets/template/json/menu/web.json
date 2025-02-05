@@ -1,0 +1,3348 @@
+{
+    "catalog": [
+        {
+            "name": "Утеплитель Технониколь",
+            "icon": "/assets/template/img/brands/tehnonikol.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Технониколь Роклайт",
+                            "url": "/tn/tekhnonikol-roklajt/"
+                        },
+                        {
+                            "name": "XPS Техноплекс",
+                            "url": "/tn/tekhnonikol-tekhnopleks/"
+                        },
+                        {
+                            "name": "Технониколь Техноблок",
+                            "url": "/tn/tekhnoblok/"
+                        },
+                        {
+                            "name": "ПВХ мембрана Технониколь",
+                            "url": "/tn/pvx-membrana-texnonikol/"
+                        },
+                        {
+                            "name": "Технониколь Carbon",
+                            "url": "/tn/carbon/"
+                        },
+                        {
+                            "name": "Технониколь LOGICPIR",
+                            "url": "/tn/tekhnonikol-logicpir/"
+                        },
+                        {
+                            "name": "Технониколь Плиты PIR",
+                            "url": "/tn/plity-pir/"
+                        },
+                        {
+                            "name": "Мат Техно",
+                            "url": "/tn/mat-tekhno/"
+                        },
+                        {
+                            "name": "Технониколь Технофас",
+                            "url": "/tn/tekhnofas/"
+                        },
+                        {
+                            "name": "Технониколь Изобокс",
+                            "url": "/tn/tekhnonikol-izoboks/"
+                        },
+                        {
+                            "name": "Технониколь Техноруф",
+                            "url": "/tn/tekhnoruf/"
+                        },
+                        {
+                            "name": "Технониколь Техноакустик",
+                            "url": "/tn/zvukoizolyaciya-tekhnonikol-tekhnoakustik/"
+                        },
+                        {
+                            "name": "Цилиндр Техно",
+                            "url": "/tn/cilindr-tekhno/"
+                        },
+                        {
+                            "name": "Рулонная кровля Технониколь",
+                            "url": "/tn/rulonnaya-krovlya-tehnonikol/"
+                        },
+                        {
+                            "name": "Технониколь Техновент",
+                            "url": "/tn/tekhnovent/"
+                        },
+                        {
+                            "name": "Технониколь Шумоизоляция",
+                            "url": "/tn/tekhnonikol-master-zvukozashchita/"
+                        },
+                        {
+                            "name": "Рулонная звукоизоляция",
+                            "url": "/tn/rulonnaya-zvukoizolyaciya/"
+                        },
+                        {
+                            "name": "Технониколь Технолайт",
+                            "url": "/tn/tekhnolajt/"
+                        },
+                        {
+                            "name": "Технониколь Технофлор",
+                            "url": "/tn/uteplitel-tekhnonikol-tekhnoflor/"
+                        },
+                        {
+                            "name": "Технониколь Штукатурный фасад",
+                            "url": "/tn/tekhnonikol-shtukaturnyj-fasad/"
+                        },
+                        {
+                            "name": "Плита Техно O3М",
+                            "url": "/tn/plita-tekhno-ozm/"
+                        },
+                        {
+                            "name": "Технониколь Сэндвич Ц-XPS",
+                            "url": "/tn/tekhnonikol-sendvich-tekhnonikol-c-xps/"
+                        },
+                        {
+                            "name": "Технониколь Базалит",
+                            "url": "/tn/bazalit/"
+                        },
+                        {
+                            "name": "Плита Техно ОЗБ",
+                            "url": "/tn/plita-tekhno-ozd/"
+                        },
+                        {
+                            "name": "Плита Техно Т",
+                            "url": "/tn/plita-tekhno-t/"
+                        },
+                        {
+                            "name": "Технониколь Теплоролл",
+                            "url": "/tn/tekhnonikol-teploroll/"
+                        },
+                        {
+                            "name": "Технониколь GreenGuard",
+                            "url": "/tn/tekhnonikol-greenguard/"
+                        },
+                        {
+                            "name": "Утеплитель Полимерные гидроизоляционные мембраны",
+                            "url": "/tn/polimernye-gidroizolyacionnye-membrany/"
+                        },
+                        {
+                            "name": "Технониколь Техносэндвич",
+                            "url": "/tn/tekhnonikol-tekhnosendvich/"
+                        },
+                        {
+                            "name": "Технониколь Сегменты и Полуцилиндры XPS",
+                            "url": "/tn/tekhnonikol-segmenty-i-polucilindry-xps/"
+                        },
+                        {
+                            "name": "Сопутствующие товары Технониколь",
+                            "url": "/tn/soputstvuyushchie-tovary/"
+                        },
+                        {
+                            "name": "Плита Техно ОЗД",
+                            "url": "/tn/plita-tekhno-ozd/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/tn/?item_thickness=20"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/tn/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/tn/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/tn/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/tn/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/tn/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/tn/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/tn/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/tn/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/tn/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Для стен",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-sten/"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-bani/"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-pola/"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-fasada/"
+                        },
+                        {
+                            "name": "Для фундамента/цоколя",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-fundamenta/"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/tn/uteplitel-tekhnonikol-dlya-trub/"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для окон",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BE%D0%BA%D0%BE%D0%BD"
+                        },
+                        {
+                            "name": "Под штукатурку",
+                            "url": "/tn/?primenenie=%D0%9F%D0%BE%D0%B4%20%D1%88%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BA%D1%83"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для ванной комнаты",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D1%8B"
+                        },
+                        {
+                            "name": "Для дверей и ворот",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9%20%D0%B8%20%D0%B2%D0%BE%D1%80%D0%BE%D1%82"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Технониколь",
+                "url": "/tn/"
+            }
+        },
+        {
+            "name": "Утеплитель Роквул",
+            "icon": "/assets/template/img/brands/rockwool.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Rockwool Акустик Баттс",
+                            "url": "/rockwool/acoustic-batts/"
+                        },
+                        {
+                            "name": "Rockwool Лайт Баттс",
+                            "url": "/rockwool/light-batts/"
+                        },
+                        {
+                            "name": "Rockwool Венти Баттс",
+                            "url": "/rockwool/venti-batts/"
+                        },
+                        {
+                            "name": "Rockwool Фасад Баттс",
+                            "url": "/rockwool/fasad-batts/"
+                        },
+                        {
+                            "name": "Rockwool Wired Mat",
+                            "url": "/rockwool/wired-mat/"
+                        },
+                        {
+                            "name": "Цилиндры Навивные Rockwool",
+                            "url": "/rockwool/cilindry-navivnye/"
+                        },
+                        {
+                            "name": "Rockwool Руф Баттс",
+                            "url": "/rockwool/roof-batts/"
+                        },
+                        {
+                            "name": "Rockwool Флор Баттс",
+                            "url": "/rockwool/floor-batts/"
+                        },
+                        {
+                            "name": "Rockwool Стандарт",
+                            "url": "/rockwool/standart/"
+                        },
+                        {
+                            "name": "Rockwool Рокфасад",
+                            "url": "/rockwool/rockfacade/"
+                        },
+                        {
+                            "name": "Rockwool Арктик",
+                            "url": "/rockwool/arktic/"
+                        },
+                        {
+                            "name": "Rockwool Сауна Баттс",
+                            "url": "/rockwool/sauna-batts/"
+                        },
+                        {
+                            "name": "Rockwool Каркас Баттс",
+                            "url": "/rockwool/karkas-batts/"
+                        },
+                        {
+                            "name": "Тех Мат Rockwool",
+                            "url": "/rockwool/teh-mat/"
+                        },
+                        {
+                            "name": "Rockwool Тех Баттс",
+                            "url": "/rockwool/rokvul-tekh-batts/"
+                        },
+                        {
+                            "name": "Rockwool Акустик Стандарт",
+                            "url": "/rockwool/acoustic-standart/"
+                        },
+                        {
+                            "name": "Rockwool Камин Баттс",
+                            "url": "/rockwool/kamin-batts/"
+                        },
+                        {
+                            "name": "Rockwool Кавити Баттс",
+                            "url": "/rockwool/kaviti-batts/"
+                        },
+                        {
+                            "name": "Rockwool Ft Barrier",
+                            "url": "/rockwool/ft-barrier/"
+                        },
+                        {
+                            "name": "Fire Batts Rockwool",
+                            "url": "/rockwool/fire-batts/"
+                        },
+                        {
+                            "name": "Rockwool Пластер Баттс",
+                            "url": "/rockwool/plaster-batts/"
+                        },
+                        {
+                            "name": "Rockwool Lamella Mat L",
+                            "url": "/rockwool/lamella-mat-l/"
+                        },
+                        {
+                            "name": "Rockwool Industrial Batts 80",
+                            "url": "/rockwool/industrial-batts-80/"
+                        },
+                        {
+                            "name": "Rockwool Conlit Sl 150",
+                            "url": "/rockwool/conlit-sl-150/"
+                        },
+                        {
+                            "name": "Rockwool Klimafix",
+                            "url": "/rockwool/klimafix/"
+                        },
+                        {
+                            "name": "Rockwool Бетон Элемент Баттс",
+                            "url": "/rockwool/beton-element-batts/"
+                        },
+                        {
+                            "name": "Rockwool Fire Batts",
+                            "url": "/rockwool/fire-batts/"
+                        },
+                        {
+                            "name": "Rockwool Эконом",
+                            "url": "/rockwool/econom/"
+                        },
+                        {
+                            "name": "Rockwool Searox",
+                            "url": "/rockwool/searox/"
+                        },
+                        {
+                            "name": "Rockwool Сэндвич Баттс",
+                            "url": "/rockwool/sendvich-batts/"
+                        },
+                        {
+                            "name": "Rockwool Prorox",
+                            "url": "/rockwool/prorox/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/rockwool/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/rockwool/?item_thickness=25"
+                        },
+                        {
+                            "name": "27",
+                            "url": "/rockwool/?item_thickness=27"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/rockwool/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/rockwool/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/rockwool/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/rockwool/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/rockwool/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/rockwool/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/rockwool/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/rockwool/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/rockwool/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Шумоизоляция ",
+                            "url": "/rockwool/shumoizolyaciya-rokvul/"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-sten/"
+                        },
+                        {
+                            "name": "Для каркасных конструкций",
+                            "url": "/rockwool/rokvul-dlya-karkasnyh-konstrukcij/"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-pola/"
+                        },
+                        {
+                            "name": "Для бань и саун",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-ban/"
+                        },
+                        {
+                            "name": "Под штукатурку",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-fasada-pod-shtukaturku/"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/rockwool/uteplitel-rokvul-dlya-trub/"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для печи/камина",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Роквул",
+                "url": "/rockwool/"
+            }
+        },
+        {
+            "name": "Утеплитель Knauf",
+            "icon": "/assets/template/img/brands/brand-knauf.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "ТеплоКНАУФ",
+                            "url": "/knauf/teploknauf/"
+                        },
+                        {
+                            "name": "Knauf Insulation",
+                            "url": "/knauf/professionalniy-segment-knauf-insuleyshn/"
+                        },
+                        {
+                            "name": "АкустиКНАУФ",
+                            "url": "/knauf/akustiknauf/"
+                        },
+                        {
+                            "name": "Кнауф Тисма",
+                            "url": "/knauf/knauf-tisma/"
+                        },
+                        {
+                            "name": "Кнауф мембраны",
+                            "url": "/knauf/knauf-membrany/"
+                        },
+                        {
+                            "name": "Кнауф Терм",
+                            "url": "/knauf/therm/"
+                        },
+                        {
+                            "name": "GreenTERM",
+                            "url": "/knauf/greenterm/"
+                        },
+                        {
+                            "name": "Knauf Экоролл",
+                            "url": "/knauf/knauf-ekoroll/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/knauf/?item_thickness=20"
+                        },
+                        {
+                            "name": "27",
+                            "url": "/knauf/?item_thickness=27"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/knauf/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/knauf/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/knauf/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/knauf/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/knauf/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/knauf/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/knauf/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/knauf/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/knauf/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Звукоизоляция Кнауф",
+                            "url": "/knauf/zvukoizolyaciya-knauf/"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/knauf/zvukoizolyaciya-knauf/"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/knauf/uteplitel-knauf-dlya-pola/"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/knauf/uteplitel-knauf-dlya-sten/"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/knauf/uteplitel-knauf-dlya-fasada/"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для печи/камина",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента/цоколя",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                        },
+                        {
+                            "name": "Под штукатурку",
+                            "url": "/knauf/?primenenie=%D0%9F%D0%BE%D0%B4%20%D1%88%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BA%D1%83"
+                        }
+                    ]
+                }
+            ],
+            "footer": [
+                {
+                    "name": "Сопутствующие товары",
+                    "url": "/knauf/soputstvuyushchie-tovary/",
+                    "items": []
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Knauf",
+                "url": "/knauf/"
+            }
+        },
+        {
+            "name": "Утеплитель Пеноплекс",
+            "icon": "/assets/template/img/brands/penoplex.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Пеноплэкс Комфорт",
+                            "url": "/penoplex/komfort/"
+                        },
+                        {
+                            "name": "Пеноплэкс Фундамент",
+                            "url": "/penoplex/fundament/"
+                        },
+                        {
+                            "name": "Пеноплэкс Основа",
+                            "url": "/penoplex/osnova/"
+                        },
+                        {
+                            "name": "Пеноплэкс 45",
+                            "url": "/penoplex/45/"
+                        },
+                        {
+                            "name": "Пеноплэкс ГЕО",
+                            "url": "/penoplex/geo/"
+                        },
+                        {
+                            "name": "Пеноплэкс Стена",
+                            "url": "/penoplex/stena/"
+                        },
+                        {
+                            "name": "Пеноплэкс Уклон",
+                            "url": "/penoplex/uklon/"
+                        },
+                        {
+                            "name": "Пеноплэкс Кровля",
+                            "url": "/penoplex/krovlya/"
+                        },
+                        {
+                            "name": "Пеноплэкс Сегменты",
+                            "url": "/penoplex/segmenty/"
+                        },
+                        {
+                            "name": "Пеноплэкс Фасад",
+                            "url": "/penoplex/fasad/"
+                        },
+                        {
+                            "name": "Пеноплэкс Экстрим",
+                            "url": "/penoplex/extream/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "10",
+                            "url": "/penoplex/uteplitel-penopleks-10-mm/"
+                        },
+                        {
+                            "name": "20",
+                            "url": "/tn/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/penoplex/uteplitel-penokleks-25-mm/"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/tn/?item_thickness=30"
+                        },
+                        {
+                            "name": "35",
+                            "url": "/penoplex/uteplitel-penopleks-35-mm/"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/tn/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/tn/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/tn/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/tn/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/tn/?item_thickness=70"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/tn/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/tn/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/tn/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Для стен",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-sten/"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-pola/"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-fasada/"
+                        },
+                        {
+                            "name": "Для фундамента и цоколя",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-fundamenta-i-cokolya/"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-balkona/"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-bani/"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-ventilyacii/"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/penoplex/uteplitel-penopleks-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Пеноплекс",
+                "url": "/penoplex/"
+            }
+        },
+        {
+            "name": "Утеплитель Isover",
+            "icon": "/assets/template/img/brands/isover.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Изовер Фасад",
+                            "url": "/isover/fasad/"
+                        },
+                        {
+                            "name": "Изовер Каркас",
+                            "url": "/isover/karkas/"
+                        },
+                        {
+                            "name": "Изовер Сауна",
+                            "url": "/isover/sauna/"
+                        },
+                        {
+                            "name": "Изовер Теплые Стены",
+                            "url": "/isover/teplye-steny/"
+                        },
+                        {
+                            "name": "Изовер Теплая Крыша",
+                            "url": "/isover/teplaya-krysha/"
+                        },
+                        {
+                            "name": "Изовер Профи",
+                            "url": "/isover/profi/"
+                        },
+                        {
+                            "name": "Изовер Теплый Дом",
+                            "url": "/isover/teplyj-dom/"
+                        },
+                        {
+                            "name": "Изовер Оптимал",
+                            "url": "/isover/optimal/"
+                        },
+                        {
+                            "name": "Изовер Венти",
+                            "url": "/isover/venti/"
+                        },
+                        {
+                            "name": "Изовер ВентФасад",
+                            "url": "/isover/ventfasad/"
+                        },
+                        {
+                            "name": "Изовер Руф",
+                            "url": "/isover/ruf/"
+                        },
+                        {
+                            "name": "Изовер Звукозащита",
+                            "url": "/isover/uteplitel-zvukozaschita/"
+                        },
+                        {
+                            "name": "Изовер Специал Твин",
+                            "url": "/isover/izover-special-tvin/"
+                        },
+                        {
+                            "name": "Изовер Каркасный дом",
+                            "url": "/isover/karkasnyi-dom/"
+                        },
+                        {
+                            "name": "Изовер Стандарт",
+                            "url": "/isover/standart/"
+                        },
+                        {
+                            "name": "Изовер Мастер Теплых Стен",
+                            "url": "/isover/master-teplyh-sten/"
+                        },
+                        {
+                            "name": "Изовер Плавающий пол",
+                            "url": "/isover/plavayuschii-pol/"
+                        },
+                        {
+                            "name": "Изовер Классик",
+                            "url": "/isover/izover-klassik/"
+                        },
+                        {
+                            "name": "Изовер OL",
+                            "url": "/isover/ol/"
+                        },
+                        {
+                            "name": "Изовер КТ-Специал",
+                            "url": "/isover/kt-special/"
+                        },
+                        {
+                            "name": "Изовер Штукатурный фасад",
+                            "url": "/isover/shtukaturnyi-fasad/"
+                        },
+                        {
+                            "name": "Изовер Лайт",
+                            "url": "/isover/lait/"
+                        },
+                        {
+                            "name": "Изовер Скатная Кровля",
+                            "url": "/isover/skatnaya-krovlya/"
+                        },
+                        {
+                            "name": "Изовер Акустик",
+                            "url": "/isover/akustik/"
+                        },
+                        {
+                            "name": "Изовер Мастер Теплых Крыш",
+                            "url": "/isover/master-teplyh-kryh/"
+                        },
+                        {
+                            "name": "Изовер Полы и Перекрытия",
+                            "url": "/isover/izover-poly-i-perekrytiya/"
+                        },
+                        {
+                            "name": "Изовер Тепло и Тихо",
+                            "url": "/isover/teplo-i-tiho/"
+                        },
+                        {
+                            "name": "Изовер Тихий Дом",
+                            "url": "/isover/tihiy-dom/"
+                        },
+                        {
+                            "name": "Изовер Флор",
+                            "url": "/isover/flor/"
+                        },
+                        {
+                            "name": "Изовер Сэндвич Лайф",
+                            "url": "/isover/sendvich-life/"
+                        },
+                        {
+                            "name": "Изовер Мастер Акустики",
+                            "url": "/isover/master-akustiki/"
+                        },
+                        {
+                            "name": "Изовер KIM-AL",
+                            "url": "/isover/kim-al/"
+                        },
+                        {
+                            "name": "Изовер KV-050",
+                            "url": "/isover/kv-050/"
+                        },
+                        {
+                            "name": "Сопутствующие товары Изовер",
+                            "url": "/isover/sop-tovary/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/isover/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/isover/?item_thickness=25"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/isover/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/isover/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/isover/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/isover/?item_thickness=60"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/isover/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/isover/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/isover/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/isover/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": " Для стен",
+                            "url": "/isover/uteplitel-isover-dlya-sten/"
+                        },
+                        {
+                            "name": " Для кровли",
+                            "url": "/isover/uteplitel-isover-dlya-krovli/"
+                        },
+                        {
+                            "name": " Для пола",
+                            "url": "/isover/uteplitel-isover-dlya-pola/"
+                        },
+                        {
+                            "name": " Для бани",
+                            "url": "/isover/uteplitel-isover-dlya-bani/"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для фундамента/цоколя",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Isover",
+                "url": "/isover/"
+            }
+        },
+        {
+            "name": "Утеплитель Урса",
+            "icon": "/assets/template/img/brands/ursa.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Ursa Терра",
+                            "url": "/ursa/terra/"
+                        },
+                        {
+                            "name": "Ursa GEO",
+                            "url": "/ursa/geo/"
+                        },
+                        {
+                            "name": "Ursa XPS",
+                            "url": "/ursa/xps/"
+                        },
+                        {
+                            "name": "Ursa Pureone",
+                            "url": "/ursa/pureone/"
+                        },
+                        {
+                            "name": "Ursa Seco",
+                            "url": "/ursa/ursa-seco/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/ursa/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/ursa/?item_thickness=25"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/ursa/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/ursa/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/ursa/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/ursa/?item_thickness=60"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/ursa/?item_thickness=100"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/ursa/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Для стен",
+                            "url": "/ursa/uteplitel-ursa-dlya-sten/"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/ursa/uteplitel-ursa-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для фундамента/цоколя",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Урса",
+                "url": "/ursa/"
+            }
+        },
+        {
+            "name": "Утеплитель Isoroc",
+            "icon": "/assets/template/img/brands/isoroc.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Изолайт",
+                            "url": "/isoroc/ultralajt/"
+                        },
+                        {
+                            "name": "Изовент",
+                            "url": "/isoroc/izovent/"
+                        },
+                        {
+                            "name": "Супер Теплый",
+                            "url": "/isoroc/super-tepliy/"
+                        },
+                        {
+                            "name": "УльтраЛайт",
+                            "url": "/isoroc/ultralajt/"
+                        },
+                        {
+                            "name": "Изофас",
+                            "url": "/isoroc/izofas/"
+                        },
+                        {
+                            "name": "Изофлор",
+                            "url": "/isoroc/izoflor/"
+                        },
+                        {
+                            "name": "Изоруф",
+                            "url": "/isoroc/izoruf/"
+                        },
+                        {
+                            "name": "Термозащита",
+                            "url": "/isoroc/termozashhita/"
+                        },
+                        {
+                            "name": "Изокор-С",
+                            "url": "/isoroc/izokor-s/"
+                        },
+                        {
+                            "name": "ПП-80",
+                            "url": "/isoroc/pp-80/"
+                        },
+                        {
+                            "name": "ПП-60",
+                            "url": "/isoroc/pp-60/"
+                        },
+                        {
+                            "name": "П-75",
+                            "url": "/isoroc/p-75/"
+                        },
+                        {
+                            "name": "П-125",
+                            "url": "/isoroc/p-125/"
+                        },
+                        {
+                            "name": "ПП-75",
+                            "url": "/isoroc/pp-75/"
+                        },
+                        {
+                            "name": "Плита по ГОСТу",
+                            "url": "/isoroc/plita-po-gostu/"
+                        },
+                        {
+                            "name": "Клин",
+                            "url": "/isoroc/klin/"
+                        },
+                        {
+                            "name": "Комплектующие товары",
+                            "url": "/isoroc/komplektuyushhie-tovary/"
+                        },
+                        {
+                            "name": "Полимерные гидроизоляционные мембраны",
+                            "url": "/isoroc/polimernyie-gidroizolyaczionnyie-membranyi/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "27",
+                            "url": "/isoroc/?item_thickness=27"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/isoroc/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/isoroc/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/isoroc/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/isoroc/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/isoroc/?item_thickness=70"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/isoroc/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/isoroc/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/isoroc/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для печи/камина",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для сайдинга",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D0%B0%D0%B9%D0%B4%D0%B8%D0%BD%D0%B3%D0%B0"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Крыши",
+                            "url": "/isoroc/?primenenie=%D0%9A%D1%80%D1%8B%D1%88%D0%B8"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Isoroc",
+                "url": "/ursa/"
+            }
+        },
+        {
+            "name": "Утеплитель Изовол",
+            "icon": "/assets/template/img/brands/izovol_result.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Изовол Л-35",
+                            "url": "/uteplitel-izovol/l-35/"
+                        },
+                        {
+                            "name": "Изобел Л-25",
+                            "url": "/uteplitel-izovol/l-25/"
+                        },
+                        {
+                            "name": "Изовол СТ-50",
+                            "url": "/uteplitel-izovol/st-50/"
+                        },
+                        {
+                            "name": "Изовол СТ-75/90",
+                            "url": "/uteplitel-izovol/st-75-90/"
+                        },
+                        {
+                            "name": "Изовол В-75/90",
+                            "url": "/uteplitel-izovol/v-75-90/"
+                        },
+                        {
+                            "name": "Изовол Ф-100/120/150",
+                            "url": "/uteplitel-izovol/f-100-120-150/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-izovol/uteplitel-izovol-50-mm/"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-izovol/uteplitel-izovol-100-mm/"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Изовол",
+                "url": "/uteplitel-izovol/"
+            }
+        },
+        {
+            "name": "Утеплитель Парок",
+            "icon": "/assets/template/img/brands/paroc.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Ламельные маты",
+                            "url": "/paroc/lamelnyie-matyi/"
+                        },
+                        {
+                            "name": "Цилиндры",
+                            "url": "/paroc/cilindry/"
+                        },
+                        {
+                            "name": "Плиты",
+                            "url": "/paroc/plityi/"
+                        },
+                        {
+                            "name": "Прошивные маты",
+                            "url": "/paroc/proshivnyie-matyi/"
+                        },
+                        {
+                            "name": "OEM плиты",
+                            "url": "/paroc/oem-plityi/"
+                        },
+                        {
+                            "name": "Теплоизоляция стен",
+                            "url": "/paroc/teploizolyacziya-sten/"
+                        },
+                        {
+                            "name": "Теплоизоляция плоских кровель",
+                            "url": "/paroc/teploizolyacziya-ploskix-krovel/"
+                        },
+                        {
+                            "name": "Теплоизоляция для сэндвич-панелей",
+                            "url": "/paroc/teploizolyacziya-dlya-sendvich-panelej/"
+                        },
+                        {
+                            "name": "Огнезащитная строительная изоляция",
+                            "url": "/paroc/ognezashhitnaya-stroitelnaya-izolyacziya/"
+                        },
+                        {
+                            "name": "Овк плиты",
+                            "url": "/paroc/ovk-plityi/"
+                        },
+                        {
+                            "name": "Овк маты",
+                            "url": "/paroc/ovk-matyi/"
+                        },
+                        {
+                            "name": "Общестроительная теплоизоляция",
+                            "url": "/paroc/obshhestroitelnaya-teploizolyacziya/"
+                        },
+                        {
+                            "name": "Маты для овк и промышленности",
+                            "url": "/paroc/matyi-dlya-ovk-i-promyishlennosti/"
+                        },
+                        {
+                            "name": "Звукозащитная строительная изоляция",
+                            "url": "/paroc/zvukozashhitnaya-stroitelnaya-izolyacziya/"
+                        },
+                        {
+                            "name": "Утепление и огнезащита потолков и перекрытий",
+                            "url": "/paroc/uteplenie-i-ognezaщhita-potolkov-i-perekryitij/"
+                        },
+                        {
+                            "name": "Технические отводы и сегменты",
+                            "url": "/paroc/texnicheskie-otvodyi-i-segmentyi/"
+                        },
+                        {
+                            "name": "Теплоизоляция штукатурных фасадов",
+                            "url": "/paroc/teploizolyacziya-shtukaturnyix-fasadov/"
+                        },
+                        {
+                            "name": "Теплоизоляция фундамента и полов на грунте",
+                            "url": "/paroc/teploizolyacziya-fundamenta-i-polov-na-grunte/"
+                        },
+                        {
+                            "name": "Сопутствующие товары Paroc",
+                            "url": "/paroc/sop-tovary/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/paroc/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/paroc/?item_thickness=25"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/paroc/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/paroc/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/paroc/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/paroc/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/paroc/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/paroc/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/paroc/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/paroc/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/paroc/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Применение",
+                    "items": [
+                        {
+                            "name": "Для балкона/лоджии",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Для мансарды",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для фундамента/цоколя",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Парок",
+                "url": "/paroc/"
+            }
+        },
+        {
+            "name": "Утеплитель ХотРок",
+            "icon": "/assets/template/img/brands/new/hotrock.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Утеплитель Hotrock Лайт ЭКО",
+                            "url": "/uteplitel-hotrock/lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Лайт",
+                            "url": "/uteplitel-hotrock/lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Блок",
+                            "url": "/uteplitel-hotrock/blok/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Вент",
+                            "url": "/uteplitel-hotrock/blok/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Вент Лайт",
+                            "url": "/uteplitel-hotrock/vent-lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Вент ПРО",
+                            "url": "/uteplitel-hotrock/vent-pro/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Фасад",
+                            "url": "/uteplitel-hotrock/fasad/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Фасад Лайт",
+                            "url": "/uteplitel-hotrock/fasad-lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Фасад ПРО",
+                            "url": "/uteplitel-hotrock/fasad-pro/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Фасад РЕБЕЛ",
+                            "url": "/uteplitel-hotrock/fasad-rebel/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф В ЛАЙТ",
+                            "url": "/uteplitel-hotrock/fasad-rebel/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф В",
+                            "url": "/uteplitel-hotrock/ruf-v/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф Н",
+                            "url": "/uteplitel-hotrock/ruf-n/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф Н ЛАЙТ",
+                            "url": "/uteplitel-hotrock/uteplitel-hotrock-ruf-n-lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф Н ПРО",
+                            "url": "/uteplitel-hotrock/ruf-n-pro/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Руф С",
+                            "url": "/uteplitel-hotrock/ruf-s/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Флор",
+                            "url": "/uteplitel-hotrock/flor/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Смарт",
+                            "url": "/uteplitel-hotrock/smart/"
+                        },
+                        {
+                            "name": "Утеплитель Hotrock Акустик",
+                            "url": "/uteplitel-hotrock/akustik/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "40"
+                        },
+                        {
+                            "name": "50"
+                        },
+                        {
+                            "name": "60"
+                        },
+                        {
+                            "name": "80"
+                        },
+                        {
+                            "name": "100"
+                        },
+                        {
+                            "name": "120"
+                        },
+                        {
+                            "name": "200"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары ХотРок",
+                "url": "/uteplitel-hotrock/"
+            }
+        },
+        {
+            "name": "Утеплитель Изомин",
+            "icon": "/assets/template/img/brands/izomin_result.jpg",
+            "options": [
+                {
+                    "name": "Порядок линейки",
+                    "items": [
+                        {
+                            "name": "Утеплитель Изомин ЛАЙТ",
+                            "url": "/uteplitel-izomin/flor/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин ФЛОР",
+                            "url": "/uteplitel-izomin/lajt/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин КАВИТИ",
+                            "url": "/uteplitel-izomin/kaviti/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин ВЕНТИ",
+                            "url": "/uteplitel-izomin/venti/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин РУФ-Н",
+                            "url": "/uteplitel-izomin/ruf-n/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин РУФ",
+                            "url": "/uteplitel-izomin/ruf/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин ФАСАД",
+                            "url": "/uteplitel-izomin/fasad/"
+                        },
+                        {
+                            "name": "Утеплитель Изомин РУФ-В",
+                            "url": "/uteplitel-izomin/ruf-v/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-izomin/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-izomin/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-izomin/?item_thickness=50"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-izomin/?item_thickness=100"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Изомин",
+                "url": "/uteplitel-izomin/"
+            }
+        },
+        {
+            "name": "Утеплитель Юматекс",
+            "icon": "/assets/template/img/brands/umatex.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Smart XL",
+                            "url": "/yumateks-termo/smart-xl/"
+                        },
+                        {
+                            "name": "Light",
+                            "url": "/yumateks-termo/light/"
+                        },
+                        {
+                            "name": "Plus",
+                            "url": "/yumateks-termo/plus/"
+                        },
+                        {
+                            "name": "InWall",
+                            "url": "/yumateks-termo/inwall/"
+                        },
+                        {
+                            "name": "Fatio",
+                            "url": "/yumateks-termo/fatio/"
+                        },
+                        {
+                            "name": "Linio 10",
+                            "url": "/yumateks-termo/linio-10/"
+                        },
+                        {
+                            "name": "Linio 15",
+                            "url": "/yumateks-termo/linio-15/"
+                        },
+                        {
+                            "name": "Linio 18",
+                            "url": "/yumateks-termo/linio-18/"
+                        },
+                        {
+                            "name": "Linio 20",
+                            "url": "/yumateks-termo/linio-20/"
+                        },
+                        {
+                            "name": "Linio 80",
+                            "url": "/yumateks-termo/linio-80/"
+                        },
+                        {
+                            "name": "FPS 14",
+                            "url": "/yumateks-termo/fps-14/"
+                        },
+                        {
+                            "name": "FPS 17",
+                            "url": "/yumateks-termo/fps-17/"
+                        },
+                        {
+                            "name": "GRS 20",
+                            "url": "/yumateks-termo/grs-20/"
+                        },
+                        {
+                            "name": "ROB 60",
+                            "url": "/yumateks-termo/rob-60/"
+                        },
+                        {
+                            "name": "ROB 80",
+                            "url": "/yumateks-termo/rob-80/"
+                        },
+                        {
+                            "name": "ROL 40",
+                            "url": "/yumateks-termo/rol-40/"
+                        },
+                        {
+                            "name": "ROL 60",
+                            "url": "/yumateks-termo/rol-60/"
+                        },
+                        {
+                            "name": "ROS 30",
+                            "url": "/yumateks-termo/ros-30/"
+                        },
+                        {
+                            "name": "ROS 40",
+                            "url": "/yumateks-termo/ros-40/"
+                        },
+                        {
+                            "name": "ROS 50",
+                            "url": "/yumateks-termo/ros-50/"
+                        },
+                        {
+                            "name": "ROS 60",
+                            "url": "/yumateks-termo/ros-60/"
+                        },
+                        {
+                            "name": "ROS 80t",
+                            "url": "/yumateks-termo/ros-80t/"
+                        },
+                        {
+                            "name": "SSB 1",
+                            "url": "/yumateks-termo/ssb-1/"
+                        },
+                        {
+                            "name": "SSB 4",
+                            "url": "/yumateks-termo/ssb-4/"
+                        },
+                        {
+                            "name": "WAS 120",
+                            "url": "/yumateks-termo/was-120/"
+                        },
+                        {
+                            "name": "WAS 25",
+                            "url": "/yumateks-termo/was-25/"
+                        },
+                        {
+                            "name": "WAS 35",
+                            "url": "/yumateks-termo/was-35/"
+                        },
+                        {
+                            "name": "WAS 50",
+                            "url": "/yumateks-termo/was-50/"
+                        },
+                        {
+                            "name": "CGL 20",
+                            "url": "/yumateks-termo/cgl-20/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/yumateks-termo/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/yumateks-termo/?item_thickness=25"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/yumateks-termo/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/yumateks-termo/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/yumateks-termo/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/yumateks-termo/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/yumateks-termo/?item_thickness=70"
+                        },
+                        {
+                            "name": "75",
+                            "url": "/yumateks-termo/?item_thickness=75"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/yumateks-termo/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/yumateks-termo/?item_thickness=120"
+                        },
+                        {
+                            "name": "150",
+                            "url": "/yumateks-termo/?item_thickness=150"
+                        }
+                    ]
+                },
+                {
+                    "name": "Порядок применения",
+                    "items": [
+                        {
+                            "name": "Вентилируемые фасады",
+                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Вентилируемые фасады в двухслойных системах",
+                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B%20%D0%B2%20%D0%B4%D0%B2%D1%83%D1%85%D1%81%D0%BB%D0%BE%D0%B9%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D1%85"
+                        },
+                        {
+                            "name": "Внутренние стены (межкомнатные перегородки)",
+                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B5%D0%BD%D1%8B%20(%D0%BC%D0%B5%D0%B6%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8)"
+                        },
+                        {
+                            "name": "Для дверей",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
+                        },
+                        {
+                            "name": "Для перегородок",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
+                            "name": "Для перегородок и перекрытий",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для перекрытий",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для подвалов",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для потолков",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2"
+                        },
+                        {
+                            "name": "Для стен",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Звукоизоляция",
+                            "url": "/yumateks-termo/?primenenie=%D0%97%D0%B2%D1%83%D0%BA%D0%BE%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F"
+                        },
+                        {
+                            "name": "Камины и печи",
+                            "url": "/yumateks-termo/?primenenie=%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D1%8B%20%D0%B8%20%D0%BF%D0%B5%D1%87%D0%B8"
+                        },
+                        {
+                            "name": "Каркасные конструкции",
+                            "url": "/yumateks-termo/?primenenie=%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D1%81%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Мансарды",
+                            "url": "/yumateks-termo/?primenenie=%D0%9C%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                        },
+                        {
+                            "name": "Межэтажные перекрытия",
+                            "url": "/yumateks-termo/?primenenie=%D0%9C%D0%B5%D0%B6%D1%8D%D1%82%D0%B0%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F"
+                        },
+                        {
+                            "name": "Ненагружаемые конструкции",
+                            "url": "/yumateks-termo/?primenenie=%D0%9D%D0%B5%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Скатные кровли",
+                            "url": "/yumateks-termo/?primenenie=%D0%A1%D0%BA%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Средний слой в кирпичной кладке",
+                            "url": "/yumateks-termo/?primenenie=%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%81%D0%BB%D0%BE%D0%B9%20%D0%B2%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B5"
+                        },
+                        {
+                            "name": "Техническая изоляция",
+                            "url": "/yumateks-termo/?primenenie=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F"
+                        },
+                        {
+                            "name": "Универсальный",
+                            "url": "/yumateks-termo/?primenenie=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9"
+                        },
+                        {
+                            "name": "Чердачные перекрытия",
+                            "url": "/yumateks-termo/?primenenie=%D0%A7%D0%B5%D1%80%D0%B4%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F"
+                        },
+                        {
+                            "name": "Штукатурные фасады",
+                            "url": "/yumateks-termo/?primenenie=%D0%A8%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Юматекс",
+                "url": "/yumateks-termo/"
+            }
+        },
+        {
+            "name": "Утеплитель Теплекс",
+            "icon": "/assets/template/img/brands/new/тимплэкс.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Теплекс 35",
+                            "url": "/uteplitel-tepleks/35/"
+                        },
+                        {
+                            "name": "Теплекс 45",
+                            "url": "/uteplitel-tepleks/45/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/uteplitel-timpleks/?item_thickness=20"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-timpleks/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-timpleks/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-timpleks/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-timpleks/?item_thickness=60"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Теплекс",
+                "url": "/uteplitel-tepleks/"
+            }
+        },
+        {
+            "name": "Утеплитель Эковер",
+            "icon": "/assets/template/img/brands/new/эковер.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Эковер Лайт",
+                            "url": "/uteplitel-ecover/lajt-universal/"
+                        },
+                        {
+                            "name": "Эковер Лайт Универсал",
+                            "url": "/uteplitel-ecover/lajt/"
+                        },
+                        {
+                            "name": "Эковер Экофасад",
+                            "url": "/uteplitel-ecover/standart/"
+                        },
+                        {
+                            "name": "Эковер Экофасад Стандарт",
+                            "url": "/uteplitel-ecover/akustik/"
+                        },
+                        {
+                            "name": "Эковер Экофасад Оптима",
+                            "url": "/uteplitel-ecover/krovlya/"
+                        },
+                        {
+                            "name": "Эковер Стандарт",
+                            "url": "/uteplitel-ecover/krovlya-verh/"
+                        },
+                        {
+                            "name": "Эковер Акустик",
+                            "url": "/uteplitel-ecover/krovlya-niz/"
+                        },
+                        {
+                            "name": "Эковер Кровля",
+                            "url": "/uteplitel-ecover/krovlya-niz-standart/"
+                        },
+                        {
+                            "name": "Эковер Кровля Верх",
+                            "url": "/uteplitel-ecover/ehkofasad/"
+                        },
+                        {
+                            "name": "Эковер Кровля Низ",
+                            "url": "/uteplitel-ecover/ehkofasad-optima/"
+                        },
+                        {
+                            "name": "Эковер Кровля Низ Стандарт",
+                            "url": "/uteplitel-ecover/ekofasad-standart/"
+                        },
+                        {
+                            "name": "Эковер Фасад-Декор Оптима",
+                            "url": "/uteplitel-ecover/fasad-dekor-optima/"
+                        },
+                        {
+                            "name": "Эковер Вент-Фасад",
+                            "url": "/uteplitel-ecover/vent-fasad/"
+                        },
+                        {
+                            "name": "Эковер Стэп",
+                            "url": "/uteplitel-ecover/stehp/"
+                        },
+                        {
+                            "name": "Эковер Стэп Плюс",
+                            "url": "/uteplitel-ecover/glavrosteplo-standart-2/"
+                        },
+                        {
+                            "name": "Эковер Главростепло Лайт 2",
+                            "url": "/uteplitel-ecover/glavrosteplo-lajt-2/"
+                        },
+                        {
+                            "name": "Эковер Главростепло Стандарт 2",
+                            "url": "/uteplitel-ecover/glavrosteplo-standart-2/"
+                        },
+                        {
+                            "name": "Эковер Кровля Низ Оптима",
+                            "url": "/uteplitel-ecover/krovlya-niz-optima/"
+                        },
+                        {
+                            "name": "Эковер Фасад-Декор",
+                            "url": "/uteplitel-ecover/fasad-dekor/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/uteplitel-ecover/?item_thickness=20"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/uteplitel-ecover/?item_thickness=25"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-ecover/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-ecover/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-ecover/?item_thickness=50"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Эковер",
+                "url": "/uteplitel-ecover/"
+            }
+        },
+        {
+            "name": "Утеплитель Дирок",
+            "icon": "/assets/template/img/brands/new/dirock.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Дирок Блок 65"
+                        },
+                        {
+                            "name": "Дирок Фасад"
+                        },
+                        {
+                            "name": "Дирок Фасад Оптима 110"
+                        },
+                        {
+                            "name": "Дирок Фасад Стандарт 130"
+                        },
+                        {
+                            "name": "Дирок Акустик 45"
+                        },
+                        {
+                            "name": "Дирок Фасад 100"
+                        },
+                        {
+                            "name": "Дирок Акустик ПРО"
+                        },
+                        {
+                            "name": "Дирок Вент Фасад 70"
+                        },
+                        {
+                            "name": "Дирок Вент Фасад 80"
+                        },
+                        {
+                            "name": "Дирок Вент Фасад В 90"
+                        },
+                        {
+                            "name": "Дирок Вент Фасад Н 40"
+                        },
+                        {
+                            "name": "Дирок Кавити 50"
+                        },
+                        {
+                            "name": "Дирок Лайт 35"
+                        },
+                        {
+                            "name": "Дирок Руф"
+                        },
+                        {
+                            "name": "Дирок Руф В"
+                        },
+                        {
+                            "name": "Дирок Руф В Оптима"
+                        },
+                        {
+                            "name": "Дирок Руф В Профит 160"
+                        },
+                        {
+                            "name": "Дирок Руф Н"
+                        },
+                        {
+                            "name": "Дирок Флор"
+                        },
+                        {
+                            "name": "Дирок Руф Н Оптима"
+                        },
+                        {
+                            "name": "Дирок Флор Оптима"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "40"
+                        },
+                        {
+                            "name": "50"
+                        },
+                        {
+                            "name": "100"
+                        },
+                        {
+                            "name": "150"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Дирок",
+                "url": "/uteplitel-dirok/"
+            }
+        },
+        {
+            "name": "Утеплитель Белтеп",
+            "icon": "/assets/template/img/brands/new/beltep.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Белтеп Руф 30",
+                            "url": "/uteplitel-beltep/ruf-30/"
+                        },
+                        {
+                            "name": "Белтеп Руф 50",
+                            "url": "/uteplitel-beltep/ruf-50/"
+                        },
+                        {
+                            "name": "Белтеп Руф 60",
+                            "url": "/uteplitel-beltep/ruf-60/"
+                        },
+                        {
+                            "name": "Белтеп Руф В 60",
+                            "url": "/uteplitel-beltep/ruf-v-60/"
+                        },
+                        {
+                            "name": "Белтеп Руф 70",
+                            "url": "/uteplitel-beltep/ruf-70/"
+                        },
+                        {
+                            "name": "Белтеп Руф 70 Basis",
+                            "url": "/uteplitel-beltep/ruf-70-basis/"
+                        },
+                        {
+                            "name": "Белтеп Руф 80",
+                            "url": "/uteplitel-beltep/ruf-80/"
+                        },
+                        {
+                            "name": "Белтеп Флор 125",
+                            "url": "/uteplitel-beltep/ruf-125/"
+                        },
+                        {
+                            "name": "Белтеп Флор 190",
+                            "url": "/uteplitel-beltep/ruf-190/"
+                        },
+                        {
+                            "name": "Белтеп Вент 50",
+                            "url": "/uteplitel-beltep/ruf-50/"
+                        },
+                        {
+                            "name": "Белтеп Вент 25",
+                            "url": "/uteplitel-beltep/ruf-25/"
+                        },
+                        {
+                            "name": "Белтеп Лайт",
+                            "url": "/uteplitel-beltep/beltep-lajt/"
+                        },
+                        {
+                            "name": "Белтеп Фасад Т",
+                            "url": "/uteplitel-beltep/fasad-t/"
+                        },
+                        {
+                            "name": "Белтеп Фасад 95",
+                            "url": "/uteplitel-beltep/ruf-95/"
+                        },
+                        {
+                            "name": "Белтеп Фасад PRO",
+                            "url": "/uteplitel-beltep/ruf-PRO/"
+                        },
+                        {
+                            "name": "Белтеп Универсальный",
+                            "url": "/uteplitel-beltep/beltep-universalnyj/"
+                        },
+                        {
+                            "name": "Белтеп Лайт Экстра",
+                            "url": "/uteplitel-beltep/lajti-ekstra/"
+                        },
+                        {
+                            "name": "Белтеп Сэндвич",
+                            "url": "/uteplitel-beltep/beltep-sendvich/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-beltep/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-beltep/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-beltep/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-beltep/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/uteplitel-beltep/?item_thickness=70"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Билтеп",
+                "url": "/uteplitel-beltep/"
+            }
+        },
+        {
+            "name": "Утеплитель Тизол",
+            "icon": "/assets/template/img/brands/new/тизол.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Тизол Euro-ЛАЙТ 25",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-lajt-25/"
+                        },
+                        {
+                            "name": "Тизол Euro-ЛАЙТ 30",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-lajt-30/"
+                        },
+                        {
+                            "name": "Тизол Euro-ЛАЙТ 35",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-lajt-35/"
+                        },
+                        {
+                            "name": "Тизол Euro-ЛАЙТ 40",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-lajt-40/"
+                        },
+                        {
+                            "name": "Тизол Euro-ЛАЙТ 50",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-lajt-50/"
+                        },
+                        {
+                            "name": "Тизол Euro-БЛОК",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-blok-50/"
+                        },
+                        {
+                            "name": "Тизол Euro-ВЕНТ",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-vent/"
+                        },
+                        {
+                            "name": "Тизол Euro-ВЕНТ В",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-vent-v/"
+                        },
+                        {
+                            "name": "Тизол Euro-ВЕНТ Н",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-vent-n/"
+                        },
+                        {
+                            "name": "Тизол Euro-РУФ Н",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-ruf-n/"
+                        },
+                        {
+                            "name": "Тизол Euro-РУФ",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-ruf/"
+                        },
+                        {
+                            "name": "Тизол Euro-РУФ В",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-ruf-v/"
+                        },
+                        {
+                            "name": "Тизол Euro-РУФ В Супер",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-ruf-v-super/"
+                        },
+                        {
+                            "name": "Тизол Euro-ФАСАД",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-fasad/"
+                        },
+                        {
+                            "name": "Тизол Euro-ФАСАД ОПТИМА",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-fasad-optima/"
+                        },
+                        {
+                            "name": "Тизол Euro-ФАСАД УНИВЕРСАЛ",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-euro-fasad-universal/"
+                        },
+                        {
+                            "name": "Тизол БЛОК 50",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-blok-50/"
+                        },
+                        {
+                            "name": "Тизол ВЕНТ В 90",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-vent-v-90/"
+                        },
+                        {
+                            "name": "Тизол ВЕНТ Н 40",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-vent-70/"
+                        },
+                        {
+                            "name": "Тизол ВЕНТ 70",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-n-90/"
+                        },
+                        {
+                            "name": "Тизол РУФ Н 90",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-n-100/"
+                        },
+                        {
+                            "name": "Тизол РУФ Н 100",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-n-110/"
+                        },
+                        {
+                            "name": "Тизол РУФ Н 110",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-n-120/"
+                        },
+                        {
+                            "name": "Тизол РУФ Н 120",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-135/"
+                        },
+                        {
+                            "name": "Тизол РУФ 135",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-150/"
+                        },
+                        {
+                            "name": "Тизол РУФ 150",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-v-160/"
+                        },
+                        {
+                            "name": "Тизол РУФ В 160",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-ruf-v-170/"
+                        },
+                        {
+                            "name": "Тизол РУФ В 170",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-fasad-100/"
+                        },
+                        {
+                            "name": "Тизол ФАСАД 100",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-fasad-110/"
+                        },
+                        {
+                            "name": "Тизол ФАСАД 110",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-myagkaya-pm-40/"
+                        },
+                        {
+                            "name": "Тизол Плита мягкая ПМ-40",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-myagkaya-pm-50/"
+                        },
+                        {
+                            "name": "Тизол Плита мягкая ПМ-50",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-60/"
+                        },
+                        {
+                            "name": "Тизол Плита полужесткая ПП-60",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-70/"
+                        },
+                        {
+                            "name": "Тизол Плита полужесткая ПП-70",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-poluzhestkaya-pp-80/"
+                        },
+                        {
+                            "name": "Тизол Плита полужесткая ПП-80",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-100/"
+                        },
+                        {
+                            "name": "Тизол Плита жесткая ПЖ-100",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-120/"
+                        },
+                        {
+                            "name": "Тизол Плита жесткая ПЖ-120",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-zhestkaya-pzh-140/"
+                        },
+                        {
+                            "name": "Тизол Плита жесткая ПЖ-140",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-160/"
+                        },
+                        {
+                            "name": "Тизол Плита повышенной жесткости ППЖ-160",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-180/"
+                        },
+                        {
+                            "name": "Тизол Плита повышенной жесткости ППЖ-180",
+                            "url": "/uteplitel-tizol/uteplitel-tizol-plita-povyshennoj-zhestkosti-ppzh-200/"
+                        },
+                        {
+                            "name": "Тизол Плита повышенной жесткости ППЖ-200",
+                            "url": "nan"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "20",
+                            "url": "/uteplitel-tizol/?item_thickness=20"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-tizol/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-tizol/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-tizol/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-tizol/?item_thickness=60"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-tizol/?item_thickness=100"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Тизол",
+                "url": "/uteplitel-tizol/"
+            }
+        },
+        {
+            "name": "Утеплитель Термит",
+            "icon": "/assets/template/img/brands/thermit.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Утеплитель Термит SP",
+                            "url": "/uteplitel-thermit/sp/"
+                        },
+                        {
+                            "name": "Утеплитель Термит XPS",
+                            "url": "/uteplitel-thermit/xps/"
+                        },
+                        {
+                            "name": "Утеплитель Термит EPS Prime",
+                            "url": "/uteplitel-thermit/eps-prime/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "12.5",
+                            "url": "/uteplitel-thermit/?item_thickness=12.5"
+                        },
+                        {
+                            "name": "20",
+                            "url": "/uteplitel-thermit/?item_thickness=20"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-thermit/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-thermit/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-thermit/?item_thickness=50"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-thermit/?item_thickness=100"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Термит",
+                "url": "/uteplitel-thermit/"
+            }
+        },
+        {
+            "name": "Утеплитель Изотек",
+            "icon": "/assets/template/img/brands/isotec.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Isotec Industrial Slab S80",
+                            "url": "/uteplitel-izotek/industrial-slab-s80/"
+                        },
+                        {
+                            "name": "Isotec Industrial Slab S100",
+                            "url": "/uteplitel-izotek/industrial-slab-s100/"
+                        },
+                        {
+                            "name": "Isotec Industrial Slab S150",
+                            "url": "/uteplitel-izotek/industrial-slab-s150/"
+                        },
+                        {
+                            "name": "Isotec Tank Slab SR100",
+                            "url": "/uteplitel-izotek/tank-slab-sr100/"
+                        },
+                        {
+                            "name": "Isotec Tank Slab SW60",
+                            "url": "/uteplitel-izotek/tank-slab-sw60/"
+                        },
+                        {
+                            "name": "Isotec Tank Slab SW80",
+                            "url": "/uteplitel-izotek/tank-slab-sw80/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 60",
+                            "url": "/uteplitel-izotek/wired-mat-80-al/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 80 AL",
+                            "url": "/uteplitel-izotek/wired-mat-80-al/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 80 AL2",
+                            "url": "/uteplitel-izotek/wired-mat-80-al2/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 80",
+                            "url": "/uteplitel-izotek/wired-mat-80/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 100 AL",
+                            "url": "/uteplitel-izotek/wired-mat-100-al/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec Wired Mat 100",
+                            "url": "/uteplitel-izotek/wired-mat-100/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec МП-75 МС",
+                            "url": "/uteplitel-izotek/mp-75-ms/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec МП-75",
+                            "url": "/uteplitel-izotek/mp-75/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec МП-100",
+                            "url": "/uteplitel-izotek/mp-100/"
+                        },
+                        {
+                            "name": "Прошивной мат Isotec МП-100 МС",
+                            "url": "/uteplitel-izotek/mp-100-ms/"
+                        },
+                        {
+                            "name": "Цилиндр Isotec Section AL",
+                            "url": "/uteplitel-izotek/section-al/"
+                        },
+                        {
+                            "name": "Цилиндр Isotec Section",
+                            "url": "/uteplitel-izotek/section/"
+                        },
+                        {
+                            "name": "Цилиндр Isotec Shell AL",
+                            "url": "/uteplitel-izotek/shell-al/"
+                        },
+                        {
+                            "name": "Цилиндр Isotec Shell",
+                            "url": "/uteplitel-izotek/shell/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "18",
+                            "url": "/uteplitel-izotek/?item_width=18"
+                        },
+                        {
+                            "name": "21",
+                            "url": "/uteplitel-izotek/?item_width=21"
+                        },
+                        {
+                            "name": "25",
+                            "url": "/uteplitel-izotek/?item_width=25"
+                        },
+                        {
+                            "name": "28",
+                            "url": "/uteplitel-izotek/?item_width=28"
+                        },
+                        {
+                            "name": "32",
+                            "url": "/uteplitel-izotek/?item_width=32"
+                        },
+                        {
+                            "name": "1000",
+                            "url": "/uteplitel-izotek/?item_width=1020"
+                        },
+                        {
+                            "name": "1020",
+                            "url": "/uteplitel-izotek/?item_width=1020"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Изотек",
+                "url": "/uteplitel-izotek/"
+            }
+        },
+        {
+            "name": "Утеплитель Руспанел",
+            "icon": "/assets/template/img/brands/new/руспанель.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Ruspanel RPG Градиент",
+                            "url": "/uteplitel-ruspanel/rpg-gradient/"
+                        },
+                        {
+                            "name": "Ruspanel шип-паз",
+                            "url": "/uteplitel-ruspanel/ship-paz/"
+                        },
+                        {
+                            "name": "Ruspanel RPG Basic",
+                            "url": "/uteplitel-ruspanel/rpg-basic/"
+                        },
+                        {
+                            "name": "Ruspanel RPG Optima",
+                            "url": "/uteplitel-ruspanel/rpg-optima/"
+                        },
+                        {
+                            "name": "Ruspanel RPG Real",
+                            "url": "https://proectstroy-p.ru/manager/?a=resource/update&id=167842"
+                        },
+                        {
+                            "name": "Ruspanel L кромка",
+                            "url": "https://proectstroy-p.ru/manager/?a=resource/update&id=167851"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "6",
+                            "url": "/uteplitel-ruspanel/?item_thickness=6"
+                        },
+                        {
+                            "name": "10",
+                            "url": "/uteplitel-ruspanel/?item_thickness=10"
+                        },
+                        {
+                            "name": "12",
+                            "url": "/uteplitel-ruspanel/?item_thickness=12"
+                        },
+                        {
+                            "name": "15",
+                            "url": "/uteplitel-ruspanel/?item_thickness=15"
+                        },
+                        {
+                            "name": "20",
+                            "url": "/uteplitel-ruspanel/?item_thickness=20"
+                        },
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-ruspanel/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-ruspanel/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-ruspanel/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-ruspanel/?item_thickness=60"
+                        },
+                        {
+                            "name": "80",
+                            "url": "/uteplitel-ruspanel/?item_thickness=80"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-ruspanel/?item_thickness=100"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Руспанел",
+                "url": "/uteplitel-ruspanel/"
+            }
+        },
+        {
+            "name": "Утеплитель Брит",
+            "icon": "/assets/template/img/brands/BRITE.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Герметик",
+                            "url": "/rulonnaya-krovlya-brit/krovelniy-germetik-brit/"
+                        },
+                        {
+                            "name": "Ленты стыковочные",
+                            "url": "/rulonnaya-krovlya-brit/lentyi-styikovochnyie/"
+                        },
+                        {
+                            "name": "Мастики",
+                            "url": "/rulonnaya-krovlya-brit/krovelnyie-mastiki/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "2.8",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=2.8"
+                        },
+                        {
+                            "name": "3",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=3"
+                        },
+                        {
+                            "name": "3.2",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=3.2"
+                        },
+                        {
+                            "name": "3.8",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=3.8"
+                        },
+                        {
+                            "name": "4",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=4"
+                        },
+                        {
+                            "name": "4.2",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=4.2"
+                        },
+                        {
+                            "name": "5",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=5%20%D0%BC%D0%BC"
+                        },
+                        {
+                            "name": "8",
+                            "url": "/rulonnaya-krovlya-brit/?item_thickness=8%20%D0%BC%D0%BC"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Брит",
+                "url": "/rulonnaya-krovlya-brit/"
+            }
+        },
+        {
+            "name": "Утеплитель Basfiber",
+            "icon": "/assets/template/img/brands/new/basfiber.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Базальтовая вата BASFIBER",
+                            "url": "/uteplitel-basfiber/bazaltovaya-vata/"
+                        },
+                        {
+                            "name": "Базальтовый картон BASFIBER",
+                            "url": "/uteplitel-basfiber/bazaltovyij-karton/"
+                        },
+                        {
+                            "name": "Базальтовый картон с фольгой BASFIBER",
+                            "url": "/uteplitel-basfiber/bazaltovyj-karton-s-folgoj/"
+                        },
+                        {
+                            "name": "Базальтовый мат с фольгой BASFIBER",
+                            "url": "/uteplitel-basfiber/bazaltovyj-mat-s-folgoj/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "600",
+                            "url": "/uteplitel-basfiber/?item_width=600"
+                        },
+                        {
+                            "name": "1200",
+                            "url": "/uteplitel-basfiber/?item_width=1200"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Basfiber",
+                "url": "/uteplitel-basfiber/"
+            }
+        },
+        {
+            "name": "Утеплитель Xotpipe",
+            "icon": "/assets/template/img/brands/new/xotpipe.jpg",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Мат технический Xotpipe TR-80",
+                            "url": "/uteplitel-xotpipe/mat-tekhnicheskij-tr-80/"
+                        },
+                        {
+                            "name": "Мат прошивной МП-100 Xotpipe ME-TR",
+                            "url": "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr/"
+                        },
+                        {
+                            "name": "Мат прошивной Xotpipe WM-TR-80",
+                            "url": "/uteplitel-xotpipe/mat-proshivnoj-wm-tr-80/"
+                        },
+                        {
+                            "name": "Мат прошивной МП-100 Xotpipe ME-TR Alu1",
+                            "url": "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr-alu1/"
+                        },
+                        {
+                            "name": "Мат прошивной МП-100 Xotpipe WM-TR",
+                            "url": "https://proectstroy-p.ru/manager/?a=resource/update&id=167662"
+                        },
+                        {
+                            "name": "Мат прошивной МП-100 Xotpipe ME-TR ST",
+                            "url": "/uteplitel-xotpipe/mat-proshivnoj-mp-100-me-tr-st/"
+                        },
+                        {
+                            "name": "Мат высокотемпературный Xotpipe ME-TR-80",
+                            "url": "/uteplitel-xotpipe/mat-vysokotemperaturnyj-me-tr-80/"
+                        },
+                        {
+                            "name": "Мат высокотемпературный Xotpipe WM-TR-80 Combi",
+                            "url": "/uteplitel-xotpipe/mat-vysokotemperaturnyj-wm-tr-80-combi/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина ",
+                    "items": [
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-xotpipe/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-xotpipe/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-xotpipe/?item_thickness=60"
+                        },
+                        {
+                            "name": "70",
+                            "url": "/uteplitel-xotpipe/?item_thickness=70"
+                        },
+                        {
+                            "name": "80",
+                            "url": "/uteplitel-xotpipe/?item_thickness=80"
+                        },
+                        {
+                            "name": "90",
+                            "url": "/uteplitel-xotpipe/?item_thickness=90"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-xotpipe/?item_thickness=100"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/uteplitel-xotpipe/?item_thickness=120"
+                        },
+                        {
+                            "name": "130",
+                            "url": "/uteplitel-xotpipe/?item_thickness=130"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Xotpipe",
+                "url": "/uteplitel-xotpipe/"
+            }
+        },
+        {
+            "name": "Утеплитель Типлэкс",
+            "icon": "/assets/template/img/brands/new/templex.png",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Тимплэкс 45",
+                            "url": "/uteplitel-timpleks/45/"
+                        },
+                        {
+                            "name": "Тимплэкс 35",
+                            "url": "/uteplitel-timpleks/35/"
+                        }
+                    ]
+                },
+                {
+                    "name": "Толщина",
+                    "items": [
+                        {
+                            "name": "30",
+                            "url": "/uteplitel-timpleks/?item_thickness=30"
+                        },
+                        {
+                            "name": "40",
+                            "url": "/uteplitel-timpleks/?item_thickness=40"
+                        },
+                        {
+                            "name": "50",
+                            "url": "/uteplitel-timpleks/?item_thickness=50"
+                        },
+                        {
+                            "name": "60",
+                            "url": "/uteplitel-timpleks/?item_thickness=60"
+                        }
+                    ]
+                }
+            ],
+            "header": {
+                "name": "Смотреть все товары Типлэкс",
+                "url": "/uteplitel-timpleks/"
+            }
+        }
+    ],
+    "items": [
+        {
+            "name": "По применению",
+            "options": [
+                {
+                    "name": "Продуктовые линейки",
+                    "items": [
+                        {
+                            "name": "Утеплитель для стен",
+                            "url": "/uteplitel-dlya-sten/"
+                        },
+                        {
+                            "name": "Утеплитель для стен 50 мм",
+                            "url": "/uteplitel-dlya-sten-50-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для стен 100 мм",
+                            "url": "/uteplitel-sten-100-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для труб",
+                            "url": "/uteplitel-dlya-trub/"
+                        },
+                        {
+                            "name": "Утеплитель для пола",
+                            "url": "/uteplitel-dlya-pola/"
+                        },
+                        {
+                            "name": "Утеплитель для бани",
+                            "url": "/uteplitel-dlya-bani/"
+                        },
+                        {
+                            "name": "Утеплитель для потолка",
+                            "url": "/uteplitel-dlya-potolka/"
+                        },
+                        {
+                            "name": "Утеплитель для фасада",
+                            "url": "/uteplitel-dlya-fasada/"
+                        },
+                        {
+                            "name": "Утеплитель для фасада 50 мм",
+                            "url": "/uteplitel-dlya-fasada-50-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для фасада 100 мм",
+                            "url": "/uteplitel-dlya-fasada-100-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для кровли",
+                            "url": "/uteplitel-dlya-krovli/"
+                        },
+                        {
+                            "name": "Утеплитель для кровли 100 мм",
+                            "url": "/uteplitel-dlya-krovli-100-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для кровли 150 мм",
+                            "url": "/uteplitel-dlya-krovli-150-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для дверей",
+                            "url": "/uteplitel-dlya-dverej/"
+                        },
+                        {
+                            "name": "Утеплитель для перекрытий",
+                            "url": "/uteplitel-dlya-perekryitij/"
+                        },
+                        {
+                            "name": "Утеплитель для фундамента",
+                            "url": "/uteplitel-dlya-fundamenta/"
+                        },
+                        {
+                            "name": "Утеплитель для фундамента 50 мм",
+                            "url": "/uteplitel-dlya-fundamenta-50-mm/"
+                        },
+                        {
+                            "name": "Утеплитель для балкона",
+                            "url": "/uteplitel-dlya-balkona/"
+                        },
+                        {
+                            "name": "Утеплитель для вентиляции",
+                            "url": "/uteplitel-dlya-ventilyaczii/"
+                        },
+                        {
+                            "name": "Утеплитель для перегородок",
+                            "url": "/uteplitel-dlya-peregorodok/"
+                        },
+                        {
+                            "name": "Утеплитель для печи",
+                            "url": "/uteplitel-dlya-pechi/"
+                        },
+                        {
+                            "name": "Утеплитель для вентилируемых фасадов",
+                            "url": "/uteplitel-dlya-ventiliruemyh-fasadov/"
+                        },
+                        {
+                            "name": "Утеплитль для цоколя",
+                            "url": "/uteplitel-dlya-czokolya/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

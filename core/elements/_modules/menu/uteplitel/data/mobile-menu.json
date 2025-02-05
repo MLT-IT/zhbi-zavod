@@ -1,0 +1,75 @@
+{
+  "menu": [
+    {
+      "title": "Каталог",
+      "type": "submenu",
+      "submenu_id": "catalog",
+      "items": [
+        {
+          "title": "Утеплитель Роквул",
+          "type": "submenu",
+          "submenu_id": "rockwool",
+          "items": [
+            {
+              "title": "Роквул Скандик",
+              "url": "catalog/rockwool/scandic",
+              "type": "link"
+            },
+            {
+              "title": "Роквул Лайт Баттс",
+              "url": "catalog/rockwool/light-batts",
+              "type": "link"
+            },
+            {
+              "title": "Роквул Акустик Баттс",
+              "url": "catalog/rockwool/acoustic-batts",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "title": "Утеплитель Технониколь",
+          "type": "submenu",
+          "submenu_id": "technonicol",
+          "items": [
+            {
+              "title": "Технофас",
+              "url": "catalog/technonicol/technofas",
+              "type": "link"
+            },
+            {
+              "title": "Технолайт",
+              "url": "catalog/technonicol/technolight",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "О компании",
+      "url": "about/",
+      "type": "link"
+    },
+    {
+      "title": "Акции",
+      "url": "sales/",
+      "type": "link"
+    },
+    {
+      "title": "Доставка и оплата",
+      "url": "delivery/",
+      "type": "link"
+    },
+    {
+      "title": "Отзывы",
+      "url": "reviews/",
+      "type": "link"
+    },
+    {
+      "title": "Контакты",
+      "url": "contacts/",
+      "type": "link"
+    }
+  ]
+} 

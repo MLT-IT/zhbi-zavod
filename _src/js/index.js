@@ -36,6 +36,7 @@ import mailChange from './modules/mailchanger';
 import initSliders from "./modules/sliders";
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
+import '../../core/elements/_modules/menu/uteplitel/scripts/main'
 import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';

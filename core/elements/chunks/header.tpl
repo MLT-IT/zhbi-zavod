@@ -193,6 +193,12 @@
 
         {if $_modx->context.key == 'trotuarnaya-plitka'}
           {include "file:chunks/desktop-catalog-menu/v2.tpl"}
+        {elseif $_modx->context.key == "web"}
+
+          <div class="h-menu header__catalog" data-dropdown>
+            <button class="h-menu__btn btn btn_style_base">Каталог</button>
+            {$_modx->runSnippet("@FILE _modules/menu/uteplitel/snippets/getMenu.php")}
+          </div>
         {else}
           {include "file:chunks/desktop-catalog-menu/v1.tpl"}
         {/if}
@@ -259,6 +265,10 @@
             </div>
         </div>
 
+        {if $_modx->resource.context_key == "web"}
+          {include "file:_modules/menu/uteplitel/chunks/mobileBottom.tpl"}
+        {/if}
+
         <button class="js-burger-2 header__right-burger header__burger icon-btn icon-btn_style_red">
           <svg class="icon-btn__icon" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-burger"></use>
@@ -268,6 +278,17 @@
     </div>
     {if $_modx->context.key in list ['krovelnyjstroymarket', 'plitnye']}
       {include 'file:chunks/nav/extranav.tpl'}
+    {/if}
+    {if $_modx->resource.context_key == "web"}
+      <form action="/search/" class="search__wrapper search_display_mobile" fast-search-form="mobile">
+        <button type="submit" class="search__btn icon-btn icon-btn_style_red">
+          <svg class="icon-btn__icon icon-btn__icon_small" aria-hidden="true">
+            <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
+          </svg>
+        </button>
+        <input name="query" class="search__input" fast-search-input="mobile" type="search" placeholder="Хочу найти..." id="_inp55555555">
+
+      </form>
     {/if}
   </div>
 </header>

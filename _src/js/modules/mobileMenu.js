@@ -23,11 +23,16 @@ function Mobilemenu(burgerClass, menuClass) {
 }
 
 Mobilemenu.prototype.toggleBurger = function(e){
-    calcProperties.calcHeaderHeight();
-    e.preventDefault();
-    this.burger.classList.toggle("active");
-    this.menu.classList.toggle("active");
-    document.body.classList.toggle("mobilemenu-opened");
+    try {
+        calcProperties.calcHeaderHeight();
+        e.preventDefault();
+        this.burger.classList.toggle("active");
+        this.menu.classList.toggle("active");
+        document.body.classList.toggle("mobilemenu-opened");
+    }catch (e)
+    {
+        console.log(e);
+    }
 }
 
 class Mobilemenu_kirpichM5 extends Mobilemenu{
