@@ -61,6 +61,10 @@
         {set $brand = 'Плиты МДВП'}
     {case 'krovelnyjstroymarket'}
         {set $brand = 'Кровельный строймаркет'}
+    {case 'gbi-zavod78'}
+        {set $brand = 'СтройМаркет ЖБИ'}
+    {case default}
+        {set $brand = 'СтройМаркет'}
 {/switch}
 
 {if $_modx->getPlaceholder('localdata').local}
