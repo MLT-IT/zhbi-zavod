@@ -13,7 +13,7 @@
         ]}
 
         <div class="product__info-wrap">
-          <div class="product__info product-info">
+          <div class="product__info product-info custom">
 
             <div class="product-info__top">
             {* {if $_modx->resource.article}
