@@ -1,9 +1,14 @@
 {set $catalogId = $_modx->runSnippet('@FILE snippets/getIdByAlias.php', ['alias' => 'catalog'])}
+<!--<p>CATALOG ID: {$catalogId}</p>
+<p>RESOURCE: {$_modx->resource.id}</p>
+<p>PARENT: {$_modx->resource.parent}</p>
+<p>HERE: {$catalogId == $_modx->resource.parent ? $_modx->resource.id : $_modx->resource.parent}</p>
+-->
 {set $sourceBasePath =  $_modx->runSnippet('@FILE snippets/getTvSourceBasePath.php', ['tvName' => 'mainIcon'])}
-    <section class="catalog-v1 assort wrapper assort_active_content  assort__container">
+    <section class="catalog-v1 assort wrapper assort_active_content assort__container">
         <div class="catalog-v1_wrapper assort__tabs">
             <div class="catalog-v1_menu_wrapper assort__sidebar">
-
+                {set $here = ($catalogId == $_modx->resource.parent) ? $_modx->resource.id : $_modx->resource.parent}
                 {$_modx->runSnippet('!pdoMenu',[
                     'parents' => $catalogId,
                     'class_key' => 'msCategory',
@@ -14,7 +19,7 @@
                     'processTVs' => 1,
                     'tvPrefix' => '',
                     'sortby' => '{"menuindex":"ASC"}',
-                    'hereId' => $catalogId == $_modx->resource.parent ? $_modx->resource.id : $_modx->resource.parent,
+                    'hereId' => $here,
                     'tpl' => '@INLINE 
                         <a href="{$_modx->makeUrl($id)}" class="assort__sidebar-item1">
                             <img class="assort__svg" src="{$sourceBasePath~($mainIcon ?: $mainImage)}" alt="">
@@ -22,10 +27,10 @@
                         </a>
                     ',
                     'tplHere' => '@INLINE 
-                        <span href="{$_modx->makeUrl($id)}" class="assort__sidebar-item1 active">
+                        <a href="{$_modx->makeUrl($id)}" class="assort__sidebar-item1 active">
                             <img class="assort__svg" src="{$sourceBasePath~($mainIcon ?: $mainImage)}" alt="">
                             {$menutitle}
-                        </span>
+                        </a>
                     ',
 
                 ])}
