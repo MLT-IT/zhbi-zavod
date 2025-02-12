@@ -1,0 +1,89 @@
+.catalog-v1_menu_wrapper
+        .assort__sidebar-item1
+            -webkit-box-align: center
+            align-items: center
+            background: #f0f0f0
+            border-radius: 8px
+            cursor: pointer
+            display: -webkit-box
+            display: flex
+            font-size: 16px
+            font-weight: 700
+            padding: 13px 12px
+            -webkit-transition: .3s
+            transition: .3s
+            margin-bottom: 10px
+            color: currentColor
+
+        .assort__sidebar-item.active, .assort__sidebar-item1.active
+
+            @media (max-width: 500px)
+                color: #000
+                background: #f0f0f0
+                .assort__svg path 
+                    stroke: #fff
+                    fill: #fff
+    
+.catalog-v1_categories_wrapper.assort__contents-wrap
+
+
+.assort__content.assort__content_columns-flex
+    display: grid
+    position: relative
+    column-gap: 10px
+    padding-bottom: 10px
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    box-sizing: border-box
+    @media (max-width: 940px)
+        //background: #993838
+        grid-template-columns: 1fr 1fr 1fr
+    @media (max-width: 800px)
+        //background: #384799
+        grid-template-columns: 1fr 1fr
+    .assort__item_fullwidth, .assort__back
+        grid-column: 1 / span 4
+        @media (max-width: 940px)
+            grid-column: 1 / span 3
+        @media (max-width: 800px)
+            grid-column: 1 / span 2
+    
+    .assort__item
+        margin: 0 !important
+        margin-bottom: 10px !important
+        width: 100% !important
+        padding: 8px 8px 10px
+        box-sizing: border-box
+        position: relative
+        text-align: center
+
+        .assort__item-img-wrap
+            position: relative
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            aspect-ratio: 16 / 10
+            overflow: hidden
+            img
+                max-height: 100%
+                transition: all .2s 
+                position: absolute
+                object-fit: contain
+                pointer-events: none
+
+    &._2col
+        grid-template-columns: 1fr 1fr
+        @media (max-width: 940px)
+            grid-template-columns: 1fr 1fr
+        @media (max-width: 800px)
+            grid-template-columns: 1fr
+        .assort__item_fullwidth, .assort__back
+            grid-column: 1 / span 2
+            @media (max-width: 940px)
+                grid-column: 1 / span 2
+            @media (max-width: 800px)
+                grid-column: 1 / span 1
+        .assort__item
+            .assort__item-img-wrap
+                aspect-ratio: 16 / 5
+                

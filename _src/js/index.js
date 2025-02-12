@@ -43,6 +43,7 @@ import showMoreListing from './modules/showMoreListing.js';
 import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
+import initAssort from '../../core/elements/_modules/catalog/assort.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     addClipboardIcons();
+
+    initAssort();
 
     const ctx = body.getAttribute('data-ctx');
 

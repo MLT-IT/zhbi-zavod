@@ -1,0 +1,551 @@
+[
+    {
+        "name" : "Дорожное строительство",
+        "link" : "/catalog/dorozhnoe-stroitelstvo/",
+        "assort_id"   : "assort-dorozhnoe-stroitelstvo",
+        "ico_id"   : "assort-dorozhnoe-stroitelstvo",
+        "childs": [
+            {
+                "name" : "Дорожные плиты",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/dorozhnye-plity/",
+                "img" : "assets/images/products/109624/540ad553e7df11da0835bcb199296229.jpg"
+            },
+            {
+                "name" : "Аэродромные плиты",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/aehrodromnye-plity/",
+                "img" : "assets/images/products/142350/small/9a11b1a66015f537ed74d5c82e487987.jpg"
+            },
+            {
+                "name" : "Блок укрепления",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/blok-ukrepleniya/",
+                "img" : "assets/images/products/143234/small/34486b4b3f93af3e7d39ff7e20473eb6.jpg"
+            },
+            {
+                "name" : "Бордюрный камень (бортовой)",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/bordyurnyj-kamen-bortovoj/",
+                "img" : "assets/images/products/142573/small/ca8e22286301d0b9ee6011baba7b3db0.jpg"
+            },
+            {
+                "name" : "Дорожное ограждение",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/dorozhnoe-ograzhdenie/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/dorognoe-ogragdenye.jpg"
+            },
+            {
+                "name" : "Блоки ограждения Нью-Джерси",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/bloki-ograzhdeniya-nyu-dzhersi/",
+                "img" : "assets/images/products/142055/small/9870331fd78fa99aceaa67670cc8304f.jpg"
+            },
+            {
+                "name" : "Стойки опор дорожных знаков",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/stojki-opor-dorozhnyh-znakov/",
+                "img" : "assets/images/products/143743/small/02206794e59426f338acfa0bb09426af.jpg"
+            },
+            {
+                "name" : "Фундаменты опор для дорожных знаков",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/fundamenty-opor-dlya-dorozhnyh-znakov/",
+                "img" : "assets/images/products/143995/small/893ff3560d6d45dea4ab273660f554e1.jpg"
+            },
+            {
+                "name" : "Блоки разделительной полосы БД БП ПП",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/bloki-razdelitelnoj-polosy-bd-bp-pp/",
+                "img" : "assets/images/products/142460/small/65cb66bf63d0d99a2e4a3e93d5b53b2c.jpg"
+            },
+            {
+                "name" : "Опоры дорожных знаков",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/opory-dorozhnyh-znakov/",
+                "img" : "assets/images/products/142162/small/02206794e59426f338acfa0bb09426af.jpg"
+            },
+            {
+                "name" : "Столбики сигнальные",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/stolbiki-signalnye/",
+                "img" : "assets/images/products/142162/small/02206794e59426f338acfa0bb09426af.jpg"
+            },
+            {
+                "name" : "Лотки водосточные Super с решеткой",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/lotki-vodostochnye-super-s-reshetkoj/",
+                "img" : "assets/images/products/109694/small/19152b983db6d949d080f4537f6029fc.jpg"
+            },
+            {
+                "name" : "Лотки водоотводные",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/lotki-vodootvodnye/",
+                "img" : "assets/images/products/109708/small/ca236e9bad133d7e499ab5a3d01e84dd.jpg"
+            },
+            {
+                "name" : "Лотки дождевые",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/lotki-dozhdevye/",
+                "img" : "assets/images/products/109652/f064a20403bdc308d55bfa0452c8d845.jpg"
+            },
+            {
+                "name" : "Плиты укреплений",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/plity-ukreplenij/",
+                "img" : "assets/images/products/109653/small/1b0ff09821ec4dd8c908e1395474716e.jpg"
+            },
+            {
+                "name" : "Дренажные лотки",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/drenazhnye-lotki/",
+                "img" : "assets/images/products/109664/small/3d4260643aaa78b3faa3ac3e91e65058.jpg"
+            },
+            {
+                "name" : "Лотки автодорожные",
+                "link" : "/catalog/dorozhnoe-stroitelstvo/lotki-avtodorozhnye/",
+                "img" : "assets/images/products/109702/small/bf38aa98cd5131e159e060045f1b2de8.jpg"
+            }
+        ]
+    },
+    {
+        "name" : "Жилищное строительство",
+        "link" : "/catalog/zhilishchnoe-stroitelstvo/",
+        "assort_id"   : "assort-zhilishchnoe-stroitelstvo",
+        "ico_id"   : "assort-zhilishchnoe-stroitelstvo",
+        "childs": [
+            {
+                "name" : "Лестничные марши сборные железобетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/lestnichnyie-marshi-sbornyie-zhelezobetonnyie/",
+                "img" : "assets/images/products/109713/small/2058cac9d961a15435170a6a942284e6.jpg"
+                },{
+                "name" : "Перемычки и ригели",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/peremyichki-rigeli-progonyi/",
+                "img" : "_import/files/photos_psk-energo.ru/2346282c26ce00e3b58ec5b0d6c4157a.jpg"
+                },{
+                "name" : "Плиты перекрытия",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/plityi-perekryitiya/",
+                "img" : "assets/images/products/109793/small/17490f223e638bd79b7718ddc8601011.jpg"
+                },{
+                "name" : "Панели стеновые",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/paneli-stenovye/",
+                "img" : "assets/images/products/111985/small/6fbc0629eba4ca2483eae817264412a4.jpg"
+                },{
+                "name" : "Вентиляционные блоки",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/ventilyacionnye-bloki/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/ventbloki-v.jpg"
+                },{
+                "name" : "Сваи железобетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/svai-zhelezobetonnye/",
+                "img" : "assets/images/products/111977/small/d5295bac3194ae82301bb8e9b26205fd.jpg"
+                },{
+                "name" : "Фундаментные блоки",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/fundamentnye-bloki/",
+                "img" : "assets/images/products/110371/small/1b34cc54283646c5609f2a83c3d1984e.jpg"
+                },{
+                "name" : "Стаканы дефлекторов бетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/stakany-deflektorov-betonnye/",
+                "img" : "assets/images/products/116429/small/65b0f0a868891e290b85cb98cdb865dd.jpg"
+                },{
+                "name" : "Колонны железобетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/kolonny-zhelezobetonnye/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/colony-seria.jpg"
+                },{
+                "name" : "Шахты лифтовые",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/shahty-liftovye/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/shahta.jpg"
+                },{
+                "name" : "Балконные плиты",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/balkonnye-plity/",
+                "img" : "assets/images/products/128704/small/492389f66b6eb10c882e4cf53118d1dd.jpg"
+                },{
+                "name" : "Балки железобетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/balki-zhelezobetonnye/",
+                "img" : "assets/images/products/112323/small/1e370dc4ad0837193615d023cfe40206.jpg"
+                },{
+                "name" : "Фермы железобетонные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/fermy-zhelezobetonnye/",
+                "img" : "assets/images/products/112159/small/1713b8fa22f3235b74b5e4d1e766057f.jpg"
+                },{
+                "name" : "Кабины санитарно-технические",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/kabiny-sanitarno-tekhnicheskie/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/sanitarno-technich.jpg"
+                },{
+                "name" : "Плиты карнизные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/plity-karniznye/",
+                "img" : "assets/images/products/117064/small/4996811551212225e6ee937544f3684a.jpg"
+                },{
+                "name" : "Ленточный фундамент",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/lentochnyj-fundament/",
+                "img" : "assets/images/products/112579/small/c341c74820211ce4002cf05f1bd85d8b.jpg"
+                },{
+                "name" : "Ростверк",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/rostverk/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/rostverk.jpg"
+                },{
+                "name" : "Диафрагмы жесткости",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/diafragmy-zhestkosti/",
+                "img" : "assets/images/products/116396/small/5b0591b8ad9d2d4862a76a3043643773.jpg"
+                },{
+                "name" : "Блоки-стаканы",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/bloki-stakany/",
+                "img" : "assets/images/products/149242/small/3361555ad21fcc3683c111344ecbc775.jpg"
+                },{
+                "name" : "Монолитная ребристая плита перекрытия",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/monolitnaya-rebristaya-plita-perekrytiya/",
+                "img" : "assets/images/products/113804/small/aefa7e2e46c138bbee18d3d2b21a74e1.jpg"
+                },{
+                "name" : "Плиты фундаментные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/plity-fundamentnye/",
+                "img" : "assets/images/products/114597/small/0f5a43bd7a2de2ae70c5224caa61b93a.jpg"
+                },{
+                "name" : "Плиты парапетные",
+                "link" : "catalog/zhilishchnoe-stroitelstvo/plity-parapetnye/",
+                "img" : "assets/images/products/115043/small/d387c62ef0e80ac9fa761035f2b6de86.jpg"
+                }
+        ]
+    },
+    {
+        "name" : "Элементы железобетонных ограждений",
+        "link" : "/catalog/ehlementy-zhelezobetonnyh-ograzhdenij/",
+        "assort_id"   : "assort-ehlementy-zhelezobetonnyh-ograzhdenij",
+        "ico_id"   : "assort-ehlementy-zhelezobetonnyh-ograzhdenij",
+        "childs": [
+            {
+                "name" : "Парковочные столбики",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/parkovochnye-stolbiki/",
+                "img" : "assets/images/products/109243/small/7fc372f91c7480b9ed5fb7e4fb7ac932.jpg"
+                },{
+                "name" : "Декоративные столбики",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/dekorativnye-stolbiki/",
+                "img" : "assets/images/products/109250/small/e3b29cb55822a799688ec95d29fc79b0.jpg"
+                },{
+                "name" : "Элементы бетонного забора",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/ehlementy-betonnogo-zabora/",
+                "img" : "assets/images/products/109333/small/acb97c9b1c2e9d90f4fc8b34f2e63ec1.jpg"
+                },{
+                "name" : "Столбы ограждения бетонные",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/stolby-ograzhdeniya-betonnye/",
+                "img" : "assets/images/products/109252/small/86363f864dcf2f6d5d08d4813c50ddb7.jpg"
+                },{
+                "name" : "Приставки ПТ",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/pristavki-pt/",
+                "img" : "assets/images/products/109314/small/b1b4423f872da4e400e37c23989e5803.jpg"
+                },{
+                "name" : "Заборы из профиля",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/zabory-iz-profilya/",
+                "img" : "assets/images/products/109302/small/61719b5e4429feee025bdf8f2e2263cf.jpg"
+                },{
+                "name" : "Полусферы гранитные",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/polusfery-granitnye/",
+                "img" : "assets/images/products/109323/small/ba2cc4846062156a17fbaee818644acb.jpg"
+                },{
+                "name" : "Сферы бетонные",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/sfery-betonnye/",
+                "img" : "assets/images/products/109327/small/16169e1c28fb6275f5908e72d1635956.jpg"
+                },{
+                "name" : "Стойки опор ЛЭП",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/stojki-opor-lehp/",
+                "img" : "assets/images/products/109258/small/b916f90e6dc5674c0c05d0b901eff00b.jpg"
+                },{
+                "name" : "Бетонное основание",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/betonnoe-osnovanie/",
+                "img" : "assets/images/products/109338/small/42c27301baff7142cbff02e41e91fd61.jpg"
+                },{
+                "name" : "Полусферы бетонные",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/polusfery-betonnye/",
+                "img" : "assets/images/products/109326/small/16169e1c28fb6275f5908e72d1635956.jpg"
+                },{
+                "name" : "Газонные ограждения",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/gazonnye-ograzhdeniya/",
+                "img" : "assets/images/products/109336/small/b7d36172f3caec29f87374612337654c.jpg"
+                },{
+                "name" : "Бетонные заборы",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/betonnyie-zaboryi/",
+                "img" : "assets/images/products/109334/small/2e443e82942e67899c5b46237941d32d.jpg"
+                },{
+                "name" : "Панели оград",
+                "link" : "catalog/ehlementy-zhelezobetonnyh-ograzhdenij/paneli-ograd/",
+                "img" : "assets/images/products/148722/small/bca46c894157f4811dc54aac765d78f9.jpg"
+                }
+        ]
+    },
+    {
+        "name" : "Устройство коммуникаций",
+        "link" : "/catalog/ustrojstvo-kommunikacij/",
+        "assort_id"   : "assort-ustrojstvo-kommunikacij",
+        "ico_id"   : "assort-ustrojstvo-kommunikacij",
+        "childs": [
+            {
+                "name" : "Коллекторы",
+                "link" : "catalog/ustrojstvo-kommunikacij/kollektoryi/",
+                "img" : "assets/images/products/141282/small/ffacb3d35660026c10b3217d1a80360f.jpg"
+                },{
+                "name" : "Колодцы",
+                "link" : "catalog/ustrojstvo-kommunikacij/kolodcyi/",
+                "img" : "assets/images/products/109447/small/39780a34ed2e39b35e60fa1fabcd32ca.jpg"
+                },{
+                "name" : "Трубы железобетонные, порталы, откосы",
+                "link" : "catalog/ustrojstvo-kommunikacij/trubyi-zvenya-portalyi-otkosyi/",
+                "img" : "assets/images/products/110343/small/3ce3a935149d5271629006f19b4ef1c9.jpg"
+                },{
+                "name" : "Элементы теплотрасс",
+                "link" : "catalog/ustrojstvo-kommunikacij/elementyi-teplotrass/",
+                "img" : "assets/images/products/110554/small/387571306200ca63d289c5527f2b8cdc.jpg"
+                },{
+                "name" : "Люки, решетки, лестницы",
+                "link" : "catalog/ustrojstvo-kommunikacij/lyuki-reshetki-lestniczyi/",
+                "img" : "assets/images/products/110804/small/7bbc2b8fdacd3e9bee2f8daf2023d308.jpg"
+                },{
+                "name" : "Лотки железобетонные",
+                "link" : "catalog/ustrojstvo-kommunikacij/lotki-zhelezobetonnye/",
+                "img" : "assets/images/products/139121/small/cc07583e349eede859d761b9ede3a96d.jpg"
+                },{
+                "name" : "Плиты каналов, лотков, тоннелей",
+                "link" : "catalog/ustrojstvo-kommunikacij/plity-kanalov-lotkov-tonnelej/",
+                "img" : "assets/images/products/140679/small/adbd968a734ebbb4a64bcf4c47bc43c4.jpg"
+                },{
+                "name" : "Прогоны железобетонные",
+                "link" : "catalog/ustrojstvo-kommunikacij/progony-zhelezobetonnye/",
+                "img" : "assets/images/products/139259/small/d5b1e84659baeaa213d6db71d5512066.jpg"
+                },{
+                "name" : "Опорные подушки",
+                "link" : "catalog/ustrojstvo-kommunikacij/opornye-podushki/",
+                "img" : "assets/images/products/139344/small/25affe7dc7c8f7d1b4d8fa78cbd8c52e.jpg"
+                },{
+                "name" : "Бетонные упоры",
+                "link" : "catalog/ustrojstvo-kommunikacij/betonnye-upory/",
+                "img" : "assets/images/products/139879/small/af050c7091e8db66d4a7ef66bdb9089d.jpg"
+                },{
+                "name" : "Г-образные конструкции",
+                "link" : "catalog/ustrojstvo-kommunikacij/g-obraznye-konstrukcii/",
+                "img" : "assets/images/products/139441/small/85fa1ce71a8ea83d596addd2d4a3247f.jpg"
+                },{
+                "name" : "Сборные тоннели",
+                "link" : "catalog/ustrojstvo-kommunikacij/sbornye-tonneli/",
+                "img" : "assets/images/products/140056/small/10a65543b1868a839aff576e8e542a40.jpg"
+                },{
+                "name" : "Звенья железобетонные",
+                "link" : "catalog/ustrojstvo-kommunikacij/zvenya-zhelezobetonnye/",
+                "img" : "assets/images/products/110416/small/338f4fcd6a6f8979d815eb1139930aab.jpg"
+                },{
+                "name" : "Трубы асбестоцементные",
+                "link" : "catalog/ustrojstvo-kommunikacij/truby-asbestocementnye/",
+                "img" : "assets/images/products/110332/small/8276bd25e4a4c44d23a3ff919d8fdca3.jpg"
+                },{
+                "name" : "Тепловые камеры",
+                "link" : "catalog/ustrojstvo-kommunikacij/teplovye-kamery/",
+                "img" : "assets/images/products/141035/small/424ec5a5814360108790b24857f45b60.jpg"
+                },{
+                "name" : "Сборные каналы",
+                "link" : "catalog/ustrojstvo-kommunikacij/sbornye-kanaly/",
+                "img" : "assets/images/products/139219/small/74fae8f71fd03fc2b492c270695a9bb7.jpg"
+                },{
+                "name" : "Элементы траншей, типовой проект 811-37",
+                "link" : "catalog/ustrojstvo-kommunikacij/ehlementy-transhej-tipovoj-proekt-811-37/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/element.jpg"
+                },{
+                "name" : "Балки инженерных сооружений",
+                "link" : "catalog/ustrojstvo-kommunikacij/balki-inzhenernyh-sooruzhenij/",
+                "img" : "assets/images/products/140211/small/52cec7324c2d3c08f9ec34a83ef366ff.jpg"
+                }
+        ]
+    },
+    {
+        "name" : "ЖБИ для энергетического строительства",
+        "link" : "/catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/",
+        "assort_id"   : "assort-zhbi-dlya-ehnergeticheskogo-stroitelstva",
+        "ico_id"   : "assort-zhbi-dlya-ehnergeticheskogo-stroitelstva",
+        "childs": [
+            {
+            "name" : "Опоры ЛЭП",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/opory-lehp/",
+            "img" : "assets/images/products/147726/small/295849c852ca75970f070b8f30e83c26.jpg"
+            },{
+            "name" : "Фундамент под опоры",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/fundament-pod-opory/",
+            "img" : "assets/images/products/134220/small/9fd354015b2ede870c798a4471c5fbed.jpg"
+            },{
+            "name" : "Элементы подстанций",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/ehlementy-podstancij/",
+            "img" : "assets/images/products/134967/small/013be8f3b0c9a55dd947e5e9b0a11f50.jpg"
+            },{
+            "name" : "Ригель для опор",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/rigel-dlya-opor/",
+            "img" : "assets/images/products/134806/small/137b7848a1abd05877a626dde43f4bf7.jpg"
+            },{
+            "name" : "Опорно-анкерные плиты",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/oporno-ankernye-plity/",
+            "img" : "assets/images/products/134399/small/ce42db035344f92e34a8bc33737ac463.jpg"
+            },{
+            "name" : "Энергетические сваи",
+            "link" : "catalog/zhbi-dlya-ehnergeticheskogo-stroitelstva/ehnergeticheskie-svai/",
+            "img" : "assets/images/products/134616/small/a14dd427939c49b6873b3609700909ef.jpg"
+            }
+        ]
+    },
+    {
+        "name" : "Строительство мостов",
+        "link" : "/catalog/stroitelstvo-mostov/",
+        "assort_id"   : "assort-stroitelstvo-mostov",
+        "ico_id"   : "assort-stroitelstvo-mostov",
+        "childs": [
+            {
+            "name" : "Переходные плиты ПК",
+            "link" : "catalog/stroitelstvo-mostov/perekhodnye-plity-pk/",
+            "img" : "assets/images/products/147603/small/a2d94a236364f30f2bbdcae797dea7bc.jpg"
+            },{
+            "name" : "Лежни",
+            "link" : "catalog/stroitelstvo-mostov/lezhni/",
+            "img" : "assets/images/products/148588/small/ab8af66d2d155ffb5fcc068e9b97a26a.jpg"
+            },{
+            "name" : "Железобетонные своды",
+            "link" : "catalog/stroitelstvo-mostov/zhelezobetonnye-svody/",
+            "img" : "_import/files/img-metallstroy-21-02-2024/gbi-svody.jpg"
+            },{
+            "name" : "Контурные блоки",
+            "link" : "catalog/stroitelstvo-mostov/konturnye-bloki/",
+            "img" : "assets/images/products/148825/small/8116269e83b5a476004eae56cd85d18c.jpg"
+            },{
+            "name" : "Балки мостов",
+            "link" : "catalog/stroitelstvo-mostov/balki-mostov/",
+            "img" : "assets/images/products/151001/small/f260770c23321711b397e46768e8aa52.jpg"
+            },{
+            "name" : "Сваи мостовые",
+            "link" : "catalog/stroitelstvo-mostov/svai-mostovye/",
+            "img" : "assets/images/products/151004/small/468275fc4450c548d4c85b087f0f694d.jpg"
+            },{
+            "name" : "Блоки насадок",
+            "link" : "catalog/stroitelstvo-mostov/bloki-nasadok/",
+            "img" : "assets/images/products/151043/small/e6cf82ba4e556aa2936e9ff35d2cb76b.jpg"
+            },{
+            "name" : "Шкафные стенки",
+            "link" : "catalog/stroitelstvo-mostov/shkafnye-stenki/",
+            "img" : "assets/images/products/148503/small/c9dbe66d82152afd6284ee0d15a0edfa.jpg"
+            },{
+            "name" : "Блоки подферменника",
+            "link" : "catalog/stroitelstvo-mostov/bloki-podfermennika/",
+            "img" : "assets/images/products/149583/small/6dd808dddefed09032381e75b9422473.jpg"
+            },{
+            "name" : "Короба удлинения устоев",
+            "link" : "catalog/stroitelstvo-mostov/koroba-udlineniya-ustoev/",
+            "img" : "_import/files/img-metallstroy-21-02-2024/korob-ystoev.jpg"
+            },{
+            "name" : "Плиты фундаментные для мостов",
+            "link" : "catalog/stroitelstvo-mostov/plity-fundamentnye-dlya-mostov/",
+            "img" : "assets/images/products/151031/small/a8922cc53450fac8b8226636a886da9d.jpg"
+            },{
+            "name" : "Подпорные стенки серия 3.002.1-1",
+            "link" : "catalog/stroitelstvo-mostov/podpornye-stenki-seriya-3-002-1-1/",
+            "img" : "assets/images/products/151091/small/c3620926563ff6d43f4dc506c04fe4e4.jpg"
+            },{
+            "name" : "Блок тротуарный",
+            "link" : "catalog/stroitelstvo-mostov/blok-trotuarnyj/",
+            "img" : "assets/images/products/148110/small/753f25ab774f7a660844935f1b0720a4.jpg"
+            },{
+            "name" : "Блок ограждающий",
+            "link" : "catalog/stroitelstvo-mostov/blok-ograzhdayushchij/",
+            "img" : "assets/images/products/148065/small/05e53adff026a5853d15106fb6bc242a.jpg"
+            },{
+            "name" : "Блок разделительной полосы",
+            "link" : "catalog/stroitelstvo-mostov/blok-razdelitelnoj-polosy/",
+            "img" : "assets/images/products/151106/small/b8fcbce3aea5dbbc3c317829c5de1ed1.jpg"
+            },{
+            "name" : "Блок карнизный",
+            "link" : "catalog/stroitelstvo-mostov/blok-karniznyj/",
+            "img" : "assets/images/products/148080/small/b086bd134cdc34d385b9848aede77826.jpg"
+            },{
+            "name" : "Блок бордюрный",
+            "link" : "catalog/stroitelstvo-mostov/blok-bordyurnyj/",
+            "img" : "assets/images/products/142628/small/ca8e22286301d0b9ee6011baba7b3db0.jpg"
+            },{
+            "name" : "Плиты пролетного строения",
+            "link" : "catalog/stroitelstvo-mostov/plity-proletnogo-stroeniya/",
+            "img" : "assets/images/products/147657/small/48714bfdb5094339d866f172131113e2.jpg"
+            },{
+            "name" : "Подпорные стенки серия 3.002.1-2",
+            "link" : "catalog/stroitelstvo-mostov/podpornyie-stenki-3-002-1-2/",
+            "img" : "_import/files/img-metallstroy-21-02-2024/podpornye-stenki.jpg"
+            }
+        ]
+    },
+    {
+        "name" : "Железнодорожное строительство",
+        "link" : "/catalog/zheleznodorozhnoe-stroitelstvo/",
+        "assort_id"   : "assort-zheleznodorozhnoe-stroitelstvo",
+        "ico_id"   : "assort-zheleznodorozhnoe-stroitelstvo",
+        "childs": [
+            {
+            "name" : "Дренажные лотки",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/drenazhnye-lotki/",
+            "img" : "assets/images/products/147715/small/b781853e74c3da2cf3efa1f11ae6e694.jpg"
+            },{
+            "name" : "Шпалы железобетонные",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/shpaly-zhelezobetonnye/",
+            "img" : "assets/images/products/147942/small/9f2e9fd87aca17919b11ac4734f700ed.jpg"
+            },{
+            "name" : "Балки прижимные",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/balki-prizhimnye/",
+            "img" : "assets/images/products/147723/small/20abc51a39fc436eb906bdd5c6f86638.jpg"
+            },{
+            "name" : "Шпалы деревянные",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/shpaly-derevyannye/",
+            "img" : "_import/files/img-metallstroy-21-02-2024/shpala.jpg"
+            },{
+            "name" : "Плита переезда",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/plita-pereezda/",
+            "img" : "_import/files/img-metallstroy-21-02-2024/pereezda.jpg"
+            },{
+            "name" : "Плита трамвайная",
+            "link" : "catalog/zheleznodorozhnoe-stroitelstvo/plita-tramvajnaya/",
+            "img" : "assets/images/products/147664/small/a210423f4e3dcb733558a92a3144fd9b.jpg"
+            }
+        ]
+    },
+    {
+        "name" : "Элементы благоустройства",
+        "link" : "/catalog/blagoustrojstvo/",
+        "assort_id"   : "assort-blagoustrojstvo",
+        "ico_id"   : "assort-blagoustrojstvo",
+        "childs": [
+            {
+                "name" : "Вазоны и цветочницы",
+                "link" : "catalog/blagoustrojstvo/vazony-i-cvetochnicy/",
+                "img" : "assets/images/products/109068/1983c1d119e44c43d4bd24ab65ac4c33.jpg"
+                },{
+                "name" : "Водостоки",
+                "link" : "catalog/blagoustrojstvo/vodostoki/",
+                "img" : "assets/images/6474878976869798479487.jpg"
+                },{
+                "name" : "Тротуарные плитки",
+                "link" : "catalog/blagoustrojstvo/trotuarnye-plitki/",
+                "img" : "assets/images/products/109094/fb2bdf75d5fc28288bef83e9e10da72d.jpg"
+                },{
+                "name" : "Скамейки",
+                "link" : "catalog/blagoustrojstvo/skamejki/",
+                "img" : "assets/images/products/109105/small/0f01d8f34fe719a02c430f96c42b8dd1.jpg"
+                },{
+                "name" : "Бордюры",
+                "link" : "catalog/blagoustrojstvo/bordyury/",
+                "img" : "assets/images/products/109132/small/56ebcf9348a350a8b09247fda80e083e.jpg"
+                },{
+                "name" : "Тротуарные плиты",
+                "link" : "catalog/blagoustrojstvo/trotuarnye-plity/",
+                "img" : "assets/images/products/148854/small/8bad113a29762740b9967fd075a1dc81.jpg"
+                },{
+                "name" : "Плитка вибропрессованная",
+                "link" : "catalog/blagoustrojstvo/plitka-vibropressovannaya/",
+                "img" : "assets/images/products/149140/small/8bad113a29762740b9967fd075a1dc81.jpg"
+                },{
+                "name" : "Плитка литая",
+                "link" : "catalog/blagoustrojstvo/plitka-litaya/",
+                "img" : "_import/files/img-metallstroy-21-02-2024/plitka-litaya.jpg"
+                }
+        ]
+    },
+    {
+        "name" : "ЖБИ Б/У",
+        "link" : "/catalog/zhbi-bu/",
+        "assort_id"   : "zhbi-bu",
+        "ico_id"   : "assort-zhilishchnoe-stroitelstvo",
+        "childs": [
+                {
+                "name" : "Дорожные плиты б/у",
+                "link" : "catalog/zhbi-bu/dorozhnye-plity-b-u/",
+                "img" : "assets/images/products/143399/768c7d833297231803b28de05074c3de.jpg"
+                },{
+                "name" : "Плиты перекрытия Б/У",
+                "link" : "catalog/zhbi-bu/plityi-perekryitiya-bu/",
+                "img" : "assets/images/products/109793/small/17490f223e638bd79b7718ddc8601011.jpg"
+                },{
+                "name" : "Фундаментные блоки Б/У",
+                "link" : "catalog/zhbi-bu/fundamentnyie-bloki-bu/",
+                "img" : "assets/images/products/110371/small/1b34cc54283646c5609f2a83c3d1984e.jpg"
+                }
+        ]
+    }
+]
