@@ -60,6 +60,8 @@ if ($resource_id) {
     $where['resource_id'] = $resource_id;
 }
 
+$where['context'] = $modx->resource->context_key;
+
 $query = $modx->newQuery('mltReview');
 if ($limit) {
     $query->limit($limit);

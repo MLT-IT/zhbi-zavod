@@ -147,7 +147,55 @@
                 +until-768
                     margin-right: 4px
 
+.product-subbody //zbi500
+    &__left
+        position: relative
+        .title
+            position: absolute
+            top: 0
+            width: 100%
+            text-align: center
+            font-weight: 600
+            font-size: 23px
+            margin-top: -30px
+    .certs-wrapper
+        width: 100%
+        height: 100%
+        overflow-x: auto
+        background-color: var(--color-white)
+        border-radius: var(--border-radius-base)
+    .certs-block
+        display: flex
+        margin-inline: auto
+        flex-wrap: nowrap
+        padding: 1em
+        gap: 1em
+        margin: 0px
+        margin-right: 1em
 
+
+    &__item
+        margin: 0 0 0 0
+
+    &__cert-preview
+        box-sizing: border-box
+        position: relative
+        border-radius: 6px
+        border: 1px solid #D3553C
+        overflow: hidden
+        &::after
+            content: ""
+            position: absolute
+            inset: 0
+            background: url('/assets/template/img/icons/magnifier.svg') no-repeat
+            background-color: #D3553C54
+            background-position: center
+            opacity: 0
+            transition: all .2s
+        &:hover
+            &::after
+                opacity: 1
+                
 .product-info
     padding: 30px 40px 50px
     background-color: var(--color-white)
