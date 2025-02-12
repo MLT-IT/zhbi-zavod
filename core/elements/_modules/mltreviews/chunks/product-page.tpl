@@ -1,7 +1,8 @@
+{set $otzyvyPageId = '@FILE snippets/getIdByAlias.php' | snippet : ['alias' => 'otzyvy']}
 <div class="mlt-reviews prod-review">
   <div class="prod-review__head">
     <div>
-      <a class="link" href="{$_modx->makeUrl(230737)}" target="_blank">Посмотреть все отзывы</a>
+      <a class="link" href="{$_modx->makeUrl($otzyvyPageId) ?: '#'}">Посмотреть все отзывы</a>
     </div>
     <button class="mlt-reviews__open-form btn btn_style_base" data-fancybox data-src="#mlt-reviews-form">Оставить отзыв</button>
   </div>
