@@ -29,7 +29,11 @@
   {case 'profnastil'}
     {set $a1 = 'Официальные дилеры Grand Line и Металл-Профиль'}
     {set $a4 = ' Держим на складе более 15000 м2'}
-  
+  {case 'gbi-zavod78'}
+    {set $a1 = 'Мы владеем 7 заводами, специализирующимися на производстве ЖБИ'}
+    {set $a2 = 'Строгий контроль качества каждого изделия'}
+    {set $a3 = 'Собственный автопарк состоящий из 50 грузовых автомобилей и самосвалов'}
+    {set $a4 = 'Осуществляем отгрузку изделий 24/7'}
 
   {case 'gibkaya-cherepiza'}
     {set $a1 = 'Официальные дилеры более 6 брендов'}
@@ -49,25 +53,37 @@
   </div>
   <div class="advantages__item advantage">
     <div class="advantage__icon">
-    {if $_modx->resource.context_key == 'fibrofasad'}
-      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.svg">
-    {else}
-      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png">
-    {/if}
+    {switch $_modx->resource.context_key}
+      {case 'fibrofasad'}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-5.svg">
+      {case 'gbi-zavod78'}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-3.png">
+      {case default}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-2.png">
+    {/switch}
     </div>
     <p class="advantage__text">{$a2}</p>
   </div>
   <div class="advantages__item advantage">
-    <div class="advantage__icon"><img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-3.png"></div>
+    <div class="advantage__icon">
+    {switch $_modx->resource.context_key}
+      {case 'gbi-zavod78'}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-9.png"></div>
+      {case default}
+      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-3.png"></div>
+    {/switch}
     <p class="advantage__text">{$a3}</p>
   </div>
   <div class="advantages__item advantage">
     <div class="advantage__icon">
-    {if $_modx->resource.context_key == 'fibrofasad'}
-      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.svg">
-    {else}
-      <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png">
-    {/if}
+    {switch $_modx->resource.context_key}
+      {case 'fibrofasad'}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-6.svg">
+      {case 'gbi-zavod78'}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-10.png">
+      {case default}
+        <img class="advantage__icon-image" src="assets/template/pictures/advantages/advantage-4.png">
+    {/switch}
     </div>
     <p class="advantage__text">{$a4}</p>
   </div>

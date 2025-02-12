@@ -49,6 +49,8 @@
         {set $micro_title = $micro_title ~ 'сухих смесей'}
       {case 'krovelnyjstroymarket'}
         {set $micro_title = $micro_title ~ 'кровельных материалов'}
+      {case 'gbi-zavod78'}
+        {set $micro_title = $micro_title ~ 'ЖБИ'}
     {/switch}
 
     {set $micro_title = $micro_title ~ ' по Санкт-Петербургу и Ленинградской области от официального дилера'}

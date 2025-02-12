@@ -100,6 +100,20 @@
         {set $colorText3 = "#fff"}
         {set $linkBaner3 = ''}
         {set $buttonLinkBaner3 = ""}
+  {case 'gbi-zavod78'}
+        {set $imageBaner2 = "assets/template/pictures/promo/zhbi500/promo-mob.png"}
+        {set $imageBanerMobile2 = "assets/template/pictures/promo/zhbi500/promo-mob.png"}
+        {set $imageBaner3 = "assets/template/pictures/promo/zhbi500/ptomo-2-mob.jpg"}
+        {set $imageBanerMobile3 = "assets/template/pictures/promo/zhbi500/ptomo-2-mob.jpg"}
+
+        {set $titleBaner1 = "Скидка 20% на доставку манипулятором"}
+        {set $textBaner1 = "Скидка 20% на доставку ЖБИ манипулятором при заказе от 60 м3"}
+
+        {set $titleBaner2 = "Плита дорожная 2П 30-18-30 ГОСТ 8 800 руб/шт"}
+        {set $textBaner2 = "Самые низкие цены на ЖБИ"}
+
+        {set $titleBaner3 = "Железобетонный Лоток ЛК 300.60.60 3760 руб/шт"}
+        {set $textBaner3 = "Доставка уже завтра"}
     {/switch}
     <div class="promo__items">
       <div class="promo__item promo-block promo-block_view_big promo-block_style_white">
