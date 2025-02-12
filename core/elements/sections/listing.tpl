@@ -110,6 +110,8 @@
             {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
           {case 'tagnerud'}
             {set $text = 'Закажите керамзит сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
+          {case 'gbi-zavod78'}
+            {set $text = 'Закажите дорожные плиты сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку'}
           {case 'kirpich-m5'}
             {set $text = 'Закажите кирпич сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
             {set $img = 'assets/template/pictures/catalog/'~$_modx->resource.context_key~'/delivery.jpg'}

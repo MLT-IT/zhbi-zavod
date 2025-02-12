@@ -20,7 +20,7 @@
                 <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
             {/if} *}
               <div class="product-info__rating rating mb-2 pc-flex">
-                <a href="/otzyvy/" class="yandex-rating"><img src="/assets/images/zbi500/yandex-badge.png" alt=""></a>
+                <a href="/otzyvy/" class="yandex-rating"><img src="/assets/images/zhbi500/yandex-badge.png" alt=""></a>
               </div>
 
               <div class="product-info__rating rating mb-2">

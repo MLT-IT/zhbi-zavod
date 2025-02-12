@@ -27,7 +27,7 @@
         {case 'kirpich-m5'}
           {set $text = 'кирпича'}
         {case 'gbi-zavod78'}
-          {set $text = 'ЖБИ'}
+          {set $text = 'железобетонных изделий'}
         {case default}
           {set $text = 'строительных материалов'}
       {/switch}
@@ -45,7 +45,7 @@
                 {set $resources = $_modx->config['popular_ids']}
             {/if}
 
-            {if $_modx->context.key in list ['trotuarnaya-plitka', 'web']}
+            {if $_modx->context.key in list ['trotuarnaya-plitka', 'web', 'gbi-zavod78']}
               {'@FILE snippets/getCategoriesWithMinPriceStatic.php' | snippet}
             {else}
               {'@FILE snippets/getCategoriesWithMinPrice.php' | snippet}

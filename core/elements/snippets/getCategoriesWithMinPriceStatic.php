@@ -83,6 +83,22 @@ switch ($modx->context->key) {
             175241 => ["minprice" => "1200", "custom_unit" => "Стоимость за уп."],
         ];
         break;
+    case 'gbi-zavod78':
+        $items = [
+            256065 => ["minprice" =>  "6000", "custom_unit" =>  "Стоимость за шт."],
+            256066 => ["minprice" =>  "15000", "custom_unit" =>  "Стоимость за шт."],
+            256237 => ["minprice" =>  "3200", "custom_unit" =>  "Стоимость за шт."],
+            256238 => ["minprice" =>  "3400", "custom_unit" =>  "Стоимость за шт."],
+            255998 => ["minprice" =>  "1200", "custom_unit" =>  "Стоимость за шт."],
+            255999 => ["minprice" =>  "18000", "custom_unit" =>  "Стоимость за шт."],
+            256002 => ["minprice" =>  "1020", "custom_unit" =>  "Стоимость за шт."],
+            256003 => ["minprice" =>  "2200", "custom_unit" =>  "Стоимость за шт."],
+            256005 => ["minprice" =>  "1010", "custom_unit" =>  "Стоимость за шт."],
+            255876 => ["minprice" =>  "9900", "custom_unit" =>  "Стоимость за шт."],
+            255842 => ["minprice" =>  "200", "custom_unit" =>  "Стоимость за шт."],
+            255840 => ["minprice" =>  "350", "custom_unit" =>  "Стоимость за шт."],
+        ];
+        break;
     default:
         return;
 }

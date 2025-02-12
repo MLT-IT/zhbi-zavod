@@ -124,6 +124,7 @@
               {set $text = 'кирпича'}
             {case 'gbi-zavod78'}
               {set $text = 'ЖБИ'}
+              {set $afterText = "в Санкт-Петербурге и Ленинградской области"}
             {case default}
               {set $text = 'строительных товаров'}
 

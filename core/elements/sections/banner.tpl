@@ -55,7 +55,7 @@
                 {set $btn = 'Перейти'}
                 {set $link = '/oblicovochnye/'}
               {case 'gbi-zavod78'}
-                {set $text = 'Закажите ЖБИ сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку манипулятором'}
+                {set $text = 'Закажите дорожные плиты сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку.'}
             {/switch}
             {$text}
           </div>
