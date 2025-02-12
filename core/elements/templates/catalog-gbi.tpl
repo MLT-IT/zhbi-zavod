@@ -29,7 +29,7 @@
     </section>
 
     {set $catalog = '@FILE _modules/catalog/snippets/catalogFromDatabase.php' | snippet : ['parent_id' => $_modx->resource.id]}
-    {if $_modx->resource.mainCategory}
+    {if $_modx->resource.alias == 'catalog'}
       {include 'file:_modules/catalog/v1/catalog_v1.tpl'}
     {else}
       {include 'file:_modules/catalog/v1/category_v1.tpl'}
