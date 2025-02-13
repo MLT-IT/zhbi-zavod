@@ -154,7 +154,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/tn/?item_thickness=50"
+                            "url": "/tn/uteplitel-texnonikol-50-mm/"
                         },
                         {
                             "name": "60",
@@ -170,7 +170,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/tn/?item_thickness=100"
+                            "url": "/tn/uteplitel-texnonikol-100-mm/"
                         },
                         {
                             "name": "120",
@@ -187,35 +187,47 @@
                     "items": [
                         {
                             "name": "Для стен",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-sten/"
-                        },
-                        {
-                            "name": "Для бани",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-bani/"
+                            "url": "/tn/uteplitel-tn-dlya-sten/"
                         },
                         {
                             "name": "Для пола",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-pola/"
-                        },
-                        {
-                            "name": "Для кровли",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-krovli/"
+                            "url": "/tn/uteplitel-tn-dlya-pola/"
                         },
                         {
                             "name": "Для фасада",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-fasada/"
+                            "url": "/tn/uteplitel-tn-dlya-fasada/"
                         },
                         {
-                            "name": "Для фундамента/цоколя",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-fundamenta/"
+                            "name": "Для кровли",
+                            "url": "/tn/uteplitel-tn-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/tn/uteplitel-tn-dlya-bani/"
+                        },
+                        {
+                            "name": "Для балкона",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
                         },
                         {
                             "name": "Для труб",
-                            "url": "/tn/uteplitel-tekhnonikol-dlya-trub/"
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для фундамента",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                        },
+                        {
+                            "name": "Для дверей",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
                         },
                         {
                             "name": "Для перегородок",
@@ -226,32 +238,8 @@
                             "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для окон",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BE%D0%BA%D0%BE%D0%BD"
-                        },
-                        {
-                            "name": "Под штукатурку",
-                            "url": "/tn/?primenenie=%D0%9F%D0%BE%D0%B4%20%D1%88%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BA%D1%83"
-                        },
-                        {
-                            "name": "Для балкона/лоджии",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
-                        },
-                        {
-                            "name": "Для потолка",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для вентиляции",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
-                        },
-                        {
-                            "name": "Для ванной комнаты",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D1%8B"
-                        },
-                        {
-                            "name": "Для дверей и ворот",
-                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9%20%D0%B8%20%D0%B2%D0%BE%D1%80%D0%BE%D1%82"
+                            "name": "Для цоколя",
+                            "url": "/tn/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -419,7 +407,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/rockwool/?item_thickness=50"
+                            "url": "/rockwool/uteplitel-rokvul-50-mm/"
                         },
                         {
                             "name": "60",
@@ -435,7 +423,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/rockwool/?item_thickness=100"
+                            "url": "/rockwool/uteplitel-rockwool-100-mm/"
                         },
                         {
                             "name": "120",
@@ -451,68 +439,60 @@
                     "name": "Применение",
                     "items": [
                         {
-                            "name": "Шумоизоляция ",
-                            "url": "/rockwool/shumoizolyaciya-rokvul/"
-                        },
-                        {
                             "name": "Для стен",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-sten/"
-                        },
-                        {
-                            "name": "Для каркасных конструкций",
-                            "url": "/rockwool/rokvul-dlya-karkasnyh-konstrukcij/"
-                        },
-                        {
-                            "name": "Для фасада",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-krovli/"
-                        },
-                        {
-                            "name": "Для кровли",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-krovli/"
+                            "url": "/rockwool/uteplitel-rockwool-dlya-sten/"
                         },
                         {
                             "name": "Для пола",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-pola/"
+                            "url": "/rockwool/uteplitel-rockwool-dlya-pola/"
                         },
                         {
-                            "name": "Для бань и саун",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-ban/"
+                            "name": "Для фасада",
+                            "url": "/rockwool/uteplitel-rockwool-dlya-fasada/"
                         },
                         {
-                            "name": "Под штукатурку",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-fasada-pod-shtukaturku/"
+                            "name": "Для кровли",
+                            "url": "/rockwool/uteplitel-rockwool-dlya-krovli/"
+                        },
+                        {
+                            "name": "Для бани",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
+                        },
+                        {
+                            "name": "Для балкона",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
                         },
                         {
                             "name": "Для труб",
-                            "url": "/rockwool/uteplitel-rokvul-dlya-trub/"
+                            "url": "/rockwool/uteplitel-rockwool-dlya-trub/"
                         },
                         {
-                            "name": "Для перегородок",
-                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                            "name": "Для фундамента",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         },
                         {
                             "name": "Для потолка",
                             "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
+                            "name": "Для перегородок",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
+                        },
+                        {
                             "name": "Для перекрытий",
                             "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для печи",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8"
                         },
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
-                        },
-                        {
-                            "name": "Для печи/камина",
-                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
-                        },
-                        {
-                            "name": "Для вентиляции",
-                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                            "name": "Для цоколя",
+                            "url": "/rockwool/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -584,7 +564,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/knauf/?item_thickness=50"
+                            "url": "/knauf/uteplitel-knauf-50-mm/"
                         },
                         {
                             "name": "60",
@@ -600,7 +580,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/knauf/?item_thickness=100"
+                            "url": "/knauf/uteplitel-knauf-100-mm/"
                         },
                         {
                             "name": "120",
@@ -616,40 +596,44 @@
                     "name": "Применение",
                     "items": [
                         {
-                            "name": "Звукоизоляция Кнауф",
-                            "url": "/knauf/zvukoizolyaciya-knauf/"
-                        },
-                        {
-                            "name": "Для кровли",
-                            "url": "/knauf/zvukoizolyaciya-knauf/"
+                            "name": "Для стен",
+                            "url": "/knauf/uteplitel-knauf-dlya-sten/"
                         },
                         {
                             "name": "Для пола",
                             "url": "/knauf/uteplitel-knauf-dlya-pola/"
                         },
                         {
-                            "name": "Для стен",
-                            "url": "/knauf/uteplitel-knauf-dlya-sten/"
-                        },
-                        {
                             "name": "Для фасада",
                             "url": "/knauf/uteplitel-knauf-dlya-fasada/"
                         },
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                            "name": "Для кровли",
+                            "url": "/knauf/uteplitel-knauf-dlya-krovli/"
                         },
                         {
                             "name": "Для бани",
                             "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
                         },
                         {
+                            "name": "Для балкона",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
                             "name": "Для вентиляции",
                             "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для потолка",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
                             "name": "Для перегородок",
@@ -660,24 +644,8 @@
                             "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для печи/камина",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
-                        },
-                        {
-                            "name": "Для потолка",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для труб",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
-                        },
-                        {
-                            "name": "Для фундамента/цоколя",
-                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
-                        },
-                        {
-                            "name": "Под штукатурку",
-                            "url": "/knauf/?primenenie=%D0%9F%D0%BE%D0%B4%20%D1%88%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BA%D1%83"
+                            "name": "Для цоколя",
+                            "url": "/knauf/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -776,7 +744,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/tn/?item_thickness=50"
+                            "url": "/penoplex/uteplitel-penoplex-50-mm/"
                         },
                         {
                             "name": "60",
@@ -792,7 +760,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/tn/?item_thickness=100"
+                            "url": "/penoplex/uteplitel-penoplex-100-mm/"
                         },
                         {
                             "name": "120",
@@ -809,35 +777,35 @@
                     "items": [
                         {
                             "name": "Для стен",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-sten/"
+                            "url": "/penoplex/uteplitel-penoplex-dlya-sten/"
                         },
                         {
                             "name": "Для пола",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-pola/"
+                            "url": "/penoplex/uteplitel-penoplex-dlya-pola/"
                         },
                         {
                             "name": "Для фасада",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-fasada/"
-                        },
-                        {
-                            "name": "Для фундамента и цоколя",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-fundamenta-i-cokolya/"
-                        },
-                        {
-                            "name": "Для балкона/лоджии",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-balkona/"
-                        },
-                        {
-                            "name": "Для бани",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-bani/"
-                        },
-                        {
-                            "name": "Для вентиляции",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-ventilyacii/"
+                            "url": "/penoplex/?produktovaya-lineyka=%D0%A4%D0%B0%D1%81%D0%B0%D0%B4"
                         },
                         {
                             "name": "Для кровли",
-                            "url": "/penoplex/uteplitel-penopleks-dlya-krovli/"
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Для балкона",
+                            "url": "/penoplex/uteplitel-penoplex-dlya-balkona/"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         },
                         {
                             "name": "Для потолка",
@@ -845,11 +813,11 @@
                         },
                         {
                             "name": "Для перегородок",
-                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
                         },
                         {
-                            "name": "Для труб",
-                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                            "name": "Для цоколя",
+                            "url": "/penoplex/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -1025,7 +993,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/isover/?item_thickness=50"
+                            "url": "/isover/uteplitel-isover-50-mm/"
                         },
                         {
                             "name": "60",
@@ -1037,7 +1005,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/isover/?item_thickness=100"
+                            "url": "/isover/uteplitel-isover-100-mm/"
                         },
                         {
                             "name": "120",
@@ -1053,28 +1021,44 @@
                     "name": "Применение",
                     "items": [
                         {
-                            "name": " Для стен",
+                            "name": "Для стен",
                             "url": "/isover/uteplitel-isover-dlya-sten/"
                         },
                         {
-                            "name": " Для кровли",
-                            "url": "/isover/uteplitel-isover-dlya-krovli/"
-                        },
-                        {
-                            "name": " Для пола",
+                            "name": "Для пола",
                             "url": "/isover/uteplitel-isover-dlya-pola/"
                         },
                         {
-                            "name": " Для бани",
+                            "name": "Для фасада",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                        },
+                        {
+                            "name": "Для бани",
                             "url": "/isover/uteplitel-isover-dlya-bani/"
                         },
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                            "name": "Для балкона",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для труб",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
                             "name": "Для перегородок",
@@ -1085,20 +1069,8 @@
                             "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для потолка",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для труб",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
-                        },
-                        {
-                            "name": "Для фасада",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
-                        },
-                        {
-                            "name": "Для фундамента/цоколя",
-                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                            "name": "Для цоколя",
+                            "url": "/isover/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -1158,7 +1130,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/ursa/?item_thickness=50"
+                            "url": "/ursa/uteplitel-ursa-50-mm/"
                         },
                         {
                             "name": "60",
@@ -1166,7 +1138,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/ursa/?item_thickness=100"
+                            "url": "/ursa/uteplitel-ursa-100-mm/"
                         },
                         {
                             "name": "150",
@@ -1182,24 +1154,40 @@
                             "url": "/ursa/uteplitel-ursa-dlya-sten/"
                         },
                         {
-                            "name": "Для кровли",
-                            "url": "/ursa/uteplitel-ursa-dlya-krovli/"
+                            "name": "Для пола",
+                            "url": "/ursa/uteplitel-ursa-dlya-pola/"
                         },
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                            "name": "Для фасада",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                        },
+                        {
+                            "name": "Для кровли",
+                            "url": "/ursa/uteplitel-ursa-dlya-krovli/"
                         },
                         {
                             "name": "Для бани",
                             "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
                         },
                         {
+                            "name": "Для балкона",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
                             "name": "Для вентиляции",
                             "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         },
                         {
-                            "name": "Для кровли",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                            "name": "Для потолка",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
                             "name": "Для перегородок",
@@ -1210,28 +1198,8 @@
                             "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для пола",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
-                        },
-                        {
-                            "name": "Для потолка",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для стен",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
-                        },
-                        {
-                            "name": "Для труб",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
-                        },
-                        {
-                            "name": "Для фасада",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
-                        },
-                        {
-                            "name": "Для фундамента/цоколя",
-                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                            "name": "Для цоколя",
+                            "url": "/ursa/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -1367,20 +1335,36 @@
                     "name": "Применение",
                     "items": [
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                            "name": "Для стен",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
                         },
                         {
-                            "name": "Для вентиляции",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                            "name": "Для пола",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
                         },
                         {
                             "name": "Для кровли",
                             "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для балкона",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
                             "name": "Для перегородок",
@@ -1391,43 +1375,15 @@
                             "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для печи/камина",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8/%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%D0%B0"
-                        },
-                        {
-                            "name": "Для пола",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
-                        },
-                        {
-                            "name": "Для потолка",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для сайдинга",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D0%B0%D0%B9%D0%B4%D0%B8%D0%BD%D0%B3%D0%B0"
-                        },
-                        {
-                            "name": "Для стен",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
-                        },
-                        {
-                            "name": "Для труб",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
-                        },
-                        {
-                            "name": "Для фасада",
-                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
-                        },
-                        {
-                            "name": "Крыши",
-                            "url": "/isoroc/?primenenie=%D0%9A%D1%80%D1%8B%D1%88%D0%B8"
+                            "name": "Для печи",
+                            "url": "/isoroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8"
                         }
                     ]
                 }
             ],
             "header": {
                 "name": "Смотреть все товары Isoroc",
-                "url": "/ursa/"
+                "url": "/isoroc/"
             }
         },
         {
@@ -1588,7 +1544,7 @@
                         },
                         {
                             "name": "50",
-                            "url": "/paroc/?item_thickness=50"
+                            "url": "/paroc/uteplitel-paroc-50-mm/"
                         },
                         {
                             "name": "60",
@@ -1604,7 +1560,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/paroc/?item_thickness=100"
+                            "url": "/paroc/uteplitel-paroc-100-mm/"
                         },
                         {
                             "name": "120",
@@ -1620,16 +1576,44 @@
                     "name": "Применение",
                     "items": [
                         {
-                            "name": "Для балкона/лоджии",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0/%D0%BB%D0%BE%D0%B4%D0%B6%D0%B8%D0%B8"
+                            "name": "Для стен",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                        },
+                        {
+                            "name": "Для пола",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                        },
+                        {
+                            "name": "Для фасада",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
                         },
                         {
                             "name": "Для кровли",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
                         },
                         {
-                            "name": "Для мансарды",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для бани",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BD%D0%B8"
+                        },
+                        {
+                            "name": "Для балкона",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
+                        },
+                        {
+                            "name": "Для фундамента",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
+                        },
+                        {
+                            "name": "Для вентиляции",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для потолка",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
                             "name": "Для перегородок",
@@ -1640,24 +1624,12 @@
                             "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Для пола",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
+                            "name": "Для печи",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8"
                         },
                         {
-                            "name": "Для потолка",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
-                        },
-                        {
-                            "name": "Для стен",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
-                        },
-                        {
-                            "name": "Для фасада",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
-                        },
-                        {
-                            "name": "Для фундамента/цоколя",
-                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0/%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
+                            "name": "Для цоколя",
+                            "url": "/paroc/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%86%D0%BE%D0%BA%D0%BE%D0%BB%D1%8F"
                         }
                     ]
                 }
@@ -1756,25 +1728,32 @@
                     "name": "Толщина ",
                     "items": [
                         {
-                            "name": "40"
+                            "name": "40",
+                            "url": "/uteplitel-hotrock/?item_thickness=40"
                         },
                         {
-                            "name": "50"
+                            "name": "50",
+                            "url": "/uteplitel-hotrock/?item_thickness=50"
                         },
                         {
-                            "name": "60"
+                            "name": "60",
+                            "url": "/uteplitel-hotrock/?item_thickness=60"
                         },
                         {
-                            "name": "80"
+                            "name": "80",
+                            "url": "/uteplitel-hotrock/?item_thickness=80"
                         },
                         {
-                            "name": "100"
+                            "name": "100",
+                            "url": "/uteplitel-hotrock/?item_thickness=100"
                         },
                         {
-                            "name": "120"
+                            "name": "120",
+                            "url": "/uteplitel-hotrock/?item_thickness=120"
                         },
                         {
-                            "name": "200"
+                            "name": "200",
+                            "url": "/uteplitel-hotrock/?item_thickness=200"
                         }
                     ]
                 }
@@ -1842,7 +1821,7 @@
                         },
                         {
                             "name": "100",
-                            "url": "/uteplitel-izomin/?item_thickness=100"
+                            "url": "/uteplitel-izomin/uteplitel-izomin-100-mm/"
                         }
                     ]
                 }
@@ -1980,166 +1959,101 @@
                 {
                     "name": "Толщина ",
                     "items": [
-                        {
-                            "name": "20",
-                            "url": "/yumateks-termo/?item_thickness=20"
-                        },
-                        {
-                            "name": "25",
-                            "url": "/yumateks-termo/?item_thickness=25"
-                        },
-                        {
-                            "name": "30",
-                            "url": "/yumateks-termo/?item_thickness=30"
-                        },
-                        {
-                            "name": "40",
-                            "url": "/yumateks-termo/?item_thickness=40"
-                        },
-                        {
-                            "name": "50",
-                            "url": "/yumateks-termo/?item_thickness=50"
-                        },
-                        {
-                            "name": "60",
-                            "url": "/yumateks-termo/?item_thickness=60"
-                        },
-                        {
-                            "name": "70",
-                            "url": "/yumateks-termo/?item_thickness=70"
-                        },
-                        {
-                            "name": "75",
-                            "url": "/yumateks-termo/?item_thickness=75"
-                        },
-                        {
-                            "name": "100",
-                            "url": "/yumateks-termo/?item_thickness=100"
-                        },
-                        {
-                            "name": "120",
-                            "url": "/yumateks-termo/?item_thickness=120"
-                        },
-                        {
-                            "name": "150",
-                            "url": "/yumateks-termo/?item_thickness=150"
-                        }
+                        { "name": "20 мм", "url": "/yumateks-termo/?item_thickness=20" },
+                        { "name": "25 мм", "url": "/yumateks-termo/?item_thickness=25" },
+                        { "name": "30 мм", "url": "/yumateks-termo/?item_thickness=30" },
+                        { "name": "40 мм", "url": "/yumateks-termo/?item_thickness=40" },
+                        { "name": "50 мм", "url": "/yumateks-termo/?item_thickness=50" },
+                        { "name": "60 мм", "url": "/yumateks-termo/?item_thickness=60" },
+                        { "name": "70 мм", "url": "/yumateks-termo/?item_thickness=70" },
+                        { "name": "75 мм", "url": "/yumateks-termo/?item_thickness=75" },
+                        { "name": "80 мм", "url": "/yumateks-termo/?item_thickness=80" },
+                        { "name": "90 мм", "url": "/yumateks-termo/?item_thickness=90" },
+                        { "name": "100 мм", "url": "/yumateks-termo/uteplitel-yumateks-100-mm/" },
+                        { "name": "110 мм", "url": "/yumateks-termo/?item_thickness=110" },
+                        { "name": "120 мм", "url": "/yumateks-termo/?item_thickness=120" },
+                        { "name": "130 мм", "url": "/yumateks-termo/?item_thickness=130" },
+                        { "name": "140 мм", "url": "/yumateks-termo/?item_thickness=140" },
+                        { "name": "150 мм", "url": "/yumateks-termo/?item_thickness=150" },
+                        { "name": "160 мм", "url": "/yumateks-termo/?item_thickness=160" },
+                        { "name": "170 мм", "url": "/yumateks-termo/?item_thickness=170" },
+                        { "name": "180 мм", "url": "/yumateks-termo/?item_thickness=180" },
+                        { "name": "190 мм", "url": "/yumateks-termo/?item_thickness=190" },
+                        { "name": "200 мм", "url": "/yumateks-termo/?item_thickness=200" },
+                        { "name": "210 мм", "url": "/yumateks-termo/?item_thickness=210" },
+                        { "name": "220 мм", "url": "/yumateks-termo/?item_thickness=220" },
+                        { "name": "230 мм", "url": "/yumateks-termo/?item_thickness=230" },
+                        { "name": "240 мм", "url": "/yumateks-termo/?item_thickness=240" },
+                        { "name": "250 мм", "url": "/yumateks-termo/?item_thickness=250" },
+                        { "name": "260 мм", "url": "/yumateks-termo/?item_thickness=260" },
+                        { "name": "270 мм", "url": "/yumateks-termo/?item_thickness=270" },
+                        { "name": "280 мм", "url": "/yumateks-termo/?item_thickness=280" },
+                        { "name": "290 мм", "url": "/yumateks-termo/?item_thickness=290" },
+                        { "name": "300 мм", "url": "/yumateks-termo/?item_thickness=300" }
                     ]
                 },
                 {
-                    "name": "Порядок применения",
+                    "name": "Применение",
                     "items": [
                         {
-                            "name": "Вентилируемые фасады",
-                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B"
-                        },
-                        {
-                            "name": "Вентилируемые фасады в двухслойных системах",
-                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B%20%D0%B2%20%D0%B4%D0%B2%D1%83%D1%85%D1%81%D0%BB%D0%BE%D0%B9%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D1%85"
-                        },
-                        {
-                            "name": "Внутренние стены (межкомнатные перегородки)",
-                            "url": "/yumateks-termo/?primenenie=%D0%92%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B5%D0%BD%D1%8B%20(%D0%BC%D0%B5%D0%B6%D0%BA%D0%BE%D0%BC%D0%BD%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8)"
-                        },
-                        {
-                            "name": "Для дверей",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
-                        },
-                        {
-                            "name": "Для кровли",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
-                        },
-                        {
-                            "name": "Для перегородок",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
-                        },
-                        {
-                            "name": "Для перегородок и перекрытий",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
-                        },
-                        {
-                            "name": "Для перекрытий",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
-                        },
-                        {
-                            "name": "Для подвалов",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
+                            "name": "Для стен",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
                         },
                         {
                             "name": "Для пола",
                             "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%BB%D0%B0"
                         },
                         {
-                            "name": "Для потолка",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
+                            "name": "Для фасада",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
                         },
                         {
-                            "name": "Для потолков",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2"
-                        },
-                        {
-                            "name": "Для стен",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%81%D1%82%D0%B5%D0%BD"
+                            "name": "Для кровли",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
                         },
                         {
                             "name": "Для труб",
                             "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
                         },
                         {
-                            "name": "Для фасада",
-                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%B0"
+                            "name": "Универсальный",
+                            "url": "/yumateks-termo/?primenenie=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9"
                         },
                         {
                             "name": "Для фундамента",
                             "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0"
                         },
                         {
-                            "name": "Звукоизоляция",
-                            "url": "/yumateks-termo/?primenenie=%D0%97%D0%B2%D1%83%D0%BA%D0%BE%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F"
+                            "name": "Для потолка",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0"
                         },
                         {
-                            "name": "Камины и печи",
-                            "url": "/yumateks-termo/?primenenie=%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D1%8B%20%D0%B8%20%D0%BF%D0%B5%D1%87%D0%B8"
+                            "name": "Для вентилируемых фасадов",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D1%85%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D0%BE%D0%B2"
                         },
                         {
-                            "name": "Каркасные конструкции",
-                            "url": "/yumateks-termo/?primenenie=%D0%9A%D0%B0%D1%80%D0%BA%D0%B0%D1%81%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8"
+                            "name": "Для дверей",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B4%D0%B2%D0%B5%D1%80%D0%B5%D0%B9"
                         },
                         {
-                            "name": "Мансарды",
-                            "url": "/yumateks-termo/?primenenie=%D0%9C%D0%B0%D0%BD%D1%81%D0%B0%D1%80%D0%B4%D1%8B"
+                            "name": "Для звукоизоляции",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%B7%D0%B2%D1%83%D0%BA%D0%BE%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         },
                         {
-                            "name": "Межэтажные перекрытия",
-                            "url": "/yumateks-termo/?primenenie=%D0%9C%D0%B5%D0%B6%D1%8D%D1%82%D0%B0%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F"
+                            "name": "Для перегородок",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA"
                         },
                         {
-                            "name": "Ненагружаемые конструкции",
-                            "url": "/yumateks-termo/?primenenie=%D0%9D%D0%B5%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8"
+                            "name": "Для перекрытий",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B9"
                         },
                         {
-                            "name": "Скатные кровли",
-                            "url": "/yumateks-termo/?primenenie=%D0%A1%D0%BA%D0%B0%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BA%D1%80%D0%BE%D0%B2%D0%BB%D0%B8"
+                            "name": "Для печи",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%87%D0%B8"
                         },
                         {
-                            "name": "Средний слой в кирпичной кладке",
-                            "url": "/yumateks-termo/?primenenie=%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%81%D0%BB%D0%BE%D0%B9%20%D0%B2%20%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B5"
-                        },
-                        {
-                            "name": "Техническая изоляция",
-                            "url": "/yumateks-termo/?primenenie=%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F"
-                        },
-                        {
-                            "name": "Универсальный",
-                            "url": "/yumateks-termo/?primenenie=%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9"
-                        },
-                        {
-                            "name": "Чердачные перекрытия",
-                            "url": "/yumateks-termo/?primenenie=%D0%A7%D0%B5%D1%80%D0%B4%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F"
-                        },
-                        {
-                            "name": "Штукатурные фасады",
-                            "url": "/yumateks-termo/?primenenie=%D0%A8%D1%82%D1%83%D0%BA%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B5%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B"
+                            "name": "Для технической изоляции",
+                            "url": "/yumateks-termo/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
                         }
                     ]
                 }
@@ -2792,84 +2706,68 @@
                     "name": "Продуктовые линейки",
                     "items": [
                         {
-                            "name": "Isotec Industrial Slab S80",
-                            "url": "/uteplitel-izotek/industrial-slab-s80/"
+                            "name": "Industrial Slab S80",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Industrial%20Slab%20S80"
                         },
                         {
-                            "name": "Isotec Industrial Slab S100",
-                            "url": "/uteplitel-izotek/industrial-slab-s100/"
+                            "name": "Industrial Slab S100",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Industrial%20Slab%20S100"
                         },
                         {
-                            "name": "Isotec Industrial Slab S150",
-                            "url": "/uteplitel-izotek/industrial-slab-s150/"
+                            "name": "Industrial Slab S150",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Industrial%20Slab%20S150"
                         },
                         {
-                            "name": "Isotec Tank Slab SR100",
-                            "url": "/uteplitel-izotek/tank-slab-sr100/"
+                            "name": "Tank Slab SR100",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Tank%20Slab%20SR100"
                         },
                         {
-                            "name": "Isotec Tank Slab SW60",
-                            "url": "/uteplitel-izotek/tank-slab-sw60/"
+                            "name": "Tank Slab SW60",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Tank%20Slab%20SW60"
                         },
                         {
-                            "name": "Isotec Tank Slab SW80",
-                            "url": "/uteplitel-izotek/tank-slab-sw80/"
+                            "name": "Tank Slab SW80",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Tank%20Slab%20SW80"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 60",
-                            "url": "/uteplitel-izotek/wired-mat-80-al/"
+                            "name": "Wired Mat 60",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%2060"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 80 AL",
-                            "url": "/uteplitel-izotek/wired-mat-80-al/"
+                            "name": "Wired Mat 80",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%2080"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 80 AL2",
-                            "url": "/uteplitel-izotek/wired-mat-80-al2/"
+                            "name": "Wired Mat 80 AL",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%2080%20AL"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 80",
-                            "url": "/uteplitel-izotek/wired-mat-80/"
+                            "name": "Wired Mat 80 AL2",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%2080%20AL2"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 100 AL",
-                            "url": "/uteplitel-izotek/wired-mat-100-al/"
+                            "name": "Wired Mat 100",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%20100"
                         },
                         {
-                            "name": "Прошивной мат Isotec Wired Mat 100",
-                            "url": "/uteplitel-izotek/wired-mat-100/"
+                            "name": "Wired Mat 100 AL",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=Wired%20Mat%20100%20AL"
                         },
                         {
-                            "name": "Прошивной мат Isotec МП-75 МС",
-                            "url": "/uteplitel-izotek/mp-75-ms/"
+                            "name": "МП-75",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=%D0%9C%D0%9F-75"
                         },
                         {
-                            "name": "Прошивной мат Isotec МП-75",
-                            "url": "/uteplitel-izotek/mp-75/"
+                            "name": "МП-75 МС",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=%D0%9C%D0%9F-75%20%D0%9C%D0%A1"
                         },
                         {
-                            "name": "Прошивной мат Isotec МП-100",
-                            "url": "/uteplitel-izotek/mp-100/"
+                            "name": "МП-100",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=%D0%9C%D0%9F-100"
                         },
                         {
-                            "name": "Прошивной мат Isotec МП-100 МС",
-                            "url": "/uteplitel-izotek/mp-100-ms/"
-                        },
-                        {
-                            "name": "Цилиндр Isotec Section AL",
-                            "url": "/uteplitel-izotek/section-al/"
-                        },
-                        {
-                            "name": "Цилиндр Isotec Section",
-                            "url": "/uteplitel-izotek/section/"
-                        },
-                        {
-                            "name": "Цилиндр Isotec Shell AL",
-                            "url": "/uteplitel-izotek/shell-al/"
-                        },
-                        {
-                            "name": "Цилиндр Isotec Shell",
-                            "url": "/uteplitel-izotek/shell/"
+                            "name": "МП-100 МС",
+                            "url": "/uteplitel-isotec/?produktovaya-lineyka=%D0%9C%D0%9F-100%20%D0%9C%D0%A1"
                         }
                     ]
                 },
@@ -2877,39 +2775,72 @@
                     "name": "Толщина ",
                     "items": [
                         {
-                            "name": "18",
-                            "url": "/uteplitel-izotek/?item_width=18"
+                            "name": "20",
+                            "url": "/uteplitel-isotec/?item_thickness=20"
                         },
                         {
-                            "name": "21",
-                            "url": "/uteplitel-izotek/?item_width=21"
+                            "name": "30",
+                            "url": "/uteplitel-isotec/?item_thickness=30"
                         },
                         {
-                            "name": "25",
-                            "url": "/uteplitel-izotek/?item_width=25"
+                            "name": "40",
+                            "url": "/uteplitel-isotec/?item_thickness=40"
                         },
                         {
-                            "name": "28",
-                            "url": "/uteplitel-izotek/?item_width=28"
+                            "name": "50",
+                            "url": "/uteplitel-isotec/?item_thickness=50"
                         },
                         {
-                            "name": "32",
-                            "url": "/uteplitel-izotek/?item_width=32"
+                            "name": "60",
+                            "url": "/uteplitel-isotec/?item_thickness=60"
                         },
                         {
-                            "name": "1000",
-                            "url": "/uteplitel-izotek/?item_width=1020"
+                            "name": "70",
+                            "url": "/uteplitel-isotec/?item_thickness=70"
                         },
                         {
-                            "name": "1020",
-                            "url": "/uteplitel-izotek/?item_width=1020"
+                            "name": "80",
+                            "url": "/uteplitel-isotec/?item_thickness=80"
+                        },
+                        {
+                            "name": "90",
+                            "url": "/uteplitel-isotec/?item_thickness=90"
+                        },
+                        {
+                            "name": "100",
+                            "url": "/uteplitel-isotec/?item_thickness=100"
+                        },
+                        {
+                            "name": "110",
+                            "url": "/uteplitel-isotec/?item_thickness=110"
+                        },
+                        {
+                            "name": "120",
+                            "url": "/uteplitel-isotec/?item_thickness=120"
+                        },
+                        {
+                            "name": "200",
+                            "url": "/uteplitel-isotec/?item_thickness=200"
+                        }
+                    ]
+                },
+                {
+                    "name": " Применение",
+                    "items": [
+                        {
+                            "name": "Для технической изоляции",
+                            "url": "/uteplitel-isotec/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20%D0%B8%D0%B7%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D0%B8"
+                        },
+                        {
+                            "name": "Для труб",
+                            "url": "/uteplitel-isotec/?primenenie=%D0%94%D0%BB%D1%8F%20%D1%82%D1%80%D1%83%D0%B1"
                         }
                     ]
                 }
             ],
             "header": {
                 "name": "Смотреть все товары Изотек",
-                "url": "/uteplitel-izotek/"
+                "url": "/uteplitel-isotec/"
             }
         },
         {
@@ -2937,11 +2868,11 @@
                         },
                         {
                             "name": "Ruspanel RPG Real",
-                            "url": "https://proectstroy-p.ru/manager/?a=resource/update&id=167842"
+                            "url": "/uteplitel-ruspanel/rpg-real/"
                         },
                         {
                             "name": "Ruspanel L кромка",
-                            "url": "https://proectstroy-p.ru/manager/?a=resource/update&id=167851"
+                            "url": "/uteplitel-ruspanel/l-kromka/"
                         }
                     ]
                 },
@@ -2997,7 +2928,7 @@
             ],
             "header": {
                 "name": "Смотреть все товары Руспанел",
-                "url": "/uteplitel-ruspanel/"
+                "url": "/uteplitel-ruspanel/rpg-real/"
             }
         },
         {
