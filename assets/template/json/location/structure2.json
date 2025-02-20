@@ -55,6 +55,12 @@
       "ctx_key": "fibrofasad",
       "subdomains_banned": [],
       "subdomains_unique": []
+    },
+    "kupit-trotuarnuyu-plitku": {
+      "ctx_key": "trotuarnaya-plitka",
+      "subdomains_banned": [],
+      "subdomains_unique": [
+      ]
     }
   },
   "subdomains_common": [
