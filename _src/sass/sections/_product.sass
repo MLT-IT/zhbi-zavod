@@ -550,9 +550,11 @@
 
 
     &__relinkav
-        // display: flex
+        display: flex
         align-items: center
         justify-content: space-between
+        @at-root .krovelnyjstroymarket &
+            display: block
 
         +until-768
             flex-direction: column-reverse
