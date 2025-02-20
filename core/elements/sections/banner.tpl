@@ -1,7 +1,35 @@
+{set $ctx = $_modx->resource.context_key}
+{set $slides = $_modx->resource.mainpageSlider | fromJSON}
 <div class="main-screen__banners">
+  {set $params = [
+    'web' => [
+      'nav' => true
+      'paging_class' => 'swiper-pagination--rounds'
+      'slides' => $slides
+    ]
+  ]}
   <div class="main-screen__slider">
     <div class="swiper-container">
       <div class="swiper-wrapper">
+        {if $params[$ctx].slides}
+        {foreach $params[$ctx].slides as $slide}
+            <div class="swiper-slide banner">
+              <div class="wrapper">
+                <picture class="banner__bg">
+                  {set $images = $slide.images | fromJSON}
+                  {set $last = $images | count - 1}
+                  {set $images = '@FILE snippets/keySort.php' | snippet: ['input' => $images, 'key' => 'media']}
+                  {foreach $images as $source}
+                  {set $img = '@FILE snippets/fixSpaces.php' | snippet: ['input' => $source.image] }
+                  <source srcset="assets/template/pictures/main-screen/{$img}" media="screen and {$source.media}">
+                  {/foreach}
+                  <img class="banner__bg-img" src="assets/template/pictures/main-screen/{$images[$last].image}" alt="banner">
+                </picture>
+                <div class="banner__action"><span data-fancybox data-src="{$slide['button-link'] ?: '#callback'}" class="banner__btn btn btn_style_yellow">{$slide['button-text'] ?: 'Заказать со скидкой'}</span></div>
+              </div>
+            </div>
+          {/foreach}
+        {else}
         <div class="swiper-slide banner">
           <picture class="banner__bg">
             {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-mob.webp'}
@@ -68,12 +96,24 @@
             {/if}
           </div>
         </div>
-
+        {/if}
       </div>
-      <div class="swiper-pagination"></div>
+      
     </div>
-
+    <div class="swiper-pagination {$params[$ctx].paging_class}"></div>
+    {if $params[$ctx].nav}
+    <div class="swiper-buttons">
+      <div class="swiper-button swiper-button-prev"></div>
+      <div class="swiper-button swiper-button-next"></div>
+    </div>
+    {/if}
   </div>
+  {set $params_ss = [
+    'web' => [
+      'hide' => true
+    ]
+  ]}
+  {if !$params_ss[$ctx].hide}
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
       <picture class="banner__bg">
@@ -113,4 +153,5 @@
       <div class="banner__action"><a class="banner__btn btn btn_style_yellow" href="{$link}">подробнее</a></div>
     </div>
   </div>
+  {/if}
 </div>

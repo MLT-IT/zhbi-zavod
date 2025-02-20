@@ -3,11 +3,26 @@
 // Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
 
 export default async function initSliders() {
+
+  const ctx = body.getAttribute('data-ctx');
+
   const mainScreenSliderContainer = document.querySelector(
     '[data-template="main"] .main-screen__slider'
   );
 
   if (mainScreenSliderContainer) {
+
+    let effect = 'fade';
+    let clickable = false;
+    switch(ctx){
+      case 'web':
+        effect = '';
+        clickable = true;
+      break;
+      default:
+      break;
+    }
+
     const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
       /* webpackChunkName: "swiper" */ "swiper"
     );
@@ -20,7 +35,7 @@ export default async function initSliders() {
         autoplay: {
           delay: 5000,
         },
-        effect: "fade",
+        effect: effect,
         fadeEffect: {
           crossFade: true,
         },
@@ -31,6 +46,7 @@ export default async function initSliders() {
         pagination: {
           el: mainScreenSliderContainer.querySelector(".swiper-pagination") || null,
           type: "bullets",
+          clickable: clickable
         },
       }
     );

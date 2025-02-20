@@ -1,11 +1,15 @@
 // Брейк-поинты
+$bp460: 460px
 $bp480: 480px
+$bp748: 748px
 $bp768: 768px
+$bp980: 980px
 $bp992: 992px
 $bp1200: 1200px
+$bp1380: 1380px
 $bp1400: 1400px
 
-$grid-breakpoints: ('screen-480': $bp480, 'screen-768': $bp768, 'screen-992': $bp992, 'screen-1200': $bp1200, 'screen-1400': $bp1400)
+$grid-breakpoints: ('screen-460': $bp460, 'screen-480': $bp480, 'screen-748': $bp748, 'screen-768': $bp768, 'screen-980': $bp980, 'screen-992': $bp992, 'screen-1200': $bp1200, 'screen-1380': $bp1380, 'screen-1400': $bp1400)
 
 @function bp-max($val)
     @return $val - 0.02
@@ -43,6 +47,10 @@ $grid-breakpoints: ('screen-480': $bp480, 'screen-768': $bp768, 'screen-992': $b
     @include media-breakpoint-up('screen-480')
         @content
 
+@mixin from-748()
+    @include media-breakpoint-up('screen-768')
+        @content
+
 @mixin from-768()
     @include media-breakpoint-up('screen-768')
         @content
@@ -60,12 +68,25 @@ $grid-breakpoints: ('screen-480': $bp480, 'screen-768': $bp768, 'screen-992': $b
         @content
 
 // -==========================================================================================================
+
+@mixin until-460()
+    @include media-breakpoint-down('screen-480')
+        @content
+
 @mixin until-480()
     @include media-breakpoint-down('screen-480')
         @content
 
+@mixin until-748()
+    @include media-breakpoint-down('screen-768')
+        @content
+
 @mixin until-768()
     @include media-breakpoint-down('screen-768')
+        @content
+
+@mixin until-980()
+    @include media-breakpoint-down('screen-992')
         @content
 
 @mixin until-992()
@@ -74,6 +95,10 @@ $grid-breakpoints: ('screen-480': $bp480, 'screen-768': $bp768, 'screen-992': $b
 
 @mixin until-1200()
     @include media-breakpoint-down('screen-1200')
+        @content
+
+@mixin until-1380()
+    @include media-breakpoint-down('screen-1400')
         @content
 
 @mixin until-1400()
