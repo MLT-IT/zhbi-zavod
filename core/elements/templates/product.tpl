@@ -212,7 +212,7 @@
 {set $cvet = $_modx->resource.cvet[0]}
 {/if}
 
-{if $_modx->resource.context_key in list ['fibrofasad']}
+{if $_modx->resource.context_key in list ['fibrofasad', 'krovelnyjstroymarket']}
 {set $linksData = 'getRelinkingData_Ottenok' | snippet}
 {/if}
 
@@ -232,7 +232,7 @@
             ]}
   
             {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
-            {if $linksData.ottenok? && !$isParentsCategoriesDobor && $_modx->resource.context_key in list ['fibrofasad']}
+            {if $linksData.ottenok? && !$isParentsCategoriesDobor && $_modx->resource.context_key in list ['fibrofasad', 'krovelnyjstroymarket']}
               {include "file:blocks/product/linking/linking-select-other-color.tpl"}
             {/if}
             {if $_modx->context.key == 'web'}
