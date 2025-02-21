@@ -1,5 +1,7 @@
-
 <div class="custom-selections">
+    {if ($_modx->resource.template in list ['4'])}
+        <strong class="custom-selections__title">Часто ищут:</strong> 
+    {/if}
     <div class="custom-selections__preview active">
         {'@FILE snippets/getRelinkingTags.php' | snippet : [
             "tplWrapper" => "@FILE chunks/selectionFiltersExpanded/selections.tpl",
@@ -12,10 +14,15 @@
 
     <div class="custom-selections__groups">
         <div class="custom-selections__groups-wrapper">
-            {$_modx->runSnippet("@FILE snippets/selectionExpandedFilterLinks.php", [
+            {set $options = [
                 'tvField' => "selectionCustomFilters",
                 'tplItemLink' => "@FILE chunks/selectionFiltersExpanded/linkNoImage.tpl"
-            ])}
+            ]}
+            {if ($_modx->resource.template in list ['4'])}
+                {set $options['tplItemLink'] = "@FILE chunks/selectionFiltersExpanded/linkWithImage.tpl"}
+            {/if}
+            {$_modx->runSnippet("@FILE snippets/selectionExpandedFilterLinks.php", $options)}
+
             <div class="custom-selections__toggle">
                 <div class="custom-selections__toggle-button active"></div>
             </div>
