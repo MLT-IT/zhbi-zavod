@@ -1,5 +1,5 @@
 <div class="custom-selections">
-    {if ($_modx->resource.template in list ['4'])}
+    {if ($_modx->resource.context_key == 'web')}
         <strong class="custom-selections__title">Часто ищут:</strong> 
     {/if}
     <div class="custom-selections__preview active">
@@ -18,16 +18,24 @@
                 'tvField' => "selectionCustomFilters",
                 'tplItemLink' => "@FILE chunks/selectionFiltersExpanded/linkNoImage.tpl"
             ]}
-            {if ($_modx->resource.template in list ['4'])}
-                {set $options['tplItemLink'] = "@FILE chunks/selectionFiltersExpanded/linkWithImage.tpl"}
+            {if ($_modx->resource.context_key == 'web')}
+                {set $options['tplItemLink'] = '@FILE chunks/selectionFiltersExpanded/linkWithImage.tpl'}
             {/if}
+
             {$_modx->runSnippet("@FILE snippets/selectionExpandedFilterLinks.php", $options)}
 
-            <div class="custom-selections__toggle">
-                <div class="custom-selections__toggle-button active"></div>
-            </div>
+            {if ($_modx->resource.context_key != 'web')}
+                <div class="custom-selections__toggle">
+                    <div class="custom-selections__toggle-button active"></div>
+                </div>
+            {/if}
         </div>
     </div>
+    {if ($_modx->resource.context_key == 'web')}
+        <div class="custom-selections__toggle">
+            <div class="custom-selections__toggle-button"></div>
+        </div>
+    {/if}
 </div>
 
 {* <span class="selection-header">Цветовая палитра</span> *}

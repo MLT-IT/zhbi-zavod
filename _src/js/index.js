@@ -312,15 +312,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Раскрытие тегов из Подборки фильтров
     // -------------------------------
     document.querySelectorAll(".custom-selections__toggle-button").forEach((button) => {
-        const preview = button
-        .closest(".custom-selections")
-        .querySelector(".custom-selections__preview");
+        const isWebContext = document.body.classList.contains('alterteplo');
+
+        if (!isWebContext) {
+            const preview = button
+            .closest(".custom-selections")
+            .querySelector(".custom-selections__preview");
+        }
         const groups = button
         .closest(".custom-selections")
         .querySelector(".custom-selections__groups");
         button.addEventListener("click", () => {
-            // button.classList.toggle("active");
-            preview.classList.toggle("active");
+            if (isWebContext) {
+                button.classList.toggle("active");
+                // preview.classList.toggle("active");
+            } else {
+                // button.classList.toggle("active");
+                preview.classList.toggle("active");
+            }
             groups.classList.toggle("active");
         });
     });
