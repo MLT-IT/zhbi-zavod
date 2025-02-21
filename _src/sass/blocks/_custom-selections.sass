@@ -17,6 +17,12 @@
       flex-direction: column
       gap: 10px
 
+  &__title
+    @at-root .alterteplo &
+      display: block
+      margin-bottom: 10px
+      font-weight: 700
+
   &__tags
     // display: grid
     // grid-template-columns: repeat(5, minmax(0, 1fr))
@@ -49,6 +55,19 @@
       display: flex
       align-items: center
       gap: 5px
+    
+    @at-root .alterteplo &
+      display: flex
+      column-gap: 5px
+      align-items: center
+      flex-basis: calc(100% / 4 - 7px)
+      max-width: none
+      height: 70px
+      border: 1px solid #F5F5F5
+      background-color: #FFFFFF
+      +until-768
+        flex-basis: calc(100% / 2 - 7px)
+
 
     &-name
       // font-size: 16px
@@ -127,6 +146,9 @@
       flex-direction: column
       align-items: flex-start
 
+    @at-root .alterteplo &
+      flex-wrap: wrap
+
   dd
     display: flex
     align-items: center
@@ -139,6 +161,10 @@
       font-size: 12px
       gap: 6px
       justify-content: flex-start
+    
+    @at-root .alterteplo &
+      flex-basis: 100%
+      gap: 9px
     a
       height: 30px
       max-width: unset
@@ -154,5 +180,10 @@
       a
         display: flex
   dt
-    font-weight: 600
+    font-weight: 500
     min-width: 100px
+
+    @at-root .alterteplo &
+      flex-basis: wrap
+      justify-content: space-between
+      flex-basis: 100%
