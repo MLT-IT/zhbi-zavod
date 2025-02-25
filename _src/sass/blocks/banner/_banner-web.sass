@@ -1,4 +1,25 @@
 [data-ctx=web]
+
+.main-screen
+  &__banners
+    grid-template-rows: 1fr
+    min-width: 320px
+
+  &__banners:not(:last-child)
+    margin-bottom: 119px
+
+  &__slider
+    box-shadow: var(--shadow-main-slider)
+    border-radius: 6px
+    .swiper-pagination
+      text-align: center
+      left: 0
+      right: 0
+      bottom: calc(-24px -16px) //16px - высота элемента
+
+    .swiper-button-prev, .swiper-button-next
+      box-shadow: var(--shadow-main-slider)
+
   .banner
     padding: 0
 
@@ -48,22 +69,5 @@
         border: 1px solid var(--color-red)
         background: none
 
-  .main-screen__banners
-    grid-template-rows: 1fr
-    min-width: 320px
-
-  .main-screen__banners:not(:last-child)
-    margin-bottom: 119px
-
-  .main-screen__slider
-    box-shadow: var(--shadow-main-slider)
-    border-radius: 6px
-    .swiper-pagination
-      text-align: center
-      left: 0
-      right: 0
-      bottom: calc(-24px -16px) //16px - высота элемента
-
-    .swiper-button-prev, .swiper-button-next
-      box-shadow: var(--shadow-main-slider)
+  
 
