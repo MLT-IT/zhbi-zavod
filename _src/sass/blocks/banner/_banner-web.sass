@@ -1,73 +1,72 @@
 [data-ctx=web]
+  .main-screen
+    &__banners
+      grid-template-rows: 1fr
+      min-width: 320px
 
-.main-screen
-  &__banners
-    grid-template-rows: 1fr
-    min-width: 320px
+    &__banners:not(:last-child)
+      margin-bottom: 119px
 
-  &__banners:not(:last-child)
-    margin-bottom: 119px
-
-  &__slider
-    box-shadow: var(--shadow-main-slider)
-    border-radius: 6px
-    .swiper-pagination
-      text-align: center
-      left: 0
-      right: 0
-      bottom: calc(-24px -16px) //16px - высота элемента
-
-    .swiper-button-prev, .swiper-button-next
+    &__slider
       box-shadow: var(--shadow-main-slider)
+      border-radius: 6px
+      .swiper-pagination
+        text-align: center
+        left: 0
+        right: 0
+        bottom: calc(-24px -16px) //16px - высота элемента
 
-  .banner
-    padding: 0
+      .swiper-button-prev, .swiper-button-next
+        box-shadow: var(--shadow-main-slider)
 
-    .wrapper
-      position: relative
-      width: 100%
+    .banner
+      padding: 0
 
-    &__action
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
+      .wrapper
+        position: relative
+        width: 100%
 
-    &__bg
-      position: static
+      &__action
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
 
-    &__bg-img
-      height: auto
-      //min-height: 400px
+      &__bg
+        position: static
 
-      +from-748
-        height: 100%
-        min-height: auto
+      &__bg-img
+        height: auto
+        //min-height: 400px
 
-    &__btn
-      margin: 0 0 2.5% 5.12%
+        +from-748
+          height: 100%
+          min-height: auto
 
-      +until-460
-        margin: 0 0 38% 6%
+      &__btn
+        margin: 0 0 2.5% 5.12%
 
-      +until-748
-        margin: 0 0 8.5% 4.9%
+        +until-460
+          margin: 0 0 38% 6%
 
-      +until-980
-        margin: 0 0 5.5% 6.25%
+        +until-748
+          margin: 0 0 8.5% 4.9%
 
-  .swiper-pagination--rounds
-    .swiper-pagination-bullet
-      background: white
-      width: 16px
-      height: 16px
-      border-radius: 50%
-      border: 1px solid var(--color-white)
-      box-shadow: var(--shadow-main-slider)
-      margin: 0 6px
-      &-active
-        border: 1px solid var(--color-red)
-        background: none
+        +until-980
+          margin: 0 0 5.5% 6.25%
 
-  
+    .swiper-pagination--rounds
+      .swiper-pagination-bullet
+        background: white
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        border: 1px solid var(--color-white)
+        box-shadow: var(--shadow-main-slider)
+        margin: 0 6px
+        &-active
+          border: 1px solid var(--color-red)
+          background: none
+
+    
 
