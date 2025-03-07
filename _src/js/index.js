@@ -314,11 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(".custom-selections__toggle-button").forEach((button) => {
         const isWebContext = document.body.classList.contains('alterteplo');
 
-        if (!isWebContext) {
-            const preview = button
-            .closest(".custom-selections")
-            .querySelector(".custom-selections__preview");
-        }
+        const preview = button
+        .closest(".custom-selections")
+        .querySelector(".custom-selections__preview");
+        
         const groups = button
         .closest(".custom-selections")
         .querySelector(".custom-selections__groups");
