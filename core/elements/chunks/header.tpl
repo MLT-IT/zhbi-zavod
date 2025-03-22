@@ -143,7 +143,7 @@
         </div>
         
         <div class="text-end">
-          <a class="text-white simple-link" data-fancybox href="#callback">Оформить заказ</a>
+          <a class="text-white simple-link" data-fancybox href="#order">Оформить заказ</a>
         </div>
       </div>
 
