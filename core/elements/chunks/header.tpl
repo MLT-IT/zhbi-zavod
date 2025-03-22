@@ -67,7 +67,7 @@
   </div>
   <div class="header__top">
     <div class="header__container">
-      <div class="h-subinfo h-subinfo_color_grey">
+      <div class="h-subinfo text-white">
         <span class="h-subinfo__text">
           {set $beforeText = "Продажа"}
           {set $afterText = "в Санкт-Петербурге"}
@@ -132,22 +132,21 @@
           {$beforeText} {$text} {$afterText}
         </span>
       </div>
-      <div class="h-subinfo h-subinfo_display_widescreen">
-        <svg class="h-subinfo__icon" aria-hidden="true">
-          <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
-        </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
+
+      {insert 'file:_modules/top_menu/top_menu.tpl'}
+
+      <div>
+        <div class="h-subinfo h-subinfo_size_big text-white">
+          <svg class="h-subinfo__icon" aria-hidden="true">
+            <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+          </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone_href}">{$phone}</a>
+        </div>
+        
+        <div class="text-end">
+          <a class="text-white simple-link" data-fancybox href="#callback">Оформить заказ</a>
+        </div>
       </div>
-      <div class="h-subinfo">
-        <svg class="h-subinfo__icon" aria-hidden="true">
-          <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
-        </svg>
-        <a class="h-subinfo__link h-subinfo__link_type_mail" href="mailto:{$email}">{$email}</a>
-      </div>
-      <div class="h-subinfo h-subinfo_size_big">
-        <svg class="h-subinfo__icon" aria-hidden="true">
-          <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
-        </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone_href}">{$phone}</a>
-      </div><a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
+
     </div>
   </div>
   <div class="header__bottom">
@@ -156,42 +155,6 @@
         <img class="h-logo__image" src="assets/template/pictures/{$logo}">
       </a>
       <div class="header__toolbar">
-        <div class="h-menu header__menu" data-dropdown>
-          <button class="h-menu__btn btn btn_style_base">Меню</button>
-          {if $_modx->resource.context_key == 'kirpich-m5'}
-          {set $add_classes = 'u-marginLeft16'}
-          {else}
-          {set $add_classes = ''}
-          {/if}
-          <div class="h-menu__dropdown">
-            <nav>
-              <ul class="h-nav">
-                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/dostavka-i-oplata/">Доставка и оплата</a></li>
-                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/akcii/">Акции</a></li>
-                {switch $_modx->resource.context_key}
-                {case 'web'}
-                  <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyivyi/">Отзывы</a></li>
-                {case 'trotuarnaya-plitka'}
-                  <li class="h-nav__item"><a class="h-nav__link" href="/otzyvy/">Отзывы</a></li>
-                {case 'gazosilikatstroy'}
-                  {set $items}
-                    <li class="h-nav__item"><a class="h-nav__link" href="/otzyvy/">Отзывы</a></li>
-                  {/set}
-                {case 'kirpich-m5'}
-                  {set $items}
-                  <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/shourum/">Шоурум</a></li>
-                  <li class="h-nav__item"><a class="h-nav__link has-icon icon-star" href="/otzyvy/">Отзывы</a></li>
-                  {/set}
-                {default}
-                {/switch}
-                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/o-kompanii/">О компании</a></li>
-                {$items}
-                <li class="h-nav__item"><a class="h-nav__link {$add_classes}" href="/contacts/">Контакты</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
         {if $_modx->context.key == 'trotuarnaya-plitka'}
           {include "file:chunks/desktop-catalog-menu/v2.tpl"}
         {elseif $_modx->context.key == "web"}
@@ -224,7 +187,19 @@
           </form>
         </div>
 
-        {insert 'file:_modules/top_menu/top_menu.tpl'}
+        <div class="header__inform">
+          <div class="h-subinfo">
+            <svg class="h-subinfo__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
+            </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
+          </div>
+          <div class="h-subinfo">
+            <svg class="h-subinfo__icon" aria-hidden="true">
+              <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>
+            </svg>
+            <a class="h-subinfo__link h-subinfo__link_type_mail" href="mailto:{$email}">{$email}</a>
+          </div>
+        </div>
         
         <div class="header__phonesched">
           <div class="h-subinfo header__phone h-subinfo_size_big">
@@ -238,7 +213,7 @@
             </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
           </div>
         </div>
-        <a class="header__callback-btn btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
+        
         <div class="header__actions">
             <div class="header__actions-pc">
                 {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
@@ -259,6 +234,8 @@
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
                   </svg>
                 </a>
+
+                <a class="btn btn_size_small btn_style_trans" data-fancybox href="#callback">Заказать звонок</a>
             </div>
             <div class="header__actions-mobile">
                 <span class="btn btn_style_shadow header__actions-mobile-reset" data-dropdown-only-close="1" data-dropdown-body-doc=".filter">Сбросить фильтр</span>

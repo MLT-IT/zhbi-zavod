@@ -52,11 +52,11 @@
     &__top
         padding: 13px 0 10px
 
-        background-color: var(--color-white)
+        background-color: #3C3C3B
 
-        & .h-subinfo
-            &:not(:last-child)
-                margin-right: 15px
+        // & .h-subinfo
+        //     &:not(:last-child)
+        //         margin-right: 15px
 
         +until-992
             display: none
@@ -82,11 +82,11 @@
         display: flex
         align-items: center
 
-    &__menu
-        margin-right: 10px
+    // &__menu
+    //     margin-right: 10px
 
-        +from-1400
-            display: none
+    //     +from-1400
+    //         display: none
 
         +until-992
             display: none
@@ -136,8 +136,8 @@
         margin: 0 auto
         padding-right: 15px
 
-        +until-1400
-            display: none
+        // +until-1400
+        //     display: none
 
     &__actions
         display: flex
@@ -151,6 +151,9 @@
              @at-root .filters-expanded &
                 +until-480
                     display: none !important
+            a.btn
+                height: 50px
+                display: flex
 
         &-mobile
             display: none
@@ -207,6 +210,8 @@
             box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15)
 
     &-fixed
+        .header__inform
+            display: none
         .header__bottom
             position: fixed
             z-index: 1000
@@ -267,9 +272,9 @@
                 display: none
 
         .header__actions
-            right: 0
-            top: 80px
-            position: absolute
+            // right: 0
+            // top: 80px
+            // position: absolute
 
             +until-1400
                 margin-left: auto
@@ -282,15 +287,14 @@
                 margin: 0
                 transform: translateX(-50%)
                 left: 50%
+                a.btn
+                    display: none
 
         .header__action
             box-shadow: 0 6px 6px 1px rgba(0, 0, 0, .15)
 
             &:hover
                 box-shadow: 0 0 30px rgba(211, 85, 60, .44)
-
-        .h-subinfo_display_widescreen
-            margin-top: 6px
 
         .h-logo
             // Переопределение

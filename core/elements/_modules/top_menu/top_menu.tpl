@@ -4,7 +4,7 @@
 
     {foreach $items as $item}
       <li class="h-nav__item">
-        <a class="h-nav__link {$item.link_classes}" href="{$item.url}" {$item.attribs}>{$item.text}</a>
+        <a class="h-nav__link text-white {$item.link_classes}" href="{$item.url}" {$item.attribs}>{$item.text}</a>
         {if $item.submenu}
           <div class="h-nav__subnav h-subnav">
             <ul class="h-subnav__wrapper">
