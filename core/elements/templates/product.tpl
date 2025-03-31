@@ -230,7 +230,7 @@
             {'!msGallery' | snippet : [
             'tpl' => '@FILE chunks/gallery.tpl',
             ]}
-  
+
             {set $isParentsCategoriesDobor = 'isParentsCategoriesDobor' | snippet}
             {if $linksData.ottenok? && !$isParentsCategoriesDobor && $_modx->resource.context_key in list ['fibrofasad', 'krovelnyjstroymarket']}
               {include "file:blocks/product/linking/linking-select-other-color.tpl"}
@@ -244,6 +244,7 @@
 
           <div class="product__info-wrap">
             <div class="product__info product-info">
+
             {* {if $_modx->resource.article && !($isCustomCalculator || $isShtaketnik)}
             <div class="product-info__article article mb-2"> Арт. {$_modx->resource.article} </div>
             {/if} *}
@@ -531,7 +532,9 @@
               {/if}
 
             </div>
-
+              {if $_modx->resource.context_key in list ["web"]}
+                {"@FILE _modules/restrictions/restrictions.php" | snippet}
+              {/if}
               {if $_modx->resource.context_key in list ['kraska', 'suhiesmesi']}
                   <div class="product-info__undertext">
                     <p class="product-info__undertext-span">
