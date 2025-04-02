@@ -22,6 +22,10 @@ try{
     $restrictions = json_decode($restrictionsData, true);
 
     foreach ($restrictions as $restriction) {
+        if(!is_array($restriction["categories"])){
+            $restriction["categories"] = explode(",", $restriction["categories"]);
+        }
+
         if (!empty(array_intersect($restriction["categories"], $currentResourceCategories))) {
             return $pdoTools->getChunk($tpl,
                 ["title" => $restriction["title"]]
