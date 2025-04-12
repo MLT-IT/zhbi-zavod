@@ -29,8 +29,17 @@
     {else}
       <button class="product-action product-action_compare js-product__btn-compare{if $checkItems['comp'][$id]?} active{/if}"></button>
     {/if}
-
   </div>
+  
+
+  {if$_modx->resource.context_key == 'plitnye' && $prodValues['outputOldPrice']?}
+    {set $clearPrice = $prodValues['outputPrice'] | replace: ' ' : ''}
+    {set $clearOldPrice = $prodValues['outputOldPrice'] | replace: ' ' : ''}
+    {set $discount = ($clearOldPrice - $clearPrice) / $clearOldPrice * 100}
+    <div class="product-card__discount">
+      Скидка {$discount | ceil} %
+    </div>
+  {/if}
 </div>
 
 {if $_modx->resource.context_key == 'kraska'}
@@ -64,9 +73,18 @@
     {/if}
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
-  {if $_modx->context.key in list ['web']}
+  {if $_modx->context.key in list ['web', 'plitnye']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
-    <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} уп.</div>
+    {set $unit = 'уп.'}
+    {if $_modx->context.key == 'plitnye'}
+      {set $unit = "@FILE @FILE snippets/formOfWord.php" | snippet : [
+        'n' => $data,
+        'f1' => 'лист',
+        'f2' => 'листа',
+        'f5' => 'листов'
+      ]}
+    {/if}
+    <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} {$unit}</div>
   {/if}
   {if $_modx->context.key in list ['suhiesmesi']}
       <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['id' => $id, 'begin' => 100, 'end'=> 2000])} уп.</div>
