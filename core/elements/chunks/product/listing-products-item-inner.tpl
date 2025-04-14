@@ -32,7 +32,7 @@
   </div>
   
 
-  {if$_modx->resource.context_key == 'plitnye' && $prodValues['outputOldPrice']?}
+  {if $_modx->resource.context_key == 'plitnye' && $prodValues['outputOldPrice']?}
     {set $clearPrice = $prodValues['outputPrice'] | replace: ' ' : ''}
     {set $clearOldPrice = $prodValues['outputOldPrice'] | replace: ' ' : ''}
     {set $discount = ($clearOldPrice - $clearPrice) / $clearOldPrice * 100}
@@ -73,12 +73,13 @@
     {/if}
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
-  {if $_modx->context.key in list ['web', 'plitnye']}
+  {if $_modx->resource.context_key in list ['web', 'plitnye']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     {set $unit = 'уп.'}
+
     {if $_modx->context.key == 'plitnye'}
-      {set $unit = "@FILE @FILE snippets/formOfWord.php" | snippet : [
-        'n' => $data,
+      {set $unit = "@FILE snippets/formOfWord.php" | snippet : [
+        'n' => $data['total_remains'],
         'f1' => 'лист',
         'f2' => 'листа',
         'f5' => 'листов'
