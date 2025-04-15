@@ -1,5 +1,10 @@
 {
   "domains": {
+    "gazoclone.skderdom.beget": {
+      "ctx_key": "gazoclone",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
     "alterteplo": {
       "ctx_key": "web",
       "subdomains_banned": [],
