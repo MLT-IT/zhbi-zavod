@@ -16,6 +16,8 @@
             {set $text = 'утеплителей'}
           {case 'gazosilikatstroy'}
             {set $text = 'газобетона'}
+          {case 'gazoclone'}
+            {set $text = 'газобетона'}
           {case 'kraska'}
             {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
           {case 'suhiesmesi'}

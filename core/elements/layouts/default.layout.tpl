@@ -43,6 +43,8 @@
         {set $micro_title = $micro_title ~ 'утеплителя'}
       {case 'gazosilikatstroy'}
         {set $micro_title = $micro_title ~ 'газобетона'}
+      {case 'gazoclone'}
+        {set $micro_title = $micro_title ~ 'газобетона'}
       {case 'kraska'}
         {set $micro_title = $micro_title ~ 'ЛКМ (краски, эмали, шпатлевки)'}
       {case 'suhiesmesi'}

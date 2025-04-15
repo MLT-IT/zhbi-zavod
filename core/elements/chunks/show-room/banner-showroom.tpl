@@ -12,6 +12,8 @@
   {set $link = '#'}
 {case 'gazosilikatstroy'}
   {set $link = '/rasprodazha-so-sklada/'}
+{case 'gazoclone'}
+  {set $link = '/rasprodazha-so-sklada/'}
 {case 'kraska'}
   {set $link = '#'}
 {case 'suhiesmesi'}

@@ -195,6 +195,23 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
+
+            case 'gazoclone':
+                static::$brandsIds = [
+                    "bck" => 303083,
+                    "hh" => 303106,
+                    "ytong" => 303129,
+                    "aeroc" => 303178,
+                    "bonolit" => 303201,
+                    "eab" => 303236,
+                    "zabudova" => 303265,
+                    "sk" => 303287,
+                    "mogil" => 303326,
+                    "lsr" => 303349
+                ];
+                static::$brandsAndCategories = static::$brandsIds;
+                break;
+
             case 'plitnye':
                 static::$brandsIds = [
                     'fanera' => 178116,

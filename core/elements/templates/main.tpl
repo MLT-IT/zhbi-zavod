@@ -88,6 +88,8 @@
           {include "file:sections/uteplitel-info.tpl"}
         {case 'gazosilikatstroy'}
           {include "file:sections/gazobeton-info.tpl"}
+        {case 'gazoclone'}
+          {include "file:sections/gazobeton-info.tpl"}
         {case 'kraska'}
           {include "file:sections/gazobeton-info.tpl"}
         {case 'beltermo'}

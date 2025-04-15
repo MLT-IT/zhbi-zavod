@@ -4,6 +4,8 @@
     {set $logo = 'alterteplo-white.png'}
   {case 'gazosilikatstroy'}
     {set $logo = 'gazosilicatstroy-white.png'}
+  {case 'gazoclone'}
+    {set $logo = 'gazosilicatstroy-white.png'}
   {case 'kraska'}
     {set $logo = 'kraska-white.png'}
     {set $toCatalogBtnText = 'Все разделы'}
@@ -108,7 +110,7 @@
             <a class="footer__nav-item" href="/dostavka-i-oplata/">Доставка и оплата</a>
             <a class="footer__nav-item" href="/certs/">Сертификаты</a>
             <a class="footer__nav-item" href="/garantii/">Гарантии</a>
-            {if $_modx->context.key in list ["gazosilikatstroy"]}
+            {if $_modx->context.key in list ["gazosilikatstroy","gazoclone"]}
               <a class="footer__nav-item" href="/otzyvy/">Отзывы</a>
             {/if}
           </nav>
@@ -334,6 +336,12 @@
           {set $params['sortdir'] = 'ASC'}
         {case 'gazosilikatstroy'}
           {set $resources = '101938,101936,101934,101932,101937,101929,101930,101933,101935,101931'}
+          {set $params['resources'] = $resources}
+          {set $params['parents'] = 0}
+          {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}
+          {set $params['sortdir'] = 'ASC'}
+        {case 'gazoclone'}
+          {set $resources = '303083,303106,303129,303178,303201,303236,303265,303287,303326,303349'}
           {set $params['resources'] = $resources}
           {set $params['parents'] = 0}
           {set $params['sortby'] = 'FIELD(modResource.id, ' ~ $resources ~ ')'}

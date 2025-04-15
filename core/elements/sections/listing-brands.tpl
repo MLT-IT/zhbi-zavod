@@ -10,6 +10,8 @@
           {set $text = 'стеновых материалов'}
         {case 'gazosilikatstroy'}
           {set $text = 'газобетона'}
+        {case 'gazoclone'}
+          {set $text = 'газобетона'}
         {case 'kraska'}
           {set $text = 'лакокрасочных материалов'}
         {case 'suhiesmesi'}

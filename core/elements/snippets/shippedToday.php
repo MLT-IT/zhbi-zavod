@@ -29,6 +29,12 @@ if (!class_exists('shippedToday')) {
                     $vol = $this->getVol($max);
                     $unit = 'м3';
                     break;
+
+                case 'gazoclone':
+                    $max = 154;
+                    $vol = $this->getVol($max);
+                    $unit = 'м3';
+                    break;
             }
             return "Сегодня $date мы уже отгрузили $vol $unit";
         }

@@ -176,7 +176,7 @@ if (in_array($src['context_key'], ['web'])) {
 }
 
 // Единицы измерения для газобетона
-if (in_array($src['context_key'], ['gazosilikatstroy'])) {
+if (in_array($src['context_key'], ['gazosilikatstroy','gazoclone'])) {
     if (!empty($src['kolvoshm3']) && !empty($src['kolvoshm3'][0])) {
         if (in_array($src['unit'][0], ['шт.', 'штука'])) {
             $m3 = 1 / ($src['kolvoshm3'][0]);

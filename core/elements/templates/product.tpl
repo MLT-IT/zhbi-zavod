@@ -271,7 +271,7 @@
 
                     {if $_modx->context.key != 'fibrofasad'}
                     <div class="product-info__relinkav">
-                      {if $_modx->context.key == 'gazosilikatstroy'}
+                      {if $_modx->context.key in list ['gazosilikatstroy','gazoclone']}
                         {set $relinkingData = '@FILE snippets/getRelinkngDataByVendor.php' | snippet}
                         {if $relinkingData is not empty}
                           <div class="product-info__euv-custom-select euv-custom-select">
@@ -303,6 +303,8 @@
                             'f5' => 'упаковок'
                           ]}
                         {case 'gazosilikatstroy'}
+                          {set $unit = 'м3'}
+                        {case 'gazoclone'}
                           {set $unit = 'м3'}
                         {case 'krovelnyjstroymarket'}
                           {set $randomStock = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 500, 'end'=> 2000]) }
@@ -569,6 +571,8 @@
               {/if}
               {switch $_modx->resource.context_key}
                 {case 'gazosilikatstroy'}
+                    <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
+                {case 'gazoclone'}
                     <p class="product-info__discount"><span class="product-info__discount-start">Скидка</span> 30% на доставку с <span class="product-info__discount-end">разгрузкой</span></p>
                 {case 'krovelnyjstroymarket'}
                     {if !$isCustomCalculator && !$isShtaketnik}

@@ -17,6 +17,9 @@
         {case 'gazosilikatstroy'}
           {set $logo = 'gazosilicatstroy.png'}
           {set $logoMobile = 'gazosilicatstroy.png'}
+        {case 'gazoclone'}
+          {set $logo = 'gazosilicatstroy.png'}
+          {set $logoMobile = 'gazosilicatstroy.png'}
         {case 'kraska'}
           {set $logo = 'kraska.png'}
           {set $logoMobile = 'kraska.png'}
@@ -79,6 +82,8 @@
             {case 'web'}
               {set $text = 'утеплителей'}
             {case 'gazosilikatstroy'}
+              {set $text = 'газобетона'}
+            {case 'gazoclone'}
               {set $text = 'газобетона'}
             {case 'plitnye'}
               {set $text = 'плитных материалов'}

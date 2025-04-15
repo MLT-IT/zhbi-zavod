@@ -42,6 +42,13 @@ switch (true) {
         ];
         break;
 
+    case $modx->resource->context_key == 'gazoclone':
+        $charsValues = [
+            'Размер, мм' => ['val' => $src['razmer-mm']],
+            'Кол-во на поддоне, шт' => ['val' => $src['pallet_num']],
+        ];
+        break;
+
     // ЖБИ
     case $modx->resource->context_key == 'gbi-zavod78':
         $charsValues = [

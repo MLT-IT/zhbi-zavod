@@ -64,6 +64,11 @@ if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
             $result['column2'] = ['title' => 'Плотность', 'type' => 'simple'];
             $result['column3'] = ['title' => 'Размеры', 'type' => 'composite'];
             break;
+        case 'gazoclone':
+            $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
+            $result['column2'] = ['title' => 'Плотность', 'type' => 'simple'];
+            $result['column3'] = ['title' => 'Размеры', 'type' => 'composite'];
+            break;
         case 'suhiesmesi':
             $result['column1'] = ['title' => 'Товар', 'type' => 'simple'];
             $result['column2'] = ['title' => 'Производитель', 'type' => 'simple'];
