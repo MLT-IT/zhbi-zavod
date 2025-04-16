@@ -20,6 +20,23 @@
   {/if}
 {/if}
 
+{if $_modx->resource.context_key in list ['gazosilikatstroy', 'web']}
+  {set $total = $_modx->getPlaceholder('total')}
+  {if  (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
+    <div class="product-card catalog-listing-banner block-bg">
+      {if $_modx->resource.context_key == "web"}
+        {insert "file:chunks/product/listing-banner-web.tpl"}
+      {/if}
+      {if $_modx->resource.context_key == "gazosilikatstroy"}
+        {insert "file:chunks/product/listing-banner-gazosilikatstroy.tpl"}
+      {/if}
+
+    </div>
+  {/if}
+{/if}
+
+
+
 {if $_modx->resource.context_key in list ['plitnye']}
   {set $total = $_modx->getPlaceholder('total')}
   {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 1 && $total >= 2))}
