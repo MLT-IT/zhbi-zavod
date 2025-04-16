@@ -112,28 +112,40 @@
       </div>
     </article>
 
-    {if $_modx->context.key != 'kirpich-m5'}
-    <article class="show-room section">
-      <div class="show-room__container">
-        <h2 class="margin-bottom-md section__title">Наши объекты</h2>
-        {insert 'file:chunks/show-room/show-room-gallery.tpl'}
-      </div>
-    </article>
-    {/if}
-
-    <article class="show-room section">
-      <div class="show-room__container">
-        <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
-        {insert 'file:chunks/show-room/show-room-objects.tpl'}
-      </div>
-    </article>  
-
-    <article class="show-room section">
-      <div class="show-room__container">
-        {* <h1 class="margin-bottom-md section__title">BANNER</h1> *}
+    {* krovelnyjstroymarket замена блоков местами*}
+    {if $_modx->context.key == 'krovelnyjstroymarket'}
+      <article class="show-room section">
+        <div class="show-room__container">
+          <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
           {insert 'file:chunks/show-room/banner-showroom.tpl'}
-      </div>
-    </article>  
+        </div>
+      </article>
+
+      {if $_modx->context.key != 'kirpich-m5'}
+        <article class="show-room section">
+          <div class="show-room__container">
+            <h2 class="margin-bottom-md section__title">Наши объекты</h2>
+            {insert 'file:chunks/show-room/show-room-gallery.tpl'}
+          </div>
+        </article>
+      {/if}
+    {else}
+      {if $_modx->context.key != 'kirpich-m5'}
+        <article class="show-room section">
+          <div class="show-room__container">
+            <h2 class="margin-bottom-md section__title">Наши объекты</h2>
+            {insert 'file:chunks/show-room/show-room-gallery.tpl'}
+          </div>
+        </article>
+      {/if}
+
+      <article class="show-room section">
+        <div class="show-room__container">
+          <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
+          {insert 'file:chunks/show-room/banner-showroom.tpl'}
+        </div>
+      </article>
+    {/if}
 
     {insert "file:_modules/our_objects/our_objects.tpl"}
 
