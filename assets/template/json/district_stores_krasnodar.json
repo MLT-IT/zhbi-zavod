@@ -1,0 +1,77 @@
+[
+  {
+    "coords": [45.058043, 39.150411],
+    "name": "Склад на Заповедной",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.853241, 38.681232],
+    "name": "Склад на Красноармейской",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.188482, 38.774971],
+    "name": "Склад на Восточной",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.30209, 39.267385],
+    "name": "Склад Пластуновская",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.19195, 39.230102],
+    "name": "Склад Динская",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.997553, 38.604929],
+    "name": "Склад Львосвское",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.891868, 38.837871],
+    "name": "Склад Афипский",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.877767, 39.203036],
+    "name": "Склад Адыгейск",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.032146, 39.019896],
+    "name": "Склад на Тихорецкой",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.09864, 39.092956],
+    "name": "Склад на Евдокимовской",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.03856, 39.290774],
+    "name": "Склад на Кирпичной",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [45.115605, 38.615533],
+    "name": "Склад Рощино",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.832777, 38.667371],
+    "name": "Склад Севесркая",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.989158, 41.082518],
+    "name": "Склад Новороссийская",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [44.766017, 39.86849],
+    "name": "Склад Белореченск",
+    "style": "text-align: center;"
+  }
+]
