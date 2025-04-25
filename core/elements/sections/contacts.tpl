@@ -14,18 +14,29 @@
         <div class="contacts__info">
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
-            {set $storehouse1 = 'Мурино'}
-            {set $storehouse2 = 'Красном Селе'}
-            {set $storehouse3 = 'Гатчине'}
 
+            {if $_modx->getPlaceholder('localdata').region == "krasnodar"}
+              {set $phone = $_modx->getPlaceholder('localdata').offices.0.phone}
+
+              {set $storehouse1 = 'Краснодаре'}
+              {set $storehouse2 = 'Армавире'}
+              {set $storehouse3 = 'Адыгейске'}
+            {else}
+              {set $phone = 'phone'|config}
+
+              {set $storehouse1 = 'Мурино'}
+              {set $storehouse2 = 'Красном Селе'}
+              {set $storehouse3 = 'Гатчине'}
+            {/if}
+            
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в {$storehouse1}:</p>
-                <p class="contact__value">{'phone' | option}, доб 1</p>
-              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                <p class="contact__value">{$phone}, доб 1</p>
+              </div><a class="contact__link" href="tel:{$phone}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
@@ -33,8 +44,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в {$storehouse2}:</p>
-                <p class="contact__value">{'phone' | option}, доб 2</p>
-              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                <p class="contact__value">{$phone}, доб 2</p>
+              </div><a class="contact__link" href="tel:{$phone}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
@@ -42,8 +53,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Телефон склада в {$storehouse3}:</p>
-                <p class="contact__value">{'phone' | option}, доб 3</p>
-              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                <p class="contact__value">{$phone}, доб 3</p>
+              </div><a class="contact__link" href="tel:{$phone}"></a>
             </div>
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
@@ -77,8 +88,8 @@
               </svg>
               <div class="contact__content">
                 <p class="contact__title">Номер телефона контактного центра:</p>
-                <p class="contact__value"><span itemprop="telephone">{'phone' | option}</span>, доб 2</p>
-              </div><a class="contact__link" href="tel:{'phone' | option}"></a>
+                <p class="contact__value"><span itemprop="telephone">{$phone}</span>, доб 2</p>
+              </div><a class="contact__link" href="tel:{$phone}"></a>
             </div>
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">

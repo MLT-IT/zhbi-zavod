@@ -190,6 +190,13 @@
 
 {/block}
 {block "end-body"}
+
+    {if $_modx->getPlaceholder('localdata').region == "krasnodar"}
+        <script>
+            window.is_krasnondar = true
+        </script>
+    {/if}
+
     <script defer src="{$_modx->config['template_path']}js/runtime.js?v={'file_version' | config}" ></script>
     <script defer src="{$_modx->config['template_path']}js/vendors.js?v={'file_version' | config}" ></script>
     <script defer src="{$_modx->config['template_path']}js/main.js?v={'file_version' | config}"></script>
