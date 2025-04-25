@@ -1,4 +1,5 @@
-{set $rows = $_modx->resource.id | resource : 'showroomObjects' | fromJSON}
+{set $rows = $_modx->resource.id | resource : 'showroomGallery' | fromJSON}
+
 {if $rows}
 <div class="showroom-objects">
     <div class="showroom-objects__slider">
