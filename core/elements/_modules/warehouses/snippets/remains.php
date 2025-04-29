@@ -49,4 +49,13 @@ foreach ($warehouses as &$warehouse) {
     $total_remains += $remains;
 }
 
-return ['warehouses' => $warehouses, 'total_remains' => $total_remains];
+switch($context_key){
+    case 'plitnye':
+        $unit = 'лист';
+    break;
+    default:
+        $unit = 'уп.';
+    break;
+}
+
+return ['warehouses' => $warehouses, 'total_remains' => $total_remains, 'unit' => $unit];
