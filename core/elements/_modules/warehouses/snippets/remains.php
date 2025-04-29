@@ -49,7 +49,7 @@ foreach ($warehouses as &$warehouse) {
     $total_remains += $remains;
 }
 
-switch($context_key){
+switch($modx->context->key){
     case 'plitnye':
         $unit = 'лист';
     break;
