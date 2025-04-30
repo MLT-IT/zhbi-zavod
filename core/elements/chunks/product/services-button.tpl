@@ -1,6 +1,6 @@
 <div class="product-card__actions services-item">
   <button class="btn btn_style_trans"><img src='{$item->image}' alt=""></button>
-  <div class="popup-mes noflash">
+  <div class="popup-mes noflash" {$add_attribs}>
     <p class="popup-mes__header">{$item->title}</p>
     <p class="popup-mes__body">{$item->text | striptags} <br>
       <a class="popup-mes__action" href="{$item->link}">Подробнее</a>
