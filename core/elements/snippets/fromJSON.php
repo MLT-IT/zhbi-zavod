@@ -4,7 +4,7 @@
 Путь относительно assets/template/json
 */
 //echo 'here!';
-$modx->log(xPDO::LOG_LEVEL_ERROR, 'Это сообщение об ошибке');
+//$modx->log(xPDO::LOG_LEVEL_ERROR, 'Это сообщение об ошибке');
 $input = $modx->getOption('input', $scriptProperties, false);
 if(!$input)return;
 
