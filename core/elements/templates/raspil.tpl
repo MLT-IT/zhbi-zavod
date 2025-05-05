@@ -6,7 +6,7 @@
     <div class="raspil__container">
       <h1 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h1>
       {include "file:sections/advantages_v2.tpl" styleClass='raspil__advantages'}
-      {*include "file:sections/delivery.tpl" styleClass='raspil__delivery'*}
+      {include "file:sections/raspil-delivery.tpl" styleClass='raspil__delivery'}
     </div>
 
     {*
