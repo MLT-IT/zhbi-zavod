@@ -34,6 +34,10 @@
       }
     }
 
+    &:last-child:after {
+      content: none;
+    }
+
     &:after{
       content: '';
       position: absolute;
