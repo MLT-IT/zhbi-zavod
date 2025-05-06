@@ -8,21 +8,7 @@
       {include "file:sections/advantages_v2.tpl" styleClass='raspil__advantages'}
       {include "file:sections/raspil-delivery.tpl" styleClass='raspil__delivery'}
       {include "file:blocks/tag-row.tpl" styleClass='raspil__tag-row' containerClass='raspil__container'}
+      {include "file:sections/contacts.tpl"}
     </div>
-
-    {*
-    <article class="inner section">
-      <div class="inner__container">
-        <h1 class="margin-bottom-md section__title">{$_modx->resource.pagetitle}</h1>
-
-        <div class="content">
-            {$_modx->resource.content}
-            {if $_modx->resource.alias == 'besplatnyij-zamer'}
-              {include "file:sections/zamer.tpl"}
-            {/if}
-        </div>
-      </div>
-    </article>
-    *}
   </main>
 {/block}
