@@ -1,4 +1,6 @@
 {
+  "id" : "{$id}",
   "name" : "{$pagetitle}",
-  "price": "{$price}"
+  "price": "{$price}",
+  "unit": "{$unit[0]}"
 },

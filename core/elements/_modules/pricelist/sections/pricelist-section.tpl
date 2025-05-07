@@ -1,9 +1,7 @@
 {if $_modx->resource.id in list [231023, 255363, 255364, 255365, 255366]}
 {set $ctx = $_modx->context.key}
 {set $data = '@FILE snippets/fromJSON.php' | snippet: ['input' => 'warehouse-pricelist/'~$ctx~'/pricelist-tables.json']}
-
-{*<pre>{$data2 | print_r}</pre>*}
-
+{set $remains = "@FILE _modules\warehouses\snippets\remains.php" | snippet: ['begin' => 100, 'end' => 300]}
 <article class="infoblocks section{$styleClass ? ' ' ~ $styleClass : ''}">
   <div class="infoblocks__container">
     <div class="infoblocks__content">
@@ -21,9 +19,10 @@
           'includeTVs' => 'priority1,HitsPage',
           'sortby' => '{"priority1":"ASC", "HitsPage":"ASC"}'
         ]}
+        {*<pre>{$data1 | print_r}</pre>*}
         {set $data2 = '@FILE snippets/MSProductsOutput2JSON.php' | snippet : ['input' => $data1]}
         {set $data2 = $data2 | fromJSON}
-        <div class="infoblocks__title section__title">{$tbl.title}</div>
+        <div class="infoblocks__title section__title">{$tbl.title} {'' | date : 'd.m.Y'}</div>
         <div class="table">
           <table class="table__table table-delivery">
             <thead>
@@ -38,6 +37,8 @@
               <tr class="table__row">
                 <td class="table__cell">{$row.name}</td>
                 <td class="table__cell">{$row.price}</td>
+                {set $remains = "@FILE _modules/warehouses/snippets/remains_here.php" | snippet: ['range' => $_modx->resource.range_remains, 'id' => $row.id]}
+                <td class="table__cell">{$remains} {$row.unit}</td>
               </tr>
             {/foreach}
             </tbody>
