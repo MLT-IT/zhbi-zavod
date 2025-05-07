@@ -1,0 +1,4 @@
+{
+  "name" : "{$pagetitle}",
+  "price": "{$price}"
+},
