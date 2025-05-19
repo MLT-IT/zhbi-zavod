@@ -14,6 +14,12 @@
 <div class="product-card__picture">
   <a href="{$uri}" class="product-card__link">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+    {if $_modx->resource.context_key == 'plitnye' && $item_thickness[0]?}
+      <div class="product-card__opt">
+        <div class="icon icon-thikness"></div>
+        <div class="text">{$item_thickness[0]}&nbsp;ММ</div>
+      </div>
+    {/if}
   </a>
   <div class="product-card__actions{if $idx == 1 ?} active{/if}">
     <button class="product-action product-action_favorite js-product__btn-fav{if $prodValues['checkItems']['fav'][$id]?} active{/if}"></button>
@@ -40,6 +46,9 @@
       Скидка {$discount | ceil} %
     </div>
   {/if}
+
+  
+  
 </div>
 
 {if $_modx->resource.context_key == 'kraska'}

@@ -10,4 +10,5 @@ if(file_exists($path)){
 }else{
   $data = require $default;
 }
+//$modx->log(xPDO::LOG_LEVEL_ERROR, print_r($data, true));
 return $data;

@@ -34,6 +34,7 @@ import initDistrictsMap from './modules/districts_map';
 import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 import initSliders from "./modules/sliders";
+import toInfoBlockTab from "./modules/toInfoBlockTab.js";
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
 import '../../core/elements/_modules/menu/uteplitel/scripts/main'
@@ -45,6 +46,7 @@ import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_obje
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 import initAssort from '../../core/elements/_modules/catalog/assort.js';
 
+window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
