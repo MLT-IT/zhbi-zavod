@@ -45,7 +45,7 @@ class getCategoriesWithMinPrice
                 $result[self::$brandsIds[$key]] = $val != NULL ? $val : '0'; // пришлось добавить по умолчанию 0, у некоторых brandsIds нет детей
             }
         }
-        
+
         // Возвращаем значение
         return $result;
     }
@@ -198,6 +198,9 @@ class getCategoriesWithMinPrice
 
             case 'gazoclone':
                 static::$brandsIds = [
+                    "vkblok" => 303562,
+                    "masix" => 303611,
+                    "glavstroyblok" => 303597,
                     "bck" => 303083,
                     "hh" => 303106,
                     "ytong" => 303129,
@@ -256,7 +259,7 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
-                
+
             case 'gbi-zavod78':
                 static::$brandsIds = [
                     'dorsroy' => 255831,
@@ -451,7 +454,7 @@ class getCategoriesWithMinPrice
                     // 'komplektuyshie2' => 171162,
                     // 'komplektuyshie3' => 171178,
                     // 'komplektuyshie4' => 171186,
-                    
+
                     'ondulin' => 171090,
                     'shifer' => 171056,
                     'cherepitsa' => 171133,
@@ -463,7 +466,7 @@ class getCategoriesWithMinPrice
                     'proflist' => 171130,
                     'shtaketnik' => 171132,
                 ];
-                
+
                 static::$customPrices = [
                     'ondulin' => 476,
                     'shifer' => 790,
@@ -478,13 +481,13 @@ class getCategoriesWithMinPrice
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
-                // тут не понятно, что вывести, пока оставлю (ted)
-                // case 'tagnerud':
-                //     static::$brandsIds = [
-                //         'catalog' => 196905,
-                //     ];
-                //     static::$brandsAndCategories = static::$brandsIds;
-                //     break;
+            // тут не понятно, что вывести, пока оставлю (ted)
+            // case 'tagnerud':
+            //     static::$brandsIds = [
+            //         'catalog' => 196905,
+            //     ];
+            //     static::$brandsAndCategories = static::$brandsIds;
+            //     break;
             case 'kirpich-m5':
                 /*
                     Ключ - алиас для таблицы с товарами, может быть любым
@@ -514,22 +517,22 @@ class getCategoriesWithMinPrice
                 static::$brandsAndCategories = [
                     'oblicovochnyi' => 231027,
                     'stroitelnyi' => 231028,
-                    'bruschatka' => '231088,231089,231090',//231029,
+                    'bruschatka' => '231088,231089,231090', //231029,
                     'dekor' => 231030,
                     'kamen' => 231031,
                     'kerambloki' => 231032,
-                    'pechnoi' => '231068,231069,231070,231071',//231033,
-                    'kladochsmes' => '231083,231084,231085,231086,231087',//231034,
-                    'lsr_kirpich' => '231074,231075',//231035,
-                    
+                    'pechnoi' => '231068,231069,231070,231071', //231033,
+                    'kladochsmes' => '231083,231084,231085,231086,231087', //231034,
+                    'lsr_kirpich' => '231074,231075', //231035,
+
                     'peregorod_blok' => 231036,
 
                     'plitka_naves' => 231037,
                     'plitka_pechi_kam' => 231038,
                     'silikat_kirpich' => 231039,
-                    'fasad_plit' => '231078,231079,231080',//231040,
-                    'fasad_dekor' => '231081,321082'//231041 
-                ];//static::$brandsIds;
+                    'fasad_plit' => '231078,231079,231080', //231040,
+                    'fasad_dekor' => '231081,321082' //231041 
+                ]; //static::$brandsIds;
                 break;
             default:
                 // тут надо бы какую-то базовую логику, тоже пока не понятно, повисит для мотивации (ted)
