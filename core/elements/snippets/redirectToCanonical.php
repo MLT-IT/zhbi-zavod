@@ -4,7 +4,7 @@ $uri = $_SERVER['REQUEST_URI'];
 
 // Separate the path and query string
 $parts = parse_url($uri);
-$path = $parts['path'] ?? '';
+$path = $parts['path'] ?: '';
 $query = isset($parts['query']) ? $parts['query'] : '';
 
 $lowerPath = strtolower($path);
