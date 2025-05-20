@@ -27,7 +27,7 @@ function getMenuData()
             ],
             'column2' => [
                 [
-                    "uri" => "/gazobeton-vkblok/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-vkblok/",
                     "name" => "D500",
                 ],
             ],
@@ -137,7 +137,7 @@ function getMenuData()
             ],
             'column2' => [
                 [
-                    "uri" => "/gazobeton-glavstroyblok/?plotnost-ob=D500",
+                    "uri" => "/gazobeton-glavstroyblok/",
                     "name" => "D500",
                 ],
             ],
