@@ -1,3 +1,4 @@
+{'@FILE snippets/redirectToCanonical.php' | snippet}
 {'@FILE snippets/ajax.php' | snippet}
 {'@FILE snippets/fast-search/MLTSearch.php' | snippet : [
   'tplCategory' => '@FILE chunks/fast-search/category-item.tpl',
