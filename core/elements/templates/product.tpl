@@ -838,6 +838,7 @@
   {/if}
 
   {if $_modx->context.key == "krovelnyjstroymarket"}
+    {include "file:_modules/similarsamples/chunks/wrapper.tpl"}
     {include "file:sections/faq.tpl"}
   {/if}
 

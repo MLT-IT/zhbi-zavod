@@ -15,7 +15,7 @@ import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
 import mapsLazyload from './modules/lazyload_maps';
-
+import initOpened from "./modules/opened.js"
 
 // -------------------------------------
 // MODULES
@@ -569,6 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
       }
 
+    initOpened();
 });
 
 function getYandexMetrikaId() {
