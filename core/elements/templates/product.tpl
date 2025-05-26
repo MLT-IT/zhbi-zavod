@@ -99,7 +99,12 @@
 {/if}
 {*  *}
 
-{if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+
+{if $_modx->context.key == "krovelnyjstroymarket"}
+  {set $similarsamples = "@FILE _modules/similarsamples/snippets/getSimilarProducts.php" | snippet}
+{/if}
+
+{if $_modx->resource.context_key == 'krovelnyjstroymarket' && !$similarsamples}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
     {set $soput_options = [
       'resources' => '-' ~ $_modx->resource.id,
@@ -838,7 +843,7 @@
   {/if}
 
   {if $_modx->context.key == "krovelnyjstroymarket"}
-    {include "file:_modules/similarsamples/chunks/wrapper.tpl"}
+    {$similarsamples}
     {include "file:sections/faq.tpl"}
   {/if}
 

@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (var key in rows) {
             if (rows.hasOwnProperty(key)) {
-                let maxHeight = 0;
+                let maxHeight = 50;
                 for (var keyRow in rows[key]) {
                     let objectRow = rows[key][keyRow];
                     if (objectRow.height() > maxHeight) {
