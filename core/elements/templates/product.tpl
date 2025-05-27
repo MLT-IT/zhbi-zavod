@@ -844,7 +844,10 @@
 
   {if $_modx->context.key == "krovelnyjstroymarket"}
     {$similarsamples}
+    {include "file:sections/product-advantages/wrapper.tpl"}
     {include "file:sections/faq.tpl"}
+  {else}
+    {include "file:sections/product-advantages/wrapper.tpl"}
   {/if}
 
   {include "file:sections/payment.tpl"}
