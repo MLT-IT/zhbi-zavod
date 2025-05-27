@@ -28,30 +28,46 @@
 
     {switch $_modx->resource.context_key}
       {case 'krovelnyjstroymarket'}
-        {set $imageBaner1 = "assets/template/pictures/promo/osnova/1.jpg"}
-        {set $imageBanerMobile1 = "assets/template/pictures/promo/osnova/1.jpg"}
-        {set $titleBaner1 = "Точный расчет кровли<br> в подарок!"}
+        {set $imageBaner1 = "assets/template/pictures/promo/v1/krovlya-1.png"}
+        {set $imageBanerMobile1 = "assets/template/pictures/promo/v1/krovlya-1-mobile.png"}
+        {set $titleBaner1 = "Точный расчет <br> кровли <span style='color:var(--color-red)'>в подарок!</span>"}
         {set $textBaner1 = "Специалисты<br> произведут точный расчет<br> всех материалов <br>под Ваш заказ <br>бесплатно"}
         {set $linkBaner1 = ""}
-        {set $colorText1 = "var(--color-red)"}
-        {set $customCssTitle1 = "background-color: transparent; padding: 0;"}
+        {set $colorText1 = "#3C3C3B"}
+        {set $customCssTitle1 = "background:transparent;padding:0;"}
         
-        {set $buttonLinkBaner1 = "Вызвать замерщика"}
+        {set $buttonLinkBaner1 = "получить расчет"}
 
-        {set $imageBaner2 = "assets/template/pictures/promo/2.jpg"}
-        {set $imageBanerMobile2 = "assets/template/pictures/promo/2.jpg"}
-        {set $titleBaner2 = "Металлочерепица Grand Line от 380 руб/м2"}
+        {set $imageBaner2 = "assets/template/pictures/promo/v1/krovlya-2.png"}
+        {set $imageBanerMobile2 = "assets/template/pictures/promo/v1/krovlya-2-mobile.png"}
+        {set $titleBaner2 = "Скидка на металлочерепицу<br><span style='color:#B61E13'>Grand Line</span>"}
         {set $textBaner2 = ""}
-        {set $colorText2 = "#fff"}
+        {set $colorText2 = "#3C3C3B"}
         {set $linkBaner2 = "/metallocherepitsya-grand-line/"}
+        {set $buttonLinkBaner2 = "перейти в каталог"}
+        {set $btn_2_style = "background: #B61E13; box-shadow: 0px 2px 0px 0px #944434;"}
+        {set $label2 = [
+          'text'=>'от 310 ₽ за м2'
+          'style' => 'background:#B61E13;'   
+        ]}
+          {set $logo_2="assets/template/pictures/promo/v1/grand-logo.png"}
 
-        {set $imageBaner3 = "assets/template/pictures/promo/3.jpg"}
-        {set $imageBanerMobile3 = "assets/template/pictures/promo/3.jpg"}
-        {set $titleBaner3 = "Профлист от компании “Металл Профиль” от 280 руб/м2"}
+        {set $pzdc_tut_css_file="min-width: 66%;"}
+
+        {set $imageBaner3 = "assets/template/pictures/promo/v1/krovlya-3.png"}
+        {set $imageBanerMobile3 = "assets/template/pictures/promo/v1/krovlya-3-mobile.png"}
+        {set $titleBaner3 = "Скидка на профлист<br><span style='color:#0275A8'>Металл-Профиль</span>"}
         {set $textBaner3 = ""}
-        {set $colorText3 = "#fff"}
+        {set $colorText3 = "#3C3C3B"}
         {set $linkBaner3 = '/profilirovannyj-list-dlya-zabora-metall-profil/'}
-
+        {set $buttonLinkBaner3 = "перейти в каталог"}
+        {set $label3 = [
+          'text'=>'от 250 ₽ за м2 '
+          'style' => 'background:#0275A8;'   
+        ]}
+        {set $btn_3_style = "background: #0275A8; box-shadow: 0px 2px 0px 0px #0275A8;border:none"}
+        {set $btn_3_base = true}  
+        {set $logo_3="assets/template/pictures/promo/v1/mp-logo.png"}
 
       {case 'tagnerud'}
         {set $imageBaner1 = "assets/template/pictures/promo/tagnerud/banner_1.jpg"}
@@ -134,6 +150,9 @@
         >{$titleBaner1}</h3>
         <p class="promo-block__text" {if $colorText1} style = "color:{$colorText1}"{/if}>{$textBaner1}</p>
           <a class="promo-block__btn btn btn_style_base" 
+          {if $pzdc_tut_css_file}
+            style="{$pzdc_tut_css_file}"
+          {/if}
           {if $linkBaner1 is empty}
             href="#callback"
             data-fancybox 
@@ -142,7 +161,10 @@
           {/if}
           >{$buttonLinkBaner1}</a>
       </div>
-      <div class="promo__item promo-block">
+      <div class="promo__item promo-block promo-block">
+        {if $logo_2}
+          <img class="promo-logo" src="{$logo_2}" />
+        {/if}
         <picture class="promo-block__bg">
           {set $file = $imageBanerMobile2 | replace : '.jpg': '.webp'}
           {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
@@ -155,13 +177,23 @@
           {/if}
           <img class="promo-block__bg-img" src="{$imageBaner2}">
         </picture>
-        <h3 class="promo-block__title" {if $colorText2} style = "color:{$colorText2}" {/if}>{$titleBaner2}</h3>
-        <p class="promo-block__text">{$textBaner2}</p>
+        <h3 class="promo-block__title small" {if $colorText2} style = "color:{$colorText2}" {/if}>
+          {$titleBaner2}
+          {if $label2}
+            <span class="promo-label" {if $label2['style']}style="{$label2['style']}"{/if}>{$label2['text']}</span>
+          {/if}
+        </h3>
+        <p class="promo-block__text">
+          {$textBaner2}
+        </p>
         {if $buttonLinkBaner2}
-        <a class="promo-block__btn btn btn_style_base" href="{$linkBaner2}">{$buttonLinkBaner2}</a>
+        <a class="promo-block__btn btn btn_style_base opacity" {if $btn_2_style}style="{$btn_2_style}"{/if}  href="{$linkBaner2}">{$buttonLinkBaner2}</a>
         {/if}
       </div>
       <div class="promo__item promo-block">
+        {if $logo_3}
+          <img class="promo-logo" src="{$logo_3}" />
+        {/if}
         <picture class="promo-block__bg">
           {set $file = $imageBanerMobile3 | replace : '.jpg': '.webp'}
           {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
@@ -174,10 +206,17 @@
           {/if}
           <img class="promo-block__bg-img" src="{$imageBaner3}">
         </picture>
-        <h3 class="promo-block__title" {if $colorText3} style = "color:{$colorText3}" {/if}>{$titleBaner3}</h3>
-        <p class="promo-block__text">{$textBaner3}</p>
+        <h3 class="promo-block__title small" {if $colorText3} style = "color:{$colorText3}" {/if}>
+          {$titleBaner3}
+          {if $label3}
+            <span class="promo-label" {if $label3['style']}style="{$label3['style']}"{/if}>{$label3['text']}</span>
+          {/if}
+        </h3>
+        <p class="promo-block__text">
+          {$textBaner3}
+        </p>
         {if $buttonLinkBaner3}
-        <a class="promo-block__btn btn btn_style_trans" href="{$linkBaner3}">{$buttonLinkBaner3}</a>
+        <a class="promo-block__btn btn {if $btn_3_base}btn_style_base{else}btn_style_trans{/if} opacity"  {if $btn_3_style}style="{$btn_3_style}"{/if} href="{$linkBaner3}">{$buttonLinkBaner3}</a>
         {/if}
       </div>
     </div>
