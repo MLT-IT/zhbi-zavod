@@ -4,11 +4,17 @@
       <main class="layout__main">
 
         {include "file:chunks/breadcrumbs/breadcrumbs.tpl" styleClass='bg-gray'}
+
+        {if $_modx->context.key == 'krovelnyjstroymarket'}
+          {include "file:sections/banners/banner-delivery-page.tpl"}
+        {else}
         <article class="section delivery">
           <div class="delivery__container ">
             <h1 class="section__title delivery__title">{$_modx->resource.pagetitle}</h1>
           </div>
-        </article>  
+        </article>
+        {/if}
+
         {*<article class="main-screen section">
           <div class="main-screen__container">
             <div class="main-screen__banners">
