@@ -1,7 +1,11 @@
 <article class="promo section section_view_bg">
   <div class="promo__container">
     <div class="promo__top">
-      <h2 class="section__title">Акции и скидки</h2><a class="link" href="/akcii/">Смотреть все</a>
+      
+      <h2 class="section__title">Акции и скидки</h2>
+      {if !$show_more_hide}
+      <a class="link" href="/akcii/">Смотреть все</a>
+      {/if}
     </div>
 
     {set $imageBaner1 = "assets/template/pictures/promo/promo-1.jpg"}
@@ -52,7 +56,7 @@
         ]}
           {set $logo_2="assets/template/pictures/promo/v1/grand-logo.png"}
 
-        {set $pzdc_tut_css_file="min-width: 66%;"}
+        {set $pzdc_tut_css_file="min-width: 66%;box-shadow: 0 0 3px #00000073;"}
 
         {set $imageBaner3 = "assets/template/pictures/promo/v1/krovlya-3.png"}
         {set $imageBanerMobile3 = "assets/template/pictures/promo/v1/krovlya-3-mobile.png"}
