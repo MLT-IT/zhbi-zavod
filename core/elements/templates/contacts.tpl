@@ -146,5 +146,11 @@
           {include "file:sections/advantages.tpl" styleClass='section'}
       </div>
     </section>
+
+    {if $_modx->context.key == 'krovelnyjstroymarket'}
+    <section class="section" style="padding-bottom: 0;">
+      {include "file:sections/calculator-banner/wrapper.tpl"}
+    </section>
+    {/if}
   </main>
 {/block}
