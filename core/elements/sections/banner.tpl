@@ -6,7 +6,12 @@
       'nav' => true
       'paging_class' => 'swiper-pagination--rounds'
       'slides' => $slides
-    ]
+    ],
+    'krovelnyjstroymarket' => [
+      'nav' => true
+      'paging_class' => 'swiper-pagination--rounds'
+      'slides' => $slides
+    ],
   ]}
   <div class="main-screen__slider">
     <div class="swiper-container">
@@ -112,6 +117,9 @@
   </div>
   {set $params_ss = [
     'web' => [
+      'hide' => true
+    ],
+    'krovelnyjstroymarket' => [
       'hide' => true
     ]
   ]}
