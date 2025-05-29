@@ -27,9 +27,8 @@ components/
 ```
 
 3. Проверить что в action.php `const PRODUCTION = true;`
-4. Пробежать по файлам и заменить CategoryProductRules на название своего пакета
-5. С app/ запустить `npm run build`
-6. Запустить миграции `database/migrations/table_name.php` (Пока через консоль. Не придумал как упростить установку)
+4. С app/ запустить `npm run build`
+5. Запустить миграции `database/migrations/table_name.php` (Пока через консоль. Не придумал как упростить установку)
 
 ---
 
