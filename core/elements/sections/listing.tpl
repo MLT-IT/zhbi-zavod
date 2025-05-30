@@ -93,7 +93,11 @@
       <div class="hidden-data">
         <span id="mse2_total">{$total ?: 0}</span>
       </div>
-
+      
+      {if $_modx->resource.context_key == "krovelnyjstroymarket"}
+        {include "file:_modules/category-product-rules/chunks/wrapper.tpl"}
+      {/if}
+      
       {if $_modx->context.key == 'trotuarnaya-plitka'}
         {include "file:sections/banners/trotuarnaya-plitka.tpl" small_banner_hide=true}
       {else}
