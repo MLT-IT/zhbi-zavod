@@ -849,6 +849,13 @@
   {/if}
 
   {include "file:sections/payment.tpl"}
+
+  {if $_modx->context.key == 'krovelnyjstroymarket'}
+  <section style="padding-bottom: 0;">
+    {include "file:sections/calculator-banner/wrapper.tpl"}
+  </section>
+  {/if}
+
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
 {/block}

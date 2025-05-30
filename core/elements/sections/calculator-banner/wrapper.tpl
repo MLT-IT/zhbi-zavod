@@ -15,7 +15,7 @@
               <li>Штакетник, водостоки и софиты</li>
               <li>Материалы и комплектующие</li>
             </ul>
-            <a href="/servisyi-rascheta/" class="btn btn_style_base">Перейти в калькулятор</a>
+            <a href="/servisyi-rascheta/" class="btn btn_style_base" onclick="ym(95226790, 'reachGoal','klik-skvoznoj-banner-rascheta') ">Перейти в калькулятор</a>
           </div>
           <img
             class="calculator-banner__img-calc"
