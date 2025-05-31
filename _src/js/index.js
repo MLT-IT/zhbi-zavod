@@ -46,6 +46,8 @@ import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_obje
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 import initAssort from '../../core/elements/_modules/catalog/assort.js';
 
+import "./modules/listingProductGallery.js"
+
 window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
 document.addEventListener('DOMContentLoaded', () => {
