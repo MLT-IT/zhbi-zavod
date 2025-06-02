@@ -15,6 +15,18 @@
     </div>
   </div>
   <div class="mlt-reviews__item-body">
-    <div class="mlt-reviews__item-body-content collapse-long-text">{$content}</div>
+    <div class="mlt-reviews__item-body-content collapse-long-text">
+      <div>{$content}</div>
+      {if $gallery}
+      <br>
+      <div class="mlt-reviews__item-gallery">
+        {foreach $gallery as $file}
+        <a href="{$file}" data-fancybox='review-{$id}'>
+          <img src="{$file}" width="100"/>
+        </a>
+        {/foreach}
+      </div>
+      {/if}
+    </div>
   </div>
 </div>

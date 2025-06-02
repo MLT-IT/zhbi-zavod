@@ -8,7 +8,7 @@
   </div>
   {set $startCount = 5}
   {set $limit = 20}
-  {set $user_reviews = '!mltReviewItems' | snippet : [ 
+  {set $user_reviews = '@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
     'user_reviews' => 1,
     'ratingRowClass' => 'mlt-reviews__item-rating',
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
@@ -20,7 +20,7 @@
       <h2 class="mlt-reviews__title small-title section__title">На модерации</h2>
       {$user_reviews}
   {/if}
-  {set $reviews ='!mltReviewItems' | snippet : [ 
+  {set $reviews ='@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
     'resource_id' => $_modx->resource.id,
     'ratingRowClass' => 'mlt-reviews__item-rating',
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
@@ -30,7 +30,7 @@
     'startCount' => $startCount
   ]}
   {if !$reviews}
-    {set $reviews ='!mltReviewItems' | snippet : [ 
+    {set $reviews ='@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
     'ratingRowClass' => 'mlt-reviews__item-rating',
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => 'tplItemReview',
