@@ -5,6 +5,18 @@ body.plitnye {
   }
 
   .header__top {
-    background-color: #7E8484;
+    background-color: var(--color-red);
+
+    .h-nav__item a {
+      &:hover {
+        color: var(--color-black);
+      }
+    }
+
+    .h-nav__link_calc {
+      &:hover {
+        background-color: var(--color-black);
+      }
+    }
   }
 }
