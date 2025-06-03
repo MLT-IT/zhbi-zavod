@@ -40,7 +40,7 @@
                 <div class="production-form__form-title">Связаться с производством</div>
                 <input type="text" placeholder="Введите Ваше имя" name="NAME">
                 <input type="tel" placeholder="Укажите номер телефона*" name="PHONE">
-                <button class="btn btn_size_small btn_style_trans" type="submit">Отправить заявку</button>
+                <button class="btn btn_size_small btn_style_trans" type="submit" onclick="ym(95226790,\'reachGoal\',\'otpravka-formy-skvoznoj-blok-proizvodstvo\')">Отправить заявку</button>
             </form>
             ',
             'hooks' => 'check_words_and_links,create_bitrix_lead',
