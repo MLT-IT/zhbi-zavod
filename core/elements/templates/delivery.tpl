@@ -68,6 +68,9 @@
             </div>
           </div>
         </article> *}
+        {if 'context_key' | resource == 'krovelnyjstroymarket'}
+          {insert "file:modules/deliveryCalculatorServiceAreas/sections/deliveryCalculator.tpl"}
+        {/if}
         {include "file:sections/delivery.tpl"}
         {include "file:sections/faq.tpl"}
         {include "file:sections/payment.tpl"}
