@@ -45,8 +45,8 @@ import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 import initAssort from '../../core/elements/_modules/catalog/assort.js';
-
 import "./modules/listingProductGallery.js"
+import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index'
 
 window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
@@ -66,6 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const ourObjects = new OurObjects();
             ourObjects.bind();
         break;
+    }
+
+    if(ctx == 'krovelnyjstroymarket'){
+        try{
+            const dc = new DeliveryCalculatorServiceAreas();
+            dc.run();
+        }catch(t){
+            console.error(t);
+        }
     }
 
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
