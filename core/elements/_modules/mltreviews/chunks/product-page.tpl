@@ -27,6 +27,7 @@
     'tpl' => 'tplItemReview',
     'tplOuter' => 'tplItemOuter',
     'limit' => $limit,
+    'context_key' => $_modx->context.key
     'startCount' => $startCount
   ]}
   {if !$reviews}
@@ -36,6 +37,7 @@
     'tpl' => 'tplItemReview',
     'tplOuter' => 'tplItemOuter',
     'limit' => $limit,
+    'context_key' => $_modx->context.key
     'startCount' => $startCount
   ]}
   {/if}
