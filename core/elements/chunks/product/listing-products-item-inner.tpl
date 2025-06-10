@@ -138,7 +138,9 @@
                 "context" => $_modx->resource.context_key,
                 "tpl" => "@FILE chunks/product/wizard-character-item.tpl"
             ])}
-            {else}
+        {elseif $_modx->resource.context_key in list ["suhiesmesi"]}
+          {* no chars *}
+        {else}
             {include "file:chunks/product/listing-chars.tpl"}
         {/if}
     </ul>
