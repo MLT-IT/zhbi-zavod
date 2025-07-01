@@ -5,6 +5,7 @@ node_modules/
 *sync*
 nohup*
 assets/template/js/
+!assets/template/js/jquery-3.7.1.min.js
 assets/template/css/
 assets/components/wall-calc/
 assets/template/wall-calc/

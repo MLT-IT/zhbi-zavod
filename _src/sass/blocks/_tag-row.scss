@@ -1,0 +1,22 @@
+.tag-row {
+  margin: 50px 0 50px;
+  h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 25px;
+  }
+  &__line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    .btn {
+      height: 59px;
+      flex: 0 1 auto;
+      @include until-480 {
+        flex: 1 1 33%;
+      }
+    }
+  }
+}

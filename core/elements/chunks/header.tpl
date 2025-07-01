@@ -248,7 +248,7 @@
             </div>
         </div>
 
-        {if $_modx->resource.context_key == "web"}
+        {if $_modx->resource.context_key in list ["web","krovelnyjstroymarket"]}
           {include "file:_modules/menu/uteplitel/chunks/mobileBottom.tpl"}
         {/if}
 

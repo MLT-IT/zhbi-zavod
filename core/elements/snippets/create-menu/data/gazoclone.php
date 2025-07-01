@@ -1,6 +1,10 @@
 <?php
 
-function getMenuData() {
+function getMenuData()
+{
+    $vkblok = 303562;
+    $masix = 303611;
+    $glavstroyblok = 303597;
     $lsr = 303349;
     $sk = 303287;
     $eab = 303236;
@@ -15,6 +19,163 @@ function getMenuData() {
     $mogilgaz = 303533;
 
     $data = [
+        $vkblok => [
+            'column1' => [
+                'uri' => '/gazobeton-vkblok/',
+                'name' => 'Газобетон ВКБлок',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/gazobeton-vkblok/",
+                    "name" => "D500",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x100x250",
+                    "name" => "625x100x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x120x250",
+                    "name" => "625x120x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x150x250",
+                    "name" => "625x150x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x200x250",
+                    "name" => "625x200x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x200x300",
+                    "name" => "625x200x300",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x240x250",
+                    "name" => "625x240x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x250x250",
+                    "name" => "625x250x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x300x250",
+                    "name" => "625x300x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x350x250",
+                    "name" => "625x350x250",
+                ],
+                [
+                    "uri" => "/gazobeton-vkblok/?razmer-mm=625x400x250",
+                    "name" => "625x400x250",
+                ],
+            ]
+        ],
+        $masix => [
+            'column1' => [
+                'uri' => '/gazobeton-masix/',
+                'name' => 'Газобетон Masix',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/gazobeton-masix/?plotnost-ob=D500",
+                    "name" => "D500",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?plotnost-ob=D600",
+                    "name" => "D600",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x75x250",
+                    "name" => "625x75x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x100x250",
+                    "name" => "625x100x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x125x250",
+                    "name" => "625x125x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x150x250",
+                    "name" => "625x150x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x200x250",
+                    "name" => "625x200x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x250x250",
+                    "name" => "625x250x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x300x200",
+                    "name" => "625x300x200",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x300x250",
+                    "name" => "625x300x250",
+                ],
+                [
+                    "uri" => "/gazobeton-masix/?razmer-mm=625x375x250",
+                    "name" => "625x375x250",
+                ],
+            ]
+        ],
+        $glavstroyblok => [
+            'column1' => [
+                'uri' => '/gazobeton-glavstroyblok/',
+                'name' => 'Газобетон ГлавСтройБлок',
+                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+            ],
+            'column2' => [
+                [
+                    "uri" => "/gazobeton-glavstroyblok/",
+                    "name" => "D500",
+                ],
+            ],
+            'column3' => [
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х75х250",
+                    "name" => "625х75х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х100х250",
+                    "name" => "625х100х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х150х250",
+                    "name" => "625х150х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х200х250",
+                    "name" => "625х200х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х250х250",
+                    "name" => "625х250х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х300х200",
+                    "name" => "625х300х200",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х300х250",
+                    "name" => "625х300х250",
+                ],
+                [
+                    "uri" => "/gazobeton-glavstroyblok/?razmer-mm=625х400х250",
+                    "name" => "625х400х250",
+                ],
+            ]
+        ],
         $lsr => [
             'column1' => [
                 'uri' => '/gazobeton-lsr/',

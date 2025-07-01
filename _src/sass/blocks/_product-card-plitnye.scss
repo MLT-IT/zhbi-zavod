@@ -1,0 +1,29 @@
+body.plitnye {
+  .product-card{
+    &__opt {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+      background-color: var(--color-red);
+      left: 0;
+      bottom: 10px;
+      padding: 6px;
+      border-radius: 0 3px 3px 0;
+
+      .text {
+        color: var(--color-white);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+        background: var(--color-white);
+        mask: url(../img/svg-sprite/thickness.svg);
+      }
+    }
+  }
+}

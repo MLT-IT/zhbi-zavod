@@ -15,7 +15,7 @@ import funcsProduct from './functions/funcsProduct.js';
 import funcsCatalog from './functions/funcsCatalog.js';
 import funcsFavAndComp from './functions/funcsFavAndComp';
 import mapsLazyload from './modules/lazyload_maps';
-
+import initOpened from "./modules/opened.js"
 
 // -------------------------------------
 // MODULES
@@ -34,6 +34,7 @@ import initDistrictsMap from './modules/districts_map';
 import Inputmask from 'inputmask';
 import mailChange from './modules/mailchanger';
 import initSliders from "./modules/sliders";
+import toInfoBlockTab from "./modules/toInfoBlockTab.js";
 
 import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
 import '../../core/elements/_modules/menu/uteplitel/scripts/main'
@@ -44,7 +45,10 @@ import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 import initAssort from '../../core/elements/_modules/catalog/assort.js';
+import "./modules/listingProductGallery.js"
+import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index'
 
+window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
 document.addEventListener('DOMContentLoaded', () => {
     waitForYm(null, function(counter, counterNum) {
@@ -62,6 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const ourObjects = new OurObjects();
             ourObjects.bind();
         break;
+    }
+
+    if(ctx == 'krovelnyjstroymarket'){
+        try{
+            const dc = new DeliveryCalculatorServiceAreas();
+            dc.run();
+        }catch(t){
+            console.error(t);
+        }
     }
 
     // Добавление дублирующихся заголовков в fancybox через JS, чтобы поисковики не видели их
@@ -205,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (var key in rows) {
             if (rows.hasOwnProperty(key)) {
-                let maxHeight = 0;
+                let maxHeight = 50;
                 for (var keyRow in rows[key]) {
                     let objectRow = rows[key][keyRow];
                     if (objectRow.height() > maxHeight) {
@@ -567,6 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
       }
 
+    initOpened();
 });
 
 function getYandexMetrikaId() {

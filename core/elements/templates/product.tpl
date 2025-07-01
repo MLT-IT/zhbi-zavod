@@ -99,7 +99,12 @@
 {/if}
 {*  *}
 
-{if $_modx->resource.context_key == 'krovelnyjstroymarket'}
+
+{if $_modx->context.key == "krovelnyjstroymarket"}
+  {set $similarsamples = "@FILE _modules/similarsamples/snippets/getSimilarProducts.php" | snippet}
+{/if}
+
+{if $_modx->resource.context_key == 'krovelnyjstroymarket' && !$similarsamples}
     {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
     {set $soput_options = [
       'resources' => '-' ~ $_modx->resource.id,
@@ -838,10 +843,19 @@
   {/if}
 
   {if $_modx->context.key == "krovelnyjstroymarket"}
+    {$similarsamples}
+    {include "file:sections/product-advantages/wrapper.tpl"}
     {include "file:sections/faq.tpl"}
   {/if}
 
   {include "file:sections/payment.tpl"}
+
+  {if $_modx->context.key == 'krovelnyjstroymarket'}
+  <section style="padding-bottom: 0;">
+    {include "file:sections/calculator-banner/wrapper.tpl"}
+  </section>
+  {/if}
+
   {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
 
 {/block}

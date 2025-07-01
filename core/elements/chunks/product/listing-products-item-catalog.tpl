@@ -4,7 +4,7 @@
 
 {set $renderChars = true}
 
-<div class="product-card product-card_catalog js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
+<div data-product-card class="product-card product-card_catalog js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
 {* Выводим data-атрибуты *}
 {insert "file:chunks/product/get-data-attrs.tpl"}
 >

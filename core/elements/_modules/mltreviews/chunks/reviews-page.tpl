@@ -3,7 +3,7 @@
     {include 'file:chunks/banners/reviews-head.tpl'}
     {set $startCount = 9}
 
-    {set $user_reviews = '!mltReviewItems' | snippet : [ 
+    {set $user_reviews = '@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
         'user_reviews' => 1,
         'ratingRowClass' => 'mlt-reviews__item-rating',
         'ratingItemClass' => 'mlt-reviews__item-rating-item',
@@ -24,12 +24,11 @@
         'ratingItemClass' => 'mlt-reviews__item-rating-item',
         'tpl' => 'tplItemReview',
         'tplOuter' => 'tplItemOuter',
-        'startCount' => $startCount
+        'startCount' => $startCount,
+        'context_key' => $_modx->context.key
     ]}
-
-    {set $params['where'] = '{ "context": "'~$_modx->context.key~'" }'}
     
-    {set $all_reviews ='!mltReviewItems' | snippet : $params}
+    {set $all_reviews ='@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : $params}
 
     {if $all_reviews}
     <div class="mlt-reviews__all-reviews">

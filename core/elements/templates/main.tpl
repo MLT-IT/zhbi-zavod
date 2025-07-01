@@ -104,6 +104,7 @@
           {include "file:sections/tagnerud-info.tpl"}
       {/switch}
       {include "file:sections/faq.tpl"}
+      <br>
       {include "file:sections/contacts.tpl"}
     </main>
 {/block}

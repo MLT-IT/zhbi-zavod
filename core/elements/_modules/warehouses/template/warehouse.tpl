@@ -112,6 +112,7 @@
                     </div>
                 {/foreach}
             {/if}
+        {include 'file:_modules/pricelist/sections/pricelist-section.tpl' styleClass='plitnye__pricelist'}
         </div>
     </div>
 

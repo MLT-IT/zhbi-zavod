@@ -3,6 +3,13 @@
   {'!checkItems' | snippet}
 {/if}
 
+{if $_modx->context.key == 'krovelnyjstroymarket'}
+  {set $product_images = "@FILE snippets/getProductGallery.php" | snippet : [
+    'product_id' => $id,
+    'limit' => 2
+  ]}
+{/if}
+
 {if $_modx->resource.context_key == "suhiesmesi" && $iconProduct}
     <div class="product-card__icon" style="background-image: url({$iconProduct});" ></div>
 {/if}
@@ -13,7 +20,18 @@
 <input type="hidden" name="id" value="{$id}">
 <div class="product-card__picture">
   <a href="{$uri}" class="product-card__link">
-    <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}">
+    <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" 
+    {if $product_images && count($product_images) > 1}
+      data-product-image
+      data-product-images="{$product_images | join}"
+    {/if}
+    alt="{$pagetitle}">
+    {if $_modx->resource.context_key == 'plitnye' && $item_thickness[0]?}
+      <div class="product-card__opt">
+        <div class="icon icon-thikness"></div>
+        <div class="text">{$item_thickness[0]}&nbsp;ММ</div>
+      </div>
+    {/if}
   </a>
   <div class="product-card__actions{if $idx == 1 ?} active{/if}">
     <button class="product-action product-action_favorite js-product__btn-fav{if $prodValues['checkItems']['fav'][$id]?} active{/if}"></button>
@@ -40,6 +58,9 @@
       Скидка {$discount | ceil} %
     </div>
   {/if}
+
+  
+  
 </div>
 
 {if $_modx->resource.context_key == 'kraska'}
@@ -117,7 +138,9 @@
                 "context" => $_modx->resource.context_key,
                 "tpl" => "@FILE chunks/product/wizard-character-item.tpl"
             ])}
-            {else}
+        {elseif $_modx->resource.context_key in list ["suhiesmesi"]}
+          {* no chars *}
+        {else}
             {include "file:chunks/product/listing-chars.tpl"}
         {/if}
     </ul>

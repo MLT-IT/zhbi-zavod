@@ -12,7 +12,7 @@ export default function initTooltipPopups() {
       $(this).closest(".product-info__price").toggleClass("active");
     });
   }
-  // новый тултип на листинге основы шоурум
+
   toolTipPopup();
 }
 
@@ -25,6 +25,15 @@ function toolTipPopup(
   if (!popUps || !popUps.length) {
     return;
   }
+
+  function closeOne(item, parent, e, timer = null){
+    if(e.target.closest(`.${parentClassName}`) !== parent||e.target.classList.contains(`${className}__close`)) {
+      timer && clearTimeout(timer);
+      parent.classList.remove("active");
+      item.style = '';
+    }
+  }
+
   popUps.forEach((popItem) => {
     try {
       const popParent = popItem.closest(`.${parentClassName}`);
@@ -39,22 +48,47 @@ function toolTipPopup(
           popParent.classList.remove("active");
         }, delay);
       }
-      document.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const { target } = e;
-        // if (!target.closest(`.${className}`) || target.classList.contains(`${className}__close`)) {
-        if (
-          target.closest(`.${parentClassName}`) !== popParent ||
-          target.classList.contains(`${className}__close`)
-        ) {
-          timer && clearTimeout(timer);
-          popParent.classList.remove("active");
-          popItem.style = '';
-        } else {
-          popParent.classList.add("active");
-          fixModalPosition(popItem);
-        }
-      });
+
+      const evt = popItem.dataset['event'];
+      //console.log(evt);
+      switch(evt){
+        case 'hover':
+          popParent.addEventListener('mouseover', (e) => {
+            const p = e.target.closest(`.${parentClassName}`);
+            //console.log('hover! ');
+            //console.log(p);
+            const opened =  document.querySelectorAll(`.${parentClassName}`);
+            //console.log(opened);
+            opened.forEach((item) => {
+              if(!item.classList.contains('active'))return;
+              item.classList.remove("active");
+              const popup = item.querySelector(`.${className}`);
+              if(popup)popup.style = '';
+              //console.log(popup);
+            });           
+            p.classList.add("active");
+            fixModalPosition(popItem);
+            
+          });
+          document.addEventListener("click", (e) => {
+            closeOne(popItem, popParent, e, timer);
+          });
+        break;
+        default:
+          document.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const { target } = e;
+            // if (!target.closest(`.${className}`) || target.classList.contains(`${className}__close`)) {
+            closeOne(popItem, popParent, e, timer);
+            if(target.closest(`.${parentClassName}`) === popParent && !target.classList.contains(`${className}__close`)){
+              popParent.classList.add("active");
+              fixModalPosition(popItem);
+            }
+          });
+        break;
+      }
+
+      
     } catch (e) {
       console.warn("[toolTipPopup] Error", e);
     }

@@ -1,0 +1,56 @@
+{set $phone = $_modx->getPlaceholder('localdata').offices.0.phone}
+{set $contacts = [
+    ['title' => 'Телефон производства:', 'value' => '<a href="tel:'~$phone~'">'~$phone~'</a>, доб. 1', 'icon' => 'svg-phone'],
+    ['title' => 'address' | option, 'icon' => 'svg-location'],
+    ['title' => '<a href="mailto:'~'email' | option~'">'~'email' | option~'</a>', 'icon' => 'svg-email'],
+]}
+
+<div class="production-form">
+  <div class="production-form__container">
+    <div class="production-form__row">
+      <div class="production-form__content">
+        <h2 class="production-form__content-title">
+          Собственное производство
+        </h2>
+        <div class="production-form__contacts">
+          {foreach $contacts as $item}
+          <div class="production-form__contacts-item">
+            <svg aria-hidden="true">
+              <use
+                xlink:href="assets/template/pictures/icons.svg#{$item['icon']}"
+              ></use>
+            </svg>
+            <div class="production-form__contacts-item-row">
+              <div class="production-form__contacts-item-title">
+                {$item['title']}
+              </div>
+              {if $item['value']}
+              <div class="production-form__contacts-item-value">{$item['value']}</div>
+              {/if}
+            </div>
+          </div>
+          {/foreach}
+        </div>
+        {include "file:sections/production-form/images.tpl" classes="show-mobile"}
+
+        {'!AjaxForm' | snippet : [
+            'snippet' => 'FormIt',
+            'form' => '@INLINE 
+            <form class="production-form__form">
+                <div class="production-form__form-title">Связаться с производством</div>
+                <input type="text" placeholder="Введите Ваше имя" name="NAME">
+                <input type="tel" placeholder="Укажите номер телефона*" name="PHONE">
+                <button class="btn btn_size_small btn_style_trans" type="submit" onclick="ym(95226790,\'reachGoal\',\'otpravka-formy-skvoznoj-blok-proizvodstvo\')">Отправить заявку</button>
+            </form>
+            ',
+            'hooks' => 'check_words_and_links,create_bitrix_lead',
+            'customValidators' => 'checkPhone',
+            'validate' => 'PHONE:required:checkPhone',
+            'validationErrorMessage' => 'В форме содержатся ошибки!',
+            'successMessage' => 'Сообщение успешно отправлено'
+        ]}
+      </div>
+      {include "file:sections/production-form/images.tpl" classes="hide-mobile"}
+    </div>
+  </div>
+</div>

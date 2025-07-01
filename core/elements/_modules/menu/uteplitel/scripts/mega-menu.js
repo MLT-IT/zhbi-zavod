@@ -17,6 +17,7 @@ setupClickHandlers(itemsMenu);
 
 
 document.body.addEventListener("click", () =>{
+    if(!menu)return;
     if (!menu.contains(event.target)) {
         menu.classList.remove("active");
     }

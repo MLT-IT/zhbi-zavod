@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @var int $user_reviews - Если 1 то выведет ожидающие модерации отзывы пользователя
  * @var int $resource_id - ID ресурса к которому привязаны отзывы
@@ -7,6 +6,7 @@
  * @var string $tplOuter - Обертка отзывов
  * @var string $ratingRowClass - Класс для обертки рейтинга
  * @var string $ratingItemClass - Класс для элемента рейтинга
+ * @var string $context_key - Контекст
  */
 
 if (!$pdoTools = $modx->getService("pdoTools")) return;
@@ -34,23 +34,26 @@ if (!function_exists('publishedUserReview')) {
 $modx->getService('mainService', 'mainService', MODX_CORE_PATH . 'components/mltreviews/services/');
 
 if (empty($tpl)) {
-    $tpl = '@FILE _modules/mltreviews/chunks/tplItemReview.tpl';
+    $tpl = '@FILE modules/mltreviews/chunks/tplItemReview.tpl';
 }
 if (empty($tplOuter)) {
-    $tplOuter =  '@FILE _modules/mltreviews/chunks/tplItemOuter.tpl';
+    $tplOuter =  '@FILE modules/mltreviews/chunks/tplItemOuter.tpl';
 }
+
+// >>> sources
+$option_sources = $modx->getOption('mltreviews_sources');
+if ($option_sources) {
+    $option_sources = json_decode($option_sources, true);
+    $sources = [];
+    foreach ($option_sources as $source) {
+        $sources[$source['key']] = $source;
+    }
+}
+// <<<
 
 $user_session = $_REQUEST['PHPSESSID'] ?: $_COOKIE['PHPSESSID'];
 
-$startCount = $startCount ?: 6;
-$limit = $limit ?: 0;
-
-if (!empty($where)) {
-    $where = json_decode($where, true);
-} else {
-    $where = [];
-}
-
+$where = [];
 if ($user_reviews) {
     $where['session'] = $user_session;
     $where['published'] = 0;
@@ -60,7 +63,9 @@ if ($resource_id) {
     $where['resource_id'] = $resource_id;
 }
 
-$where['context'] = $modx->resource->context_key;
+if ($context_key) {
+    $where['context'] = $context_key;
+}
 
 $query = $modx->newQuery('mltReview');
 if ($limit) {
@@ -71,10 +76,17 @@ $items = $modx->getCollection('mltReview', $query);
 
 
 $output = '';
-$idx = 0;
-
-
 foreach ($items as $item) {
+    // Галерея
+    $gallery = $item->getMany('Gallery');
+    if ($gallery) {
+        $gallery_files = array_map(function ($galleryItem) {
+            return $galleryItem->get('file'); // Добавляем поле с путями к файлам
+        }, $gallery);
+
+        $item->set('gallery', $gallery_files);
+    }
+
     if (
         ($user_reviews && !publishedUserReview($item)) || // Если это найденные неопубликованные отзывы пользователя и они меньше определенного времени - публикуем
         (!$user_reviews && $user_session == $item->session && publishedUserReview($item)) // Если это отзыв принадлежит пользователю, и он старше 3х дней - публикуем
@@ -84,27 +96,29 @@ foreach ($items as $item) {
 
     if (!$item->published) continue;
 
-    // if(isset($startCount) && $idx > $startCount) break;
-
     $rating_html = "<div class='$ratingRowClass'>";
-    for ($i = 1; $i < $startCount; $i++) {
+    for ($i = 1; $i <= 5; $i++) {
         if ($i <= $item->rating) $active_class = 'active';
         else $active_class = '';
 
         $rating_html .= "<span class='$ratingItemClass $active_class'></span>";
     }
     $rating_html .= "</div>";
-    $itemArray = $item->toArray();
-    $itemArray['hidden'] = $idx++ > $startCount;
-    $output .= $pdoTools->getChunk($tpl, array_merge(['rating_html' => $rating_html], $itemArray));
+
+    // >>> source
+    if ($sources) {
+        $item_source = $item->get('source');
+        $item->set('source', $sources[$item_source]);
+    }
+    // <<<
+
+    $output .= $pdoTools->getChunk($tpl, array_merge(['rating_html' => $rating_html], $item->toArray()));
 }
 
 if (!empty($output)) {
     // Оборачиваем результаты
     $output = $pdoTools->getChunk($tplOuter, [
-        'items' => $output,
-        'limit' => $limit,
-        'startCount' => $startCount
+        'items' => $output
     ]);
 }
 
