@@ -45,7 +45,7 @@
         <div class="mobile-block">макс. длина груза 4 м</div>
       </td>
       <td class="table__cell">4</td>
-      <td class="table__cell">от 2 400 руб</td>
+      <td class="table__cell">от 2 200 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -53,7 +53,7 @@
         <div class="mobile-block">макс. длина груза 6 м</div>
       </td>
       <td class="table__cell">6</td>
-      <td class="table__cell">от 3 200 руб</td>
+      <td class="table__cell">от 3 000 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -61,7 +61,7 @@
         <div class="mobile-block">макс. длина груза 6 м</div>
       </td>
       <td class="table__cell">6</td>
-      <td class="table__cell">от 4 400 руб</td>
+      <td class="table__cell">от 4 000 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -77,7 +77,7 @@
         <div class="mobile-block">макс. длина груза 13,5 м</div>
       </td>
       <td class="table__cell">13,5</td>
-      <td class="table__cell">от 10 800 руб</td>
+      <td class="table__cell">от 10 500 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -85,7 +85,7 @@
         <div class="mobile-block">макс. длина груза 6 м</div>
       </td>
       <td class="table__cell">6</td>
-      <td class="table__cell">от 7 200 руб</td>
+      <td class="table__cell">от 7 000 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -93,7 +93,7 @@
         <div class="mobile-block">макс. длина груза 8 м</div>
       </td>
       <td class="table__cell">8</td>
-      <td class="table__cell">от 13 500 руб</td>
+      <td class="table__cell">от 13 000 руб</td>
     </tr>
     <tr class="table__row">
       <td class="table__cell">
@@ -101,7 +101,7 @@
         <div class="mobile-block">макс. длина груза 13,5 м</div>
       </td>
       <td class="table__cell">14</td>
-      <td class="table__cell">от 16 200 руб</td>
+      <td class="table__cell">от 16 000 руб</td>
     </tr>
     </tbody>
   </table>
