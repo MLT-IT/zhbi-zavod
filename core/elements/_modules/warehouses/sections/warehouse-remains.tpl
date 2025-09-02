@@ -4,14 +4,18 @@
     <span>Наличие на <b>{'' | date : 'd.m'}</b></span>
     <span><b>{$data['total_remains']} {$data['unit']}</b></span>
   </li>
-  {foreach $data['warehouses'] as $warehouse}
-  <li>
-    <a href="{$warehouse['uri']}" class="warehouse-remains__item">
-      <span><b>{$warehouse['menutitle'] ?: $warehouse['pagetitle']}</b></span>
-      <span><b>{$warehouse['remains']} {$data['unit']}</b></span>
-    </a>
-  </li>
-  {/foreach}
+
+  {if $_modx->getPlaceholder('localdata').region != "krasnodar"}
+    {foreach $data['warehouses'] as $warehouse}
+    <li>
+      <a href="{$warehouse['uri']}" class="warehouse-remains__item">
+        <span><b>{$warehouse['menutitle'] ?: $warehouse['pagetitle']}</b></span>
+        <span><b>{$warehouse['remains']} {$data['unit']}</b></span>
+      </a>
+    </li>
+    {/foreach}
+  {/if}
+
   {if $_modx->context.key == 'plitnye'}
   <li class="warehouse-remains__item">
     <span>Доставим при заказе сегодня </span>
