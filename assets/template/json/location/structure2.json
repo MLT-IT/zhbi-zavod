@@ -5,6 +5,26 @@
       "subdomains_banned": [],
       "subdomains_unique": []
     },
+    "metallocherepica-spb.ru": {
+      "ctx_key": "metallocherepica",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
+    "falcevaya-krovlya-spb": {
+      "ctx_key": "falcevaya-krovlya",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
+    "gibkaya-cherepica-spb": {
+      "ctx_key": "gibkaya-cherepiza",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
+    "profmetall-24": {
+      "ctx_key": "profnastil",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
     "alterteplo": {
       "ctx_key": "web",
       "subdomains_banned": [],
