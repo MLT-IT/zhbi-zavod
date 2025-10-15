@@ -26,16 +26,16 @@ function getMenuData() {
                     'name' => 'Металл Профиль',
                     'popular'=>1,
                 ],
-                [
-                    'uri' => '/proflist-dlya-zabora-ooo-pk-proflist-metall/',
-                    'name' => 'Профлист Металл',
-                    'popular'=>1,
-                ],
-                [
-                    'uri' => '/proflist-dlya-zabora-ooo-pk-proflist-moment/',
-                    'name' => 'Профлист Момент',
-                    'popular'=>1,
-                ],
+                // [
+                //     'uri' => '/proflist-dlya-zabora-ooo-pk-proflist-metall/',
+                //     'name' => 'Профлист Металл',
+                //     'popular'=>1,
+                // ],
+                // [
+                //     'uri' => '/proflist-dlya-zabora-ooo-pk-proflist-moment/',
+                //     'name' => 'Профлист Момент',
+                //     'popular'=>1,
+                // ],
                 
             ],
         ],
@@ -59,16 +59,16 @@ function getMenuData() {
                     'name' => 'Металл Профиль',
                     'popular'=>1,
                 ],
-                [
-                    'uri' => '/proflist-dlya-krovli-metall-profil/',
-                    'name' => 'Профлист Металл',
-                    'popular'=>1,
-                ],
-                [
-                    'uri' => '/proflist-dlya-krovli-ooo-pk-proflist-moment/',
-                    'name' => 'Профлист Момент',
-                    'popular'=>1,
-                ],
+                // [
+                //     'uri' => '/proflist-dlya-krovli-metall-profil/',
+                //     'name' => 'Профлист Металл',
+                //     'popular'=>1,
+                // ],
+                // [
+                //     'uri' => '/proflist-dlya-krovli-ooo-pk-proflist-moment/',
+                //     'name' => 'Профлист Момент',
+                //     'popular'=>1,
+                // ],
                 
             ],
         ],
@@ -82,16 +82,16 @@ function getMenuData() {
             ],
             'column2' => [
                 
-                [
-                    'uri' => '/proflist-dlya-angarov-ooo-pk-proflist-metall/',
-                    'name' => 'Профлист Металл',
-                    'popular'=>1,
-                ],
-                [
-                    'uri' => '/proflist-dlya-angarov-ooo-pk-proflist-moment/',
-                    'name' => 'Профлист Момент',
-                    'popular'=>1,
-                ],
+                // [
+                //     'uri' => '/proflist-dlya-angarov-ooo-pk-proflist-metall/',
+                //     'name' => 'Профлист Металл',
+                //     'popular'=>1,
+                // ],
+                // [
+                //     'uri' => '/proflist-dlya-angarov-ooo-pk-proflist-moment/',
+                //     'name' => 'Профлист Момент',
+                //     'popular'=>1,
+                // ],
                 
             ],
         ],
