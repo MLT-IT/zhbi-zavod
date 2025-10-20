@@ -45,8 +45,9 @@ import '../../core/elements/_modules/calculator-opt/scripts/main'
 import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
 import initAssort from '../../core/elements/_modules/catalog/assort.js';
-import "./modules/listingProductGallery.js"
-import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index'
+import "./modules/listingProductGallery.js";
+import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
+import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
 
 window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addClipboardIcons();
 
     initAssort();
+    
 
     const ctx = body.getAttribute('data-ctx');
 
@@ -66,6 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const ourObjects = new OurObjects();
             ourObjects.bind();
         break;
+    }
+
+    if(ctx == 'fibrofasad'){
+        console.log('fibrofasad 111');
+        initCatalogMenu();
     }
 
     if(ctx == 'krovelnyjstroymarket'){
