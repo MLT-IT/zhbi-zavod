@@ -1,0 +1,73 @@
+.tn{
+    .menu-container{
+        .submenu__item{
+            &:hover{
+                color: #B90000;
+            }
+        }
+    }
+}
+
+.docke{
+    .menu-container{
+        .submenu__item{
+            &:hover{
+                color: #FCCB00;
+            }
+        }
+    }
+}
+
+
+.tegola{
+    .mobile_menu_v4{
+        .header__nav_title{
+            background: #007bc2;
+        }
+    }
+}
+
+.katepal{
+    .mobile_menu_v4{
+        .header__nav_title{
+            background: #014ba9;
+        }
+    }
+}
+
+.metallprofil{
+    .mobile_menu_v4{
+        .header__nav_title{
+            background: #0577a9;
+        }
+    }
+} 
+
+body.pol {
+    .menu-container .submenu {
+        &__list {
+            display: none;
+            align-items: stretch;
+            justify-content: flex-start;
+            ul li {
+                padding-right: 90px;
+            }
+            &.active {
+                display: flex;
+                ul {
+                    display: block;
+                }
+            }
+        }
+        &__vendors {
+            border-left: 1px solid #29702B;
+            padding: 0 0 0 47px;
+            a {
+                display: block;
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0 0 10px;
+            }
+        }
+    }
+}
