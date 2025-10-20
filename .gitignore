@@ -11,3 +11,5 @@ assets/components/wall-calc/
 assets/template/wall-calc/
 *backup.config.js
 backup_untracked.php
+swmine.sh
+getpr.sh
