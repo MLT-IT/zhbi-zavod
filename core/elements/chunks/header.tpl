@@ -174,7 +174,6 @@
             'tpl' => $tpl,
             'type' => 'catalog'
           ] }
-          {insert "file:chunks/desktop-catalog-menu/v1.tpl"}
         {else}
           {insert "file:chunks/desktop-catalog-menu/v1.tpl"}
         {/if}

@@ -1,0 +1,128 @@
+body[data-ctx='fibrofasad'] {
+  $color-1: #3c3c3b;
+  $color-2: #D35940;
+  $color-3: #D7D6D5;
+  .h-menu {
+    &__link-to-catalog {
+      color: $color-1;
+      font-size: 12px;
+      font-weight: 400;
+
+      & span {
+        color: $color-2;
+      }
+    }
+    &__dropdown {
+      @include media-until(1250px) {
+        left: -169px;
+      }
+    }
+  }
+
+  .h-catalog {
+    display: flex;
+    &__menu {
+      overflow-y: auto;
+      max-height: 350px;
+      flex: 0 0 347px;
+    }
+    &__menu-list {
+      padding-right: 12px;
+      li {
+        margin: 0 0 16px;
+      }
+    }
+    &__menu-item {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      color: $color-1;
+      text-decoration: none;
+      &:hover {
+        color: $color-2;
+      }
+    }
+    &__ico_wrapper {
+      width: 32px;
+      height: 32px;
+    }
+
+    &__submenu {
+      flex: 1 0 200px;
+    }
+
+    &__submenu-wrap {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    &__link-all {
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+      color: $color-1;
+      text-decoration: none;
+      & span {
+        color: $color-2;
+      }
+      &:hover {
+        color: $color-2;
+      }
+    }
+    &__link-all-p {
+      margin: 0 0 12px;
+    }
+    &__brands {
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+      color: $color-1;
+      margin: 0 0 12px;
+    }
+    &__submenu-item-wrap {
+      border: 1px solid $color-3;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+    }
+    &__submenu-item-img-wrap {
+      flex: 0 0 80px;
+      //min-height: 80px;
+      //max-height: 80px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__submenu-item-img {
+      object-fit: cover;
+      object-position: center;
+
+    }
+    &__submenu-item-text {
+      flex: 0 0 60px;
+      padding: 0 4px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      border-top: 1px solid $color-3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+    }
+    &__submenu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 17px 20px;
+      flex-wrap: wrap;
+    }
+  }
+}

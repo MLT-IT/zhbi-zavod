@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(ctx == 'fibrofasad'){
-        console.log('fibrofasad 111');
         initCatalogMenu();
     }
 

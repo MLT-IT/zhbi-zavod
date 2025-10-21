@@ -1,8 +1,8 @@
 
 function initCatalogMenu(classPrefix = 'h-catalog__') {
-  console.log('initCatalogMenu');
+  //console.log('initCatalogMenu');
   const menuItems = document.querySelectorAll("." + classPrefix + "menu-item");
-  const submenus = document.querySelectorAll("." + classPrefix + "submenu-list");
+  const submenus = document.querySelectorAll("." + classPrefix + "submenu-wrap");
   const children2 = document.querySelectorAll("." + classPrefix + "submenu[data-level='2'] a");
 
   try {
@@ -17,7 +17,7 @@ function initCatalogMenu(classPrefix = 'h-catalog__') {
               submenus.forEach(sub => sub.classList.remove("active"));
 
               this.classList.add("active");
-              document.querySelector(`.${classPrefix}submenu-list[data-index="${index}"]`)?.classList.add("active");
+              document.querySelector(`.${classPrefix}submenu-wrap[data-index="${index}"]`)?.classList.add("active");
           });
       });
   } catch (e) {
@@ -28,7 +28,7 @@ function initCatalogMenu(classPrefix = 'h-catalog__') {
       children2.forEach(item => {
           item.addEventListener("mouseover", event => {
               const index = event.target.dataset.index;
-              const children3 = document.querySelectorAll("." + classPrefix + "submenu[data-level='3'] .h-catalog__submenu-list");
+              const children3 = document.querySelectorAll("." + classPrefix + "submenu[data-level='3'] ." + classPrefix + "submenu-wrap");
 
               children3.forEach(child3 => child3.classList.remove("active"));
 

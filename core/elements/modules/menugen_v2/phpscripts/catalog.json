@@ -1,0 +1,148 @@
+[
+    {
+        "id": "171134",
+        "link": "/fibrocementnye-paneli/",
+        "title": "Фиброцементные панели",
+        "img": "assets/images/modules/menugen_v2/fibrofasad/panels.png",
+        "linkTextAll": "Смотреть все фиброцементные панели",
+        "children": [
+            {
+                "id": "171135",
+                "link": "/fibrocementnye-paneli-kmew/",
+                "title": "Фиброцементные панели Kmew",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171162",
+                "link": "/fibrocementnye-paneli-equitone/",
+                "title": "Фиброцементные панели Equitone",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171178",
+                "link": "/fibrocementnye-paneli-nichiha/",
+                "title": "Фиброцементные панели Nichiha",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171186",
+                "link": "/fibrocementnye-paneli-betehko/",
+                "title": "Фиброцементные панели БЕТЭКО",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "171121",
+        "link": "/fibrocementnyy-sayding/",
+        "title": "Фиброцементный сайдинг",
+        "img": "assets/images/modules/menugen_v2/fibrofasad/siding.png",
+        "linkTextAll": "Смотреть весь фиброцементный сайдинг",
+        "children": [
+            {
+                "id": "171090",
+                "link": "/fibrocementnyy-sayding-dekover/",
+                "title": "Фиброцементный сайдинг Дековер",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171056",
+                "link": "/fibrocementnyy-sayding-kedral/",
+                "title": "Фиброцементный сайдинг Кедрал",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171128",
+                "link": "/fibrocementnyy-sayding-betehko/",
+                "title": "Фиброцементный сайдинг БЕТЭКО",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171133",
+                "link": "/fibrocementnyy-sayding-fibratek/",
+                "title": "Фиброцементный сайдинг Фибратек",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171123",
+                "link": "/fibrocementnyy-sayding-asahi/",
+                "title": "Фиброцементный сайдинг Asahi",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171124",
+                "link": "/fibrocementnyy-sayding-fcs-group/",
+                "title": "Фиброцементный сайдинг FCS Group",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171126",
+                "link": "/fibrocementnyy-sayding-fibra-plank/",
+                "title": "Фиброцементный сайдинг FIBRA PLANK",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171127",
+                "link": "/fibrocementnyy-sayding-latonit/",
+                "title": "Фиброцементный сайдинг LATONIT",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171130",
+                "link": "/fibrocementnyy-sayding-kanon/",
+                "title": "Фиброцементный сайдинг Каньон",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171132",
+                "link": "/fibrocementnyy-sayding-sm-bord/",
+                "title": "Фиброцементный сайдинг СМ Борд",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171103",
+                "link": "/komplektuyushchie-dlya-fibrocementnogo-saydinga/",
+                "title": "Комплектующие для фиброцементного сайдинга",
+                "img": "assets/images/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171137",
+                "link": "/universalnye-dobornye-ehlementy-dlya-fibrocementnogo-saydinga/",
+                "title": "Универсальные доборные элементы для фиброцементного сайдинга",
+                "img": "assets/images/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    }
+]
