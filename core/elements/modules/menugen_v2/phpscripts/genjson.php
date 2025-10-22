@@ -22,10 +22,10 @@ $manualMap = [
     171121 => 'Смотреть весь фиброцементный сайдинг'
   ],
   'images' => [
-    171134 => 'assets/images/modules/menugen_v2/fibrofasad/panels.png',
-    171121 => 'assets/images/modules/menugen_v2/fibrofasad/siding.png',
-    171103 => 'assets/images/modules/menugen_v2/fibrofasad/complect.png',
-    171137 => 'assets/images/modules/menugen_v2/fibrofasad/complect.png'
+    171134 => 'assets/template/img/modules/menugen_v2/fibrofasad/panels.png',
+    171121 => 'assets/template/img/modules/menugen_v2/fibrofasad/siding.png',
+    171103 => 'assets/template/img/modules/menugen_v2/fibrofasad/complect.png',
+    171137 => 'assets/template/img/modules/menugen_v2/fibrofasad/complect.png'
   ]
 ];
 

@@ -2,6 +2,8 @@ body[data-ctx='fibrofasad'] {
   $color-1: #3c3c3b;
   $color-2: #D35940;
   $color-3: #D7D6D5;
+  $color-4: #E0E0E0;
+
   .h-menu {
     &__link-to-catalog {
       color: $color-1;
@@ -13,6 +15,7 @@ body[data-ctx='fibrofasad'] {
       }
     }
     &__dropdown {
+      scrollbar-color: $color-2 $color-4;
       @include media-until(1250px) {
         left: -169px;
       }
@@ -25,6 +28,7 @@ body[data-ctx='fibrofasad'] {
       overflow-y: auto;
       max-height: 350px;
       flex: 0 0 347px;
+      scrollbar-width: thin;
     }
     &__menu-list {
       padding-right: 12px;
@@ -52,6 +56,9 @@ body[data-ctx='fibrofasad'] {
 
     &__submenu {
       flex: 1 0 200px;
+      overflow-y: auto;
+      max-height: 516px;
+
     }
 
     &__submenu-wrap {
@@ -103,7 +110,8 @@ body[data-ctx='fibrofasad'] {
     &__submenu-item-img {
       object-fit: cover;
       object-position: center;
-
+      max-height: 80px;
+      max-width: 100%;
     }
     &__submenu-item-text {
       flex: 0 0 60px;

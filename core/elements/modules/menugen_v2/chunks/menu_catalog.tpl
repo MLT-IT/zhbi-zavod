@@ -30,7 +30,7 @@
                           <li class="h-catalog__submenu-item">
                             <a href="{$child['link']}" class="h-catalog__submenu-item-wrap">
                                 <div class="h-catalog__submenu-item-img-wrap">
-                                    <img class="h-catalog__submenu-item-img" src="{$child['img'] ?: 'assets/images/modules/menugen_v2/noimage.jpg'}">
+                                    <img class="h-catalog__submenu-item-img" src="{$child['img'] ?: 'assets/template/img/modules/menugen_v2/noimage.jpg'}">
                                 </div>
                                 <div class="h-catalog__submenu-item-text">
                                     {$child['title']}

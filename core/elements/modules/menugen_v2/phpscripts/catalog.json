@@ -3,7 +3,7 @@
         "id": "171134",
         "link": "/fibrocementnye-paneli/",
         "title": "Фиброцементные панели",
-        "img": "assets/images/modules/menugen_v2/fibrofasad/panels.png",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/panels.png",
         "linkTextAll": "Смотреть все фиброцементные панели",
         "children": [
             {
@@ -44,7 +44,7 @@
         "id": "171121",
         "link": "/fibrocementnyy-sayding/",
         "title": "Фиброцементный сайдинг",
-        "img": "assets/images/modules/menugen_v2/fibrofasad/siding.png",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/siding.png",
         "linkTextAll": "Смотреть весь фиброцементный сайдинг",
         "children": [
             {
@@ -131,7 +131,7 @@
                 "id": "171103",
                 "link": "/komplektuyushchie-dlya-fibrocementnogo-saydinga/",
                 "title": "Комплектующие для фиброцементного сайдинга",
-                "img": "assets/images/modules/menugen_v2/fibrofasad/complect.png",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
                 "children": [],
                 "customClass": ""
             },
@@ -139,7 +139,7 @@
                 "id": "171137",
                 "link": "/universalnye-dobornye-ehlementy-dlya-fibrocementnogo-saydinga/",
                 "title": "Универсальные доборные элементы для фиброцементного сайдинга",
-                "img": "assets/images/modules/menugen_v2/fibrofasad/complect.png",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
                 "children": [],
                 "customClass": ""
             }
