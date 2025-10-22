@@ -163,13 +163,19 @@
         {if $_modx->context.key == 'trotuarnaya-plitka'}
           {include "file:chunks/desktop-catalog-menu/v2.tpl"}
         {elseif $_modx->context.key == "web"}
-
           <div class="h-menu header__catalog" data-dropdown>
             <button class="h-menu__btn btn btn_style_base">Каталог</button>
             {$_modx->runSnippet("@FILE _modules/menu/uteplitel/snippets/getMenu.php")}
           </div>
+        {elseif $_modx->context.key == "fibrofasad"}
+          {set $tpl = '@FILE modules/menugen_v2/snippets/selectTpl.php' | snippet}
+          {'@FILE modules/menugen_v2/snippets/menu.php' | snippet : [
+            'context' => $_modx->context.key,
+            'tpl' => $tpl,
+            'type' => 'catalog'
+          ] }
         {else}
-          {include "file:chunks/desktop-catalog-menu/v1.tpl"}
+          {insert "file:chunks/desktop-catalog-menu/v1.tpl"}
         {/if}
 
         <div class="search header__search header__search_screen_desktop">
