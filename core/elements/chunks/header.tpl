@@ -72,69 +72,7 @@
     <div class="header__container">
       <div class="h-subinfo text-white">
         <span class="h-subinfo__text">
-          {set $beforeText = "Продажа"}
-          {set $afterText = "в Санкт-Петербурге"}
-          {switch $_modx->resource.context_key}
-            {case 'trotuarnaya-plitka'}
-              {set $beforeText = ""}
-              {set $text = 'Производство и продажа тротуарной плитки'}
-              {set $afterText = ""}
-            {case 'web'}
-              {set $text = 'утеплителей'}
-            {case 'gazosilikatstroy'}
-              {set $text = 'газобетона'}
-            {case 'gazoclone'}
-              {set $text = 'газобетона'}
-            {case 'plitnye'}
-              {set $text = 'плитных материалов'}
-            {case 'stenovye'}
-              {set $text = 'стеновых материалов'}    
-            {case 'kraska'}
-              {set $text = 'ЛКМ (краски, эмали, шпатлевки)'}
-            {case 'suhiesmesi'}
-              {set $text = 'сухих смесей'}
-            {case 'beltermo'}
-              {set $text = 'Белтермо'}
-            {case 'fibrofasad'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
-            {case 'fibrofasad2'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-              {set $text = 'Продажа фиброфасада в Санкт-Петербурге и ЛО'}
-            {case 'krovelnyjstroymarket'}
-              {set $beforeText = ""}
-              {set $text = 'Производство и продажа кровельных материалов'}
-              {set $afterText = ""}
-            {case 'tagnerud'}
-              {set $text = 'керамзита'}
-            {case 'profnastil'}
-              {set $text = 'Продажа профнастила в Санкт-Петербурге и ЛО'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-            {case 'gibkaya-cherepiza'}
-              {set $text = 'Продажа гибкой черепицы в Санкт-Петербурге и ЛО'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-            {case 'falcevaya-krovlya'}
-              {set $text = 'Продажа фальцевой кровли в Санкт-Петербурге и ЛО'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-            {case 'metallocherepica'}
-              {set $text = 'Продажа металлочерепицы в Санкт-Петербурге и ЛО'}
-              {set $beforeText = ""}
-              {set $afterText = ""}
-            {case 'kirpich-m5'}
-              {set $text = 'кирпича'}
-            {case 'gbi-zavod78'}
-              {set $text = 'ЖБИ'}
-              {set $afterText = "в Санкт-Петербурге и Ленинградской области"}
-            {case default}
-              {set $text = 'строительных товаров'}
-
-          {/switch}
-          {$beforeText} {$text} {$afterText}
+          {'@FILE snippets/descriptor.php' | snippet}
         </span>
       </div>
 

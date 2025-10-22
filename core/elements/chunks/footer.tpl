@@ -201,7 +201,7 @@
             </nav>
           {/if}
           {if $_modx->resource.context_key === 'fibrofasad'}
-            {set $resources =  '171090,171056,171128,171133,171123,171124'}
+            {set $resources = '314883,313902,313904,313906'}
             <nav class="footer__nav-list">
               <p class="footer__nav-group">
               {$_modx->runSnippet('pdoResources', [
@@ -214,7 +214,7 @@
                 'sortdir' => 'ASC'
               ])}
               </p>
-            {set $resources =  '171178,171135,171162,171186'}
+            {set $resources = '171090,171056,314884,314885'}
               <p class="footer__nav-group">
               {$_modx->runSnippet('pdoResources', [
                 'parents' => 0,

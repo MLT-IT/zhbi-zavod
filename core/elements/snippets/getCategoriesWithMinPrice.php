@@ -437,47 +437,48 @@ class getCategoriesWithMinPrice
 
             case 'fibrofasad':
                 static::$brandsIds = [
-                    // 'ondulin' => 171056,
-                    // 'shifer' => 171090,
-                    // 'cherepitsa' => 171123,
-                    // 'gibkayacherepitsa' => 171124,
-                    // 'rulonaykrovlay' => 171126,
-                    // 'cementnoPesochnayCherepitsa' => 171127,
-                    // 'keramichheskayCherepitsa' => 171128,
-                    // 'faltsevayKrovlay' => 171130,
-                    // 'proflist' => 171132,
-                    // 'shtaketnik' => 171133,
-                    // 'vodostochnaySystema' => 171103,
-                    // 'sofiti' => 171137,
+                    /*
+                    ++Фиброцементные панели (171134) - 700 р/шт.
+                    ++Фиброцементный сайдинг (171121) - 680 р/шт.
+                    ++Виниловый сайдинг (313901) - 195 р/шт.
+                    ++Металлический сайдинг (314877) - 850 р/м2
+                    ++Вспененный сайдинг (314878) - 550 р/шт.
+                    ++Акриловый сайдинг (314879) - 300 р/шт.
+                    ++Формованный сайдинг (314880) - 450 р/шт.
+                    ++Софиты (314881) - 400 р/шт.
+                    ++Фасадные пластиковые панели (314882) - 700 р/шт.
+                    ++Фасадная плитка Технониколь Hauberk (314883) - 710 р/шт.
+                    ++Фасадные термопанели (314884) - 690 р/шт.
+                    ++Фасадная штукатурка (315199) - 600 р/шт.
+                    */
 
-                    // 'komplektuyshie1' => 171135,
-                    // 'komplektuyshie2' => 171162,
-                    // 'komplektuyshie3' => 171178,
-                    // 'komplektuyshie4' => 171186,
-
-                    'ondulin' => 171090,
-                    'shifer' => 171056,
-                    'cherepitsa' => 171133,
-                    'gibkayacherepitsa' => 171128,
-                    'rulonaykrovlay' => 171123,
-                    'cementnoPesochnayCherepitsa' => 171124,
-                    'keramichheskayCherepitsa' => 171126,
-                    'faltsevayKrovlay' => 171127,
-                    'proflist' => 171130,
-                    'shtaketnik' => 171132,
+                    'fibrocem_panels' => 171134,
+                    'fibrocem_siding' => 171121,
+                    'vinyl_siding' => 313901,
+                    'metal_siding' => 314877,
+                    'foam_siding' => 314878,
+                    'akril_siding' => 314879,
+                    'form_siding' => 314880,
+                    'sofity' => 314881,
+                    'fasad_plast_panels' => 314882,
+                    'fasad_plitka_hauberk' => 314883,
+                    'fasad_termopanels' => 314884,
+                    'fasad_plaster' => 315199
                 ];
 
                 static::$customPrices = [
-                    'ondulin' => 476,
-                    'shifer' => 790,
-                    'cherepitsa' => 260,
-                    'gibkayacherepitsa' => 448,
-                    'rulonaykrovlay' => 3213,
-                    'cementnoPesochnayCherepitsa' => 171,
-                    'keramichheskayCherepitsa' => 1120,
-                    'faltsevayKrovlay' => 690,
-                    'proflist' => 420,
-                    'shtaketnik' => 375
+                    'fibrocem_panels' => 700,
+                    'fibrocem_siding' => 680,
+                    'vinyl_siding' => 195,
+                    'metal_siding' => 850,
+                    'foam_siding' => 550,
+                    'akril_siding' => 300,
+                    'form_siding' => 450,
+                    'sofity' => 400,
+                    'fasad_plast_panels' => 700,
+                    'fasad_plitka_hauberk' => 710,
+                    'fasad_termopanels' => 690,
+                    'fasad_plaster' => 600
                 ];
                 static::$brandsAndCategories = static::$brandsIds;
                 break;
