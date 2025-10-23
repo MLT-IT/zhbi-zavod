@@ -1,4 +1,4 @@
-{set $relinkingStandart = '@FILE _modules/product-card/getGostTuOption.php' | snippet}
+{set $relinkingStandart = '@FILE _modules/product-card/snippets/getGostTuOption.php' | snippet}
 <section class="section section_view_top">
   {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
   <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
@@ -7,21 +7,29 @@
     <div class="product__container">
       <h1 class="product__title section__title">{$_modx->resource.pagetitle}</h1>
       <div class="product__body">
-
         {'!msGallery' | snippet : [
         'tpl' => '@FILE chunks/gallery.tpl',
         ]}
-
         <div class="product__info-wrap">
           <div class="product__info product-info custom">
-
             <div class="product-info__top">
-              <div class="product-info__rating rating mb-2 pc-flex">
-                <a href="/otzyvy/" class="yandex-rating"><img src="/assets/images/zhbi500/yandex-badge.png" alt=""></a>
-              </div>
 
+              {set $flist = '@FILE _modules/product-card/snippets/getFeaturesList.php' | snippet: ['ctx' => $_modx->resource->context_key
+               'delivery_date' => '+1 days' | date : 'd.m']}
+              {if $flist}
+              <ul class="product-info__features-list">
+                {foreach $flist as $item}
+                <li class="product-info__features-list-item">
+                  <div class="product-info__features-list-icon-wrap">{$item.ico}</div> 
+                  <div class="product-info__features-list-title-wrap">{$item.title}</div>
+                </li>
+                {/foreach}
+              </ul>
+              {/if}
               <div class="product-info__rating rating mb-2">
-                <a href="/otzyvy/" class="yandex-rating mobile-flex"><img src="/assets/images/zbi500/yandex-badge.png" alt=""></a>
+
+                <span class="bold">&nbsp; {'+1 days' | date : 'd.m'} </span>
+
                 <div class="product-info__availability-title product-info__availability-title_zbi mobile-flex">
                   В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} шт.
                 </div>
