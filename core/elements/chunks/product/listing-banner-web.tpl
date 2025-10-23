@@ -1,11 +1,23 @@
-<div class="catalog-listing-banner__background"  style="z-index: 1">
-  <img src="/assets/template/banners/{$_modx->resource.context_key}/listing-banner-bg.jpg" alt="">
-</div>
-<div class="catalog-listing-banner__wrapper" style="z-index: 1">
-{*  <p class="catalog-listing-banner__title">Бесплатный выезд замерщика</p>*}
-  {* <p class="catalog-listing-banner__description"> Наши специалисты ознакомят Вас с нашим ассортиментом <br> и проведут
-    бесплатную консультацию. </p> *}
-  <div class="banner__action">
-    <a class="banner__btn btn btn_style_base btn_style_shadow" data-fancybox href="#callback">Заказать</a>
+{set $banners = "@FILE snippets/view-promo-sliders.php" | snippet}
+
+
+<article class="catalog-side-carousel">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      {foreach $banners as $banner}
+      <div class="swiper-slide">
+        <picture>
+          <source media="(max-width:725px)" srcset="/assets/template/banners/combo-vombo/{$banner['725']}">
+          <source media="(max-width:320px)" srcset="/assets/template/banners/combo-vombo/{$banner['320']}">
+          <img data-fancybox href="#callback" src="/assets/template/banners/combo-vombo/{$banner['base']}">
+        </picture>
+      </div>
+      {/foreach}
+
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
-</div>
+</article>
+
