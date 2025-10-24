@@ -304,4 +304,26 @@ export default async function initSliders() {
       },
     });
   }
+
+  // Слайдер баннеров в каталоге
+  const catalogSideCarousel = document.querySelector(".catalog-side-carousel .swiper");
+  if (catalogSideCarousel) {
+    const { Swiper, Navigation, Autoplay } = await import(
+      /* webpackChunkName: "swiper" */ "swiper"
+    );
+    Swiper.use([Navigation, Autoplay]);
+    new Swiper(catalogSideCarousel, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        prevEl: document.querySelector(".catalog-side-carousel .swiper-button-prev"),
+        nextEl: document.querySelector(".catalog-side-carousel .swiper-button-next"),
+      },
+    });
+  }
 }
