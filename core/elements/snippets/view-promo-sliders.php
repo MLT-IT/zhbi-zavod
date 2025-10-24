@@ -86,7 +86,7 @@ $parentsIds = $modx->getParentIds($modx->resource->id, 10, [
     "context_key" => $modx->resource->context_key
 ]);
 
-
+$parentsIds[] = $modx->resource->id;
 
 $id = 0;
 foreach ($parentsIds as $parent){
