@@ -24,9 +24,10 @@ body[data-ctx='fibrofasad'] {
 
   .h-catalog {
     display: flex;
+    gap: 10px;
     &__menu {
       overflow-y: auto;
-      max-height: 350px;
+      max-height: 360px;
       flex: 0 0 347px;
       scrollbar-width: thin;
     }
@@ -57,8 +58,9 @@ body[data-ctx='fibrofasad'] {
     &__submenu {
       flex: 1 0 200px;
       overflow-y: auto;
-      max-height: 516px;
-
+      max-height: 360px;
+      scrollbar-width: thin;
+      padding: 0 10px 0 0;
     }
 
     &__submenu-wrap {
@@ -106,12 +108,14 @@ body[data-ctx='fibrofasad'] {
       display: flex;
       align-items: center;
       justify-content: center;
+      
     }
     &__submenu-item-img {
       object-fit: cover;
       object-position: center;
       max-height: 80px;
       max-width: 100%;
+      padding: 5px;
     }
     &__submenu-item-text {
       flex: 0 0 60px;
