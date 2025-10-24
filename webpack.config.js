@@ -96,10 +96,10 @@ module.exports = (env, args) => {
             new ExtractTextPlugin({
                 filename: 'css/[name].css'
             }),
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-            }),
+            // new webpack.ProvidePlugin({
+            //     // $: "jquery",
+            //     // jQuery: "jquery",
+            // }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.DefinePlugin({
                 'process.env.DEBUG': !isProd,
@@ -141,7 +141,7 @@ module.exports = (env, args) => {
             open: true,
             proxy: {
                 "/": {
-                    target: 'http://alterteplo-test.local/',
+                    target: 'http://stroymarket.local/',
                     secure: false,
                     changeOrigin: true
                 }
