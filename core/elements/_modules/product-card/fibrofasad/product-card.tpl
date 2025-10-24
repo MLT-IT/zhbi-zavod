@@ -1,7 +1,5 @@
 {set $relinkingStandart = '@FILE _modules/product-card/snippets/getGostTuOption.php' | snippet}
-<section class="section section_view_top">
-  {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
-  <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
+ <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"
   {include "file:chunks/product/get-data-attrs.tpl"}
   >
     <div class="product__container">
@@ -26,55 +24,10 @@
                 {/foreach}
               </ul>
               {/if}
-              <div class="product-info__rating rating mb-2">
-
-                <span class="bold">&nbsp; {'+1 days' | date : 'd.m'} </span>
-
-                <div class="product-info__availability-title product-info__availability-title_zbi mobile-flex">
-                  В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} шт.
-                </div>
-                <div class="product-info__availability-title product-info__availability-title_guard mobile-flex">
-                  Контроль качества на каждом этапе
-                </div>
-                <div class="product-info__availability-title product-info__availability-title_fast mobile-flex">
-                  Производство от&nbsp;<a href="/dostavka-i-oplata/">1 дня</a>
-                </div>
-              </div>
-
-              <div class="product-info__relinkav show-tooltip">
-                <div class="product-info__availability-title product-info__availability-title_zbi pc-flex">
-                  В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} шт.
-                  <div class="tooltip-white">
-                    В среднем на нашем предприятии производится от 100 до 500 ЖБИ изделий в день.
-                  </div>
-                </div>
-              </div>
-              <div class="product-info__relinkav show-tooltip">
-                <div class="product-info__availability-title product-info__availability-title_guard pc-flex">
-                  Контроль качества на каждом этапе
-                  <div class="tooltip-white">
-                  Строгое соблюдение пропорций ЖБИ изделий на предприятии является для нас очень важным аспектом.
-                  </div>
-                </div>
-              </div>
-              <div class="product-info__relinkav">
-                <div class="product-info__availability-title product-info__availability-title_fast pc-flex">
-                  Производство от&nbsp;<a href="/dostavka-i-oplata/">1 дня</a>
-                </div>
-              </div>
-
-              {* <div class="product-info__avstock">
-                  <div class="product-info__availability-title product-info__availability-title_available pc-flex">
-                    На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 200])} {$unit}
-                  </div>
-                  <div class="product-info__shipped pc-flex">
-                      {'@FILE snippets/shippedToday.php' | snippet}
-                  </div>
-              </div> *}
             </div>
-            
-          
             <div class="product-info__bottom">
+                {insert 'file:modules/color-list/blocks/color-list.tpl'}
+                
                 {* Перелинковка характеристиками *}
                 <div class="product-info__relinking relinking">
 
@@ -209,5 +162,4 @@
       
       </div>
     </div>
-  </article>
-</section>
+ </article>

@@ -1,0 +1,13 @@
+body[data-ctx='fibrofasad'] {
+  //background: red;
+  .product-info {
+    &__features-list {
+      margin: 0;
+    }
+    &__features-list-item {
+      display: flex;
+      gap: 8px;
+      font-size: 16px;
+    }
+  }
+}
