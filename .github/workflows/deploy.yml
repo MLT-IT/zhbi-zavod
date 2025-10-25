@@ -13,3 +13,6 @@ jobs:
           cd /test/fileupload
           git fetch --all
           git reset --hard origin/master
+          nvm use 14
+          npm i 
+          npm run build
