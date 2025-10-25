@@ -13,6 +13,17 @@ jobs:
           cd /test/fileupload
           git fetch --all
           git reset --hard origin/master
-          nvm use 14
-          npm i 
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install dependencies and build
+        run: |
+          cd /test/fileupload
+          npm i
           npm run build
