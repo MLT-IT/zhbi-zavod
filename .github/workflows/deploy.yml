@@ -1,0 +1,17 @@
+name: Deploy Stroymarket
+
+on:
+  push:
+    branches:
+      - main  # триггер при пуше в main
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # выполняется на твоём сервере (self-hosted runner)
+
+  steps:
+    - name: Обновляем код в рабочей папке проекта
+      run: |
+        cd /test/fileupload
+        git fetch --all
+        git reset --hard origin/main
