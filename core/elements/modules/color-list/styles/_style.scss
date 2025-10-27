@@ -1,7 +1,86 @@
 body[data-ctx='fibrofasad'] {
+  $color-1: #D8D8D8;
+  $edge: 430px;
   .product-info{
+    &__color-list {
+      position: relative;
+      flex: 0 0 100%;
+      width: 100%;
+      margin-top: 20px;
+      @include media-until($edge) {
+        margin-top: 13px;
+      }
+    }
+    &__color-list-slider {
+      padding: 0 0 15px;
+    }
+    &__color-list-scroll {
+      display: none;
+      @include media-until($edge) {
+        display: block;
+      }
+      & .swiper-scrollbar-drag {
+        background: var(--color-red);
+      }
+    }
+
+    &__color-list-caption {
+      margin: 0 0 4px;
+    }
     &__color-list-img {
-      max-width: 74px;
+      max-width: 60px;
+      display: block;
+    }
+    &__color-list-item {
+      border: 1px solid $color-1;
+      border-radius: 3px;
+      width: 62px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+
+    }
+    &__color-list-nav {
+      position: absolute;
+      top: -8px;
+      right: 0;
+      z-index: 1;
+      gap: 15px;
+      display: none;
+      @include media-until($edge) {
+        display: flex;
+      }
+    }
+    &__color-list-nav-btn{
+      //border: 1px solid $color-1;
+      width: 22px;
+      height: 22px;
+      border-radius: 3px;
+    }
+    &__color-list-wrap {
+      gap: 8px;
+      flex-wrap: wrap;
+      @include media-until($edge) {
+        gap: 0;
+        flex-wrap: nowrap;
+      }
+
+      & .swiper-slide{
+        width: auto;
+        @include media-until($edge) {
+          //width: 100%;
+        }
+      }
+    }
+    &__color-list-show-more {
+      padding: 0 16px;
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

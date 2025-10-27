@@ -7,12 +7,17 @@ try {
   if(!$ottenokItems)return;
   $ottenok = $modx->resource->get('ottenok')[0];
   $pids = '';
-  foreach($ottenokItems as $item) {
-    if(!$pids)$pids = $item['product_id'];
-    else $pids .= ','.$item['product_id'];
+  $values = [];
+  foreach($ottenokItems as &$item) {
+    $pid = $item['product_id'];
+    $value = $item['value'];
+    if(!$pids)$pids = $pid;
+    else $pids .= ','.$pid;
+    $values[$pid] = $value;
   }
 
-  $modx->log(xPDO::LOG_LEVEL_ERROR, 'pids: '.$pids);
+  //$modx->log(xPDO::LOG_LEVEL_ERROR, 'pids: '.$pids);
+  //$modx->log(xPDO::LOG_LEVEL_ERROR, 'values: '.print_r($values, true));
   $query = "SELECT id, image, thumb from modx_ms2_products where id in ($pids)";
   $st = $modx->query($query);
   if(!$st)throw new Exception('Can\'t make query');
@@ -24,7 +29,8 @@ try {
     $output['ottenokItems'][] = [
       'id' => $row->id,
       'thumb' => $row->thumb,
-      'image' => $row->image
+      'image' => $row->image,
+      'title' => $values[$row->id]
     ];
   }
   $modx->log(xPDO::LOG_LEVEL_ERROR, 'output:'.print_r($output, true));
