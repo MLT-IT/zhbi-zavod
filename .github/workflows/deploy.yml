@@ -1,0 +1,29 @@
+name: Deploy Stroymarket
+
+on:
+  workflow_dispatch:  # ручной запуск
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # выполняется на твоём сервере (self-hosted runner)
+
+    steps:
+      - name: Обновляем код в рабочей папке проекта
+        run: |
+          cd /test/fileupload
+          git fetch --all
+          git reset --hard origin/master
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install dependencies and build
+        run: |
+          cd /test/fileupload
+          npm i
+          npm run build
