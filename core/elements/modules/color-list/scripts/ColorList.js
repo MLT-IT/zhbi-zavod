@@ -15,7 +15,7 @@ const config = {
     collapsedText: 'Скрыть',
   },
   captionHolder: '.product-info__color-list-caption .placeholder',
-  winEdge: 430
+  winEdge: 431
 };
 
 class ElementProvider {
@@ -186,7 +186,7 @@ class ColorList {
     this.re = new ReplacerImage(config.container, config.itemLink, '.product__picture .product__pictures-image', config.container);
     //console.log('run!');
     //console.log(window.innerWidth);
-    if(window.innerWidth <= config.winEdge) {
+    if(window.innerWidth < config.winEdge) {
       this.showMore.detach();
       this.slider.activate().then((output) => {console.log(output)}, (err) => {console.error(err)});
     }else {

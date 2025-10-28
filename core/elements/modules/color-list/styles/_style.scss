@@ -1,12 +1,12 @@
 body[data-ctx='fibrofasad'] {
   $color-1: #D8D8D8;
-  $edge: 430px;
+  $edge: 431px;
   .product-info{
     &__color-list {
       position: relative;
       flex: 0 0 100%;
       width: 100%;
-      margin-top: 20px;
+      margin: 20px 0 3px;
       @include media-until($edge) {
         margin-top: 13px;
       }
@@ -82,5 +82,6 @@ body[data-ctx='fibrofasad'] {
         text-decoration: underline;
       }
     }
+    
   }
 }
