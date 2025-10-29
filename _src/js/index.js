@@ -50,6 +50,7 @@ import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deli
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
 
 import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
+import { fixReviewsTabCollapseLongText } from './modules/fixReviewsTabCollapseLongText.js';
 
 window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
@@ -581,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $(document).ready(function () {
       collapseLongTexts();
-
+      fixReviewsTabCollapseLongText();
       showMoreListing();
     });
 
