@@ -25,6 +25,7 @@ class ReplacerImage
                 {
                     self.getProduct($(this).data('product'));
                 }
+                self.parent[0].dispatchEvent(new CustomEvent('thumb-active', {detail: this}));
             }, function()  {
                 $(this).removeClass( "hover" );
             }

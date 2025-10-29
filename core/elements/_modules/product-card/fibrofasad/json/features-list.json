@@ -1,0 +1,11 @@
+[
+  {"title": "В наличии на складе",
+   "ico": "<img src='assets/template/img/modules/product_card/fibrofasad/in-stock.png'>"
+  },
+  {"title": "Гарантия на товар 50 лет",
+   "ico": "<img src='assets/template/img/modules/product_card/fibrofasad/thumbs-up.png'>"
+  },
+  {"title": "Доставка <b>%%delivery_date</b> при заказе сегодня",
+   "ico": "<img src='assets/template/img/modules/product_card/fibrofasad/deliv.png'>"
+  }
+]

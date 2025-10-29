@@ -1,4 +1,4 @@
-{set $relinkingStandart = '@FILE _modules/product-card/getGostTuOption.php' | snippet}
+{set $relinkingStandart = '@FILE _modules/product-card/snippets/getGostTuOption.php' | snippet}
 <section class="section section_view_top">
   {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
   <article class="product section js-product not-init{if $prodValues['itemInCart']?} js-product-in-cart{/if}{if $prodValues['outputOldPrice']?} js-product_with-discount{/if}"

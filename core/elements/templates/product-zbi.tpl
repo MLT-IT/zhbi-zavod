@@ -61,7 +61,7 @@
 
 <main class="layout__main" xmlns="http://www.w3.org/1999/html">
 
-  {include "file:_modules/product-card/gbi-zavod78/product-card.tpl"}
+  {insert "file:_modules/product-card/product-card-main.tpl"}
 
   <article class="product__infoblocks infoblocks infoblocks_style_shadow section">
     <div class="infoblocks__container" data-tabs data-tabs-hiddable="479">

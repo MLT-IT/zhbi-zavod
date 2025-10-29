@@ -49,6 +49,8 @@ import "./modules/listingProductGallery.js";
 import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
 
+import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
+
 window.toInfoBlockTab = toInfoBlockTab; //Чтобы webpack не удалил
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,6 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(ctx == 'fibrofasad'){
         initCatalogMenu();
+    }
+
+    if(ctx == 'fibrofasad'){
+        try {
+            const cl = new ColorList();
+            cl.run();
+        }catch(t) {
+            console.error(t);
+        }
     }
 
     if(ctx == 'krovelnyjstroymarket'){

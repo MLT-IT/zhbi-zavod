@@ -1,0 +1,79 @@
+body[data-ctx='fibrofasad'] {
+  //background: red;
+  $edge-tablet: 767px;
+  $edge: 431px;
+  .product-info {
+    padding: 20px 40px 36px;
+    @include media-until($edge) {
+      padding: 8px 20px;
+      height: auto;
+    }
+    &__top {
+      margin-bottom: 0;
+    }
+    &__features-list {
+      margin: 0;
+      &--desktop {
+        display: block;
+        @include media-until($edge) {
+          display: none;
+        }
+      }
+    }
+    &__features-list-item {
+      display: flex;
+      gap: 8px;
+      font-size: 16px;
+    }
+    &__rating {
+      &--mobile {
+        display: none;
+        @include media-until($edge) {
+          display: flex;
+        }
+      }
+    }
+    &__shipped {
+      align-items: center;
+      &--mobile {
+        display: none;
+        @include media-until($edge) {
+          display: flex;
+        }
+      }
+      p {
+        line-height: 1;
+      }
+    }
+    &__splitter {
+      width: 100%;
+      height: 0;
+      margin: 0;
+      border: none;
+      border-bottom: 1px solid var(--color-black-trans);
+    }
+    &__pricevol-group {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0 0 23px;
+    }
+    &__volume {
+      order: 1;
+      @include media-until($edge-tablet) {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+    &__price {
+      order: 2;
+      @include media-until($edge-tablet) {
+        align-items: flex-end;
+      }
+      @include media-until($edge) {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
