@@ -8,8 +8,8 @@ const config = {
   itemLink: '.product-info__color-list-item-a', //элемент с data-product и всем остальным, участвующим в подмене изображений
   showBtn: '.product-info__color-list-show-more',
   gallery: '.product__picture .product__pictures-image', //Контейнер, в котором заменять картинки при наведении
-  edge: 1, //при каком кол-ве активировать кнопку "показать еще"
-  itemsToShow: 2, //Сколько элементов показывать в свернутом виде
+  edge: 6, //при каком кол-ве активировать кнопку "показать еще"
+  itemsToShow: 6, //Сколько элементов показывать в свернутом виде
   btn: {
     expandedText: 'Показать<br> еще',
     collapsedText: 'Скрыть',
