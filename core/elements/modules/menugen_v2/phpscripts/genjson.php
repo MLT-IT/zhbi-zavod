@@ -65,6 +65,8 @@ $manualMap = [
     315090 => 'assets/template/img/modules/menugen_v2/fibrofasad/plaster/Цементно-известковая штукатурка.png',
     315105 => 'assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силикатная штукатурка.png',
     315111 => 'assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силоксановая штукатурка.png',
+    315184 => 'assets/template/img/modules/menugen_v2/fibrofasad/Софиты виниловые.png',
+    315132 => 'assets/template/img/modules/menugen_v2/fibrofasad/Софиты металлические.png'
 
   ],
   'brands' => [
