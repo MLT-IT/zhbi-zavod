@@ -4,4 +4,11 @@ body[data-ctx='fibrofasad'] {
       padding-top: 23px;
     }
   }
+  .catalog-screen {
+    &__tag-picture {
+      @include until-768 {
+        height: auto;
+      }
+    }
+  }
 }
