@@ -6,7 +6,7 @@ body[data-ctx='fibrofasad'] {
   }
   .catalog-screen {
     &__tag-picture {
-      @include until-768 {
+      @include until-1200 {
         height: auto;
       }
     }
