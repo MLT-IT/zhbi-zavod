@@ -110,7 +110,7 @@
           {'@FILE modules/menugen_v2/snippets/menu.php' | snippet : [
             'context' => $_modx->context.key,
             'tpl' => $tpl,
-            'type' => 'catalog'
+            'menuFileName' => 'catalog'
           ] }
         {else}
           {insert "file:chunks/desktop-catalog-menu/v1.tpl"}

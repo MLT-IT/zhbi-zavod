@@ -138,9 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //initMobilemenu('.js-burger-1', '.burger-menu');
-    //initMobilemenu('.js-burger-2', '.burger-menu');
-    // initSliders();
     new Dropdowns();
     new Tabs();
 
@@ -369,7 +366,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if($('body').width() < 778){
         const skipButtonMore = document.body.classList.contains('krovelnyjstroymarket') 
         || document.body.classList.contains('alterteplo')
-        || document.body.classList.contains('plitnye');
+        || document.body.classList.contains('plitnye')
+        || document.body.classList.contains('fibrofasad');
         var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
         if(!skipButtonMore){
             $('.burger-menu__catalog').append($buttonMore);
