@@ -41,6 +41,10 @@ if (empty($rows)) return false;
  */
 $categories = [];
 foreach ($rows as $row) {
+    if (strpos($row['image'], 'assets') === false) {
+        $row['image'] = "/assets/" . $row['image'];
+    }
+
     $categories[$row['id']] = $row;
 }
 

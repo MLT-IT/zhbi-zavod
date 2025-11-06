@@ -55,7 +55,7 @@ if (!empty($categoryCustomTags) && $categoryCustomTags != '[]') {
         }
 
         $custom_tags_out .= $pdoTools->getChunk($tpl, [
-            'tv.mainImage' => $img,
+            'tv.mainImage' => strpos($img, 'assets') === false ? '/assets/' . $img : $img,
             'menutitle' => $menutitle,
             'uri' => $uri
         ]);
