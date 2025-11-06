@@ -48,6 +48,7 @@ import initAssort from '../../core/elements/_modules/catalog/assort.js';
 import "./modules/listingProductGallery.js";
 import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
+import { initCatalogMobileMenu } from '../../core/elements/modules/menugen_v2/scripts/mobile-menu.js';
 
 import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
 import { fixReviewsTabCollapseLongText } from './modules/fixReviewsTabCollapseLongText.js';
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(ctx == 'fibrofasad'){
         initCatalogMenu();
+        initCatalogMobileMenu();
     }
 
     if(ctx == 'fibrofasad'){
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cl = new ColorList();
             cl.run();
         }catch(t) {
-            console.error(t);
+            //console.error(t);
         }
     }
 
