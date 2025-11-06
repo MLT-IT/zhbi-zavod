@@ -6,7 +6,7 @@ function getMenuData()
     $data = [
         230500 => [
             'column1' => [
-                // "uri" => "prodazha-trotuarnoj-plitki-v-spb/",
+                "uri" => "/trotuarnaya-plitka/",
                 "name" => "Тротуарная плитка",
                 'svg' => 'assort-trot-plit'
             ],

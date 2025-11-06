@@ -18,7 +18,7 @@
                             <a href="{$uri}" class="catalog-screen__tag-link">
                               <div class="catalog-screen__tag-picture">
                                 {if $image}
-                                <img class="catalog-screen__tag-image" src="/assets/{$image}" />
+                                <img class="catalog-screen__tag-image" src="{$image}" />
                                 {/if}
                               </div>
                               <div class="catalog-screen__tag-name">
