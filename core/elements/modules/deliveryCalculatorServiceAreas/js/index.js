@@ -1,5 +1,10 @@
+import { EventKeeper } from "./EventKeeper";
+import { Suggestions, Events as SuggEvents } from "./suggestions";
+import { DropDownList } from "./DropDownList";
+import { InputIndicator} from './InputIndicator';
+import { coordsFromStr } from "./Utils";
+import { Events } from "./Events";
 //TODO: сделать взаимодействие компонентов через систему событий
-
 class Utils {
   static containsPoint (bounds, point) {
     return point[0] >= bounds[0][0] && point[0] <= bounds[1][0] &&
@@ -18,34 +23,14 @@ const Constraints = {
   restrictedArea: [[53.91320802837306, 32.844467773437486],[57.80159739262526, 42.937626211638694]] //левый нижний, правый верхний
 };
 
-const Events = {
-  areasRendered: 'AREAS_RENDERED',
-  pricesLoaded: 'PRICES_LOADED',
-  mapLoaded: 'MAP_LOADED',
-  readyToGo: 'READY_TO_GO'
-}
 
-class EventKeeper {
-  static events = new Map();
-  static trigger(event) {
-    if(!this.events.has(event))return;
-    const handlers = this.events.get(event);
-    handlers.forEach((handler) => {
-      handler();
-    });
-  }
-  static bindHandler(event, handler) {
-    if(!this.events.has(event))this.events.set(event, []);
-    const handlers = this.events.get(event);
-    handlers.push(handler);
-    this.events.set(event, handlers);
-  }
-}
+
 
 class AddressFieldKeeper {
   constructor(owner, config = {
     addrS: '.js-delivery-calculator__form-address',
     addrMsgS: '.js-delivery-calculator__form-address-message',
+    dropDownSel: '.js-delivery-calculator__form-address-dropdown',
     inputDelay: 1000
   }){
     this.config = config;
@@ -56,6 +41,14 @@ class AddressFieldKeeper {
     this.addrMsg.dataset['origMessage'] = this.addrMsg.innerHTML;
     //console.log(this.addrMsg.dataset['origMessage']);
     this.owner = owner;
+    this.suggestions = new Suggestions({
+      bounds: Constraints.restrictedArea
+    });
+    this.dropDownList = new DropDownList({
+      contSel: this.config.dropDownSel,
+      elemClass: 'delivery-calculator__form-address-dropdown-item'
+    });
+    this.inputIndicator = new InputIndicator();
   }
 
   bindAddressField() {
@@ -64,10 +57,39 @@ class AddressFieldKeeper {
     this.addrField.addEventListener('keyup', (e) => {
       host.setAddrMessage('');
       if(timer)clearTimeout(timer);
-      timer = setTimeout(() => {
-        host.pointFromAddress(this.addrField.value);
+      this.inputIndicator.setLoading();
+      timer = setTimeout(async () => {
+        //console.log(this.addrField.value);
+        await this.processSuggestions();
+        this.inputIndicator.setReady();
+        //host.pointFromAddress(this.addrField.value);
       }, this.config.inputDelay);
     });
+  }
+
+  async processSuggestions() {
+    const host = this;
+    const suggestions = await this.suggestions.get(this.addrField.value, {kind: 'province', name: 'Московская область'});
+    //console.log(suggestions);
+    if(!suggestions || suggestions.length < 1) {
+      this.owner.ui.setService(false, true);
+      return;
+    }
+    if(suggestions && suggestions.length == 1) {
+      const coords = suggestions[0].coords;
+      const text = suggestions[0].text;
+      host.pointFromCoords(coords, text);
+      return;
+    }
+    this.dropDownList.fill(suggestions, (e, elem) => {
+      const coords = coordsFromStr(elem.dataset.coords);
+      const text = elem.innerHTML;
+      //console.log(coords);
+      host.pointFromCoords(coords, text);
+      this.dropDownList.hide();
+      this.addrField.value = text;
+    });
+    if(suggestions)this.dropDownList.show();
   }
 
   setAddrMessage(msg) {
@@ -118,6 +140,12 @@ class AddressFieldKeeper {
       console.error(err);
     });
   }
+
+  pointFromCoords(coords, text) {
+    if(!coords)return;
+    this.owner.setMark(coords, text);
+  }
+
 }
 
 class CoordinatesFixer {
@@ -149,15 +177,15 @@ class AreasKeeper {
     const p = fetch(this.config.areasJSONPath);
     p.then((res) => {
       if(!res.ok){console.error("Error fetching Areas.geojson"); console.error(res.statusText);}
-      //console.log(res);
       //host.#renderAreas(res.text()); //.json();
       return res.json();
     }, (err) => { console.error('promise error Areas.geojson'); console.error(err);
     }).then((res) => {
       //console.log(res);
       //console.log(typeof res);
+      host.#fixCoords(res.features);
       host.#renderAreas(res);
-      EventKeeper.trigger(Events.areasRendered);
+      EventKeeper.trigger(Events.areasRendered, res);
     }, (err) => {console.error(err);});
   }
 
@@ -173,7 +201,7 @@ class AreasKeeper {
     const host = this;
     //console.log(json);
     //console.log(typeof json);
-    this.#fixCoords(json.features);
+    //this.#fixCoords(json.features);
     //console.log(ymaps.geoQuery(json));
     //console.log(this.owner.map);
     this.areas = ymaps.geoQuery(json).addToMap(this.owner.map);
@@ -253,19 +281,27 @@ class ResultsRenderer {
   #setAreaInfo(area) {
     this.#clearAreaInfo();
     //console.log(area);
+    /*
     if(area.handler){
       this.owner.ui.setPrices('handler', '', area.handler.dur, area.handler.exact);
     }else {
       this.owner.ui.setPrices('handler', '', '-', '-');
-    }
-    if(!area.car){
-      //console.log('car is empty');
-    }else{
-      //console.log(area.car);
+    }*/
+    console.log(area);
+    if(area.car){
       for(let p in area.car){
         //console.log(p);
         //console.log(area.car[p]);
         this.owner.ui.setPrices('car', p, area.car[p].dur, area.car[p].exact);
+      }
+      //console.log('car is empty');
+    }
+    if(area.handler){
+      //console.log(area.car);
+      for(let p in area.handler){
+        //console.log(p);
+        //console.log(area.handler[p]);
+        this.owner.ui.setPrices('handler', p, area.handler[p].dur, area.handler[p].exact);
       }
     }
   }
@@ -303,19 +339,36 @@ class UIHandler {
     this.config = config;
     this.formData = {
       vehicleId: 'car',
-      weight: '0,5'
+      carWeight: '0,5',
+      handlerWeight: '5',
     }
   }
 
   #toggleWeights() {
-    const weights = body.querySelector(this.config.weightsSel);
-    if(!weights)throw 'Can\'t find weights block';
+    const host = this;
+    const weightsCars = body.querySelector(this.config.weightsSel + '.cars');
+    const weightsHandlers = body.querySelector(this.config.weightsSel + '.handlers');
+    //if(!weights)throw 'Can\'t find weights block';
     //console.log(this.formData);
     //console.log(weights);
     if(this.formData.vehicleId == 'car') {
-      weights.classList.add('active');
-    }else {
-      weights.classList.remove('active');
+      weightsCars.classList.add('active');
+      weightsHandlers.classList.remove('active');
+      const links = weightsCars.querySelectorAll('a');
+      links.forEach((link) => {
+        const weight = link.dataset.value;
+        link.classList.remove('active');
+        if(weight == host.formData.carWeight)link.classList.add('active');
+      });
+    }else if(this.formData.vehicleId == 'handler') { 
+      weightsHandlers.classList.add('active');
+      weightsCars.classList.remove('active');
+      const links = weightsHandlers.querySelectorAll('a');
+      links.forEach((link) => {
+        const weight = link.dataset.value;
+        link.classList.remove('active');
+        if(weight == host.formData.handlerWeight)link.classList.add('active');
+      });
     }
   }
 
@@ -327,15 +380,19 @@ class UIHandler {
       tab.classList.remove('active');
       const weight = tab.dataset.weight;
       const vehicleId = tab.dataset.vehicle;
-      //console.log(vehicleId);
-      //console.log(weight);
-      if(vehicleId == host.formData.vehicleId && host.formData.vehicleId == 'handler'){ 
+      const formDataWeight = host.formData.vehicleId == 'car'?host.formData.carWeight:host.formData.handlerWeight;
+      if(vehicleId == host.formData.vehicleId && (weight == formDataWeight)){ 
         tab.classList.add('active');
       }
-      if(host.formData.vehicleId == 'car' && (weight == host.formData.weight)){
+      //if(vehicleId == host.formData.vehicleId && (weight == host.formData.handlerWeight)){ 
+      //tab.classList.add('active');
+      //}
+      //console.log(weight);
+      //console.log(host.formData.weight);
+      /*if(host.formData.vehicleId == 'car' && (weight == host.formData.weight)){
         //console.log('car weight');
         tab.classList.add('active');
-      }
+      }*/
     });
   }
 
@@ -361,8 +418,10 @@ class UIHandler {
       const priceDurElem = tab.querySelector(host.config.priceDurSel);
       const priceExactElem = tab.querySelector(host.config.priceExactSel);
       if(vehicle == 'handler' && vehicleId == 'handler'){
-        priceDurElem.innerHTML = Utils.priceFormat(priceDur);
-        priceExactElem.innerHTML = Utils.priceFormat(priceExact);
+        if(tabWeight == weight) {
+          priceDurElem.innerHTML = Utils.priceFormat(priceDur);
+          priceExactElem.innerHTML = Utils.priceFormat(priceExact);
+        }
       }
       if(vehicle == 'car' && vehicleId == 'car'){
         if(tabWeight == weight) {
@@ -431,7 +490,7 @@ class UIHandler {
         if(!linkElem)throw 'Can\'t find link element';
         //console.log(linkElem);
         const weight = linkElem.dataset.value;
-        host.formData.weight = weight;
+        host.formData.vehicleId == 'car'?host.formData.carWeight = weight:host.formData.handlerWeight = weight;
         host.#setActiveLink(linkElem);
         host.#togglePrices();
         //console.log(host.formData);
@@ -509,6 +568,7 @@ class DeliveryCalculatorServiceAreas {
         this.rr.render(polygon.properties.get('description'));
       }
       this.map.geoObjects.add(this.placemark);
+      this.map.panTo(coords);
     }catch(t) {
       console.error(t);
     }
@@ -555,9 +615,20 @@ class DeliveryCalculatorServiceAreas {
     });
   }
 
+  #setFormHandler() {
+    const form = document.querySelector('.js-delivery-calculator__form');
+    if(!form)return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      console.log('submit');
+      return false;
+    });
+  }
+
   run() {
     this.#setEventHandlers();
     this.#ymapsInit();
+    this.#setFormHandler();
     //console.log("Delivery Calculator running");
   }
 }

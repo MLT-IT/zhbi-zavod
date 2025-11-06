@@ -61,10 +61,17 @@
       color: red;
     }
   }
+
+  &__form-address-wrap {
+    position: relative;
+    display: block;
+  }
+
   &__weights {
     flex-wrap: wrap;
     gap: 22px;
     display: none;
+    min-height: 71px;
     &.active {
       display: flex;
     }
@@ -93,6 +100,7 @@
   }
   &__weights-svg {
     fill: #25282B;
+    margin: 0 auto;
   }
 
   &__weights-img-wrap {
@@ -191,3 +199,6 @@
     }
   }
 }
+
+@import './form-addr-improvements';
+@import './masks';

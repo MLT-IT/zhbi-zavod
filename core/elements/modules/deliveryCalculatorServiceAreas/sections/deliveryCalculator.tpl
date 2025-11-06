@@ -9,9 +9,12 @@
     <div class="delivery-calculator__form-block">
       <h2 class="delivery-calculator__form-title">Калькулятор доставки</h2>
       <form action="" method="post">
-        <label>
-          <input type="text" placeholder="Адрес" class="js-delivery-calculator__form-address delivery-calculator__form-field">
+        <label class="delivery-calculator__form-address-wrap">
+          <input name="address" type="text" placeholder="Адрес" class="js-delivery-calculator__form-address delivery-calculator__form-field">
           <span class="js-delivery-calculator__form-address-message delivery-calculator__form-address-message">Для расчета стоимости доставки введите адрес текстом или выберите на карте</span>
+          <div class="js-delivery-calculator__form-address-dropdown delivery-calculator__form-address-dropdown">
+          </div>
+          <div class="delivery-calculator__form-indicator js-delivery-calculator__form-indicator"></div>
         </label>
         <div class="delivery-calculator__in-service js-delivery-calculator__in-service active">
           <div class="delivery-calculator__vehicle js-delivery-calculator__vehicle">
@@ -19,7 +22,7 @@
             <label><input type="radio" name="vehicle" data-value="handler" value="Манипулятором">Манипулятором</label>
           </div>
           <div class="delivery-calculator__weights-wrapper">
-            <div class="delivery-calculator__weights js-delivery-calculator__weights active">
+            <div class="delivery-calculator__weights cars js-delivery-calculator__weights active">
               {set $fv = $_modx->config.file_version}
               {set $items = [
                 ["icon2" => 'assets/template/img/deliveryCalculatorServiceAreas/sprite.svg?v='~$fv~'#w0_5t',
@@ -53,6 +56,14 @@
               </a>
               {/foreach}
             </div>
+            <div class="delivery-calculator__weights handlers js-delivery-calculator__weights ">
+              <a href="#" data-value="5" class="active" style="display: none;">
+                <div class="delivery-calculator__weights-img-wrap">
+                  <svg width="0" height="0" class="delivery-calculator__weights-svg"><use href=""></svg>
+                </div>
+                <div class="delivery-calculator__weights-caption"></div>
+              </a>
+            </div>
           </div>
           <div class="delivery-calculator__price-wrapper js-delivery-calculator__price-wrapper">
             {set $items = [
@@ -66,7 +77,8 @@
               'vehicle' => 'car'],
               ['weight' => '10'
               'vehicle' => 'car']
-              ['vehicle' => 'handler']
+              ['vehicle' => 'handler'
+               'weight' => '5']
             ]}
             {foreach $items as $item index=$idx}
               <div class="delivery-calculator__price js-delivery-calculator__price {($idx == 0)?'active':''}" data-weight = "{$item.weight}" data-vehicle="{$item.vehicle}">
