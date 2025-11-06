@@ -48,6 +48,7 @@ import initAssort from '../../core/elements/_modules/catalog/assort.js';
 import "./modules/listingProductGallery.js";
 import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
+import { initCatalogMobileMenu } from '../../core/elements/modules/menugen_v2/scripts/mobile-menu.js';
 
 import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
 import { fixReviewsTabCollapseLongText } from './modules/fixReviewsTabCollapseLongText.js';
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(ctx == 'fibrofasad'){
         initCatalogMenu();
+        initCatalogMobileMenu();
     }
 
     if(ctx == 'fibrofasad'){
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cl = new ColorList();
             cl.run();
         }catch(t) {
-            console.error(t);
+            //console.error(t);
         }
     }
 
@@ -138,9 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //initMobilemenu('.js-burger-1', '.burger-menu');
-    //initMobilemenu('.js-burger-2', '.burger-menu');
-    // initSliders();
     new Dropdowns();
     new Tabs();
 
@@ -369,7 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if($('body').width() < 778){
         const skipButtonMore = document.body.classList.contains('krovelnyjstroymarket') 
         || document.body.classList.contains('alterteplo')
-        || document.body.classList.contains('plitnye');
+        || document.body.classList.contains('plitnye')
+        || document.body.classList.contains('fibrofasad');
         var $buttonMore = $('<div class="h-menu__link-to-catalog h-menu__link-to-catalog_bottom h-menu__link-to-catalog_mobile btn btn_style_shadow">Показать больше</div>');
         if(!skipButtonMore){
             $('.burger-menu__catalog').append($buttonMore);

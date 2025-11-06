@@ -1,0 +1,122 @@
+body[data-ctx='fibrofasad'] {
+  $white: #fff;
+  $black: #000;
+  $color-1: #D35941;
+  $color-2: #f6f6f6;
+  .menugen-mobile-catalog-menu {
+    &__catitem {
+      margin: 0 0 4px;
+      border-radius: 2px;
+    }
+    &__catitem-title-wrap {
+      padding: 6px 13px 6px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $white;
+    }
+    &__catitem-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      flex-grow: 1;
+    }
+    &__catitem-title-p {
+      font-size: 15px;
+      font-weight: 700;
+      color: $black;
+    }
+    &__catitem-title-img-wrap {
+      border: 1px solid $color-2;
+      border-radius: 3px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    &__catitem-title-img {
+      object-fit: cover;
+    }
+    &__catitem-title-link-wrap {
+      
+    }
+    &__catitem-title-link {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      background: $color-1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:before {
+        content: '';
+        border-top: 1px solid $white;
+        border-right: 1px solid $white;
+        width: 12px;
+        height: 12px;
+        transform: rotate(135deg);
+        position: relative;
+        top: -3px;
+      }
+      &.active {
+        &:before {
+          transform: rotate(-45deg);
+          top: 3px;
+        }
+      }
+    }
+    &__catitem-children {
+      overflow-y: auto;
+      max-height: 412px;
+      scrollbar-color: $color-1 $color-2;
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    &__catitem-subcat {
+      margin: 4px 0;
+    }
+    &__catitem-subcat-title {
+      display: flex;
+      align-items: center;
+      background: $white;
+      justify-content: center;
+      text-align: center;
+      height: 37px;
+      font-size: 15px;
+      color: $black;
+      text-decoration: none;
+    }
+    &__show-more-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      height: 39px;
+      background: $color-1;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    &__catalog-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      height: 39px;
+      background: $color-1;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 4px 0 0;
+    }
+  }
+}

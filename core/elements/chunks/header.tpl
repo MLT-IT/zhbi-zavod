@@ -110,7 +110,7 @@
           {'@FILE modules/menugen_v2/snippets/menu.php' | snippet : [
             'context' => $_modx->context.key,
             'tpl' => $tpl,
-            'type' => 'catalog'
+            'menuFileName' => 'catalog'
           ] }
         {else}
           {insert "file:chunks/desktop-catalog-menu/v1.tpl"}
@@ -131,7 +131,7 @@
                 <use xlink:href="assets/template/pictures/icons.svg#svg-search"></use>
               </svg>
             </button>
-            <input name="query" class="search__input" fast-search-input="mobile1" type="search" placeholder="Хочу найти1...">
+            <input name="query" class="search__input" fast-search-input="mobile1" type="search" placeholder="Хочу найти...">
             
           </form>
         </div>

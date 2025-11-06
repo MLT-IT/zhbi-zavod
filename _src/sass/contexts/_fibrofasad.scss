@@ -11,4 +11,9 @@ body[data-ctx='fibrofasad'] {
       }
     }
   }
+  .header {
+    &__search_screen_mobile {
+      margin-bottom: 0;
+    }
+  }
 }
