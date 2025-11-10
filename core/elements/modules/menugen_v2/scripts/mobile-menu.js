@@ -82,10 +82,10 @@ class ShowMore {
       e.preventDefault();
       const expanded = parseInt(btn.dataset.expanded);
       if(expanded){ //был развернут - надо свернуть
-        console.log('collapsing');
+        //console.log('collapsing');
         host.#collapse();
       }else { //был свернут - надо развернуть
-        console.log('expanding');
+        //console.log('expanding');
         host.#expand();
       }
     });
@@ -159,7 +159,7 @@ class Accordion {
   showFirst() {
     const cont = ep.getAccordionCont();
     const item = cont.querySelector(config.accordionItem);
-    console.log(item);
+    //console.log(item);
     this.#showSubitems(item);
     const btn = item.querySelector(config.accordionItemBtn);
     btn.classList.add('active');
@@ -217,11 +217,11 @@ class Accordion {
       });
 
       document.addEventListener('fast-search-show-results', function() {
-        console.log('show!');
+        //console.log('show!');
         host.#hide();
       });
       document.addEventListener('fast-search-hide-results', function() {
-        console.log('hide!');
+        //console.log('hide!');
         host.#show();
       });
     }catch(t) {
