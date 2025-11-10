@@ -1,8 +1,9 @@
 import functions from "../functions/functions";
 
 export default class FastSearch {
-  constructor() {
+  constructor(edge) {
     this.limit_category_items = 3;
+    this.edge = edge ?? 769;
     this.check_device = this.checkDevice();
 
     this.search_form = document.querySelector(
@@ -46,7 +47,7 @@ export default class FastSearch {
   }
 
   checkDevice() {
-    if (window.innerWidth < 769) {
+    if (window.innerWidth < this.edge) {
       return "mobile";
     } else {
       return "desktop";
@@ -129,6 +130,7 @@ export default class FastSearch {
           "strong" // тег обрамления
         );
       });
+    document.dispatchEvent(new CustomEvent('fast-search-show-results', {}));
   }
 
   hidePopup(html = "") {
@@ -137,6 +139,7 @@ export default class FastSearch {
       this.showPopup(html);
     } else {
       this.search_popup.style.display = "none";
+      document.dispatchEvent(new CustomEvent('fast-search-hide-results', {}));
     }
 
     if (this.check_device === "mobile") {

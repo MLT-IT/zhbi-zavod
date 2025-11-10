@@ -71,10 +71,21 @@ body[data-ctx='fibrofasad'] {
     &__catitem-children {
       overflow-y: auto;
       max-height: 412px;
+      height: 0;
       scrollbar-color: $color-1 $color-2;
-      display: none;
+      display: block;
+      transition: height 0.5s ease;
       &.active {
+
+      }
+      &.closing {
         display: block;
+        max-height: 412px;
+        animation-name: closedown;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
       }
     }
     &__catitem-subcat {
@@ -119,4 +130,5 @@ body[data-ctx='fibrofasad'] {
       margin: 4px 0 0;
     }
   }
+
 }
