@@ -156,10 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Код с обработчиками MODX
     modxJS(lazyLoadInstance, yandexMetrikaId);
 
-    // Инициализация быстрого поиска
-    new FastSearch('.header__search_screen_desktop');
-    new FastSearch('.header__search_screen_mobile');
+    
 
+    // Инициализация быстрого поиска
+
+    if(ctx == 'fibrofasad'){
+        new FastSearch(992);
+    }else {
+        new FastSearch();
+        //new FastSearch();
+    }
 
     // -------------------------------------
     // Маска для телефона

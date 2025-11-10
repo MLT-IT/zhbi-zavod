@@ -1,0 +1,9 @@
+body[data-ctx='fibrofasad'] {
+  .search__wrapper {
+    &.search_display_mobile {
+      & .fast-search {
+        top: 67px;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 const config = {
+  menuCont: '.menugen-mobile-catalog-menu', //Контейнер меню с аккордионом и кнопками
   container: '.menugen-mobile-catalog-menu__wrap',
   showBtn: '.menugen-mobile-catalog-menu__show-more-link',
   edge: 6, //при каком кол-ве активировать кнопку "показать еще"
@@ -19,6 +20,18 @@ class ElementProvider {
     if(this.elems.container)return this.elems.container;
     this.elems.container = document.querySelector(config.container);
     return this.elems.container;
+  }
+
+  getAccordionCont() {
+    if(this.elems.accordionCont)return this.elems.accordionCont;
+    this.elems.accordionCont = document.querySelector(config.accordionCont);
+    return this.elems.accordionCont;
+  }
+
+  getMenuCont() {
+    if(this.elems.menuCont)return this.elems.menuCont;
+    this.elems.menuCont = document.querySelector(config.menuCont);
+    return this.elems.accordionCont;
   }
 
   getBtn() {
@@ -138,19 +151,52 @@ class Accordion {
 
   #showSubitems(item) {
     const subitem = item.querySelector(config.accordionSubItemWrap);
-    subitem.classList.add('active');
+    subitem?.classList.add('active');
+    if(subitem)subitem.style.height = subitem?.scrollHeight + 'px';
+    //console.log(subitem.style.height);
+  }
+
+  showFirst() {
+    const cont = ep.getAccordionCont();
+    const item = cont.querySelector(config.accordionItem);
+    console.log(item);
+    this.#showSubitems(item);
+    const btn = item.querySelector(config.accordionItemBtn);
+    btn.classList.add('active');
   }
 
   #hideSubitems(item) {
     const subitem = item.querySelector(config.accordionSubItemWrap);
-    subitem.classList.remove('active');
+    subitem?.classList.remove('active');
+    if(subitem){
+      subitem.style.height = 0 + 'px';
+      //console.log(subitem.style.height);
+    }
+  }
+
+  #hideAllSubitems(items) {
+    items.forEach((item) => {
+      this.#hideSubitems(item);
+      const btn = item.querySelector(config.accordionItemBtn);
+      btn?.classList.remove('active');
+    });
+  }
+
+  #hide() {
+    const cont = ep.getMenuCont();
+    cont.style.display = 'none';
+  }
+
+  #show() {
+    const cont = ep.getMenuCont();
+    cont.style.display = 'block';
   }
 
   attach() {
     try {
       const host = this;
       //console.log('here!');
-      const cont = document.querySelector(config.accordionCont);
+      const cont = ep.getAccordionCont();
       const items = cont.querySelectorAll(config.accordionItem);
       items.forEach((item) => {
         //console.log('item!');
@@ -158,14 +204,25 @@ class Accordion {
         btn.addEventListener('click', function(e) {
           //console.log('click!');
           e.preventDefault();
+          
           if(btn.classList.contains('active')) { //Скрываем
             btn.classList.remove('active');
-            host.#hideSubitems(item);
+            host.#hideSubitems(item); 
           }else { //Показываем
+            host.#hideAllSubitems(items);
             btn.classList.add('active');
             host.#showSubitems(item);
           }
         });
+      });
+
+      document.addEventListener('fast-search-show-results', function() {
+        console.log('show!');
+        host.#hide();
+      });
+      document.addEventListener('fast-search-hide-results', function() {
+        console.log('hide!');
+        host.#show();
       });
     }catch(t) {
       //console.error(t);
@@ -184,6 +241,7 @@ class CatalogMobileMenu {
   run() {
     this.showMore.attach();
     this.accordion.attach();
+    this.accordion.showFirst();
   }
 }
 
