@@ -1,4 +1,4 @@
-import ReplacerImage from "../../../../../_src/js/class/product/ReplacerImage";
+//import ReplacerImage from "../../../../../_src/js/class/product/ReplacerImage";
 
 const config = {
   container: '.product-info__color-list-wrap',
@@ -183,7 +183,9 @@ class ColorList {
       //console.log(title);
     });
 
-    this.re = new ReplacerImage(config.container, config.itemLink, '.product__picture .product__pictures-image', config.container);
+    //Отображать картинку в основном слайдере в карточке товара при наведении на эскиз из блока со списком цветов/оттенков
+    //this.re = new ReplacerImage(config.container, config.itemLink, '.product__picture .product__pictures-image', config.container);
+
     //console.log('run!');
     //console.log(window.innerWidth);
     if(window.innerWidth < config.winEdge) {
