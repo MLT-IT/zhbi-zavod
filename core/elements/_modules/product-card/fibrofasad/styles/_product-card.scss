@@ -13,12 +13,6 @@ body[data-ctx='fibrofasad'] {
     }
     &__features-list {
       margin: 0;
-      &--desktop {
-        display: block;
-        @include media-until($edge) {
-          display: none;
-        }
-      }
     }
     &__features-list-item {
       display: flex;

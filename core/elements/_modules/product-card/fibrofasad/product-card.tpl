@@ -12,19 +12,6 @@
           <div class="product__info product-info custom">
             <div class="product-info__top">
 
-              {set $flist = '@FILE _modules/product-card/snippets/getFeaturesList.php' | snippet: ['ctx' => $_modx->resource->context_key
-               'delivery_date' => '+1 days' | date : 'd.m']}
-              {if $flist}
-              <ul class="product-info__features-list product-info__features-list--desktop">
-                {foreach $flist as $item}
-                <li class="product-info__features-list-item">
-                  <div class="product-info__features-list-icon-wrap">{$item.ico}</div> 
-                  <div class="product-info__features-list-title-wrap">{$item.title}</div>
-                </li>
-                {/foreach}
-              </ul>
-              {/if}
-
               <div class="product-info__rating rating product-info__rating--mobile">
                 <ul class="rating__stars">
                   <li class="rating__star active"></li>
@@ -44,9 +31,20 @@
                   ]}
                 </span>
               </div>
-              <div class="product-info__shipped product-info__shipped--mobile">
-                <p>Доставка со склада<span class="bold">&nbsp;{'+1 day' | date : 'd.m.Y'}</span> при заказе сегодня</p>
-              </div>
+
+              {set $flist = '@FILE _modules/product-card/snippets/getFeaturesList.php' | snippet: ['ctx' => $_modx->resource->context_key
+               'delivery_date' => '+1 days' | date : 'd.m']}
+              {if $flist}
+              <ul class="product-info__features-list">
+                {foreach $flist as $item}
+                <li class="product-info__features-list-item">
+                  <div class="product-info__features-list-icon-wrap">{$item.ico}</div> 
+                  <div class="product-info__features-list-title-wrap">{$item.title}</div>
+                </li>
+                {/foreach}
+              </ul>
+              {/if}
+
             </div>
             <div class="product-info__bottom">
               {insert 'file:modules/color-list/blocks/color-list.tpl'}
