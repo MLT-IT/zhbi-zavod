@@ -116,7 +116,7 @@
         </article>
 
         {if $_modx->context.key != "fibrofasad"}
-            {if $_modx->context.key != 'kirpich-m5'}
+            {if $_modx->context.key != 'kirpich-m5' && $_modx->resource.id | resource : 'showroomGallery'}
                 <article class="show-room section">
                     <div class="show-room__container">
                         <h2 class="margin-bottom-md section__title">{if $_modx->context.key =="krovelnyjstroymarket"} Фотографии шоу-рума  {else} Наши объекты{/if}</h2>
@@ -130,7 +130,7 @@
                     {insert 'file:chunks/show-room/show-room-objects.tpl'}
                 </div>
             </article>
-            {else}
+        {else}
             <article class="show-room section">
                 <div class="show-room__container">
                     <h2 class="margin-bottom-md section__title">Фотографии шоу-рума</h2>
