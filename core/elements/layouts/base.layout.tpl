@@ -106,6 +106,8 @@
     {block "end-body"}{/block}
     {$_modx->runSnippet('@FILE snippets/debug_placeholders.php')}
 
-    {include "file:chunks/mobile-tabbar.tpl"}
+    {if $_modx->context.key === 'trotuarnaya-plitka'}
+        {include "file:chunks/mobile-tabbar.tpl"}
+    {/if}
 </body>
 </html>
