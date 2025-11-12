@@ -1,0 +1,30 @@
+{
+  "menu": [
+    {
+      "title": "О компании",
+      "url": "/o-kompanii/",
+      "type": "link"
+    },
+    {
+      "title": "Акции",
+      "url": "/akcii/",
+      "type": "link"
+    },
+    {
+      "title": "Доставка и оплата",
+      "url": "/dostavka-i-oplata/",
+      "type": "link"
+    },
+    {
+      "title": "Отзывы",
+      "url": "/otzyvy/",
+      "class": "h-nav__link--star-span",
+      "type": "link"
+    },
+    {
+      "title": "Контакты",
+      "url": "/contacts/",
+      "type": "link"
+    }
+  ]
+}
