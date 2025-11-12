@@ -1,0 +1,8 @@
+.mobile-hide {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+.__jivoMobileButton {
+  bottom: 70px !important;
+}

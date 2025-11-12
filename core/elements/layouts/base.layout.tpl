@@ -105,5 +105,7 @@
     {block 'body'}{/block}
     {block "end-body"}{/block}
     {$_modx->runSnippet('@FILE snippets/debug_placeholders.php')}
+
+    {include "file:chunks/mobile-tabbar.tpl"}
 </body>
 </html>
