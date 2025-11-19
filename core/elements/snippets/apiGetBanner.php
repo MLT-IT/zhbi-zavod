@@ -290,7 +290,7 @@ try {
         'status' => false,
         'data' => $response
     ];
-    $data = $response['data'];
+    $banner_groups = $response['data']; // Массив полученных групп баннеров
 
     // 5. Создание папки для сохранения баннеров
     $bannerUpload = new BannerUploader(
@@ -301,22 +301,24 @@ try {
     );
 
     // 6. Формирование массива для вывода
-    if (isset($data['banners_by_type'])) {
-        foreach ($data['banners_by_type'] as $type => &$banner) {
-            if (!isset($banner['image_url'])) continue;
+    if (!empty($banner_groups)) {
+        foreach ($banner_groups as $banner_group) {
+            foreach ($banner_group as $type => &$banner) {
+                if (!isset($banner['image_url'])) continue;
 
-            // Сохранение баннера
-            if ($upload_banner_url = $bannerUpload->upload($banner['image_url'])) {
-                $banner['image_url'] = $upload_banner_url;
+                // Сохранение баннера
+                if ($upload_banner_url = $bannerUpload->upload($banner['image_url'])) {
+                    $banner['image_url'] = $upload_banner_url;
+                }
             }
         }
     }
 
-    $bannerCache->set($data);
+    $bannerCache->set($banner_groups);
 
     return [
         'status' => true,
-        'data' => $data
+        'data' => $banner_groups
     ];
 } catch (Throwable $e) {
     $modxBannerLogger->error($e->getMessage());
