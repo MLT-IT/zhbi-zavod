@@ -112,7 +112,8 @@
         ]}
         {set $banner_groups = $banner_data['data']}
         {if $banner_data['status'] && !empty($banner_groups)}
-          {foreach $banner_groups as $banner_group}
+            {set $banner_group = $banner_groups[0]}
+
             {set $banners = $banner_group['banners_by_type']}
             {set $button_settings = $banner_group['button']}
             {set $button_classname = $banner_group['data']['button-classname']}
@@ -198,7 +199,6 @@
               .category-banner__btn-mobile{ display: flex; }
             }
           </style>
-          {/foreach}
         {else}
           <!-- {$banner_groups | toJSON} -->
         {/if}
