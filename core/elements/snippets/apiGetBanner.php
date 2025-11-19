@@ -12,6 +12,20 @@
  * @param optional $no_cache - Отключить кэширование
  */
 
+if (!interface_exists('FolderControl')) {
+    interface FolderControl
+    {
+        public function create(string $path): void;
+    }
+}
+
+if (!interface_exists('BannerLogger')) {
+    interface BannerLogger
+    {
+        public function log(string $message, int $level): void;
+    }
+}
+
 if (!class_exists('BannerApi')) {
     class BannerApi
     {
@@ -21,7 +35,7 @@ if (!class_exists('BannerApi')) {
         protected $CURLOPT_CONNECTTIMEOUT = 5; // таймаут на подключение (сек.)
         protected $CURLOPT_TIMEOUT = 5; // общий таймаут запроса (сек.)
 
-        public function __construct($context_key, $api_url, $project_key)
+        public function __construct(string $context_key, string $api_url, string $project_key)
         {
             $this->api_url = $api_url;
             $this->context_key = $context_key;
@@ -29,23 +43,33 @@ if (!class_exists('BannerApi')) {
         }
 
         // GET запрос на api
-        public function get($resource_id = null, $resource_parent = null, $banner_position)
+        public function get(string $banner_position, ?int $resource_id, ?int $resource_parent): string
         {
-            $params = "?context_key=$this->context_key&project_key=$this->project_key&position=$banner_position";
+            $params = [
+                'context_key' => $this->context_key,
+                'project_key' => $this->project_key,
+                'position'    => $banner_position,
+            ];
 
-            if ($resource_id) $params .= "&id=$resource_id";
-            if ($resource_parent) $params .= "&parent=$resource_parent";
+            if ($resource_id !== null) {
+                $params['id'] = $resource_id;
+            }
 
-            $ch = curl_init($this->api_url . $params);
+            if ($resource_parent !== null) {
+                $params['parent'] = $resource_parent;
+            }
+
+            $url = $this->api_url . '?' . http_build_query($params);
+
+            $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->CURLOPT_CONNECTTIMEOUT);
             curl_setopt($ch, CURLOPT_TIMEOUT, $this->CURLOPT_TIMEOUT);
 
             $response = curl_exec($ch);
             curl_close($ch);
 
-            return $response;
+            return $response ?: '';
         }
     }
 }
@@ -54,13 +78,18 @@ if (!class_exists('BannerUploader')) {
     class BannerUploader
     {
         protected $upload_dir;
+        protected $bannerLogger;
 
-        public function __construct($context_key)
+        public function __construct(string $banner_position, string $context_key, FolderControl $folderControl, BannerLogger $bannerLogger)
         {
+            $this->bannerLogger = $bannerLogger;
+
             $this->upload_dir = [
-                'full' => MODX_BASE_PATH . "/assets/uploads/banners/$context_key/",
-                'short' => "/assets/uploads/banners/$context_key/"
+                'full' => MODX_BASE_PATH . "/assets/uploads/banners/$context_key/$banner_position/",
+                'short' => "/assets/uploads/banners/$context_key/$banner_position/"
             ];
+
+            $folderControl->create($this->upload_dir['full']);
         }
 
         /**
@@ -68,29 +97,56 @@ if (!class_exists('BannerUploader')) {
          * 
          * return {string} - Ссылка на скаченный баннер
          */
-        public function upload($image_url): string
+        public function upload(string $image_url): string
         {
             $file_name = basename(parse_url($image_url, PHP_URL_PATH));
             $upload_path = $this->upload_dir['full'] . $file_name;
 
             // Если файл уже загружен
-            if (file_exists($upload_path)) return $this->upload_dir['short'] . $file_name;
+            if (file_exists($upload_path)) {
+                return $this->upload_dir['short'] . $file_name;
+            }
 
-            // Загружаем файл на наш сервер
-            $image_data = file_get_contents($image_url);
-            if ($image_data !== false) {
-                file_put_contents($upload_path, $image_data);
+            // --- CURL загрузка файла ---
+            $ch = curl_init($image_url);
+
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_CONNECTTIMEOUT => 5,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_SSL_VERIFYPEER => false, // если API без SSL нормальной конфигурации
+            ]);
+
+            $image_data = curl_exec($ch);
+            $http_code  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error      = curl_error($ch);
+
+            curl_close($ch);
+
+            // Проверка ошибок
+            if ($image_data === false || $http_code !== 200) {
+                $this->bannerLogger->log("Ошибка загрузки баннера $error");
+                return "";
+            }
+
+            // --- Сохранение файла ---
+            if (@file_put_contents($upload_path, $image_data) !== false) {
                 return $this->upload_dir['short'] . $file_name;
             }
 
             return "";
         }
+    }
+}
 
-        // Создает папку для баннеров если она не создана
-        public function createFolder()
+if (!class_exists('BannerFolderControl')) {
+    class BannerFolderControl implements FolderControl
+    {
+        public function create(string $path): void
         {
-            if (!is_dir($this->upload_dir['full'])) {
-                mkdir($this->upload_dir['full'], 0777, true);
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
             }
         }
     }
@@ -102,7 +158,7 @@ if (!class_exists('BannerCache')) {
         protected $modx;
         protected $key;
 
-        public function __construct($modx, $context_key, $properties)
+        public function __construct($modx, string $context_key, array $properties)
         {
             $this->modx = $modx;
             $this->key = "/banners/$context_key/" . md5(json_encode($properties));
@@ -115,7 +171,7 @@ if (!class_exists('BannerCache')) {
             return null;
         }
 
-        public function set($value)
+        public function set(array $value)
         {
             return $this->modx->cacheManager->set($this->key, $value);
         }
@@ -130,7 +186,7 @@ if (!class_exists('BannerGuard')) {
         // Сейчас кэш генерируется из $properties
         // И если передать ID товара, то будет много ненужных запросов на АПИ
         // Так как баннеры для товаров формируются по его parent 
-        public function removeIDFromProducts(&$properties, $resource_class_key)
+        public function removeIDFromProducts(array &$properties, string $resource_class_key)
         {
             if ($resource_class_key === 'msProduct')
                 $properties['resource_id'] = null;
@@ -138,8 +194,28 @@ if (!class_exists('BannerGuard')) {
     }
 }
 
+
+if (!class_exists('ModxBannerLogger')) {
+    class ModxBannerLogger implements BannerLogger
+    {
+        protected modX $modx;
+
+        public function __construct(modX $modx)
+        {
+            $this->modx = $modx;
+        }
+        public function log(string $message, int $level = modX::LOG_LEVEL_ERROR): void
+        {
+            $this->modx->log($level, '[ApiBanner] ' . $message);
+        }
+    }
+}
+
+$modxBannerLogger = new ModxBannerLogger($modx);
+
 try {
     $bannerGuard = new BannerGuard();
+    $bannerFolderControl = new BannerFolderControl();
 
     // 1. Основные данные
     $main_data = [
@@ -165,7 +241,7 @@ try {
     ];
     $bannerGuard->removeIDFromProducts($properties, $modx->resource->class_key);
 
-    // 3 Проверка кэша
+    // 3. Проверка кэша
     $bannerCache = new BannerCache($modx, $main_data['context_key'], $properties);
     if (!isset($properties['no_cache'])) {
         if ($cache_data = $bannerCache->get()) return [
@@ -176,7 +252,7 @@ try {
 
     // 4. Получение данных по api
     $bannerApi = new BannerApi($main_data['context_key'], $main_data['api_url'], $main_data['api_project_key']);
-    $response = $bannerApi->get($properties['resource_id'], $properties['resource_parent'], $properties['banner_position']);
+    $response = $bannerApi->get($properties['banner_position'], $properties['resource_id'], $properties['resource_parent']);
     $response = json_decode($response, true);
     if (isset($response['error']) || !$response['success']) return [
         'status' => false,
@@ -185,8 +261,7 @@ try {
     $data = $response['data'];
 
     // 5. Создание папки для сохранения баннеров
-    $bannerUpload = new BannerUploader($main_data['context_key']);
-    $bannerUpload->createFolder();
+    $bannerUpload = new BannerUploader($properties['banner_position'], $main_data['context_key'], $bannerFolderControl, $modxBannerLogger);
 
     // 6. Формирование массива для вывода
     if (isset($data['banners_by_type'])) {
@@ -207,7 +282,7 @@ try {
         'data' => $data
     ];
 } catch (Throwable $e) {
-    $modx->log(modX::LOG_LEVEL_ERROR, '[ApiBanner] ' . $e->getMessage());
+    $modxBannerLogger->log($e->getMessage());
 
     return [
         'status' => false,
