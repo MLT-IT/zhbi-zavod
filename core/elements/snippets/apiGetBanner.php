@@ -9,6 +9,7 @@
  * @param required $banner_position - Позиция
  * @param optional $resource_id - ID ресурса
  * @param optional $resource_parent - resource_parent ресурса
+ * @param optional [array] $resource_parents - Родители ресурса вверх по иерархии
  * @param optional $no_cache - Отключить кэширование
  */
 
@@ -82,7 +83,7 @@ if (!class_exists('BannerApi')) {
             $this->curl = $curl;
         }
 
-        public function get(string $banner_position, ?int $resource_id, ?int $resource_parent): string
+        public function get(string $banner_position, ?int $resource_id, ?int $resource_parent, ?array $resource_parents): string
         {
             $params = [
                 'context_key' => $this->context_key,
@@ -92,6 +93,7 @@ if (!class_exists('BannerApi')) {
 
             if ($resource_id !== null) $params['id'] = $resource_id;
             if ($resource_parent !== null) $params['parent'] = $resource_parent;
+            if ($resource_parents !== null) $params['parents'] = $resource_parents;
 
             $url = $this->api_url . '?' . http_build_query($params);
 
@@ -200,17 +202,43 @@ if (!class_exists('BannerCache')) {
 if (!class_exists('BannerGuard')) {
     class BannerGuard
     {
-        // Удаляет параметр ID если текущий ресурс товар. 
-        // Сейчас кэш генерируется из $properties
-        // И если передать ID товара, то будет много ненужных запросов на АПИ
-        // Так как баннеры для товаров формируются по его parent 
-        public function removeIDFromProducts(array &$properties, string $resource_class_key)
+        /**
+         * Удаляет resource_id, если текущий ресурс — msProduct.
+         */
+        public function removeIDFromProducts(array &$properties, string $resource_class_key): void
         {
-            if ($resource_class_key === 'msProduct')
+            if ($resource_class_key === 'msProduct') {
                 $properties['resource_id'] = null;
+            }
+        }
+
+        /**
+         * Превращает строку "1,2,3" → [1, 2, 3]
+         * Гарантирует, что resource_parents будет массивом.
+         */
+        public function parentsToArray(array &$properties): void
+        {
+            if (!isset($properties['resource_parents'])) return;
+
+            $parents = $properties['resource_parents'];
+
+            if (is_string($parents)) {
+                $parents = explode(',', $parents);
+            }
+
+            if (is_array($parents)) {
+                // trim всех элементов + удаление пустых
+                $parents = array_filter(array_map('trim', $parents));
+            } else {
+                // Любая другая хрень — просто сделаем массивом
+                $parents = [$parents];
+            }
+
+            $properties['resource_parents'] = array_values($parents);
         }
     }
 }
+
 
 
 if (!class_exists('ModxBannerLogger')) {
@@ -251,6 +279,7 @@ try {
     $properties = [
         'resource_id' => $scriptProperties['resource_id'],
         'resource_parent' => $scriptProperties['resource_parent'],
+        'resource_parents' => $scriptProperties['resource_parents'],
         'banner_position' => $scriptProperties['banner_position'],
         'no_cache' => $scriptProperties['no_cache'],
     ];
@@ -259,6 +288,7 @@ try {
         'data' => "Undefined property - banner_position"
     ];
     $bannerGuard->removeIDFromProducts($properties, $modx->resource->class_key);
+    $bannerGuard->parentsToArray($properties);
 
     // 3. Проверка кэша
     $bannerCache = new BannerCache(
@@ -283,14 +313,15 @@ try {
     $response = $bannerApi->get(
         $properties['banner_position'],
         $properties['resource_id'],
-        $properties['resource_parent']
+        $properties['resource_parent'],
+        $properties['resource_parents']
     );
     $response = json_decode($response, true);
     if (isset($response['error']) || !$response['success']) return [
         'status' => false,
         'data' => $response
     ];
-    $data = $response['data'];
+    $banner_groups = $response['data']; // Массив полученных групп баннеров
 
     // 5. Создание папки для сохранения баннеров
     $bannerUpload = new BannerUploader(
@@ -301,22 +332,24 @@ try {
     );
 
     // 6. Формирование массива для вывода
-    if (isset($data['banners_by_type'])) {
-        foreach ($data['banners_by_type'] as $type => &$banner) {
-            if (!isset($banner['image_url'])) continue;
+    if (!empty($banner_groups)) {
+        foreach ($banner_groups as &$banner_group) {
+            foreach ($banner_group['banners_by_type'] as $type => &$banner) {
+                if (!isset($banner['image_url'])) continue;
 
-            // Сохранение баннера
-            if ($upload_banner_url = $bannerUpload->upload($banner['image_url'])) {
-                $banner['image_url'] = $upload_banner_url;
+                // Сохранение баннера
+                if ($upload_banner_url = $bannerUpload->upload($banner['image_url'])) {
+                    $banner['image_url'] = $upload_banner_url;
+                }
             }
         }
     }
 
-    $bannerCache->set($data);
+    $bannerCache->set($banner_groups);
 
     return [
         'status' => true,
-        'data' => $data
+        'data' => $banner_groups
     ];
 } catch (Throwable $e) {
     $modxBannerLogger->error($e->getMessage());
