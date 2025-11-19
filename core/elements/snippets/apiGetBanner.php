@@ -224,7 +224,7 @@ if (!class_exists('ModxBannerLogger')) {
         }
         public function error(string $message): void
         {
-            $this->modx->error(modX::LOG_LEVEL_ERROR, '[ApiBanner] ' . $message);
+            $this->modx->log(modX::LOG_LEVEL_ERROR, '[ApiBanner] ' . $message);
         }
     }
 }
