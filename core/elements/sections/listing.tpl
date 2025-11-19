@@ -97,60 +97,108 @@
       {if $_modx->resource.context_key == "krovelnyjstroymarket"}
         {include "file:_modules/category-product-rules/chunks/wrapper.tpl"}
       {/if}
+
+        {* Старый вывод банеров до внедрения API *}
+        {if $.get.old_banner}
+          {include "file:sections/OLD_BANNER_SECTION.tpl"}
+        {/if}
       
-      {if $_modx->context.key == 'trotuarnaya-plitka'}
-        {include "file:sections/banners/trotuarnaya-plitka.tpl" small_banner_hide=true}
-      {else}
-        {switch $_modx->resource.context_key}
-          {case 'web'}
-            {set $text = 'Закажите утеплитель сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-          {case 'gazosilikatstroy'}
-            {set $text = 'Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
-          {case 'gazoclone'}
-            {set $text = 'Закажите газобетон сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на манипулятор'}
-          {case 'kraska'}
-            {set $text = 'Закажите краску сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-          {case 'suhiesmesi'}
-            {set $text = 'Закажите сухие смеси сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-          {case 'krovelnyjstroymarket'}
-            {set $text = 'Скидка 15% на изготовление металлочерепицы Grand line в размер'}
-          {case 'tagnerud'}
-            {set $text = 'Закажите керамзит сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-          {case 'gbi-zavod78'}
-            {set $text = 'Закажите дорожные плиты сейчас<br>и получите <span class="text-highlighter">скидку 20%</span><br>на доставку'}
-          {case 'kirpich-m5'}
-            {set $text = 'Закажите кирпич сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-            {set $img = 'assets/template/pictures/catalog/'~$_modx->resource.context_key~'/delivery.jpg'}
-            {set $img_mob = 'assets/template/pictures/catalog/'~$_modx->resource.context_key~'/delivery.jpg'}
-          {case default}
-            {set $text = 'Закажите продукцию сейчас<br>и получите <span class="text-highlighter">скидку 30%</span><br>на доставку'}
-        {/switch}
-        {if !$img}
-          {set $img = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen.jpg'}
-        {/if}
-        {if !$img_mob}
-          {set $img_mob = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-mob.jpg'}        
-        {/if}
-      <div class="banner">
-        <picture class="banner__bg">
-          {set $file = $img_mob | replace : '.jpg': '.webp'}
-          {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
-            <source srcset="{$file}" media="(max-width: 768px)">
-          {/if}
-          <source srcset="{$img_mob}" media="(max-width: 480px)">
-          {set $file = $img | replace : '.jpg': '.webp'}
-          {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
-            <source srcset="{$file}">
-          {/if}
-          <img class="banner__bg-img" src="{$img}">
-        </picture>
-        <div class="banner__title">
-          {$text}
+
+        {* Новый вывод *}
+        {set $banner_data = "@FILE snippets/apiGetBanner.php" | snippet : [
+          'resource_id' => $_modx->resource.id,
+          'resource_parent' => $_modx->resource.parent,
+          'banner_position' => 'category',
+        ]}
+        {if $banner_data['status'] && !empty($banner_data['data'])}
+          {set $banners = $banner_data['data']['banners_by_type']}
+          {set $button_settings = $banner_data['data']['button']}
+          {set $button_classname = $banner_data['data']['data']['button-classname']}
+
+        <div class="category-banner">
+          <picture>
+            {if $banners['mobile']['image_url']}
+              <source media="(max-width: 480px)" srcset="{$banners['mobile']['image_url']}">
+            {/if}
+            {if $banners['tablet']['image_url']}
+              <source media="(max-width: 768px)" srcset="{$banners['tablet']['image_url']}">
+            {/if}
+
+            <img src="{$banners['desktop']['image_url']}" style="width:100%; height:auto;">
+          </picture>
+
+          <a class="category-banner__btn-desktop btn {$button_classname ?: 'btn_style_base'}" href="#callback" data-fancybox="">
+            {$banners['desktop']['data']['button-text'] ?: "заказать со скидкой"}
+          </a>
+          <a class="category-banner__btn-tablet btn {$button_classname ?: 'btn_style_base'}" href="#callback" data-fancybox="">
+            {$banners['tablet']['data']['button-text'] ?: "заказать со скидкой"}
+          </a>
+          <a class="category-banner__btn-mobile btn {$button_classname ?: 'btn_style_base'}" href="#callback" data-fancybox="">
+            {$banners['mobile']['data']['button-text'] ?: "заказать со скидкой"}
+          </a>
         </div>
-        <p class="banner__text">Акция до конца месяца</p>
-        <div class="banner__action"><span data-fancybox data-src="#callback" class="banner__btn btn btn_style_yellow">Заказать со скидкой</span></div>
-      </div>
-      {/if}
+        <style>
+          .category-banner{
+            position: relative;
+          }
+          .category-banner__btn-desktop,
+          .category-banner__btn-tablet,
+          .category-banner__btn-mobile{
+            position: absolute;
+            align-items: center;
+            display: flex;
+            margin: auto;
+            width: max-content;
+          }
+          .category-banner__btn-desktop{
+              /* Основные стили */
+              {foreach $banners['desktop']['button'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+
+              /* Дополнительные стили */
+              {foreach $button_settings['desktop'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+          }
+          .category-banner__btn-tablet{
+              display: none;
+
+              /* Основные стили */
+              {foreach $banners['tablet']['button'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+
+              /* Дополнительные стили */
+              {foreach $button_settings['tablet'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+          }
+          .category-banner__btn-mobile{
+              display: none;
+
+              /* Основные стили */
+              {foreach $banners['mobile']['button'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+              
+              /* Дополнительные стили */
+              {foreach $button_settings['mobile'] as $key => $value}
+                {$key}:{$value};
+              {/foreach}
+          }
+          @media (max-width: 768px){
+            .category-banner__btn-desktop{ display: none; }
+            .category-banner__btn-tablet{ display: flex; }
+          }
+          @media (max-width: 480px){
+            .category-banner__btn-tablet{ display: none; }
+            .category-banner__btn-mobile{ display: flex; }
+          }
+        </style>
+        {else}
+          <!-- {$banner_data['data'] | toJSON} -->
+        {/if}
 
     </div>
   </div>
