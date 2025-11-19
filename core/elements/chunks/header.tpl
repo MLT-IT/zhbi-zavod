@@ -163,7 +163,7 @@
           </div>
         </div>
         
-        <div class="header__actions">
+        <div class="header__actions {if $_modx->context.key === 'trotuarnaya-plitka'}mobile-hide{/if}">
             <div class="header__actions-pc">
                 {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
                 <a href="/favorites/" class="header__action_type_favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>

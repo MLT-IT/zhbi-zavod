@@ -1,13 +1,11 @@
-{set $rows = $_modx->resource.id | resource : 'showroomGallery' | fromJSON}
-
-{if $rows}
 <div class="showroom-objects">
     <div class="showroom-objects__slider">
         <div class="swiper-container">
             <div class="swiper-wrapper">
 
-                {if $site_context == 'fibrofasad'}
-                    {set $showroomImages = $_modx->resource.id | resource : 'showroomObjects' | fromJSON}
+                {set $showroomImages = $_modx->resource.id | resource : 'showroomObjects' | fromJSON}
+
+                {if $showroomImages}
 
                     {foreach $showroomImages as $idx => $img}
                         {set $thumb = 'phpthumbon' | snippet : [ 'input' => "/assets/{$img['image']}", 'options' => '&h=250&w=350&zc=1' ]}
@@ -19,7 +17,7 @@
                     {/foreach}
 
                 {else}
-
+                    {set $rows = $_modx->resource.id | resource : 'showroomGallery' | fromJSON}
                     {foreach $rows as $gallery}
                         {set $thumb = 'phpthumbon' | snippet : [ 'input' => "/assets/{$gallery.image}", 'options' => '&h=250&w=350&zc=1' ]}
                         <div class="swiper-slide">
@@ -38,4 +36,3 @@
         </div>
     </div>
 </div>
-{/if}

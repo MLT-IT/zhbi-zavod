@@ -1,0 +1,43 @@
+.mobile-tabbar {
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0px 4px 12.8px 0px #00000040;
+  @media (min-width: 992px) {
+    display: none;
+  }
+  &__item {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 4px;
+    &.active {
+      color: #ffcc33;
+      svg.fill {
+        path {
+          fill: #ffcc33;
+        }
+      }
+      svg.stroke {
+        path {
+          stroke: #ffcc33;
+        }
+      }
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

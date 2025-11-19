@@ -253,7 +253,7 @@
     </div>
   </div>
 </footer>
-{if $_modx->context.key not in list ['web']}
+{if $_modx->context.key not in list ['web','trotuarnaya-plitka']}
 <section class="burger-menu">
   <div class="burger-menu__container">
     <nav class="burger-menu__nav">
@@ -330,7 +330,7 @@
   </div>
 </section>
 {/if}
-{if $_modx->context.key in list ['web']}
+{if $_modx->context.key in list ['web','trotuarnaya-plitka']}
   {$_modx->runSnippet("@FILE _modules/menu/uteplitel/snippets/getMobileMenu.php", [
   "context" => $_modx->resource.context_key
   ])}
