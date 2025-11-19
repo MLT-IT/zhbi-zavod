@@ -1,4 +1,5 @@
 {* Устанавливаем переменные для чанка *}
+{set $total = $_modx->getPlaceholder('total')}
 {set $src = $_pls}
 {insert "file:chunks/product/set-values-for-prod-new.tpl"}
 
@@ -11,37 +12,42 @@
 {insert 'file:chunks/product/listing-products-item-inner.tpl'}
 </div>
 
-{if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
-  {set $total = $_modx->getPlaceholder('total')}
-  {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
-    <div class="product-card catalog-listing-banner block-bg">
-    {insert "file:chunks/product/listing-banner-krovelnyjstroymarket.tpl"}
-    </div>
+{* Старый вывод до внедрения API *}
+{if $.get.old_banner}
+  {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+    {set $total = $_modx->getPlaceholder('total')}
+    {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
+      <div class="product-card catalog-listing-banner block-bg">
+      {insert "file:chunks/product/listing-banner-krovelnyjstroymarket.tpl"}
+      </div>
+    {/if}
+  {/if}
+
+  {if $_modx->resource.context_key in list ['gazosilikatstroy', 'web']}
+    {set $total = $_modx->getPlaceholder('total')}
+    {if  (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
+      <div class="product-card catalog-listing-banner block-bg">
+        {if $_modx->resource.context_key == "web"}
+          {insert "file:chunks/product/listing-banner-web.tpl"}
+        {/if}
+        {if $_modx->resource.context_key == "gazosilikatstroy"}
+          {insert "file:chunks/product/listing-banner-gazosilikatstroy.tpl"}
+        {/if}
+      </div>
+    {/if}
+  {/if}
+
+  {if $_modx->resource.context_key in list ['plitnye']}
+    {set $total = $_modx->getPlaceholder('total')}
+    {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 1 && $total >= 2))}
+      <div class="product-card catalog-listing-banner block-bg">
+      {insert "file:chunks/product/listing-banner-plitnye.tpl"}
+      </div>
+    {/if}
   {/if}
 {/if}
-
-{if $_modx->resource.context_key in list ['gazosilikatstroy', 'web']}
-  {set $total = $_modx->getPlaceholder('total')}
-  {if  (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
-    <div class="product-card catalog-listing-banner block-bg">
-      {if $_modx->resource.context_key == "web"}
-        {insert "file:chunks/product/listing-banner-web.tpl"}
-      {/if}
-      {if $_modx->resource.context_key == "gazosilikatstroy"}
-        {insert "file:chunks/product/listing-banner-gazosilikatstroy.tpl"}
-      {/if}
-
-    </div>
-  {/if}
-{/if}
+{* Старый вывод до внедрения API *}
 
 
-
-{if $_modx->resource.context_key in list ['plitnye']}
-  {set $total = $_modx->getPlaceholder('total')}
-  {if ($_modx->resource.template in list [4, 5, 36]) && (($idx == 1 && $total == 1) || ($idx == 1 && $total >= 2))}
-    <div class="product-card catalog-listing-banner block-bg">
-    {insert "file:chunks/product/listing-banner-plitnye.tpl"}
-    </div>
-  {/if}
-{/if}
+{* Новый вывод *}
+{include "file:banners/category-product/wrapper.tpl"}
