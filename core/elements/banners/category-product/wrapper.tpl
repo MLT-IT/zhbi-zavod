@@ -18,7 +18,7 @@
         ]}
 
         {if $parentsIds}
-          {set $params['parents'] = $parentsIds}
+          {set $params['resource_parents'] = $parentsIds}
         {/if}
 
         {set $banner_data = "@FILE snippets/apiGetBanner.php" | snippet : $params}
