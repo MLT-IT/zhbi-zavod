@@ -333,8 +333,8 @@ try {
 
     // 6. Формирование массива для вывода
     if (!empty($banner_groups)) {
-        foreach ($banner_groups as $banner_group) {
-            foreach ($banner_group as $type => &$banner) {
+        foreach ($banner_groups as &$banner_group) {
+            foreach ($banner_group['banners_by_type'] as $type => &$banner) {
                 if (!isset($banner['image_url'])) continue;
 
                 // Сохранение баннера
