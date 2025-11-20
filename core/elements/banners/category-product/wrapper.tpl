@@ -12,13 +12,13 @@
 
 {if !$.get.old_banner && $show_banner && (($idx == 1 && $total == 1) || ($idx == 2 && $total >= 2))}
         {set $params = [
-          'resource_id' => $_modx->resource.id,
-          'resource_parent' => $_modx->resource.parent,
-          'banner_position' => 'category-product'
+          'id' => $_modx->resource.id,
+          'parent' => $_modx->resource.parent,
+          'position' => 'category-product'
         ]}
 
         {if $parentsIds}
-          {set $params['resource_parents'] = $parentsIds}
+          {set $params['parents'] = $parentsIds}
         {/if}
 
         {set $banner_data = "@FILE snippets/apiGetBanner.php" | snippet : $params}
