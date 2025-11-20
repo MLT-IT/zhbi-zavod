@@ -106,9 +106,9 @@
 
         {* Новый вывод *}
         {set $banner_data = "@FILE snippets/apiGetBanner.php" | snippet : [
-          'resource_id' => $_modx->resource.id,
-          'resource_parent' => $_modx->resource.parent,
-          'banner_position' => 'category'
+          'id' => $_modx->resource.id,
+          'parent' => $_modx->resource.parent,
+          'position' => 'category'
         ]}
         {set $banner_groups = $banner_data['data']}
         {if $banner_data['status'] && !empty($banner_groups)}
