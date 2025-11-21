@@ -18,7 +18,7 @@
                   <li class="rating__star active"></li>
                   <li class="rating__star active"></li>
                   <li class="rating__star active"></li>
-                  <li class="rating__star"></li>
+                  <li class="rating__star active"></li>
                 </ul>
                 <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
                   {set $reviewsCount = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 1, 'end'=> 5, 'id' => $_modx->resource.id])}
