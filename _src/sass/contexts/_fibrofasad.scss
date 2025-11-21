@@ -16,4 +16,9 @@ body[data-ctx='fibrofasad'] {
       margin-bottom: 0;
     }
   }
+  .product__pictures {
+    @include until-992 {
+      height: auto;
+    }
+  }
 }
