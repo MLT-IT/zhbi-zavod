@@ -4,7 +4,11 @@
       <li class="rating__star active"></li>
       <li class="rating__star active"></li>
       <li class="rating__star active"></li>
-      <li class="rating__star"></li>
+      {if $_modx->context.key == 'trotuarnaya-plitka'}
+      <li class="rating__star active__part"></li>
+      {else}
+        <li class="rating__star"></li>
+      {/if}
     </ul>
     <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
       {if $_modx->context.key == 'fibrofasad'}

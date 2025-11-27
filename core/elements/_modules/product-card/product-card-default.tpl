@@ -118,6 +118,7 @@
                             {include "file:_modules/warehouses/sections/warehouse-remains.tpl"}
                           {else}
                             <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                              {*125530 это металлочерепица 125537 это профилированный лист в osnova.spb *}
                                 {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                                     В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м<sup>2</sup>
                                   {elseif $_modx->context.key == 'krovelnyjstroymarket'}
@@ -126,6 +127,8 @@
                                     На складе {$randomStock} {$isGibkaya ? 'уп.' : $unit}
                                   {elseif $_modx->context.key == 'suhiesmesi'}
                                       В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 2000])} шт
+                                  {elseif $_modx->context.key == 'trotuarnaya-plitka'}
+                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 1000, 'end'=> 1200])} шт
                                   {else}
                                     На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                                 {/if}
