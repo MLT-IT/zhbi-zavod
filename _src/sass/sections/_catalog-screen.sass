@@ -254,3 +254,29 @@
     height: 100%
     width: 100%
     box-shadow: 0 0 2px inset #ddd
+
+// Специфические стили для страницы тротуарной плитки
+body.trotuarnaya-plitka
+    .catalog-screen
+        &__products
+            background: #fff
+            border-radius: 16px
+            padding: 16px
+
+            .section__title
+                font-size: 14px
+                font-weight: 400
+
+        &__item, &__tag
+            border: 1px solid #EAEAEA
+            padding: 7px
+
+        &__tag
+            min-height: 50px
+            &-picture
+                height: 43px
+                width: 60px
+                padding: 0
+            &-name
+                font-size: 14px
+                font-weight: 400
