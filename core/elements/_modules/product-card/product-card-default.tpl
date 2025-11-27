@@ -128,7 +128,7 @@
                                   {elseif $_modx->context.key == 'suhiesmesi'}
                                       В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 100, 'end'=> 2000])} шт
                                   {elseif $_modx->context.key == 'trotuarnaya-plitka'}
-                                      В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 1000, 'end'=> 1200])} шт
+                                      На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 1000, 'end'=> 1200])} шт
                                   {else}
                                     На складе {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 700, 'end'=> 1000])} {$unit}
                                 {/if}
