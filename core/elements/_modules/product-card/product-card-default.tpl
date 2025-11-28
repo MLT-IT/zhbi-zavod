@@ -176,6 +176,7 @@
                                 Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
                                 {elseif $_modx->context.key == 'krovelnyjstroymarket'}
                                   Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
+                                {elseif $_modx->context.key == 'trotuarnaya-plitka'}  <span></span>
                                 {else}
                                 {'@FILE snippets/shippedToday.php' | snippet}
                             {/if}
