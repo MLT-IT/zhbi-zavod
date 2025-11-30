@@ -216,6 +216,22 @@
                 </div>
               </div>
 
+              {if $_modx->resource.context_key == 'trotuarnaya-plitka'}
+                {set $productTabsSwitchers = "@FILE snippets/linking/linking-select.php" | snippet : [
+                  'dependence' => ['item_thickness', 'cvet'],
+                  'coincide' => ['collection', 'proizvoditel'],
+                  'tplFilter' => [
+                    'item_thickness' => '@FILE blocks/product/linking/linking-tabs-thickness.tpl',
+                    'cvet' => '@FILE blocks/product/linking/linking-tabs-color.tpl'
+                  ]
+                ]}
+                {if $productTabsSwitchers | trim != ''}
+                  <div class="product-info__tabs">
+                    {$productTabsSwitchers}
+                  </div>
+                {/if}
+              {/if}
+
               {if $_modx->resource.context_key == 'web'}
               
                   {set $linksData = '@FILE snippets/getRelinkingData_Thickness.php' | snippet}
