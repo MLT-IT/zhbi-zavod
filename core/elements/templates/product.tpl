@@ -287,7 +287,7 @@
         <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
-              {if $_modx->context.key in ['krovelnyjstroymarket', 'kirpich-m5', 'fibrofasad']}
+              {if $_modx->context.key in ['krovelnyjstroymarket', 'kirpich-m5', 'fibrofasad','trotuarnaya-plitka']}
                 {insert 'file:_modules/mltreviews/chunks/product-page.tpl'}
               {else}
               <div class="reviews">
