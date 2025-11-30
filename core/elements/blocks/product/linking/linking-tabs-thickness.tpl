@@ -6,9 +6,9 @@
             {set $isActive = $_modx->resource[$key][0] == $val}
             <li class="product-info__volume-tab{if $isActive} active{/if}">
                 {if $isActive}
-                    <span>{$val}</span>
+                    <span>{$val} мм</span>
                 {else}
-                    <a href="{$_modx->makeUrl($id, '', '', 'full')}">{$val} мм</a>
+                    <a href="{$_modx->makeUrl($id, '', '', 'full')}">{$val}</a>
                 {/if}
             </li>
         {/foreach}

@@ -16,7 +16,7 @@
             {if $thumb}
               {set $bgStyle = $bgStyle ~ " background-image: url('" ~ $thumb ~ "');"}
             {/if}
-            <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" data-color="{$visual['value']}" class="colors-options__item euv-custom-select__option{if $_modx->resource[$key][0] == $val} active{/if}">
+            <a href="{$_modx->makeUrl($id, '', '', 'full')}" data-product="{$id}" data-color="{$visual['value']}" class="colors-options__item{if $_modx->resource[$key][0] == $val} active{/if}">
                 {if $thumb}
                   <span class="colors-options__img" style="{$bgStyle}"></span>
                 {else}
