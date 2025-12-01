@@ -108,9 +108,9 @@ function getMenuData() {
                 //'img2' => '/assets/template/pictures/menu_ico/001w.webp'
             ],
             'column2' => [
-                ['uri' => '/shamotnye/',
+                ['uri' => '/pechnoj-kirpich/shamotnye/',
                 'name' => 'Шамотный кирпич'],
-                ['uri' => '/pechnoj-kirpich-keramicheskiy/',
+                ['uri' => '/pechnoj-kirpich/pechnoj-kirpich-keramicheskiy/',
                 'name' => 'Керамический кирпич для печей'],
             ]
         ],
