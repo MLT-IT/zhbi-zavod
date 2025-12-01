@@ -230,6 +230,11 @@
                     {$productTabsSwitchers}
                   </div>
                 {/if}
+
+                <div class="product-info__buttons">
+                  <button data-fancybox="" href="#showRoom_tp" class="btn btn_style_gray btn_showroom_tp">Посмотреть образец в шоуруме</button>
+                  <button class="btn btn_style_gray btn_low_price">Нашли дешевле? Снизим цену!</button>
+                </div>
               {/if}
 
               {if $_modx->resource.context_key == 'web'}

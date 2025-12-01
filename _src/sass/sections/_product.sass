@@ -155,6 +155,10 @@
     +until-992
         margin-top: 15px
 
+    &__buttons
+        display: flex
+        gap: 10px
+
     &__article
         font-size: 12px
         margin-bottom: 10px
@@ -645,6 +649,9 @@
                 @at-root .trotuarnaya-plitka &
                     color: #ffcc33
                     text-decoration: none
+                    &.active
+                        color: #fff
+
 
             &:hover a
                 color: #fff
