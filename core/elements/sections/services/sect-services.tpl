@@ -16,10 +16,10 @@
 
   {set $table_rows = $block.table_rows | fromJSON}
 
-  {set $reviews_gallery = $block.reviews_images | fromJSON}
-  {if !$reviews_gallery && $block.reviews_images}
-    {set $reviews_gallery = $block.reviews_images | split : '||'}
-  {/if}
+{set $reviews_gallery = $block.reviews_images | fromJSON}
+{if $reviews_gallery is not array}
+  {set $reviews_gallery = []}
+{/if}
 
 {set $banner_original = $block.banner_bg ? (($block.banner_bg | substr : 0 : 1) == '/' ? $block.banner_bg : '/' ~ $block.banner_bg) : ''}
 {set $banner_path = $banner_original}
@@ -206,22 +206,27 @@
             {if $block.reviews_text}
               <div class="services-feedback__text">{$block.reviews_text}</div>
             {/if}
-            {if $block.reviews_button_text}
-              {if $block.reviews_button_link}
-                <a class="btn btn_style_trans services-feedback__submit" data-fancybox="" href="{$block.reviews_button_link}" {if $block.reviews_comment}data-comment="{$block.reviews_comment}"{/if}>{$block.reviews_button_text}</a>
-              {else}
-                <a class="btn btn_style_trans services-feedback__submit" data-fancybox="" href="#callback" data-fancybox {if $block.reviews_comment}data-comment="{$block.reviews_comment}"{/if}>{$block.reviews_button_text}</a>
-              {/if}
-            {/if}
+            {set $form_btn_text = $block.reviews_button_text ?: 'Отправить заявку'}
+            {'!AjaxForm' | snippet : [
+              'snippet' => 'FormIt',
+              'form' => '@FILE chunks/services/feedback-form.tpl',
+              'hooks' => 'check_words_and_links,create_request,create_bitrix_lead',
+              'customValidators' => 'checkPhone,check_request',
+              'validate' => 'PHONE:required:checkPhone:check_request,NAME:required',
+              'validationErrorMessage' => 'В форме содержатся ошибки!',
+              'successMessage' => 'Сообщение успешно отправлено',
+              'placeholderPrefix' => '',
+              'form_btn_text' => $form_btn_text
+            ]}
           </div>
           {if $reviews_gallery}
             <div class="services-feedback__gallery">
               {foreach $reviews_gallery as $img}
                 {if $img | trim}
                   {set $thumb = 'phpthumbon' | snippet : ['input' => $img, 'options' => '&w=270&h=180&zc=1']}
-                  <a class="services-feedback__gallery-item" data-fancybox="" href="{$img}" data-fancybox="services-reviews">
-                    <img src="{$thumb ?: $img}" alt="">
-                  </a>
+                  <div class="services-feedback__gallery-item">
+                    <img src="{$img}" alt="">
+                  </div>
                 {/if}
               {/foreach}
             </div>
