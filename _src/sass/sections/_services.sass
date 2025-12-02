@@ -1,0 +1,367 @@
+.services-page
+	display: flex
+	flex-direction: column
+	gap: 40px
+	background: var(--color-white)
+
+	.section
+		margin-bottom: 0
+
+	& > .section + .section
+		margin-top: 10px
+
+.services-section-container
+	max-width: 1366px
+	margin: 0 auto
+	padding: 0 16px
+
+.services-banner
+	background: #f5f5f5
+	padding: 50px 0 24px
+	&__container
+		@extend .services-section-container
+		width: 100%
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		gap: 16px
+		min-height: 328px
+		padding: 0!important
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		border-radius: 12px
+		overflow: hidden
+		box-shadow: 10px 0 30px rgba(201, 201, 201, 0.4)
+		isolation: isolate
+
+	&__content
+		position: relative
+		z-index: 2
+		padding: 35px 57px
+		display: flex
+		flex-direction: column
+		gap: 12px
+		margin-top: auto
+		margin-bottom: 8px
+
+	&__title
+		margin: 0 0 12px
+		font-size: 36px
+		line-height: 1.2
+		font-weight: 700
+		color: #3c3c3b
+
+	&__btn
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		min-width: 284px
+		min-height: 50px
+		padding: 20px
+		font-weight: 700
+		font-size: 16px
+		text-transform: uppercase
+		letter-spacing: 0.3px
+		box-shadow: 0 2px 0 #cfa321
+		border-radius: 6px
+
+	&__media
+		display: none
+
+	&__bg
+		display: none
+
+	&__picture
+		display: none
+
+	+until-1200
+		&__container
+			min-height: 0
+			padding: 18px 18px
+
+	+until-768
+		&__container
+			padding: 12px 16px
+
+		&__title
+			font-size: 26px
+
+.services-info
+	&__container
+		@extend .services-section-container
+		display: grid
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+		gap: 35px
+		align-items: stretch
+		padding: 0 10px 8px
+
+	&__content
+		display: flex
+		flex-direction: column
+		gap: 18px
+		padding: 0
+		background: #ffffff
+		border-radius: 12px
+		box-shadow: 10px 0 30px rgba(201, 201, 201, 0.4)
+
+	&__lead
+		padding: 20px
+		background: #ffecb2
+		border-radius: 12px 12px 0 0
+
+	&__title
+		margin: 0 0 12px
+		font-size: 18px
+		font-weight: 700
+		color: #3c3c3b
+
+	&__text
+		margin: 0
+		font-size: 18px
+		line-height: 1.2
+		color: #000
+		font-weight: 700
+		color: #3c3c3b
+
+	&__list-block
+		padding: 18px 24px 8px
+
+	&__list-title
+		margin: 0 0 10px
+		font-size: 16px
+		font-weight: 600
+		color: #3c3c3b
+
+	&__list
+		margin: 0 0 14px
+		padding-left: 20px
+		display: grid
+		gap: 10px
+		list-style: disc
+
+		li
+			font-size: 16px
+			line-height: 1.2
+			color: #000
+
+	&__btn
+		margin: 0 20px 24px
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		gap: 8px
+		min-height: 59px
+		padding: 10px
+		color: #ffcc33
+		border: 1px solid #ffcc33
+		background: #fff
+		border-radius: 6px
+		box-shadow: none
+		text-transform: uppercase
+		font-weight: 700
+		transition: background .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease
+		width: 307px
+		font-size: 16px
+		font-weight: 400
+
+		&:hover
+			background: #ffcc33
+			color: #fff
+			border-color: #ffcc33
+			box-shadow: 0 10px 30px rgba(201, 201, 201, 0.35)
+
+	&__media
+		position: relative
+		min-height: 430px
+		background: #ffffff
+		border-radius: 12px
+		box-shadow: 10px 0 60px rgba(201, 201, 201, 0.4)
+		overflow: hidden
+
+		img
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+	+until-1200
+		&__container
+			grid-template-columns: 1fr
+
+		&__btn
+			width: calc(100% - 40px)
+			margin-inline: 20px
+
+	+until-768
+		&__lead
+			padding: 18px 20px
+
+		&__list-block
+			padding: 14px 20px 4px
+
+		&__btn
+			width: calc(100% - 32px)
+			margin: 0 16px 18px
+
+.services-table
+	&__container
+		@extend .services-section-container
+		display: grid
+		grid-template-columns: 369px minmax(0, 1fr)
+		gap: 28px
+
+	&__media
+		border-radius: 12px
+		overflow: hidden
+		box-shadow: 10px 0 40px rgba(201, 201, 201, 0.25)
+		background: #ffffff
+		width: 369px
+    height: 533px
+    min-height: 533px
+    margin: 0 auto
+
+	img
+		display: block
+		width: 100%
+		height: 100%
+		object-fit: cover
+
+	&__content
+		background: #ffffff
+		border-radius: 12px
+		box-shadow: 10px 0 40px rgba(201, 201, 201, 0.25)
+		padding: 26px 26px 30px
+
+	&__title
+		margin: 0 0 12px
+		font-size: 20px
+		font-weight: 700
+		color: #3c3c3b
+
+	&__note
+		margin-bottom: 14px
+		font-size: 14px
+		line-height: 1.5
+		color: #3c3c3b
+
+	&__wrapper
+		overflow: auto
+
+	&__table
+		width: 100%
+		min-width: 320px
+		border-collapse: collapse
+
+		th, td
+			border: 1px solid #e5e5e5
+			padding: 12px 14px
+			font-size: 14px
+			line-height: 1.4
+			text-align: center
+			font-weight: 700
+
+		th
+			background: #f5f5f5
+			font-weight: 700
+
+		tr > *:first-child
+			text-align: left
+
+	+until-1200
+		&__container
+			grid-template-columns: 1fr
+
+.services-works
+	&__container
+		@extend .services-section-container
+
+	&__title
+		margin: 0 0 18px
+		font-size: 22px
+		font-weight: 700
+
+.services-feedback
+	&__container
+		@extend .services-section-container
+		display: grid
+		grid-template-columns: 1fr 1fr
+		gap: 24px
+
+	&__content
+		background: #ffffff
+		border-radius: 16px
+		box-shadow: 10px 0 60px rgba(201, 201, 201, 0.4)
+		padding: 26px 30px
+
+	&__title
+		margin: 0 0 12px
+		font-size: 20px
+		font-weight: 700
+		color: #3c3c3b
+
+	&__text
+		margin: 0 0 20px
+		font-size: 16px
+		line-height: 1.5
+		color: #3c3c3b
+
+	&__form
+		display: grid
+		gap: 10px
+
+	&__input
+		width: 100%
+		padding: 12px 14px
+		border-radius: 10px
+		border: 1px solid var(--color-gray-l)
+		background: #fdfdfd
+		font-size: 14px
+
+		&:focus
+			border-color: var(--color-red)
+			outline: none
+
+	&__submit
+		justify-self: start
+
+	&__privacy
+		display: flex
+		align-items: center
+		gap: 10px
+		font-size: 12px
+		color: var(--color-gray)
+
+		input
+			width: 16px
+			height: 16px
+
+	&__gallery
+		display: grid
+		grid-template-columns: repeat(2, minmax(0, 1fr))
+		gap: 14px
+
+	&__gallery-item
+		position: relative
+		border-radius: 8px
+		overflow: hidden
+		box-shadow: 10px 0 30px rgba(201, 201, 201, 0.25)
+		background: #ffffff
+
+	img
+		display: block
+		width: 100%
+		height: 100%
+			object-fit: cover
+
+	+until-1200
+		&__container
+			grid-template-columns: 1fr
+
+		&__submit
+			width: 100%
+			justify-self: stretch
+
+.services-production, .services-showroom
+	@extend .services-section-container
