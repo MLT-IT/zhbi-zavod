@@ -1,10 +1,10 @@
-<div class="popup js-thanks popup_type_callback" id="showRoom">
+<div class="popup js-thanks popup_type_callback" id="showRoom_tp">
   <form method="POST" action class="popup__form form">
     <input type="text" name="MOBILEPHONE" class="secret">
     <input type="hidden" name="COMMENTS" value="Заявка на посещение шоурума">
 
-    <h3 class="title-2 form__title">Заявка на посещение шоу-рума</h3>
-    <div class="form__text">мы Вам перезвоним в течение 15 минут</div>
+    <h3 class="title-2 form__title">Запишитесь на просмотр образца в шоуруме</h3>
+    <div class="form__text">Оставьте свои контакты, и наш менеджер свяжется с вами, чтобы согласовать удобное время визита</div>
     <div class="form__inputs">
       <label>
         <input type="text" placeholder="Укажите Ваше имя" name="NAME">
