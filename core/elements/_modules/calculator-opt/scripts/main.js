@@ -46,6 +46,10 @@ function getElements(selectors) {
 
 // Установка обработчиков для поля поиска
 function setupSearchHandlers({ searchInput, searchResultBlock, searchResultContainer, closeButton }) {
+    // Skip binding when calculator markup is missing on the page
+    if (!searchInput || !searchResultBlock || !searchResultContainer || !closeButton) {
+        return;
+    }
     addFocusHandler(searchInput, searchResultBlock);
     addBlurHandler(searchInput, searchResultBlock);
     addInputHandler(searchInput, searchResultBlock, searchResultContainer, closeButton);
@@ -74,7 +78,7 @@ function addBlurHandler(searchInput, searchResultBlock) {
 function addInputHandler(searchInput, searchResultBlock, searchResultContainer, closeButton) {
     let searchTimer;
 
-    searchInput.addEventListener("input", (event) => {
+    searchInput?.addEventListener("input", (event) => {
         clearTimeout(searchTimer);
         const query = event.target.value.trim();
         toggleCloseButton(closeButton, query);
@@ -92,7 +96,7 @@ function addInputHandler(searchInput, searchResultBlock, searchResultContainer, 
 
 // Обработчик кнопки закрытия
 function addCloseHandler(closeButton, searchInput) {
-    closeButton.addEventListener("click", () => {
+    closeButton?.addEventListener("click", () => {
         searchInput.value = "";
         searchInput.removeAttribute("data-product-id");
         document.querySelector(selectors.formProductId).removeAttribute("value");
