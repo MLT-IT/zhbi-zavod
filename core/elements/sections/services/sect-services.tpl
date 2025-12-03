@@ -9,16 +9,44 @@
     {set $info_list = $block.info_list | split : '||'}
   {/if}
 
-  {set $table_columns = $block.table_columns | fromJSON}
-  {if !$table_columns && $block.table_columns}
-    {set $table_columns = $block.table_columns | split : '||'}
-  {/if}
+{set $table_columns = $block.table_columns | fromJSON}
+{if !$table_columns && $block.table_columns}
+  {set $table_columns = $block.table_columns | split : '||'}
+{/if}
 
-  {set $table_rows = $block.table_rows | fromJSON}
+{set $table_rows = $block.table_rows | fromJSON}
 
 {set $reviews_gallery = $block.reviews_images | fromJSON}
 {if $reviews_gallery is not array}
   {set $reviews_gallery = []}
+{/if}
+
+{set $works_gallery = ($_modx->resource.works_gallery ?: $block.works_gallery) | fromJSON}
+{if $works_gallery is not array}
+  {set $works_gallery = []}
+{/if}
+
+{set $works_title = $_modx->resource.works_title ?: $block.works_title ?: 'Наши работы'}
+
+{set $showroom_cards = ($_modx->resource.showroom_cards ?: $block.showroom_cards) | fromJSON}
+{if $showroom_cards is not array}
+  {set $showroom_cards = []}
+{/if}
+
+{set $showroom_title = $_modx->resource.showroom_title ?: $block.showroom_title}
+{set $showroom_subtitle = $_modx->resource.showroom_subtitle ?: $block.showroom_subtitle}
+{set $showroom_image_raw = $_modx->resource.showroom_image ?: $block.showroom_image}
+{set $showroom_btn_text = $_modx->resource.showroom_button_text ?: $block.showroom_button_text}
+{set $showroom_btn_link = $_modx->resource.showroom_button_link ?: $block.showroom_button_link}
+
+{set $showroom_image = $showroom_image_raw ? (($showroom_image_raw | substr : 0 : 4) == 'http' ? $showroom_image_raw : ((($showroom_image_raw | substr : 0 : 1) == '/') ? $showroom_image_raw : '/' ~ $showroom_image_raw)) : ''}
+{if $showroom_image && (($showroom_image | substr : 0 : 4) != 'http') && !('@FILE snippets/fileExists.php' | snippet : ['input' => $showroom_image])}
+  {set $showroom_trimmed = ($showroom_image | substr : 0 : 1) == '/' ? ($showroom_image | substr : 1) : $showroom_image}
+  {set $showroom_image = '/assets/' ~ $showroom_trimmed}
+{/if}
+{set $showroom_img = $showroom_image && (($showroom_image | substr : 0 : 4) != 'http') ? ('phpthumbon' | snippet : ['input' => $showroom_image, 'options' => '&w=520&h=360&zc=1']) : $showroom_image}
+{if $showroom_img && ($showroom_img | contains : 'noimage_')}
+  {set $showroom_img = $showroom_image}
 {/if}
 
 {set $banner_original = $block.banner_bg ? (($block.banner_bg | substr : 0 : 1) == '/' ? $block.banner_bg : '/' ~ $block.banner_bg) : ''}
@@ -196,6 +224,87 @@
       </div>
     {/if}
 
+    {if $works_gallery}
+      <div class="services-works section">
+        <div class="services-works__container">
+          <div class="services-works__head">
+            <div class="services-works__title">{$works_title}</div>
+            <div class="services-works__nav">
+              <div class="swiper-button-prev services-works__arrow services-works-button-prev"></div>
+              <div class="swiper-button-next services-works__arrow services-works-button-next"></div>
+            </div>
+          </div>
+          <div class="services-works__slider">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                {foreach $works_gallery as $work}
+                  {if $work}
+                    {set $work_raw = $work.image | trim}
+                    {set $work_image = ''}
+                    {if $work_raw}
+                      {if (($work_raw | substr : 0 : 4) == 'http')}
+                        {set $work_image = $work_raw}
+                      {elseif ($work_raw | substr : 0 : 1) == '/'}
+                        {set $work_image = $work_raw}
+                      {else}
+                        {set $work_image = '/' ~ $work_raw}
+                      {/if}
+                    {/if}
+                    {if $work_image && (($work_image | substr : 0 : 4) != 'http')}
+                      {set $work_trimmed = ($work_image | substr : 0 : 1) == '/' ? ($work_image | substr : 1) : $work_image}
+                      {if !('@FILE snippets/fileExists.php' | snippet : ['input' => $work_image]) && ('@FILE snippets/fileExists.php' | snippet : ['input' => '/assets/' ~ $work_trimmed])}
+                        {set $work_image = '/assets/' ~ $work_trimmed}
+                      {/if}
+                    {/if}
+                    {set $work_src = $work_image}
+                    {if $work_image && (($work_image | substr : 0 : 4) != 'http')}
+                      {set $tmp_thumb = 'phpthumbon' | snippet : ['input' => $work_image, 'options' => '&w=360&h=220&zc=1']}
+                      {if $tmp_thumb && !($tmp_thumb | contains : 'noimage_')}
+                        {if (($tmp_thumb | substr : 0 : 4) == 'http') || ($tmp_thumb | contains : '/')}
+                          {set $work_src = $tmp_thumb}
+                        {/if}
+                      {/if}
+                    {/if}
+                    {if $work_src && (($work_src | trim) == '1')}
+                      {set $work_src = $work_image}
+                    {/if}
+                    {if $work_src && (($work_src | substr : 0 : 4) != 'http') && !($work_src | contains : '/')}
+                      {set $work_src = $work_image}
+                    {/if}
+                    {if $work_src && (($work_src | trim) == '1')}
+                      {set $work_src = ''}
+                    {/if}
+                    {if $work_image || $work.title}
+                      <div class="swiper-slide">
+                        {if $work.link}
+                          <a class="services-works__card" href="{$work.link}">
+                        {else}
+                          <div class="services-works__card">
+                        {/if}
+                            {if $work_src}
+                              <div class="services-works__image">
+                                <img src="{$work_src}" alt="{$work.title ?: 'Работа'}">
+                              </div>
+                            {/if}
+                            {if $work.title}
+                              <div class="services-works__caption">{$work.title}</div>
+                            {/if}
+                        {if $work.link}
+                          </a>
+                        {else}
+                          </div>
+                        {/if}
+                      </div>
+                    {/if}
+                  {/if}
+                {/foreach}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {/if}
+
     {if $block.reviews_title || $block.reviews_text || $reviews_gallery}
       <div class="services-feedback section">
         <div class="services-feedback__container">
@@ -233,6 +342,91 @@
           {/if}
         </div>
       </div>
+    {/if}
+
+    {if $showroom_title || $showroom_subtitle || $showroom_cards || $showroom_image || $showroom_btn_text}
+      <section class="services-showroom section">
+        <div class="services-showroom__container">
+          <div class="services-showroom__content">
+            {if $showroom_title}
+              <div class="services-showroom__title">{$showroom_title}</div>
+            {/if}
+            {if $showroom_subtitle}
+              <div class="services-showroom__subtitle">{$showroom_subtitle}</div>
+            {/if}
+            {if $showroom_cards}
+              <div class="services-showroom__cards">
+                {foreach $showroom_cards as $card}
+                  {if $card}
+                    {set $card_icon_raw = $card.icon | trim}
+                    {set $card_icon = ''}
+                    {if $card_icon_raw}
+                      {if (($card_icon_raw | substr : 0 : 4) == 'http')}
+                        {set $card_icon = $card_icon_raw}
+                      {elseif ($card_icon_raw | substr : 0 : 1) == '/'}
+                        {set $card_icon = $card_icon_raw}
+                      {else}
+                        {set $card_icon = '/' ~ $card_icon_raw}
+                      {/if}
+                    {/if}
+                    {if $card_icon && (($card_icon | substr : 0 : 4) != 'http')}
+                      {set $card_trimmed = ($card_icon | substr : 0 : 1) == '/' ? ($card_icon | substr : 1) : $card_icon}
+                      {if !('@FILE snippets/fileExists.php' | snippet : ['input' => $card_icon]) && ('@FILE snippets/fileExists.php' | snippet : ['input' => '/assets/' ~ $card_trimmed])}
+                        {set $card_icon = '/assets/' ~ $card_trimmed}
+                      {/if}
+                    {/if}
+                    {set $card_icon_src = $card_icon}
+                    {if $card_icon && (($card_icon | substr : 0 : 4) != 'http')}
+                      {set $tmp_card_thumb = 'phpthumbon' | snippet : ['input' => $card_icon, 'options' => '&w=64&h=64&zc=1']}
+                      {if $tmp_card_thumb && !($tmp_card_thumb | contains : 'noimage_')}
+                        {if (($tmp_card_thumb | substr : 0 : 4) == 'http') || ($tmp_card_thumb | contains : '/')}
+                          {set $card_icon_src = $tmp_card_thumb}
+                        {/if}
+                      {/if}
+                    {/if}
+                    {if $card_icon_src && (($card_icon_src | trim) == '1')}
+                      {set $card_icon_src = $card_icon}
+                    {/if}
+                    {if $card_icon_src && (($card_icon_src | substr : 0 : 4) != 'http') && !($card_icon_src | contains : '/')}
+                      {set $card_icon_src = $card_icon}
+                    {/if}
+                    {if $card_icon_src && (($card_icon_src | trim) == '1')}
+                      {set $card_icon_src = ''}
+                    {/if}
+                    {set $card_icon_render = $card_icon_src ?: $card_icon}
+                    <div class="services-showroom__card">
+                      {if $card_icon_render}
+                        <div class="services-showroom__card-icon">
+                          <img src="{$card_icon_render}" alt="{$card.title ?: 'Иконка'}">
+                        </div>
+                      {/if}
+                      {if $card.title}
+                        <div class="services-showroom__card-title">{$card.title}</div>
+                      {/if}
+                      {if $card.text}
+                        <div class="services-showroom__card-text">{$card.text}</div>
+                      {/if}
+                    </div>
+                  {/if}
+                {/foreach}
+              </div>
+            {/if}
+            
+          </div>
+          {if $showroom_image}
+            <div class="services-showroom__media">
+              <img src="{$showroom_img ?: $showroom_image}" alt="">
+              {if $showroom_btn_text}
+                {if $showroom_btn_link}
+                  <a class="btn btn_style_trans services-showroom__btn" href="{$showroom_btn_link}">{$showroom_btn_text}</a>
+                {else}
+                  <a class="btn btn_style_trans services-showroom__btn" data-fancybox href="#callback">{$showroom_btn_text}</a>
+                {/if}
+              {/if}
+            </div>
+          {/if}
+        </div>
+      </section>
     {/if}
   </section>
 {/if}

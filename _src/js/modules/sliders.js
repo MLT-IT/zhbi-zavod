@@ -241,6 +241,40 @@ export default async function initSliders() {
     });
   }
 
+  const servicesWorksSwiper = document.querySelector(".services-works .swiper");
+
+  if (servicesWorksSwiper) {
+    const { Swiper, Navigation } = await import(
+      /* webpackChunkName: "swiper" */ "swiper"
+    );
+    Swiper.use([Navigation]);
+    new Swiper(servicesWorksSwiper, {
+      slidesPerView: 1.1,
+      spaceBetween: 12,
+      navigation: {
+        prevEl: document.querySelector(".services-works-button-prev") || null,
+        nextEl: document.querySelector(".services-works-button-next") || null,
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 2.5,
+          spaceBetween: 14,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
+
   // логотипы партнеров sections/partners .our-partners
   const partnersBlock = document.querySelector(".our-partners .swiper");
   if (partnersBlock) {
