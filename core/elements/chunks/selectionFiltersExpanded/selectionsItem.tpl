@@ -4,7 +4,7 @@
         {set $image = $mainImage ?: $_pls['mainImage']}
         {if $image}
             {set $src = 'phpthumbon' | snippet : [
-                'input' => $mainImage,
+                'input' => $image,
                 'options' => '&w=60&h=60&zc=1'
             ]}
             <img class="custom-selections__tag-image" src="{$src}" alt="">
@@ -18,7 +18,7 @@
             )}
             {if $visual['type'] == 'image' && $visual['value'] is not empty}
                 {set $src = 'phpthumbon' | snippet : [
-                    'input' => $mainImage,
+                    'input' => $visual['value'],
                     'options' => '&w=60&h=60&zc=1'
                 ]}
                 <img class="custom-selections__tag-image" src="{$src}" alt="">
