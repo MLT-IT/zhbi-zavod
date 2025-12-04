@@ -168,19 +168,19 @@
                 {set $favLen = $_modx->getPlaceholder('checkItems')['fav'] | length}
                 <a href="/favorites/" class="header__action_type_favorites header__action icon-btn icon-btn_style_white"{if $favLen > 0} data-amount="{$favLen}"{/if}>
                   <svg class="icon-btn__icon" aria-hidden="true">
-                    <use xlink:href="assets/template/pictures/icons.svg#svg-heart"></use>
+                    <use xlink:href="assets/template/pictures/icons.svg?v=2#svg-heart"></use>
                   </svg>
                 </a>
                 {set $favComp = $_modx->getPlaceholder('checkItems')['comp'] | length}
                 <a href="/comparison/" class="header__comparison header__action icon-btn icon-btn_style_white"{if $favComp > 0} data-amount="{$favComp}"{/if}>
                   <svg class="icon-btn__icon" aria-hidden="true">
-                    <use xlink:href="assets/template/pictures/icons.svg#svg-bars"></use>
+                    <use xlink:href="assets/template/pictures/icons.svg?v=2#svg-bars"></use>
                   </svg>
                 </a>
                 {'!msMiniCartCustom' | snippet : ['tpl' => '@FILE: chunks/msMiniCart.tpl']}
                 <a data-fancybox href="#callback" class="header__action_type_callback header__action icon-btn icon-btn_style_white">
                   <svg class="icon-btn__icon" aria-hidden="true">
-                    <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
+                    <use xlink:href="assets/template/pictures/icons.svg?v=2#svg-phone-sm"></use>
                   </svg>
                 </a>
 
