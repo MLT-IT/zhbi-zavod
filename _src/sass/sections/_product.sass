@@ -13,6 +13,13 @@
         grid-template-columns: minmax(400px, 1fr) minmax(500px, 591px)
         grid-gap: 40px
         align-items: flex-start
+        @at-root [data-ctx="trotuarnaya-plitka"] &
+            width: 100%
+
+        & > *
+            @at-root [data-ctx="trotuarnaya-plitka"] &
+                min-width: 0
+
 
         @at-root [data-ctx="trotuarnaya-plitka"] &
             align-items: stretch
@@ -29,6 +36,9 @@
         
         &-left
             position: relative
+            @at-root [data-ctx="trotuarnaya-plitka"] &
+                max-width: 100%
+                overflow: hidden
 
         @at-root .fibrofasad &
             align-items: initial
