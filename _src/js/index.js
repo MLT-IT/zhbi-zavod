@@ -333,16 +333,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let $catalogTagsMoreBtn = $('[data-tag-show-more-btn]');
     if ($catalogTagsMoreBtn.length) { // && $(document).width() > 992
         $catalogTagsMoreBtn.on('click', function() {
-            $(this).parent().add($catalogTagsMoreBtn).toggleClass('active');
+            if (this.hasAttribute('data-grouping-tags-toggle')) {
+                return;
+            }
+            $(this).parent().add($catalogTagsMoreBtn.not('[data-grouping-tags-toggle]')).toggleClass('active');
         });
     }
     $('.catalog-screen__items').each(function(){
         // Корректировка отображения меню на пк если элементов в списке Тэгов 5 то скрываем кнопку показать еще
+        const isGroupingTags = this.hasAttribute('data-grouping-tags-first');
+        if (isGroupingTags) {
+            return;
+        }
         if($(this).children('.catalog-screen__tag').length <= 10){
             // $(this).children('.catalog-screen__tag').eq(4).css("display", "block")
             $(this).children('[data-tag-show-more-btn]').css('display', 'none')
         }
     });
+    const groupingTagsToggle = document.querySelector('[data-grouping-tags-toggle]');
+    const groupingTagsOuter = document.getElementById('grouping_tags_outer');
+    const groupingTagsFirstOuter = document.getElementById('grouping_tags_first_outer');
+
+    if (groupingTagsToggle && groupingTagsOuter && groupingTagsFirstOuter) {
+        const groupingTagsFirstList = groupingTagsToggle.closest('.catalog-screen__items');
+
+        const setGroupingTagsState = (expanded) => {
+            groupingTagsOuter.style.display = expanded ? '' : 'none';
+            if (groupingTagsFirstList) {
+                groupingTagsFirstList.classList.toggle('active', expanded);
+                groupingTagsFirstList.classList.toggle('grouping-tags-hidden', expanded);
+            }
+            groupingTagsToggle.classList.toggle('active', expanded);
+        };
+
+        setGroupingTagsState(false);
+
+        groupingTagsToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            const isExpanded = groupingTagsToggle.classList.contains('active');
+            setGroupingTagsState(!isExpanded);
+        });
+    }
     // -------------------------
 
     // -------------------------------
