@@ -63,6 +63,9 @@
         grid-template-columns: repeat(5, minmax(0, 1fr))
         grid-auto-rows: minmax(50px, auto)
         grid-gap: 9px
+        &.grouping-tags-hidden
+            .catalog-screen__tag:not(.catalog-screen__tag_type_more)
+                display: none
         &.items-hidden
             +until-768
                 .catalog-screen__tag:nth-of-type(n+6)
@@ -80,6 +83,9 @@
                     &_more
                         &::before
                             content: 'скрыть'
+                            @at-root .trotuarnaya-plitka &
+                                content: 'Свернуть'
+
 
         +until-992
             grid-template-columns: repeat(4, minmax(0, 1fr))
@@ -132,6 +138,8 @@
             &:before
                 content: 'показать все'
                 padding-top: 5px
+                @at-root .trotuarnaya-plitka &
+                    content: 'Смотреть все'
 
         &:hover
             box-shadow: 5px 0 15px rgba(211, 85, 60, .3)

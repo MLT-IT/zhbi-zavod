@@ -26,12 +26,12 @@
                               </div>
                             </a>
                           </li>'
-    'tplFirstItems' => '@INLINE <ul class="catalog-screen__items items-hidden">{$items}<li class="catalog-screen__tag_type_more" onclick="grouping_tags_outer.style.display=\'block\'; grouping_tags_first_outer.remove()" style="display: flex;align-items: center;"></li></ul>'
+    'tplFirstItems' => '@INLINE <ul class="catalog-screen__items items-hidden" data-grouping-tags-first>{$items}<li class="catalog-screen__tag catalog-screen__tag_type_more" data-tag-show-more-btn data-grouping-tags-toggle style="display: flex;align-items: center;"></li></ul>'
     'tplItems' => '@INLINE <h2 class="section__title">{$group_title}</h2>
                            <ul class="catalog-screen__items">
                              {$items}
                            </ul>'
-    'tplOuter' => '@INLINE <div class="catalog-screen__products" id="grouping_tags_first_outer">{$output_first}</div> <div class="catalog-screen__products" id="grouping_tags_outer" style="display:none;">{$output}</div>'
+    'tplOuter' => '@INLINE <div class="catalog-screen__products" id="grouping_tags_outer" style="display:none;">{$output}</div><div class="catalog-screen__products" id="grouping_tags_first_outer">{$output_first}</div> '
     ]}
   {else}
     {set $tags = '@FILE snippets/getTags.php' | snippet :[

@@ -33,7 +33,7 @@
                     {if $_modx->context.key !== 'web'}
                       {include "file:chunks/product/rating.tpl"}
                     {/if}
-                    {if !($isCustomCalculator || $isShtaketnik)}
+                    {if !($isCustomCalculator || $isShtaketnik || $_modx->context.key == 'trotuarnaya-plitka')}
                     <div class="product-info__shipped mobile-flex">
                         {'@FILE snippets/shippedToday.php' | snippet}
                     </div>
@@ -117,7 +117,7 @@
                           {if $_modx->context.key == 'web'}
                             {include "file:_modules/warehouses/sections/warehouse-remains.tpl"}
                           {else}
-                            <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
+                            <div class="product-info__availability-title has-icon icon-checkmark {if $_modx->context.key !== 'trotuarnaya-plitka'}pc-flex {/if}">
                               {*125530 это металлочерепица 125537 это профилированный лист в osnova.spb *}
                                 {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537'])}
                                     В наличии металл {$_modx->runSnippet('@FILE snippets/random.php', ['begin' => 2000, 'end'=> 4000])} м<sup>2</sup>
@@ -170,13 +170,12 @@
                             <div class="product-info__availability-title has-icon icon-checkmark pc-flex">
                             В наличии {$_modx->resource.stockNum} {$unit}
                             </div>
-                        {elseif !($isCustomCalculator || $isShtaketnik)}
+                        {elseif !($isCustomCalculator || $isShtaketnik || $_modx->context.key == 'trotuarnaya-plitka')}
                           <div class="product-info__shipped pc-flex">
                             {if $_modx->resource.parent in list $_modx->runSnippet('@FILE snippets/getCategoriesListIds.php', ['parent' => '125530,125537,125541,171134,171121'])}
                                 Дата производства при заказе сегодня: <span class="bold"> &nbsp; {'+2 days' | date : 'd.m.Y'} </span>
                                 {elseif $_modx->context.key == 'krovelnyjstroymarket'}
                                   Дата доставки при заказе сегодня: <span class="bold">&nbsp; {'+1 days' | date : 'd.m.Y'} </span>
-                                {elseif $_modx->context.key == 'trotuarnaya-plitka'}  <span></span>
                                 {else}
                                 {'@FILE snippets/shippedToday.php' | snippet}
                             {/if}
@@ -233,7 +232,7 @@
 
                 <div class="product-info__buttons">
                   <button data-fancybox="" href="#showRoom_tp" class="btn btn_style_gray btn_showroom_tp">Посмотреть образец в шоуруме</button>
-                  <button class="btn btn_style_gray btn_low_price">Нашли дешевле? Снизим цену!</button>
+                  <button data-fancybox="" href="#callback" class="btn btn_style_gray btn_low_price">Нашли дешевле? Снизим цену!</button>
                 </div>
               {/if}
 
