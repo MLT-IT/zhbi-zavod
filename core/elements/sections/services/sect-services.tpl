@@ -55,6 +55,9 @@
   {set $banner_trimmed = ($banner_path | substr : 0 : 1) == '/' ? ($banner_path | substr : 1) : $banner_path}
   {set $banner_path = '/assets/' ~ $banner_trimmed}
 {/if}
+{if $banner_path && (($banner_path | substr : 0 : 4) != 'http') && ($banner_path | contains : '//')}
+  {set $banner_path = $banner_path | replace : '//' : '/'}
+{/if}
 {set $banner_bg = $banner_path ? ('phpthumbon' | snippet : ['input' => $banner_path, 'options' => '&w=1440&h=460&zc=1']) : ''}
 {set $banner_src = $banner_bg}
 {if !$banner_src || !('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_bg])}
@@ -62,6 +65,24 @@
 {/if}
 {if $banner_src && ($banner_src | contains : 'noimage_')}
   {set $banner_src = $banner_path}
+{/if}
+{* background responsive variants based on banner_bg *}
+{set $banner_bg_980 = ''}
+{set $banner_bg_748 = ''}
+{set $banner_bg_460 = ''}
+{if $banner_path}
+  {set $banner_bg_980 = ($banner_path | replace : '1920' : '980') | replace : '//' : '/'}
+  {if $banner_bg_980 == $banner_path || !('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_bg_980])}
+    {set $banner_bg_980 = ''}
+  {/if}
+  {set $banner_bg_748 = ($banner_path | replace : '1920' : '748') | replace : '//' : '/'}
+  {if $banner_bg_748 == $banner_path || !('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_bg_748])}
+    {set $banner_bg_748 = ''}
+  {/if}
+  {set $banner_bg_460 = ($banner_path | replace : '1920' : '460') | replace : '//' : '/'}
+  {if $banner_bg_460 == $banner_path || !('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_bg_460])}
+    {set $banner_bg_460 = ''}
+  {/if}
 {/if}
 
 {* banner image thumb *}
@@ -74,7 +95,32 @@
 {if $banner_image && ($banner_image | contains : 'noimage_')}
   {set $banner_image = $banner_img_path}
 {/if}
-
+{* banner responsive set *}
+{set $banner_srcset = ''}
+{if $banner_img_path}
+  {set $banner_srcset = "{$banner_img_path} 1920w"}
+  {set $banner_980 = $banner_img_path | replace : '1920' : '980'}
+  {set $banner_748 = $banner_img_path | replace : '1920' : '748'}
+  {set $banner_460 = $banner_img_path | replace : '1920' : '460'}
+  {if $banner_980 && ($banner_980 != $banner_img_path)}
+    {set $banner_980 = $banner_980 | replace : '//' : '/'}
+    {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_980])}
+      {set $banner_srcset = $banner_srcset ~ ", {$banner_980} 980w"}
+    {/if}
+  {/if}
+  {if $banner_748 && ($banner_748 != $banner_img_path)}
+    {set $banner_748 = $banner_748 | replace : '//' : '/'}
+    {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_748])}
+      {set $banner_srcset = $banner_srcset ~ ", {$banner_748} 748w"}
+    {/if}
+  {/if}
+  {if $banner_460 && ($banner_460 != $banner_img_path)}
+    {set $banner_460 = $banner_460 | replace : '//' : '/'}
+    {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $banner_460])}
+      {set $banner_srcset = $banner_srcset ~ ", {$banner_460} 460w"}
+    {/if}
+  {/if}
+{/if}
 {* info image thumb with fallback *}
 {set $info_path = $block.info_image ? (($block.info_image | substr : 0 : 4) == 'http' ? $block.info_image : ((($block.info_image | substr : 0 : 1) == '/') ? $block.info_image : '/' ~ $block.info_image)) : ''}
 {if $info_path && (($info_path | substr : 0 : 4) != 'http') && !('@FILE snippets/fileExists.php' | snippet : ['input' => $info_path])}
@@ -114,10 +160,10 @@
           {if $block.banner_image}
             <div class="services-banner__media">
               <div class="services-banner__bg">
-                <img src="{$banner_image ?: $block.banner_image}" alt="">
+                <img src="{$banner_image ?: $block.banner_image}" {if $banner_srcset}srcset="{$banner_srcset}" sizes="(max-width: 520px) 460w, (max-width: 1100px) 748w, (max-width: 1400px) 980w, 1920w"{/if} alt="">
               </div>
               <div class="services-banner__picture">
-                <img src="{$banner_image ?: $block.banner_image}" alt="">
+                <img src="{$banner_image ?: $block.banner_image}" {if $banner_srcset}srcset="{$banner_srcset}" sizes="(max-width: 520px) 460w, (max-width: 1100px) 748w, (max-width: 1400px) 980w, 1920w"{/if} alt="">
               </div>
             </div>
           {/if}
