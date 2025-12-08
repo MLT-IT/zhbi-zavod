@@ -218,7 +218,7 @@
               {if $_modx->resource.context_key == 'trotuarnaya-plitka'}
                 {set $productTabsSwitchers = "@FILE snippets/linking/linking-select.php" | snippet : [
                   'dependence' => ['item_thickness', 'cvet'],
-                  'coincide' => ['collection', 'proizvoditel'],
+                  'coincide' => ['collection', 'proizvoditel','razmer-mm','tip','forma'],
                   'tplFilter' => [
                     'item_thickness' => '@FILE blocks/product/linking/linking-tabs-thickness.tpl',
                     'cvet' => '@FILE blocks/product/linking/linking-tabs-color.tpl'
