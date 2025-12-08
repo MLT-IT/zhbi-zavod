@@ -16,5 +16,5 @@ try {
     } else {
         return null;
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
 }
