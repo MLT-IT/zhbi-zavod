@@ -63,7 +63,11 @@
             </div>
           {/if}
 
-          {$tags}
+          {if $_modx->resource.context_key == 'fibrofasad' && $_modx->resource.id == 125346}
+            {insert "file:modules/catalog-tiled/sections/catalog-tiled.tpl"}
+          {else}
+            {$tags}
+          {/if}
         </div>
       </article>
     </section>
