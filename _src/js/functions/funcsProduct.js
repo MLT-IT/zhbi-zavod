@@ -721,6 +721,9 @@ function changeCountItemInCart($productItem, forbidZero, $target, dontShowMessag
 
     $systemForm.find('[name="count"]').val(count);
 
+    // Пересчитываем отображаемую цену исходя из выбранного количества
+    calcPrice($productItem, {count: count});
+
     // Если товар в корзине, то...
     if (inCart) {
         // Если не нужно показывать сообщение о результате отправки формы, то...
@@ -787,8 +790,17 @@ function getItemCount($productItem, count) {
 /**
  * Смена цены в соответствии с ед. измерения.
  */
-function calcPrice($productItem) {
+function calcPrice($productItem, options) {
+    options = (typeof options === 'object' && options !== null) ? options : {};
     let unitVal = getActiveUnitValue($productItem);
+    let countMultiplier = parseFloat(options.count);
+    if (isNaN(countMultiplier)) {
+        countMultiplier = 1;
+    }
+    // отрицательные и нулевые значения не должны ломать вывод
+    if (countMultiplier < 0) {
+        countMultiplier = 0;
+    }
     let selectors = [];
 
     selectors.push('.js-product__price');
@@ -816,7 +828,7 @@ function calcPrice($productItem) {
                 value = Math.ceil(value);
             }
 
-            value = Number((value).toFixed(2));
+            value = Number((value * countMultiplier).toFixed(2));
             value = functions.numberWithSpaces(value);
             $elem.text(value);
         }
