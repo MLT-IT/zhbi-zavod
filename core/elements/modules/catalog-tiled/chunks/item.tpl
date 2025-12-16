@@ -1,7 +1,7 @@
 {set $base_url = 'base_url' | config}
 {set $thumb = 'phpthumbon' | snippet : [
   'input' => $mainImage | replace : $base_url : '',
-  'options' => '&w=400&h=280&zc=1'
+  'options' => '&w=400&h=280&zc=0'
 ]}
 <div yyy="{$mainImage}" class="catalog-tiled__item ck-item" itemscope itemtype="https://schema.org/CategoryCode">
   <a class="ck-item__link" href="{$uri}" itemprop="url">
