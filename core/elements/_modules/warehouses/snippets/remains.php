@@ -14,6 +14,8 @@
  * Передать ID товара, он пойдет в elements/snippets/random.php
  */
 
+try{
+
 $warehouse_template  = 39;
 $default_range_remains = "50-300";
 $TV_RANGEREMAINS_ID = 47;
@@ -36,26 +38,49 @@ if (!$warehouses = $modx->cacheManager->get($cache_name, $cache_options)) {
 }
 // <<<
 
-$total_remains = 0;
-foreach ($warehouses as &$warehouse) {
-    $range_remains = $warehouse['range_remains'] ?: $default_range_remains;
-    $range_remains = explode("-", $range_remains);
+$id = $modx->resource->id;
+//$modx->log(xPDO::LOG_LEVEL_ERROR, 'remains id:'.$id);
+$pdoFetch = $modx->getService('pdoFetch');
 
-    $begin = (int)$range_remains[0];
-    $end = (int)$range_remains[1];
-    $remains = include MODX_CORE_PATH . "elements/snippets/random.php";
+$isInCat = $pdoFetch->runSnippet('@FILE snippets/ultimateParent.php', [
+   'id' => $id,
+   'ancestor' => 93445 //если товар в этой категории, то кол-во по запросу
+]);
+//$modx->log(xPDO::LOG_LEVEL_ERROR, 'isInCat: '.$isInCat);
+if($isInCat){
+    foreach ($warehouses as &$warehouse) {
+        $warehouse['remains'] = 'Под запрос';
+    }
+    $total_remains = 'Под запрос';
+    $unit = '';
+}else{
 
-    $warehouse['remains'] = $remains;
-    $total_remains += $remains;
-}
+    $total_remains = 0;
+    foreach ($warehouses as &$warehouse) {
+        $range_remains = $warehouse['range_remains'] ?: $default_range_remains;
+        $range_remains = explode("-", $range_remains);
 
-switch($modx->context->key){
-    case 'plitnye':
-        $unit = 'лист';
-    break;
-    default:
-        $unit = 'уп.';
-    break;
+        $begin = (int)$range_remains[0];
+        $end = (int)$range_remains[1];
+        $remains = include MODX_CORE_PATH . "elements/snippets/random.php";
+
+        $warehouse['remains'] = $remains;
+        $total_remains += $remains;
+    }
+
+    switch($modx->context->key){
+        case 'plitnye':
+            $unit = 'лист';
+        break;
+        default:
+            $unit = 'уп.';
+        break;
+    }
+    //$total_remains .= $unit;
+
 }
 
 return ['warehouses' => $warehouses, 'total_remains' => $total_remains, 'unit' => $unit];
+}catch(Throwable $t) {
+    //$modx->log(xPDO::LOG_LEVEL_ERROR, $t->getMessage().$t->getTraceAsString());
+}

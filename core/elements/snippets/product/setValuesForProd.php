@@ -313,6 +313,19 @@ if (in_array($src['context_key'], ['tagnerud'])) {
   
 }
 
+//teploplas, для категории 93445 оставляем только упаковки:
+$pdoFetch = $modx->getService('pdoFetch');
+if (in_array($src['context_key'], ['web']) && $pdoFetch->runSnippet('@FILE snippets/ultimateParent.php', [
+   'id' => $src['id'],
+   'ancestor' => 93445
+])) {
+    unset($list);
+    unset($m2);
+    unset($m3);
+    //$modx->log(xPDO::LOG_LEVEL_ERROR, 'HERE!');
+    //$modx->log(xPDO::LOG_LEVEL_ERROR, print_r($result['itemUnits'], true));
+}
+
 
 // Установка itemUnits
 $inf = 999999999999999999;
