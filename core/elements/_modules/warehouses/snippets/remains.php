@@ -13,8 +13,9 @@
  * Данный скрипт так же вызывается в листинге на карточках товара, для вывода остатков total_remains
  * Передать ID товара, он пойдет в elements/snippets/random.php
  */
-
 try{
+
+$id = $modx->getOption('id', $scriptProperties, $modx->resource->id);
 
 $warehouse_template  = 39;
 $default_range_remains = "50-300";
@@ -38,7 +39,6 @@ if (!$warehouses = $modx->cacheManager->get($cache_name, $cache_options)) {
 }
 // <<<
 
-$id = $modx->resource->id;
 //$modx->log(xPDO::LOG_LEVEL_ERROR, 'remains id:'.$id);
 $pdoFetch = $modx->getService('pdoFetch');
 
