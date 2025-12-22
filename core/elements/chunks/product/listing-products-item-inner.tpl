@@ -94,7 +94,7 @@
     {/if}
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
-  {if $_modx->resource.context_key in list ['web', 'plitnye']}
+  {if $_modx->resource.context_key in list ['plitnye']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     {set $unit = 'уп.'}
 
@@ -108,9 +108,21 @@
     {/if}
     <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} {$unit}</div>
   {/if}
+
   {if $_modx->context.key in list ['suhiesmesi']}
       <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$_modx->runSnippet('@FILE snippets/random.php', ['id' => $id, 'begin' => 100, 'end'=> 2000])} уп.</div>
   {/if}
+
+  {if $_modx->context.key in list ['web']}
+    {if '@FILE snippets/ultimateParent.php' | snippet: ['id' => $id, 'ancestor' => 93445]}
+      <div class="has-icon icon-checkmark product-card__body-remains">Наличие: под запрос</div>
+    {else}
+      {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
+      {set $unit = 'уп.'}
+      <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} {$unit}</div>
+    {/if}
+  {/if}
+
 
 
   {if $_modx->resource.context_key == 'kraska' && $src['vozmozhnost-kolerovki'][0] == 'да'}
@@ -177,7 +189,10 @@
     <div class="product-card__volume">
         <span class="product-card__volume-title">Цена за</span>
         <div class="product-info__volume-tabs">
-            <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+            {if $_modx->runSnippet('@FILE snippets/ultimateParent.php', ['id' => $id, 'ancestor' => 93445])}
+            {else}
+              <span class="product-card__volume-tab js-product__volume-tab active" data-val="1">{$prodValues['pricePer']}</span>
+            {/if}
             {foreach $prodValues['itemUnits'] as $val}
                 {if $prodValues['pricePer'] != $val['title']}
                     <span class="product-card__volume-tab js-product__volume-tab" data-val="{$val['id']}">{$val['title']}</span>

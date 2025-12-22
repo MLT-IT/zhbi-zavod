@@ -440,6 +440,7 @@ function init(yandexMetrikaId) {
             handleUnitLink($(e), event.type == 'click_without_message' || i > 0);
         });
     });
+    $('.product-info__volume-tabs .js-product__volume-tab:eq(0)').trigger('click'); //Выбираем первую ед. изм. в списке. Нужно если дефолтная скрыта
 
 
     // -------------------------------------
