@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Нахабино"
+    },
+    "where": {
+      "standart": "в Нахабино"
+    },
+    "on": {
+      "standart": "по Нахабино"
+    },
+    "what": {
+      "standart": "Нахабино"
+    }
+  },
+  "address": "Новая улица, 11с4, Нахабино",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1Nam3YUR5WqmFHizrUbBcKRYlY6ukwb4&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

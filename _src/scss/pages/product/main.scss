@@ -1,0 +1,40 @@
+@use "../../base/variables.scss";
+
+@use "./gallery.scss";
+@use "./inform.scss";
+@use "./tabs.scss";
+
+.product-page {
+  &__row {
+    display: flex;
+    gap: 40px;
+    @media (max-width: variables.$bp768) {
+      display: grid;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &:first-child {
+        width: 50%;
+        @media (max-width: variables.$bp768) {
+          width: 100%;
+        }
+      }
+      &:last-child {
+        width: 50%;
+        @media (max-width: variables.$bp768) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .custom-select {
+    @media (max-width: variables.$bp768) {
+      width: 100%;
+    }
+  }
+}

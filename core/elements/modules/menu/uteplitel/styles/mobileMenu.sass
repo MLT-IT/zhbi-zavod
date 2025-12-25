@@ -1,0 +1,178 @@
+@use "mixins"
+
+.mobile-menu
+  // position: fixed
+  // top: 55px
+  // left: 0
+  margin-top: 112px
+  width: 100%
+  height: calc(100% - 160px)
+  background: #efefef
+  z-index: 1000
+  // transform: translateX(-100%)
+  transition: transform 0.3s ease
+  overflow-y: auto
+  @include mixins.scroll-uteplitel
+
+  // &.active
+  //   transform: translateX(0)
+
+  &__header
+    display: flex
+    align-items: center
+    padding: 15px 20px
+    border-bottom: 1px solid #EFEFEF
+    position: relative
+    justify-content: center
+
+  &__back
+    display: none
+    position: absolute
+    left: 20px
+    align-items: center
+    border: none
+    background: none
+    padding: 0
+    margin-right: 15px
+    cursor: pointer
+    color: #333
+    font-weight: 500
+
+    &.visible
+      display: flex
+
+    svg
+      margin-right: 8px
+
+  &__title
+    margin: 0
+    font-size: 18px
+    font-weight: 700
+
+  &__nav
+    padding: 0
+    background: #fff
+    margin: 10px
+    height: calc(100% - 34px)
+    position: relative
+    overflow: hidden
+
+  &__list
+    list-style: none
+    margin: 0
+    padding: 0
+    padding-bottom: 70px
+    position: absolute
+    top: 60px
+    left: 0
+    width: 100%
+    height: 100%
+    transform: translateX(100%)
+    transition: transform 0.3s ease
+    background: #fff
+    overflow-y: auto
+    @include mixins.scroll-uteplitel
+
+    &.active
+      transform: translateX(0)
+
+  &__item
+    border-bottom: 1px solid #EFEFEF
+
+  &__link
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 15px 20px
+    color: #333
+    text-decoration: none
+    font-size: 16px
+    font-weight: 700
+
+    span
+      flex: 1
+      margin: 0 15px
+
+  &__image
+    width: 40px
+    height: 40px
+    border-radius: 8px
+    overflow: hidden
+    flex-shrink: 0
+    border: 1px solid #D7D6D5
+
+    img
+      width: 100%
+      height: 100%
+      object-fit: contain
+
+  &__icon
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      width: 40px
+      height: 40px
+      object-fit: contain
+      object-position: center
+      padding: 3px
+
+  &__arrow
+    width: 24px
+    height: 24px
+    transition: transform 0.3s
+    flex-shrink: 0
+
+    &.active
+      transform: rotate(90deg)
+
+  &__sublist
+    display: none
+    list-style: none
+    margin: 0
+    padding: 0
+    background: #F8F8F8
+
+    &.active
+      display: block
+
+  &__subitem
+    border-top: 1px solid #EFEFEF
+
+  &__sublink
+    display: block
+    padding: 12px 20px 12px 40px
+    color: #333
+    text-decoration: none
+    font-size: 14px
+
+  .h-nav__link--star
+    &:after
+      display: none
+
+    &:before
+      color: orange
+      content: "\2605"
+      margin-left: 5px
+
+.search__wrapper.search_display_mobile
+  margin: 15px 10px
+
+  .search__input
+    padding-left: 27px
+    height: 40px
+
+  .search__btn
+    background: #3C3C3B
+    min-width: 40px
+    min-height: 40px
+    height: 40px
+
+    svg
+      width: 20px
+      height: 20px
+      fill: #fff
+
+  .fast-search
+    top: 123px

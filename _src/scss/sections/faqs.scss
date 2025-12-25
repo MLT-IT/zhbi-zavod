@@ -1,0 +1,57 @@
+@use "../base/variables.scss";
+
+.faqs {
+  padding: 40px 0;
+  &__row {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: variables.$bp768) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  &__item {
+    background-color: #fff;
+    border-radius: 6px;
+
+    overflow: hidden;
+    transition: 0.2s;
+
+    max-height: 50px;
+    &.opened {
+      max-height: 600px;
+    }
+
+    &-question {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: 0.2s;
+      padding-left: 20px;
+      &:hover {
+        background-color: rgba(211, 85, 60, 0.3);
+      }
+      &--btn {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        background-color: variables.$red;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='59' height='59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 28a1.5 1.5 0 1 0 0 3v-3Zm12.5 3a1.5 1.5 0 0 0 0-3v3Zm0-3a1.5 1.5 0 1 0 0 3v-3ZM41 31a1.5 1.5 0 0 0 0-3v3Zm-11-1.5a1.5 1.5 0 1 0-3 0h3ZM27 42a1.5 1.5 0 0 0 3 0h-3Zm0-12.5a1.5 1.5 0 0 0 3 0h-3ZM30 17a1.5 1.5 0 1 0-3 0h3ZM16 31h12.5v-3H16v3Zm12.5 0H41v-3H28.5v3ZM27 29.5V42h3V29.5h-3Zm3 0V17h-3v12.5h3Z' fill='%23fff'/%3E%3C/svg%3E");
+        background-position: center;
+        transition: 0.2s;
+        &:hover {
+          background-color: variables.$red-dark;
+        }
+      }
+    }
+    &-answer {
+      border-top: 1px solid variables.$medium-gray;
+      padding: 20px;
+    }
+  }
+}

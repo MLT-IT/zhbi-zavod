@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Куровское"
+    },
+    "where": {
+      "standart": "в Куровском"
+    },
+    "on": {
+      "standart": "по Куровскому"
+    },
+    "what": {
+      "standart": "Куровского"
+    }
+  },
+  "address": "Советская улица, 105с20, Куровское",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1fcGddgwgm4HRWTZAK2XO7wcusr8cEAQ&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

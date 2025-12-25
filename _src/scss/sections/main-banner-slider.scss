@@ -1,0 +1,16 @@
+@use "../base/variables.scss";
+
+.main-banner-slider {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  @media (max-width: variables.$bp992) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .swiper-slide {
+    img {
+      border-radius: 6px;
+    }
+  }
+}

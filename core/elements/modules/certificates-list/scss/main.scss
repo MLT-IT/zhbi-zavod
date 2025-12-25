@@ -1,0 +1,19 @@
+.certificates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  &__item {
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: underline;
+
+      max-width: 100px;
+    }
+    img {
+      width: max-content;
+    }
+  }
+}

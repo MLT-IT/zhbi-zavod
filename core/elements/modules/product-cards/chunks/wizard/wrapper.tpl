@@ -1,0 +1,1 @@
+<div class='product-card__options'>{$output}</div>

@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Сходня"
+    },
+    "where": {
+      "standart": "в Сходне"
+    },
+    "on": {
+      "standart": "по Сходне"
+    },
+    "what": {
+      "standart": "Сходни"
+    }
+  },
+  "address": "улица Некрасова, 2с23, Сходня,",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=109H9rx80bBTvVYgBKmlgP8O4gK_K2NU&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

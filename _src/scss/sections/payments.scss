@@ -1,0 +1,57 @@
+@use "../base/variables.scss";
+
+.payments {
+  &__row {
+    margin-top: 50px;
+    padding: 36px 60px 28px;
+    border-radius: 6px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @media (max-width: variables.$bp768) {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 20px 24px 15px;
+    }
+  }
+  &__item {
+    position: relative;
+    font-size: 20px;
+    @media (max-width: variables.$bp768) {
+      font-size: 14px;
+    }
+    &:not(:first-child) {
+      @media (min-width: variables.$bp768) {
+        margin-left: 30px;
+      }
+    }
+    &:not(:last-child) {
+      @media (min-width: variables.$bp768) {
+        border-right: 1px solid variables.$medium-gray;
+      }
+    }
+    &-image {
+      background: variables.$red;
+      width: 50px;
+      height: 50px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -62px;
+      @media (max-width: variables.$bp768) {
+        position: static;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 12px;
+      }
+      svg {
+        @media (min-width: variables.$bp768) {
+          max-width: 50px;
+          max-height: 50px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.comparison-page {
+  &__controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    .btn {
+      padding: 7px 20px;
+    }
+  }
+}

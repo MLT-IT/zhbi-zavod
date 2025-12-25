@@ -1,0 +1,95 @@
+@use "../base/variables.scss";
+
+/**
+ * Размеры шрифта
+ */
+.fs-3,
+.fs-3 * {
+  font-size: 3px;
+}
+.fs-12,
+.fs-12 * {
+  font-size: 12px;
+}
+.fs-14,
+.fs-14 * {
+  font-size: 14px;
+}
+.fs-16,
+.fs-16 * {
+  font-size: 16px;
+}
+.fs-18,
+.fs-18 * {
+  font-size: 18px;
+}
+.fs-20,
+.fs-20 * {
+  font-size: 20px;
+  @media (max-width: variables.$bp768) {
+    font-size: 16px;
+  }
+}
+.fs-24,
+.fs-24 * {
+  font-size: 24px;
+  @media (max-width: variables.$bp768) {
+    font-size: 18px;
+  }
+}
+.fs-25,
+.fs-25 * {
+  font-size: 25px;
+  @media (max-width: variables.$bp768) {
+    font-size: 20px;
+  }
+}
+.fs-30,
+.fs-30 * {
+  font-size: 30px;
+  @media (max-width: variables.$bp768) {
+    font-size: 25px;
+  }
+  @media (max-width: variables.$bp480) {
+    font-size: 18px;
+  }
+}
+.fs-36,
+.fs-36 * {
+  font-size: 36px;
+  @media (max-width: variables.$bp768) {
+    font-size: 24px;
+  }
+}
+
+.fw-500,
+.fw-500 * {
+  font-weight: 500;
+}
+
+.fw-700,
+.fw-700 * {
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 25px;
+  margin-bottom: 32px;
+  font-weight: 700;
+  @media (max-width: variables.$bp768) {
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}
+.page-title {
+  font-size: 25px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #3c3c3b;
+  @media (max-width: variables.$bp768) {
+    font-size: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}

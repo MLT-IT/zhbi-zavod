@@ -1,0 +1,69 @@
+@use "../../../../../_src/scss/base/variables.scss";
+
+.colored-tiles {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__row {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    max-height: 158px;
+    overflow: auto;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(122, 122, 122);
+    color: #fff !important;
+    padding: 15px;
+
+    @media (max-width: variables.$bp480) {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+}
+
+.similar-products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4px 8px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    background-color: #fff;
+    color: variables.$dark-blue;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+
+    &:hover,
+    &.active {
+      border-color: variables.$red;
+      color: variables.$red;
+      background-color: #fff;
+    }
+
+    @media (max-width: variables.$bp480) {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+}

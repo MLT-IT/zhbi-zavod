@@ -1,0 +1,42 @@
+@use "../base/variables.scss";
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  input {
+    display: none; // Скрываем стандартное радио
+  }
+
+  .radio-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid variables.$red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: variables.$red;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+  }
+
+  input:checked + .radio-indicator {
+    border-color: variables.$red;
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use "../base/variables.scss";
+
+.sitemap-html {
+  /* Стиль для первого уровня списка */
+  & > li {
+    margin: 10px 0;
+  }
+
+  & > li > a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+
+  & > li > a:hover {
+    color: variables.$red;
+  }
+
+  /* Стили для вложенных списков */
+  ul {
+    padding-left: 20px; /* Отступ для вложенных списков */
+    border-left: 1px solid #ddd;
+    margin-top: 5px;
+  }
+
+  /* Стили для элементов второго уровня */
+  ul li {
+    margin: 5px 0;
+  }
+
+  ul li a {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    padding: 3px 0;
+    display: inline-block;
+  }
+
+  ul li a:hover {
+    color: variables.$red;
+  }
+
+  /* Вложенные списки второго уровня */
+  ul ul {
+    padding-left: 20px;
+    border-left: 1px dashed #ddd;
+  }
+
+  /* Опционально: Добавление иконок для каждого уровня */
+  li:before {
+    content: "•"; /* Маркер перед каждым пунктом */
+    color: variables.$red;
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+    margin-right: 5px;
+  }
+
+  ul li:before {
+    content: "▸"; /* Маркер для вложенных пунктов */
+    color: #555;
+    font-size: 14px;
+  }
+}

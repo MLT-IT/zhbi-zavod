@@ -1,0 +1,17 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Москва"
+    },
+    "where": {
+      "standart": "в Москве"
+    },
+    "on": {
+      "standart": "по Москве"
+    },
+    "what": {
+      "standart": "Москве"
+    }
+  },
+  "address": "Адрес для ВСЕХ контекстов"
+}

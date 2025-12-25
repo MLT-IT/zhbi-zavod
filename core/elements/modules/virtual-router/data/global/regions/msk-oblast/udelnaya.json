@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Удельная"
+    },
+    "where": {
+      "standart": "в Удельной"
+    },
+    "on": {
+      "standart": "по Удельной"
+    },
+    "what": {
+      "standart": "Удельной"
+    }
+  },
+  "address": "Солнечная улица, 16, Удельная",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1iaLRRxQmBl3_scINWm61XeOsxJuDYzU&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

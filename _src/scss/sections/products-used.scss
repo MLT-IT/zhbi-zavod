@@ -1,0 +1,45 @@
+@use "../base/variables.scss";
+
+.products-used {
+  &__row {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: variables.$bp768) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+  &__item {
+    background: #f3f5f5;
+    border-radius: 24px;
+
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    padding: 16px;
+    @media (max-width: variables.$bp768) {
+      flex-direction: row;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    &-title {
+      text-align: center;
+      font-weight: 500;
+    }
+
+    svg {
+      fill: variables.$red;
+      min-width: 48px;
+      min-height: 48px;
+      @media (max-width: variables.$bp768) {
+        min-width: 26px;
+        min-height: 26px;
+      }
+    }
+  }
+}

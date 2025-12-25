@@ -1,0 +1,118 @@
+@use "../base/variables.scss";
+
+.footer {
+  padding: 40px 0 120px;
+  ul {
+    list-style: none;
+  }
+  &__row {
+    display: flex;
+    margin-bottom: 50px;
+    @media (max-width: variables.$bp768) {
+      display: grid;
+      gap: 20px;
+    }
+  }
+  &__contacts {
+    display: flex;
+    gap: 35px;
+    @media (min-width: variables.$bp768) {
+      border-right: 1px solid variables.$dark-gray-1;
+      margin-right: 4.5%;
+      padding-right: 4.5%;
+    }
+
+    @media (max-width: variables.$bp768) {
+      gap: 20px;
+      border-bottom: 1px solid variables.$dark-gray-1;
+      padding-bottom: 4.5%;
+
+      width: max-content;
+      margin: auto;
+    }
+    @media (max-width: variables.$bp480) {
+      display: grid;
+      width: 100%;
+    }
+    &-logo {
+      height: max-content;
+      max-width: 135px;
+      @media (max-width: variables.$bp480) {
+        margin: auto;
+      }
+      img {
+        object-fit: contain;
+      }
+    }
+    &-list {
+      display: grid;
+      height: max-content;
+      gap: 12px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+      }
+    }
+  }
+  &__menu {
+    display: flex;
+    gap: 30px;
+    @media (max-width: variables.$bp992) {
+      display: grid;
+    }
+    &-section {
+      &-title {
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 35px;
+        @media (max-width: variables.$bp992) {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        @media (max-width: variables.$bp768) {
+          font-size: 18px;
+        }
+      }
+      &-items {
+        display: grid;
+        gap: 12px;
+        @media (max-width: variables.$bp992) {
+          text-align: center;
+        }
+        &.colums-3 {
+          @media (min-width: variables.$bp992) {
+            grid-template-columns: repeat(3, auto);
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    color: #fff;
+    @media (max-width: variables.$bp992) {
+      display: grid;
+      justify-content: center;
+      text-align: center;
+    }
+    &-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      @media (max-width: variables.$bp768) {
+        display: grid;
+        justify-content: center;
+      }
+    }
+    &-payments {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}

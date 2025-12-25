@@ -1,0 +1,16 @@
+@use "../base/variables.scss";
+
+.favorites-page {
+  &__row {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 20px 12px;
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: variables.$bp1200) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: variables.$bp768) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

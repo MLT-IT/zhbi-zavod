@@ -1,0 +1,85 @@
+@use "../../base/variables.scss";
+
+.header {
+  position: sticky;
+  top: -62px;
+  z-index: 999;
+  box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.15);
+  @media (max-width: variables.$bp992) {
+    display: none;
+  }
+
+  &__descriptor {
+    max-width: 300px;
+  }
+
+  &__top {
+    padding: 10px 0;
+    background-color: #3c3c3b;
+    * {
+      color: #fff !important;
+    }
+    &-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &-info {
+      margin-left: auto;
+      text-align: end;
+    }
+
+    &-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-bordered {
+      padding: 7px 20px;
+    }
+
+    .container {
+      width: 100%;
+    }
+  }
+  &__main {
+    padding: 25px 0;
+
+    &-info {
+      a {
+        color: #000 !important;
+      }
+    }
+
+    &-logo {
+      max-width: 108px;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-controls {
+      margin-left: auto;
+      a {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        svg {
+          position: absolute;
+          max-width: 33px;
+          max-height: 33px;
+
+          color: variables.$red;
+          margin: auto;
+
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

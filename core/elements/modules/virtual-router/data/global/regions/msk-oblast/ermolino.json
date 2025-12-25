@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Ермолино"
+    },
+    "where": {
+      "standart": "в Ермолино"
+    },
+    "on": {
+      "standart": "по Ермолино"
+    },
+    "what": {
+      "standart": "Ермолино"
+    }
+  },
+  "address": "Заречная улица, 7, Ермолино",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1Qprkt1-hmK9jr1FqNKzV7-prqo1kDg8&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

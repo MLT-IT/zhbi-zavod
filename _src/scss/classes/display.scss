@@ -1,0 +1,46 @@
+@use "../base/variables.scss";
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.d-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.d-grid {
+  display: grid;
+}
+.gap-5 {
+  gap: 5px;
+}
+.gap-8 {
+  gap: 8px;
+}
+.gap-12 {
+  gap: 12px;
+}
+.gap-16 {
+  gap: 16px;
+}
+
+.justify-sb {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+
+// display
+.sm-d-none {
+  @media (max-width: variables.$bp768) {
+    display: none !important;
+  }
+}
+
+.sm-d-block {
+  @media (min-width: variables.$bp768) {
+    display: none !important;
+  }
+}

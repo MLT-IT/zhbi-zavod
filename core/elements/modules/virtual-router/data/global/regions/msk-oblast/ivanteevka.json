@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Ивантеевка"
+    },
+    "where": {
+      "standart": "в Ивантеевке"
+    },
+    "on": {
+      "standart": "по Ивантеевке"
+    },
+    "what": {
+      "standart": "Ивантеевки"
+    }
+  },
+  "address": "Железнодорожная улица, 1к14, Ивантеевка",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1hrD65R5N4XxvqWbZbfJFbqgtAD3r8Uc&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

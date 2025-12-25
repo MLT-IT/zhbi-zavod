@@ -1,0 +1,88 @@
+@use "../../../../_src/scss/base/variables.scss";
+
+/* Основной контейнер */
+.custom-select {
+  position: relative;
+  width: 230px;
+
+  /* Кнопка селекта */
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 101;
+
+    cursor: pointer;
+    text-align: left;
+
+    border: 1px solid variables.$red;
+    color: variables.$red;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:after {
+      content: "";
+      transform: rotate(42deg);
+      border: solid variables.$red;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      transition: 0.2s;
+      margin-top: -6px;
+    }
+  }
+
+  /* Выпадающий список */
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    // border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 10px 0 60px hsla(0, 0%, 79%, 0.4);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+
+    &-item {
+      padding: 5px 10px;
+      cursor: pointer;
+      color: #000;
+      transition: background 0.2s;
+      text-align: center;
+      font-weight: 600;
+      transition: 0.2s;
+      display: block;
+      &:hover {
+        color: variables.$red;
+      }
+    }
+
+    &-group {
+      padding: 10px;
+      // border-bottom: 1px solid #eaeaea;
+      &-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  /* Скрытый элемент */
+  .hidden {
+    display: none;
+  }
+}

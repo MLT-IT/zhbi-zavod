@@ -1,0 +1,59 @@
+@use "../base/variables.scss";
+
+.promo-banner {
+  padding-top: 30px;
+  padding-bottom: 80px;
+
+  @media (max-width: variables.$bp992) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__banner {
+    padding: 60px;
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    display: grid;
+    gap: 12px;
+
+    @media (max-width: variables.$bp768) {
+      width: 100%;
+      padding: 46px 15px;
+      min-height: 315px;
+    }
+  }
+
+  &__title {
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: variables.$bp768) {
+      text-align: center;
+      max-width: 320px;
+      margin: auto;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  &__button {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+
+    @media (max-width: variables.$bp768) {
+      margin: auto;
+    }
+  }
+}
+

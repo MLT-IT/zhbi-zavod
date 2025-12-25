@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Ликино-Дулево"
+    },
+    "where": {
+      "standart": "в Ликино-Дулево"
+    },
+    "on": {
+      "standart": "по Ликино-Дулево"
+    },
+    "what": {
+      "standart": "Ликино-Дулево"
+    }
+  },
+  "address": "улица Ленина, 23, Ликино-Дулёво",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1dxmSnKRbXKPF8v510Cy7cup4Tz1BIkA&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

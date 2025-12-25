@@ -1,0 +1,24 @@
+<a
+  class="category-listing__controls-item-sort-item"
+  href="#"
+  data-sort="tv|priority"
+  data-default="desc"
+>
+  Популярности
+</a>
+<a
+  class="category-listing__controls-item-sort-item"
+  href="#"
+  data-sort="ms|price"
+  data-default="desc"
+>
+  Цене
+</a>
+<a
+  class="category-listing__controls-item-sort-item"
+  href="#"
+  data-sort="ms_product|pagetitle"
+  data-default="desc"
+>
+  Алфавиту
+</a>

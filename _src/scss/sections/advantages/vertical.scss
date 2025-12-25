@@ -1,0 +1,52 @@
+@use "../../base/variables.scss";
+
+.advantages-vertical {
+  display: grid;
+  height: max-content;
+  gap: 50px;
+  @media (max-width: variables.$bp768) {
+    width: 100%;
+    gap: 20px;
+  }
+
+  &__item {
+    padding: 65px 20px 45px 40px;
+    display: grid;
+    gap: 12px;
+
+    border-radius: 6px;
+    background-color: #fff;
+
+    position: relative;
+
+    @media (max-width: variables.$bp768) {
+      padding: 45px 15px 25px 25px;
+    }
+
+    &-image {
+      height: 73px;
+      width: 73px;
+      background-color: variables.$red;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: absolute;
+      top: -30px;
+      left: 35px;
+
+      @media (max-width: variables.$bp768) {
+        height: 48px;
+        width: 48px;
+        top: -15px;
+        left: 25px;
+      }
+
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+}

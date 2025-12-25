@@ -1,0 +1,27 @@
+@use "../base/variables.scss";
+
+.link {
+  transition: 0.2s;
+
+  &-default {
+    color: variables.$dark-gray-1;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.link-dashed {
+  cursor: pointer;
+  transition: 0.2s;
+  width: max-content;
+  color: variables.$red !important;
+  border-bottom: 1px dashed variables.$red;
+  &.white {
+    color: #fff !important;
+    border-bottom: 1px dashed white;
+  }
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}

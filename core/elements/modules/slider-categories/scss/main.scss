@@ -1,0 +1,50 @@
+@use "../../../../../_src/scss/base/variables.scss";
+
+.slider-categories {
+  &__item {
+    max-width: 266px;
+    padding: 8px 8px 32px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      opacity: 1 !important;
+      border-color: variables.$red;
+
+      .slider-categories__item-image {
+        background-color: variables.$medium-gray;
+      }
+    }
+
+    &-title {
+      margin-bottom: 12px;
+    }
+
+    &-image {
+      margin-bottom: 30px;
+      height: 220px;
+      border-radius: 6px;
+      transition: 0.2s;
+
+      @media (max-width: variables.$bp480) {
+        height: 128px;
+      }
+
+      img {
+        object-fit: contain;
+      }
+    }
+
+    &-unit {
+      margin-bottom: 24px;
+      @media (max-width: variables.$bp480) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

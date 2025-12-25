@@ -1,0 +1,66 @@
+@use "../base/variables.scss";
+
+.form {
+  input {
+    padding: 14px 20px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid transparent;
+    transition: 0.2s;
+    width: 100%;
+
+    &:hover {
+      border-color: variables.$red;
+    }
+  }
+
+  .custom-checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      // border: 2px solid grey;
+      border-radius: 4px;
+      background: variables.$light-gray-2;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: "";
+        display: none;
+        width: 3px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        position: relative;
+        top: -1px;
+      }
+    }
+
+    input:checked + .checkmark {
+      background-color: variables.$red;
+      border-color: variables.$red;
+    }
+    input:checked + .checkmark::after {
+      display: block;
+    }
+  }
+}

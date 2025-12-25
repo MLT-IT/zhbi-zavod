@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Конаково"
+    },
+    "where": {
+      "standart": "в Конаково"
+    },
+    "on": {
+      "standart": "по Конаково"
+    },
+    "what": {
+      "standart": "Конаково"
+    }
+  },
+  "address": "Коллективная улица, 45, Конаково",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1P4-FM-NJKArrTqKnfKni6WGcysft22w&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

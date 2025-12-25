@@ -1,0 +1,106 @@
+.fast-search-form
+    position: relative
+    .search-loading
+        opacity: .6
+        pointer-events: none
+    li
+        padding: 0
+        &:before
+            display: none
+
+.fast-search
+    position: absolute
+    top: 50px
+    z-index: 12
+    background: #fff
+    border: 1px solid #f0f0f0
+    border-radius: 4px
+    padding: 20px
+    width: max-content
+    color: #3c3d3a
+    @media (max-width: 768px)
+        left: -15px
+        padding: 5px
+        width: calc(100% + 25px)
+        height: calc(100vh - 170px)
+        overflow: scroll
+        top: 47px
+        padding-left: 20px
+        padding-right: 20px
+    & img
+        width: 45px
+        height: 45px
+        background: #f0f0f0
+    & ul
+        display: flex
+        flex-direction: column
+        gap: 10px
+        max-width: 300px
+        list-style: none
+        padding: 0
+        color: #3c3d3a
+        @media (max-width: 768px)
+            max-width: 100%
+    & ul li:first-child
+        font-size: 18px
+        font-weight: 700
+    & a
+        display: flex
+        align-items: center
+        gap: 10px
+    &-categories.border
+        border-right: 2px solid #eee
+        padding-right: 10px
+        @media (max-width: 768px)
+            border-bottom: 2px solid #eee
+            padding-bottom: 10px
+            border-right: none
+            padding-right: 0
+    &-categories a
+        border-bottom: 1px dashed rgba(60,60,59,.5)
+        font-weight: 700
+        padding-bottom: 2px
+        color: #1a0dab
+        display: inline-block
+    &-categories a:hover
+        border-color: transparent
+    &-container
+        display: flex
+        gap: 10px
+        @media (max-width: 768px)
+            flex-direction: column
+
+    &-close-button
+        color: #323232
+        font-size: 21px
+        display: none
+        align-items: center
+        margin: 0
+        margin-left: 10px
+        &.opened
+            display: flex
+    &-show-all
+        display: flex
+        justify-content: center
+    &-show-all span
+        position: relative
+        height: 15px
+        animation: flick 1s linear infinite alternate-reverse
+    &-show-all span:after
+        content: ""
+        display: block
+        border: 13px solid transparent
+        border-top-color: #afafaf
+    .highlight
+        background: #dbdbdb
+        border: 1px solid #cdcdcd
+        border-radius: 4px
+    .search-loading
+        pointer-events: none
+        opacity: .5
+        filter: brightness(.9)
+@keyframes flick
+    0%
+        opacity: 1
+    100%
+        opacity: .5

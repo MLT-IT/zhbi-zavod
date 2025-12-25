@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Апрелевка"
+    },
+    "where": {
+      "standart": "в Апрелевке"
+    },
+    "on": {
+      "standart": "по Апрелевке"
+    },
+    "what": {
+      "standart": "Апрелевки"
+    }
+  },
+  "address": "Парковая улица, 1с23, Апрелевка",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1GhTOco9SgmiqU_JYeC9Okfdk2-WgHuk&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

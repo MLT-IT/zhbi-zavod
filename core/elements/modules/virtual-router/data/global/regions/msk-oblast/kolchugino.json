@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Кольчугино"
+    },
+    "where": {
+      "standart": "в Кольчугино"
+    },
+    "on": {
+      "standart": "по Кольчугино"
+    },
+    "what": {
+      "standart": "Кольчугино"
+    }
+  },
+  "address": "улица Карла Маркса, 25, Кольчугино",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1BdYrwcUglkq7VA6-XH-UMQeZw7lrS8s&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

@@ -1,0 +1,41 @@
+@use "../base/variables.scss";
+
+// Цвет фона
+.bg-white { background-color: variables.$white; }
+.bg-white-transparent { background-color: variables.$white-transparent; }
+.bg-light-gray-1 { background-color: variables.$light-gray-1; }
+.bg-light-gray-2 { background-color: variables.$light-gray-2; }
+.bg-light-gray-3 { background-color: variables.$light-gray-3; }
+.bg-medium-gray { background-color: variables.$medium-gray; }
+.bg-gray { background-color: variables.$gray; }
+.bg-light-green { background-color: variables.$light-green; }
+.bg-blue-transparent { background-color: variables.$blue-transparent; }
+.bg-blue { background-color: variables.$blue; }
+.bg-link-blue { background-color: variables.$link-blue; }
+.bg-red { background-color: variables.$red; }
+.bg-red-transparent { background-color: variables.$red-transparent; }
+.bg-purple { background-color: variables.$purple; }
+.bg-dark-gray-1 { background-color: variables.$dark-gray-1; }
+.bg-dark-gray-2 { background-color: variables.$dark-gray-2; }
+.bg-dark-blue { background-color: variables.$dark-blue; }
+.bg-black { background-color: variables.$black; }
+
+// Цвета текста
+.color-white { color: variables.$white!important; }
+.color-white-transparent { color: variables.$white-transparent; }
+.color-light-gray-1 { color: variables.$light-gray-1; }
+.color-light-gray-2 { color: variables.$light-gray-2; }
+.color-light-gray-3 { color: variables.$light-gray-3; }
+.color-medium-gray { color: variables.$medium-gray; }
+.color-gray { color: variables.$gray; }
+.color-light-green { color: variables.$light-green; }
+.color-blue-transparent { color: variables.$blue-transparent; }
+.color-blue { color: variables.$blue; }
+.color-link-blue { color: variables.$link-blue; }
+.color-red { color: variables.$red!important; }
+.color-red-transparent { color: variables.$red-transparent; }
+.color-purple { color: variables.$purple; }
+.color-dark-gray-1 { color: variables.$dark-gray-1; }
+.color-dark-gray-2 { color: variables.$dark-gray-2; }
+.color-dark-blue { color: variables.$dark-blue; }
+.color-black { color: variables.$black; }

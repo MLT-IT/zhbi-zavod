@@ -1,0 +1,62 @@
+@use "../base/variables.scss";
+
+.delivery-material {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  @media (max-width: variables.$bp768) {
+    padding-top: 0;
+  }
+
+  &__row {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 60% 40%;
+    @media (max-width: variables.$bp768) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    @media (max-width: variables.$bp768) {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  }
+  &__text {
+    margin-bottom: 40px;
+    @media (max-width: variables.$bp768) {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  table {
+    td:not(:first-child) {
+      text-align: center;
+    }
+    @media (max-width: variables.$bp480) {
+      th:nth-child(2),
+      td:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  &__controls {
+    text-align: center;
+    margin-top: 40px;
+    @media (max-width: variables.$bp768) {
+      flex-direction: column;
+      margin-top: 20px;
+      //   margin-bottom: 20px;
+    }
+  }
+
+  .table-simple {
+    tr {
+      td {
+        font-weight: bold;
+      }
+    }
+  }
+}

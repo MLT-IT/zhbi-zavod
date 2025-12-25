@@ -1,0 +1,92 @@
+@use "../../base/variables.scss";
+
+.product-page {
+  &__inform {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 30px 40px;
+
+    @media (max-width: variables.$bp768) {
+      padding: 20px;
+    }
+
+    &-section {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(60, 60, 59, 0.2);
+    }
+
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__row {
+        margin-left: auto;
+        display: grid;
+
+        span {
+          &.fs-30 {
+            font-size: 30px;
+          }
+        }
+
+        @media (max-width: variables.$bp768) {
+          order: 1;
+          text-align: center;
+          margin: auto;
+        }
+      }
+
+      .split-unit {
+        display: grid;
+
+        button {
+          padding: 12px;
+          font-size: 16px;
+
+          @media (max-width: variables.$bp768) {
+            padding: 6px;
+            font-size: 10px;
+          }
+        }
+
+        @media (max-width: variables.$bp768) {
+          order: 2;
+          text-align: center;
+        }
+      }
+    }
+
+    &-btn-buy {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .btn {
+      border-radius: 4px;
+    }
+
+    &-list {
+      display: grid;
+      gap: 8px;
+
+      @media (max-width: variables.$bp768) {
+        gap: 4px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+
+        span {
+          @media (max-width: variables.$bp768) {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+@use "../../../../../_src/scss/base/variables.scss";
+
+.catalog-menu {
+  &__row {
+    &.opened {
+      .catalog-menu__overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .catalog-menu__container {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__main-btn {
+    padding: 16px 20px;
+
+    svg {
+      margin-top: -5px;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 333;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+  }
+
+  &__container {
+    // display: grid;
+    // grid-template-columns: 300px 100%;
+
+    display: flex;
+    max-width: 74%;
+
+    border-radius: 6px;
+    z-index: 334;
+
+    // padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.2s;
+    position: absolute;
+
+    background: #fff;
+    padding: 24px;
+  }
+
+  &__categories {
+    width: 100%;
+    max-width: 270px;
+    padding-right: 16px;
+
+    height: max-content;
+    display: grid;
+    gap: 16px;
+
+    &-item {
+      padding: 3px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &.opened {
+        background: #f6f6f6;
+        border-radius: 6px;
+
+        &:after {
+          content: "";
+          border: solid #000;
+          border-width: 0 1.5px 1.5px 0;
+          padding: 3px;
+          height: 0px;
+          width: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__subcategories {
+    // max-width: 60%;
+
+    padding-left: 16px;
+    border-left: 1px solid rgba(60, 60, 59, 0.2);
+
+    &-items {
+      display: none;
+
+      &.opened {
+        display: flex;
+        gap: 30px;
+      }
+    }
+  }
+
+  &__subcategory {
+    max-width: 300px;
+
+    &-name {
+      margin-bottom: 16px;
+    }
+
+    &-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &-item {
+      width: calc(50% - 5px);
+    }
+  }
+
+  &.menu-items {
+    display: none;
+
+    @media (max-width: variables.$bp1400) {
+      display: block;
+    }
+  }
+
+  &__cols-items {
+    display: grid;
+    gap: 12px;
+  }
+}

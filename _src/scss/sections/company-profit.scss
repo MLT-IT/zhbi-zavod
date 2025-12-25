@@ -1,0 +1,52 @@
+@use "../base/variables.scss";
+
+.company-profit {
+  &__row {
+    display: grid;
+    gap: 24px;
+    @media (max-width: variables.$bp768) {
+      gap: 16px;
+    }
+  }
+  &__item {
+    display: flex;
+    gap: 16px;
+
+    &-icon {
+      border-radius: 16px;
+      background: #f3f5f5;
+
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      min-height: 64px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-content {
+      display: grid;
+      gap: 8px;
+    }
+
+    &-title {
+      font-weight: 700;
+    }
+    &-text {
+      font-weight: 500;
+      line-height: 140%;
+    }
+
+    svg {
+      fill: variables.$red;
+      min-width: 28px;
+      min-height: 28px;
+      // @media (max-width: variables.$bp768) {
+      //   min-width: 26px;
+      //   min-height: 26px;
+      // }
+    }
+  }
+}

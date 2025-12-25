@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Железнодорожный"
+    },
+    "where": {
+      "standart": "в Железнодорожном"
+    },
+    "on": {
+      "standart": "по Железнодорожному"
+    },
+    "what": {
+      "standart": "Железнодорожного"
+    }
+  },
+  "address": "Автозаводская улица, 48, Железнодорожный",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1UPHb2Hfbv6rCam854wQhCWyHaJmS98E&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

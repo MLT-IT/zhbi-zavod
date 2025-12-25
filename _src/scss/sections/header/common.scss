@@ -1,0 +1,35 @@
+@use "../../base/variables.scss";
+
+.header-search {
+  button {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 2;
+    @media (max-width: variables.$bp768) {
+      padding: 10px;
+      width: 40px;
+      height: 40px;
+    }
+    svg {
+      position: absolute;
+      max-width: 25px;
+      max-height: 25px;
+
+      margin: auto;
+
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  input {
+    height: 50px;
+    margin-left: -10px;
+    padding-left: 20px;
+    @media (max-width: variables.$bp768) {
+      height: 40px;
+    }
+  }
+}

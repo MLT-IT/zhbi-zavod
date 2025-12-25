@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Киржач"
+    },
+    "where": {
+      "standart": "в Киржаче"
+    },
+    "on": {
+      "standart": "по Киржачу"
+    },
+    "what": {
+      "standart": "Киржача"
+    }
+  },
+  "address": "ул. 40 лет Победы, 2, Киржач",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=19z59BFLgWwnfBnKRab5h0kfFZo-TXJI&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

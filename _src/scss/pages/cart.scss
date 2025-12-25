@@ -1,0 +1,54 @@
+@use "../base/variables.scss";
+
+.cart-page {
+  &__items {
+    display: grid;
+    gap: 20px;
+
+    // @media (max-width: variables.$bp768) {
+    //   grid-template-columns: 1fr 1fr 1fr;
+    // }
+    @media (max-width: variables.$bp480) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+
+  &__footer {
+    padding: 30px 25px 40px;
+    background-color: variables.$light-gray-2;
+    display: grid;
+    gap: 35px;
+    @media (max-width: variables.$bp480) {
+      gap: 16px;
+    }
+    &-notion {
+      color: variables.$gray;
+      @media (max-width: variables.$bp480) {
+        font-size: 12px;
+      }
+    }
+    &-price,
+    &-price * {
+      font-size: 30px;
+    }
+    &-content {
+      text-align: end;
+    }
+    &-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      @media (max-width: variables.$bp480) {
+        justify-content: center;
+        .btn {
+          width: 100%;
+          text-align: center;
+          padding: 7px 20px;
+        }
+      }
+    }
+  }
+}

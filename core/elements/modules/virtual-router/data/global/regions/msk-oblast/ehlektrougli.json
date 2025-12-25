@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Электроугли"
+    },
+    "where": {
+      "standart": "в Электроуглях"
+    },
+    "on": {
+      "standart": "по Электроуглям"
+    },
+    "what": {
+      "standart": "Электроуглей"
+    }
+  },
+  "address": "Заводская улица, 4с4, Электроугли",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=13JQnc_0L1MIgQzVL7t_XMqAhIO1wi50&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

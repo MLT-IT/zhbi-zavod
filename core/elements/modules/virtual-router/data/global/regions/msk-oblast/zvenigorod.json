@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Звенигород"
+    },
+    "where": {
+      "standart": "в Звенигороде"
+    },
+    "on": {
+      "standart": "по Звенигороду"
+    },
+    "what": {
+      "standart": "Звенигорода"
+    }
+  },
+  "address": "Проектируемый проезд, вл29, Звенигород",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=1X23HcQ5V3o4_6gpXL_8M46Z9tW7bOGg&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

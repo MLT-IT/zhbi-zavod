@@ -1,0 +1,1124 @@
+[
+  {
+    "title": "Ондулин",
+    "uri": "/ondulin/",
+    "children": {
+      "Вид": [
+        {
+          "title": "Черепица Ондулин",
+          "uri": "/cherepica-ondulin/"
+        },
+        {
+          "title": "Ондулин Смарт",
+          "uri": "/cherepica-ondulin-smart/"
+        },
+        {
+          "title": "Ондувилла",
+          "uri": "/onduvilla/"
+        },
+        {
+          "title": "Ондутисс",
+          "uri": "/ondutiss/"
+        },
+        {
+          "title": "Комплектующие для Ондулина",
+          "uri": "/komplektuyushhie-dlya-ondulina/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "Коричневый",
+          "uri": "/ondulin-korichnevyij/"
+        },
+        {
+          "title": "Красный",
+          "uri": "/ondulin-krasnyij/"
+        },
+        {
+          "title": "Зеленый",
+          "uri": "/ondulin-zelenyij/"
+        },
+        {
+          "title": "Черный",
+          "uri": "/ondulin-chernyij/"
+        },
+        {
+          "title": "Серый",
+          "uri": "/ondulin-seryij/"
+        },
+        {
+          "title": "Скандинавия",
+          "uri": "/ondulin-skandinaviya/"
+        },
+        {
+          "title": "Тоскана",
+          "uri": "/ondulin-toskana/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Шифер",
+    "uri": "/shifer/",
+    "children": {
+      "Тип": [
+        {
+          "title": "Волновой",
+          "uri": "/volnovoj-shifer/"
+        },
+        {
+          "title": "Плоский",
+          "uri": "/ploskij-shifer/"
+        },
+        {
+          "title": "Фиброцементная черепица",
+          "uri": "/fibrocementnaya-cherepica/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "серый",
+          "uri": "/seryj-shifer/"
+        },
+        {
+          "title": "красный",
+          "uri": "/krasnyij-shifer/"
+        },
+        {
+          "title": "коричневый",
+          "uri": "/korichnevyij-shifer/"
+        },
+        {
+          "title": "зеленый",
+          "uri": "/zelenyij-shifer/"
+        },
+        {
+          "title": "синий",
+          "uri": "/sinij-shifer/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Металлочерепица",
+    "uri": "/metallocherepica/",
+    "children": {
+      "Производитель": [
+        {
+          "title": "Металлочерепица Grand Line",
+          "uri": "/metallocherepitsya-grand-line/"
+        },
+        {
+          "title": "Металлочерепица Металл-Профиль",
+          "uri": "/metallocherepica-metall-profil/"
+        }
+      ],
+      "Коллекция": [
+        {
+          "title": "Монтеррей",
+          "uri": "/metallocherepicza-monterrej/"
+        },
+        {
+          "title": "Супермонтеррей",
+          "uri": "/metallocherepicza-supermonterrej/"
+        },
+        {
+          "title": "Трамонтана",
+          "uri": "/metallocherepica-tramontana/"
+        },
+        {
+          "title": "Монтекристо",
+          "uri": "/metallocherepica-montekristo/"
+        },
+        {
+          "title": "Ламонтерра",
+          "uri": "/metallocherepica-lamonterra/"
+        },
+        {
+          "title": "Classic",
+          "uri": "/metallocherepitsya-grand-line-classic/"
+        },
+        {
+          "title": "Ламонтерра X",
+          "uri": "/metallocherepica-lamonterra-x/"
+        },
+        {
+          "title": "Kvinta plus",
+          "uri": "/metallocherepitsya-grand-line-kvinta-plus/"
+        },
+        {
+          "title": "Kvinta Uno",
+          "uri": "/metallocherepitsya-grand-line-kvinta-uno/"
+        },
+        {
+          "title": "Ламонтерра XL",
+          "uri": "/metallocherepica-lamonterra-xl/"
+        },
+        {
+          "title": "Modern",
+          "uri": "/metallocherepitsya-grand-line-modern/"
+        },
+        {
+          "title": "Kredo",
+          "uri": "/metallocherepitsya-grand-line-kredo/"
+        },
+        {
+          "title": "Kamea",
+          "uri": "/metallocherepitsya-grand-line-kamea/"
+        },
+        {
+          "title": "Монтерроса",
+          "uri": "/metallocherepica-monterrosa/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "RAL 7024",
+          "uri": "/metallocherepicza-ral-7024/"
+        },
+        {
+          "title": "RAL 8017",
+          "uri": "/metallocherepicza-ral-8017/"
+        },
+        {
+          "title": "RAL 3005",
+          "uri": "/metallocherepicza-ral-3005/"
+        },
+        {
+          "title": "RAL 9005",
+          "uri": "/metallocherepicza-ral-9005/"
+        },
+        {
+          "title": "RAL 6005",
+          "uri": "/metallocherepicza-ral-6005/"
+        },
+        {
+          "title": "RAL 3011",
+          "uri": "/metallocherepicza-ral-3011/"
+        },
+        {
+          "title": "RAL 7004",
+          "uri": "/metallocherepicza-ral-7004/"
+        },
+        {
+          "title": "RAL 7016",
+          "uri": "/metallocherepicza-ral-7016/"
+        },
+        {
+          "title": "RAL 8019",
+          "uri": "/metallocherepicza-ral-8019/"
+        },
+        {
+          "title": "RAL 5005",
+          "uri": "/metallocherepicza-ral-5005/"
+        },
+        {
+          "title": "RAL 8004",
+          "uri": "/metallocherepicza-ral-8004/"
+        },
+        {
+          "title": "RAL 7005",
+          "uri": "/metallocherepicza-ral-7005/"
+        },
+        {
+          "title": "RAL 3009",
+          "uri": "/metallocherepicza-ral-3009/"
+        },
+        {
+          "title": "RAL 5015",
+          "uri": "/metallocherepicza-ral-5015/"
+        },
+        {
+          "title": "RAL 3003",
+          "uri": "/metallocherepicza-ral-3003/"
+        }
+      ],
+      "Толщина": [
+        {
+          "title": "0.4",
+          "uri": "/metallocherepicza-0.4-mm/"
+        },
+        {
+          "title": "0.45",
+          "uri": "/metallocherepicza-0.45-mm/"
+        },
+        {
+          "title": "0.5",
+          "uri": "/metallocherepicza-0.5-mm/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Гибкая черепица",
+    "uri": "/myagkaya-cherepica/",
+    "children": {
+      "Производитель": [
+        {
+          "title": "Docke",
+          "uri": "/docke-pie-gibkaya-cherepica/"
+        },
+        {
+          "title": "Технониколь Шинглас",
+          "uri": "/myagkaya-cherepica-tehnonikol-shinglas/"
+        },
+        {
+          "title": "Катепал",
+          "uri": "/myagkaya-cherepica-katepal/"
+        },
+        {
+          "title": "Tegola",
+          "uri": "/myagkaya-cherepica-tegola/"
+        },
+        {
+          "title": "Икопал",
+          "uri": "/myagkaya-cherepica-icopal/"
+        },
+        {
+          "title": "CertainTeed",
+          "uri": "/myagkaya-cherepica-certainteed/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "Серый",
+          "uri": "/seraya-gibkaya-cherepicza/"
+        },
+        {
+          "title": "Коричневый",
+          "uri": "/korichnevaya-gibkaya-cherepicza/"
+        },
+        {
+          "title": "Красный",
+          "uri": "/krasnaya-gibkaya-cherepicza/"
+        },
+        {
+          "title": "Зеленый",
+          "uri": "/zelenaya-gibkaya-cherepicza/"
+        },
+        {
+          "title": "Черный",
+          "uri": "/chernaya-gibkaya-cherepica/"
+        },
+        {
+          "title": "Синий",
+          "uri": "/sinyaya-gibkaya-cherepica/"
+        },
+        {
+          "title": "Песочный",
+          "uri": "/pesochnaya-myagkaya-cherepica/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Рулонная кровля",
+    "uri": "/rulonnaya-krovlya/",
+    "children": {
+      "Тип": [
+        {
+          "title": "Наплавляемая кровля",
+          "uri": "/naplavlyaemaya-krovlya/"
+        },
+        {
+          "title": "ПВХ мембраны",
+          "uri": "/pvh-membrany/"
+        },
+        {
+          "title": "Рулонная черепица",
+          "uri": "/rulonnaya-cherepicza/"
+        },
+        {
+          "title": "Сланцевая кровля",
+          "uri": "/slanczevaya-krovlya/"
+        }
+      ],
+      "Производитель": [
+        {
+          "title": "Технониколь",
+          "uri": "/rulonnaya-krovlya-tehnonikol/"
+        },
+        {
+          "title": "Icopal",
+          "uri": "/ikopal/"
+        },
+        {
+          "title": "Plastfoil",
+          "uri": "/pvh-membrany-plastfoil/"
+        }
+      ],
+      "Оттенок": [
+        {
+          "title": "Белый",
+          "uri": "/belaya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Желтый",
+          "uri": "/zheltaya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Зеленый",
+          "uri": "/zelenaya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Красный",
+          "uri": "/krasnaya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Серый",
+          "uri": "/seraya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Синий",
+          "uri": "/sinyaya-rulonnaya-krovlya/"
+        },
+        {
+          "title": "Черный",
+          "uri": "/chernaya-rulonnaya-krovlya/"
+        }
+      ],
+      "Назначение": [
+        {
+          "title": "Для кровли",
+          "uri": "/rulonnyij-material-dlya-krovli/"
+        },
+        {
+          "title": "Для труб",
+          "uri": "/rulonnaya-krovlya-dlya-trub/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Цементно-песчаная черепица",
+    "uri": "/cementno-peschanaya-cherepica/",
+    "children": {
+      "Тип": [
+        {
+          "title": "Цементно-песчаная черепица Kriastak",
+          "uri": "/cementno-peschanaya-cherepica-kriastak/"
+        },
+        {
+          "title": "Цементно-песчаная черепица Braas",
+          "uri": "/cementno-peschanaya-cherepica-braas/"
+        },
+        {
+          "title": "Комплектующие для ЦПЧ",
+          "uri": "/komplektuyushhie-dlya-cpch/"
+        }
+      ],
+      "Коллекция": [
+        {
+          "title": "Франкфуртская",
+          "uri": "/czementno-peschanaya-cherepicza-frankfurtskaya/"
+        },
+        {
+          "title": "Classic",
+          "uri": "/cementno-peschanaya-cherepica-kriastak-classic/"
+        },
+        {
+          "title": "Таунус",
+          "uri": "/czementno-peschanaya-cherepicza-taunus/"
+        },
+        {
+          "title": "Lite",
+          "uri": "/cementno-peschanaya-cherepica-kriastak-lite/"
+        },
+        {
+          "title": "Тевива",
+          "uri": "/czementno-peschanaya-cherepicza-teviva/"
+        },
+        {
+          "title": "Antik",
+          "uri": "/cementno-peschanaya-cherepica-kriastak-antik/"
+        },
+        {
+          "title": "Адриа",
+          "uri": "/cementno-peschanaya-cherepica-adria/"
+        },
+        {
+          "title": "Аэрлокс",
+          "uri": "/czementno-peschanaya-cherepicza-aerloks/"
+        },
+        {
+          "title": "Доппель-С",
+          "uri": "/czementno-peschanaya-cherepicza-doppel-s/"
+        },
+        {
+          "title": "Протектор",
+          "uri": "/czementno-peschanaya-cherepicza-protektor/"
+        },
+        {
+          "title": "Ревива",
+          "uri": "/czementno-peschanaya-cherepicza-reviva/"
+        },
+        {
+          "title": "Таун",
+          "uri": "/czementno-peschanaya-cherepicza-taun/"
+        },
+        {
+          "title": "Фр",
+          "uri": "/czementno-peschanaya-cherepicza-fr/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "Красный",
+          "uri": "/czementno-peschanaya-cherepicza-krasnaya/"
+        },
+        {
+          "title": "Черный",
+          "uri": "/czementno-peschanaya-cherepicz-chernaya/"
+        },
+        {
+          "title": "Магма",
+          "uri": "/czementno-peschanaya-cherepicza-magma/"
+        },
+        {
+          "title": "Серый",
+          "uri": "/czementno-peschanaya-cherepicza-seryij/"
+        },
+        {
+          "title": "Коричневый",
+          "uri": "/czementno-peschanaya-cherepicza-korichnevaya/"
+        },
+        {
+          "title": "Графит",
+          "uri": "/czementno-peschanaya-cherepicz-grafit/"
+        },
+        {
+          "title": "Антик",
+          "uri": "/czementno-peschanaya-cherepicza-antik/"
+        },
+        {
+          "title": "Антик красный",
+          "uri": "/czementno-peschanaya-cherepicza-antik-krasnyij/"
+        },
+        {
+          "title": "Антик темно-коричневый",
+          "uri": "/czementno-peschanaya-cherepicza-antik-temno-korichnevyij/"
+        },
+        {
+          "title": "Античный красный",
+          "uri": "/czementno-peschanaya-cherepicza-antichnyij-krasnyij/"
+        },
+        {
+          "title": "Вишня",
+          "uri": "/czementno-peschanaya-cherepicz-vishnya/"
+        },
+        {
+          "title": "Каштан",
+          "uri": "/czementno-peschanaya-cherepicza-kashtan/"
+        },
+        {
+          "title": "Кирпично-красный",
+          "uri": "/czementno-peschanaya-cherepicza-kirpichno-krasnyij/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Керамическая черепица",
+    "uri": "/keramicheskaya-cherepica/",
+    "children": {
+      "Тип товара": [
+        {
+          "title": "Керамическая черепица Braas",
+          "uri": "/keramicheskaya-cherepica-braas/"
+        },
+        {
+          "title": "Комплектующие для керамической черепицы Braas",
+          "uri": "/komplektuyushhie-dlya-keramicheskoj-cherepicy-braas/"
+        }
+      ],
+      "Вид": [
+        {
+          "title": "Рядовая",
+          "uri": "/keramicheskaya-cherepicza-ryadovaya/"
+        },
+        {
+          "title": "Фасонная",
+          "uri": "/keramicheskaya-cherepicza-fasonnaya/"
+        }
+      ],
+      "Коллекция": [
+        {
+          "title": "Сапфир",
+          "uri": "/keramicheskaya-bokovaya-cherepica-sapfir-braas/"
+        },
+        {
+          "title": "Рубин 13V",
+          "uri": "/keramicheskaya-cherepicza-rubin-13v/"
+        },
+        {
+          "title": "Агат 14",
+          "uri": "/keramicheskaya-cherepicza-agat-14/"
+        },
+        {
+          "title": "Изумруд",
+          "uri": "/keramicheskaya-cherepicza-izumrud/"
+        },
+        {
+          "title": "Опал",
+          "uri": "/keramicheskaya-cherepicza-opal/"
+        },
+        {
+          "title": "Рубин 9V",
+          "uri": "/keramicheskaya-cherepicza-rubin-9v/"
+        },
+        {
+          "title": "Рубин 11V",
+          "uri": "/keramicheskaya-cherepicza-rubin-11v/"
+        },
+        {
+          "title": "Топаз 13V",
+          "uri": "/keramicheskaya-cherepicza-topaz-13v/"
+        },
+        {
+          "title": "Турмалин",
+          "uri": "/keramicheskaya-cherepicza-turmalin/"
+        }
+      ],
+      "Оттенок": [
+        {
+          "title": "Ангоб антрацит",
+          "uri": "/keramicheskaya-cherepicza-angob-antraczit/"
+        },
+        {
+          "title": "Антрацит",
+          "uri": "/keramicheskaya-cherepicza-antraczit/"
+        },
+        {
+          "title": "Красный",
+          "uri": "/keramicheskaya-cherepicza-krasnaya/"
+        },
+        {
+          "title": "Черный",
+          "uri": "/keramicheskaya-cherepicza-chernaya/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Фальцевая кровля",
+    "uri": "/falcevaya-krovlya/",
+    "children": {
+      "Тип": [
+        {
+          "title": "Кликфальц",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc/"
+        },
+        {
+          "title": "Кликфальц Line",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc-line/"
+        },
+        {
+          "title": "Кликфальц mini",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc-mini/"
+        },
+        {
+          "title": "Кликфальц Pro",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro/"
+        },
+        {
+          "title": "Кликфальц Pro Gofr",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro-gofr/"
+        },
+        {
+          "title": "Кликфальц Pro Line",
+          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro-line/"
+        },
+        {
+          "title": "Фальц двойной стоячий",
+          "uri": "/falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij/"
+        },
+        {
+          "title": "Фальц двойной стоячий Line",
+          "uri": "/falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij-line/"
+        }
+      ],
+      "Покрытие": [
+        {
+          "title": "Satin",
+          "uri": "/falcevaya-krovlya/?pokrytie=Satin"
+        },
+        {
+          "title": "Полиэстер",
+          "uri": "/falcevaya-krovlya/?pokrytie=%D0%9F%D0%BE%D0%BB%D0%B8%D1%8D%D1%81%D1%82%D0%B5%D1%80"
+        },
+        {
+          "title": "Rooftop Matte",
+          "uri": "/falcevaya-krovlya/?pokrytie=Rooftop%20Matte"
+        },
+        {
+          "title": "Atlas",
+          "uri": "/falcevaya-krovlya/?pokrytie=Atlas"
+        },
+        {
+          "title": "Drap",
+          "uri": "/falcevaya-krovlya/?pokrytie=Drap"
+        },
+        {
+          "title": "GreenCoat Pural BT",
+          "uri": "/falcevaya-krovlya/?pokrytie=GreenCoat%20Pural%20BT"
+        },
+        {
+          "title": "Velur X",
+          "uri": "/falcevaya-krovlya/?pokrytie=Velur%20X"
+        },
+        {
+          "title": "Drap ST",
+          "uri": "/falcevaya-krovlya/?pokrytie=Drap%20ST"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "RAL 8017",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%208017"
+        },
+        {
+          "title": "RAL 3005",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%203005"
+        },
+        {
+          "title": "RAL 7004",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%207004"
+        },
+        {
+          "title": "RAL 6005",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%206005"
+        },
+        {
+          "title": "RAL 5021",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%205021"
+        },
+        {
+          "title": "RAL 7016",
+          "uri": "/falczevaya-krovlya-ral-7016/"
+        },
+        {
+          "title": "RAL 9005",
+          "uri": "/falczevaya-krovlya-ral-9005/"
+        },
+        {
+          "title": "RAL 7024",
+          "uri": "/falczevaya-krovlya-ral-7024/"
+        },
+        {
+          "title": "RAL 9003",
+          "uri": "/falczevaya-krovlya-ral-9003/"
+        },
+        {
+          "title": "RR 32",
+          "uri": "/falczevaya-krovlya-rr-32/"
+        },
+        {
+          "title": "RR 22",
+          "uri": "/falczevaya-krovlya-rr-22/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Профлист",
+    "uri": "/proflist/",
+    "children": {
+      "Назначение": [
+        {
+          "title": "Для забора",
+          "uri": "/profilirovannyy-list-dlya-zabora/"
+        },
+        {
+          "title": "Для кровли",
+          "uri": "/proflist-dlya-krovli/"
+        },
+        {
+          "title": "Для стен",
+          "uri": "/proflist-dlya-sten/"
+        },
+        {
+          "title": "Для перекрытий",
+          "uri": "/proflist-dlya-perekryitij/"
+        },
+        {
+          "title": "Для фасада",
+          "uri": "/proflist-dlya-fasada/"
+        },
+        {
+          "title": "Для гаража",
+          "uri": "/proflist-dlya-garazha/"
+        }
+      ],
+      "Производитель": [
+        {
+          "title": "Grand Line",
+          "uri": "/proflist-grand-line/"
+        },
+        {
+          "title": "Металл Профиль",
+          "uri": "/proflist-metall-profil/"
+        }
+      ],
+      "Толщина": [
+        {
+          "title": "1",
+          "uri": "/proflist-1-mm/"
+        },
+        {
+          "title": "0.8",
+          "uri": "/proflist-0-8-mm/"
+        },
+        {
+          "title": "0.45",
+          "uri": "/proflist-0-45-mm/"
+        },
+        {
+          "title": "0.7",
+          "uri": "/proflist-0-7-mm/"
+        },
+        {
+          "title": "0.5",
+          "uri": "/proflist-0-5-mm/"
+        },
+        {
+          "title": "0.9",
+          "uri": "/proflist-0-9-mm/"
+        },
+        {
+          "title": "0.35",
+          "uri": "/proflist-0-35-mm/"
+        },
+        {
+          "title": "0.6",
+          "uri": "/proflist-0-6-mm/"
+        },
+        {
+          "title": "0.4",
+          "uri": "/proflist-0-4-mm/"
+        }
+      ],
+      "Профиль": [
+        {
+          "title": "МП20",
+          "uri": "/proflist-mp-20/"
+        },
+        {
+          "title": "H75",
+          "uri": "/profnastil-n-75/"
+        },
+        {
+          "title": "H60",
+          "uri": "/proflist-n-60/"
+        },
+        {
+          "title": "C20",
+          "uri": "/proflist-s20/"
+        },
+        {
+          "title": "H114",
+          "uri": "/proflist-n114/"
+        },
+        {
+          "title": "C10",
+          "uri": "/proflist-s10/"
+        },
+        {
+          "title": "МП18",
+          "uri": "/proflist-mp-18/"
+        },
+        {
+          "title": "HC35",
+          "uri": "/proflist-ns-35/"
+        },
+        {
+          "title": "МП35",
+          "uri": "/proflist-mp-35/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Штакетник",
+    "uri": "/shtaketnik/",
+    "children": {
+      "Производитель": [
+        {
+          "title": "Металл Профиль",
+          "uri": "/shtaketnik-metall-profil/"
+        },
+        {
+          "title": "Grand Line",
+          "uri": "/shtaketnik-grand-line/"
+        }
+      ],
+      "Форма": [
+        {
+          "title": "Штакетник М-образный",
+          "uri": "/shtaketnik-m-obraznyy-grand-line/"
+        },
+        {
+          "title": "Штакетник П-образный",
+          "uri": "/shtaketnik-p-obraznyy-grand-line/"
+        },
+        {
+          "title": "Штакетник полукруглый",
+          "uri": "/shtaketnik-polukruglyy-slim-grand-line/"
+        },
+        {
+          "title": "Штакетник М-образный фигурный",
+          "uri": "/shtaketnik-m-obraznyy-figurnyy-grand-line/"
+        },
+        {
+          "title": "Штакетник Twin",
+          "uri": "/shtaketnik-twin-grand-line/"
+        },
+        {
+          "title": "Штакетник двусторонний",
+          "uri": "/shtaketnik-dvustoronnij/"
+        },
+        {
+          "title": "Штакетник круглый",
+          "uri": "/shtaketnik-kruglyij-grand-line/"
+        },
+        {
+          "title": "Штакетник прямоугольный",
+          "uri": "/shtaketnik-pryamougolnyy-grand-line/"
+        },
+        {
+          "title": "Штакетник круглый фигурный",
+          "uri": "/kruglyy-figurnyy-grand-line/"
+        },
+        {
+          "title": "Штакетник полукруглый фигурный",
+          "uri": "/shtaketnik-polukruglyy-figurnyy-slim-grand-line/"
+        }
+      ],
+      "Толщина": [
+        {
+          "title": "0.45",
+          "uri": "/shtaketnik-0-45-mm/"
+        },
+        {
+          "title": "0.4",
+          "uri": "/shtaketnik-0-4-mm/"
+        },
+        {
+          "title": "0.5",
+          "uri": "/shtaketnik-0-5-mm/"
+        },
+        {
+          "title": "0.43",
+          "uri": "/shtaketnik-0-43-mm/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Водосточная система",
+    "uri": "/vodostochnaya-sistema/",
+    "children": {
+      "Материал": [
+        {
+          "title": "ПВХ водостоки",
+          "uri": "/pvh-plastikovye-vodostochnye-sistemy/"
+        },
+        {
+          "title": "Металлические водостоки",
+          "uri": "/metallicheskie-vodostoki/"
+        }
+      ],
+      "Производитель": [
+        {
+          "title": "Docke",
+          "uri": "/vodostochnaya-sistema-docke/"
+        },
+        {
+          "title": "Grand Line",
+          "uri": "/vodostochnaya-sistema-grand-line/"
+        },
+        {
+          "title": "Braas",
+          "uri": "/vodostochnaya-sistema-braas/"
+        },
+        {
+          "title": "Aquasystem",
+          "uri": "/vodostochnaya-sistema-aquasystem/"
+        },
+        {
+          "title": "Альта-Профиль",
+          "uri": "/vodostochnaya-sistema-alta-profil/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Софиты",
+    "uri": "/sofity/",
+    "children": {
+      "Материал": [
+        {
+          "title": "ПВХ софиты",
+          "uri": "/pvh-sofity/"
+        },
+        {
+          "title": "Металлические софиты",
+          "uri": "/metallicheskie-sofity/"
+        },
+        {
+          "title": "Комплектующие к софитам",
+          "uri": "/komplektuyushhie-k-sofitam/"
+        }
+      ],
+      "Производитель": [
+        {
+          "title": "Docke",
+          "uri": "/sofity-docke/"
+        },
+        {
+          "title": "Grand Line",
+          "uri": "/sofity-grand-line/"
+        }
+      ],
+      "Цвет": [
+        {
+          "title": "ral 8017",
+          "uri": "/sofityi-ral-8017/"
+        },
+        {
+          "title": "ral 7024",
+          "uri": "/sofityi-ral-7024/"
+        },
+        {
+          "title": "ral 9003",
+          "uri": "/sofityi-ral-9003/"
+        },
+        {
+          "title": "ral 7005",
+          "uri": "/sofityi-ral-7005/"
+        }
+      ],
+      "Оттенок": [
+        {
+          "title": "белый",
+          "uri": "/sofityi-belyie/"
+        },
+        {
+          "title": "графит",
+          "uri": "/sofityi-grafit/"
+        },
+        {
+          "title": "шоколад",
+          "uri": "/sofityi-shokolad/"
+        },
+        {
+          "title": "коричневый",
+          "uri": "/sofityi-korichnevyie/"
+        },
+        {
+          "title": "черный",
+          "uri": "/sofityi-chernyie/"
+        },
+        {
+          "title": "красный",
+          "uri": "/sofityi-krasnyij/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Доборные элементы для кровли",
+    "uri": "/dobornye-elementy/",
+    "children": {
+      "Дополнительно": [
+        {
+          "title": "J-Профиль",
+          "uri": "/j-profil/"
+        },
+        {
+          "title": "Доборные элементы для мягкой кровли",
+          "uri": "/dobornye-elementy-dlya-myagkoy-krovli/"
+        },
+        {
+          "title": "Доборные элементы фальц",
+          "uri": "/dobornyie-elementyi-falc/"
+        },
+        {
+          "title": "Ендовы для кровли",
+          "uri": "/endova/"
+        },
+        {
+          "title": "Заглушки",
+          "uri": "/zaglushki/"
+        },
+        {
+          "title": "Карнизные планки",
+          "uri": "/karniznye-planki/"
+        },
+        {
+          "title": "Коньковые элементы для кровли",
+          "uri": "/konkovye-elementy/"
+        },
+        {
+          "title": "Лобовые планки",
+          "uri": "/lobovye-planki/"
+        },
+        {
+          "title": "Мансардные планки",
+          "uri": "/mansardnye-planki/"
+        },
+        {
+          "title": "Планка капельник",
+          "uri": "/planka-kapelnik/"
+        },
+        {
+          "title": "Планки примыкания",
+          "uri": "/planki-primykaniya/"
+        },
+        {
+          "title": "Планки снегозадержания",
+          "uri": "/planki-snegozaderzhaniya/"
+        },
+        {
+          "title": "Торцевые планки",
+          "uri": "/torcevye-planki/"
+        },
+        {
+          "title": "Тройники",
+          "uri": "/troyniki/"
+        },
+        {
+          "title": "Четверники",
+          "uri": "/chetverniki/"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Комплектующие",
+    "uri": "/komplektuyushhie/",
+    "children": {
+      "Дополнительно": [
+        {
+          "title": "Строительный крепеж",
+          "uri": "/stroitelnyy-krepyozh-v-sankt-peterburge/"
+        },
+        {
+          "title": "Проходки и вентиляция",
+          "uri": "/prohodki-i-ventilyaciya-v-sankt-peterburge/"
+        },
+        {
+          "title": "Коньковый торцевой элемент",
+          "uri": "/konkovyj-torcevoj-ehlement-v-sankt-peterburge/"
+        },
+        {
+          "title": "Металлические доборные элементы",
+          "uri": "/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/"
+        },
+        {
+          "title": "Устройство примыкания",
+          "uri": "/ustrojstvo-primykanij/"
+        }
+      ]
+    }
+  }
+]

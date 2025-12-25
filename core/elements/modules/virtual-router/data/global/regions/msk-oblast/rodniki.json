@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Родники"
+    },
+    "where": {
+      "standart": "в Родниках"
+    },
+    "on": {
+      "standart": "по Родникам"
+    },
+    "what": {
+      "standart": "Родников"
+    }
+  },
+  "address": "Трудовая улица, 10к2, Родники",
+  "gmap": "<iframe src=\"https://www.google.com/maps/d/u/0/embed?mid=19BFpy_pt3unihzOogDxsqKd2tm6bDf8&ehbc=2E312F&noprof=1\" width=\"640\" height=\"480\"></iframe>"
+}
+

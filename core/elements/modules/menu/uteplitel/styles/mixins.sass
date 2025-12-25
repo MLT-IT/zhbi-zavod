@@ -1,0 +1,26 @@
+
+@mixin arrow-after
+  content: ""
+  display: inline-block
+  width: 5px
+  height: 5px
+  margin-bottom: 3px
+  margin-left: 7px
+  border-left: 1px solid #D3563D
+  border-bottom: 1px solid #D3563D
+  transform: rotate(225deg)
+
+@mixin scroll-uteplitel
+  // Полоса прокрутки
+  &::-webkit-scrollbar
+    width: 6px
+
+  &::-webkit-scrollbar-track
+    background: #e0e0e0
+
+  &::-webkit-scrollbar-thumb
+    background: #d9534f
+    border-radius: 4px
+
+    &:hover
+      background: #c9302c

@@ -1,0 +1,87 @@
+@use "../base/variables.scss";
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.page-content {
+  ol {
+    margin-left: 16px;
+    li::marker {
+      color: #d3553c;
+      font-weight: 700;
+    }
+  }
+  p {
+    line-height: 130%;
+    margin-bottom: 14px;
+    margin-top: 14px;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+  ul,
+  ol,
+  blockquote {
+    margin-bottom: 16px;
+  }
+  li {
+    line-height: 1.6;
+  }
+  img:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    list-style: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    li {
+      padding-left: 34px;
+      position: relative;
+
+      @media (max-width: variables.$bp768) {
+        font-size: 14px;
+      }
+
+      &:before {
+        background-color: variables.$red;
+        content: "";
+        height: 13px;
+        left: 5px;
+        position: absolute;
+        top: 5px;
+        transform: skewX(-30deg);
+        width: 9px;
+      }
+    }
+  }
+
+  blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    color: variables.$red;
+    padding-left: 16px;
+    border-left: 3px solid variables.$red;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin-bottom: 22px;
+    margin-top: 22px;
+  }
+}
+
+.base-box-shadow {
+  box-shadow: 10px 0px 60px hsla(0, 0%, 79%, 0.4);
+}
+
+.old-price {
+  text-decoration: line-through;
+}
+.cursor-pointer {
+  cursor: pointer;
+}

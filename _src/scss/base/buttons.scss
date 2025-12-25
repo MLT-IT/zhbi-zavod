@@ -1,0 +1,88 @@
+@use "./variables.scss";
+
+.btn {
+  width: max-content;
+  height: max-content;
+  padding: 16px 20px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.2s;
+  text-transform: uppercase;
+
+  @media (max-width: variables.$bp768) {
+    font-size: 12px;
+  }
+  @media (max-width: variables.$bp480) {
+    border-radius: 3px;
+  }
+
+  &-bordered {
+    color: variables.$red;
+    border: 1px solid variables.$red;
+    &:hover {
+      background-color: variables.$red-transparent;
+    }
+
+    &.active {
+      color: #fff;
+      background-color: variables.$red;
+    }
+  }
+
+  &-simple {
+    color: variables.$red;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid variables.$red;
+    }
+  }
+
+  &-primary {
+    color: #fff;
+    background-color: variables.$red;
+    &:hover {
+      background-color: variables.$red-dark;
+    }
+  }
+
+  &-beauty {
+    background-image: linear-gradient(
+      270.06deg,
+      #fa7800 -1.88%,
+      #ebaf00 99.94%
+    );
+    box-shadow: 0 2px 0 #cf6518;
+    color: #fff;
+
+    &:hover {
+      background-image: linear-gradient(270.06deg, #fa7800 0, #fa7800 100%);
+    }
+    &:active {
+      background-image: linear-gradient(270.06deg, #cf6518 0, #cf6518 100%);
+    }
+  }
+
+  &-link {
+    padding: 0;
+    text-transform: none;
+    font-weight: 400;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.btn-icon {
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border: 1px solid variables.$red;
+  }
+}

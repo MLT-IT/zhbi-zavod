@@ -1,0 +1,258 @@
+@use "mixins"
+
+.menu-uteplitel
+  font-family: "Gotham Pro"
+  // position: absolute
+  max-width: 100%
+  min-width: 1000px
+  height: 567px
+  background: #fff
+  z-index: 1000
+  // left: -50px
+  padding: 15px 20px
+  border-radius: 6px
+  box-shadow: 0 0 10px #C9C9C966
+  // @media screen and (min-width: 1440px)
+  //   left: -50px
+  //   min-width: 1200px
+  // @media screen and (min-width: 1024px)
+  //   left: -298px
+
+  a
+    text-decoration: none
+
+  &__top
+    margin-bottom: 10px
+    a
+      color: #D3553C
+      font-size: 12px
+      line-height: 14px
+      font-weight: 400
+      text-decoration: none
+      &:after
+        @include mixins.arrow-after
+        width: 5px
+        height: 5px
+        margin-bottom: 1px
+
+  &__body
+    display: flex
+
+  &__left
+    min-width: 262px
+    //border-right: 1px solid #3C3C3B33
+    height: 500px
+    overflow-y: auto
+    overflow-x: hidden
+    @include mixins.scroll-uteplitel
+
+  &__catalog
+    margin-top: 15px
+    margin-bottom: 8px
+
+  &__catalog-item
+    gap: 8px
+
+    display: flex
+    align-items: center
+    justify-content: start
+    cursor: pointer
+    margin-bottom: 7px
+    color: #3C3C3B
+    min-height: 40px
+    transition: 0.3s all ease
+
+    &:hover
+      scale: 1.05
+      transition: 0.3s all ease
+
+      padding-left: 7px
+
+      .menu-uteplitel__catalog-item-text
+        color: #944434
+
+        transition: 0.3s
+
+    &.active
+      position: relative
+
+      //&:after
+      //  position: absolute
+      //  right: -3px
+      //  background: #D3563D
+      //  border-radius: 6px
+      //  display: block
+      //  width: 5px
+      //  height: 100%
+      //  content: ""
+
+      .menu-uteplitel__catalog-item-icon
+        border-color: #D3553C
+      .menu-uteplitel__catalog-item-text
+        color: #D3553C
+
+      svg
+        background: #D3553C
+        fill: #fff
+
+    svg
+      padding: 4px
+      border-radius: 4px
+      max-width: 40px
+      max-height: 40px
+
+  &__catalog-item-icon
+    width: 40px
+    height: 40px
+    margin-right: 15px
+    border-radius: 6px
+    border: 1px solid #F5F5F5
+    object-fit: contain
+    object-position: center
+    padding: 3px
+
+  &__catalog-item-text
+    font-weight: 700
+    font-size: 14px
+    color: #3C3C3B
+
+  &__item
+    border-bottom: 1px solid #D7D6D5
+    border-top: 1px solid #D7D6D5
+    padding: 16px 0px
+    display: flex
+    justify-content: start
+    align-items: center
+    font-size: 14px
+    font-weight: 700
+
+    &.active
+      .menu-uteplitel__item-icon
+        border-color: #D3553C
+
+      .menu-uteplitel__item-text
+        color: #D3553C
+
+  &__item-icon
+    width: 40px
+    height: 40px
+    margin-right: 16px
+    border-radius: 6px
+    border: 1px solid #F5F5F5
+
+  &__right
+    padding-left: 24px
+    padding-right: 24px
+    width: 100%
+    max-height: 500px
+    overflow-y: auto
+
+    @include mixins.scroll-uteplitel
+
+  &__catalog-submenu
+    display: none
+    &.active
+      display: block
+
+  &__submenu
+    width: 100%
+    margin-bottom: 20px
+    padding-bottom: 12px
+    border-bottom: 1px solid #F5F5F5
+
+  &__submenu-more
+    margin-top: 12px
+    display: none
+
+    &-button
+      font-size: 12px
+      font-weight: 400
+      cursor: pointer
+
+      &.expanded
+        &:after
+          transform: rotate(135deg)
+          margin-bottom: 0px
+
+      &:hover
+        color: #D3553C
+        transition: 0.3s
+        &:after
+          border-left: 1px solid #D3553C
+          border-bottom: 1px solid #D3553C
+
+      &:after
+        content: ""
+        width: 4px
+        height: 4px
+        margin-bottom: 2px
+        margin-left: 6px
+        display: inline-block
+        transform: rotate(315deg)
+        border-left: 1px solid #111
+        border-bottom: 1px solid #111
+
+  &__submenu-title
+    color: #878787
+    font-weight: 400
+    font-size: 14px
+
+  &__submenu-options
+    margin-top: 12px
+    // display: flex
+    // flex-wrap: wrap
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 8px
+    max-height: 37px
+    overflow: hidden
+    transition: max-height 0.3s ease
+    &.expanded
+      max-height: none
+
+  &__submenu-option
+    display: flex
+    align-items: center
+    border: 1px solid #D7D6D5
+    border-radius: 6px
+    font-weight: 700
+    font-size: 14px
+    padding: 8px 13px
+    color: #3C3C3B
+
+    &:hover
+      color: #D3553C
+      transition: 0.3s
+
+  &__header
+    margin-bottom: 20px
+
+  &__footer-title,  &__header-title
+    font-size: 14px
+    font-weight: 400
+    line-height: 14px
+
+  &__footer-title-link, &__header-title-link
+    color: #D3563D
+    text-decoration: none
+    &:after
+      @include mixins.arrow-after
+
+  &__footer-links
+    margin-top: 12px
+    font-size: 14px
+    font-weight: 4003
+    display: flex
+    gap: 15px
+
+  &__footer-link
+    display: flex
+    align-items: center
+    justify-content: start
+
+  &__footer-link-icon
+    width: 40px
+    height: 40px
+
+  &__footer-link-text
+    color: #3C3C3B

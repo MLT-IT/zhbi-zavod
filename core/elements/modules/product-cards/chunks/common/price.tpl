@@ -1,0 +1,15 @@
+{set $items = "@FILE modules/split-unit/snippets/splitUnit.php" | snippet : [
+  'formula' => $_modx->context.key,
+  'fields' => [
+    'unit' => $_pls['unit'][0],
+    'price' => $price,
+    'old_price' => $old_price
+  ]
+]}
+
+<div class="product-card__price">
+  {include "file:modules/split-unit/chunks/prices.tpl" items=$items}
+</div>
+{if count($items) > 0}
+  {include "file:modules/split-unit/chunks/controls.tpl" items=$items}
+{/if}

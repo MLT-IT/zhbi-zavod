@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Дедовск"
+    },
+    "where": {
+      "standart": "в Дедовске"
+    },
+    "on": {
+      "standart": "по Дедовску"
+    },
+    "what": {
+      "standart": "Дедовска"
+    }
+  },
+  "address": "Дедовск, улица Красный Октябрь, 1А",
+  "yandex_map": "3A919455c1954de3dc7e4076cac3111f22272283db1384a3e3e3cc134ece9ccadc"
+}

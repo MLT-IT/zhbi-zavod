@@ -1,0 +1,13 @@
+[
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/images/sections/main-banner-slider/web/slide-1/sm.png",
+      "md": "/assets/template/images/sections/main-banner-slider/web/slide-1/md.png",
+      "lg": "/assets/template/images/sections/main-banner-slider/web/slide-1/lg.png",
+      "xl": "/assets/template/images/sections/main-banner-slider/web/slide-1/xl.png"
+    }
+  }
+]
