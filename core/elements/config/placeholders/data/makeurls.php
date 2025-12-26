@@ -5,6 +5,10 @@
  */
 
 $data = [
+    'zamer' => [
+        'value' => $modx->makeURL($modx->getOption('zamer_id')), // ID ресурса замера
+        'show_error_message' => false
+    ],
     'cart' => [
         'value' => $modx->makeURL($modx->getOption('cart_id')), // ID ресурса корзины
         'show_error_message' => false
