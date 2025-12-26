@@ -3,6 +3,7 @@
 .main-banner-slider {
   padding-top: 30px;
   padding-bottom: 80px;
+
   @media (max-width: variables.$bp992) {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -11,6 +12,25 @@
   .swiper-slide {
     img {
       border-radius: 6px;
+    }
+  }
+
+  &__callback-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+
+    @media (max-width: variables.$bp768) {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    @media (max-width: variables.$bp480) {
+      width: 70%;
+      bottom: 20%;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
   }
 }
