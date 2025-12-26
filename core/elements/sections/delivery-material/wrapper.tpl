@@ -4,8 +4,8 @@
       <div class="delivery-material__main">
         <div class="delivery-material__title fs-25 fw-700">Условия доставки материала</div>
         <div class="delivery-material__text fs-18">
-          Доставка стройматериалов по Москве осуществляется по
-          следующему тарифу (условия по МО уточняйте у менеджера):
+          Доставка стройматерилов по Санкт-Петербургу осуществляется по
+          следующему тарифу (условия по ЛО уточняйте у менеджера):
         </div>
         {include "file:chunks/delivery-table.tpl"}
 

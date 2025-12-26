@@ -1,16 +1,16 @@
 {
   "toponim": {
     "base": {
-      "standart": "Москва"
+      "standart": "Санкт-Петербург"
     },
     "where": {
-      "standart": "в Москве"
+      "standart": "в Санкт-Петербурге"
     },
     "on": {
-      "standart": "по Москве"
+      "standart": "по Санкт-Петербургу"
     },
     "what": {
-      "standart": "Москве"
+      "standart": "Санкт-Петербурге"
     }
   },
   "address": "Адрес для ВСЕХ контекстов"
