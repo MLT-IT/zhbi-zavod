@@ -10,6 +10,14 @@
 
     {include "file:sections/advantages/horizontal/wrapper.tpl"}
     {include "file:modules/slider-categories/wrapper.tpl"}
+    
+    <div class="section-padding bg-light-gray-2">
+      <div class="container">
+        <h2 class="section-title">Акции и скидки</h2>
+        {include "file:sections/promotions/wrapper.tpl"}
+      </div>
+    </div>
+    
     {include "file:sections/bestseller/wrapper.tpl"}
     {include "file:sections/delivery-material/wrapper.tpl"}
     {include "file:sections/toggle-content/wrapper.tpl"}

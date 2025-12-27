@@ -42,11 +42,13 @@
       }
 
       .promotions__item-content {
-        padding-top: 80px;
+        @media (min-width: variables.$bp768) {
+          padding-top: 80px;
+        }
       }
 
-      .promotions__item-btn {
-        margin-top: 0;
+      .btn {
+        margin-top: 0 !important;
       }
     }
 
@@ -75,9 +77,7 @@
       gap: 16px;
 
       @media (max-width: variables.$bp768) {
-        padding: 30px 20px;
-        align-items: center;
-        text-align: center;
+        padding: 25px 30px 25px 10px;
       }
     }
 
@@ -127,6 +127,7 @@
       }
 
       span {
+        width: max-content;
         font-size: inherit;
         font-weight: inherit;
       }
@@ -152,7 +153,11 @@
       font-size: 14px;
       font-weight: 700;
       color: #fff;
-      margin-left: 8px;
+
+      @media (max-width: variables.$bp768) {
+        display: block;
+        margin-top: 12px;
+      }
     }
 
 
@@ -165,6 +170,8 @@
     }
 
     .btn {
+      margin-top: auto;
+
       &:hover {
         opacity: 0.8;
       }
