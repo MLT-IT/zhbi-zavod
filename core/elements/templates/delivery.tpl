@@ -1,14 +1,10 @@
 {extends "file:layouts/base.tpl"} 
 
 {block 'page-content'}
-    {include "file:sections/breadcrumbs/wrapper.tpl"}
-
-    <div class="section-margin">
+    <div class="section-margin bg-light-gray-2">
+        {include "file:sections/breadcrumbs/wrapper.tpl"}
         <div class="container">
-            <h1 class="section-title">{$_modx->resource.pagetitle}</h1>
-            <div class="page-content">
-                {$_modx->resource.content}
-            </div>
+            {include "file:sections/delivery-banner/wrapper.tpl"}
         </div>
     </div>
 

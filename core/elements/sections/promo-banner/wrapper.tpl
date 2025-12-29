@@ -1,4 +1,4 @@
-{if !$title}
+{if !isset($title)}
   {set $title = "Акция до конца месяца"}
 {/if}
 {if !$button_text}
@@ -13,11 +13,18 @@
 
 <div class="promo-banner">
   <div class="promo-banner__big promo-banner__banner">
-    <div class="promo-banner__big-title promo-banner__title fs-36 fw-700">{$title}</div>
 
-    <button class="btn btn-beauty promo-banner__button"
-      onclick="modals.events.open('modal-callback')">{$button_text}</button>
+    {if !$hide_content}
+    <div class="promo-banner__content">
+      {if $title}
+        <div class="promo-banner__big-title promo-banner__title fs-36 fw-700">{$title}</div>
+      {/if}
 
+      <button class="btn btn-beauty promo-banner__button"
+        onclick="modals.events.open('modal-callback')">{$button_text}</button>
+    </div>
+    {/if}
+    
     <picture class="promo-banner__big-image promo-banner__image">
       <source srcset="{$image_mobile}" media="(max-width: 480px)" />
       <img src="{$image_desktop}" />

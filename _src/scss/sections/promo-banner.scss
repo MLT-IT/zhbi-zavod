@@ -10,7 +10,7 @@
   }
 
   &__banner {
-    padding: 60px;
+    // padding: 60px;
     position: relative;
     width: 100%;
     border-radius: 6px;
@@ -20,7 +20,7 @@
 
     @media (max-width: variables.$bp768) {
       width: 100%;
-      padding: 46px 15px;
+      // padding: 46px 15px;
       min-height: 315px;
     }
   }
@@ -37,13 +37,30 @@
     }
   }
 
-  &__image {
+  // &__image {
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 0;
+  // }
+
+  &__content {
     position: absolute;
+    z-index: 1;
+    display: grid;
+    height: max-content;
+    gap: 12px;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0;
+    margin: auto;
+    left: 30px;
+
+    @media (max-width: variables.$bp768) {
+      right: 0;
+      left: 0;
+    }
   }
 
   &__button {
@@ -56,4 +73,3 @@
     }
   }
 }
-
