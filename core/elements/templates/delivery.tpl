@@ -1,7 +1,7 @@
 {extends "file:layouts/base.tpl"} 
 
 {block 'page-content'}
-    <div class="section-margin bg-light-gray-2">
+    <div class="bg-light-gray-2">
         {include "file:sections/breadcrumbs/wrapper.tpl"}
         <div class="container">
             {include "file:sections/delivery-banner/wrapper.tpl"}
