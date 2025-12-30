@@ -4,11 +4,12 @@
   ['title' => 'Условия доставки', 'id' => 'tab3'],
   ['title' => 'Прайс-лист', 'id' => 'tab4'],
   ['title' => 'Отзывы', 'id' => 'tab5'],
+  ['title' => 'Сертификаты', 'id' => 'tab6'],
 ]}
 
-{set $video = $_modx->resource.parent | resource : 'video'}
+{set $video = $_modx->resource.video}
 {if $video}
-  {set $btns[] = ['title' => 'Видео', 'id' => 'tab6']}
+  {set $btns[] = ['title' => 'Видео', 'id' => 'tab7']}
 {/if}
 
 {set $certs = $_modx->resource.certs | fromJSON}
@@ -55,15 +56,13 @@
           </div>
         </div>
 
-        {*
         <div class="product-page__tabs-wrap">
           <button
-            data-opened-btn="tab4">Сертификаты</button>
-          <div class="product-page__tabs-content" data-opened-element="tab4">
+            data-opened-btn="tab6">Сертификаты</button>
+          <div class="product-page__tabs-content" data-opened-element="tab6">
             {include "file:modules/certificates-list/chunks/wrapper.tpl" certs=$certs}
           </div>
         </div>
-        *}
 
         <div class="product-page__tabs-wrap">
           <button data-opened-btn="tab4">Прайс-лист</button>
@@ -131,10 +130,10 @@
         {if $video}
           <div class="product-page__tabs-wrap">
             <button
-              data-opened-btn="tab6"
+              data-opened-btn="tab7"
               
             >Видео</button>
-            <div class="product-page__tabs-content" data-opened-element="tab6">
+            <div class="product-page__tabs-content" data-opened-element="tab7">
               {include "file:templates/product/tabs/video.tpl" video=$video}
             </div>
           </div>
