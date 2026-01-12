@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import {Navigation, Autoplay, Thumbs} from "swiper/modules";
+import { Navigation, Autoplay, Thumbs } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -93,6 +93,17 @@ export default function iniSwipers() {
   });
 
   new Swiper('[data-slider="main-banner-slider"]', {
+    modules: [Navigation],
+    loop: false,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    direction: "horizontal",
+  });
+
+  new Swiper('[data-slider="catalog-side-carousel"]', {
     modules: [Navigation],
     loop: false,
     slidesPerView: 1,

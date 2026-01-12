@@ -15,8 +15,8 @@
     'tplFilter.row.default' => '@FILE sections/category-listing/filters/tpl-filter-row.tpl'
     'includeTVs' => 'priority'
     'sort' => 'tv|priority:asc',
-    '-tpls' => '@FILE sections/category-listing/card-selection.tpl'
-    'tpls' => '@FILE modules/product-cards/chunks/v1/wrapper.tpl'
+    'tpls' => '@FILE sections/category-listing/card-selection.tpl'
+    '-tpls' => '@FILE modules/product-cards/chunks/v1/wrapper.tpl'
     'ajaxMode' => 'button'
     'suggestions' => 0
     'totalVar' => 'total'
