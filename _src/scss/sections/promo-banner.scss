@@ -26,7 +26,7 @@
   }
 
   &__title {
-    max-width: 500px;
+    // max-width: 500px;
     position: relative;
     z-index: 1;
 
@@ -56,6 +56,12 @@
     bottom: 0;
     margin: auto;
     left: 30px;
+
+    &-text {
+      @media (max-width: variables.$bp768) {
+        text-align: center;
+      }
+    }
 
     @media (max-width: variables.$bp768) {
       right: 0;
