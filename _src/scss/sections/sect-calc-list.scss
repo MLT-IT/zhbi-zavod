@@ -1,0 +1,72 @@
+.sect-calc-list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+
+  @media (max-width:800px) {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+
+.sect-calc-list a[class*=wrap],
+.sect-calc-list a[class*=wrap]:hover {
+  border: none;
+  text-decoration: none
+}
+
+.sect-calc-list__item {
+  align-items: center;
+  background-color: #fcfcfc;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  overflow: hidden;
+  padding: 30px;
+  transition: all .3s;
+
+  @media (max-width:800px) {
+    padding: 10px
+  }
+}
+
+.sect-calc-list__item:hover {
+  box-shadow: 0 0 6px #aaa
+}
+
+.sect-calc-list__item-img-wrap {
+  display: block;
+  height: 100%
+}
+
+.sect-calc-list__item-img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sect-calc-list__item-link {
+  text-align: center
+}
+
+.sect-calc-list__item:hover {
+  box-shadow: 0 0 6px #aaa
+}
+
+.sect-calc-list__item-img-wrap {
+  display: block;
+  height: 100%
+}
+
+.sect-calc-list__item-img {
+  display: block;
+  max-width: 100%
+}
+
+.sect-calc-list__item-link {
+  text-align: center
+}
