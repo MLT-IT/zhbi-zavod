@@ -32,6 +32,7 @@
   {include "file:sections/faqs/wrapper.tpl"}
   {*include "file:modules/components-for-product/chunks/wrapper.tpl"*}
   {include "file:sections/payments/wrapper.tpl"}
+  {include "file:sections/calculator-banner/wrapper.tpl"}
   {include "file:sections/address-map/wrapper.tpl" bg=true}
 </div>
 
