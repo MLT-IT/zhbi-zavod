@@ -244,3 +244,23 @@ b {
     width: 100%;
   }
 }
+
+.rating-stars {
+  display: flex;
+  gap: 0px;
+
+  &__item {
+    font-size: 20px;
+    line-height: 20px;
+
+    &:after {
+      content: "★";
+      color: variables.$red;
+    }
+
+    &.inactive:after {
+      content: "☆";
+      ;
+    }
+  }
+}

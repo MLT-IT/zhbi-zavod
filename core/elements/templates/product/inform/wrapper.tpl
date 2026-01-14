@@ -8,9 +8,16 @@
   <div class="product-page__inform-section">
     {*include "file:modules/warehouses/sections/warehouse-remains.tpl"*}
 
-    <a class="yandex-rating" href="{$_modx->makeUrl('reviews_id'|config)}" target="_blank">
-      <img src="/assets/template/images/other/yandex-badge.png" alt="Yandex.Market" />
-    </a>
+    <div class="d-flex gap-8 mb-8">
+      {include "file:chunks/rating-stars.tpl" active_stars=4}
+      <a class="link-dashed" href="{$_modx->makeUrl('reviews_id'|config)}">5 отзывов</a>
+    </div>
+
+    {*
+        <a class="yandex-rating" href="{$_modx->makeUrl('reviews_id'|config)}" target="_blank">
+          <img src="/assets/template/images/other/yandex-badge.png" alt="Yandex.Market" />
+        </a>
+    *}
     
     <ul class="product-page__inform-list">
       <li class="tooltip-wrapper">
