@@ -263,6 +263,12 @@
     width: 100%
     box-shadow: 0 0 2px inset #ddd
 
+    +until-768
+        height: unset
+        width: unset
+        box-shadow: unset
+        border-radius: unset
+
 // Специфические стили для страницы тротуарной плитки
 body.trotuarnaya-plitka
     .catalog-screen
