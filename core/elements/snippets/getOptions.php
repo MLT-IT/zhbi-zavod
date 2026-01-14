@@ -1,40 +1,28 @@
 <?php
 
+// Толщина, мм: 0.5
+// Покрытие: VikingMP® E
+// Цвет: RAL 8017
+// Коллекция: Ламонтерра X, Супермонтеррей
+// Вид поверхности: Матовая
+// Профиль: C8
 
 $options = [
     "default" => [
-        ["title" => "ГОСТ", "key" => "gost"],
-        ["title" => "Категория", "key" => "kategoriya"],
-
-        ["title" => "Длина, мм", "key" => "dlinna-mm"],
-        ["title" => "Высота, мм", "key" => "vysota-mm"],
-        ["title" => "Ширина, мм", "key" => "shirina-mm"],
-
-        ["title" => "Длина, см", "key" => "dlina-sm"],
-        ["title" => "Высота, см", "key" => "vysota-sm"],
-        ["title" => "Ширина, см", "key" => "shirina-sm"],
-
-        ["title" => "Объем, м3", "key" => "obem-m3"],
-
-        ["title" => "Масса, т", "key" => "massa-t"],
-        ["title" => "Масса, кг", "key" => "massa-kg"],
+        ["key" => "item_thickness", "title" => "Толщина, мм",],
+        ["key" => "pokrytie", "title" => "Покрытие",],
+        ["key" => "cvet", "title" => "Цвет",],
+        ["key" => "collection", "title" => "Коллекция",],
+        ["key" => "vid-poverhnosti", "title" => "Вид поверхности",],
+        ["key" => "profil", "title" => "Профиль",],
     ],
     "detailed" => [
-        ["title" => "ГОСТ", "key" => "gost"],
-        ["title" => "Категория", "key" => "kategoriya"],
-
-        ["title" => "Длина, мм", "key" => "dlinna-mm"],
-        ["title" => "Высота, мм", "key" => "vysota-mm"],
-        ["title" => "Ширина, мм", "key" => "shirina-mm"],
-
-        ["title" => "Длина, см", "key" => "dlina-sm"],
-        ["title" => "Высота, см", "key" => "vysota-sm"],
-        ["title" => "Ширина, см", "key" => "shirina-sm"],
-
-        ["title" => "Объем, м3", "key" => "obem-m3"],
-
-        ["title" => "Масса, т", "key" => "massa-t"],
-        ["title" => "Масса, кг", "key" => "massa-kg"],
+        ["key" => "item_thickness", "title" => "Толщина, мм",],
+        ["key" => "pokrytie", "title" => "Покрытие",],
+        ["key" => "cvet", "title" => "Цвет",],
+        ["key" => "collection", "title" => "Коллекция",],
+        ["key" => "vid-poverhnosti", "title" => "Вид поверхности",],
+        ["key" => "profil", "title" => "Профиль",],
     ]
 ];
 
