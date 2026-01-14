@@ -1,4 +1,4 @@
-<div class="similar-samples section-margin">
+<div class="similar-samples">
     <div class="container">
         <h2 class="section-title">Вам могут понадобиться</h2>
 
