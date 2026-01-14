@@ -39,7 +39,7 @@
     </ul>
   </div>
 
-  {include "file:modules/similar-products/chunks/similar-grid.tpl"}
+  {*include "file:modules/similar-products/chunks/similar-grid.tpl"*}
 
   <div class="product-page__inform-section">
     <div class="product-page__inform-price">

@@ -1,9 +1,5 @@
 {
-  "title": "Стандарт:",
-  "selection_option": "standart",
-  "main_options": [
-    "markirovka"
-  ],
-  "reserve_options": [],
-  "unit": ""
+  "selection_option": "cvet",
+  "main_options": [],
+  "colored-tiles": true
 }
