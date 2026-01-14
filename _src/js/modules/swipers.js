@@ -113,4 +113,31 @@ export default function iniSwipers() {
     },
     direction: "horizontal",
   });
+
+  new Swiper('[data-slider="showroom-objects"]', {
+    modules: [Navigation],
+    loop: false,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+      },
+      992: {
+        slidesPerView: 3,
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 8,
+      },
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 8,
+      },
+    },
+    direction: "horizontal",
+  });
 }
