@@ -124,7 +124,9 @@ if ($statement->execute()) {
             $selected = $item['value'];
         }
         if ($item['value'] != "") {
-            $options = $options . '<a href="' . $url = $modx->makeUrl($item['product_id'], '', '', 'full') . '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? ' (' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
+            $url = $modx->makeUrl($item['product_id'], '', '');
+            $url = parse_url($url, PHP_URL_PATH);
+            $options = $options . '<a href="' . $url. '" class="euv-custom-select__option">' . $item['value'] . " мм" . ($item['plotnost']  ? ' (' . $item['plotnost'] . ' кг/м3)' : '') . "</a>";
         }
     }
 
