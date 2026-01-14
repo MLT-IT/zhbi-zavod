@@ -45,6 +45,10 @@
       font-size: 34px;
       font-weight: 700;
       color: variables.$red;
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
     }
 
     @media (max-width: 768px) {
