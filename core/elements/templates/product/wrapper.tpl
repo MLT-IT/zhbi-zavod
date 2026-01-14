@@ -21,9 +21,9 @@
           </div>
         </div>
 
-        <div class="mt-16">
+        {*<div class="mt-16">
           {include "file:sections/commercial-callback/wrapper.tpl"}
-        </div>
+        </div>*}
       </div>
 
       {include "file:templates/product/tabs/wrapper.tpl"}

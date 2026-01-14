@@ -72,6 +72,33 @@
 [data-color="Цинк"]      { background-color: #B5B5B5!important; }
 [data-color="Без покрытия"] { background-color: transparent!important; }
 
+[data-color]{
+    color: #fff!important;
+}
+[data-color="RAL 9003"],
+[data-color="RAL 9010"],
+[data-color="RAL 9006"],
+[data-color="RAL 9002"],
+[data-color="RAL 7035"],
+[data-color="RAL 7047"],
+[data-color="RAL 7045"],
+[data-color="RAL 1014"],
+[data-color="RAL 1015"],
+[data-color="RAL 1001"],
+[data-color="RAL 1003"],
+[data-color="RAL 2000"],
+[data-color="RAL 9001"],
+[data-color="RAL 9016"],
+[data-color="RAL 9018"],
+[data-color="RAL Al-Zn"],
+[data-color="Цинк"],
+[data-color="Песочный"],
+[data-color="Серый"],
+[data-color="Без покрытия"] {
+  color: #000 !important;
+}
+
+
 [data-color="RR 126"] {}
 [data-color="RR 21"] {}
 [data-color="RR 750"] {}
