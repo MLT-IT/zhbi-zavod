@@ -722,8 +722,9 @@ function changeCountItemInCart($productItem, forbidZero, $target, dontShowMessag
 
     $systemForm.find('[name="count"]').val(count);
 
-    // Пересчитываем отображаемую цену исходя из выбранного количества
-    calcPrice($productItem, {count: count});
+    // Пересчитываем отображаемую цену по введенному пользователем количеству,
+    // а не по пересчитанному count (он уже переведен в базовую единицу).
+    calcPrice($productItem, {rawCount: val, count: count});
 
     // Если товар в корзине, то...
     if (inCart) {
@@ -794,7 +795,13 @@ function getItemCount($productItem, count) {
 function calcPrice($productItem, options) {
     options = (typeof options === 'object' && options !== null) ? options : {};
     let unitVal = getActiveUnitValue($productItem);
-    let countMultiplier = parseFloat(options.count);
+    // rawCount нужен, чтобы не применять unitVal дважды:
+    // count уже пересчитан в базовую единицу для корзины.
+    let countRaw = typeof options.rawCount !== 'undefined' ? options.rawCount : options.count;
+    if (typeof countRaw === 'string') {
+        countRaw = countRaw.replace(',', '.');
+    }
+    let countMultiplier = parseFloat(countRaw);
     if (isNaN(countMultiplier)) {
         countMultiplier = 1;
     }
@@ -809,8 +816,10 @@ function calcPrice($productItem, options) {
         selectors.push('.js-product__old-price-val');
     }
 
+
     selectors.forEach(function (selector) {
         let $elem = $productItem.find(selector);
+        console.log(selector);
 
         if ($elem.length) {
             let value = parseFloat($elem.attr('data-default').replace(/\s/g, ''));
@@ -818,10 +827,12 @@ function calcPrice($productItem, options) {
                 value = 0;
             }
 
+            console.log(unitVal);
             if (+$productItem.find('*[name="unit"]').val() === 13) {
                 value = unitVal;
             } else {
                 value = 1 / unitVal * value;
+                console.log(`value = 1 / ${unitVal} * ${value}`);
             }
             if ($('body.kirpich-m').length) {
                 value = Math.round(value);
