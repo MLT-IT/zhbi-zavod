@@ -2,7 +2,6 @@
   ['title' => 'Описание', 'id' => 'tab1'],
   ['title' => 'Характеристики', 'id' => 'tab2', 'classlist' => 'active'],
   ['title' => 'Условия доставки', 'id' => 'tab3'],
-  ['title' => 'Прайс-лист', 'id' => 'tab4'],
   ['title' => 'Отзывы', 'id' => 'tab5'],
   ['title' => 'Сертификаты', 'id' => 'tab6'],
 ]}
@@ -61,55 +60,6 @@
             data-opened-btn="tab6">Сертификаты</button>
           <div class="product-page__tabs-content" data-opened-element="tab6">
             {include "file:modules/certificates-list/chunks/wrapper.tpl" certs=$certs}
-          </div>
-        </div>
-
-        <div class="product-page__tabs-wrap">
-          <button data-opened-btn="tab4">Прайс-лист</button>
-          <div class="product-page__tabs-content" data-opened-element="tab4">
-          {$_modx->runSnippet('msProducts', [
-          'parents' => $_modx->resource.parent,
-          'depth' => 1,
-          'includeOptions' => 1,
-          'context' => $_modx->resource.context_key,
-          'tplWrapper' => '@INLINE
-          <div class="product-page__pricelist base-box-shadow">
-            <table class="product-page__pricelist-table">
-              <thead>
-                <tr>
-                  <th>Наименование</th>
-                  <th>Характеристики</th>
-                  <th>Цена</th>
-                </tr>
-              </thead>
-              <tbody>
-                {$output}
-              </tbody>
-            </table>
-          </div>
-          ',
-          'tpl' => '@INLINE
-          <tr>
-            <td><a class="link" href="{$uri}">{$pagetitle}</a></td>
-            <td>
-              {if $markirovka[0]}
-              <p>Маркировка : {$markirovka[0]}</p>
-              {/if}
-              {if $_pls["dlina-mm"][0]}
-              <p>Длина, мм : {$_pls["dlina-mm"][0]}</p>
-              {/if}
-              {if $_pls["shirina-mm"][0]}
-              <p>Ширина, мм : {$_pls["shirina-mm"][0]}</p>
-              {/if}
-              {if $_pls["vysota-mm"][0]}
-              <p>Высота, мм : {$_pls["vysota-mm"][0]}</p>
-              {/if}
-            </td>
-            <td>{$price}</td>
-          </tr>
-          ',
-          'limit' => 42,
-          ])}
           </div>
         </div>
 
