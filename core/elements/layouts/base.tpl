@@ -107,7 +107,7 @@
     ></noscript>
     <!-- /Yandex.Metrika counter -->
   </head>
-  <body data-res-id="{$_modx->resource.id}">
+  <body data-res-id="{$_modx->resource.id}" data-res-parent="{$_modx->resource.parent}">
     {include "file:sections/header/wrapper.tpl"}
 
     {block 'page-content'}{/block}
