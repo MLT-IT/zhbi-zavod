@@ -6,6 +6,7 @@
  * selection_option [String] - Опция по которой будет составлен финальный массив данных. Пример по длинне: 'item_length'
  * main_options [Array] - Массив опций для выборки товаров: ['collection', 'item_width']
  * reserve_options [Array] - Массив опций по которым будет выборка ЕСЛИ в первом варианте будут дубли
+ * result_sorted [Array] - Массив для сортировки результатов
  */
 
 if (!class_exists('similarProducts')) {
@@ -20,14 +21,16 @@ if (!class_exists('similarProducts')) {
         static $settings;
         static $cache;
         static $show_current;
+        static $result_sorted;
 
-        public function __construct($selection_option, $main_options, $reserve_options, $show_current, $modx)
+        public function __construct($selection_option, $main_options, $reserve_options, $show_current, $result_sorted, $modx)
         {
             $this->selection_option = $selection_option;
             $this->main_options = $main_options;
             $this->reserve_options = $reserve_options;
             $this->show_current = $show_current;
             $this->modx = $modx;
+            $this->result_sorted = $result_sorted ?: [];
             $this->table_prefix = $modx->getOption('table_prefix');
 
             $this->current_product = [
@@ -266,9 +269,35 @@ if (!class_exists('similarProducts')) {
                 }
             }
 
-            // Сортируем массив по 'value' по возрастанию
-            usort($rows, function ($a, $b) {
-                return $a['value'] <=> $b['value'];
+            $priority = array_map(function ($v) {
+                return mb_strtolower(trim($v));
+            }, $this->result_sorted);
+
+            usort($rows, function ($a, $b) use ($priority) {
+
+                $aVal = mb_strtolower(trim($a['value']));
+                $bVal = mb_strtolower(trim($b['value']));
+
+                $aIndex = array_search($aVal, $priority);
+                $bIndex = array_search($bVal, $priority);
+
+                // Оба есть в приоритетах
+                if ($aIndex !== false && $bIndex !== false) {
+                    return $aIndex <=> $bIndex;
+                }
+
+                // Только A приоритетный
+                if ($aIndex !== false) {
+                    return -1;
+                }
+
+                // Только B приоритетный
+                if ($bIndex !== false) {
+                    return 1;
+                }
+
+                // Оба не приоритетные — оставляем как есть
+                return 0;
             });
 
             return $rows;
@@ -292,7 +321,7 @@ if (!class_exists('similarProducts')) {
     }
 }
 
-$similarProducts = new similarProducts($selection_option, $main_options, $reserve_options, $show_current, $modx);
+$similarProducts = new similarProducts($selection_option, $main_options, $reserve_options, $show_current, $result_sorted, $modx);
 $result = $similarProducts->init();
 
 return $result;

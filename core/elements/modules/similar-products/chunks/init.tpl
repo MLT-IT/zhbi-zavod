@@ -8,6 +8,7 @@
         'selection_option' => $data['data']['selection_option'],
         'main_options' => $data['data']['main_options'],
         'reserve_options' => $data['data']['reserve_options'],
+        'result_sorted' => $data['data']['result-sorted']
     ]}
     {$_modx->setPlaceholder("similar", [
         'products' => $products,

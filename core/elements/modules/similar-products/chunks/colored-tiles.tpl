@@ -1,6 +1,6 @@
 {set $similar = $_modx->getPlaceholder("similar")}
 
-{if $similar && $similar['data']['colored-tiles']}
+{if $similar && $similar['data']['colored-tiles'] && $similar['products']}
 <div class="colored-tiles">
     <div class="colored-tiles__title">Цветовая палитра:</div>
     
