@@ -76,9 +76,66 @@
 [data-color="Antique Wood"] { background-color: #774949!important; }
 [data-color="Golden Wood"]  { background-color: #CD8F65!important; }
 
-[data-color]{
-    color: #fff!important;
-}
+[data-color="RR 126"] { background-color: #008000!important;}
+[data-color="RR 21"] { background-color: #a6a6a6!important;}
+[data-color="RR 750"] { background-color: #84452a!important;}
+[data-color="RR 887"] { background-color: #45302b!important;}
+[data-color="RR 22"] { background-color: #e2e2e2!important;}
+[data-color="RAL 1019"] { background-color: #A4957D!important;}
+[data-color="RAL 1035"] { background-color: #908370!important;}
+[data-color="RAL 1036"] { background-color: #927549!important;}
+[data-color="RAL 6028"] { background-color: #2d5546!important;}
+[data-color="RAL 5009"] { background-color: #2e5978!important;}
+[data-color="RAL 1013"] { background-color: #E9E5CE!important;}
+[data-color="RAL 5024"] { background-color: #6a93b0!important;}
+[data-color="RR 35"] { background-color: #154d7e!important;}
+[data-color="RAL 1017"] { background-color: #f2ae5d!important;}
+[data-color="RAL 7046"] { background-color: #82898e!important;}
+[data-color="RAL 1034"] { background-color: #EDAB56!important;}
+[data-color="RAL 1006"] { background-color: #e4a010!important;}
+[data-color="RAL 1004"] { background-color: #E2B007!important;}
+[data-color="RAL 9011"] { background-color: #1C1C1C!important;}
+[data-color="RAL 4006"] { background-color: #992572!important;}
+[data-color="RAL 4007"] { background-color: #4a203b!important;}
+[data-color="RR 26"] { background-color: #ed9835!important;}
+[data-color="RAL 8011"] { background-color: #5B3A29!important;}
+[data-color="RAL 5023"] { background-color: #4d668e!important;}
+[data-color="RAL 2013"] { background-color: #954527!important;}
+[data-color="RR 32 муар"] { background-color: #3b3332!important;}
+[data-color="RAL 3018"] { background-color: #d14152!important;}
+[data-color="NL805"],
+[data-color="NL 805"] { background-color: #3f362b!important;}
+[data-color="RAL 3013"] { background-color: #9d1625!important;}
+[data-color="RAL 6033"] { background-color: #578e86!important;}
+
+[data-color="Golden Wood Fresh TwinColor"],
+[data-color="Golden Wood TwinColor"],
+[data-color="Golden Wood Fresh"] {background-color: #CD8F65!important;}
+[data-color="Antique Wood TwinColor"] {background-color: #774949!important;}
+[data-color="Cherry Wood TwinColor"],
+[data-color="Cherry Wood Fresh TwinColor"],
+[data-color="Cherry Wood Fresh"] {background-color: #7B2716!important;}
+[data-color="Chestnut Wood"],
+[data-color="Chestnut Wood TwinColor"] {background-color: #86572C!important;}
+[data-color="Choco Wood TwinColor"] {background-color: #987654!important;}
+[data-color="Coffee Wood TwinColor"],
+[data-color="Coffee Wood Blesk TwinColor"] {background-color: #964b00!important;}
+[data-color="Fine Stone TwinColor"],
+[data-color="King Stone TwinColor"],
+[data-color="Sand Stone TwinColor"] {background-color: #C9C0BB!important;}
+[data-color="Honey Wood TwinColor"] {background-color: #f4bf06!important;}
+[data-color="Milky Wood TwinColor"] {background-color: #E9E5CE!important;}
+[data-color="Rowan TwinColor"],
+[data-color="Rowan Fresh TwinColor"] {background-color: #712200!important;}
+[data-color="Snow Wood TwinColor"],
+[data-color="White Wood TwinColor"] {background-color: #F4F4F4!important;}
+[data-color="Almond Wood Fresh"] {background-color: #DED09F!important;}
+[data-color="Pine Wood Fresh"] {background-color: #6A584D!important;}
+[data-color="Nordic Wood TwinColor"] {background-color: #7e7e7e!important;}
+
+[data-color]{color: #fff!important;}
+[data-color="RR 21"],
+[data-color="RR 22"],
 [data-color="RAL 9003"],
 [data-color="RAL 9010"],
 [data-color="RAL 9006"],
@@ -102,64 +159,3 @@
   color: #000 !important;
 }
 
-
-[data-color="RR 126"] {}
-[data-color="RR 21"] {}
-[data-color="RR 750"] {}
-[data-color="RR 887"] {}
-[data-color="RR 22"] {}
-[data-color="RAL 1019"] {}
-[data-color="RAL 1035"] {}
-[data-color="RAL 1036"] {}
-[data-color="RAL 6028"] {}
-[data-color="RAL 5009"] {}
-[data-color="RAL 1013"] {}
-[data-color="RAL 5024"] {}
-[data-color="RR 35"] {}
-[data-color="RAL 1017"] {}
-[data-color="RAL 7046"] {}
-[data-color="RAL 1034"] {}
-[data-color="RAL 1006"] {}
-[data-color="RAL 1004"] {}
-[data-color="RAL 9011"] {}
-[data-color="RAL 4006"] {}
-[data-color="RAL 4007"] {}
-[data-color="RR 26"] {}
-[data-color="RAL 8011"] {}
-[data-color="RAL 5023"] {}
-[data-color="RAL 2013"] {}
-[data-color="RR 32 муар"] {}
-[data-color="RAL 3018"] {}
-[data-color="NL 805"] {}
-[data-color="RAL 3013"] {}
-[data-color="NL805"] {}
-[data-color="RAL 8015"] {}
-[data-color="Р 362"] {}
-[data-color="RAL 6033"] {}
-
-[data-color="Golden Wood Fresh TwinColor"] {}
-[data-color="Antique Wood TwinColor"] {}
-[data-color="Cherry Wood TwinColor"] {}
-[data-color="Chestnut Wood TwinColor"] {}
-[data-color="Choco Wood TwinColor"] {}
-[data-color="Coffee Wood Blesk TwinColor"] {}
-[data-color="Coffee Wood TwinColor"] {}
-[data-color="Fine Stone TwinColor"] {}
-[data-color="Golden Wood TwinColor"] {}
-[data-color="Honey Wood TwinColor"] {}
-[data-color="Milky Wood TwinColor"] {}
-[data-color="Rowan TwinColor"] {}
-[data-color="Sand Stone TwinColor"] {}
-[data-color="Snow Wood TwinColor"] {}
-[data-color="White Wood TwinColor"] {}
-
-[data-color="Almond Wood Fresh"] {}
-[data-color="Cherry Wood Fresh TwinColor"] {}
-[data-color="Golden Wood Fresh"] {}
-[data-color="Pine Wood Fresh"] {}
-[data-color="Rowan Fresh TwinColor"] {}
-[data-color="Cherry Wood Fresh"] {}
-
-[data-color="Chestnut Wood"] {}
-[data-color="King Stone TwinColor"] {}
-[data-color="Nordic Wood TwinColor"] {}
