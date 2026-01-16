@@ -19,6 +19,7 @@
           <button class="btn btn-primary" data-opened-btn="filters">Применить</button>
         </div>
 
+        {include "file:sections/sidebar-banner/wrapper.tpl"}
       </div>
 
       <div class="category-listing__content">
