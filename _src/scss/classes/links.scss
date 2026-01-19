@@ -5,6 +5,15 @@
 
   &-default {
     color: variables.$dark-gray-1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &-primary {
+    color: variables.$red!important;
+
     &:hover {
       opacity: 0.5;
     }
@@ -17,10 +26,12 @@
   width: max-content;
   color: variables.$red !important;
   border-bottom: 1px dashed variables.$red;
+
   &.white {
     color: #fff !important;
     border-bottom: 1px dashed white;
   }
+
   &:hover {
     border-bottom-color: transparent;
   }
