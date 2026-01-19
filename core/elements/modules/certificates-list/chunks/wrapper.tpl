@@ -15,9 +15,9 @@
                             'input' => "{$preview}",
                             'options' => '&h=140&far=1'
                         ]}
-                    <img src="{$thumb}" />
+                    <img src="{$thumb}" loading="lazy"/>
                 {else}
-                    <img src="/assets/template/images/other/dummy-pdf.png" />
+                    <img src="/assets/template/images/other/dummy-pdf.png" loading="lazy" />
                     Посмотреть сертификат
                 {/if}
             </a>
