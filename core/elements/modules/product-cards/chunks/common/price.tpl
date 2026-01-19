@@ -3,7 +3,8 @@
   'fields' => [
     'unit' => $_pls['unit'][0],
     'price' => $price,
-    'old_price' => $old_price
+    'old_price' => $old_price,
+    'kolvom2upak' => $_pls['kolvom2upak'][0]
   ]
 ]}
 
