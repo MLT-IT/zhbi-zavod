@@ -12,7 +12,10 @@ foreach ($data as $category_index => $category) {
         $active_class = "";
     }
 
-    $html_categories .= "<a class='catalog-menu__categories-item $active_class' href='{$category['uri']}' data-subcategories-open='category-{$category_index}'>{$category['title']}</a>";
+    $html_categories .= "<a class='catalog-menu__categories-item $active_class' href='{$category['uri']}' data-subcategories-open='category-{$category_index}'>
+    <svg><use xlink:href='{$category['icon']}'></use></svg>
+    {$category['title']}
+    </a>";
 
     $html_subcategory = "";
     foreach ($category['children'] as $subcategory_name => $childrens) {

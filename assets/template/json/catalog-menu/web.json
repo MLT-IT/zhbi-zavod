@@ -55,7 +55,8 @@
           "uri": "/ondulin-toskana/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-ondulin"
   },
   {
     "title": "Шифер",
@@ -97,7 +98,8 @@
           "uri": "/sinij-shifer/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-proflist"
   },
   {
     "title": "Металлочерепица",
@@ -247,7 +249,8 @@
           "uri": "/metallocherepicza-0.5-mm/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-cerepica"
   },
   {
     "title": "Гибкая черепица",
@@ -309,7 +312,8 @@
           "uri": "/pesochnaya-myagkaya-cherepica/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-bit-krovlya"
   },
   {
     "title": "Рулонная кровля",
@@ -387,7 +391,8 @@
           "uri": "/rulonnaya-krovlya-dlya-trub/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-rulon-krovlya"
   },
   {
     "title": "Цементно-песчаная черепица",
@@ -515,7 +520,8 @@
           "uri": "/czementno-peschanaya-cherepicza-kirpichno-krasnyij/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-natur-cerepica"
   },
   {
     "title": "Керамическая черепица",
@@ -597,7 +603,8 @@
           "uri": "/keramicheskaya-cherepicza-chernaya/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-ceramocherepica"
   },
   {
     "title": "Фальцевая кровля",
@@ -717,7 +724,8 @@
           "uri": "/falczevaya-krovlya-rr-22/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-falc-krovlya"
   },
   {
     "title": "Профлист",
@@ -835,7 +843,8 @@
           "uri": "/proflist-mp-35/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-proflist"
   },
   {
     "title": "Штакетник",
@@ -911,7 +920,8 @@
           "uri": "/shtaketnik-0-43-mm/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-shtaket"
   },
   {
     "title": "Водосточная система",
@@ -949,7 +959,8 @@
           "uri": "/vodostochnaya-sistema-alta-profil/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-vodostoch"
   },
   {
     "title": "Софиты",
@@ -1023,7 +1034,8 @@
           "uri": "/sofityi-krasnyij/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-sofity"
   },
   {
     "title": "Доборные элементы для кровли",
@@ -1091,7 +1103,8 @@
           "uri": "/chetverniki/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-dobor"
   },
   {
     "title": "Комплектующие",
@@ -1119,6 +1132,7 @@
           "uri": "/ustrojstvo-primykanij/"
         }
       ]
-    }
+    },
+    "icon": "/assets/template/images/icons.svg?v3#assort-soputtovary"
   }
 ]
