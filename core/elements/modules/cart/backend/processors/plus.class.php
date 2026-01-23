@@ -16,7 +16,9 @@ class plus extends Main
         if (empty($cart_items)) {
             $cart_items = [];
 
-            $product_data['count'] = 1;
+            if (!isset($product_data["count"]))
+                $product_data['count'] = 1;
+
             $cart_items[] = $product_data;
         } else {
             /**
@@ -29,9 +31,12 @@ class plus extends Main
                 if ($cart_item['id'] == $product_data['id']) {
                     $cart_item = array_replace($cart_item, $product_data);
 
-                    $cart_item['count']++;
-
-                    $product_data["count"] = $cart_item['count'];
+                    if (isset($product_data["count"])) {
+                        $cart_item['count'] = $product_data["count"];
+                    } else {
+                        $cart_item['count']++;
+                        $product_data["count"] = $cart_item['count'];
+                    }
 
                     $item_exist = true;
                     break;
@@ -40,12 +45,14 @@ class plus extends Main
 
             // Если товара не было в массиве корзины, добавить
             if (!$item_exist) {
-                $product_data['count'] = 1;
+                if (!isset($product_data["count"]))
+                    $product_data['count'] = 1;
+
                 $cart_items[] = $product_data;
             }
         }
 
-        $product_data["summ"] =  $this->calcSumm($product_data['count'], $product_data['price']);
+        $product_data["summ"] =  $this->calcSumm($product_data['count'], $product_data['calc_price'] ?: $product_data['price']);
 
         $this->session->set($cart_items);
 

@@ -61,7 +61,7 @@ class Main
             'old' => 0
         ];
         foreach ($cart_items as $cart_item) {
-            $total_summ['summ'] += $this->calcSumm($cart_item['count'], $cart_item['price'], false);
+            $total_summ['summ'] += $this->calcSumm($cart_item['count'], $cart_item['calc_price'] ?: $cart_item['price'], false);
             $total_summ['old_summ'] += $this->calcSumm($cart_item['count'], $cart_item['old_price'], false);
         }
 
@@ -102,7 +102,7 @@ class Main
             // Товар из корзины для получения необходимых полей 
             $cart_item = $cart_items_by_id[$product_id];
 
-            $summ = $this->calcSumm($cart_item['count'], $cart_item['price']);
+            $summ = $this->calcSumm($cart_item['count'], $cart_item['calc_price'] ?: $cart_item['price']);
 
             $output[] = [
                 "id" => $product_id,
@@ -113,8 +113,12 @@ class Main
                 "unit" => $cart_item['unit'] ?: $ms_product->get("unit")[0], // Получаем из корзины, вдруг была подмена 
                 "price" => $cart_item['price'] ?: $ms_product->get("price"), // Получаем из корзины, вдруг была подмена 
                 "old_price" => $cart_item['old_price'] ?: $ms_product->get("old_price"),
+                "calc_price" => $cart_item['calc_price'],
                 "count" =>  $cart_item['count'],
-                "summ" => $summ
+                "summ" => $summ,
+                
+                "calc_width" => $cart_item['calc_width'],
+                "calc_length" => $cart_item['calc_length'],
             ];
         }
 

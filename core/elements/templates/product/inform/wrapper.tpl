@@ -63,8 +63,16 @@
     </div>
   </div>
 
-  {include "file:modules/cart/frontend/chunks/cart-controls-big.tpl"}
 
+  {if true}
+    <div class="product-page__inform-section">
+      <div class="product-page__inform-price">
+        {include "file:modules/cart/frontend/chunks/cart-calc.tpl"}
+      </div>
+    </div>
+  {else}
+    {include "file:modules/cart/frontend/chunks/cart-controls-big.tpl"}
+  {/if}
   <button
     class="product-page__inform-btn-buy btn btn-bordered"
     onclick="modals.events.open('modal-callback')"

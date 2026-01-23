@@ -16,13 +16,17 @@
           <div class="color-gray mt-8">Стоимость за 1 {$product['unit']}</div>
         </div>
         <div class="product-card-v3__content-cart">
-          {include "file:modules/cart/frontend/chunks/cart-controls-default.tpl" 
-            id=$product['id'] 
-            product_count=$product['count']
-            price=$product['price']
-            old_price=$product['old_price']
-            unit=$product['unit']
-          }
+          {if true}
+            {include "file:modules/cart/frontend/chunks/cart-calc.tpl" product=$product}
+          {else}
+            {include "file:modules/cart/frontend/chunks/cart-controls-default.tpl" 
+              id=$product['id'] 
+              product_count=$product['count']
+              price=$product['price']
+              old_price=$product['old_price']
+              unit=$product['unit']
+            }
+          {/if}
         </div>
       </div>
       <div class="fs-30">

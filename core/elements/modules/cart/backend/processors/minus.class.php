@@ -22,7 +22,12 @@ class minus extends Main
                 if ($cart_item['id'] == $product_data['id']) {
                     $cart_item = array_replace($cart_item, $product_data);
 
-                    $cart_item['count']--;
+                    if (isset($product_data["count"])) {
+                        $cart_item['count'] = $product_data["count"];
+                    } else {
+                        $cart_item['count']--;
+                        $product_data["count"] = $cart_item['count'];
+                    }
 
                     if ($cart_item['count'] <= 0) {
                         unset($cart_items[$key]);
@@ -35,7 +40,7 @@ class minus extends Main
             }
         }
 
-        $product_data["summ"] = $this->calcSumm($product_data['count'], $product_data['price']);
+        $product_data["summ"] =  $this->calcSumm($product_data['count'], $product_data['calc_price'] ?: $product_data['price']);
 
         $this->session->set($cart_items);
 

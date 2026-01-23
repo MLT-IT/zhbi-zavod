@@ -41,7 +41,7 @@ class change extends Main
             }
         }
 
-        $product_data["summ"] =  $this->calcSumm($product_data['count'], $product_data['price']);
+        $product_data["summ"] =  $this->calcSumm($product_data['count'], $product_data['calc_price'] ?: $product_data['price']);
 
         $this->session->set($cart_items);
 
