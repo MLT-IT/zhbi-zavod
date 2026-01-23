@@ -23,7 +23,12 @@
 {set $count = $product['count'] ? $product['count'] : ($product_data['count'] ?: 1)}
 
 
-<div class="data-calc-cart" data-calc-cart>
+<div
+  class="data-calc-cart"
+  data-calc-cart
+  data-calc-width="{$calc_width}"
+  data-calc-price="{$price}"
+>
   <form data-cart-form="{$product_id}" onsubmit="">
     <input type="hidden" name="id" value="{$product_id}" />
     <input type="hidden" name="price" value="{$price}" />
@@ -71,75 +76,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const PRICE_PER_M2 = {$price}; // ₽ за м²
-    const SHEET_WIDTH_M = {$calc_width}; // ширина листа в метрах
-
-    const calc_cart = document.querySelector("[data-calc-cart]");
-    const controls = calc_cart.querySelectorAll("[data-calc-cart-controls]");
-
-    function recalc() {
-      const lengthInput = controls[0].querySelector("input");
-      const countInput = controls[1].querySelector("input");
-
-      const lengthMm = Number(lengthInput.value);
-      const count = Number(countInput.value);
-
-      const lengthM = lengthMm / 1000;
-
-      const area = (lengthM * SHEET_WIDTH_M * count).toFixed(2);
-      const total = Math.round(area * PRICE_PER_M2);
-
-      calc_cart.querySelector("[data-calc-cart-area]").textContent = area;
-
-      calc_cart.querySelector("[data-calc-cart-total]").textContent = total;
-
-      // Изменить цену за штуку
-      const form = event.target.form;
-      if (form) {
-        const input_calc_price = form.querySelector("input[name='calc_price']");
-        if (input_calc_price)
-          input_calc_price.value = Math.round(total / count);
-      }
-
-      cart.submit(event);
-    }
-
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-cart-event]");
-      if (!btn) return;
-
-      const parent = btn.parentNode;
-      const input = parent.querySelector("input");
-
-      const step = Number(input.step) || 1;
-      let value = Number(input.value);
-
-      if (btn.dataset.cartEvent === "plus") {
-        value += step;
-      }
-
-      if (btn.dataset.cartEvent === "minus") {
-        value -= step;
-      }
-
-      if (value < step) value = step;
-
-      input.value = value;
-      recalc();
-
-      // Записали измененный параметр, например необходимо сохранять выбранную длину
-      const form = e.target.form
-      if(form){
-        const find_input = form.querySelector("input[name='"+input.name+"']");
-        if(find_input){
-          find_input.value = value;
-        }
-      }
-    });
-
-    recalc();
-  });
-</script>

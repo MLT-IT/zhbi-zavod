@@ -26,20 +26,15 @@ class Main
 
         if (empty($cart_items)) return 0;
 
-        $product_count = 0;
+        $product_data = null;
         foreach ($cart_items as $cart_item) {
             if ($cart_item['id'] == $product_id) {
-                $product_count = $cart_item['count'];
+                $product_data = $cart_item;
                 break;
             }
         }
 
-        // $summ = (int)$product_count['count'] * $this->helpers->parseNumber($product_count['price']);
-
-        return [
-            "count" => $product_count,
-            // "summ" => $summ
-        ];
+        return $product_data;
     }
 
     /**
@@ -116,7 +111,7 @@ class Main
                 "calc_price" => $cart_item['calc_price'],
                 "count" =>  $cart_item['count'],
                 "summ" => $summ,
-                
+
                 "calc_width" => $cart_item['calc_width'],
                 "calc_length" => $cart_item['calc_length'],
             ];

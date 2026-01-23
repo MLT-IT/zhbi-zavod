@@ -4,7 +4,7 @@
 ]}
 
 <form
-  class="cart-product-big {if $product_data['count'] > 0}active{/if}"
+  class="cart-product-big {if $product_data['count'] ?: 0> 0}active{/if}"
   data-cart-form="{$product_id}"
   onsubmit="cart.submit(event)"
 >

@@ -17,7 +17,10 @@ import initCopyToClipboard from "./modules/copy-to-clipboard.js";
 
 import initCatalog from "../../core/elements/modules/catalog-menu/js/main";
 import initModals from "../../core/elements/modules/modals/js/main";
+
 import initCart from "../../core/elements/modules/cart/frontend/js/main.js";
+import "../../core/elements/modules/cart/frontend/js/cart-calc.js";
+
 import initProductSelections from "../../core/elements/modules/store-product-selection/js/main.js";
 import initProductCart from "../../core/elements/modules/product-cards/js/main.js";
 import initSplitUnit from "../../core/elements/modules/split-unit/js/main.js";
@@ -26,36 +29,36 @@ import "../../core/elements/modules/menu/uteplitel/scripts/main.js";
 import FastSearch from "../../core/elements/modules/fast-search/js/FastSearch.js";
 import testAutodeploy from "./modules/test-autodeploy.js";
 
-document.addEventListener("DOMContentLoaded", function() {
-    try {
-        let search_by_words = new SearchByWords();
-        search_by_words.init();
-    } catch {}
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    let search_by_words = new SearchByWords();
+    search_by_words.init();
+  } catch {}
 
-    initCatalog();
-    initModals();
-    iniSwipers();
-    initNotifications();
-    initCart();
-    initProductSelections();
-    initProductCart();
-    initOpened();
-    initSplitUnit();
-    initCustomSelect();
-    initDistrictsMap();
-    fetchItObserve();
-    initInputMask();
-    initComparison();
-    initOpenedOptions();
-    initCopyToClipboard();
-    testAutodeploy();
+  initCatalog();
+  initModals();
+  iniSwipers();
+  initNotifications();
+  initCart();
+  initProductSelections();
+  initProductCart();
+  initOpened();
+  initSplitUnit();
+  initCustomSelect();
+  initDistrictsMap();
+  fetchItObserve();
+  initInputMask();
+  initComparison();
+  initOpenedOptions();
+  initCopyToClipboard();
+  testAutodeploy();
 
-    let fast_search = new FastSearch();
-    fast_search.init();
+  let fast_search = new FastSearch();
+  fast_search.init();
 
-    // Библиотеки
-    GLightbox({
-        touchNavigation: true,
-        loop: true,
-    });
+  // Библиотеки
+  GLightbox({
+    touchNavigation: true,
+    loop: true,
+  });
 });
