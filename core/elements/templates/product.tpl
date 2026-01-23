@@ -34,8 +34,6 @@
 
 {* Получаем отзывы товара *}
 {switch $_modx->resource.context_key}
-{case 'web'}
-  {set $reviewsCount = 0}
 {case 'kirpich-m5'}
   {set $reviewsCount = 21}
 {default}
@@ -287,7 +285,7 @@
         <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
-              {if $_modx->context.key in ['krovelnyjstroymarket', 'kirpich-m5', 'fibrofasad','trotuarnaya-plitka']}
+              {if $_modx->context.key in ['krovelnyjstroymarket', 'kirpich-m5', 'fibrofasad','trotuarnaya-plitka', 'web']}
                 {insert 'file:_modules/mltreviews/chunks/product-page.tpl'}
               {else}
               <div class="reviews">
