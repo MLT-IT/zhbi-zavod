@@ -8,6 +8,7 @@ export default function formDataSerialize(form) {
     "unit",
     "calc_width",
     "calc_length",
+    "is_calc_cart"
   ];
 
   let result = {};

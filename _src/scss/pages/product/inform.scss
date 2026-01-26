@@ -81,7 +81,12 @@
         gap: 10px;
         list-style: none;
 
-        span {
+        @media (max-width: variables.$bp768) {
+          font-size: 11px;
+        }
+
+        span,
+        a {
           @media (max-width: variables.$bp768) {
             font-size: 11px;
           }

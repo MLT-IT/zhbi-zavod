@@ -38,8 +38,13 @@
     <input type="hidden" name="unit" value="{$unit}" />
 
     {* Опции товара для расчета *}
-    <input type="hidden" name="calc_width" value="{$calc_width}" />
-    <input type="hidden" name="calc_length" value="{$calc_length}" />
+    {if $calc_width && $calc_length}
+      <input type="hidden" name="calc_width" value="{$calc_width}" />
+      <input type="hidden" name="calc_length" value="{$calc_length}" />
+
+      {* Отметка что используется калькулятор *}
+      <input type="hidden" name="is_calc_cart" value="true" />
+    {/if}
 
     <div class="default-controls" data-calc-cart-controls>
       <div class="default-controls__title">Длина листа, мм</div>

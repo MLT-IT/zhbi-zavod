@@ -1,6 +1,7 @@
 {set $product_front_id = "product_front_id_"~$product.id}
+{set $is_calc_cart = $product['is_calc_cart']}
 
-<div class="product-card-v3 base-box-shadow" id="{$product_front_id}">
+<div class="product-card-v3 base-box-shadow {if $is_calc_cart}show-cart-calc{/if}" id="{$product_front_id}">
   <div class="product-card-v3__image">
     {if $product['thumb']?}
       <img src="{$product['thumb']}" loading="lazy"/>
@@ -16,7 +17,7 @@
           <div class="color-gray mt-8">Стоимость за 1 {$product['unit']}</div>
         </div>
         <div class="product-card-v3__content-cart">
-          {if true}
+          {if $is_calc_cart}
             {include "file:modules/cart/frontend/chunks/cart-calc.tpl" product=$product}
           {else}
             {include "file:modules/cart/frontend/chunks/cart-controls-default.tpl" 
@@ -29,9 +30,11 @@
           {/if}
         </div>
       </div>
+      {if !$is_calc_cart}
       <div class="fs-30">
         Итого: <span class="fw-700" data-cart-product-summ="{$product['id']}">{$product['summ']}</span> ₽
       </div>
+      {/if}
     </div>
   </div>
   <div class="product-card-v3__controls">

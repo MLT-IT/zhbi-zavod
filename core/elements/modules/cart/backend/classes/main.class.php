@@ -112,6 +112,7 @@ class Main
                 "count" =>  $cart_item['count'],
                 "summ" => $summ,
 
+                "is_calc_cart" => $cart_item['is_calc_cart'],
                 "calc_width" => $cart_item['calc_width'],
                 "calc_length" => $cart_item['calc_length'],
             ];

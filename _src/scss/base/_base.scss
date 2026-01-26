@@ -295,11 +295,14 @@ b {
       min-width: 30px;
     }
   }
-}
 
-.data-calc-cart {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
+  &__title {
+    @media (max-width: variables.$bp768) {
+      font-size: 12px;
+    }
+
+    span {
+      font-size: inherit;
+    }
+  }
 }
