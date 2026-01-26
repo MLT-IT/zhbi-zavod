@@ -192,25 +192,3 @@
   //   }
   // }
 }
-
-.data-calc-cart {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-
-  @media (max-width: variables.$bp768) {
-    flex-direction: column;
-    gap: 3px;
-  }
-
-  form {
-    display: flex;
-    gap: 8px;
-
-    @media (max-width: variables.$bp768) {
-      flex-direction: column;
-      gap: 3px;
-    }
-  }
-}

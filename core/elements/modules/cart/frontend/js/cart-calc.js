@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const area = +(lengthM * SHEET_WIDTH_M * count).toFixed(2);
       const total = Math.round(area * PRICE_PER_M2);
 
-      areaEl.textContent = area;
-      totalEl.textContent = total;
+      areaEl.textContent = area || "_";
+      totalEl.textContent = total || "_";
 
       // записываем цену за штуку
       const form = lengthInput.form;
@@ -41,32 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // кнопки + / -
     cart.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-cart-event]");
-      if (!btn) return;
+      const btn = e.target.closest('[data-cart-event]')
+      if (!btn) return
 
-      const row = btn.closest(".default-controls__row");
-      if (!row) return;
+      const input = btn.parentNode.querySelector("input");
+      if (input) {
+        const step = Number(input.step) || 1;
+        let value = Number(input.value) || 0;
 
-      const input = row.querySelector("input");
-      if (!input) return;
+        if (btn.dataset.cartEvent === "plus") value += step;
+        if (btn.dataset.cartEvent === "minus") value -= step;
 
-      const step = Number(input.step) || 1;
-      let value = Number(input.value) || 0;
+        if (value < step) value = input.min || step;
 
-      if (btn.dataset.cartEvent === "plus") value += step;
-      if (btn.dataset.cartEvent === "minus") value -= step;
+        input.value = value;
 
-      if (value < step) value = step;
-
-      input.value = value;
-
-      // синхронизируем hidden input
-      const form = input.form;
-      if (form && input.name) {
-        const hidden = form.querySelector(
-          `input[type="hidden"][name="${input.name}"]`,
-        );
-        if (hidden) hidden.value = value;
+        const form = input.form;
+        if (form && input.name) {
+          const hidden = form.querySelector(
+            `input[type="hidden"][name="${input.name}"]`
+          );
+          if (hidden) hidden.value = value;
+        }
       }
 
       recalc(e);

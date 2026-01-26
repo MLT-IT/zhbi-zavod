@@ -8,7 +8,8 @@
   &__row {
     display: flex;
     gap: 40px;
-    @media (max-width: variables.$bp768) {
+
+    @media (max-width: variables.$bp992) {
       display: grid;
     }
 
@@ -19,13 +20,16 @@
 
       &:first-child {
         width: 50%;
-        @media (max-width: variables.$bp768) {
+
+        @media (max-width: variables.$bp992) {
           width: 100%;
         }
       }
+
       &:last-child {
         width: 50%;
-        @media (max-width: variables.$bp768) {
+
+        @media (max-width: variables.$bp992) {
           width: 100%;
         }
       }
@@ -33,7 +37,7 @@
   }
 
   .custom-select {
-    @media (max-width: variables.$bp768) {
+    @media (max-width: variables.$bp992) {
       width: 100%;
     }
   }

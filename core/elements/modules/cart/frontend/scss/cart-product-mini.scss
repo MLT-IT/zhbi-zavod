@@ -6,6 +6,7 @@
 
   &__controls {
     display: flex;
+
     button {
       // height: 100%;
       padding: 0;
@@ -34,20 +35,9 @@
     display: grid;
     grid-template-columns: 94px 1fr;
     gap: 8px;
+
     @media (max-width: variables.$bp768) {
       grid-template-columns: 56px 1fr;
-    }
-  }
-
-  .show-active {
-    display: none;
-  }
-  &.active {
-    .hide-active {
-      display: none;
-    }
-    .show-active {
-      display: grid;
     }
   }
 
@@ -69,6 +59,7 @@
     @media (max-width: variables.$bp768) {
       min-width: auto;
     }
+
     @media (max-width: variables.$bp768) {
       width: 56px;
       height: 30px;
@@ -81,9 +72,11 @@
         max-height: 24px;
       }
     }
+
     .main-text {
       font-size: 12px;
     }
+
     .mini-text {
       font-weight: 400;
       text-transform: lowercase;

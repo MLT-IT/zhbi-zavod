@@ -10,7 +10,6 @@
   {set $product_data = '@FILE modules/cart/backend/snippets/getProductData.php' | snippet : [
     'product_id' => $product_id
   ]}
-
   {* Ширина листа - Опция указана в мм, переводим в м *}
   {set $calc_width = ($_modx->resource['rabochaya-shirina'][0] ?: $_modx->resource['poleznaya-shirina'][0]) / 1000}
   {* Длина в местрах. По умолчанию 0.5 *}
@@ -20,16 +19,11 @@
 {* Вычисление площади листа *}
 {set $price = $product['price'] ? $product['price'] : $_modx->resource.price ?: 0}
 {set $unit = $product['unit'] ? $product['unit'] : ($unit | gettype == 'array' ? $unit[0] : $unit)}
-{set $count = $product['count'] ? $product['count'] : ($product_data['count'] ?: 1)}
+{set $count = $product['count'] ? $product['count'] : ($product_data['count'] ?: 0)}
 
-
-<div
-  class="data-calc-cart"
-  data-calc-cart
-  data-calc-width="{$calc_width}"
-  data-calc-price="{$price}"
->
-  <form data-cart-form="{$product_id}" onsubmit="">
+<div class="data-calc-cart" data-calc-cart data-calc-width="{$calc_width}"
+  data-calc-price="{$price}">
+  <form data-cart-form="{$product_id}" class="{if $count > 0}active{/if}">
     <input type="hidden" name="id" value="{$product_id}" />
     <input type="hidden" name="price" value="{$price}" />
     <input type="hidden" name="calc_price" />
@@ -39,45 +33,58 @@
 
     {* Опции товара для расчета *}
     {if $calc_width && $calc_length}
-      <input type="hidden" name="calc_width" value="{$calc_width}" />
-      <input type="hidden" name="calc_length" value="{$calc_length}" />
+    <input type="hidden" name="calc_width" value="{$calc_width}" />
+    <input type="hidden" name="calc_length" value="{$calc_length}" />
 
-      {* Отметка что используется калькулятор *}
-      <input type="hidden" name="is_calc_cart" value="true" />
+    {* Отметка что используется калькулятор *}
+    <input type="hidden" name="is_calc_cart" value="true" />
     {/if}
 
-    <div class="default-controls" data-calc-cart-controls>
-      <div class="default-controls__title">Длина листа, мм</div>
-      <div class="default-controls__row">
-        <button class="btn btn-primary" data-cart-event="minus">-</button>
-        <input class="fw-600" type="number" name="calc_length" value="{$calc_length}" step="500" />
-        <button class="btn btn-primary" data-cart-event="plus">+</button>
+    <div class="data-calc-cart__row">
+      <div class="default-controls" data-calc-cart-controls>
+        <div class="default-controls__title">Длина листа, мм</div>
+        <div class="default-controls__row">
+          <button class="btn btn-primary" data-cart-event="minus">-</button>
+          <input class="fw-600" type="number" name="calc_length" value="{$calc_length}" step="500" />
+          <button class="btn btn-primary" data-cart-event="plus">+</button>
+        </div>
+      </div>
+
+      <div class="default-controls" data-calc-cart-controls>
+        <div class="default-controls__title">Кол-во листов, шт.</div>
+        <div class="default-controls__row">
+          <button class="btn btn-primary" data-cart-event="minus">-</button>
+          <input class="fw-600" type="number" value="{$count}" name="count" step="1" min="0" data-cart-event="change"
+            data-cart-product-count="{$product_id}" />
+          <button class="btn btn-primary" data-cart-event="plus" id="add_product_btn">+</button>
+        </div>
+      </div>
+
+      <div class="default-controls text-end">
+        <div class="default-controls__title">
+          Итого: <span data-calc-cart-area>0</span> м<sup>2</sup>
+        </div>
+        <div class="fs-30 fw-700">
+          <span data-calc-cart-total>0</span> ₽
+        </div>
       </div>
     </div>
 
-    <div class="default-controls" data-calc-cart-controls>
-      <div class="default-controls__title">Кол-во листов, шт.</div>
-      <div class="default-controls__row">
-        <button class="btn btn-primary" data-cart-event="minus">-</button>
-        <input
-          class="fw-600"
-          type="number"
-          value="{$count}"
-          name="count"
-          step="1"
-          data-cart-event="change"
-          data-cart-product-count="{$product_id}"
-        />
-        <button class="btn btn-primary" data-cart-event="plus">+</button>
-      </div>
+    {if $show_big_buttons}
+    <div class="data-calc-cart__big-buttons">
+      <button type="button" class="hide-active btn btn-primary w-100" onclick="add_product_btn.click()">
+        В корзину
+      </button>
+
+      <a class="cart-product-big__main-btn show-active nohover btn btn-primary" href="{$_modx->getPlaceholder('makeurls.cart')}">
+        В корзине
+        <span class="mini-text">Перейти</span>
+      </a>
+
+      <button type="button" class="btn btn-bordered" onclick="modals.events.open('modal-callback')">
+        Купить в 1 клик
+      </button>
     </div>
+    {/if}
   </form>
-  <div class="default-controls">
-    <div class="default-controls__title" style="text-align: end">
-      Итого: <span data-calc-cart-area>0</span> м<sup>2</sup>
-    </div>
-    <div class="fs-30 fw-700" style="text-align: end">
-      <span data-calc-cart-total>0</span> ₽
-    </div>
-  </div>
 </div>

@@ -1,3 +1,65 @@
 @use "./cart-product-mini.scss";
 @use "./cart-product-big.scss";
 @use "./cart-product-default.scss";
+@use "../../../../../../_src/scss/base/variables.scss";
+
+[data-cart-form] {
+  .show-active {
+    display: none;
+  }
+
+  &.active {
+    .hide-active {
+      display: none;
+    }
+
+    .show-active {
+      display: grid;
+    }
+  }
+}
+
+.data-calc-cart {
+  width: 100%;
+
+  &__row {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: variables.$bp768) {
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .default-controls {
+      &:last-child {
+        @media (min-width: variables.$bp768) {
+          margin-left: auto;
+        }
+      }
+
+      &.text-end {
+        @media (max-width: variables.$bp768) {
+          text-align: left;
+        }
+      }
+    }
+
+  }
+
+  &__big-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 16px;
+    gap: 8px;
+
+    button,
+    a {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+
+}

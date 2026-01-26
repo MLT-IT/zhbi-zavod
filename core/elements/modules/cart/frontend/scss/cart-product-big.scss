@@ -7,6 +7,7 @@
   &__controls {
     display: flex;
     height: max-content;
+
     button {
       // height: 100%;
       padding: 0;
@@ -34,20 +35,9 @@
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 8px;
+
     @media (max-width: variables.$bp480) {
       grid-template-columns: 50% 50%;
-    }
-  }
-
-  .show-active {
-    display: none;
-  }
-  &.active {
-    .hide-active {
-      display: none;
-    }
-    .show-active {
-      display: grid;
     }
   }
 
@@ -69,6 +59,7 @@
     @media (max-width: variables.$bp768) {
       min-width: auto;
     }
+
     @media (max-width: variables.$bp768) {
       // padding: 0;
       justify-content: center;

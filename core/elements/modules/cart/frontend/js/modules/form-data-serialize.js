@@ -12,11 +12,12 @@ export default function formDataSerialize(form) {
   ];
 
   let result = {};
-  Array.from(form.elements).forEach((elem) => {
-    if (fillable.indexOf(elem.name) > -1) {
-      result[elem.name] = elem.value;
-    }
-  });
+  if (form)
+    Array.from(form.elements).forEach((elem) => {
+      if (fillable.indexOf(elem.name) > -1) {
+        result[elem.name] = elem.value;
+      }
+    });
 
   return result;
 }

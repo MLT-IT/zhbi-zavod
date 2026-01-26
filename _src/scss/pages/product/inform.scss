@@ -10,6 +10,22 @@
       padding: 20px;
     }
 
+    &-top-price {
+      display: grid;
+
+      @media (max-width: variables.$bp768) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+
+    &-row {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 69% 1fr;
+    }
+
     &-section {
       margin-bottom: 24px;
       padding-bottom: 24px;
@@ -69,10 +85,12 @@
 
     &-list {
       display: grid;
+      height: max-content;
       gap: 8px;
 
       @media (max-width: variables.$bp768) {
         gap: 4px;
+        display: none;
       }
 
       li {
@@ -80,6 +98,7 @@
         align-items: center;
         gap: 10px;
         list-style: none;
+        text-align: left;
 
         @media (max-width: variables.$bp768) {
           font-size: 11px;
@@ -87,10 +106,21 @@
 
         span,
         a {
+          font-size: 14px;
+
           @media (max-width: variables.$bp768) {
             font-size: 11px;
           }
         }
+      }
+    }
+  }
+
+  .data-calc-cart {
+    &__row {
+      @media (max-width: variables.$bp768) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
     }
   }
