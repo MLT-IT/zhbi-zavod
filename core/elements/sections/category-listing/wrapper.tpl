@@ -2,7 +2,7 @@
 {set $filters = $_modx->resource.filters}
 
 {set $params = [
-    '-aliases' => '@FILE snippets/getAliasesFromFilters.php' | snippet
+    'aliases' => '@FILE snippets/getAliasesFromFilters.php' | snippet
     'element' => 'msProducts'
     'depth' => $depth
     'limit' => 42
