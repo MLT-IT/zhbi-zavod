@@ -3,6 +3,8 @@
 @use "../../base/variables.scss";
 
 .category-listing {
+  overflow: hidden;
+
   &__content {
     width: calc(83% - 32px);
 
@@ -22,6 +24,7 @@
 
     grid-gap: 20px 12px;
     margin-bottom: 16px;
+
     @media (max-width: variables.$bp992) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -51,6 +54,7 @@
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s;
+
     &:hover {
       color: variables.$red;
     }
@@ -59,6 +63,7 @@
   .product-main__info-docs {
     margin-top: 20px;
   }
+
   .product-main__info-docs-item {
     width: 100%;
   }
