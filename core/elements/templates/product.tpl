@@ -98,7 +98,7 @@
 {*  *}
 
 
-{if $_modx->context.key == "krovelnyjstroymarket" || $_modx->context.key == "trotuarnaya-plitka"}
+{if $_modx->context.key in list ["web", "krovelnyjstroymarket", "trotuarnaya-plitka"]}
   {set $similarsamples = "@FILE _modules/similarsamples/snippets/getSimilarProducts.php" | snippet}
 {/if}
 
@@ -441,7 +441,7 @@
     </div>
   {/if}
 
-  {if $_modx->context.key == "trotuarnaya-plitka"}
+  {if $_modx->context.key in list ["trotuarnaya-plitka", "web"]}
     {$similarsamples}
   {/if}
 
