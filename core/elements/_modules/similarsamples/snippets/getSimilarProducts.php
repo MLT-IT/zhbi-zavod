@@ -36,9 +36,9 @@ if (!class_exists('SimilarProductsFinder')) {
                 
                 $parentIds = $this->getAllNestedParentIds($rule);
                 
-                $products_stmt = $this->findSimilarProducts($options, $parentIds);
-
-                $product_ids = [];
+                $product_ids = $this->findSimilarProducts($options, $parentIds);
+                //$this->modx->log(1, print_r($product_ids, true));
+                /*$product_ids = [];
                 $prev_id = -1;
                 if($products_stmt instanceof PDOStatement) {
                     while($product = $products_stmt->fetch(PDO::FETCH_OBJ)) {
@@ -46,7 +46,7 @@ if (!class_exists('SimilarProductsFinder')) {
                         $product_ids[] = (int)$product->product_id;
                         $prev_id = (int)$product->product_id;
                     }
-                }
+                }*/
                 
                 $result['rules'][] = [
                     'name' => $rule->name,
@@ -98,6 +98,26 @@ if (!class_exists('SimilarProductsFinder')) {
         private function getAllNestedParentIds($rule)
         {
             $parents = explode(",", $rule->categories);
+            
+            
+            $parentsStr = implode(',', array_map('intval', $parents));
+            $sql = "WITH RECURSIVE cats AS (
+                SELECT id FROM {$this->tablePrefix}site_content WHERE parent IN ($parentsStr) and class_key = 'msCategory'
+                UNION all
+                SELECT c.id FROM {$this->tablePrefix}site_content c INNER JOIN cats ON cats.id = c.parent
+                WHERE c.class_key = 'msCategory'
+            )
+            SELECT id FROM cats;";
+            //$this->modx->log(1, "SQL: ".$sql);
+            $stmt = $this->modx->query($sql);
+            //$this->modx->log(1, "queryStr: ".$stmt->queryString);
+            $rows = $stmt ? $stmt->fetchAll(PDO::FETCH_COLUMN) : [];
+            $res = array_merge($parents, array_map('intval', $rows));
+            //$this->modx->log(1, print_r($res, true));
+            
+            return $res;
+            
+            /*
             $allParentIds = $parents;
             $currentLevel = $parents;
 
@@ -115,10 +135,16 @@ if (!class_exists('SimilarProductsFinder')) {
                 $currentLevel = $rows;
             }
 
+            $res = array_unique(array_map('intval', $allParentIds));
+            $this->modx->log(1, "Nested parents:");
+            $this->modx->log(1, print_r($res, true));
+            $this->modx->log(1, print_r($allParentIds, true));
+            
             return array_unique(array_map('intval', $allParentIds));
+            */
         }
 
-        private function findSimilarProducts(array $productOptions, array &$parentIds)
+        private function &findSimilarProducts(array $productOptions, array &$parentIds)
         {
             $parentIdsStr = implode(',', $parentIds);
             /*
@@ -127,7 +153,7 @@ if (!class_exists('SimilarProductsFinder')) {
                                 AND id != {$this->currentProductId}";
             */
             $whereOptions = $this->buildOptionWhereClause($productOptions);
-
+            if($whereOptions)$whereOptions = 'where '.$whereOptions;
             /*
             $sql = "SELECT * FROM {$this->tablePrefix}ms2_product_options 
                     WHERE product_id IN (
@@ -137,16 +163,15 @@ if (!class_exists('SimilarProductsFinder')) {
                         GROUP BY product_id
                     )";
             */
-            $sql = "SELECT o.* FROM modx_ms2_product_options o
-INNER JOIN modx_site_content c ON c.id = o.product_id
-WHERE c.parent IN ($parentIdsStr) AND c.id != {$this->currentProductId} $whereOptions";
+            $sql = "SELECT distinct o.product_id FROM (SELECT c.id from {$this->tablePrefix}site_content c where c.parent IN ($parentIdsStr) AND c.id != {$this->currentProductId}) q
+            inner join modx_ms2_product_options o on q.id = o.product_id $whereOptions";
             //$this->modx->log(1, "Query before: ".$sql);
             //$start = microtime(true);
             $stmt = $this->modx->query($sql);
             //$this->modx->log(1, "Work time: ".(microtime(true) - $start));
             //$this->modx->log(1, "Query: ".$stmt->queryString);
             
-            return $stmt ?? [];
+            return $stmt ? $stmt->fetchAll(PDO::FETCH_COLUMN) : [];
         }
 
         private function buildOptionWhereClause(array $options)
@@ -157,7 +182,7 @@ WHERE c.parent IN ($parentIdsStr) AND c.id != {$this->currentProductId} $whereOp
                 $value = $this->modx->quote($opt['value']);
                 $clauses[] = "(o.`key` = $key AND o.`value` = $value)";
             }
-            return empty($clauses) ? '' : 'AND (' . implode(' OR ', $clauses) . ')';
+            return empty($clauses) ? '' : '(' . implode(' OR ', $clauses) . ')';
         }
     }
 }
