@@ -35,9 +35,9 @@
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1)
     overflow: hidden
     @media screen and (max-width: 768px)
-      width: calc(50% - 10px)
+      width: calc(50% - 10px)!important
     @media screen and (max-width: 580px)
-      width: 100%
+      width: 100%!important
     // some animation
       animation: fadeIn .5s
     &.hidden
@@ -88,6 +88,8 @@
         line-height: 1.5
         overflow: hidden
         transition: all .3s
+        &.collapse-long-text
+          max-height: 3em
 
       &.prod-review
         padding: 0
@@ -115,8 +117,6 @@
   .expand
     max-height: unset
     //overflow: visible //Текст и так будет виден после анимации
-  .collapse-long-text
-    max-height: 3em
 
   &__title
     font-size: 24px
@@ -314,3 +314,8 @@
   100%
     opacity: 0
     visibility: hidden
+
+.mlt-reviews__all-reviews
+  &.cols-2
+    .mlt-reviews__item
+      width: calc(50% - 20px)
