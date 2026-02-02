@@ -32,23 +32,16 @@
     {/if}
 {/if}
 
-{* Получаем отзывы товара *}
-{switch $_modx->resource.context_key}
-{case 'kirpich-m5'}
-  {set $reviewsCount = 21}
-{default}
-  {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
-  {set $reviewsCount = $reviews | count}
-{/switch}
-
-{*
-{if $_modx->resource.context_key == 'web'}
-  {set $reviewsCount = 0}
-{else}
-  {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
-  {set $reviewsCount = $reviews | count}
+{if $_modx->context.key !== 'gazosilikatstroy'}
+  {* Получаем отзывы товара *}
+  {switch $_modx->resource.context_key}
+  {case 'kirpich-m5'}
+    {set $reviewsCount = 21}
+  {default}
+    {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
+    {set $reviewsCount = $reviews | count}
+  {/switch}
 {/if}
-*}
 
 {* Получаем видео товара *}
 {set $video = $_modx->resource.video}
@@ -295,30 +288,35 @@
                     {/if}
                 {/foreach}
 
-                {if $reviewsCount > 0 && $statusPublishedReviews}
-                  <div class="reviews__slider">
-                    <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                      <div class="swiper-wrapper">
+               {if $_modx->context.key == 'gazosilikatstroy'}
+                  {include "file:chunks/all_reviews.tpl" classnames="cols-2"}
+               {else}
+                  {if $reviewsCount > 0 && $statusPublishedReviews}
+                    <div class="reviews__slider">
+                      <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                        <div class="swiper-wrapper">
 
-                        {foreach $reviews as $idx => $row}
-                            {if $row.status == 1}
-                              <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
-                                <p class="reviews__text">{$row.text}</p>
-                              </div>
-                            {/if}
-                        {/foreach}
+                          {foreach $reviews as $idx => $row}
+                              {if $row.status == 1}
+                                <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
+                                  <p class="reviews__text">{$row.text}</p>
+                                </div>
+                              {/if}
+                          {/foreach}
 
+                        </div>
+                      </div>
+
+                        <div class="swiper-buttons">
+                        <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
+                        <div class="swiper-button swiper-button-next"></div>
                       </div>
                     </div>
-
-                      <div class="swiper-buttons">
-                      <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
-                      <div class="swiper-button swiper-button-next"></div>
-                    </div>
-                  </div>
-                    {else}
-                    <h3 class="py-5">Еще нет отзывов</h3>
+                  {else}
+                      <h3 class="py-5">Еще нет отзывов</h3>
+                  {/if}
                 {/if}
+
                 <a class="btn btn_style_shadow reviews__btn"  data-fancybox href="#review">Оставить отзыв</a>
               </div> 
               {/if}

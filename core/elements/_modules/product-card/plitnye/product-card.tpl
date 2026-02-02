@@ -31,7 +31,12 @@
                   </ul>
 
                   <span class="rating__reviews{if $reviewsCount > 0} rating__reviews_clickable{/if}">
+                    {if !$reviewsCount}
+                      {set $reviewsCount = $_modx->runSnippet('@FILE snippets/random.php', ['begin' => 1, 'end'=> 5, 'id' => $_modx->resource.id])}
+                    {/if}
+
                     {$reviewsCount}
+
                     {'@FILE snippets/formOfWord.php' | snippet : [
                       'n' => $reviewsCount,
                       'f1' => 'отзыв',
