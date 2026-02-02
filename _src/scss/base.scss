@@ -3,6 +3,21 @@
     display: none !important;
   }
 }
+
 .__jivoMobileButton {
-  bottom: 70px !important;
+  bottom: 30px !important;
+}
+
+.to-top-btn {
+  bottom: 100px;
+}
+
+.alterteplo {
+  .__jivoMobileButton {
+    bottom: 70px !important;
+  }
+
+  .to-top-btn {
+    bottom: 140px;
+  }
 }
