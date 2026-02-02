@@ -32,67 +32,13 @@
     {/if}
 {/if}
 
-{* Получаем отзывы товара *}
-{if $_modx->resource.context_key == 'web'}
-  {set $reviewsCount = 0}
-{else}
-  {set $reviews = '@FILE snippets/getReviews.php' | snippet | fromJSON}
-  {set $reviewsCount = $reviews | count}
-{/if}
-
 {* Получаем видео товара *}
 {set $video = $_modx->resource.video}
 {if $video | length > 0}
     {set $renderVideo = 1}
 {/if}
 
-
-{if $_modx->resource.context_key == 'krovelnyjstroymarket'}
-    {* Сопутствующие товары из категории ондулин -> сопутствующие товары *}
-    {set $soput_options = [
-      'resources' => '-' ~ $_modx->resource.id,
-      'parents' => 125617,
-      'limit' => 42,
-      'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-      'tplWrapper' => '@FILE sections/related-products.tpl',
-      'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-      'context' => $_modx->resource.context_key,
-      'includeThumbs' => 'webp',
-      'optionFilters' => '{"cvet":"'~$_modx->resource.cvet[0]~'"}',
-    ]}
-
-    {* Сопутствующие товары гибкой черепице *}
-    {if $isGibkaya}
-      {set $soput_options['parents'] = '126015,125951,125554'}
-      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
-      {set $soput_options['optionFilters'] = '{"palitra:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'"}'}
-    {/if}
-      
-    {* Сопутствующие товары профлист и профлист для забора *}
-    {if $isProflist || $isMetalloCherepica}
-      {set $soput_options['parents'] = '125533'}
-      {set $soput_options['sortby'] = '{"parent":"DESC"}'}
-      {set $soput_options['optionFilters'] = '{"cvet:=":"'~$_modx->resource.cvet[0]~'","proizvoditel:=":"'~$_modx->resource.proizvoditel[0]~'","pokrytie:=":"'~$_modx->resource.pokrytie[0]~'"}'}
-    {/if}
-    {* здесь вызываем *}
-    {set $recommendProducts = 'msProducts' | snippet : $soput_options}
-    {*  *}
-
-    {set $simillarProductIds = $_modx->resource.simillarProductIds}
-    {if $simillarProductIds}
-        {* Похожие товары, отображаются товары с одинаковыми характеристиками кроме цвета *}
-        {set $simillarProducts = 'msProducts' | snippet : [
-        'resources' => $simillarProductIds,
-        'parents' => 0,
-        'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-        'tplWrapper' => '@FILE sections/simillar-products.tpl',
-        'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
-        'context' => $_modx->resource.context_key,
-        'includeThumbs' => 'webp',
-        ]}
-    {/if}
-
-{elseif $_modx->resource.recommendIds ?}
+{if $_modx->resource.recommendIds ?}
   {set $recommendProducts = 'msProducts' | snippet : [
   'resources' => $_modx->resource.recommendIds,
   'sortby' => 'FIELD(msProduct.id, ' ~ $_modx->resource.recommendIds ~ ')',
@@ -186,43 +132,11 @@
         <div class="infoblocks__block" data-tab-page="Отзывы">
             <button class="infoblocks__block-title" data-tab="Отзывы">Отзывы</button>
             <div class="infoblocks__block-dropdown">
-              {if $_modx->context.key in ['krovelnyjstroymarket']}
-                {include 'file:_modules/mltreviews/chunks/product-page.tpl'}
-              {else}
               <div class="reviews">
-                {foreach $reviews as $idx => $row}
-                    {if $row.status == 1}
-                        {set $statusPublishedReviews = true}
-                    {/if}
-                {/foreach}
 
-                {if $reviewsCount > 0 && $statusPublishedReviews}
-                  <div class="reviews__slider">
-                    <div class="swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-                      <div class="swiper-wrapper">
-
-                        {foreach $reviews as $idx => $row}
-                            {if $row.status == 1}
-                              <div class="swiper-slide reviews__item" style="width: 802px; opacity: 1; transform: translate3d(0px, 0px, 0px);"><span class="reviews__name">{$row.author}</span>
-                                <p class="reviews__text">{$row.text}</p>
-                              </div>
-                            {/if}
-                        {/foreach}
-
-                      </div>
-                    </div>
-
-                      <div class="swiper-buttons">
-                      <div class="swiper-button swiper-button-prev swiper-button-disabled"></div>
-                      <div class="swiper-button swiper-button-next"></div>
-                    </div>
-                  </div>
-                    {else}
-                    <h3 class="py-5">Еще нет отзывов</h3>
-                {/if}
+                {include "file:chunks/all_reviews.tpl" classnames="cols-2"}
                 <a class="btn btn_style_shadow reviews__btn"  data-fancybox href="#review">Оставить отзыв</a>
-              </div> 
-              {/if}
+              </div>
             </div>
           </div>
 
@@ -292,15 +206,6 @@
             </div>
           </div>
         {/if}
-
-          {if $_modx->resource.recommendForUse != "" && $_modx->context.key in list ['suhiesmesi', 'kraska']}
-              <div class="infoblocks__block" data-tab-page="Рекомендации по применению">
-                  <button class="infoblocks__block-title" data-tab="Рекомендации по применению">Рекомендации по применению</button>
-                  <div class="infoblocks__block-dropdown custom-content">
-                      {$_modx->resource.recommendForUse}
-                  </div>
-              </div>
-         {/if}
 
       </div>
 
