@@ -40,6 +40,87 @@ RewriteCond %{SERVER_PORT} !^443
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------------------------
+# Редиректы ТОЛЬКО для домена osnova.spb.ru
+# -------------------------------------------------
+RewriteCond %{HTTP_HOST} ^osnova\.spb\.ru$ [NC]
+
+# Страница → страница
+RewriteRule ^o-nas/?$ contacts/ [L,R=301]
+RewriteRule ^kontakty/?$ contacts/ [L,R=301]
+
+RewriteRule ^kalkulyator-karkasnyh-domov/?$ servisyi-rascheta/ [L,R=301]
+RewriteRule ^kalkulyator-gazobetona/?$ servisyi-rascheta/ [L,R=301]
+RewriteRule ^kalkulyator/?$ servisyi-rascheta/ [L,R=301]
+RewriteRule ^calculator\.html/?$ servisyi-rascheta/ [L,R=301]
+RewriteRule ^calculator/?$ servisyi-rascheta/ [L,R=301]
+
+RewriteRule ^izbrannoe/?$ favorites/ [L,R=301]
+
+# Разные страницы → главная
+RewriteRule ^postroennye-doma/dom-iz-gazobetona-v-p\.bolshaya-izhora/?$ / [L,R=301]
+RewriteRule ^uborka-snega-v-regionah/vsevolozhsk/?$ / [L,R=301]
+RewriteRule ^uborka-snega-v-regionah/lomonosov/?$ / [L,R=301]
+
+RewriteRule ^proektirovanie-domov-iz-brusa/?$ / [L,R=301]
+RewriteRule ^dizajn-interera/?$ / [L,R=301]
+RewriteRule ^proektirovanie-karkasnyh-domov/?$ / [L,R=301]
+RewriteRule ^prosmotrennye/?$ / [L,R=301]
+RewriteRule ^gazobetonnye-doma/?$ / [L,R=301]
+
+RewriteRule ^fundamenty/uff-uteplennaya-finskaya-plita/?$ / [L,R=301]
+RewriteRule ^proektirovanie-domov/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/?$ / [L,R=301]
+
+RewriteRule ^postroennye-doma/dom-iz-kirpicha-v-beloostrove/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/dom-iz-kleenogo-brusa-v-primorske/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/karkasnyij-dom-v-razmetelevo/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/dom-iz-brusa-v-sosnovo/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/dom-iz-gazobetona-v-losevo/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/karkasnyij-dom-v-agalatovo/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/dom-iz-brusa-v-garbolovo/?$ / [L,R=301]
+RewriteRule ^postroennye-doma/dom-iz-gazobetona-v-primorske/?$ / [L,R=301]
+
+RewriteRule ^sovremennye-doma/?$ / [L,R=301]
+RewriteRule ^sovremennye-doma\.html/?$ / [L,R=301]
+
+RewriteRule ^fundamenty/lentochnyj/?$ / [L,R=301]
+RewriteRule ^fundamenty/zabivnye-zhb-svai/?$ / [L,R=301]
+
+RewriteRule ^inzhenernye-sistemy-i-kommunikacii/?$ / [L,R=301]
+RewriteRule ^dizajn-landshaftnyj/?$ / [L,R=301]
+RewriteRule ^dizajn-landshaftnyij/?$ / [L,R=301]
+
+RewriteRule ^servicepages/confidentalpolicy/?$ / [L,R=301]
+RewriteRule ^karta-sajta/?$ / [L,R=301]
+RewriteRule ^favicon-32x32\.png/?$ / [L,R=301]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Redirect the manager to a specific domain - don't rename the ht.access file
 # in the manager folder to use this this rule
 #RewriteCond %{HTTP_HOST} !^example\.com$ [NC]
