@@ -15,25 +15,30 @@ if (gettype($ids) == 'string')
 
 
 if (!function_exists('filterResourcesByIds')) {
-    function filterResourcesByIds($data, $ids)
+    function filterResourcesByIds(array $data, array $ids): array
     {
         $result = [];
         $items_map = [];
 
-        // Рекурсивная функция для создания мапы id => элемент
-        $map_resources = function ($items) use (&$map_resources, &$items_map) {
-            foreach ($items as $item) {
-                $items_map[$item['id']] = $item;
+        foreach ($data as $item) {
+            $keep = in_array($item['id'], $ids);
 
-                // Если есть дочерние элементы, обрабатываем их
-                if (isset($item['children']) && is_array($item['children'])) {
-                    $map_resources($item['children']);
+            // Если есть дети — фильтруем их рекурсивно
+            if (!empty($item['children']) && is_array($item['children'])) {
+                $filteredChildren = filterResourcesByIds($item['children'], $ids);
+
+                if (!empty($filteredChildren)) {
+                    $item['children'] = $filteredChildren;
+                    $keep = true;
+                } else {
+                    unset($item['children']);
                 }
             }
-        };
 
-        // Заполняем мапу
-        $map_resources($data);
+            if ($keep) {
+                $items_map[$item['id']] = $item;
+            }
+        }
 
         // Формируем результат в порядке переданных $ids
         foreach ($ids as $id) {
@@ -45,6 +50,7 @@ if (!function_exists('filterResourcesByIds')) {
         return $result;
     }
 }
+
 
 
 $cache_name = md5(serialize($scriptProperties));

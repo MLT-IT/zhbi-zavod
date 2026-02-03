@@ -27,6 +27,7 @@
   'where' => '{"class_key":"modDocument"}'
   'toPlaceholder' => 'map-resources.menu'
   'save_cache_name' => true
+  'depth' => 1
 ]}
 
 {* Элементы меню. Используются в нескольких чанках: десктоп + скрытый од кнопкой меню, мобилка *}

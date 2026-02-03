@@ -6,7 +6,18 @@
       </div>
       <div class="header__top-menu">
         {foreach $_modx->getPlaceholder('menu_items') as $item}
-            <a class="fw-700" href="{$item['uri']}">{$item['menutitle'] ?: $item['pagetitle']}</a>
+        <li>
+          <a class="fw-700" href="{$item['uri']}">{$item['menutitle'] ?: $item['pagetitle']}</a>
+          {if $item['children']}
+          <ul class="header__top-menu-dropdown">
+            {foreach $item['children'] as $child}
+              <li>
+                <a class="fw-700" href="{$child['uri']}">{$child['menutitle'] ?: $child['pagetitle']}</a>
+              </li>
+            {/foreach}
+          </ul>
+          {/if}
+        </li>
         {/foreach}
       </div>
       <div class="header__top-info">
