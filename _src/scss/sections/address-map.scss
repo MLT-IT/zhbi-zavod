@@ -6,54 +6,68 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
+
     h2 {
       margin-bottom: 0;
     }
+
     button {
       &.active {
         background-color: variables.$red;
         color: #fff;
       }
+
       @media (max-width: variables.$bp768) {
         padding: 10px 20px;
       }
     }
   }
+
   &__window {
     display: none;
+
     &.opened {
       display: block;
     }
   }
+
   &__map {
     width: calc(100% - 30px);
     height: 100%;
     min-height: 380px;
     border-radius: 6px;
     overflow: hidden;
+
     @media (max-width: variables.$bp768) {
       width: 100%;
     }
   }
+
   &__row {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 33% 66.5%;
     gap: 35px;
+
     @media (max-width: variables.$bp768) {
       grid-template-columns: 1fr;
       gap: 25px;
     }
   }
+
   &__contacts {
     display: grid;
     gap: 30px;
-    height: max-content;
+    height: 100%;
+
     @media (max-width: variables.$bp768) {
       gap: 20px;
     }
+
     button {
       width: 100%;
-      padding: 5px 20px;
+      padding: 10px 20px;
+      margin-top: auto;
+
       @media (max-width: variables.$bp768) {
         padding: 10px;
       }
@@ -67,10 +81,12 @@
       &-title {
         color: #000;
       }
+
       &-value {
         font-size: 20px;
         line-height: 1.5;
         color: #000;
+
         @media (max-width: variables.$bp768) {
           font-size: 18px;
         }
@@ -80,6 +96,7 @@
         max-width: 36px;
         max-height: 36px;
         color: variables.$red;
+
         @media (max-width: variables.$bp768) {
           max-width: 32px;
           max-height: 32px;
