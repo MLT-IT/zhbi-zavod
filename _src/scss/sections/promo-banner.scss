@@ -17,6 +17,7 @@
     overflow: hidden;
     display: grid;
     gap: 12px;
+    max-height: 335px;
 
     @media (max-width: variables.$bp768) {
       width: 100%;
