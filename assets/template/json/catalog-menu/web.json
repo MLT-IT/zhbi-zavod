@@ -6,23 +6,28 @@
       "Вид": [
         {
           "title": "Черепица Ондулин",
-          "uri": "/cherepica-ondulin/"
+          "uri": "/cherepica-ondulin/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Ондулин Смарт",
-          "uri": "/cherepica-ondulin-smart/"
+          "uri": "/cherepica-ondulin-smart/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Ондувилла",
-          "uri": "/onduvilla/"
+          "uri": "/onduvilla/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Ондутисс",
-          "uri": "/ondutiss/"
+          "uri": "/ondutiss/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Комплектующие для Ондулина",
-          "uri": "/komplektuyushhie-dlya-ondulina/"
+          "uri": "/komplektuyushhie-dlya-ondulina/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Цвет": [
@@ -65,15 +70,18 @@
       "Тип": [
         {
           "title": "Волновой",
-          "uri": "/volnovoj-shifer/"
+          "uri": "/volnovoj-shifer/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Плоский",
-          "uri": "/ploskij-shifer/"
+          "uri": "/ploskij-shifer/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Фиброцементная черепица",
-          "uri": "/fibrocementnaya-cherepica/"
+          "uri": "/fibrocementnaya-cherepica/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Цвет": [
@@ -108,11 +116,13 @@
       "Производитель": [
         {
           "title": "Металлочерепица Grand Line",
-          "uri": "/metallocherepitsya-grand-line/"
+          "uri": "/metallocherepitsya-grand-line/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Металлочерепица Металл-Профиль",
-          "uri": "/metallocherepica-metall-profil/"
+          "uri": "/metallocherepica-metall-profil/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Коллекция": [
@@ -259,27 +269,33 @@
       "Производитель": [
         {
           "title": "Docke",
-          "uri": "/docke-pie-gibkaya-cherepica/"
+          "uri": "/docke-pie-gibkaya-cherepica/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Технониколь Шинглас",
-          "uri": "/myagkaya-cherepica-tehnonikol-shinglas/"
+          "uri": "/myagkaya-cherepica-tehnonikol-shinglas/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Катепал",
-          "uri": "/myagkaya-cherepica-katepal/"
+          "uri": "/myagkaya-cherepica-katepal/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Tegola",
-          "uri": "/myagkaya-cherepica-tegola/"
+          "uri": "/myagkaya-cherepica-tegola/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Икопал",
-          "uri": "/myagkaya-cherepica-icopal/"
+          "uri": "/myagkaya-cherepica-icopal/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "CertainTeed",
-          "uri": "/myagkaya-cherepica-certainteed/"
+          "uri": "/myagkaya-cherepica-certainteed/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Цвет": [
@@ -322,19 +338,23 @@
       "Тип": [
         {
           "title": "Наплавляемая кровля",
-          "uri": "/naplavlyaemaya-krovlya/"
+          "uri": "/naplavlyaemaya-krovlya/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "ПВХ мембраны",
-          "uri": "/pvh-membrany/"
+          "uri": "/pvh-membrany/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Рулонная черепица",
-          "uri": "/rulonnaya-cherepicza/"
+          "uri": "/rulonnaya-cherepicza/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Сланцевая кровля",
-          "uri": "/slanczevaya-krovlya/"
+          "uri": "/slanczevaya-krovlya/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Производитель": [
@@ -401,15 +421,18 @@
       "Тип": [
         {
           "title": "Цементно-песчаная черепица Kriastak",
-          "uri": "/cementno-peschanaya-cherepica-kriastak/"
+          "uri": "/cementno-peschanaya-cherepica-kriastak/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Цементно-песчаная черепица Braas",
-          "uri": "/cementno-peschanaya-cherepica-braas/"
+          "uri": "/cementno-peschanaya-cherepica-braas/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Комплектующие для ЦПЧ",
-          "uri": "/komplektuyushhie-dlya-cpch/"
+          "uri": "/komplektuyushhie-dlya-cpch/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Коллекция": [
@@ -530,11 +553,13 @@
       "Тип товара": [
         {
           "title": "Керамическая черепица Braas",
-          "uri": "/keramicheskaya-cherepica-braas/"
+          "uri": "/keramicheskaya-cherepica-braas/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Комплектующие для керамической черепицы Braas",
-          "uri": "/komplektuyushhie-dlya-keramicheskoj-cherepicy-braas/"
+          "uri": "/komplektuyushhie-dlya-keramicheskoj-cherepicy-braas/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Вид": [
@@ -610,38 +635,61 @@
     "title": "Фальцевая кровля",
     "uri": "/falcevaya-krovlya/",
     "children": {
-      "Тип": [
+      "Цвет": [
         {
-          "title": "Кликфальц",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc/"
+          "title": "RAL 8017",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%208017",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Кликфальц Line",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc-line/"
+          "title": "RAL 3005",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%203005",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Кликфальц mini",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc-mini/"
+          "title": "RAL 7004",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%207004",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Кликфальц Pro",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro/"
+          "title": "RAL 6005",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%206005",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Кликфальц Pro Gofr",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro-gofr/"
+          "title": "RAL 5021",
+          "uri": "/falcevaya-krovlya/?cvet=RAL%205021",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Кликфальц Pro Line",
-          "uri": "/falcevaya-krovlya-grand-line-klikfalc-pro-line/"
+          "title": "RAL 7016",
+          "uri": "/falczevaya-krovlya-ral-7016/",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Фальц двойной стоячий",
-          "uri": "/falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij/"
+          "title": "RAL 9005",
+          "uri": "/falczevaya-krovlya-ral-9005/",
+          "classnames": "fw-700 underline"
         },
         {
-          "title": "Фальц двойной стоячий Line",
-          "uri": "/falcevaya-krovlya-grand-line-falc-dvojnoj-stoyachij-line/"
+          "title": "RAL 7024",
+          "uri": "/falczevaya-krovlya-ral-7024/",
+          "classnames": "fw-700 underline"
+        },
+        {
+          "title": "RAL 9003",
+          "uri": "/falczevaya-krovlya-ral-9003/",
+          "classnames": "fw-700 underline"
+        },
+        {
+          "title": "RR 32",
+          "uri": "/falczevaya-krovlya-rr-32/",
+          "classnames": "fw-700 underline"
+        },
+        {
+          "title": "RR 22",
+          "uri": "/falczevaya-krovlya-rr-22/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Покрытие": [
@@ -677,52 +725,6 @@
           "title": "Drap ST",
           "uri": "/falcevaya-krovlya/?pokrytie=Drap%20ST"
         }
-      ],
-      "Цвет": [
-        {
-          "title": "RAL 8017",
-          "uri": "/falcevaya-krovlya/?cvet=RAL%208017"
-        },
-        {
-          "title": "RAL 3005",
-          "uri": "/falcevaya-krovlya/?cvet=RAL%203005"
-        },
-        {
-          "title": "RAL 7004",
-          "uri": "/falcevaya-krovlya/?cvet=RAL%207004"
-        },
-        {
-          "title": "RAL 6005",
-          "uri": "/falcevaya-krovlya/?cvet=RAL%206005"
-        },
-        {
-          "title": "RAL 5021",
-          "uri": "/falcevaya-krovlya/?cvet=RAL%205021"
-        },
-        {
-          "title": "RAL 7016",
-          "uri": "/falczevaya-krovlya-ral-7016/"
-        },
-        {
-          "title": "RAL 9005",
-          "uri": "/falczevaya-krovlya-ral-9005/"
-        },
-        {
-          "title": "RAL 7024",
-          "uri": "/falczevaya-krovlya-ral-7024/"
-        },
-        {
-          "title": "RAL 9003",
-          "uri": "/falczevaya-krovlya-ral-9003/"
-        },
-        {
-          "title": "RR 32",
-          "uri": "/falczevaya-krovlya-rr-32/"
-        },
-        {
-          "title": "RR 22",
-          "uri": "/falczevaya-krovlya-rr-22/"
-        }
       ]
     },
     "icon": "/assets/template/images/icons.svg?v3#assort-falc-krovlya"
@@ -731,40 +733,16 @@
     "title": "Профлист",
     "uri": "/proflist/",
     "children": {
-      "Назначение": [
-        {
-          "title": "Для забора",
-          "uri": "/profilirovannyy-list-dlya-zabora/"
-        },
-        {
-          "title": "Для кровли",
-          "uri": "/proflist-dlya-krovli/"
-        },
-        {
-          "title": "Для стен",
-          "uri": "/proflist-dlya-sten/"
-        },
-        {
-          "title": "Для перекрытий",
-          "uri": "/proflist-dlya-perekryitij/"
-        },
-        {
-          "title": "Для фасада",
-          "uri": "/proflist-dlya-fasada/"
-        },
-        {
-          "title": "Для гаража",
-          "uri": "/proflist-dlya-garazha/"
-        }
-      ],
       "Производитель": [
         {
           "title": "Grand Line",
-          "uri": "/proflist-grand-line/"
+          "uri": "/proflist-grand-line/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Металл Профиль",
-          "uri": "/proflist-metall-profil/"
+          "uri": "/proflist-metall-profil/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Толщина": [
@@ -853,11 +831,13 @@
       "Производитель": [
         {
           "title": "Металл Профиль",
-          "uri": "/shtaketnik-metall-profil/"
+          "uri": "/shtaketnik-metall-profil/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Grand Line",
-          "uri": "/shtaketnik-grand-line/"
+          "uri": "/shtaketnik-grand-line/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Форма": [
@@ -927,36 +907,31 @@
     "title": "Водосточная система",
     "uri": "/vodostochnaya-sistema/",
     "children": {
-      "Материал": [
-        {
-          "title": "ПВХ водостоки",
-          "uri": "/pvh-plastikovye-vodostochnye-sistemy/"
-        },
-        {
-          "title": "Металлические водостоки",
-          "uri": "/metallicheskie-vodostoki/"
-        }
-      ],
       "Производитель": [
         {
           "title": "Docke",
-          "uri": "/vodostochnaya-sistema-docke/"
+          "uri": "/vodostochnaya-sistema-docke/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Grand Line",
-          "uri": "/vodostochnaya-sistema-grand-line/"
+          "uri": "/vodostochnaya-sistema-grand-line/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Braas",
-          "uri": "/vodostochnaya-sistema-braas/"
+          "uri": "/vodostochnaya-sistema-braas/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Aquasystem",
-          "uri": "/vodostochnaya-sistema-aquasystem/"
+          "uri": "/vodostochnaya-sistema-aquasystem/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Альта-Профиль",
-          "uri": "/vodostochnaya-sistema-alta-profil/"
+          "uri": "/vodostochnaya-sistema-alta-profil/",
+          "classnames": "fw-700 underline"
         }
       ]
     },
@@ -966,28 +941,16 @@
     "title": "Софиты",
     "uri": "/sofity/",
     "children": {
-      "Материал": [
-        {
-          "title": "ПВХ софиты",
-          "uri": "/pvh-sofity/"
-        },
-        {
-          "title": "Металлические софиты",
-          "uri": "/metallicheskie-sofity/"
-        },
-        {
-          "title": "Комплектующие к софитам",
-          "uri": "/komplektuyushhie-k-sofitam/"
-        }
-      ],
       "Производитель": [
         {
           "title": "Docke",
-          "uri": "/sofity-docke/"
+          "uri": "/sofity-docke/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Grand Line",
-          "uri": "/sofity-grand-line/"
+          "uri": "/sofity-grand-line/",
+          "classnames": "fw-700 underline"
         }
       ],
       "Цвет": [
@@ -1044,63 +1007,78 @@
       "Дополнительно": [
         {
           "title": "J-Профиль",
-          "uri": "/j-profil/"
+          "uri": "/j-profil/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Доборные элементы для мягкой кровли",
-          "uri": "/dobornye-elementy-dlya-myagkoy-krovli/"
+          "uri": "/dobornye-elementy-dlya-myagkoy-krovli/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Доборные элементы фальц",
-          "uri": "/dobornyie-elementyi-falc/"
+          "uri": "/dobornyie-elementyi-falc/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Ендовы для кровли",
-          "uri": "/endova/"
+          "uri": "/endova/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Заглушки",
-          "uri": "/zaglushki/"
+          "uri": "/zaglushki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Карнизные планки",
-          "uri": "/karniznye-planki/"
+          "uri": "/karniznye-planki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Коньковые элементы для кровли",
-          "uri": "/konkovye-elementy/"
+          "uri": "/konkovye-elementy/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Лобовые планки",
-          "uri": "/lobovye-planki/"
+          "uri": "/lobovye-planki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Мансардные планки",
-          "uri": "/mansardnye-planki/"
+          "uri": "/mansardnye-planki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Планка капельник",
-          "uri": "/planka-kapelnik/"
+          "uri": "/planka-kapelnik/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Планки примыкания",
-          "uri": "/planki-primykaniya/"
+          "uri": "/planki-primykaniya/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Планки снегозадержания",
-          "uri": "/planki-snegozaderzhaniya/"
+          "uri": "/planki-snegozaderzhaniya/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Торцевые планки",
-          "uri": "/torcevye-planki/"
+          "uri": "/torcevye-planki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Тройники",
-          "uri": "/troyniki/"
+          "uri": "/troyniki/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Четверники",
-          "uri": "/chetverniki/"
+          "uri": "/chetverniki/",
+          "classnames": "fw-700 underline"
         }
       ]
     },
@@ -1113,23 +1091,28 @@
       "Дополнительно": [
         {
           "title": "Строительный крепеж",
-          "uri": "/stroitelnyy-krepyozh-v-sankt-peterburge/"
+          "uri": "/stroitelnyy-krepyozh-v-sankt-peterburge/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Проходки и вентиляция",
-          "uri": "/prohodki-i-ventilyaciya-v-sankt-peterburge/"
+          "uri": "/prohodki-i-ventilyaciya-v-sankt-peterburge/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Коньковый торцевой элемент",
-          "uri": "/konkovyj-torcevoj-ehlement-v-sankt-peterburge/"
+          "uri": "/konkovyj-torcevoj-ehlement-v-sankt-peterburge/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Металлические доборные элементы",
-          "uri": "/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/"
+          "uri": "/metallicheskie-dobornye-ehlementy-v-sankt-peterburge/",
+          "classnames": "fw-700 underline"
         },
         {
           "title": "Устройство примыкания",
-          "uri": "/ustrojstvo-primykanij/"
+          "uri": "/ustrojstvo-primykanij/",
+          "classnames": "fw-700 underline"
         }
       ]
     },
