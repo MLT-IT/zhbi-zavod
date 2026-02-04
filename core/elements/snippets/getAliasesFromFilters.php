@@ -12,7 +12,7 @@
         $filters = $modx->resource->getTVValue($tvName);
         $filters = explode(',', $filters);
 
-        $result = ['ms|price==price'];
+        $result = [];
 
         foreach ($filters as $fltr) {
             $exploded = explode('|', $fltr);
