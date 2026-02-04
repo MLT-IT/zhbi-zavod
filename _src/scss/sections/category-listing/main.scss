@@ -3,6 +3,9 @@
 @use "../../base/variables.scss";
 
 .category-listing {
+  // Данными стилями мы даем место сверху и например тень у блоков не будет обрезана overflow
+  padding-top: 50px;
+  margin-top: -50px;
   overflow: hidden;
 
   &__content {
