@@ -3,15 +3,16 @@
 
 <div class="address-map {if $bg}bg-light-gray-2 section-padding{else}section-margin{/if}">
   <div class="container">
-      <div class="address-map__top">
-        {if !$open_tabs}
+
+      {if !$open_tabs}
+        <div class="address-map__top">
           <h2 class="section-title">Адреса</h2>
           <div class="d-flex gap-8">
             <button class="btn btn-bordered text-uppercase active" data-opened-btn="address-map1" data-close-early="address-map" data-toggle-not="true">Склады</button>
             <button class="btn btn-bordered text-uppercase" data-opened-btn="address-map2" data-close-early="address-map" data-toggle-not="true">Офис</button>
           </div>
-        {/if}
-      </div>
+        </div>
+      {/if}
 
       <div class="address-map__window opened" data-opened-element="address-map1">
         {include "file:sections/address-map/tab-1.tpl"}

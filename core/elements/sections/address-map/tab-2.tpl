@@ -6,7 +6,7 @@
     <div class="address-map__contacts-item">
       <svg class="contact__icon"><use xlink:href="/assets/template/images/icons.svg#svg-location" ></use></svg>
       <div>
-        <div class="address-map__contacts-item-title fw-700">Офис:</div>
+        <div class="address-map__contacts-item-title fw-700">Офис продаж:</div>
         <div class="address-map__contacts-item-value">{$_modx->getPlaceholder('contacts.address')}</div>
       </div>
     </div>

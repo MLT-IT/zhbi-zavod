@@ -6,8 +6,11 @@
     <div class="contacts-page section-margin">
         <div class="container">
             <h1 class="section-title">{$_modx->resource.pagetitle}</h1>
-
-            {include "file:sections/address-map/wrapper.tpl" open_tabs=true}
         </div>
+
+        {include "file:sections/address-map/wrapper.tpl" open_tabs=true}
+        {include "file:sections/calculator-banner/wrapper.tpl"}
+        {include "file:sections/production-form/wrapper.tpl"}
+        {include "file:sections/product-advantages/wrapper.tpl"}
     </div>
 {/block}
