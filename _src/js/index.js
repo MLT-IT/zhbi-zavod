@@ -4,6 +4,7 @@ import "../scss/main.scss";
 import GLightbox from "glightbox";
 import "glightbox/dist/css/glightbox.min.css";
 
+import "./modules/hoveredHandle.js";
 import iniSwipers from "./modules/swipers";
 import initNotifications from "./modules/notifications.js";
 import initOpened from "./modules/opened.js";
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   try {
     let search_by_words = new SearchByWords();
     search_by_words.init();
-  } catch {}
+  } catch { }
 
   initCatalog();
   initModals();

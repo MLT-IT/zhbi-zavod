@@ -114,7 +114,7 @@
 
   &__filter {
     &-wrapped {
-      padding: 10px 20px;
+      padding: 10px 20px 30px;
     }
 
     &:not(.opened) {
@@ -131,7 +131,7 @@
     &-more-btn {
       margin: auto;
       margin-top: 15px;
-      margin-bottom: 30px;
+      // margin-bottom: 30px;
       cursor: pointer;
     }
 

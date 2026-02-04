@@ -98,7 +98,8 @@
   transition: 0.2s;
   position: relative;
 
-  &:hover {
+  &:hover,
+  &.hovered {
     border: 1px solid variables.$red;
 
     .btn-icon__tips {
