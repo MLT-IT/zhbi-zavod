@@ -170,10 +170,12 @@
 
   p {
     line-height: 130%;
-    margin-bottom: 14px;
     margin-top: 14px;
     color: variables.$dark-gray-2;
 
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
   }
 
   .content>:last-child {

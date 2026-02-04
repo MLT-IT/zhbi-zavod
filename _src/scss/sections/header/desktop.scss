@@ -42,9 +42,7 @@
         list-style: none;
         position: relative;
 
-        &:not(:last-child) {
-          margin-bottom: 3px;
-        }
+
 
         &:hover {
           &>.header__top-menu-dropdown {
@@ -61,13 +59,19 @@
 
         position: absolute;
         transform: translateY(10px);
-        padding: 10px;
+        padding: 14px;
         width: max-content;
         max-width: 400px;
         background: variables.$light-gray-2;
         z-index: 1;
         border-radius: 6px;
         transition: .1s;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: 6px;
+          }
+        }
 
         a {
           color: variables.$dark-gray-1 !important;

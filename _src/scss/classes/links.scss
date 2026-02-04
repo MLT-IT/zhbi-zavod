@@ -12,7 +12,7 @@
   }
 
   &-primary {
-    color: variables.$red!important;
+    color: variables.$red !important;
 
     &:hover {
       opacity: 0.5;
@@ -21,6 +21,7 @@
 }
 
 .link-dashed {
+  display: inline-block;
   cursor: pointer;
   transition: 0.2s;
   width: max-content;
@@ -30,6 +31,11 @@
   &.white {
     color: #fff !important;
     border-bottom: 1px dashed white;
+  }
+
+  &.gray {
+    color: #878787 !important;
+    border-bottom: 1px dashed #878787;
   }
 
   &:hover {

@@ -8,6 +8,10 @@
   margin-top: -50px;
   overflow: hidden;
 
+  @media (max-width: variables.$bp768) {
+    margin-top: -90px;
+  }
+
   &__content {
     width: calc(83% - 32px);
 
@@ -69,5 +73,13 @@
 
   .product-main__info-docs-item {
     width: 100%;
+  }
+}
+
+.listing-resource-content {
+  @media (max-width: variables.$bp768) {
+    * {
+      font-size: 12px;
+    }
   }
 }
