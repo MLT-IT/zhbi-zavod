@@ -6,6 +6,8 @@
   class="tags__item {$class_names}"
   href="{$category['uri']}"
 >
-  <img class="tags__item-image" src="{$thumb}" />
+  {if $thumb}
+    <img class="tags__item-image" src="{$thumb}" />
+  {/if}
   {$category['title']?:$category['menutitle']}
 </a>

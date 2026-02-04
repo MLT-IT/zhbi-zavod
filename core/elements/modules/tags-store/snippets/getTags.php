@@ -45,6 +45,12 @@ $tags = $result->fetchAll(PDO::FETCH_ASSOC);
 
 if (empty($tags)) return [];
 
+// Сортировка тегов по расположению в TV
+$orderMap = array_flip(explode(',', $tag_category_ids));
+usort($tags, function ($a, $b) use ($orderMap) {
+    return $orderMap[$a['category_id']] <=> $orderMap[$b['category_id']];
+});
+
 // Необходимо получить теги type = resource
 $resource_ids = [];
 foreach ($tags as $tag) {
