@@ -297,4 +297,17 @@
       }
     }
   }
+
+  .filter-brand {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    float: left;
+    height: 24px;
+    margin-right: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 24px;
+  }
 }
