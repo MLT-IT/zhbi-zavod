@@ -29,6 +29,7 @@ import initCustomSelect from "../../core/elements/modules/custom-select/main.js"
 import "../../core/elements/modules/menu/uteplitel/scripts/main.js";
 import FastSearch from "../../core/elements/modules/fast-search/js/FastSearch.js";
 import testAutodeploy from "./modules/test-autodeploy.js";
+import initFetchImageProduct from "./modules/fetch-image-product.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initOpenedOptions();
   initCopyToClipboard();
   testAutodeploy();
+  initFetchImageProduct()
 
   let fast_search = new FastSearch();
   fast_search.init();

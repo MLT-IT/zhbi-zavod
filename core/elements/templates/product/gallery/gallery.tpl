@@ -31,7 +31,7 @@
           data-gallery="product-gallery"
           href="{$file['url']}"
         >
-          <img src="{$file['url']}" loading="lazy" />
+          <img src="{$file['url']}" loading="lazy" data-fetch-image-insert="true"/>
         </a>
       </div>
       {/foreach}

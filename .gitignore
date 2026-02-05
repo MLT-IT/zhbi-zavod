@@ -1,5 +1,8 @@
 *
 
+!/api
+!/api/**
+
 !/core
 !/core/cron
 !/core/cron/**

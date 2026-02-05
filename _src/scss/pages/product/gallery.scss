@@ -28,6 +28,14 @@
         left: 10px;
         top: 10px;
       }
+
+      .swiper-wrapper {
+        height: 500px;
+
+        @media (max-width: variables.$bp768) {
+          height: auto;
+        }
+      }
     }
 
     &-thumbs {
