@@ -16,7 +16,7 @@
           'depth' => 10
           'limit' => $data.limit
           'context' => $_modx->resource.context_key
-          'includeTVs' => 'priority1,HitsPage',
+          'includeTVs' => 'priority1,HitsPage,range_remains',
           'sortby' => '{"priority1":"ASC", "HitsPage":"ASC"}'
         ]}
         {*<pre>{$data1 | print_r}</pre>*}
@@ -37,7 +37,8 @@
               <tr class="table__row">
                 <td class="table__cell">{$row.name}</td>
                 <td class="table__cell">{$row.price}</td>
-                {set $remains = "@FILE _modules/warehouses/snippets/remains_here.php" | snippet: ['range' => $_modx->resource.range_remains, 'id' => $row.id]}
+                {set $range = $row.range_remains ?: $_modx->resource.range_remains}
+                {set $remains = "@FILE _modules/warehouses/snippets/remains_here.php" | snippet: ['range' => $range, 'id' => $row.id]}
                 <td class="table__cell">{$remains} {$row.unit}</td>
               </tr>
             {/foreach}

@@ -27,10 +27,11 @@ $cache_options = [
     xPDO::OPT_CACHE_KEY => 'default/file_snippets/' . $cache_name . '/' . $modx->context->key . '/',
 ];
 
+$context_key = $modx->context->key;
+$table_prefix = $modx->getOption('table_prefix');
+
 if (!$warehouses = $modx->cacheManager->get($cache_name, $cache_options)) {
-    $context_key = $modx->context->key;
-    $table_prefix = $modx->getOption('table_prefix');
-    $query = "SELECT tv.`value` AS range_remains,c.menutitle,c.pagetitle,c.uri FROM {$table_prefix}site_content AS c LEFT JOIN {$table_prefix}site_tmplvar_contentvalues AS tv ON tv.contentid = c.id AND tv.tmplvarid = $TV_RANGEREMAINS_ID WHERE c.template = $warehouse_template AND c.context_key = '$context_key' AND c.published = 1 AND c.deleted = 0";
+    $query = "SELECT tv.`value` AS range_remains,c.id,c.menutitle,c.pagetitle,c.uri FROM {$table_prefix}site_content AS c LEFT JOIN {$table_prefix}site_tmplvar_contentvalues AS tv ON tv.contentid = c.id AND tv.tmplvarid = $TV_RANGEREMAINS_ID WHERE c.template = $warehouse_template AND c.context_key = '$context_key' AND c.published = 1 AND c.deleted = 0";
 
     $result = $modx->query($query);
     $warehouses = $result->fetchALL(PDO::FETCH_ASSOC);
@@ -38,6 +39,12 @@ if (!$warehouses = $modx->cacheManager->get($cache_name, $cache_options)) {
     $modx->cacheManager->set($cache_name, $warehouses, 0, $cache_options);
 }
 // <<<
+
+$query2 = "SELECT tv.`value` AS range_remains FROM {$table_prefix}site_content AS c inner join {$table_prefix}site_tmplvar_contentvalues AS tv on tv.contentid = c.id WHERE tv.contentid = $id AND tv.tmplvarid = $TV_RANGEREMAINS_ID and c.class_key = 'msProduct' LIMIT 1"; //Индивидуальный диапазон остатков для товара
+$result = $modx->query($query2);
+$range_remains_product = $result->fetch(PDO::FETCH_COLUMN);
+//$modx->log(xPDO::LOG_LEVEL_ERROR, 'range_remains_product:');
+//$modx->log(xPDO::LOG_LEVEL_ERROR, print_r($range_remains_product, true));
 
 //$modx->log(xPDO::LOG_LEVEL_ERROR, 'remains id:'.$id);
 $pdoFetch = $modx->getService('pdoFetch');
@@ -56,12 +63,18 @@ if($isInCat){
 }else{
 
     $total_remains = 0;
+    $res_id = $id;
     foreach ($warehouses as &$warehouse) {
         $range_remains = $warehouse['range_remains'] ?: $default_range_remains;
+        if($range_remains_product) {
+            $range_remains = $range_remains_product;
+        }
         $range_remains = explode("-", $range_remains);
 
         $begin = (int)$range_remains[0];
         $end = (int)$range_remains[1];
+        $id = $res_id.$warehouse['id']; //id товара + id склада, чтобы кол-во товара не совпадало для разных складов на странице товара.
+        //$modx->log(1, "rand id: ".$id);
         $remains = include MODX_CORE_PATH . "elements/snippets/random.php";
 
         $warehouse['remains'] = $remains;
