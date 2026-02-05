@@ -24,5 +24,6 @@
     <div class="product-page__inform-price">
       {include "file:modules/cart/frontend/chunks/cart-calc.tpl" show_big_buttons=1}
     </div>
+    {include "file:sections/product-calc-btn/wrapper.tpl" material="кровли" link="/servisyi-rascheta/raschet-krovli-iz-metallocherepiczyi/"}
   </div>
 </div>

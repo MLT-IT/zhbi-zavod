@@ -2,6 +2,7 @@
 
 .product-page {
   &__inform {
+    position: relative;
     background-color: #fff;
     border-radius: 6px;
     padding: 30px 40px;
@@ -113,6 +114,12 @@
           }
         }
       }
+    }
+
+    .rating-reviews {
+      position: absolute;
+      top: -30px;
+      left: 0px;
     }
   }
 

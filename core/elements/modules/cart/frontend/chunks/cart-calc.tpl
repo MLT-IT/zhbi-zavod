@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <div class="default-controls text-end">
+      <div class="default-controls text-end" data-calc-cart-result>
         <div class="default-controls__title">
           Итого: <span data-calc-cart-area>0</span> м<sup>2</sup>
         </div>

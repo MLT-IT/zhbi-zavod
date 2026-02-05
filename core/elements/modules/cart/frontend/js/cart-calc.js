@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const SHEET_WIDTH_M = Number(cart.dataset.calcWidth) || 0;
 
     const controls = cart.querySelectorAll("[data-calc-cart-controls]");
+    const resultEl = cart.querySelector('[data-calc-cart-result]')
     const areaEl = cart.querySelector("[data-calc-cart-area]");
     const totalEl = cart.querySelector("[data-calc-cart-total]");
 
@@ -22,8 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const area = +(lengthM * SHEET_WIDTH_M * count).toFixed(2);
       const total = Math.round(area * PRICE_PER_M2);
 
-      areaEl.textContent = area || "_";
-      totalEl.textContent = total || "_";
+      if (!area || !total) {
+        resultEl.style.display = 'none'
+      } else {
+        areaEl.textContent = area || null;
+        totalEl.textContent = total || null;
+      }
+
+
 
       // записываем цену за штуку
       const form = lengthInput.form;

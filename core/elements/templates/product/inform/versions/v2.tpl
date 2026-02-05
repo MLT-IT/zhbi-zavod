@@ -22,5 +22,6 @@
     <div class="product-page__inform-price">
       {include "file:modules/cart/frontend/chunks/cart-calc.tpl" show_big_buttons=1}
     </div>
+    {include "file:sections/product-calc-btn/wrapper.tpl" material="заборов" link="/servisyi-rascheta/raschet-shtaketnika-dlya-zabora/"}
   </div>
 </div>
