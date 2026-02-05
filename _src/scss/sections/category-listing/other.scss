@@ -87,7 +87,7 @@
         font-weight: 700;
         color: variables.$dark-gray-1 !important;
         cursor: pointer;
-        overflow: hidden;
+        // overflow: hidden;
         transition: 0.3s;
 
         @media (max-width: variables.$bp768) {
@@ -101,26 +101,23 @@
           color: variables.$red !important;
           font-weight: 600;
 
-          &:after {
-            content: "";
-            display: block;
-            width: 6px;
-            height: 6px;
-            margin-top: -6px;
-            border-right: 1px solid;
-            border-bottom: 1px solid;
-            transition: 0.2s;
-            transform: translateY(-50%);
-          }
-
           &[data-dir="asc"]:after {
             margin-top: 6px;
             transform: rotate(225deg);
           }
 
-          &[data-dir="desc"]:after {
-            transform: rotate(45deg);
-          }
+        }
+
+        &:not(.not-arrow):after {
+          content: "";
+          display: block;
+          width: 6px;
+          height: 6px;
+          margin-top: -6px;
+          border-right: 1px solid;
+          border-bottom: 1px solid;
+          transition: 0.2s;
+          transform: rotate(45deg);
         }
       }
     }
