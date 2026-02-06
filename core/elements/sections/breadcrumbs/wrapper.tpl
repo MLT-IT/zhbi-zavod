@@ -1,5 +1,5 @@
 <section class="breadcrumbs {if $bg}bg-light-gray-2{/if}">
-    <div class="container">
+    <div class="container" style=" scrollbar-width: none; ">
       <ul class="breadcrumbs__items">
         {'pdoCrumbs' | snippet : [
           'tpl' => '@FILE sections/breadcrumbs/item.tpl',
