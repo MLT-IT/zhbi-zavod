@@ -24,4 +24,6 @@
     </div>
     {include "file:sections/product-calc-btn/wrapper.tpl" material="заборов" link="/servisyi-rascheta/raschet-shtaketnika-dlya-zabora/"}
   </div>
+
+  {include "file:sections/delivery-date/wrapper.tpl"}
 </div>

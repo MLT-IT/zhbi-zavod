@@ -26,4 +26,6 @@
     </div>
     {include "file:sections/product-calc-btn/wrapper.tpl" material="кровли" link="/servisyi-rascheta/raschet-krovli-iz-metallocherepiczyi/"}
   </div>
+
+  {include "file:sections/delivery-date/wrapper.tpl"}
 </div>

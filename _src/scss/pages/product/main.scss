@@ -9,8 +9,11 @@
     display: flex;
     gap: 40px;
 
+    margin-top: 40px;
+
     @media (max-width: variables.$bp992) {
       display: grid;
+      margin-top: 0;
     }
 
     &-item {
