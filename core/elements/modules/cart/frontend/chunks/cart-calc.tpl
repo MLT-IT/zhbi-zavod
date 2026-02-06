@@ -29,7 +29,7 @@
     <input type="hidden" name="calc_price" />
     <input type="hidden" name="count" value="{$count}" />
     <input type="hidden" name="old_price" value="{$old_price}" />
-    <input type="hidden" name="unit" value="{$unit}" />
+    {*<input type="hidden" name="unit" value="{$unit}" />*}
 
     {* Опции товара для расчета *}
     {if $calc_width && $calc_length}

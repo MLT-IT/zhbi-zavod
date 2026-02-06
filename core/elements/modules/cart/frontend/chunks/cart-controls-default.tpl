@@ -2,7 +2,7 @@
   <input type="hidden" name="id" value="{$id}" />
   <input type="hidden" name="price" value="{$price}" />
   <input type="hidden" name="old_price" value="{$old_price}" />
-  <input type="hidden" name="unit" value="{$unit}" />
+  {*<input type="hidden" name="unit" value="{$unit}" />*}
 
   <button class="btn btn-primary" data-cart-event="minus">-</button>
   <input

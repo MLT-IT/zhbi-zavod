@@ -33,7 +33,7 @@
 
   &__row {
     display: grid;
-    grid-template-columns: 94px 1fr;
+    grid-template-columns: 102px 1fr;
     gap: 8px;
 
     @media (max-width: variables.$bp768) {
