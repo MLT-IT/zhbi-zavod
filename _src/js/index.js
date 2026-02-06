@@ -28,6 +28,7 @@ import initSplitUnit from "../../core/elements/modules/split-unit/js/main.js";
 import initCustomSelect from "../../core/elements/modules/custom-select/main.js";
 import "../../core/elements/modules/menu/uteplitel/scripts/main.js";
 import FastSearch from "../../core/elements/modules/fast-search/js/FastSearch.js";
+import AdditionalFieldsCallbackForm from "../../core/elements/modules/additional-fields-callback-form/scripts/main.js"
 import testAutodeploy from "./modules/test-autodeploy.js";
 import initFetchImageProduct from "./modules/fetch-image-product.js";
 
@@ -36,6 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let search_by_words = new SearchByWords();
     search_by_words.init();
   } catch { }
+
+  try {
+    new AdditionalFieldsCallbackForm();
+  } catch (error) {
+    console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
+  }
 
   initCatalog();
   initModals();
