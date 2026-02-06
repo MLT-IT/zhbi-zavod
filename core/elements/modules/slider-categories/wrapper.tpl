@@ -2,7 +2,7 @@
 
 <div class="slider-categories section-margin">
   <div class="container">
-    <h1 class="section-title">Продажа {$_modx->getPlaceholder('words.materials')[1]} в Санкт-Петербурге</h1>
+    <h1 class="section-title">{$_modx->getPlaceholder('words.materials')[1]} в Санкт-Петербурге</h1>
     <div class="swiper" data-slider="slider-categories">
       <div class="slider-categories__row swiper-wrapper">
         {foreach $items as $item}
