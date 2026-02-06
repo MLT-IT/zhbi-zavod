@@ -8,8 +8,8 @@
       <div class="color-gray">
         <span data-cart-total-summ-old>{$_modx->getPlaceholder('counters.cart-product-summ-old')}</span> ₽
       </div>
-      <div class="cart-page__footer-notion">Без учёта менеджерской скидки</div>
     {/if}
+    <div class="cart-page__footer-notion">Без учёта менеджерской скидки</div>
   </div>
   <div class="cart-page__footer-controls">
     <a class="btn btn-bordered" href="{$_modx->getPlaceholder('makeurls.catalog')}">вернуться в каталог</a>
