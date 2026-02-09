@@ -39,33 +39,33 @@ export default function iniSwipers() {
     direction: "horizontal",
   });
 
-  new Swiper('[data-slider="default-product-slider"]', {
-    modules: [Navigation],
-    slideClass: "product-card",
-    loop: false,
-    spaceBetween: 10,
-    breakpoints: {
-      1200: {
-        slidesPerView: 4,
-      },
-      992: {
-        slidesPerView: 3,
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 8,
-      },
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 8,
-      },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    direction: "horizontal",
-  });
+  // new Swiper('[data-slider="default-product-slider"]', {
+  //   modules: [Navigation],
+  //   slideClass: "product-card",
+  //   loop: false,
+  //   spaceBetween: 10,
+  //   breakpoints: {
+  //     1200: {
+  //       slidesPerView: 4,
+  //     },
+  //     992: {
+  //       slidesPerView: 3,
+  //     },
+  //     576: {
+  //       slidesPerView: 2,
+  //       spaceBetween: 8,
+  //     },
+  //     320: {
+  //       slidesPerView: 2,
+  //       spaceBetween: 8,
+  //     },
+  //   },
+  //   navigation: {
+  //     nextEl: ".swiper-button-next",
+  //     prevEl: ".swiper-button-prev",
+  //   },
+  //   direction: "horizontal",
+  // });
 
   let product_thumbs = new Swiper('[data-slider="product-gallery-thumbs"]', {
     modules: [Navigation],

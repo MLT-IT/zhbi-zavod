@@ -2,6 +2,8 @@
 
 function web($resource, $fields)
 {
+    if (!$resource) return;
+
     $output = [];
     $price = parseNum($fields['price']);
     $old_price = parseNum($fields['old_price']);

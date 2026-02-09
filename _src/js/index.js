@@ -21,6 +21,7 @@ import initModals from "../../core/elements/modules/modals/js/main";
 
 import initCart from "../../core/elements/modules/cart/frontend/js/main.js";
 import "../../core/elements/modules/cart/frontend/js/cart-calc.js";
+import "../../core/elements/modules/similarsamples/js/main.js"
 
 import initProductSelections from "../../core/elements/modules/store-product-selection/js/main.js";
 import initProductCart from "../../core/elements/modules/product-cards/js/main.js";

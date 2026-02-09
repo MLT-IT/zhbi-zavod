@@ -27,7 +27,7 @@
   </div>
 
   {include "file:templates/product/tabs/wrapper.tpl"}
-  {"@FILE modules/similarsamples/snippets/getSimilarProducts.php" | snippet}
+  {include "file:modules/similarsamples/chunks/wrapper-ajax.tpl"}
   {include "file:sections/product-advantages/wrapper.tpl"}
   {include "file:sections/faqs/wrapper.tpl"}
   {*include "file:modules/components-for-product/chunks/wrapper.tpl"*}

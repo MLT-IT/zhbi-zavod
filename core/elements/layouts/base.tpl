@@ -9,6 +9,9 @@
 {'@FILE modules/store-product-selection/snippet/setPlaceholder.php' | snippet : ["cookie_key" => "favorite-products"]}
 {'@FILE modules/store-product-selection/snippet/setPlaceholder.php' | snippet : ["cookie_key" => "comparison-products"]}
 
+{* Похожие товары *}
+{"@FILE modules/similarsamples/snippets/ajax.php" | snippet}
+
 {* Категории товаров. По всему сайту работаем с даным массивом *}
 {if $_modx->getPlaceholder('context.catalog_id')}
   {"@FILE modules/map-resources/mapResources.php" | snippet : [
@@ -121,10 +124,6 @@
 
     <script src="/assets/template/js/main.js?{'file_version'|config}"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-      console.log("Проверка автодеплоя")
-    </script>
   </body>
 
   {if $_modx->isAuthenticated('mgr')}
