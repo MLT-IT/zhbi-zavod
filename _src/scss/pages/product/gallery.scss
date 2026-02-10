@@ -3,7 +3,7 @@
 .product-page {
   &__gallery {
     display: flex;
-    max-height: 550px;
+    max-height: 470px;
     height: max-content;
     gap: 12px;
 
@@ -12,6 +12,8 @@
     }
 
     &-preview {
+      background: #fff;
+
       width: 80%;
       min-height: 300px;
       border-radius: 6px;
@@ -34,6 +36,14 @@
 
         @media (max-width: variables.$bp768) {
           height: auto;
+        }
+      }
+
+      img {
+        padding: 30px !important;
+
+        @media (max-width: variables.$bp768) {
+          padding: 12px !important;
         }
       }
     }

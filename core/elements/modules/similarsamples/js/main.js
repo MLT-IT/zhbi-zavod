@@ -22,7 +22,7 @@ import { Navigation } from "swiper/modules";
     });
   }, {
     root: null,
-    // threshold: 0.1
+    threshold: 0
   });
   observer.observe(container_result);
 

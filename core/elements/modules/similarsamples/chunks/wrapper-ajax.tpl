@@ -15,7 +15,12 @@
 
         <div class="similar-samples__products">
             <div class="swiper similar-samples__products-slider opened" data-slider="default-product-slider">
-                <div class="swiper-wrapper" data-ss-tab-content></div>
+                <div class="swiper-wrapper" data-ss-tab-content>
+                    {include "file:modules/product-cards/chunks/common/skeleton.tpl"}
+                    {include "file:modules/product-cards/chunks/common/skeleton.tpl"}
+                    {include "file:modules/product-cards/chunks/common/skeleton.tpl"}
+                    {include "file:modules/product-cards/chunks/common/skeleton.tpl"}
+                </div>
 
                 <div class="swiper-button-prev base-box-shadow"></div>
                 <div class="swiper-button-next base-box-shadow"></div>

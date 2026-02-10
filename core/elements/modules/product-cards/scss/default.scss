@@ -194,4 +194,24 @@
   //     transform: scale(0.7);
   //   }
   // }
+
+
+  /* Фантомная карточка */
+  &.skeleton-card {
+    margin-right: 12px;
+    background: linear-gradient(90deg, #ffffff 30%, #d3d3d3 50%, #ffffff 80%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.3s ease infinite;
+  }
+
+  /* Анимация */
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 100% 0;
+    }
+
+    100% {
+      background-position: 0 0;
+    }
+  }
 }
