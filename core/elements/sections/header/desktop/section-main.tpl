@@ -15,12 +15,16 @@
         {include 'file:modules/fast-search/chunks/fast-search-form.tpl'}
       </div>
 
-      <div>
+      <div class="header__main-sticky">
+        <a class="d-flex gap-8 fs-20 header__main-sticky-phone" href="tel:{$_modx->getPlaceholder('contacts.phone_href')}">
+            <svg><use xlink:href="/assets/template/images/icons.svg#svg-phone-sm"></use></svg>
+            {$_modx->getPlaceholder('contacts.phone')}
+        </a>
         <div class="header__main-info d-flex gap-8 fs-14">
             <svg><use xlink:href="/assets/template/images/icons.svg#svg-calendar-sm"></use></svg>
             {$_modx->getPlaceholder('contacts.opening_hours')}
         </div>
-        <div class="header__main-info">
+        <div class="header__main-info header__main-sticky-email">
             <a class="d-flex gap-8 fs-14 link" href="mailto:{$_modx->getPlaceholder('contacts.email')}">
                 <svg><use xlink:href="/assets/template/images/icons.svg#svg-email-sm"></use></svg>
                 {$_modx->getPlaceholder('contacts.email')}

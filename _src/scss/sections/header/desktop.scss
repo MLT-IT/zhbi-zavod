@@ -10,6 +10,21 @@
     display: none;
   }
 
+  &.is-sticky {
+    [data-fast-search-form] {
+      width: 0;
+      opacity: 0;
+    }
+
+    .header__main-sticky-phone {
+      display: block;
+    }
+
+    .header__main-sticky-email {
+      display: none;
+    }
+  }
+
   &__descriptor {
     max-width: 300px;
   }
@@ -138,6 +153,12 @@
           top: 0;
           bottom: 0;
         }
+      }
+    }
+
+    &-sticky {
+      &-phone {
+        display: none;
       }
     }
   }

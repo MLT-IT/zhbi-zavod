@@ -4,6 +4,7 @@ import "../scss/main.scss";
 import GLightbox from "glightbox";
 import "glightbox/dist/css/glightbox.min.css";
 
+import "./modules/header-scroll.js"
 import "./modules/hoveredHandle.js";
 import iniSwipers from "./modules/swipers";
 import initNotifications from "./modules/notifications.js";
