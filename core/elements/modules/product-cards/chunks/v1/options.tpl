@@ -1,21 +1,23 @@
-
-{set $wizardOptions = $_modx->runSnippet("getCharacterCardProduct", [
+{'@FILE snippets/getCharacterCardProduct.php'|snippet :[
     "context" => $_modx->resource.context_key,
     "category" => $_modx->resource.id,
     "product" => $id,
     "tplWrapper" => "@FILE modules/product-cards/chunks/wizard/wrapper.tpl",
     "tpl" => "@FILE modules/product-cards/chunks/wizard/option.tpl",
-])}
+]}
 
-<div class="product-card__options-show" onclick="showOptions({$idx})">Показать информацию</div>
+{if !$wizardOptions}
+    {set $defaultOptions = "@FILE snippets/getOptions.php" | snippet}
+{/if}
 
-{$wizardOptions}
+{if !$wizardOptions || !empty($defaultOptions)}
+    <div class="product-card__options-show" onclick="showOptions({$idx})">Показать информацию</div>
+    {$wizardOptions}
+{/if}
 
-{if empty($wizardOptions)}
-    {set $options = "@FILE snippets/getOptions.php" | snippet}
-
+{if !$wizardOptions}
     <div class="product-card__options">
-        {foreach $options as $option}
+        {foreach $defaultOptions as $option}
             {set $value = $_pls[$option['key']][0]}
             {if $value}
                 <div class="product-card__option-item">
