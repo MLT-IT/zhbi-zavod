@@ -8,7 +8,7 @@
             <h1 class="section-title">{$_modx->resource.pagetitle}</h1>
         </div>
 
-        {include "file:sections/address-map/wrapper.tpl" open_tabs=true}
+        {include "file:sections/address-map/wrapper.tpl" open_tabs=true title_tab_2="Офис продаж"}
         {include "file:sections/calculator-banner/wrapper.tpl"}
         {include "file:sections/production-form/wrapper.tpl"}
         {include "file:sections/product-advantages/wrapper.tpl"}

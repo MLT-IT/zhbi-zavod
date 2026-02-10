@@ -21,7 +21,7 @@
       {if $open_tabs}<br/><br/><hr/><br/><br/>{/if}
       
       <div class="address-map__window {if $open_tabs}opened{/if}" data-opened-element="address-map2">
-        {include "file:sections/address-map/tab-2.tpl"}
+        {include "file:sections/address-map/tab-2.tpl" title_tab_2=$title_tab_2}
       </div>
   </div>
 </div>

@@ -22,7 +22,7 @@
       gap: 16px;
 
       &:first-child {
-        width: 45%;
+        width: 50%;
 
         @media (max-width: variables.$bp992) {
           width: 100%;
@@ -30,7 +30,7 @@
       }
 
       &:last-child {
-        width: 55%;
+        width: 50%;
 
         @media (max-width: variables.$bp992) {
           width: 100%;
