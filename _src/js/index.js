@@ -33,6 +33,7 @@ import FastSearch from "../../core/elements/modules/fast-search/js/FastSearch.js
 import AdditionalFieldsCallbackForm from "../../core/elements/modules/additional-fields-callback-form/scripts/main.js"
 import testAutodeploy from "./modules/test-autodeploy.js";
 import initFetchImageProduct from "./modules/fetch-image-product.js";
+import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 
 document.addEventListener("DOMContentLoaded", function () {
   try {
@@ -44,6 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
     new AdditionalFieldsCallbackForm();
   } catch (error) {
     console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
+  }
+
+  try{
+    const dc = new DeliveryCalculatorServiceAreas();
+    dc.run();
+  }catch(t){
+      console.error(t);
   }
 
   initCatalog();

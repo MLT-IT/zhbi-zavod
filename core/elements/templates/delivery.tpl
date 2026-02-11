@@ -8,6 +8,7 @@
         </div>
     </div>
 
+    {insert "file:modules/deliveryCalculatorServiceAreas/sections/wrapper.tpl"}
     {include "file:sections/delivery-material/wrapper.tpl"}
     {include "file:sections/faqs/wrapper.tpl"}
     {include "file:sections/payments/wrapper.tpl"}

@@ -33,6 +33,10 @@ $data = [
         'value' => $modx->getOption('category_template_id'), // ID шаблона категорий
         'show_error_message' => false
     ],
+    'yandex_apikey' => [
+        'value' => $modx->getOption('yandex_apikey'), // ID шаблона категорий
+        'show_error_message' => false
+    ],
 ];
 
 return [
