@@ -34,9 +34,9 @@ class AddressFieldKeeper {
     inputDelay: 1000
   }){
     this.config = config;
-    this.addrField = body.querySelector(this.config.addrS);
+    this.addrField = document.body.querySelector(this.config.addrS);
     if(!this.addrField)throw 'Couldn\'t find address field';
-    this.addrMsg = body.querySelector(this.config.addrMsgS);
+    this.addrMsg = document.body.querySelector(this.config.addrMsgS);
     if(!this.addrMsg)throw 'Couldn\'t find address message element';
     this.addrMsg.dataset['origMessage'] = this.addrMsg.innerHTML;
     //console.log(this.addrMsg.dataset['origMessage']);
@@ -287,7 +287,7 @@ class ResultsRenderer {
     }else {
       this.owner.ui.setPrices('handler', '', '-', '-');
     }*/
-    console.log(area);
+    //console.log(area);
     if(area.car){
       for(let p in area.car){
         //console.log(p);
@@ -346,8 +346,8 @@ class UIHandler {
 
   #toggleWeights() {
     const host = this;
-    const weightsCars = body.querySelector(this.config.weightsSel + '.cars');
-    const weightsHandlers = body.querySelector(this.config.weightsSel + '.handlers');
+    const weightsCars = document.body.querySelector(this.config.weightsSel + '.cars');
+    const weightsHandlers = document.body.querySelector(this.config.weightsSel + '.handlers');
     //if(!weights)throw 'Can\'t find weights block';
     //console.log(this.formData);
     //console.log(weights);
@@ -374,7 +374,7 @@ class UIHandler {
 
   #togglePrices() {
     const host = this;
-    const priceTabs = body.querySelectorAll(this.config.priceTabs);
+    const priceTabs = document.body.querySelectorAll(this.config.priceTabs);
     if(!priceTabs)throw 'Can\'t find price tabs';
     priceTabs.forEach((tab) => {
       tab.classList.remove('active');
@@ -397,7 +397,7 @@ class UIHandler {
   }
 
   #setActiveLink(linkElem) {
-    const weightLinks = body.querySelectorAll(this.config.weightLinkSel);
+    const weightLinks = document.body.querySelectorAll(this.config.weightLinkSel);
     if(weightLinks.length < 1)throw 'Can\'t find weight links';
     weightLinks.forEach((link) => {
       link.classList.remove('active');
@@ -410,7 +410,7 @@ class UIHandler {
     if(!priceExact)priceExact = '-';
     //console.log(vehicle, weight, priceDur, priceExact);
     const host = this;
-    const priceTabs = body.querySelectorAll(this.config.priceTabs);
+    const priceTabs = document.body.querySelectorAll(this.config.priceTabs);
     if(!priceTabs)throw 'Can\'t find price tabs';
     priceTabs.forEach((tab) => {
       const tabWeight = tab.dataset.weight;
@@ -442,9 +442,9 @@ class UIHandler {
   }
 
   #bindMapScrollHover() {
-    const wrapper = body.querySelector(this.config.mapWrapperSel);
+    const wrapper = document.body.querySelector(this.config.mapWrapperSel);
     if(!wrapper)throw 'Can\'t find map scroll hover overlay';
-    const map = body.querySelector(this.config.mapSel);
+    const map = document.body.querySelector(this.config.mapSel);
     wrapper.addEventListener('click', (e) => {
       //console.log('click');
       map.classList.add('active');
@@ -462,7 +462,7 @@ class UIHandler {
   bind() {
     const host = this;
     this.#bindMapScrollHover();
-    const vehicles = body.querySelectorAll(this.config.vehicleSel + ' label');
+    const vehicles = document.body.querySelectorAll(this.config.vehicleSel + ' label');
     //console.log(this.config.vehicleSel + ' label');
     if(vehicles.length < 1)throw 'Can\'t find vehicles';
     //console.log(vehicles);
@@ -480,7 +480,7 @@ class UIHandler {
       });
     }); 
 
-    const weightLinks = body.querySelectorAll(this.config.weightLinkSel);
+    const weightLinks = document.body.querySelectorAll(this.config.weightLinkSel);
     if(weightLinks.length < 1)throw 'Can\'t find weight links';
     //console.log(weightLinks);
     weightLinks.forEach((link) => {
@@ -499,6 +499,8 @@ class UIHandler {
   }
 }
 
+/* @preserve */
+/*! Чтобы не удалялся Terser PLugin-ом */
 class DeliveryCalculatorServiceAreas {
   constructor(config = {
     mapid: 'delivery-calculator-map'
@@ -515,39 +517,48 @@ class DeliveryCalculatorServiceAreas {
     this.placemark = null;
   }
 
-  #ymapsInit() {
+  async #ymapsInit() {
     const host = this;
-    ymaps.ready(function() {
+    function waitForYMaps() {
+      if(typeof ymaps === 'undefined') {
+        setTimeout(() => {
+          waitForYMaps();
+        }, 100);
+        return;
+      }
+      ymaps.ready(function() {
         // Создание карты.
-      host.map = new ymaps.Map(host.config.mapid, {
-          // Координаты центра карты.
-          // Порядок по умолчанию: «широта, долгота».
-          // Чтобы не определять координаты центра карты вручную,
-          // воспользуйтесь инструментом Определение координат.
-          center: [55.76, 37.64],
-          // Уровень масштабирования. Допустимые значения:
-          // от 0 (весь мир) до 19.
-          controls: ['zoomControl'],
-          zoom: 7
-      }, {
-        restrictMapArea: Constraints.restrictedArea
-      });
-      try{
-        host.areas = new AreasKeeper(host);
-        const cursor = host.map.cursors.push('pointer');
-        //host.map.setBounds([[54.63970408670057, 35.36583007812499],[56.6400464750958, 39.738388671874986]]);
-        host.afk.bindAddressField();
-        host.#bindMapEvents();
-        try {
-          host.ui.bind();
+        host.map = new ymaps.Map(host.config.mapid, {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.76, 37.64],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            controls: ['zoomControl'],
+            zoom: 7
+        }, {
+          restrictMapArea: Constraints.restrictedArea
+        });
+        try{
+          host.areas = new AreasKeeper(host);
+          const cursor = host.map.cursors.push('pointer');
+          //host.map.setBounds([[54.63970408670057, 35.36583007812499],[56.6400464750958, 39.738388671874986]]);
+          host.afk.bindAddressField();
+          host.#bindMapEvents();
+          try {
+            host.ui.bind();
+          }catch(t){
+            console.error(t);
+          }
+          EventKeeper.trigger(Events.mapLoaded);
         }catch(t){
           console.error(t);
         }
-        EventKeeper.trigger(Events.mapLoaded);
-      }catch(t){
-        console.error(t);
-      }
-    });
+      });
+    }
+    waitForYMaps();
   }
 
   setMark(coords, name = false){
@@ -626,9 +637,12 @@ class DeliveryCalculatorServiceAreas {
   }
 
   run() {
-    this.#setEventHandlers();
-    this.#ymapsInit();
-    this.#setFormHandler();
+    (async () => {
+      this.#setEventHandlers();
+      await this.#ymapsInit();
+      this.#setFormHandler();
+    })().then().catch((err) => {console.error(err)});
+    
     //console.log("Delivery Calculator running");
   }
 }

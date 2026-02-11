@@ -1,12 +1,12 @@
 import "../scss/main.scss";
-
+console.log('here!');
 // Библиотеки
 import GLightbox from "glightbox";
 import "glightbox/dist/css/glightbox.min.css";
 
 import "./modules/header-scroll.js"
 import "./modules/hoveredHandle.js";
-import iniSwipers from "./modules/swipers";
+import iniSwipers from "./modules/swipers.js";
 import initNotifications from "./modules/notifications.js";
 import initOpened from "./modules/opened.js";
 import initDistrictsMap from "./modules/district-map/init.js";
@@ -17,8 +17,8 @@ import initComparison from "./modules/comparison.js";
 import initOpenedOptions from "./modules/opened-options.js";
 import initCopyToClipboard from "./modules/copy-to-clipboard.js";
 
-import initCatalog from "../../core/elements/modules/catalog-menu/js/main";
-import initModals from "../../core/elements/modules/modals/js/main";
+import initCatalog from "../../core/elements/modules/catalog-menu/js/main.js";
+import initModals from "../../core/elements/modules/modals/js/main.js";
 
 import initCart from "../../core/elements/modules/cart/frontend/js/main.js";
 import "../../core/elements/modules/cart/frontend/js/cart-calc.js";
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (error) {
     console.error(`Ошибка модуля AdditionalFieldsCallbackForm`, error);
   }
-
+  
   try{
     const dc = new DeliveryCalculatorServiceAreas();
     dc.run();

@@ -1,7 +1,7 @@
 <section class="delivery-calculator">
-  {set $key = 'config.yandex_apikey' | placeholder}
-  <script src="https://api-maps.yandex.ru/2.1/?apikey={$key}&lang=ru_RU" type="text/javascript"></script>
-  <div class="delivery-calculator__container">
+  {* {set $key = 'config.yandex_apikey' | placeholder}
+  <script src="https://api-maps.yandex.ru/2.1/?apikey={$key}&lang=ru_RU" type="text/javascript"></script> *}
+  <div class="delivery-calculator__container container">
     <div class="delivery-calculator__map-wrapper js-delivery-calculator__map-wrapper">
       <div id="delivery-calculator-map" class="delivery-calculator__map js-delivery-calculator__map"></div>
     </div>
@@ -96,7 +96,7 @@
         <div class="delivery-calculator__out-of-service js-delivery-calculator__out-of-service">
           Адрес за пределами области обслуживания
         </div>
-        <a href="#callback" data-fancybox="" class="delivery-calculator__btn">Задать вопрос по доставке</a>
+        <a href="#" class="delivery-calculator__btn" onclick="modals.events.open('modal-callback');return false">Задать вопрос по доставке</a>
       </form>
     </div>
   </div>
