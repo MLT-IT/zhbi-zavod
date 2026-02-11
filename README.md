@@ -74,3 +74,11 @@ INSERT INTO `modx_context_setting` (`context_key`, `key`, `value`, `xtype`, `nam
 - Для сложных элементов таких как секции (sections), модули (modules), шаблоны (templates) создаю отдельную папку где главным будет файл wrapper.tpl.
 
   - Пример: templates/product/wrapper.tpl - Теперь тут можно создавать вспомогательные элементы templates/product/gallery.tpl и тд
+
+## webpack
+
+- webpack удаляет js модули с ошибками из production сборки.
+
+## Калькулятор доставки deliveryCalculatorServiceAreas
+
+- Калькулятор использует уже добавленное API яндекс карт, которое находится здесь: _src\js\modules\district-map\init.js
