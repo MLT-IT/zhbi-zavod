@@ -32,7 +32,7 @@ $data = [
     'category_template_id' => [
         'value' => $modx->getOption('category_template_id'), // ID шаблона категорий
         'show_error_message' => false
-    ],
+    ]
 ];
 
 return [

@@ -1,0 +1,5 @@
+@mixin media-until($val) {
+  @media (max-width: $val) {
+    @content;
+  }
+}
