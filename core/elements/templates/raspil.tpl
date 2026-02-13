@@ -8,7 +8,7 @@
       {include "file:sections/advantages_v2.tpl" styleClass='raspil__advantages'}
       {include "file:sections/raspil-delivery.tpl" styleClass='raspil__delivery'}
       {include "file:blocks/tag-row.tpl" styleClass='raspil__tag-row' containerClass='raspil__container'}
-      {include "file:sections/contacts.tpl"}
+      {insert "file:modules/contacts-block/wrapper.tpl"}
     </div>
   </main>
 {/block}
