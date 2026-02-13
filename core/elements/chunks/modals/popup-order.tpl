@@ -114,8 +114,8 @@
           <p class="form__title">Способы оплаты:</p>
           <div class="form__radios">
             <div class="default-radio">
-              <input class="default-radio__input" type="radio" id="order-radio-4" name="PAYMENT" checked="checked" value="Безналичная оплата">
-              <label class="default-radio__label" for="order-radio-4">Безналичная оплата</label>
+              <input class="default-radio__input" type="radio" id="order-yur-radio-4" name="PAYMENT" checked="checked" value="Банковский перевод">
+              <label class="default-radio__label" for="order-yur-radio-4">Банковский перевод</label>
               <div class="default-input__error"></div>
             </div>
           </div>
