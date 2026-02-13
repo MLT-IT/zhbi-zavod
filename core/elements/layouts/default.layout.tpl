@@ -140,19 +140,20 @@
 
 {/block}
 {block "end-body"}
-
-    {if $_modx->getPlaceholder('localdata').region == "krasnodar"}
-        <script>
-            window.is_krasnondar = true
-        </script>
-    {/if}
+    {set $localData = $_modx->getPlaceholder('localdata')}
+    <script>
+        window.regionData = {
+            region: '{$localData.region}',
+            phone: '{$localData.offices.0.phone}'
+        };
+    </script>
 
     <script defer src="{$_modx->config['template_path']}js/runtime.js?v={'file_version' | config}" ></script>
     <script defer src="{$_modx->config['template_path']}js/vendors.js?v={'file_version' | config}" ></script>
     <script defer src="{$_modx->config['template_path']}js/main.js?v={'file_version' | config}"></script>
     <script type="module" src="{$_modx->config['template_path']}wall-calc/wall-calc.js?v={'file_version' | config}"></script>
-    <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" async defer></script>
-    <script src="/_vue/assets/template/vue/vue-main.js"></script>
+    <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" defer></script>
+    <script src="/_vue/assets/template/vue/vue-main.js" defer></script>
 <!--
 Источник: [^s^]
 БД, сек: [^qt^];

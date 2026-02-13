@@ -118,7 +118,7 @@
   </div>
 </div>
 </article>
-{include "file:sections/contacts.tpl"}
+{insert "file:modules/contacts-block/wrapper.tpl"}
 {/if}
   </div>
 </article>

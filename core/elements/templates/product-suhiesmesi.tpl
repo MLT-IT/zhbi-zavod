@@ -385,6 +385,6 @@
     {include "file:sections/calculator-banner/wrapper.tpl"}
   </section> *}
 
-  {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
+  {insert "file:modules/contacts-block/wrapper.tpl" styleClass='section_view_bg'}
 
 {/block}

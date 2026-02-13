@@ -74,6 +74,6 @@
         {include "file:sections/delivery.tpl"}
         {include "file:sections/faq.tpl"}
         {include "file:sections/payment.tpl"}
-        {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
+        {insert "file:modules/contacts-block/wrapper.tpl" styleClass='section_view_bg'}
       </main>
 {/block}

@@ -105,6 +105,6 @@
       {/switch}
       {include "file:sections/faq.tpl"}
       <br>
-      {include "file:sections/contacts.tpl"}
+      {insert "file:modules/contacts-block/wrapper.tpl"}
     </main>
 {/block}

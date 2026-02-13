@@ -1,3 +1,4 @@
+{set $warehouses = '@FILE modules/contacts-block/snippets/getWarehouses.php' | snippet}
 <article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}">
   <div class="contacts__container" data-tabs="">
     <div class="contacts__top">
@@ -14,48 +15,17 @@
         <div class="contacts__info">
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
-
-            {if $_modx->getPlaceholder('localdata').region == "krasnodar"}
-              {set $phone = $_modx->getPlaceholder('localdata').offices.0.phone}
-
-              {set $storehouse1 = 'Краснодаре'}
-              {set $storehouse2 = 'Армавире'}
-              {set $storehouse3 = 'Адыгейске'}
-            {else}
-              {set $phone = 'phone'|config}
-
-              {set $storehouse1 = 'Мурино'}
-              {set $storehouse2 = 'Красном Селе'}
-              {set $storehouse3 = 'Гатчине'}
-            {/if}
-            
-            <div class="contact">
+            {foreach $warehouses.stores as $warehouse}
+              <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
               </svg>
               <div class="contact__content">
-                <p class="contact__title">Телефон склада в {$storehouse1}:</p>
-                <p class="contact__value">{$phone}, доб 1</p>
-              </div><a class="contact__link" href="tel:{$phone}"></a>
+                <p class="contact__title">Телефон склада в {$warehouse.case}:</p>
+                <p class="contact__value">{$warehouse.phone}</p>
+              </div><a class="contact__link" href="tel:{$warehouse.phone | ereplace : '/доб \d+/i' : '' | ereplace : '/[^0-9+]/i' : ''}"></a>
             </div>
-            <div class="contact">
-              <svg class="contact__icon" aria-hidden="true">
-                <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
-              </svg>
-              <div class="contact__content">
-                <p class="contact__title">Телефон склада в {$storehouse2}:</p>
-                <p class="contact__value">{$phone}, доб 2</p>
-              </div><a class="contact__link" href="tel:{$phone}"></a>
-            </div>
-            <div class="contact">
-              <svg class="contact__icon" aria-hidden="true">
-                <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
-              </svg>
-              <div class="contact__content">
-                <p class="contact__title">Телефон склада в {$storehouse3}:</p>
-                <p class="contact__value">{$phone}, доб 3</p>
-              </div><a class="contact__link" href="tel:{$phone}"></a>
-            </div>
+            {/foreach}
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
         <div class="contacts__map shadow-map" id="districts_map" data-map-script="districts_map"></div>

@@ -130,6 +130,6 @@
           {include "file:sections/tagnerud-info.tpl"}
     {/if}
     {include "file:sections/payment.tpl"}
-    {include "file:sections/contacts.tpl" styleClass='section_view_bg'}
+    {insert "file:modules/contacts-block/wrapper.tpl" styleClass='section_view_bg'}
   </main>
 {/block}
