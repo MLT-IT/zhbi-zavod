@@ -30,10 +30,10 @@ $data = [
   ['url' => '/contacts/',
     'text' => 'Контакты'],
 
-    ['url' => '/calculator/',
+    /*['url' => '/calculator/',
     'text' => '',
     'link_classes' => 'h-nav__link_calc',
-    'attribs' => 'title="Калькулятор"'],
+    'attribs' => 'title="Калькулятор"'],*/
 ];
 
 return $data;
