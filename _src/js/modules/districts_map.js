@@ -10,6 +10,12 @@ function initDistrictsMap() {
   if(!window.regionData.region) {
     doDefaultInit().then().catch((err) => {console.error(err)}); return;
   }
+
+  // Московские склады вывести только для gazosilikatstroy
+  if(window.regionData.region == 'moscow' && document.body.dataset.ctx != 'gazosilikatstroy') {
+    doDefaultInit().then().catch((err) => {console.error(err)}); return;
+  }
+
   $.getJSON(
       `assets/template/json/district_stores/${window.regionData.region}.json`,
       function (data) {
