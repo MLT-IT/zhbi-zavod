@@ -3,7 +3,7 @@
 {block 'page-content'}
     
     {if $_modx->context.key === 'web'}
-      {include "file:sections/main-banner-slider/wrapper.tpl"}
+      {include "file:sections/main-banner-slider/wrapper.tpl" path="/assets/template/json/main-banner-slider/"~$_modx->context.key~".json"}
     {else}
       {include "file:sections/main-banner/wrapper.tpl"}
     {/if}

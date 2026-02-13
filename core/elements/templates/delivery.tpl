@@ -4,7 +4,7 @@
     <div class="bg-light-gray-2">
         {include "file:sections/breadcrumbs/wrapper.tpl"}
         <div class="container">
-            {include "file:sections/delivery-banner/wrapper.tpl"}
+            {include "file:sections/main-banner-slider/wrapper.tpl" path="/assets/template/json/delivery-banner-slider/"~$_modx->context.key~".json"}
         </div>
     </div>
 

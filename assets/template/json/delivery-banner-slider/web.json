@@ -1,0 +1,13 @@
+[
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/images/sections/delivery-banner/web/sm.png",
+      "md": "/assets/template/images/sections/delivery-banner/web/md.png",
+      "lg": "/assets/template/images/sections/delivery-banner/web/lg.png",
+      "xl": "/assets/template/images/sections/delivery-banner/web/xl.png"
+    }
+  }
+]

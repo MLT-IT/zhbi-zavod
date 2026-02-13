@@ -1,5 +1,5 @@
 <!-- {set $data = "@FILE snippets/getJsonData.php" | snippet : [
-    "path" => "/assets/template/json/main-banner-slider/"~$_modx->context.key~".json"
+    "path" => $path
 ]} -->
 
 {if $data['status'] == 'success'}
