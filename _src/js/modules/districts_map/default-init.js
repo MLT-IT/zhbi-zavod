@@ -1,8 +1,12 @@
+import { DistrictsMap } from "./DistrictsMap";
 
 function defaultInit() {
-    let districtsMap = new ymaps.Map("districts_map", {
+  try {
+    const dm = new DistrictsMap();
+    dm.createMap({
+      id: "districts_map",
       center: [59.94313797002322, 30.3010448956483],
-      zoom: 8,
+      zoom: 8
     });
 
     $.getJSON("assets/template/json/districts.json", function (data) {
@@ -14,249 +18,100 @@ function defaultInit() {
 
       spbDistricts.forEach(function (sd) {
         sd.coords.forEach(function (coord) {
-          var myGeoObject = new ymaps.GeoObject(
-            {
-              geometry: {
-                type: "Polygon",
-                coordinates: coord,
-              },
-              properties: {
-                hintContent: sd.name,
-                balloonContentHeader: sd.name,
-                balloonContent: "",
-                districtId: districtNum,
-                districtName: sd.name,
-                polygonColor: sd.color,
-              },
-            },
-            {
-              fillColor: sd.color,
-              strokeColor: "#000000",
-              fillOpacity: 0.3,
-              strokeWidth: 1,
-              strokeStyle: "solid",
-            }
-          );
-          myGeoObject.events.add("mouseenter", function (e) {
-            let tar = e.originalEvent.target;
-            let tarId = tar.properties.get("districtId");
-            districtsMap.geoObjects.each(function (d) {
-              if (d.options.get("fillOpacity") !== 0.6) {
-                if (d.properties.get("districtId") === tarId) {
-                  d.options.set({ fillOpacity: 0.5 });
-                } else {
-                  d.options.set({ fillOpacity: 0.3 });
-                }
-              }
-            });
+          const myGeoObject = dm.createPolygon({
+            coords: coord,
+            id: districtNum,
+            name: sd.name,
+            color: sd.color
           });
 
-          myGeoObject.events.add("mouseleave", function (e) {
-            districtsMap.geoObjects.each(function (d) {
-              if (d.options.get("fillOpacity") !== 0.6) {
-                d.options.set({ fillOpacity: 0.3 });
-              }
-            });
+          dm.setPolygonEventOpts({
+            poly: myGeoObject,
+            activeOpts : { fillOpacity: 0.6 },
+            hoverOpts: { fillOpacity: 0.5 },
+            leaveOpts: { fillOpacity: 0.3 }
           });
 
-          myGeoObject.events.add("click", function (e) {
-            let tar = e.originalEvent.target;
-            let tarId = tar.properties.get("districtId");
-            districtsMap.geoObjects.each(function (d) {
-              if (d.properties.get("districtId") === tarId) {
-                d.options.set({ fillOpacity: 0.6 });
-              } else {
-                d.options.set({ fillOpacity: 0.3 });
-              }
-            });
-          });
-          districtsMap.geoObjects.add(myGeoObject);
         });
         districtNum++;
       });
     }
 
-    let options = {
+    const options = dm.setIconOptions({
       iconLayout: "default#image",
       iconImageHref: "assets/template/img/icons/warehouse-2.png",
       iconImageSize: [42, 42], // Размеры метки.
       iconImageOffset: [-21, -21], // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
-    };
+    });
 
-    let phoneNumber = $(".h-subinfo__link_type_phone:first").text().trim();
-    let balloonContentHTML =
+    const phoneNumber = $(".h-subinfo__link_type_phone:first").text().trim();
+    const tel = phoneNumber.trim().replaceAll(/[^0-9+]/g, '');
+    const balloonContentHTML =
       '<div style="text-align: center;">Часы работы: ежедневно с 8:00 до 21:00<br>Стоимость доставки до 30 км: 1100 рублей<br>Телефон склада: <a href="tel:' +
-      phoneNumber +
+      tel +
       '">' +
       phoneNumber +
       "</a></div>";
 
-    districtsMap.geoObjects
-      .add(
-        new ymaps.Placemark(
-          [59.994992, 30.293467],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад метро Пионерская</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [60.069773, 30.350095],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Парнас</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.81716, 30.165481],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Красносельский район</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.801154, 30.375384],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Шушары</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.98495, 30.454456],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Полюстрово</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [60.041875, 30.474897],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Мурино</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.855832, 30.528814],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Новосаратовка</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.896878, 30.352717],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад метро Волковская</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.943607, 30.439485],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад метро Ладожская</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.942827, 30.696826],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Колтуши</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.832629, 30.298908],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Предпортовая</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.988707, 30.452143],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Шафировский проспект</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.87439, 30.342898],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад метро Парк Победы</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.585767, 30.158156],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Гатчина</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      )
-      .add(
-        new ymaps.Placemark(
-          [59.978459, 30.459773],
-          {
-            balloonContentHeader:
-              '<div style="text-align: center;">Склад Ржевка</div>',
-            balloonContent: balloonContentHTML,
-          },
-          options
-        )
-      );
+    const warehouses = [
+      {coords: [59.994992, 30.293467],
+        balloonContentHeader: '<div style="text-align: center;">Склад метро Пионерская</div>',
+      },
+      {coords: [60.069773, 30.350095],
+      balloonContentHeader: '<div style="text-align: center;">Склад Парнас</div>',
+      },
+      {coords: [59.81716, 30.165481],
+      balloonContentHeader: '<div style="text-align: center;">Склад Красносельский район</div>',
+      },
+      {coords: [59.801154, 30.375384],
+      balloonContentHeader: '<div style="text-align: center;">Склад Шушары</div>',
+      },
+      {coords: [59.98495, 30.454456],
+      balloonContentHeader: '<div style="text-align: center;">Склад Полюстрово</div>',
+      },
+      {coords: [60.041875, 30.474897],
+      balloonContentHeader: '<div style="text-align: center;">Склад Мурино</div>',
+      },
+      {coords: [59.855832, 30.528814],
+      balloonContentHeader: '<div style="text-align: center;">Склад Новосаратовка</div>',
+      },
+      {coords: [59.896878, 30.352717],
+      balloonContentHeader: '<div style="text-align: center;">Склад метро Волковская</div>',
+      },
+      {coords: [59.943607, 30.439485],
+      balloonContentHeader: '<div style="text-align: center;">Склад метро Ладожская</div>',
+      },
+      {coords: [59.942827, 30.696826],
+      balloonContentHeader: '<div style="text-align: center;">Склад Колтуши</div>',
+      },
+      {coords: [59.832629, 30.298908],
+      balloonContentHeader: '<div style="text-align: center;">Склад Предпортовая</div>',
+      },
+      {coords: [59.988707, 30.452143],
+      balloonContentHeader: '<div style="text-align: center;">Склад Шафировский проспект</div>',
+      },
+      {coords: [59.87439, 30.342898],
+      balloonContentHeader: '<div style="text-align: center;">Склад метро Парк Победы</div>',
+      },
+      {coords: [59.585767, 30.158156],
+      balloonContentHeader: '<div style="text-align: center;">Склад Гатчина</div>',
+      },
+      {coords: [59.978459, 30.459773],
+      balloonContentHeader: '<div style="text-align: center;">Склад Ржевка</div>',
+      }
+    ];
+
+    warehouses.map((warehouse) => {
+      dm.addWarehouse({
+        coords: warehouse.coords,
+        options,
+        baloonHeader: warehouse.balloonContentHeader,
+        baloonContent: balloonContentHTML
+      });
+    });
+  }catch(t) {
+    console.error(t);
+  }
 }
 
 export {
