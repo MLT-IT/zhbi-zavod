@@ -50,8 +50,8 @@
               <div class="default-input__error"></div>
             </div>
             <div class="default-radio">
-              <input value="Сбербанк Онлайн" class="default-radio__input" type="radio" id="order-radio-5" name="PAYMENT">
-              <label class="default-radio__label" for="order-radio-5">Сбербанк Онлайн</label>
+              <input value="Банковский перевод" class="default-radio__input" type="radio" id="order-radio-5" name="PAYMENT">
+              <label class="default-radio__label" for="order-radio-5">Банковский перевод</label>
             </div>
           </div>
 
