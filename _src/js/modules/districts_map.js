@@ -25,7 +25,7 @@ function initDistrictsMap() {
           dm.createMap({id: "districts_map", center: data.center, zoom: data.zoom});
           const options = dm.setIconOptions({
             iconLayout: "default#image",
-            iconImageHref: "assets/template/img/icons/warehouse-1.png",
+            iconImageHref: "assets/template/img/icons/warehouse-2.png",
             iconImageSize: [42, 42],
             iconImageOffset: [-21, -21],
           });
