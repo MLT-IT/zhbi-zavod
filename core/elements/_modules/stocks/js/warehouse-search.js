@@ -191,7 +191,7 @@ class WarehouseSearch {
         formData.append('context', this.currentContext);
         formData.append('limit', '10');
 
-        const response = await fetch('/api/warehouse-search.php', {
+        const response = await fetch('/assets/components/calculator-opt/warehouse-search.php', {
             method: 'POST',
             body: formData
         });
