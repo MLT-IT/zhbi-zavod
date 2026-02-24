@@ -50,6 +50,7 @@ import "./modules/listingProductGallery.js";
 import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
 import { initCatalogMobileMenu } from '../../core/elements/modules/menugen_v2/scripts/mobile-menu.js';
+import '../../core/elements/_modules/stocks/js/warehouse-search.js';
 
 import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
 import { fixReviewsTabCollapseLongText } from './modules/fixReviewsTabCollapseLongText.js';
