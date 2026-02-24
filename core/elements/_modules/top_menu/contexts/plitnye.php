@@ -24,9 +24,9 @@ $data = [
     'text' => 'Отзывы'],
   ['url' => '/raspil-v-razmer/',
     'text' => 'Распил'],
-  // ['url' => '/skladyi/',
-  //   'text' => 'Склады',
-  //   'submenu' => $warehouses_sub],
+   ['url' => '/skladyi/',
+     'text' => 'Склады',
+     'submenu' => $warehouses_sub],
   ['url' => '/contacts/',
     'text' => 'Контакты'],
 
