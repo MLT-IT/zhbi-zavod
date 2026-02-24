@@ -19,7 +19,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
-$debugMode = true;
+$debugMode = false;
 $sendServerError = static function (string $message, array $debug = []): void {
     if (!headers_sent()) {
         http_response_code(500);
