@@ -38,9 +38,6 @@ if (!is_dir($stocksModulePath)) {
 require_once $stocksModulePath . "stock-constant.php";
 require_once $stocksModulePath . "stock.class.php";
 
-const ALIAS_CATALOG = "catalog";
-
-
 // Получение параметров из POST
 $queryPhrase = $_POST['query'] ?? $_GET['query'] ?? '';
 $context = $_POST['context'] ?? $_GET['context'] ?? 'web';
@@ -75,10 +72,18 @@ if (empty($context)) {
 
 
 try {
+    if ($modx->context->key !== $context) {
+        $targetContext = $modx->getObject('modContext', $context);
+        if ($targetContext) {
+            $modx->switchContext($context);
+        }
+    }
+
   
     // Формирование where
     $wherePagetitle = [];
     $queryWordsArray = [];
+    $limit = max(1, $limit);
 
     foreach (explode(' ', $queryPhrase) as $index => $queryWord) {
         if (stristr($queryWord, ',') || stristr($queryWord, '.')) {
@@ -113,7 +118,7 @@ try {
             
           GROUP BY msProduct.id 
           ORDER BY CAST(`TVpriority1`.`value` AS DECIMAL(13,3)) ASC, CAST(`TVhitspage`.`value` AS DECIMAL(13,3)) ASC
-          LIMIT 10
+          LIMIT " . $limit . "
           ";
 
 
@@ -139,82 +144,9 @@ try {
         exit();
     }
 
-    // Получение каталога для определения шаблона склада
-    $catalog = $modx->getObject(
-        'modResource',
-        [
-            'alias' => ALIAS_CATALOG,
-            "context_key" => $context
-        ]
-    );
-
-
-    if (empty($catalog)) {
-        $modx->log(modX::LOG_LEVEL_ERROR, "Каталог не найден для контекста ({$context})");
-        echo json_encode([
-            'success' => false,
-            'error' => 'Каталог не найден'
-        ]);
-        exit();
-    }
-
-    $stockTemplates = json_decode($catalog->getTVValue('stocksTemplates'), true);
-    $stocksNames = getStocksNamesByContext($context);
-    $resultStocks = [];
-
-    // Обработка каждого найденного товара
-    foreach ($data as $productId) {
-        // Проверяем кеш для этого товара
-        $cacheKey =  CACHE_KEY . $context . "/". 'search_' . $productId;
-        $cachedStocks = $modx->cacheManager->get($cacheKey);
-        
-        if (!empty($cachedStocks)) {
-            $resultStocks[$productId] = $cachedStocks;
-            continue;
-        }
-
-        $parentIds = $modx->getParentIds($productId, 10, array('context' => $context));
-        $stockTemplate = null;
-
-        // Поиск подходящего шаблона склада
-        foreach ($stockTemplates as $template) {
-            $templateCategory = $template['category'] ?? null;
-            $isMatched = is_array($templateCategory)
-                ? !empty(array_intersect($parentIds, $templateCategory))
-                : in_array($templateCategory, $parentIds);
-
-            if ($isMatched) {
-                $stockTemplate = $template;
-                break;
-            }
-        }
-
-        if (!$stockTemplate) {
-            continue;
-        }
-
-        $distribution = getStockDistributionByTemplate(
-            (int)($stockTemplate['template'] ?? 0),
-            count($stocksNames)
-        );
-        $templateCountLimitStocks = (int)$distribution['limitStocks'];
-        $templateCountNotStocks = (int)$distribution['notStocks'];
-        $templateMinLimit = getStockTemplateRangeValue($stockTemplate, 'min_limit');
-        $templateMaxLimit = getStockTemplateRangeValue($stockTemplate, 'max_limit');
-
-        $stockTemplateObj = new StockTemplate(
-            $stocksNames,
-            $templateCountLimitStocks,
-            $templateCountNotStocks,
-            $productId,
-            $templateMinLimit,
-            $templateMaxLimit
-        );
-        $stocks = $stockTemplateObj->make();
-        
-        // Кешируем результат
-        $modx->cacheManager->set($cacheKey, $stocks, CACHE_TIME);
-        $resultStocks[$productId] = $stocks;
+    $warehouseRemainsSnippetPath = MODX_CORE_PATH . "elements/_modules/warehouses/snippets/remains.php";
+    if (!is_file($warehouseRemainsSnippetPath)) {
+        $warehouseRemainsSnippetPath = MODX_CORE_PATH . "elements/modules/warehouses/snippets/remains.php";
     }
 
     if (!function_exists("normalizeStockName")) {
@@ -232,18 +164,49 @@ try {
         }
     }
 
-    // Функция для поиска количества на складе
-    if (!function_exists("searchCountStock")) {
-        function searchCountStock($stockData, $searchStock)
+    if (!function_exists("getWarehouseAliasByName")) {
+        function getWarehouseAliasByName($normalizedName)
         {
-            $searchStock = normalizeStockName($searchStock);
+            $warehouseMap = [
+                'дачное' => 'dachnoe',
+                'янино-1' => 'yanino-1',
+                'шушары' => 'shushary',
+                'парголово' => 'pargolovo',
+                'металлострой' => 'metallostroy',
+            ];
 
-            foreach ($stockData as $stock) {
-                if ($searchStock === normalizeStockName($stock['title'] ?? '')) {
-                    return $stock["count"];
-                }
+            return $warehouseMap[$normalizedName] ?? '';
+        }
+    }
+
+    if (!function_exists("extractWarehouseAlias")) {
+        function extractWarehouseAlias($uri)
+        {
+            $path = parse_url((string)$uri, PHP_URL_PATH);
+            $path = trim((string)$path, '/');
+            if ($path === '') {
+                return '';
             }
-            return null;
+
+            $parts = explode('/', $path);
+            $alias = end($parts);
+
+            return strtolower((string)$alias);
+        }
+    }
+
+    if (!function_exists("isRequestRemainsValue")) {
+        function isRequestRemainsValue($value)
+        {
+            return normalizeStockName((string)$value) === 'подзапрос';
+        }
+    }
+
+    if (!function_exists("getWarehouseRemainsData")) {
+        function getWarehouseRemainsData($modx, $snippetPath, $productId)
+        {
+            $scriptProperties = ['id' => (int)$productId];
+            return include $snippetPath;
         }
     }
 
@@ -265,10 +228,35 @@ try {
 
     $finalResults = [];
 
-    foreach ($resultStocks as $productId => $values) {
-        $count = searchCountStock($values['stocks']['limitStocks'], $stockName);
-        $countLimit = searchCountStock($values['stocks']['stocks'], $stockName);
-        $finalCount = $count ?? $countLimit ?? 0;
+    foreach ($data as $productId) {
+        $finalCount = 0;
+        $isRequest = false;
+
+        $remainsData = getWarehouseRemainsData($modx, $warehouseRemainsSnippetPath, (int)$productId);
+        $searchNormalized = normalizeStockName($stockName);
+        $searchAlias = getWarehouseAliasByName($searchNormalized);
+
+        foreach (($remainsData['warehouses'] ?? []) as $warehouse) {
+            $isMatchedByName = $searchNormalized !== '' && (
+                normalizeStockName($warehouse['menutitle'] ?? '') === $searchNormalized
+                || normalizeStockName($warehouse['pagetitle'] ?? '') === $searchNormalized
+            );
+            $isMatchedByAlias = $searchAlias !== '' && extractWarehouseAlias($warehouse['uri'] ?? '') === $searchAlias;
+
+            if (!$isMatchedByName && !$isMatchedByAlias) {
+                continue;
+            }
+
+            $remainsValue = $warehouse['remains'] ?? 0;
+            $isRequest = isRequestRemainsValue($remainsValue);
+            $finalCount = $isRequest ? 0 : (int)$remainsValue;
+            break;
+        }
+
+        if (!$isRequest && isRequestRemainsValue($remainsData['total_remains'] ?? null)) {
+            $isRequest = true;
+            $finalCount = 0;
+        }
 
         $product = $modx->getObject("modResource", $productId);
         if ($product) {
@@ -276,7 +264,7 @@ try {
                 "id" => $productId,
                 "title" => $product->get('pagetitle'),
                 "count" => $finalCount,
-                "status" => getStockStatus($finalCount),
+                "status" => $isRequest ? 'request' : getStockStatus($finalCount),
                 "url" => $modx->makeUrl($productId)
             ];
         }
