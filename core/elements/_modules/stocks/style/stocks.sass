@@ -1,0 +1,28 @@
+.stocks-template
+  &__delivery span
+    color: #959595
+    font-size: 12px
+
+
+.stocks-template__link
+  position: relative
+  display: inline-block
+
+.stocks-template__link[data-title]
+  &:hover
+    &::after
+      content: attr(data-title)
+      position: absolute
+      width: 185px
+      text-align: center
+      border-radius: 8px
+      background-color: #fff
+      padding: 10px
+      box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1)
+      font-size: 12px
+      color: #000
+      font-weight: 400
+      z-index: 100
+      top: -100%
+      left: 105%
+      border: 1px solid #DADADA
