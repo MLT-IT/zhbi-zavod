@@ -54,7 +54,7 @@
             </section>
             {if $_modx->resource.context_key == 'plitnye'}
             <section>
-                <div class="wrapper">
+                <div class="wrapper" style="padding: 0;">
                     <div class="warehouse-search">
                         <div class="warehouse-search__form">
                             <div class="warehouse-search__form-input">
