@@ -23,6 +23,10 @@
     .header__main-sticky-email {
       display: none;
     }
+
+    .header__main {
+      padding: 14px 0;
+    }
   }
 
   &__descriptor {
@@ -116,6 +120,7 @@
   }
 
   &__main {
+    transition: .3s;
     padding: 25px 0;
 
     &-info {
