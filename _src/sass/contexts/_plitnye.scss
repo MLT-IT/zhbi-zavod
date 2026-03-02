@@ -7,9 +7,12 @@ body.plitnye {
   .header__top {
     background-color: var(--color-red);
 
-    .h-nav__item a {
-      &:hover {
-        color: var(--color-black);
+    .h-nav__item {
+      a.h-nav__link.text-white,
+      span.h-nav__link.text-white {
+        &:hover {
+          color: var(--color-black);
+        }
       }
     }
 
