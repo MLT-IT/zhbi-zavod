@@ -54,6 +54,10 @@
     margin-top: 16px;
     gap: 8px;
 
+    @media (max-width: variables.$bp768) {
+      margin-top: 4px;
+    }
+
     button,
     a {
       height: 100%;

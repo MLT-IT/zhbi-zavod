@@ -64,7 +64,7 @@
         <div class="default-controls__title">
           Итого: <span data-calc-cart-area>0</span> м<sup>2</sup>
         </div>
-        <div class="fs-30 fw-700">
+        <div class="fs-30-22 fw-700">
           <span data-calc-cart-total>0</span> ₽
         </div>
       </div>

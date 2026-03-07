@@ -93,6 +93,12 @@ img {
   object-fit: cover;
 }
 
+sup,
+b,
+span {
+  font-size: inherit;
+}
+
 a[href]:not(.btn) {
   transition: 0.2s;
   color: variables.$dark-gray-1;
@@ -293,6 +299,9 @@ b {
     @media (max-width: variables.$bp768) {
       width: 30px;
       min-width: 30px;
+
+      font-size: 18px;
+      font-weight: 500;
     }
   }
 

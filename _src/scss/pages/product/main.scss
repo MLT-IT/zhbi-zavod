@@ -5,6 +5,13 @@
 @use "./tabs.scss";
 
 .product-page {
+  &__delivery-inform {
+    @media (max-width: variables.$bp768) {
+      font-size: 12px;
+      flex-wrap: nowrap;
+    }
+  }
+
   &__row {
     display: flex;
     gap: 40px;
