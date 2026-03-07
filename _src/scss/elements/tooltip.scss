@@ -31,3 +31,68 @@
 
 
 }
+
+.ui-tooltip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  border-radius: 6px;
+  padding: 12px 40px 12px 12px;
+  font-size: 14px;
+  line-height: 1.35;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: 0.2s;
+
+  background-color: #2e323d;
+  color: #fff;
+
+  --ui-tooltip-arrow-left: 24px;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: var(--ui-tooltip-arrow-left);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2e323d;
+    pointer-events: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    opacity: 0.85;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

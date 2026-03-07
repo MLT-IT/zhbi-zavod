@@ -1,3 +1,5 @@
+import initTooltips from "../../tooltip/js/main.js";
+
 export default function initProductCart() {
   // Отслеживаем событие корзины для скрытия кнопок + - и вывода большой кнопки
   document.addEventListener("CartEvent", function (event) {
@@ -22,4 +24,6 @@ export default function initProductCart() {
       });
     }
   });
+
+  initTooltips();
 }
