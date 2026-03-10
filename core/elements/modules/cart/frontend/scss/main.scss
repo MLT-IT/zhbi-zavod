@@ -14,11 +14,7 @@
     }
 
     .show-active {
-      display: grid;
-
-      @media (max-width: variables.$bp768) {
-        display: flex;
-      }
+      display: flex;
     }
   }
 }
