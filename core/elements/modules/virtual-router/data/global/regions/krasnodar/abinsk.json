@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Абинск"
+    },
+    "where": {
+      "standart": "в Абинске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Абинску"
+    },
+    "what": {
+      "standart": "Абинска"
+    }
+  },
+  "address": "Абинск, Фермерская улица, 15/1",
+  "gmap": "1x5U6LxxVo0g-BsQ0dWi8jVKhVmEuUoM",
+  "yandex_id": 97450058
+}

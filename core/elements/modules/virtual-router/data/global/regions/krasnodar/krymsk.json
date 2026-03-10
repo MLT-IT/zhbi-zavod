@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Крымск"
+    },
+    "where": {
+      "standart": "в Крымске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Крымску"
+    },
+    "what": {
+      "standart": "Крымска"
+    }
+  },
+  "address": "Крымск, улица Кирова, 154А",
+  "gmap": "1v5ZkhyQdcVY28qn5g8qi8r-JZF8yp3M",
+  "yandex_id": 97449194
+}

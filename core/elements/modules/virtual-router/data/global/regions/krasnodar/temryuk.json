@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Темрюк"
+    },
+    "where": {
+      "standart": "в Темрюке и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Темрюку"
+    },
+    "what": {
+      "standart": "Темрюка"
+    }
+  },
+  "address": "Темрюк, Западная улица, 17",
+  "gmap": "1EPaFhCl55QzbECIZz9kkBUXcH31MELA",
+  "yandex_id": 97449851
+}

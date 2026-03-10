@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Тимашевск"
+    },
+    "where": {
+      "standart": "в Тимашевске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Тимашевску"
+    },
+    "what": {
+      "standart": "Тимашевска"
+    }
+  },
+  "address": "Тимашевск, Путевая улица, 64",
+  "gmap": "1G8pbJl5i97Tr8ztd62W4AduTzJgeuYY",
+  "yandex_id": 97449736
+}

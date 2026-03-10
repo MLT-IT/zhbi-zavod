@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Западный"
+    },
+    "where": {
+      "standart": "в Западном и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Западному"
+    },
+    "what": {
+      "standart": "Западного"
+    }
+  },
+  "address": "Западный, Краснодарская улица, 8",
+  "gmap": "1z9ap_f59Z-OTQ3QaVQNytxX79yi6meg",
+  "yandex_id": 97449499
+}

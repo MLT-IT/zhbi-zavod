@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Курганинск"
+    },
+    "where": {
+      "standart": "в Курганинске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Курганинску"
+    },
+    "what": {
+      "standart": "Курганинска"
+    }
+  },
+  "address": "Курганинск, Кавказская улица, 6Д",
+  "gmap": "1Q7pZaShySgJMBWxQOFU8DA8iogJT1wo",
+  "yandex_id": 97450088
+}

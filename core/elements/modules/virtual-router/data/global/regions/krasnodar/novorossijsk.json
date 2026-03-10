@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Новороссийск"
+    },
+    "where": {
+      "standart": "в Новороссийске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Новороссийску"
+    },
+    "what": {
+      "standart": "Новороссийска"
+    }
+  },
+  "address": "Новороссийск, Капитанский переулок, 16",
+  "gmap": "1oWE8ign3MkRq7xfZBsIPPkTSwD-KewE",
+  "yandex_id": 97449074
+}

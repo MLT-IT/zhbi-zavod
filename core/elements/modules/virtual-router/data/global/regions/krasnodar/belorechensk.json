@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Белореченск"
+    },
+    "where": {
+      "standart": "в Белореченске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Белореченску"
+    },
+    "what": {
+      "standart": "Белореченска"
+    }
+  },
+  "address": "Белореченск, Бригадная улица, 1Г3",
+  "gmap": "1x1xoCsl1UANLLCJKAfhyiwsV7eyI7ag",
+  "yandex_id": 97449332
+}

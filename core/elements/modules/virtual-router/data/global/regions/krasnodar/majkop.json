@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Майкоп"
+    },
+    "where": {
+      "standart": "в Майкопе и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Майкопу"
+    },
+    "what": {
+      "standart": "Майкопа"
+    }
+  },
+  "address": "Майкоп, Горная улица, 2",
+  "gmap": "1bwYQGFzf6sVw4uaYM7Wfo-W-TVOXX8Q",
+  "yandex_id": 97449266
+}

@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Тихорецк"
+    },
+    "where": {
+      "standart": "в Тихорецке и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Тихорецку"
+    },
+    "what": {
+      "standart": "Тихорецка"
+    }
+  },
+  "address": "Тихорецк, улица Жигуленко, 14/1",
+  "gmap": "1sC29HNUoq088zSXiqcaXhTefTS-2GH0",
+  "yandex_id": 97449465
+}

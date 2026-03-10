@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Кореновск"
+    },
+    "where": {
+      "standart": "в Кореновске и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Кореновску"
+    },
+    "what": {
+      "standart": "Кореновска"
+    }
+  },
+  "address": "Кореновск, Ленинградская улица, 27Б",
+  "gmap": "1qQn0uxFAzCYW1q9CZTB_9dHVK_NtP84",
+  "yandex_id": 97449995
+}

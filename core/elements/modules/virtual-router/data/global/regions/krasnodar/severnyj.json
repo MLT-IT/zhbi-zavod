@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Северный"
+    },
+    "where": {
+      "standart": "в Северном и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Северному"
+    },
+    "what": {
+      "standart": "Северного"
+    }
+  },
+  "address": "Северный, Большевистская улица, 13/3",
+  "gmap": "15__wywKTWxHCrLZTTAeJdmIN0zqkMbQ",
+  "yandex_id": 97449159
+}
