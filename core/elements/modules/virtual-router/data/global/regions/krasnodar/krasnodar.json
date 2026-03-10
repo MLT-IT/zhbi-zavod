@@ -1,0 +1,19 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Краснодар"
+    },
+    "where": {
+      "standart": "в Краснодаре и Краснодарском крае"
+    },
+    "on": {
+      "standart": "по Краснодару"
+    },
+    "what": {
+      "standart": "Краснодара"
+    }
+  },
+  "address": "Краснодар, Ольденбуржская улица, 75",
+  "gmap": "1ZrdAxTZVYxpN_PhnXQPV9a7N4njyK_4",
+  "yandex_id": 97448999
+}
