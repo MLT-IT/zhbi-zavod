@@ -123,6 +123,15 @@
       {include "file:chunks/mobile-bottom.tpl"}
     {/if}
 
+    <script>
+      {if $_modx->getPlaceholder('virtual-router')['region']['key'] === 'krasnodar'}
+        window.districtsMapData = "/assets/template/json/address-map/krasnodar.json";
+        window.districtsMapDataCenter = [45.03547, 39.019896];
+      {else}
+        window.districtsMapData = "/assets/template/json/address-map/default.json";
+        window.districtsMapDataCenter = [59.94313797002322, 30.3010448956483];
+      {/if}
+    </script>
     <script src="/assets/template/js/main.js?{'file_version'|config}"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   </body>

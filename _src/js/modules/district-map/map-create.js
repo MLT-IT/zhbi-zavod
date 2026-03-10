@@ -2,11 +2,11 @@ export default function mapCreate() {
   if (!document.getElementById("districts_map")) return;
 
   let districtsMap = new ymaps.Map("districts_map", {
-    center: [59.94313797002322, 30.3010448956483],
+    center: window.districtsMapDataCenter,
     zoom: 8,
   });
 
-  fetch("/assets/template/json/address-map/districts.json")
+  fetch(window.districtsMapData)
     .then((response) => {
       if (!response.ok) {
         throw new Error(
