@@ -66,6 +66,7 @@
     <link rel="stylesheet" href="/assets/template/css/main.css?{'file_version'|config}">
 
         <!-- Yandex.Metrika counter -->
+    {set $yandex_id = $_modx->getPlaceholder('virtual-router')['yandex_id']}
     <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
         m[i] =
@@ -88,11 +89,11 @@
         window,
         document,
         "script",
-        "https://mc.yandex.ru/metrika/tag.js?id=95226790",
+        "https://mc.yandex.ru/metrika/tag.js?id={$yandex_id}",
         "ym"
       );
 
-      ym(95226790, "init", {
+      ym({$yandex_id}, "init", {
         ssr: true,
         webvisor: true,
         clickmap: true,
@@ -104,7 +105,7 @@
     <noscript
       ><div>
         <img
-          src="https://mc.yandex.ru/watch/95226790"
+          src="https://mc.yandex.ru/watch/{$yandex_id}"
           style="position: absolute; left: -9999px"
           alt=""
         /></div

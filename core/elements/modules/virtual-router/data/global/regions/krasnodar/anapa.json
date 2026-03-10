@@ -1,0 +1,20 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Анапа"
+    },
+    "where": {
+      "standart": "в Анапе"
+    },
+    "on": {
+      "standart": "по Анапе"
+    },
+    "what": {
+      "standart": "Анапы"
+    }
+  },
+  "phone": "+7 (861) 203-37-42",
+  "address": "Анапа, Супсехское шоссе, 87",
+  "gmap": "1p3xDW0rGLZwlGrafadArCk6tS6Jwt3A",
+  "yandex_id": 97448960
+}

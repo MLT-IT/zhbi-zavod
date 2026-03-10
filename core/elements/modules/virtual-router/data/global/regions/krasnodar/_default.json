@@ -1,0 +1,20 @@
+{
+  "region": {
+    "key": "krasnodar",
+    "toponim": {
+      "base": {
+        "standart": "Краснодарский край"
+      },
+      "where": {
+        "standart": "в Краснодарском крае"
+      },
+      "on": {
+        "standart": "по Краснодарскому краю"
+      },
+      "what": {
+        "standart": "Краснодарского края"
+      }
+    }
+  },
+  "email": "krasnodar@osnova.spb.ru"
+}

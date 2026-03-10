@@ -43,7 +43,7 @@
                 <div class="production-form__form-title">Связаться с производством</div>
                 <input type="text" placeholder="Введите Ваше имя" name="name">
                 <input type="tel" placeholder="Укажите номер телефона*" name="phone" required>
-                <button class="btn btn-bordered" type="submit" onclick="ym(95226790,\'reachGoal\',\'otpravka-formy-skvoznoj-blok-proizvodstvo\')">Отправить заявку</button>
+                <button class="btn btn-bordered" type="submit" onclick="ym({$_modx->getPlaceholder(\'virtual-router\')[\'yandex_id\']},\'reachGoal\',\'otpravka-formy-skvoznoj-blok-proizvodstvo\')">Отправить заявку</button>
             </form>
             ',
             'hooks' => 'bx_lead'
