@@ -5,22 +5,27 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
 .d-flex-nowrap {
   flex-wrap: nowrap;
 }
 
 .d-grid {
-  display: grid!important;
+  display: grid;
 }
+
 .gap-5 {
   gap: 5px;
 }
+
 .gap-8 {
   gap: 8px;
 }
+
 .gap-12 {
   gap: 12px;
 }
+
 .gap-16 {
   gap: 16px;
 }
@@ -28,10 +33,12 @@
 .justify-sb {
   justify-content: space-between;
 }
+
 .justify-center {
   justify-content: center;
 }
-.align-end{
+
+.align-end {
   align-items: end;
 }
 
