@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Кировск"
+    },
+    "where": {
+      "standart": "в Кировске"
+    },
+    "on": {
+      "standart": "по Кировску"
+    },
+    "what": {
+      "standart": "Кировска"
+    }
+  },
+  "address": "Кировск, Магистральная улица 48Б",
+  "gmap": "1m9crGcLNMPAOvtfBhgRHMGwHKnhWIKI&ehbc=2E312F"
+}

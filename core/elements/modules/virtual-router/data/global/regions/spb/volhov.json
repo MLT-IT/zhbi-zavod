@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Волхов"
+    },
+    "where": {
+      "standart": "в Волхове"
+    },
+    "on": {
+      "standart": "по Волхову"
+    },
+    "what": {
+      "standart": "Волхова"
+    }
+  },
+  "address": "Волхов, Ленинградская улица 19",
+  "gmap": "1KOamHbCoYjFaqz1-JtSqQ62-DOxLmuo&ehbc=2E312F"
+}

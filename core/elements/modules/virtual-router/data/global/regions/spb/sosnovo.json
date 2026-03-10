@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Сосново"
+    },
+    "where": {
+      "standart": "в Сосново"
+    },
+    "on": {
+      "standart": "по Сосново"
+    },
+    "what": {
+      "standart": "Сосново"
+    }
+  },
+  "address": "посёлок Сосново, Ленинградская улица 15",
+  "gmap": "1b4KPAUQpbdeZkeNGK0L68P_U_ceEUfc&ehbc=2E312F"
+}

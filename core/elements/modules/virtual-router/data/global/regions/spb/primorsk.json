@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Приморск"
+    },
+    "where": {
+      "standart": "в Приморске"
+    },
+    "on": {
+      "standart": "по Приморску"
+    },
+    "what": {
+      "standart": "Приморска"
+    }
+  },
+  "address": "Приморск, улица Агафонова 13А",
+  "gmap": "129Abh43jdeAYwYghK6u8B_7GSlTm1gQ&ehbc=2E312F"
+}

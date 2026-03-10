@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Коммунар"
+    },
+    "where": {
+      "standart": "в Коммунаре"
+    },
+    "on": {
+      "standart": "по Коммунару"
+    },
+    "what": {
+      "standart": "Коммунара"
+    }
+  },
+  "address": "Коммунар, улица Строителей 6",
+  "gmap": "1MvQsLPMolXANIeVMSxKKQ69aC-CtWOM&ehbc=2E312F"
+}

@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Ульяновка"
+    },
+    "where": {
+      "standart": "в Ульяновке"
+    },
+    "on": {
+      "standart": "по Ульяновке"
+    },
+    "what": {
+      "standart": "Ульяновки"
+    }
+  },
+  "address": "городской посёлок Ульяновка, 8-я улица 41А",
+  "gmap": "1vHr3e1-w0zhCFwXrNZIBGDo1F5GRrZM&ehbc=2E312F"
+}

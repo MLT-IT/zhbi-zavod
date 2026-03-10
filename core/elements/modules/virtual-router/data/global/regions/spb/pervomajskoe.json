@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Первомайское"
+    },
+    "where": {
+      "standart": "в Первомайском"
+    },
+    "on": {
+      "standart": "по Первомайскому"
+    },
+    "what": {
+      "standart": "Первомайского"
+    }
+  },
+  "address": "посёлок Первомайское, Полевая улица 28",
+  "gmap": "1Y5lAYiWVDGycoZAe6kUEGzNIaAgbCmA&ehbc=2E312F"
+}

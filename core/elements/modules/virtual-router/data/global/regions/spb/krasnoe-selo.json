@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Красное село"
+    },
+    "where": {
+      "standart": "в Красном селе"
+    },
+    "on": {
+      "standart": "по Красному селу"
+    },
+    "what": {
+      "standart": "Красного села"
+    }
+  },
+  "address": "Красное Село, Гатчинское шоссе 54",
+  "gmap": "18tSODtQOMcD8Sp60UYYC4KRNNUejV8U&ehbc=2E312F"
+}

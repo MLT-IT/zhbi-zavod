@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Павловск"
+    },
+    "where": {
+      "standart": "в Павловске"
+    },
+    "on": {
+      "standart": "по Павловску"
+    },
+    "what": {
+      "standart": "Павловска"
+    }
+  },
+  "address": "Павловск, Гуммолосаровская улица, 56В",
+  "gmap": "1Dxdtqs4oES10RY7OFVIxfuLzzZ0qpcQ&ehbc=2E312F"
+}

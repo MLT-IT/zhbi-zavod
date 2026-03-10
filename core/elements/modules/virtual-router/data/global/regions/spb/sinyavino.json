@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Синявино"
+    },
+    "where": {
+      "standart": "в Синявино"
+    },
+    "on": {
+      "standart": "по Синявино"
+    },
+    "what": {
+      "standart": "Синявино"
+    }
+  },
+  "address": "посёлок Синявино-2, Восточная улица 14А",
+  "gmap": "1RXboOWb4BYRNa_ICGKMMz9xBKHAH0SA&ehbc=2E312F"
+}

@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Белоостров"
+    },
+    "where": {
+      "standart": "в Белоострове"
+    },
+    "on": {
+      "standart": "по Белоострову"
+    },
+    "what": {
+      "standart": "Белоострова"
+    }
+  },
+  "address": "посёлок Белоостров, Береговая улица 3Б",
+  "gmap": "1l2m0hH8qr-P77x0JZ9aowXtxrkhyM3k&ehbc=2E312F"
+}

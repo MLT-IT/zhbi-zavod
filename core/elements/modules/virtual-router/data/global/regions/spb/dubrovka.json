@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Дубровка"
+    },
+    "where": {
+      "standart": "в Дубровке"
+    },
+    "on": {
+      "standart": "по Дубровке"
+    },
+    "what": {
+      "standart": "Дубровки"
+    }
+  },
+  "address": "городской посёлок Дубровка, Советская улица 1/1литИ",
+  "gmap": "1nYTlsWfW28J5npS4JMB5SZtm0VxcAFk&ehbc=2E312F"
+}

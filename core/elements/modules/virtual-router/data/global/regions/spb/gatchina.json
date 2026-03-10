@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Гатчина"
+    },
+    "where": {
+      "standart": "в Гатчине"
+    },
+    "on": {
+      "standart": "по Гатчине"
+    },
+    "what": {
+      "standart": "Гатчины"
+    }
+  },
+  "address": "Гатчина, проспект 25 Октября 42",
+  "gmap": "1kZSXDofRpVUYLQ7M5tuAerBuSDeUzLk&ehbc=2E312F"
+}

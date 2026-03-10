@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Колпино"
+    },
+    "where": {
+      "standart": "в Колпино"
+    },
+    "on": {
+      "standart": "по Колпино"
+    },
+    "what": {
+      "standart": "Колпино"
+    }
+  },
+  "address": "Колпино, улица Севастьянова 12",
+  "gmap": "1h1IZMhWDj9X7gguT9bSzqLa0Fu_CUuo&ehbc=2E312F"
+}

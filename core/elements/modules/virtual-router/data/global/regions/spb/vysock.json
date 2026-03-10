@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Высоцк"
+    },
+    "where": {
+      "standart": "в Высоцке"
+    },
+    "on": {
+      "standart": "по Высоцку"
+    },
+    "what": {
+      "standart": "Высоцка"
+    }
+  },
+  "address": "Высоцк, Пригородная улица 6А",
+  "gmap": "1GAxBTWJiiMcFETElw-7pGoFP43OOjWM&ehbc=2E312F"
+}

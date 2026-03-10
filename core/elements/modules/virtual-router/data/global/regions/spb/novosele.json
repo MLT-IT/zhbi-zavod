@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Новоселье"
+    },
+    "where": {
+      "standart": "в Новоселье"
+    },
+    "on": {
+      "standart": "по Новоселью"
+    },
+    "what": {
+      "standart": "Новоселья"
+    }
+  },
+  "address": "городской посёлок Новоселье 128А",
+  "gmap": "181GpCl0D9m2RkF4dXGoF32Xb5eeC7nk&ehbc=2E312F"
+}

@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Тихвин"
+    },
+    "where": {
+      "standart": "в Тихвине"
+    },
+    "on": {
+      "standart": "по Тихвину"
+    },
+    "what": {
+      "standart": "Тихвина"
+    }
+  },
+  "address": "Тихвин, улица Карла Маркса 14",
+  "gmap": "1a__b0U90toGniVJNkvfvKSmivFtSTfc&ehbc=2E312F"
+}

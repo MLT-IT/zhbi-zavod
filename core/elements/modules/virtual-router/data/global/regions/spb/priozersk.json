@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Приозерск"
+    },
+    "where": {
+      "standart": "в Приозерске"
+    },
+    "on": {
+      "standart": "по Приозерску"
+    },
+    "what": {
+      "standart": "Приозерска"
+    }
+  },
+  "address": "Приозерск, Ленинградское шоссе 63А",
+  "gmap": "1-p2kZaL84wtpdT6DzUwZM_uxxK0zD34&ehbc=2E312F"
+}

@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Кронштадт"
+    },
+    "where": {
+      "standart": "в Кронштадте"
+    },
+    "on": {
+      "standart": "по Кронштадту"
+    },
+    "what": {
+      "standart": "Кронштадта"
+    }
+  },
+  "address": "Кронштадт, улица Восстания 7В",
+  "gmap": "16NK9_PWF-jPRx_VtlB85t0FKSuz1auc&ehbc=2E312F"
+}

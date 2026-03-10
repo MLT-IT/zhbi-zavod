@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Рощино"
+    },
+    "where": {
+      "standart": "в Рощино"
+    },
+    "on": {
+      "standart": "по Рощино"
+    },
+    "what": {
+      "standart": "Рощино"
+    }
+  },
+  "address": "городской посёлок Рощино, Круговая улица 12",
+  "gmap": "1IxksUljvvMSelZ8T6Ru6xHSBOkDzZ1w&ehbc=2E312F"
+}

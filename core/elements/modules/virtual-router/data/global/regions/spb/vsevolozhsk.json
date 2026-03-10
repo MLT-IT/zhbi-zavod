@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Всеволожск"
+    },
+    "where": {
+      "standart": "в Всеволожске"
+    },
+    "on": {
+      "standart": "по Всеволожску"
+    },
+    "what": {
+      "standart": "Всеволожска"
+    }
+  },
+  "address": "Всеволожск, шоссе Дорога Жизни 11В",
+  "gmap": "1VodjPUjA5klE9sw0AfnlZ0TOc4vEQ0Y&ehbc=2E312F"
+}

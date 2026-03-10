@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Сланцы"
+    },
+    "where": {
+      "standart": "в Сланцах"
+    },
+    "on": {
+      "standart": "по Сланцам"
+    },
+    "what": {
+      "standart": "Сланец"
+    }
+  },
+  "address": "Сланцы, Красная улица 7А",
+  "gmap": "1KQYJxWKST9_fC6gbs92kzno7Z9pwCZ4&ehbc=2E312F"
+}

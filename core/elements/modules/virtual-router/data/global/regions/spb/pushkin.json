@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Пушкин"
+    },
+    "where": {
+      "standart": "в Пушкине"
+    },
+    "on": {
+      "standart": "по Пушкину"
+    },
+    "what": {
+      "standart": "Пушкина"
+    }
+  },
+  "address": "Пушкин, Гусарская улица 4",
+  "gmap": "1_1JbLeCfkshVL4nMfozmOF6Cm9DKwSE&ehbc=2E312F"
+}

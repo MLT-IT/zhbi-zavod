@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Шлиссельбург"
+    },
+    "where": {
+      "standart": "в Шлиссельбурге"
+    },
+    "on": {
+      "standart": "по Шлиссельбургу"
+    },
+    "what": {
+      "standart": "Шлиссельбурга"
+    }
+  },
+  "address": "Шлиссельбург, улица Красный Тракт 15",
+  "gmap": "1jxDTUB_2-B5Nz9qq-wBShISMoe1KXFo&ehbc=2E312F"
+}

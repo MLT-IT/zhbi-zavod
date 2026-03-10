@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Фёдоровское"
+    },
+    "where": {
+      "standart": "в Фёдоровском"
+    },
+    "on": {
+      "standart": "по Фёдоровскому"
+    },
+    "what": {
+      "standart": "Фёдоровского"
+    }
+  },
+  "address": "городской посёлок Федоровское, Почтовая улица 31",
+  "gmap": "1EUABNr67gk2e0kPrVLko3H0cqIwghVA&ehbc=2E312F"
+}

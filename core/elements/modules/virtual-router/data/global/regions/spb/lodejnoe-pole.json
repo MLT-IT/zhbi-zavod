@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Лодейное Поле"
+    },
+    "where": {
+      "standart": "в Лодейном Поле"
+    },
+    "on": {
+      "standart": "по Лодейному Полю"
+    },
+    "what": {
+      "standart": "Лодейного Поля"
+    }
+  },
+  "address": "Лодейное Поле, Железнодорожная улица 2А",
+  "gmap": "1GyqjbhD9Z3tP5KHyl0ru4naI17CLRAI&ehbc=2E312F"
+}

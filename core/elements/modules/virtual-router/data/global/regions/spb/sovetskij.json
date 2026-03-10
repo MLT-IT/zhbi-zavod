@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Советский"
+    },
+    "where": {
+      "standart": "в Советском"
+    },
+    "on": {
+      "standart": "по Советскому"
+    },
+    "what": {
+      "standart": "Советского"
+    }
+  },
+  "address": "Заводская улица, 4, городской посёлок Советский, Выборгский район,",
+  "gmap": "1-3vUtZGmRUaMNVIK0U1iVUcrP41CQ9Y&ehbc=2E312F"
+}

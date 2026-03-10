@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Кингисепп"
+    },
+    "where": {
+      "standart": "в Кингисеппе"
+    },
+    "on": {
+      "standart": "по Кингисеппу"
+    },
+    "what": {
+      "standart": "Кингисеппа"
+    }
+  },
+  "address": "Кингисепп, Большая Советская улица 19",
+  "gmap": "12cibT__Du4u79w8rD-60c6mN3qEiprQ&ehbc=2E312F"
+}

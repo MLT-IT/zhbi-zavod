@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Выборг"
+    },
+    "where": {
+      "standart": "в Выборге"
+    },
+    "on": {
+      "standart": "по Выборгу"
+    },
+    "what": {
+      "standart": "Выборга"
+    }
+  },
+  "address": "Выборг, улица Кривоносова 13Г",
+  "gmap": "1AKdxn-r3NJVPmOOaLAWkjJW7UGdmDsg&ehbc=2E312F"
+}

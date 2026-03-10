@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Москва"
+    },
+    "where": {
+      "standart": "в Москве"
+    },
+    "on": {
+      "standart": "по Москве"
+    },
+    "what": {
+      "standart": "Москвы"
+    }
+  },
+  "address": "Москва, Акуловская улица, 2А",
+  "gmap": "1wUUvWdqoZ4bQLybFnkYJTFeQjl_j_Rk&ehbc=2E312F"
+}

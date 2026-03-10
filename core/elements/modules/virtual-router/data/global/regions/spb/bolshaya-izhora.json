@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Большая Ижора"
+    },
+    "where": {
+      "standart": "в Большой Ижоре"
+    },
+    "on": {
+      "standart": "по Большой Ижоре"
+    },
+    "what": {
+      "standart": "Большой Ижоры"
+    }
+  },
+  "address": "городской посёлок Большая Ижора, Нагорная улица 4",
+  "gmap": "1TX50G42JH7yJTahEKelruDaUqsa0zQE&ehbc=2E312F"
+}

@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Петергоф"
+    },
+    "where": {
+      "standart": "в Петергофе"
+    },
+    "on": {
+      "standart": "по Петергофу"
+    },
+    "what": {
+      "standart": "Петергофа"
+    }
+  },
+  "address": "Петергоф, Астрономическая улица 6Б",
+  "gmap": "1-oZHuHl3IyCVY4ki3KB50f0KbrYb2nU&ehbc=2E312F"
+}

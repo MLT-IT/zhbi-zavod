@@ -1,0 +1,18 @@
+{
+  "toponim": {
+    "base": {
+      "standart": "Бокситогорск"
+    },
+    "where": {
+      "standart": "в Бокситогорске"
+    },
+    "on": {
+      "standart": "по Бокситогорску"
+    },
+    "what": {
+      "standart": "Бокситогорска"
+    }
+  },
+  "address": "Бокситогорск, Южная улица 23к1",
+  "gmap": "1zSy4RXGh4kPV9YDEKHIuPkxvOeL1bLc&ehbc=2E312F"
+}
