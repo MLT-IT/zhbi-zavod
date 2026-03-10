@@ -68,9 +68,9 @@
               Банковской картой
             </label>
             <label class="custom-radio">
-              <input type="radio" name="pyments" value="Сбербанк Онлайн"/>
+              <input type="radio" name="pyments" value="Банковский перевод"/>
               <span class="radio-indicator"></span>
-              Сбербанк Онлайн
+              Банковский перевод
             </label>
           </div>
     
