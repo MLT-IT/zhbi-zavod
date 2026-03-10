@@ -13,5 +13,11 @@ return function ($global_data) {
         "Санкт-Петербург" => $global_data["toponim"]["base"]["standart"],
         "в Санкт-Петербурге" => $global_data["toponim"]["where"]["standart"],
         "по Санкт-Петербургу" => $global_data["toponim"]["on"]["standart"],
+
+        "в СПб" => $global_data["toponim"]["where"]["standart"],
+        "по СПб" => $global_data["toponim"]["on"]["standart"],
+
+        "в СПБ" => $global_data["toponim"]["where"]["standart"],
+        "по СПБ" => $global_data["toponim"]["on"]["standart"],
     ];
 };
