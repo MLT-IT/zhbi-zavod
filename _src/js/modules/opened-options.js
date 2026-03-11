@@ -2,6 +2,11 @@ export default function initOpenedOptions() {
   const store = {};
 
   window.showOptions = (product_idx) => {
+    let condition = product_idx % 2 === 0
+    if (product_idx >= window.idx_increment) {
+      condition = product_idx % 2 === 1
+    }
+
     if (!store[product_idx])
       store[product_idx] = {
         product_card: null,
@@ -14,7 +19,7 @@ export default function initOpenedOptions() {
 
     const next_product_card =
       store[product_idx].next_product_card ??
-      (product_idx % 2 === 0
+      (condition
         ? product_card.previousElementSibling
         : product_card.nextElementSibling);
 
@@ -26,7 +31,7 @@ export default function initOpenedOptions() {
       store[product_idx].next_product_card = next_product_card;
     }
 
-    product_card.classList.toggle("opened");
-    next_product_card.classList.toggle("opened");
+    product_card?.classList.toggle("opened");
+    next_product_card?.classList.toggle("opened");
   };
 }
