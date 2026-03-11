@@ -1,10 +1,28 @@
-{set $contacts = [
+{if $_modx->getPlaceholder("virtual-router")["region"]["key"] === "krasnodar"}
+  {set $contacts = [
+      'warehouse' => [
+          ['title' => 'Телефон склада в Краснодаре:','additional' => '1'],
+          ['title' => 'Телефон склада в Армавире:','additional' => '2'],
+          ['title' => 'Телефон склада в Адыгейске:','additional' => '3'],
+      ]
+  ]}
+{elseif $_modx->getPlaceholder("virtual-router")["region"]["key"] === "msk"}
+  {set $contacts = [
+    'warehouse' => [
+        ['title' => 'Телефон склада в Москве:','additional' => '1'],
+        ['title' => 'Телефон склада в Одинцово:','additional' => '2'],
+        ['title' => 'Телефон склада в Раменском:','additional' => '3'],
+    ]
+  ]}
+{else}
+  {set $contacts = [
     'warehouse' => [
         ['title' => 'Телефон склада в Мурино:','additional' => '1'],
         ['title' => 'Телефон склада в Красном Селе:','additional' => '2'],
         ['title' => 'Телефон склада в Гатчине:','additional' => '3'],
     ]
-]}
+  ]}
+{/if}
 
 <div class="address-map__row">
   <div class="address-map__contacts">
