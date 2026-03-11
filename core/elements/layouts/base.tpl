@@ -128,7 +128,12 @@
         window.map_data ={
           warehouses_path: "/assets/template/json/address-map/warehouses/krasnodar.json",
           map_center: [45.03547, 39.019896],
-        }  
+        }
+      {elseif $_modx->getPlaceholder('virtual-router')['region']['key'] === 'msk'}
+        window.map_data ={
+          warehouses_path: "/assets/template/json/address-map/warehouses/msk.json",
+          map_center: [55.755826, 37.617299],
+        }
       {else}
         window.map_data ={
           polygons_path: "/assets/template/json/address-map/polygons/spb.json",
