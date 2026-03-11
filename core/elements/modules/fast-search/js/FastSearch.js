@@ -1,8 +1,8 @@
 export default class FastSearch {
-  constructor(edge) {
+  constructor() {
     this.limit_category_items = 3;
-    this.edge = edge ?? 769;
     this.check_device = this.checkDevice();
+    // this.check_device = "desktop";
 
     this.search_form = document.querySelector(
       `[data-fast-search-form="${this.check_device}"]`
@@ -12,8 +12,6 @@ export default class FastSearch {
     );
 
     this.search_timeout = 400;
-
-    this.init();
   }
 
   init() {
@@ -45,7 +43,7 @@ export default class FastSearch {
   }
 
   checkDevice() {
-    if (window.innerWidth < this.edge) {
+    if (window.innerWidth < 769) {
       return "mobile";
     } else {
       return "desktop";
@@ -63,13 +61,6 @@ export default class FastSearch {
       this.search_input.classList.add("search-loading");
       // this.search_input.setAttribute("readonly", "true");
 
-      // >>> Анимация загрузки
-      const img = document.createElement("img");
-      img.src = "/assets/template/images/icons/loader.svg";
-      img.className = "fast-search__loader";
-      this.search_form.insertBefore(img, this.search_input.nextSibling);
-      // <<<
-
       $.get(
         "/",
         {
@@ -82,7 +73,7 @@ export default class FastSearch {
               return;
             }
 
-            if (status === "success" && data) {
+            if (status === "success" && data.trim().length) {
               this.showPopup(data);
             } else {
               this.hidePopup(
@@ -91,7 +82,7 @@ export default class FastSearch {
             }
           } finally {
             this.search_input.classList.remove("search-loading");
-            img.remove();
+
             // this.search_input.removeAttribute("readonly");
           }
         }
@@ -114,21 +105,23 @@ export default class FastSearch {
 
     if (this.check_device === "mobile") {
       this.hideLongList();
-      this.close_button.style =
-        "opacity:1;width:25px;max-width:none;padding-left:4px;";
+      // this.close_button.style =
+      //   "opacity:1;width:25px;max-width:none;padding-left:4px;";
+      this.close_button.classList.add("opened");
     }
 
     // Выделение найденных слов
     this.search_popup
-      .querySelectorAll(".fast-search-container li [fast-search-result-text]")
+      .querySelectorAll(
+        ".fast-search-container li [data-fast-search-result-text]"
+      )
       .forEach((list_item) => {
-        list_item.innerHTML = highlight(
+        list_item.innerHTML = this.highlight(
           list_item.innerHTML, // текст для поиска
           this.search_input.value.trim().split(" "), // слова для обрамления
           "strong" // тег обрамления
         );
       });
-    document.dispatchEvent(new CustomEvent('fast-search-show-results', {}));
   }
 
   hidePopup(html = "") {
@@ -137,12 +130,87 @@ export default class FastSearch {
       this.showPopup(html);
     } else {
       this.search_popup.style.display = "none";
-      document.dispatchEvent(new CustomEvent('fast-search-hide-results', {}));
     }
 
-    if (this.check_device === "mobile") {
-      this.close_button.style = "";
+    if (this.check_device === "mobile" && !html) {
+      this.close_button.classList.remove("opened");
     }
+  }
+  // Выделяет найденное вхождение в тексте
+  highlight(text, words, tag = "span") {
+    var i,
+      len = words.length,
+      re;
+    for (i = 0; i < len; i++) {
+      if (!words[i].length) continue;
+
+      let find = false;
+      [
+        words[i],
+        this.translit(words[i], "en_ru"),
+        this.translit(words[i], "ru_en"),
+      ].forEach((word) => {
+        if (!find) {
+          re = new RegExp(word, "gi");
+          if (re.test(text)) {
+            find = true;
+            text = text.replace(
+              re,
+              "<" + tag + ' class="highlight">$&</' + tag + ">"
+            );
+          }
+        }
+      });
+    }
+    return text;
+  }
+
+  // Транслитирация
+  translit(word, key) {
+    let converter = {
+      // prettier-ignore
+      ru_en: {
+        а: "a", б: "b", в: "v", г: "g", д: "d", е: "e", ё: "yo", ж: "zh", з: "z", и: "i", й: "j", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "h", ц: "c", ч: "ch", ш: "sh", щ: "sh", ъ: "``", ы: "y", ь: "`", э: "e`", ю: "yu", я: "ya",
+      },
+      // prettier-ignore
+      en_ru: {
+        a: "а", b: "б", v: "в", g: "г", d: "д", e: "е", yo: "ё", zh: "ж", z: "з", i: "и", j: "й", k: "к", l: "л", m: "м", n: "н", o: "о", p: "п", r: "р", s: "с", t: "т", u: "у", f: "ф", h: "х", c: "ц", ch: "ч", sh: "ш", sch: "щ", "``": "ъ", y: "ы", "`": "ь", "e`": "э", yu: "ю", ya: "я",
+      },
+    };
+
+    word = word.toLowerCase();
+
+    let answer = "";
+    for (let i = 0; i < word.length; ++i) {
+      let x = word[i];
+      if (x === "c" && word[i + 1] === "h") {
+        x = "ch";
+        i++;
+      } else if (x === "s" && word[i + 1] === "h") {
+        x = "sh";
+        i++;
+      } else if (x === "y" && word[i + 1] === "u") {
+        x = "yu";
+        i++;
+      } else if (x === "y" && word[i + 1] === "a") {
+        x = "ya";
+        i++;
+      } else if (x === "y" && word[i + 1] === "o") {
+        x = "yo";
+        i++;
+      } else if (x === "z" && word[i + 1] === "h") {
+        x = "zh";
+        i++;
+      }
+
+      if (converter[key][x] == undefined) {
+        answer += x;
+      } else {
+        answer += converter[key][x];
+      }
+    }
+
+    return answer;
   }
 
   addListener() {
@@ -166,22 +234,9 @@ export default class FastSearch {
       document.addEventListener("click", (event) => {
         // Проверяем, является ли целевой элемент клика дочерним popup или input или кнопкой поиска
         let inside = this.search_popup.contains(event.target);
-        let submit_btns = this.search_form.querySelectorAll(
-          'button[type="submit"]'
-        );
-
-        // Проверяем, был ли клик внутри одной из кнопок отправки
-        let clickedSubmitBtn = Array.from(submit_btns).some((btn) =>
-          btn.contains(event.target)
-        );
-
-        if (
-          !inside &&
-          !this.search_input.contains(event.target) &&
-          !clickedSubmitBtn
-        ) {
+        if (!inside && !this.search_input.contains(event.target)) {
           this.hidePopup();
-          this.search_input.value = "";
+          // this.search_input.value = "";
         }
       });
     }
@@ -190,7 +245,7 @@ export default class FastSearch {
   // Скрывает элементы в длинном списке категории
   hideLongList() {
     const limit_parent = this.search_popup.querySelector(
-      "[fast-search-limit-items]"
+      "[data-fast-search-limit-items]"
     );
 
     if (!limit_parent) {
@@ -198,7 +253,7 @@ export default class FastSearch {
     }
 
     const limit_childrens = limit_parent.querySelectorAll(
-      "li:not([fast-search-limit-protection])"
+      "li:not([data-fast-search-limit-protection])"
     );
 
     if (limit_childrens.length > this.limit_category_items) {
@@ -209,48 +264,21 @@ export default class FastSearch {
       });
 
       // Создаем кнопку открытия списка
-      const show_container = document.createElement("li");
-      show_container.className = "fast-search-show-all";
+      // const show_container = document.createElement("li");
+      // show_container.className = "fast-search-show-all";
 
-      const show_button = document.createElement("span");
-      show_button.onclick = () => {
-        limit_childrens.forEach((limit_children) => {
-          limit_children.style.display = "block";
-        });
-        show_container.remove();
-      };
-      show_container.appendChild(show_button);
+      // const show_button = document.createElement("span");
+      // show_button.onclick = () => {
+      //   limit_childrens.forEach((limit_children) => {
+      //     limit_children.style.display = "block";
+      //   });
+      //   show_container.remove();
+      // };
+      // show_container.appendChild(show_button);
 
-      // Первый скрытый элемент
-      const last_show_children = limit_childrens[this.limit_category_items];
-      limit_parent.insertBefore(show_container, last_show_children);
+      // // Первый скрытый элемент
+      // const last_show_children = limit_childrens[this.limit_category_items];
+      // limit_parent.insertBefore(show_container, last_show_children);
     }
   }
-}
-
-// Выделяет найденное вхождение в тексте
-function highlight(text, words, tag = "span") {
-  var i,
-    len = words.length,
-    re;
-  for (i = 0; i < len; i++) {
-    let find = false;
-    [
-      words[i],
-      translit(words[i], "en_ru"),
-      translit(words[i], "ru_en"),
-    ].forEach((word) => {
-      if (!find) {
-        re = new RegExp(word, "gi");
-        if (re.test(text)) {
-          find = true;
-          text = text.replace(
-            re,
-            "<" + tag + ' class="highlight">$&</' + tag + ">"
-          );
-        }
-      }
-    });
-  }
-  return text;
 }

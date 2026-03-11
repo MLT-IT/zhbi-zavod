@@ -1,0 +1,40 @@
+@use "../base/variables.scss";
+
+.search-listing {
+  // Даем отступ сверху, чтобы тени карточек не обрезались
+  padding-top: 50px;
+  margin-top: -50px;
+  overflow: hidden;
+
+  @media (max-width: variables.$bp768) {
+    margin-top: -90px;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // 4 карточки в ряд на десктопе
+    grid-gap: 20px 12px;
+    margin-bottom: 16px;
+
+    @media (max-width: variables.$bp992) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: variables.$bp768) {
+      gap: 8px;
+    }
+
+    .product-card {
+      min-width: auto;
+    }
+  }
+}
+

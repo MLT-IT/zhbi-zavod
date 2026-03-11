@@ -30,6 +30,7 @@ if (!class_exists('MLTSearch')) {
         protected $tplWrapper; // Чанк-обертка при AKAX поиске
         protected $isInit; // Это инициализация сниппета?
         protected $table_prefix;
+        protected $returnIds; // Возвращать только id найденных ресурсов
 
         /**
          * MLTSearch constructor.
@@ -38,7 +39,7 @@ if (!class_exists('MLTSearch')) {
          * @param $tplWrapper
          * @param $isInit
          */
-        public function __construct($tplProduct, $tplCategory, $tplWrapper, $isInit)
+        public function __construct($tplProduct, $tplCategory, $tplWrapper, $isInit, $returnIds = 0, $searchQuery = '')
         {
             global $modx;
 
@@ -47,15 +48,43 @@ if (!class_exists('MLTSearch')) {
             $this->tplCategory = $tplCategory;
             $this->tplWrapper = $tplWrapper;
             $this->isInit = $isInit;
-            $query_preg = preg_replace('/[^\p{L}\p{N}.,]+/u', ' ', self::TEST_QUERY ?: $_GET['query']); // Удаляем все символы, кроме цифр и букв
+            // Определяем, нужно ли возвращать только id ресурсов
+            $this->returnIds = !empty($returnIds);
+
+            // Определяем исходную поисковую фразу
+            // Приоритет:
+            // 1) TEST_QUERY (для тестов)
+            // 2) Параметр сниппета $searchQuery (используется на странице поиска)
+            // 3) GET-параметр query (используется AJAX-поиском)
+            // 4) GET-параметр search (форма поиска сайта)
+            $sourceQuery = self::TEST_QUERY;
+            if ($sourceQuery === null || $sourceQuery === '') {
+                if (!empty($searchQuery)) {
+                    $sourceQuery = $searchQuery;
+                } elseif (isset($_GET['query'])) {
+                    $sourceQuery = $_GET['query'];
+                } elseif (isset($_GET['search'])) {
+                    $sourceQuery = $_GET['search'];
+                } else {
+                    $sourceQuery = '';
+                }
+            }
+
+            $query_preg = preg_replace('/[^\p{L}\p{N}.,]+/u', ' ', $sourceQuery); // Удаляем все символы, кроме цифр и букв
             $query_preg = preg_replace('/\s+/', ' ', $query_preg); // Удаляем двойные пробелы
             $this->queryPhrase = trim($query_preg);
 
-            // $this->requestType = self::REQUEST_TYPE_AJAX;
-            if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest' || $_REQUEST['action'] != 'fast-search') {
+            // Определяем тип запроса
+            // Если явно запрошен возврат id (returnIds), считаем запрос не AJAX
+            // В остальных случаях сохраняем прежнюю логику
+            if (!empty($this->returnIds)) {
                 $this->requestType = self::REQUEST_TYPE_NOT_AJAX;
             } else {
-                $this->requestType = self::REQUEST_TYPE_AJAX;
+                if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest' || $_REQUEST['action'] != 'fast-search') {
+                    $this->requestType = self::REQUEST_TYPE_NOT_AJAX;
+                } else {
+                    $this->requestType = self::REQUEST_TYPE_AJAX;
+                }
             }
         }
 
@@ -97,9 +126,10 @@ if (!class_exists('MLTSearch')) {
              */
             $products = $this->findProducts($where['main'], $where['queryWordsArray']);
 
-            // Если это не AJAX вывести id`шники товаров
-            if ($this->requestType == self::REQUEST_TYPE_NOT_AJAX) {
+            // Если это не AJAX и запрошен режим возврата id найденных ресурсов
+            if ($this->requestType == self::REQUEST_TYPE_NOT_AJAX && !empty($this->returnIds)) {
                 if (count($products)) {
+                    // В не-AJAX режиме findProducts() уже возвращает массив id
                     return $this->returnData(implode(',', $products));
                 } else {
                     return $this->returnData(null);
@@ -577,5 +607,5 @@ if (empty($modx->services['pdoTools'])) {
     return false;
 }
 
-$MLTSearch = new MLTSearch($tplProduct, $tplCategory, $tplWrapper, $isInit);
+$MLTSearch = new MLTSearch($tplProduct, $tplCategory, $tplWrapper, $isInit, $returnIds ?? 0, $searchQuery ?? '');
 return $MLTSearch->run();
