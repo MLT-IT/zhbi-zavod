@@ -40,6 +40,8 @@
             'snippet' => 'FormIt',
             'form' => '@INLINE 
             <form class="production-form__form">
+                {include "file:modules/modals/chunks/form__bx-source-input.tpl"}
+              
                 <div class="production-form__form-title">Связаться с производством</div>
                 <input type="text" placeholder="Введите Ваше имя" name="name">
                 <input type="tel" placeholder="Укажите номер телефона*" name="phone" required>

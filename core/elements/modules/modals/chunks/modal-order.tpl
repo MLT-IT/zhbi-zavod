@@ -41,6 +41,8 @@
           data-modal-id="modal-order"
           data-opened-element="order-form-1"
         >
+          {include "file:modules/modals/chunks/form__bx-source-input.tpl"}
+
           <input type="text" name="name" placeholder="ФИО получателя" />
     
           <div class="form__flex">
@@ -111,6 +113,8 @@
           data-modal-id="modal-order"
           data-opened-element="order-form-2"
         >
+          {include "file:modules/modals/chunks/form__bx-source-input.tpl"}
+          
           <input type="text" name="name" placeholder="Название компании" />
     
           <div class="form__flex">

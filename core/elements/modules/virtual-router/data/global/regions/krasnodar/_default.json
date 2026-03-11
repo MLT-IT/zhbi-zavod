@@ -16,6 +16,6 @@
       }
     }
   },
-  "email": "krasnodar@osnova.spb.ru",
+  "email": "krasnodar@[[++http_host]]",
   "phone": "+7 (861) 203-37-42"
 }

@@ -11,6 +11,8 @@
   {'!FetchIt' | snippet : [
     'form' => '@INLINE 
       <form class="form" data-modal-id="modal-callback">
+        {include "file:modules/modals/chunks/form__bx-source-input.tpl"}
+
         <div class="form__group">
           <input type="text" name="name" placeholder="Имя"/>
         </div>
