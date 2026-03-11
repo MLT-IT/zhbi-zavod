@@ -32,7 +32,7 @@
         В корзину
       </button>
 
-      <a class="cart-product-big__main-btn show-active nohover btn btn-primary" href="{$_modx->getPlaceholder('makeurls.cart')}">
+      <a class="cart-product-big__main-btn show-active nohover btn btn-primary d-grid" href="{$_modx->getPlaceholder('makeurls.cart')}">
         В корзине
         <span class="mini-text">Перейти</span>
       </a>
