@@ -1,4 +1,11 @@
-.delivery-calculator {
+body[data-ctx='rockwool'],
+body[data-ctx='krovlya'],
+body[data-ctx='knauf'],
+body[data-ctx='isover'],
+body[data-ctx='paroc'],
+body[data-ctx='tn']
+{
+  .delivery-calculator {
     &__form-address-dropdown {
       position: absolute;
       left: 0;
@@ -7,6 +14,7 @@
       background: white;
       padding: 0 0 5px;
       font-size: 16px;
+      z-index: 1;
     }
 
     &__form-address-dropdown-item {
@@ -31,3 +39,4 @@
       opacity: 0;
     }
   }
+}

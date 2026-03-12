@@ -3,18 +3,32 @@
 @use './masks';
 
 .delivery-calculator {
-  $red: #D3553C;
+  $contexts: (
+      rockwool: #AA000F,
+      knauf: #4f70ad,
+      isover: #83c320,
+      paroc: #ce1126
+  );
+
+  @each $context, $color in $contexts {
+    @at-root .#{$context} {
+      --color-calculator: #{$color};
+    }
+  }
+
   margin: 55px 0 55px;
   min-width: 320px;
-  &__container {
-    display: flex;
+
+  .wrapper {
     flex-direction: row;
     gap: 16px;
     align-items: stretch;
+    display: flex;
     @include mx.media-until(980px) {
       flex-direction: column;
     }
   }
+
   &__map {
     width: 100%;
     height: 100%;
@@ -22,10 +36,12 @@
     border-radius: 8px;
     overflow: hidden;
     pointer-events: none;
+
     &.active {
       pointer-events: auto;
     }
   }
+
   &__map-wrapper {
     position: relative;
     flex: 0 0 396px;
@@ -36,16 +52,19 @@
       margin: 0 30px 0 0;
     }
   }
+
   &__form-block {
     flex: 1 1 auto;
     width: 100%;
   }
+
   &__form-title {
     margin: 0 0 24px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.2;
   }
+
   &__form-field {
     display: block;
     background: #f5f5f5;
@@ -66,47 +85,45 @@
     }
   }
 
-  &__form-address-wrap {
-    position: relative;
-    display: block;
-  }
-
   &__weights {
     flex-wrap: wrap;
     gap: 22px;
     display: none;
-    min-height: 71px;
+
     &.active {
       display: flex;
     }
+
     a {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      text-decoration: none;
       width: 76px;
       gap: 9px;
-      text-decoration: none;
-      color: inherit;
+
       &:visited {
-        color: inherit;
+        color: #25282b;
       }
+
       &:hover, &.active {
-        color: $red;
+        color: var(--color-calculator);
+
         svg {
-          fill: $red;
+          fill: var(--color-calculator);
         }
       }
     }
   }
+
   &__weights-wrapper {
     min-height: 68px;
   }
+
   &__weights-svg {
     fill: #25282B;
     margin: 0 auto;
-    max-width: max-content;
-    max-height: max-content;
   }
 
   &__weights-img-wrap {
@@ -114,10 +131,12 @@
     display: flex;
     align-items: flex-end;
   }
+
   &__price-wrapper {
     min-width: 66px;
     margin: 24px 0;
   }
+
   &__price {
     display: none;
     border: 1px solid #C9C9C9;
@@ -135,40 +154,39 @@
       justify-content: space-between;
     }
   }
+
   &__price-title {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.2;
-    color: black;
     margin: 0 0 7px;
   }
+
   &__price-value {
     font-size: 18px;
     font-weight: 700;
     line-height: 1.2;
-    color: black;
   }
+
   &__btn {
-    width: fit-content;
     height: 61px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $red;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
-    border: 1px solid $red;
     text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 6px;
-    padding: 20px;
+    color: var(--color-calculator);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    border: 1px solid var(--color-calculator);
     &:hover {
-      background: rgba($red, 0.05);
+      background: rgba(var(--color-calculator), 0.05);
     }
   }
+
   &__vehicle {
     margin: 24px 0 0;
+
     label {
       font-size: 18px;
       font-weight: 500;
@@ -179,17 +197,21 @@
       @include mx.media-until(460px) {
         font-size: 16px;
       }
+
       input {
         margin: 0 8px 0 0;
       }
     }
   }
+
   &__in-service {
     display: none;
+
     &.active {
       display: block;
     }
   }
+
   &__out-of-service {
     display: none;
     align-items: center;
@@ -197,12 +219,39 @@
     text-align: center;
     border: 1px solid #aa000f;
     min-height: 61px;
-    color: $red;
+    color: #aa000f;
     font-size: 20px;
     margin: 20px 0;
+
     &.active {
       display: flex;
     }
   }
+
+  &__form-address-wrap {
+    position: relative;
+    display: block;
+  }
+
 }
 
+/*
+.delivery-calculator__weights--radio.active {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  margin-left: 20px;
+
+
+  .delivery-calculator__radio-weight {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 600;
+
+    span {
+      order: 1;
+    }
+  }
+}
+*/

@@ -1,10 +1,31 @@
- .delivery-calculator {
-    $color-1: #D3553C;
+$colors-1: (
+    rockwool: #AA000F,
+    krovlya: #AA000F,
+    tn: #AA000F,
+    knauf: #4f70ad,
+    isover: #83c320,
+    paroc: #ce1126
+);
+
+@each $context, $color in $colors-1 {
+  @at-root .#{$context} {
+    --color-1-calculator: #{$color};
+  }
+}
+
+body[data-ctx='rockwool'],
+body[data-ctx='krovlya'],
+body[data-ctx='knauf'],
+body[data-ctx='isover'],
+body[data-ctx='paroc'],
+body[data-ctx='tn']
+{
+  .delivery-calculator {
     $color-2: #25282b;
     &__weights {
       a.active, a:hover {
         .delivery-calculator__weights-mask {
-          background: $color-1;
+          background: var(--color-1-calculator);
         }
       }
     }
@@ -20,3 +41,4 @@
       background: $color-2;
     }
   }
+}
