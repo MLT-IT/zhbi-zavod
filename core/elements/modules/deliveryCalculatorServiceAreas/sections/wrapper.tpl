@@ -4,7 +4,7 @@
   {set $key = 'yandex_apikey' | config}
   <script src="https://api-maps.yandex.ru/2.1/?apikey={$key}&lang=ru_RU" type="text/javascript"></script>
   *}
-  <div class="wrapper">
+  <div class="wrapper container">
     <div class="delivery-calculator__map-wrapper js-delivery-calculator__map-wrapper">
       <div id="delivery-calculator-map" class="delivery-calculator__map js-delivery-calculator__map"></div>
     </div>
