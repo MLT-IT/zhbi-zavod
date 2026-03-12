@@ -20,18 +20,19 @@ class Utils {
 }
 
 const Constraints = {
-  restrictedArea: [[53.91320802837306, 32.844467773437486],[57.80159739262526, 42.937626211638694]] //левый нижний, правый верхний
+  //restrictedArea: [[59.7, 29.5],[60.2, 30.8]] //левый нижний, правый верхний (область Санкт-Петербурга)
+  //58.315025533803365, 26.614562109374972
+  //61.76406372101313, 34.71480670238235
+  //restrictedArea: []
+  restrictedArea: [[58.315025533803365, 26.614562109374972], [61.577574322390554, 35.31966954886171]] //левый нижний, правый верхний (область 
 };
-
-
-
 
 class AddressFieldKeeper {
   constructor(owner, config = {
     addrS: '.js-delivery-calculator__form-address',
     addrMsgS: '.js-delivery-calculator__form-address-message',
     dropDownSel: '.js-delivery-calculator__form-address-dropdown',
-    inputDelay: 1000
+    inputDelay: 200
   }){
     this.config = config;
     this.addrField = document.body.querySelector(this.config.addrS);
@@ -281,13 +282,6 @@ class ResultsRenderer {
   #setAreaInfo(area) {
     this.#clearAreaInfo();
     //console.log(area);
-    /*
-    if(area.handler){
-      this.owner.ui.setPrices('handler', '', area.handler.dur, area.handler.exact);
-    }else {
-      this.owner.ui.setPrices('handler', '', '-', '-');
-    }*/
-    //console.log(area);
     if(area.car){
       for(let p in area.car){
         //console.log(p);
@@ -315,7 +309,7 @@ class ResultsRenderer {
     //console.log(desc);
     //console.log(this.areas);
     const area = this.areas[desc];
-    if(!area){console.error('Area not found in delivery data.'); return;}
+    if(!area){console.error('Area not found in delivery data: ' + desc); return;}
     this.owner.ui.setService(true, false);
     this.#setAreaInfo(area);
   }
@@ -339,7 +333,7 @@ class UIHandler {
     this.config = config;
     this.formData = {
       vehicleId: 'car',
-      carWeight: '0,5',
+      carWeight: '0,5 - 1,5',
       handlerWeight: '5',
     }
   }
@@ -420,13 +414,13 @@ class UIHandler {
       if(vehicle == 'handler' && vehicleId == 'handler'){
         if(tabWeight == weight) {
           priceDurElem.innerHTML = Utils.priceFormat(priceDur);
-          priceExactElem.innerHTML = Utils.priceFormat(priceExact);
+          if(priceExactElem)priceExactElem.innerHTML = Utils.priceFormat(priceExact);
         }
       }
       if(vehicle == 'car' && vehicleId == 'car'){
         if(tabWeight == weight) {
           priceDurElem.innerHTML = Utils.priceFormat(priceDur);
-          priceExactElem.innerHTML = Utils.priceFormat(priceExact);
+          if(priceExactElem)priceExactElem.innerHTML = Utils.priceFormat(priceExact);
         }
       }
     });
@@ -451,10 +445,11 @@ class UIHandler {
     });
     map.addEventListener('mouseout', (e) => {
       //console.log('out');
-      //console.log(e.fromElement);
+      //console.log(e);
       //console.log(e.fromElement.closest(this.config.mapSel));
+      const parent = e.fromElement.closest(this.config.mapSel);
       if(e.fromElement.closest(this.config.mapSel)){
-        map.classList.remove('active');
+        if(!parent.contains(e.relatedTarget))map.classList.remove('active');
       }
     });
   }
@@ -499,8 +494,6 @@ class UIHandler {
   }
 }
 
-/* @preserve */
-/*! Чтобы не удалялся Terser PLugin-ом */
 class DeliveryCalculatorServiceAreas {
   constructor(config = {
     mapid: 'delivery-calculator-map'
@@ -517,7 +510,7 @@ class DeliveryCalculatorServiceAreas {
     this.placemark = null;
   }
 
-  async #ymapsInit() {
+async #ymapsInit() {
     const host = this;
     function waitForYMaps() {
       if(typeof ymaps === 'undefined') {
@@ -531,13 +524,11 @@ class DeliveryCalculatorServiceAreas {
         host.map = new ymaps.Map(host.config.mapid, {
             // Координаты центра карты.
             // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
+            center: [59.9311, 30.3609], // Центр Санкт-Петербурга
             // Уровень масштабирования. Допустимые значения:
             // от 0 (весь мир) до 19.
             controls: ['zoomControl'],
-            zoom: 7
+            zoom: 6
         }, {
           restrictMapArea: Constraints.restrictedArea
         });
@@ -563,6 +554,7 @@ class DeliveryCalculatorServiceAreas {
 
   setMark(coords, name = false){
     if(!coords)return;
+    //console.log(coords);
     if(coords.constructor != Array)return;
     this.map.geoObjects.remove(this.placemark); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     this.placemark = new ymaps.Placemark(coords);
@@ -576,7 +568,7 @@ class DeliveryCalculatorServiceAreas {
     try {
       if(!polygon) {this.rr.render();}
       if(polygon && this.rr.ready){
-        this.rr.render(polygon.properties.get('description'));
+        this.rr.render(polygon.properties.get('description').trim());
       }
       this.map.geoObjects.add(this.placemark);
       this.map.panTo(coords);
@@ -622,7 +614,7 @@ class DeliveryCalculatorServiceAreas {
       readyToGo();
     });
     EventKeeper.bindHandler(Events.readyToGo, () => {
-      host.setMark([55.75351431510645, 37.618027343749986]);
+      host.setMark([59.9311, 30.3609]); // Центр Санкт-Петербурга
     });
   }
 
@@ -642,7 +634,6 @@ class DeliveryCalculatorServiceAreas {
       await this.#ymapsInit();
       this.#setFormHandler();
     })().then().catch((err) => {console.error(err)});
-    
     //console.log("Delivery Calculator running");
   }
 }

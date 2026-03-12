@@ -1,10 +1,23 @@
- .delivery-calculator {
-    $color-1: #D3553C;
+$colors-1: (
+
+);
+
+@each $context, $color in $colors-1 {
+  @at-root .#{$context} {
+    --color-1-calculator: #{$color};
+  }
+}
+
+body {
+  .delivery-calculator {
+
+    --color-1-calculator: #d3553c;
+
     $color-2: #25282b;
     &__weights {
       a.active, a:hover {
         .delivery-calculator__weights-mask {
-          background: $color-1;
+          background: var(--color-1-calculator);
         }
       }
     }
@@ -20,3 +33,4 @@
       background: $color-2;
     }
   }
+}
