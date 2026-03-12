@@ -510,39 +510,46 @@ class DeliveryCalculatorServiceAreas {
     this.placemark = null;
   }
 
-  #ymapsInit() {
+async #ymapsInit() {
     const host = this;
-    ymaps.ready(function() {
+    function waitForYMaps() {
+      if(typeof ymaps === 'undefined') {
+        setTimeout(() => {
+          waitForYMaps();
+        }, 100);
+        return;
+      }
+      ymaps.ready(function() {
         // Создание карты.
-      host.map = new ymaps.Map(host.config.mapid, {
-          // Координаты центра карты.
-          // Порядок по умолчанию: «широта, долгота».
-          // Чтобы не определять координаты центра карты вручную,
-          // воспользуйтесь инструментом Определение координат.
-          center: [59.9311, 30.3609], // Центр Санкт-Петербурга
-          // Уровень масштабирования. Допустимые значения:
-          // от 0 (весь мир) до 19.
-          controls: ['zoomControl'],
-          zoom: 6
-      }, {
-        restrictMapArea: Constraints.restrictedArea
-      });
-      try{
-        host.areas = new AreasKeeper(host);
-        const cursor = host.map.cursors.push('pointer');
-        //host.map.setBounds([[54.63970408670057, 35.36583007812499],[56.6400464750958, 39.738388671874986]]);
-        host.afk.bindAddressField();
-        host.#bindMapEvents();
-        try {
-          host.ui.bind();
+        host.map = new ymaps.Map(host.config.mapid, {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            center: [59.9311, 30.3609], // Центр Санкт-Петербурга
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            controls: ['zoomControl'],
+            zoom: 6
+        }, {
+          restrictMapArea: Constraints.restrictedArea
+        });
+        try{
+          host.areas = new AreasKeeper(host);
+          const cursor = host.map.cursors.push('pointer');
+          //host.map.setBounds([[54.63970408670057, 35.36583007812499],[56.6400464750958, 39.738388671874986]]);
+          host.afk.bindAddressField();
+          host.#bindMapEvents();
+          try {
+            host.ui.bind();
+          }catch(t){
+            console.error(t);
+          }
+          EventKeeper.trigger(Events.mapLoaded);
         }catch(t){
           console.error(t);
         }
-        EventKeeper.trigger(Events.mapLoaded);
-      }catch(t){
-        console.error(t);
-      }
-    });
+      });
+    }
+    waitForYMaps();
   }
 
   setMark(coords, name = false){
@@ -622,9 +629,11 @@ class DeliveryCalculatorServiceAreas {
   }
 
   run() {
-    this.#setEventHandlers();
-    this.#ymapsInit();
-    this.#setFormHandler();
+    (async () => {
+      this.#setEventHandlers();
+      await this.#ymapsInit();
+      this.#setFormHandler();
+    })().then().catch((err) => {console.error(err)});
     //console.log("Delivery Calculator running");
   }
 }
