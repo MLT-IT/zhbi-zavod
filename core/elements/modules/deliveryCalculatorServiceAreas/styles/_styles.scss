@@ -3,6 +3,10 @@
 @use './masks';
 
 .delivery-calculator {
+
+  --color-calculator: #d3553c;
+  --color-calculator-hov: #944434;
+
   $contexts: (
       rockwool: #AA000F,
       knauf: #4f70ad,
@@ -103,6 +107,11 @@
       width: 76px;
       gap: 9px;
 
+      svg  {
+        max-width: none;
+        max-height: none;
+      }
+
       &:visited {
         color: #25282b;
       }
@@ -181,6 +190,8 @@
     border: 1px solid var(--color-calculator);
     &:hover {
       background: rgba(var(--color-calculator), 0.05);
+      border: 1px solid var(--color-calculator-hov);
+      color: var(--color-calculator-hov);
     }
   }
 

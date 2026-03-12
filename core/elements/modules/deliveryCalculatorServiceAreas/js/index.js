@@ -35,9 +35,9 @@ class AddressFieldKeeper {
     inputDelay: 200
   }){
     this.config = config;
-    this.addrField = body.querySelector(this.config.addrS);
+    this.addrField = document.body.querySelector(this.config.addrS);
     if(!this.addrField)throw 'Couldn\'t find address field';
-    this.addrMsg = body.querySelector(this.config.addrMsgS);
+    this.addrMsg = document.body.querySelector(this.config.addrMsgS);
     if(!this.addrMsg)throw 'Couldn\'t find address message element';
     this.addrMsg.dataset['origMessage'] = this.addrMsg.innerHTML;
     //console.log(this.addrMsg.dataset['origMessage']);
@@ -340,8 +340,8 @@ class UIHandler {
 
   #toggleWeights() {
     const host = this;
-    const weightsCars = body.querySelector(this.config.weightsSel + '.cars');
-    const weightsHandlers = body.querySelector(this.config.weightsSel + '.handlers');
+    const weightsCars = document.body.querySelector(this.config.weightsSel + '.cars');
+    const weightsHandlers = document.body.querySelector(this.config.weightsSel + '.handlers');
     //if(!weights)throw 'Can\'t find weights block';
     //console.log(this.formData);
     //console.log(weights);
@@ -368,7 +368,7 @@ class UIHandler {
 
   #togglePrices() {
     const host = this;
-    const priceTabs = body.querySelectorAll(this.config.priceTabs);
+    const priceTabs = document.body.querySelectorAll(this.config.priceTabs);
     if(!priceTabs)throw 'Can\'t find price tabs';
     priceTabs.forEach((tab) => {
       tab.classList.remove('active');
@@ -391,7 +391,7 @@ class UIHandler {
   }
 
   #setActiveLink(linkElem) {
-    const weightLinks = body.querySelectorAll(this.config.weightLinkSel);
+    const weightLinks = document.body.querySelectorAll(this.config.weightLinkSel);
     if(weightLinks.length < 1)throw 'Can\'t find weight links';
     weightLinks.forEach((link) => {
       link.classList.remove('active');
@@ -404,7 +404,7 @@ class UIHandler {
     if(!priceExact)priceExact = '-';
     //console.log(vehicle, weight, priceDur, priceExact);
     const host = this;
-    const priceTabs = body.querySelectorAll(this.config.priceTabs);
+    const priceTabs = document.body.querySelectorAll(this.config.priceTabs);
     if(!priceTabs)throw 'Can\'t find price tabs';
     priceTabs.forEach((tab) => {
       const tabWeight = tab.dataset.weight;
@@ -436,9 +436,9 @@ class UIHandler {
   }
 
   #bindMapScrollHover() {
-    const wrapper = body.querySelector(this.config.mapWrapperSel);
+    const wrapper = document.body.querySelector(this.config.mapWrapperSel);
     if(!wrapper)throw 'Can\'t find map scroll hover overlay';
-    const map = body.querySelector(this.config.mapSel);
+    const map = document.body.querySelector(this.config.mapSel);
     wrapper.addEventListener('click', (e) => {
       //console.log('click');
       map.classList.add('active');
@@ -457,7 +457,7 @@ class UIHandler {
   bind() {
     const host = this;
     this.#bindMapScrollHover();
-    const vehicles = body.querySelectorAll(this.config.vehicleSel + ' label');
+    const vehicles = document.body.querySelectorAll(this.config.vehicleSel + ' label');
     //console.log(this.config.vehicleSel + ' label');
     if(vehicles.length < 1)throw 'Can\'t find vehicles';
     //console.log(vehicles);
@@ -475,7 +475,7 @@ class UIHandler {
       });
     }); 
 
-    const weightLinks = body.querySelectorAll(this.config.weightLinkSel);
+    const weightLinks = document.body.querySelectorAll(this.config.weightLinkSel);
     if(weightLinks.length < 1)throw 'Can\'t find weight links';
     //console.log(weightLinks);
     weightLinks.forEach((link) => {

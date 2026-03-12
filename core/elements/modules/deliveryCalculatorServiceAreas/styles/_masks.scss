@@ -1,10 +1,5 @@
 $colors-1: (
-    rockwool: #AA000F,
-    krovlya: #AA000F,
-    tn: #AA000F,
-    knauf: #4f70ad,
-    isover: #83c320,
-    paroc: #ce1126
+
 );
 
 @each $context, $color in $colors-1 {
@@ -13,14 +8,11 @@ $colors-1: (
   }
 }
 
-body[data-ctx='rockwool'],
-body[data-ctx='krovlya'],
-body[data-ctx='knauf'],
-body[data-ctx='isover'],
-body[data-ctx='paroc'],
-body[data-ctx='tn']
-{
+body {
   .delivery-calculator {
+
+    --color-1-calculator: #d3553c;
+
     $color-2: #25282b;
     &__weights {
       a.active, a:hover {

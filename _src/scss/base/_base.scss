@@ -99,7 +99,7 @@ span {
   font-size: inherit;
 }
 
-a[href]:not(.btn) {
+a[href]:not(.btn):not(.delivery-calculator__btn) {
   transition: 0.2s;
   color: variables.$dark-gray-1;
 
