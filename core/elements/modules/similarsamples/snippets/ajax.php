@@ -35,7 +35,7 @@ if (!class_exists('SimilarProductsFinder')) {
         {
             $this->modx = $modx;
             $this->tablePrefix = $modx->getOption('table_prefix');
-            $this->currentProductId = $modx->resource->id;
+            $this->currentProductId = $postData['resource_id'];
             $this->ruleId = $postData['rule_id'];
         }
 
