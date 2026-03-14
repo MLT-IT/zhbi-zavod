@@ -53,6 +53,7 @@ import { Navigation } from "swiper/modules";
       .then(response => {
         if (!response.status) {
           console.error(response?.message)
+          container_result.innerHTML = '<div class="error">По данным параметрам результатов нет</div>'
         } else if (response.status) {
           container_result.innerHTML = response.data
           container_result.style = "" // Очистили стили так как это свайпер, его могли сдвинуть

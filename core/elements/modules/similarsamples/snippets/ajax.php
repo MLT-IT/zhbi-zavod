@@ -120,7 +120,7 @@ if (!class_exists('SimilarProductsFinder')) {
 }
 
 $cache = [
-    'name' => $modx->resource->id . '_' . $postData['rule_id'],
+    'name' => $postData['resource_id'] . '_' . $postData['rule_id'],
     'options' => [
         xPDO::OPT_CACHE_KEY => 'default/similarsamples/result_ids/' . $modx->context->key . '/',
     ]
