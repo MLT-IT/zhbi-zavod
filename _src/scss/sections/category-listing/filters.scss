@@ -4,7 +4,11 @@
   fieldset {
     border: none;
     border-radius: 6px;
-    overflow: hidden;
+
+    @media (max-width: variables.$bp768) {
+      overflow: hidden;
+    }
+
   }
 
   &__filters {

@@ -1,6 +1,6 @@
 {set $thumb = 'phpthumbof' | snippet : [
     'input' => "{$category['image']?:$category['main_image']}",
-    'options' => '&w=80&zc=1&bg=ffffff'
+    'options' => '&w=80&bg=ffffff'
 ]}
 <a
   class="tags__item {$class_names}"

@@ -5,10 +5,12 @@
         {foreach $items as $index => $category}
             {set $thumb = 'phpthumbof' | snippet : [
                 'input' => "{$category['main_image']}",
-                'options' => '&w=80&zc=1&bg=ffffff'
+                'options' => '&w=80&bg=ffffff'
             ]}
             <a class="category-tags__item {if $index >= $limit_items}hidden{/if}" href="{$category['uri']}">
-                <img class="category-tags__item-image" src="{$thumb}" />
+                {if $thumb}
+                    <img class="category-tags__item-image" src="{$thumb}" />
+                {/if}
                 {$category['menutitle']}
             </a>
         {/foreach}
