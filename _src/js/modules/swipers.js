@@ -103,16 +103,31 @@ export default function iniSwipers() {
     direction: "horizontal",
   });
 
-  new Swiper('[data-slider="catalog-side-carousel"]', {
-    modules: [Navigation],
-    loop: false,
-    slidesPerView: 1,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    direction: "horizontal",
-  });
+  document
+    .querySelectorAll('[data-slider="catalog-side-carousel"]')
+    .forEach((sliderElement) => {
+      const prevEl = sliderElement.querySelector(".swiper-button-prev");
+      const nextEl = sliderElement.querySelector(".swiper-button-next");
+
+      new Swiper(sliderElement, {
+        modules: [Navigation, Autoplay],
+        loop: false,
+        slidesPerView: 1,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+          stopOnLastSlide: false,
+        },
+        navigation:
+          prevEl && nextEl
+            ? {
+                nextEl,
+                prevEl,
+              }
+            : false,
+        direction: "horizontal",
+      });
+    });
 
   new Swiper('[data-slider="showroom-objects"]', {
     modules: [Navigation],

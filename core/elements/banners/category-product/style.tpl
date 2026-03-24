@@ -2,6 +2,34 @@
 {* @param $button_settings - Настройки для кнопок *}
 
 <style>
+  .catalog-listing-banner{
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .catalog-listing-banner .swiper,
+  .catalog-listing-banner .swiper-wrapper,
+  .catalog-listing-banner .swiper-slide{
+    min-width: 0;
+    max-width: 100%;
+  }
+  .catalog-listing-banner picture,
+  .catalog-listing-banner img{
+    display: block;
+    width: 100%;
+  }
+  .catalog-listing-banner img{
+    height: auto;
+  }
+  @media (max-width: 768px){
+    .category-listing__products > .catalog-listing-banner{
+      grid-column: 1 / -1;
+      width: 100%;
+      min-width: 0;
+    }
+  }
   .product-banner{
     position: relative;
   }
