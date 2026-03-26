@@ -52,7 +52,7 @@
                 {/if}
             </div>
             </section>
-            {if $_modx->resource.context_key == 'plitnye'}
+       {if $_modx->resource.context_key == 'plitnye'}
             <section>
                 <div class="wrapper" style="padding: 0;">
                     <div class="warehouse-search">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </section>
-            {/if}
+            {/if}            
             {set $items = "@FILE _modules/warehouses/snippets/selection-items.php" | snippet}
            
 

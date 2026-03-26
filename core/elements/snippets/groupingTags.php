@@ -69,6 +69,8 @@ foreach ($selections as $selection) {
 
         $category = $categories[(int)$link['category_id']];
         $category['name'] = $link['name'];
+        
+        $category['hit'] = !empty($link['hit']) ? (int)$link['hit'] : 0;
 
         $item = $pdoTools->getChunk($tplItem, $category);
         $items .= $item;

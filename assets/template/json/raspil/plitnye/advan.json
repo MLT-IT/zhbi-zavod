@@ -1,0 +1,10 @@
+[
+    {"image" : "assets/template/pictures/advantages/plitnye/1.svg",
+      "text" : "Распил строго по размерам заказчика"},
+    {"image" : "assets/template/pictures/advantages/plitnye/2.svg",
+      "text" : "Скидки при заказе <b>от 100 пг/м</b>"},
+    {"image" : "assets/template/pictures/advantages/plitnye/3.svg",
+      "text" : "Оплата после проверки материала"},
+    {"image" : "assets/template/pictures/advantages/plitnye/4.svg",
+      "text" : "Точное соблюдение сроков заказа"}
+  ]

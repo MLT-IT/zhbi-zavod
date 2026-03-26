@@ -25,13 +25,12 @@ if($subdomain == 'msk'){
         $phone = '74993506648';
     }
 }
-if($modx->context->key == 'fibrofasad'){
-    $phone = '+7 (812) 309-57-00';
-    if($type=='link'){
-        $phone = '78123095700';
-    }
+
+if($localdata['main_phone']){
+  return $localdata['main_phone'];  
 }
-if($modx->context->key == 'beltermo'){
+
+if(in_array($modx->context->key, ['beltermo', 'fibrofasad', 'metallocherepica', 'falcevaya-krovlya', 'profnastil', 'gibkaya-cherepiza']) && empty($utmPhone)){
     $phone = '+7 (812) 309-57-00';
     if($type=='link'){
         $phone = '78123095700';

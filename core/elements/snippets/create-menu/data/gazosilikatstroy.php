@@ -19,7 +19,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-lsr/',
                 'name' => 'Газобетон ЛСР',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/lsr.png'
             ],
             'column2' => [
                 [
@@ -82,7 +82,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-sk/',
                 'name' => 'Газобетон СК',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/sk.png'
             ],
             'column2' => [
                 [
@@ -161,7 +161,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-eab/',
                 'name' => 'Газобетон (ЕвроАэроБетон)',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/eab.png'
             ],
             'column2' => [
                 [
@@ -214,7 +214,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-belorusskij-sls/',
                 'name' => 'Газобетон Белорусский SLS',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/sls.png'
             ],
             'column2' => [
                 [
@@ -265,7 +265,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-mogilevskij-gazosilikat/',
                 'name' => 'Газобетон Могилевский Газосиликат',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/mogil.png'
             ],
             'column2' => [
                 [
@@ -316,7 +316,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-aerok/',
                 'name' => 'Газобетон Аэрок',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/aeroc.png'
             ],
             'column2' => [
                 [
@@ -371,7 +371,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/mogilevskiy-gazobeton-ksi/',
                 'name' => 'Газобетон Могилевский КСИ',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/mogilksi.png'
             ],
             'column2' => [
                 [
@@ -430,7 +430,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/bck-belorusskiy/',
                 'name' => 'Газобетон Белорусский (БЦК)',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/bck.png'
             ],
             'column2' => [
                 [
@@ -485,7 +485,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-hh/',
                 'name' => 'Газобетон H+H',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/h-h.png'
             ],
             'column2' => [
                 [
@@ -540,7 +540,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-bonolit/',
                 'name' => 'Газобетон Бонолит',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/bono.png'
             ],
             'column2' => [
                 [
@@ -619,7 +619,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-zabudova/',
                 'name' => 'Газобетон Забудова',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/zabud.png'
             ],
             'column2' => [
                 [
@@ -670,7 +670,7 @@ function getMenuData() {
             'column1' => [
                 'uri' => '/gazobeton-ytong/',
                 'name' => 'Газобетон Ytong (Ютонг)',
-                'img' => '/assets/template/pictures/gazosilikat-small.webp'
+                'img' => '/assets/template/pictures/ytong.png'
             ],
             'column2' => [
                 [

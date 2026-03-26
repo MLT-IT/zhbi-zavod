@@ -1,0 +1,95 @@
+{
+  "center": [55.755864, 37.617698],
+  "zoom": 9,
+  "phone": "+7 (495) 118-92-43",
+  "warehouses": [
+{
+  "coords": [
+    55.955882,
+    37.82485
+  ],
+  "name": "Склад Ярославское шоссе",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.901516,
+    37.681362
+  ],
+  "name": "Склад Мытищи",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.683899,
+    37.895493
+  ],
+  "name": "Склад Люберцы",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.643404,
+    37.837642
+  ],
+  "name": "Склад Дзержинский",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.583469,
+    37.711168
+  ],
+  "name": "Склад МКАД 25",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.607611,
+    37.457493
+  ],
+  "name": "Склад Калужское шоссе",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.700106,
+    37.385295
+  ],
+  "name": "Склад Новоивановское",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.921067,
+    37.409163
+  ],
+  "name": "Склад Химки",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.712442,
+    37.797676
+  ],
+  "name": "Склад Ферганский 1",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.829896,
+    37.373347
+  ],
+  "name": "Склад Волоколамское шоссе",
+  "style": "text-align: center;"
+},
+{
+  "coords": [
+    55.454097,
+    37.757867
+  ],
+  "name": "Склад Каширское шоссе",
+  "style": "text-align: center;"
+}
+  ]
+}

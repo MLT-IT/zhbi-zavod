@@ -133,8 +133,11 @@ if ($isFractional == 1) {
 // Единицы измерения для утеплителей
 if (in_array($src['context_key'], ['web'])) {
     $pm = str_replace(',', '.', $src['kolvo-pm'][0]);
-    $m2 = $src['ploshad_m2'][0];
+    $m2 = str_replace(',', '.', $src['ploshad_m2'][0]);
     $m3 = str_replace(',', '.', $src['obyem_m3'][0]);
+    $upakovke = !empty($src['v_upakovke'][0]) ? str_replace([',', ' '], ['.', ''], $src['v_upakovke'][0]) : null;
+    $baseM2 = $m2;
+    $baseM3 = $m3;
     // die('src: '.var_dump($src).'thing: '.$thing.', upk: '.$upk);
     // Отдельные расчеты для пеноплекса
     if (!empty($src['v_upakovke'][0]) && in_array($src['parent'], [93441, 93442, 93443, 93444, 93445, 93446, 93447, 93448, 93449, 93450, 93451, 93452, 93453, 93454, 93455])) {
@@ -172,6 +175,22 @@ if (in_array($src['context_key'], ['web'])) {
     ) {
         $thing = $src['v_upakovke'][0];
         // $upk = 1 / $src['v_upakovke'][0];
+    }
+
+    // Пенополистирол с базовой единицей "лист": пересчет коэффициентов от цены за лист
+    if (
+        $unit == 'лист' &&
+        !empty($upakovke) &&
+        $upakovke > 0 &&
+        in_array($src['tip'][0] ?? '', ['Экструдированный пенополистирол', 'Пенополистирол'])
+    ) {
+        $upk = 1 / $upakovke;
+        if (!empty($baseM2)) {
+            $m2 = $baseM2 * $upk;
+        }
+        if (!empty($baseM3)) {
+            $m3 = $baseM3 * $upk;
+        }
     }
 }
 
