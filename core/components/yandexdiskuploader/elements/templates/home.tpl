@@ -1,1 +1,0 @@
-<div id="yandexdiskuploader-panel-home-div"></div>
