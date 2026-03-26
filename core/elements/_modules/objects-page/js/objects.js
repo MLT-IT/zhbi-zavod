@@ -1,6 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, EffectFade, Pagination, Autoplay, Thumbs } from "swiper";
-Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
+import { Navigation, EffectFade, Pagination, Autoplay, Thumbs } from "swiper/modules";
 
 export default async function initObjects(selectorId = "yMapObjects") {
   if (!document.querySelector(`#${selectorId}`)) return;
@@ -119,6 +118,7 @@ function initSimpleGallery() {
       return;
     }
     new Swiper(wrapper, {
+      modules: [Navigation, EffectFade, Pagination, Autoplay, Thumbs],
       loop: true,
       spaceBetween: 10,
       slidesPerView: 2,
@@ -144,6 +144,7 @@ function initObjectsGallery() {
       return;
     }
     new Swiper(gal, {
+      modules: [Navigation, EffectFade, Pagination, Autoplay, Thumbs],
       loop: false,
       spaceBetween: 10,
       slidesPerView: 1,
@@ -183,6 +184,7 @@ function initMsGallery() {
       return;
     }
     const swiper = new Swiper(swiper1, {
+      modules: [Navigation, EffectFade, Pagination, Autoplay, Thumbs],
       loop: true,
       spaceBetween: 10,
       slidesPerView: 4,
@@ -190,6 +192,7 @@ function initMsGallery() {
       watchSlidesProgress: true,
     });
     new Swiper(swiper2, {
+      modules: [Navigation, EffectFade, Pagination, Autoplay, Thumbs],
       loop: true,
       spaceBetween: 10,
       navigation: {

@@ -1,6 +1,7 @@
-// import Swiper from "swiper";
-// import {Navigation, EffectFade, Pagination, Autoplay, Thumbs} from "swiper";
-// Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
+import Swiper from "swiper";
+import { Navigation, EffectFade, Pagination, Autoplay, Thumbs } from "swiper/modules";
+
+const SWIPER_MODULES = [Navigation, EffectFade, Pagination, Autoplay, Thumbs];
 
 export default async function initSliders() {
 
@@ -23,13 +24,10 @@ export default async function initSliders() {
       break;
     }
 
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(
       mainScreenSliderContainer.querySelector(".swiper-container"),
       {
+        modules: SWIPER_MODULES,
         slidesPerView: 1,
         spaceBetween: 0,
         autoplay: {
@@ -77,13 +75,10 @@ export default async function initSliders() {
   const productsPreviewSliderContainer = document.querySelector(".products-preview__slider");
 
   if (productsPreviewSliderContainer) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(
       productsPreviewSliderContainer.querySelector(".swiper-container"),
       {
+        modules: SWIPER_MODULES,
         slidesPerView: "auto",
         spaceBetween: 9,
         navigation: {
@@ -101,17 +96,13 @@ export default async function initSliders() {
       ".product__pictures-thumbs"
     );
     let productPicturesSliderThumbs;
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     if (productPicturesSliderThumbsContainer) {
       productPicturesSliderThumbs = new Swiper(productPicturesSliderThumbsContainer, {
+        modules: SWIPER_MODULES,
         loop: false,
         spaceBetween: 5,
         slidesPerView: 3,
         direction: "horizontal",
-        watchSlidesVisibility: true,
         watchSlidesProgress: true,
         breakpoints: {
           1200: {
@@ -128,6 +119,7 @@ export default async function initSliders() {
     }
 
     new Swiper(productPicturesSliderContainer, {
+      modules: SWIPER_MODULES,
       navigation: {
         nextEl: ".swiper-button-next.thumbs", // Селектор кнопки "Вперед"
         prevEl: ".swiper-button-prev.thumbs", // Селектор кнопки "Назад"
@@ -148,11 +140,8 @@ export default async function initSliders() {
   const reviewsSliderContainer = document.querySelector(".reviews__slider");
 
   if (reviewsSliderContainer) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(reviewsSliderContainer.querySelector(".swiper-container"), {
+      modules: SWIPER_MODULES,
       slidesPerView: 1,
       spaceBetween: 0,
       effect: "fade",
@@ -168,13 +157,10 @@ export default async function initSliders() {
   // Находим все элементы с классом 'other-products__slider'
   const otherProductsSliders = document.querySelectorAll(".other-products__slider");
   if (otherProductsSliders.length) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     // Перебираем каждый найденный элемент и инициализируем слайдер для него
     otherProductsSliders.forEach((sliderContainer) => {
       new Swiper(sliderContainer.querySelector(".swiper-container"), {
+        modules: SWIPER_MODULES,
         slidesPerView: "auto",
         spaceBetween: 6,
         navigation: {
@@ -194,11 +180,8 @@ export default async function initSliders() {
   const uggSwiper = document.querySelector(".ugg");
 
   if (uggSwiper) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(uggSwiper.querySelector(".ugg__container"), {
+      modules: SWIPER_MODULES,
       slidesPerView: 3,
       spaceBetween: 6,
       loop: true,
@@ -218,11 +201,8 @@ export default async function initSliders() {
   const showroomSliderContainer = document.querySelector(".showroom-objects__slider");
 
   if (showroomSliderContainer) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(showroomSliderContainer.querySelector(".swiper-container"), {
+      modules: SWIPER_MODULES,
       slidesPerView: 2,
       spaceBetween: 10,
       navigation: {
@@ -244,11 +224,8 @@ export default async function initSliders() {
   const servicesWorksSwiper = document.querySelector(".services-works .swiper");
 
   if (servicesWorksSwiper) {
-    const { Swiper, Navigation } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation]);
     new Swiper(servicesWorksSwiper, {
+      modules: SWIPER_MODULES,
       slidesPerView: 1.1,
       spaceBetween: 12,
       navigation: {
@@ -278,11 +255,8 @@ export default async function initSliders() {
   // логотипы партнеров sections/partners .our-partners
   const partnersBlock = document.querySelector(".our-partners .swiper");
   if (partnersBlock) {
-    const { Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
     new Swiper(partnersBlock, {
+      modules: SWIPER_MODULES,
       slidesPerView: 3,
       spaceBetween: 10,
       loop: true,
@@ -301,9 +275,8 @@ export default async function initSliders() {
   // логотипы партнеров sections/partners .our-partners
   const equipmentSwiper = document.querySelector(".equipment .swiper");
   if (equipmentSwiper) {
-    const { Swiper, Navigation } = await import(/* webpackChunkName: "swiper" */ "swiper");
-    Swiper.use([Navigation]);
     new Swiper(equipmentSwiper, {
+      modules: SWIPER_MODULES,
       slidesPerView: 1,
       spaceBetween: 20,
       breakpoints: {
@@ -323,11 +296,8 @@ export default async function initSliders() {
   // логотипы партнеров sections/partners .our-partners
   const aboutZbiSwiper = document.querySelector(".about-zbi .swiper");
   if (aboutZbiSwiper) {
-    const { Swiper, Navigation, Autoplay } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, Autoplay]);
     new Swiper(aboutZbiSwiper, {
+      modules: SWIPER_MODULES,
       slidesPerView: 1,
       autoplay: true,
       spaceBetween: 30,
@@ -342,11 +312,8 @@ export default async function initSliders() {
   // Слайдер баннеров в каталоге
   const catalogSideCarousel = document.querySelector(".catalog-side-carousel .swiper");
   if (catalogSideCarousel) {
-    const { Swiper, Navigation, Autoplay } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, Autoplay]);
     new Swiper(catalogSideCarousel, {
+      modules: SWIPER_MODULES,
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,

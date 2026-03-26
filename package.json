@@ -1,0 +1,32 @@
+{
+  "name": "stroymarket-spb",
+  "version": "1.0.0",
+  "description": "Vite build for Stroymarket SPB",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.97.3",
+    "sass-embedded": "^1.97.3",
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^6.1.10",
+    "animate.css": "^4.1.1",
+    "copy-to-clipboard": "^3.3.3",
+    "inputmask": "^5.0.9",
+    "jquery": "3.7.1",
+    "js-cookie": "^3.0.5",
+    "js-image-zoom": "^0.7.0",
+    "overlayscrollbars": "^2.14.0",
+    "slim-select": "^3.4.3",
+    "swiper": "^12.1.0",
+    "vanilla-lazyload": "^19.1.3"
+  }
+}

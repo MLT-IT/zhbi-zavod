@@ -1,4 +1,10 @@
 body.plitnye {
+  .product__pictures,
+  .product__pictures-slider,
+  .product__pictures-thumbs {
+    height: auto;
+  }
+
   .product__pictures-thumbs {
     max-height: 582px;
     min-height: 100px;
