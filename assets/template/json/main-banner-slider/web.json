@@ -20,5 +20,27 @@
       "lg": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-2.png",
       "xl": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-1.png"
     }
+  },
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/img/banners-main/grand-line-mobile.svg",
+      "md": "/assets/template/img/banners-main/grand-line-tablet.svg",
+      "lg": "/assets/template/img/banners-main/grand-line-desktop.svg",
+      "xl": "/assets/template/img/banners-main/grand-line-desktop2.svg"
+    }
+  },
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/img/banners-main/proflist-c21-mobile.svg",
+      "md": "/assets/template/img/banners-main/proflist-c21-tablet.svg",
+      "lg": "/assets/template/img/banners-main/proflist-c21-desktop.svg",
+      "xl": "/assets/template/img/banners-main/proflist-c21-desktop2.svg"
+    }
   }
 ]
