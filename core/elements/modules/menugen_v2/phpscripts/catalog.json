@@ -1,0 +1,699 @@
+[
+    {
+        "id": "171134",
+        "link": "/fibrocementnye-paneli/",
+        "title": "Фиброцементные панели",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/panels.png",
+        "linkTextAll": "Смотреть все фиброцементные панели",
+        "children": [
+            {
+                "id": "171135",
+                "link": "/fibrocementnye-paneli-kmew/",
+                "title": "Фиброцементные панели Kmew",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/kmew.jpg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171162",
+                "link": "/fibrocementnye-paneli-equitone/",
+                "title": "Фиброцементные панели Equitone",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Equitone.jpg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171178",
+                "link": "/fibrocementnye-paneli-nichiha/",
+                "title": "Фиброцементные панели Nichiha",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Nichiha.webp",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171186",
+                "link": "/fibrocementnye-paneli-betehko/",
+                "title": "Фиброцементные панели БЕТЭКО",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/БЕТЭКО.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "171121",
+        "link": "/fibrocementnyy-sayding/",
+        "title": "Фиброцементный сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/siding.png",
+        "linkTextAll": "Смотреть весь фиброцементный сайдинг",
+        "children": [
+            {
+                "id": "171090",
+                "link": "/fibrocementnyy-sayding-dekover/",
+                "title": "Фиброцементный сайдинг Дековер",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Decover.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171056",
+                "link": "/fibrocementnyy-sayding-kedral/",
+                "title": "Фиброцементный сайдинг Кедрал",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Cedral.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171128",
+                "link": "/fibrocementnyy-sayding-betehko/",
+                "title": "Фиброцементный сайдинг БЕТЭКО",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/БЕТЭКО.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171133",
+                "link": "/fibrocementnyy-sayding-fibratek/",
+                "title": "Фиброцементный сайдинг Фибратек",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Фибратек.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171123",
+                "link": "/fibrocementnyy-sayding-asahi/",
+                "title": "Фиброцементный сайдинг Asahi",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Asahi.jpeg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171124",
+                "link": "/fibrocementnyy-sayding-fcs-group/",
+                "title": "Фиброцементный сайдинг FCS Group",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/fcs-group.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171126",
+                "link": "/fibrocementnyy-sayding-fibra-plank/",
+                "title": "Фиброцементный сайдинг FIBRA PLANK",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Fibraplank.webp",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171127",
+                "link": "/fibrocementnyy-sayding-latonit/",
+                "title": "Фиброцементный сайдинг LATONIT",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/LATONIT.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171130",
+                "link": "/fibrocementnyy-sayding-kanon/",
+                "title": "Фиброцементный сайдинг Каньон",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/КАНЬОН.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171132",
+                "link": "/fibrocementnyy-sayding-sm-bord/",
+                "title": "Фиброцементный сайдинг СМ Борд",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/CM BORD.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171103",
+                "link": "/komplektuyushchie-dlya-fibrocementnogo-saydinga/",
+                "title": "Комплектующие для фиброцементного сайдинга",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "171137",
+                "link": "/universalnye-dobornye-ehlementy-dlya-fibrocementnogo-saydinga/",
+                "title": "Универсальные доборные элементы для фиброцементного сайдинга",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "313901",
+        "link": "/vinilovyij-sajding/",
+        "title": "Виниловый сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/vinyl.png",
+        "linkTextAll": "Смотреть весь виниловый сайдинг",
+        "children": [
+            {
+                "id": "313902",
+                "link": "/vinilovyj-sajding-docke/",
+                "title": "Docke",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Docke.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313903",
+                "link": "/vinilovyj-sajding-technonikol/",
+                "title": "Технониколь",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/технониколь.jpg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313904",
+                "link": "/vinilovyj-sajding-alta-profil/",
+                "title": "Альта-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Альта Профиль.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313905",
+                "link": "/vinilovyj-sajding-grand-line/",
+                "title": "Grand Line",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Grand Line.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313906",
+                "link": "/vinilovyy-sayding-yu-plast/",
+                "title": "Ю-Пласт",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Ю-Пласт.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313907",
+                "link": "/vinilovyj-sajding-nordside/",
+                "title": "NordSide",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/NordSide.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313908",
+                "link": "/vinilovyj-sajding-mitten/",
+                "title": "Mitten",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Mitten.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313909",
+                "link": "/vinilovyj-sajding-vox/",
+                "title": "VOX",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/VOX.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313910",
+                "link": "/vinilovyy-sayding-fineber/",
+                "title": "FineBer",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/FineBer.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313911",
+                "link": "/vinilovyj-sajding-vinylon/",
+                "title": "VINYLON",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Vinylon.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "313912",
+                "link": "/komplektuyushhie-dlya-vinilovogo-sajdinga/",
+                "title": "Комплектующие",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314877",
+        "link": "/metallicheskij-sajding/",
+        "title": "Металлический сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/metal.png",
+        "linkTextAll": "Смотреть весь металлический сайдинг",
+        "children": [
+            {
+                "id": "315155",
+                "link": "/komplektuyushhie-dlya-metallicheskogo-sajdinga/",
+                "title": "Комплектующие",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314885",
+                "link": "/metallicheskij-sajding-grand-line/",
+                "title": "Grand Line",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Grand Line.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314886",
+                "link": "/metallicheskij-sajding-metallprofil/",
+                "title": "Металл-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Металлпрофиль.jpg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314887",
+                "link": "/metallicheskij-sajding-aquasystem/",
+                "title": "Аквасистем",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Аквасистем.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314878",
+        "link": "/vspenennyij-sajding/",
+        "title": "Вспененный сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/foam.png",
+        "linkTextAll": "Смотреть весь вспененный сайдинг",
+        "children": [
+            {
+                "id": "315134",
+                "link": "/vspenennyij-sajding-alta-bord/",
+                "title": "Альта-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Альта Профиль.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315135",
+                "link": "/vox/",
+                "title": "VOX",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/VOX.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314879",
+        "link": "/akrilovyij-sajding/",
+        "title": "Акриловый сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/akril.png",
+        "linkTextAll": "Смотреть весь акриловый сайдинг",
+        "children": [
+            {
+                "id": "315137",
+                "link": "/akrilovyij-sajding-alta-profil/",
+                "title": "Альта-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Альта Профиль.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315138",
+                "link": "/akrilovyij-sajding-tecos/",
+                "title": "Tecos",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Tecos.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315139",
+                "link": "/akrilovyij-sajding-fineber/",
+                "title": "FINEBER",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/FineBer.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315140",
+                "link": "/akrilovyij-sajding-grand-line/",
+                "title": "Grand Line",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Grand Line.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314880",
+        "link": "/formovannyij-sajding/",
+        "title": "Формованный сайдинг",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/form.png",
+        "linkTextAll": "Смотреть весь формованный сайдинг",
+        "children": []
+    },
+    {
+        "id": "314881",
+        "link": "/sofityi/",
+        "title": "Софиты",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/sofity.png",
+        "linkTextAll": "Смотреть все софиты",
+        "children": [
+            {
+                "id": "315184",
+                "link": "/sofityi-vinilovyie/",
+                "title": "Виниловые",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315136",
+                "link": "/sofityi-alta-profil/",
+                "title": "Альта-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Альта Профиль.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315128",
+                "link": "/sofit-metall-profil/",
+                "title": "Металл Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Металлпрофиль.jpg",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315129",
+                "link": "/sofityi-deke/",
+                "title": "Docke",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Docke.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315130",
+                "link": "/sofityi-grand-lajn/",
+                "title": "Grand-Line",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Grand Line.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315131",
+                "link": "/sofityi-yu-plast/",
+                "title": "Ю-Пласт",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Ю-Пласт.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315132",
+                "link": "/sofityi-metallicheskie/",
+                "title": "Металлические",
+                "img": "",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315133",
+                "link": "/sofityi-texnonikol/",
+                "title": "ТехноНИКОЛЬ",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/технониколь.jpg",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314882",
+        "link": "/fasadnyie-plastikovyie-paneli/",
+        "title": "Фасадные пластиковые панели",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/plastik.png",
+        "linkTextAll": "Смотреть все фасадные пластиковые панели",
+        "children": [
+            {
+                "id": "314888",
+                "link": "/fasadnye-paneli-docke/",
+                "title": "Docke",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Docke.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314889",
+                "link": "/fasadnye-paneli-alta-profil/",
+                "title": "Альта-Профиль",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Альта Профиль.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314891",
+                "link": "/fasadnye-paneli-vox/",
+                "title": "Vox",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/VOX.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314892",
+                "link": "/fasadnye-paneli-u-plast/",
+                "title": "Ю-пласт",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Ю-Пласт.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314893",
+                "link": "/fasadnye-paneli-vilostone/",
+                "title": "Vilostone (Вилостоун)",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Vilostone.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314894",
+                "link": "/fasadnye-paneli-fineber/",
+                "title": "Fineber",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/FineBer.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "314895",
+                "link": "/fasadnye-paneli-grand-line/",
+                "title": "Grand Line",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Grand Line.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315154",
+                "link": "/komplektuyushhie-dlya-fasadnyix-plastikovyix-panelej/",
+                "title": "Комплектующие",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/complect.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    },
+    {
+        "id": "314883",
+        "link": "/fasadnaya-plitka-texnonikol-hauberk/",
+        "title": "Фасадная плитка Технониколь Hauberk",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/tn.png",
+        "linkTextAll": "Смотреть всю фасадную плитку Технониколь Haubek",
+        "children": []
+    },
+    {
+        "id": "314884",
+        "link": "/fasadnyie-termopaneli/",
+        "title": "Фасадные термопанели",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/termo.png",
+        "linkTextAll": "Смотреть все фасадные термопанели",
+        "children": []
+    },
+    {
+        "id": "315199",
+        "link": "/fasadnaya-shtukaturka/",
+        "title": "Фасадная штукатурка",
+        "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster.png",
+        "linkTextAll": "Смотреть всю фасадную штукатурку",
+        "children": [
+            {
+                "id": "314897",
+                "link": "/fasadnaya-shtukaturka-baumit/",
+                "title": "Baumit",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Baumit.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315008",
+                "link": "/gruntovka-dlya-fasada/",
+                "title": "Грунтовка для фасада",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Грунтовка для фасада.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315010",
+                "link": "/akrilovaya-shtukaturka/",
+                "title": "Акриловые штукатурки",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Акриловая штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315011",
+                "link": "/silikatno-silikonovye-shtukaturki/",
+                "title": "Силикатно-силиконовые штукатурки",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силикатно-силиконовой штукатурки.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315012",
+                "link": "/silikonovye-shtukaturki/",
+                "title": "Силиконовые штукатурки",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силиконовая штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315016",
+                "link": "/dekorativnaya-mineralnaya-shtukaturka/",
+                "title": "Декоративная минеральная штукатурка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Декоративная минеральная штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315018",
+                "link": "/mozaichnaya-shtukaturka/",
+                "title": "Мозаичная штукатурка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Мозаичная штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315031",
+                "link": "/kladochnye-rastvory-i-smesi/",
+                "title": "Кладочные растворы и смеси",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Кладочные растворы и смеси.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315040",
+                "link": "/kleevye-i-shtukaturnye-smesi/",
+                "title": "Клеевые и штукатурные смеси",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Клееевые и штукатурные смеси.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315043",
+                "link": "/rastvory-dlya-rasshivki-shvov/",
+                "title": "Растворы для расшивки швов",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Растворы для расшивки швов.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315044",
+                "link": "/kraska-dlya-fasada/",
+                "title": "Краска для фасада",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Краска для фасадов.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315049",
+                "link": "/shtukaturka-gipsovaya/",
+                "title": "Штукатурка гипсовая",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Штукатурка гипсовая.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315050",
+                "link": "/shtukaturka-cementnaya/",
+                "title": "Штукатурка цементная",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Цементная штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315053",
+                "link": "/shpaklyovki/",
+                "title": "Шпаклёвка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Шпаклевки.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315065",
+                "link": "/smes-dlya-vyiravnivaniya-pola/",
+                "title": "Смесь для выравнивания пола",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Смесь для выравнивая пола.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315070",
+                "link": "/gidroizolyacziya/",
+                "title": "Гидроизоляция",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Гидроизоляция.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315079",
+                "link": "/montazhnyie-smesi/",
+                "title": "Монтажные смеси",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Монтажная смесь.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315090",
+                "link": "/shtukaturka-cementno-izvestkovaya/",
+                "title": "Цементно-известковая штукатурка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Цементно-известковая штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315105",
+                "link": "/silikatnaya-shtukaturka/",
+                "title": "Силикатная штукатурка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силикатная штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315111",
+                "link": "/siloksanovaya-shtukaturka/",
+                "title": "Силоксановая штукатурка",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/plaster/Силоксановая штукатурка.png",
+                "children": [],
+                "customClass": ""
+            },
+            {
+                "id": "315194",
+                "link": "/fasadnaya-shtukaturka-koroed/",
+                "title": "Короед",
+                "img": "assets/template/img/modules/menugen_v2/fibrofasad/Короед.png",
+                "children": [],
+                "customClass": ""
+            }
+        ]
+    }
+]

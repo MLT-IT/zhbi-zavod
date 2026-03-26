@@ -1,0 +1,31 @@
+body.plitnye {
+  .product__pictures,
+  .product__pictures-slider,
+  .product__pictures-thumbs {
+    height: auto;
+  }
+
+  .product__pictures-thumbs {
+    max-height: 582px;
+    min-height: 100px;
+  }
+
+  .header__top {
+    background-color: var(--color-red);
+
+    .h-nav__item {
+      a.h-nav__link.text-white,
+      span.h-nav__link.text-white {
+        &:hover {
+          color: var(--color-black);
+        }
+      }
+    }
+
+    .h-nav__link_calc {
+      &:hover {
+        background-color: var(--color-black);
+      }
+    }
+  }
+}

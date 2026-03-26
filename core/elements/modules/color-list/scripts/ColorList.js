@@ -137,13 +137,11 @@ class ColorListSlider {
 
   }
   async activate() {
-
-   const { Swiper, Navigation, EffectFade, Pagination, Scrollbar, Autoplay, Thumbs } = await import(
-      /* webpackChunkName: "swiper" */ "swiper"
-    );
-    Swiper.use([Navigation, EffectFade, Pagination, Scrollbar, Autoplay, Thumbs]);
+    const { default: Swiper } = await import("swiper");
+    const { Navigation, EffectFade, Pagination, Scrollbar, Autoplay, Thumbs } = await import("swiper/modules");
     //const sliderCont = document.querySelector(config.sliderCont);
     this.swiper = new Swiper(config.sliderCont, {
+      modules: [Navigation, EffectFade, Pagination, Scrollbar, Autoplay, Thumbs],
       slidesPerView: 'auto',
       spaceBetween: 4,
       loop: false,

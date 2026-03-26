@@ -17,6 +17,7 @@
 
       {if $_modx->resource.alias == 'akcii'}
         {if $_modx->resource.context_key in list ['krovelnyjstroymarket']}
+
           <div class="inner__container">
             <div class="banner">
               <picture class="banner__bg">

@@ -1,0 +1,50 @@
+{
+  "offices": [
+    {
+      "phone": "+7 (812) 309-42-27",
+      "address": "Москва, Акуловская улица, 2А",
+      "scale": 14,
+      "coord": "",
+      "gmap":"1wUUvWdqoZ4bQLybFnkYJTFeQjl_j_Rk&ehbc=2E312F",
+      "ymap": "3Ac901c3bc8f7ab6a1d4db4b5777a9226b17b21e91f5ccc0c8d25ffcb9dae91398"
+    }
+  ],
+  "toponim": {
+    "base": {
+      "standart": "Москва",
+      "abr": "МСК",
+      "full": "Москва и Московская область",
+      "abr_full": "МСК и МО"
+    },
+    "where": {
+      "standart": "в Москве",
+      "abr": "в МСК",
+      "full": "в Москве и Московской области",
+      "abr_full": "в МСК и МО"
+    },
+    "on": {
+      "standart": "по Москве",
+      "abr": "по МСК",
+      "full": "по Москве и Московской области",
+      "abr_full": "по МСК и МО"
+    },
+    "what": {
+      "standart": "Москвы",
+      "abr": "МСК",
+      "full": "Москвы и Московской области",
+      "abr_full": "МСК и МО"
+    },
+    "oblast": {
+      "standart": "Московская область",
+      "abr": "МО",
+      "any": "Московской области",
+      "anyabr": "МО"
+    }
+  },
+  "oblast": {
+    "standart": null,
+    "abr": "МО",
+    "any": "Московская область",
+    "anyabr": "МО"
+  }
+}

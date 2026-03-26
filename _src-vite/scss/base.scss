@@ -1,0 +1,27 @@
+.mobile-hide {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+.__jivoMobileButton {
+  bottom: 30px !important;
+}
+
+.to-top-btn {
+  bottom: 100px;
+}
+
+.alterteplo {
+  .__jivoMobileButton {
+    bottom: 70px !important;
+  }
+
+  .to-top-btn {
+    bottom: 140px;
+  }
+}
+
+.swiper-navigation-icon {
+  display: none;
+}
