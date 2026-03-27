@@ -140,7 +140,7 @@
         ]}
     {/if}
 
-{elseif $_modx->resource.recommendIds ?}
+{elseif $_modx->resource.recommendIds && !$similarsamples}
   {set $recommendProducts = 'msProducts' | snippet : [
   'resources' => $_modx->resource.recommendIds,
   'sortby' => 'FIELD(msProduct.id, ' ~ $_modx->resource.recommendIds ~ ')',
