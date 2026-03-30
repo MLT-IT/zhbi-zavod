@@ -1,0 +1,51 @@
+.mobile-hide {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+.__jivoMobileButton {
+  bottom: 30px !important;
+}
+
+.to-top-btn {
+  bottom: 100px;
+}
+
+.alterteplo {
+  .__jivoMobileButton {
+    bottom: 70px !important;
+  }
+
+  .to-top-btn {
+    bottom: 140px;
+  }
+}
+
+.swiper-navigation-icon {
+  color: #8f96a3;
+  height: 18px!important;
+  opacity: 0.9;
+}
+
+/* Swiper 12 uses .swiper, while templates still use .swiper-container */
+.swiper,
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-family: swiper-icons !important;
+  font-size: 11px !important;
+  font-weight: 700;
+}

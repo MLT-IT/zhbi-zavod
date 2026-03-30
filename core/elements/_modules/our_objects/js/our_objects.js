@@ -1,6 +1,5 @@
 import Swiper from "swiper";
-import {Navigation, EffectFade, Pagination, Autoplay, Thumbs} from "swiper";
-Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
+import { Navigation, EffectFade, Pagination, Autoplay, Thumbs } from "swiper/modules";
 
 class OurObjects{
     constructor(){
@@ -11,6 +10,7 @@ class OurObjects{
             // Слайдер на странице шоу-рума
             if(body.querySelector('.showroom-swiper')){
                 new Swiper(".showroom-swiper", {
+                    modules: [Navigation, EffectFade, Pagination, Autoplay, Thumbs],
                     loop: false,
                     slidesPerView: 1, 
                     spaceBetween: 10, 

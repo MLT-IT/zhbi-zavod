@@ -1,6 +1,8 @@
 //import "./default.sass";
 //import "./krovelnyjstroymarket/style.sass";
-//import {TipsProduct} from "../../../../_src/js/modules/tips"
+//import {TipsProduct} from "../../../../_src-vite/js/modules/tips"
+import Swiper from "swiper";
+import { Navigation, EffectFade, Pagination, Autoplay, Thumbs } from "swiper/modules";
 
 document.addEventListener('DOMContentLoaded',async () => {
     //console.log("DOM loaded!");
@@ -9,12 +11,12 @@ document.addEventListener('DOMContentLoaded',async () => {
     // ------------------------------------
     const productPicturesSliderContainer = document.querySelector('.product__pictures-slider');
     if (productPicturesSliderContainer) {
-      const {Swiper, Navigation, EffectFade, Pagination, Autoplay, Thumbs} = await import(/* webpackChunkName: "swiper" */ "swiper");
-      Swiper.use([Navigation, EffectFade, Pagination, Autoplay, Thumbs]);
+      const swiperModules = [Navigation, EffectFade, Pagination, Autoplay, Thumbs];
         const productPicturesSliderThumbsContainer = document.querySelector('.product__pictures-thumbs');
         let productPicturesSliderThumbs;
         if (productPicturesSliderThumbsContainer) {
             productPicturesSliderThumbs = new Swiper(productPicturesSliderThumbsContainer, {
+                modules: swiperModules,
 
                 loop: false,
                 spaceBetween: 5,
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded',async () => {
         }
 
         const productPicturesSlider = new Swiper(productPicturesSliderContainer, {
+            modules: swiperModules,
             navigation: {
                 nextEl: '.swiper-button-next.thumbs', // Селектор кнопки "Вперед"
                 prevEl: '.swiper-button-prev.thumbs', // Селектор кнопки "Назад"
@@ -151,7 +154,7 @@ document.addEventListener('DOMContentLoaded',async () => {
     const ctx = document.body.getAttribute("data-ctx");
     switch(ctx){
         case "krovelnyjstroymarket":
-            const {TipsProduct} = await import(/* webpackChunkName: "dynamics_1" */  "../../../../_src/js/modules/tips");
+            const {TipsProduct} = await import(/* webpackChunkName: "dynamics_1" */  "../../../../_src-vite/js/modules/tips");
             new TipsProduct('.colors-options .euv-custom-select__option');
             //tips.run();
             //import(/* webpackChunkName: "product-card-krovelnyjstroymarket" */ "./krovelnyjstroymarket/style.sass");

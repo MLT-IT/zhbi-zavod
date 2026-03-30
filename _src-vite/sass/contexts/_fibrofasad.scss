@@ -1,0 +1,27 @@
+body[data-ctx='fibrofasad'] {
+  .product {
+    &__infoblocks {
+      padding-top: 23px;
+    }
+  }
+  .catalog-screen {
+    &__tag-picture {
+      @include until-1200 {
+        height: auto;
+      }
+    }
+  }
+  .header {
+    &__search_screen_mobile {
+      margin-bottom: 0;
+    }
+  }
+  .product__pictures {
+    height: auto;
+  }
+
+  .product__pictures-slider,
+  .product__pictures-thumbs {
+    height: auto;
+  }
+}

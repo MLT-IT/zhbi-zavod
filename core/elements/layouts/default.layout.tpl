@@ -9,12 +9,12 @@
     {/block}
 
     <link rel="stylesheet" href="/_vue/assets/template/vue/vue-main.css" >
-    <link rel="stylesheet" href="{$_modx->config['template_path']}css/main.css?v={'file_version' | config}">
+    {if 'APP_ENV' | config === 'development'}
+    {else}
+        {include "file:vite/css.tpl"}
+    {/if}
     <link rel="stylesheet" href="{$_modx->config['template_path']}wall-calc/css/wall-calc.css?v={'file_version' | config}">
     
-    {* // LOAD JQUERY *}
-    <script src="{$_modx->config['template_path']}js/jquery-3.7.1.min.js?v={'file_version' | config}" ></script>
-
     {if $_modx->context.key == 'web'}
         {set $site_context = 'alterteplo'}
     {else}
@@ -148,9 +148,14 @@
         };
     </script>
 
-    <script defer src="{$_modx->config['template_path']}js/runtime.js?v={'file_version' | config}" ></script>
-    <script defer src="{$_modx->config['template_path']}js/vendors.js?v={'file_version' | config}" ></script>
-    <script defer src="{$_modx->config['template_path']}js/main.js?v={'file_version' | config}"></script>
+    <script src="{$_modx->config['template_path']}js/jquery-3.7.1.min.js?v={'file_version' | config}"></script>
+
+    {if 'APP_ENV' | config === 'development'}
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/_src-vite/js/index.js"></script>
+    {else}
+        {include "file:vite/js.tpl"}
+    {/if}
     <script type="module" src="{$_modx->config['template_path']}wall-calc/wall-calc.js?v={'file_version' | config}"></script>
     <script data-map-id="districts_map" data-src="https://api-maps.yandex.ru/2.1/?apikey=99aa267b-edef-422a-b3d8-12bfaa6253a1&lang=ru_RU&coordorder=latlong&onload=initDistrictsMap" type="text/javascript" defer></script>
     <script src="/_vue/assets/template/vue/vue-main.js" defer></script>
