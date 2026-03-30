@@ -19,7 +19,7 @@
 
 <input type="hidden" name="id" value="{$id}">
 <div class="product-card__picture">
-  <a href="{$uri}" class="product-card__link">
+  <a href="/{$uri}" class="product-card__link">
     <img src="/assets/images/loader.svg" class="product-card__image lazy" data-src="{'site_url' | option}{$webp ?: '/assets/images/no_image.jpg'}" 
     {if $product_images && count($product_images) > 1}
       data-product-image
@@ -92,7 +92,7 @@
             </ul>
         </div>
     {/if}
-  <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
+  <a href="/{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
   {if $_modx->resource.context_key in list ['plitnye']}
     {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}

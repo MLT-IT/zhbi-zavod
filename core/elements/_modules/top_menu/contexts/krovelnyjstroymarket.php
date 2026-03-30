@@ -30,7 +30,7 @@ $data = [
         'text' => 'Шоурум'
     ],
     [
-        'url' => '/otzyivyi/',
+        'url' => '/otzyvy/',
         'text' => 'Отзывы'
     ],
     [

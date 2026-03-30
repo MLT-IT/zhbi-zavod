@@ -1,0 +1,573 @@
+{
+    "255831": {
+        "column1": {
+            "uri": "\/dorozhnoe-stroitelstvo\/",
+            "name": "Дорожное строительство",
+            "svg": "assort-dorozhnoe-stroitelstvo"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "dorozhnye-plity\/",
+                    "name": "Дорожные плиты"
+                },
+                {
+                    "uri": "aehrodromnye-plity\/",
+                    "name": "Аэродромные плиты"
+                },
+                {
+                    "uri": "lotki-vodostochnye-super-s-reshetkoj\/",
+                    "name": "Лотки водосточные Super с решеткой"
+                },
+                {
+                    "uri": "lotki-vodootvodnye\/",
+                    "name": "Лотки водоотводные дорожные"
+                },
+                {
+                    "uri": "lotki-dozhdevye\/",
+                    "name": "Лотки дождевые"
+                },
+                {
+                    "uri": "plity-ukreplenij\/",
+                    "name": "Плиты укреплений"
+                },
+                {
+                    "uri": "lotki-avtodorozhnye\/",
+                    "name": "Лотки автодорожные"
+                },
+                {
+                    "uri": "blok-ukrepleniya\/",
+                    "name": "Блок укрепления"
+                },
+                {
+                    "uri": "bordyurnyj-kamen-bortovoj\/",
+                    "name": "Бордюрный камень (бортовой)"
+                },
+                {
+                    "uri": "dorozhnoe-ograzhdenie\/",
+                    "name": "Дорожное ограждение"
+                }
+            ],
+            [
+                {
+                    "uri": "bloki-ograzhdeniya-nyu-dzhersi\/",
+                    "name": "Блоки ограждения Нью-Джерси"
+                },
+                {
+                    "uri": "stojki-opor-dorozhnyh-znakov\/",
+                    "name": "Стойки опор дорожных знаков"
+                },
+                {
+                    "uri": "fundamenty-opor-dlya-dorozhnyh-znakov\/",
+                    "name": "Фундаменты опор для дорожных знаков"
+                },
+                {
+                    "uri": "bloki-razdelitelnoj-polosy-bd-bp-pp\/",
+                    "name": "Блоки разделительной полосы БД БП ПП"
+                },
+                {
+                    "uri": "opory-dorozhnyh-znakov\/",
+                    "name": "Опоры дорожных знаков"
+                },
+                {
+                    "uri": "stolbiki-signalnye\/",
+                    "name": "Столбики сигнальные"
+                },
+                {
+                    "uri": "drenazhnyj-lotok\/",
+                    "name": "Дренажный лоток"
+                }
+            ]
+        ]
+    },
+    "255835": {
+        "column1": {
+            "uri": "\/zhilishhnoe-stroitelstvo\/",
+            "name": "Жилищное строительство",
+            "svg": "assort-zhilischnoe-stroitelstvo"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "lestnichnyie-marshi-sbornyie-zhelezobetonnyie\/",
+                    "name": "Лестничные марши сборные железобетонные"
+                },
+                {
+                    "uri": "peremyichki-rigeli-progonyi\/",
+                    "name": "Перемычки и ригели"
+                },
+                {
+                    "uri": "fundament-svai-stenovyie-bloki\/",
+                    "name": "Фундамент, сваи, стеновые блоки"
+                },
+                {
+                    "uri": "plity-perekrytiya\/",
+                    "name": "Плиты перекрытия"
+                },
+                {
+                    "uri": "paneli-stenovye\/",
+                    "name": "Панели стеновые"
+                },
+                {
+                    "uri": "ventilyacionnye-bloki\/",
+                    "name": "Вентиляционные блоки"
+                },
+                {
+                    "uri": "svai-zhelezobetonnye\/",
+                    "name": "Сваи железобетонные"
+                },
+                {
+                    "uri": "fundamentnye-bloki\/",
+                    "name": "Фундаментные блоки"
+                },
+                {
+                    "uri": "stakany-deflektorov-betonnye\/",
+                    "name": "Стаканы дефлекторов бетонные"
+                },
+                {
+                    "uri": "kolonny-zhelezobetonnye\/",
+                    "name": "Колонны железобетонные"
+                }
+            ],
+            [
+                {
+                    "uri": "shahty-liftovye\/",
+                    "name": "Шахты лифтовые"
+                },
+                {
+                    "uri": "balkonnye-plity\/",
+                    "name": "Балконные плиты"
+                },
+                {
+                    "uri": "balki-zhelezobetonnye\/",
+                    "name": "Балки железобетонные"
+                },
+                {
+                    "uri": "fermy-zhelezobetonnye\/",
+                    "name": "Фермы железобетонные"
+                },
+                {
+                    "uri": "kabiny-sanitarno-tekhnicheskie\/",
+                    "name": "Кабины санитарно-технические"
+                },
+                {
+                    "uri": "plity-karniznye\/",
+                    "name": "Плиты карнизные"
+                },
+                {
+                    "uri": "lentochnyj-fundament\/",
+                    "name": "Ленточный фундамент"
+                },
+                {
+                    "uri": "rostverk\/",
+                    "name": "Ростверк"
+                },
+                {
+                    "uri": "diafragmy-zhestkosti\/",
+                    "name": "Диафрагмы жесткости"
+                },
+                {
+                    "uri": "bloki-stakany\/",
+                    "name": "Блоки-стаканы"
+                }
+            ],
+            [
+                {
+                    "uri": "monolitnaya-rebristaya-plita-perekrytiya\/",
+                    "name": "Монолитная ребристая плита перекрытия"
+                },
+                {
+                    "uri": "plity-fundamentnye\/",
+                    "name": "Плиты фундаментные"
+                },
+                {
+                    "uri": "plity-parapetnye\/",
+                    "name": "Плиты парапетные"
+                }
+            ]
+        ]
+    },
+    "255833": {
+        "column1": {
+            "uri": "\/ehlementy-zhelezobetonnyh-ograzhdenij\/",
+            "name": "Элементы железобетонных ограждений",
+            "svg": "assort-ehlementy-zhelezobetonnyh-ograzhdenij"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "parkovochnye-stolbiki\/",
+                    "name": "Парковочные столбики"
+                },
+                {
+                    "uri": "dekorativnye-stolbiki\/",
+                    "name": "Декоративные столбики"
+                },
+                {
+                    "uri": "ehlementy-betonnogo-zabora\/",
+                    "name": "Элементы бетонного забора"
+                },
+                {
+                    "uri": "stolby-ograzhdeniya-betonnye\/",
+                    "name": "Столбы ограждения бетонные"
+                },
+                {
+                    "uri": "pristavki-pt-zhbi\/",
+                    "name": "Приставки ПТ ЖБИ"
+                },
+                {
+                    "uri": "zabory-iz-profilya\/",
+                    "name": "Заборы из профиля"
+                },
+                {
+                    "uri": "polusfery-granitnye\/",
+                    "name": "Полусферы гранитные"
+                },
+                {
+                    "uri": "sfery-betonnye\/",
+                    "name": "Сферы бетонные"
+                },
+                {
+                    "uri": "stojki-opor-lehp\/",
+                    "name": "Стойки опор ЛЭП"
+                },
+                {
+                    "uri": "betonnoe-osnovanie\/",
+                    "name": "Бетонное основание"
+                }
+            ],
+            [
+                {
+                    "uri": "polusfery-betonnye\/",
+                    "name": "Полусферы бетонные"
+                },
+                {
+                    "uri": "gazonnye-ograzhdeniya\/",
+                    "name": "Газонные ограждения"
+                },
+                {
+                    "uri": "betonnyie-zaboryi\/",
+                    "name": "Бетонные заборы"
+                },
+                {
+                    "uri": "paneli-ograd\/",
+                    "name": "Панели оград"
+                }
+            ]
+        ]
+    },
+    "255834": {
+        "column1": {
+            "uri": "\/kopiya-ustrojstvo-kommunikaczij\/",
+            "name": "Устройство коммуникаций",
+            "svg": "assort-ustrojstvo-kommunikaczij"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "kollektoryi\/",
+                    "name": "Коллекторы"
+                },
+                {
+                    "uri": "kolodcyi\/",
+                    "name": "Колодцы"
+                },
+                {
+                    "uri": "trubyi-zvenya-portalyi-otkosyi\/",
+                    "name": "Трубы железобетонные, порталы, откосы"
+                },
+                {
+                    "uri": "elementyi-teplotrass\/",
+                    "name": "Элементы теплотрасс"
+                },
+                {
+                    "uri": "lyuki-reshetki-lestniczyi\/",
+                    "name": "Люки, решетки, лестницы"
+                },
+                {
+                    "uri": "lotki-zhelezobetonnye\/",
+                    "name": "Лотки железобетонные"
+                },
+                {
+                    "uri": "plity-kanalov-lotkov-tonnelej\/",
+                    "name": "Плиты каналов, лотков, тоннелей"
+                },
+                {
+                    "uri": "progony-zhelezobetonnye\/",
+                    "name": "Прогоны железобетонные"
+                },
+                {
+                    "uri": "opornye-podushki\/",
+                    "name": "Опорные подушки"
+                },
+                {
+                    "uri": "betonnye-upory\/",
+                    "name": "Бетонные упоры"
+                }
+            ],
+            [
+                {
+                    "uri": "g-obraznye-konstrukcii\/",
+                    "name": "Г-образные конструкции"
+                },
+                {
+                    "uri": "sbornye-tonneli\/",
+                    "name": "Сборные тоннели"
+                },
+                {
+                    "uri": "zvenya-zhelezobetonnye\/",
+                    "name": "Звенья железобетонные"
+                },
+                {
+                    "uri": "truby-asbestocementnye\/",
+                    "name": "Трубы асбестоцементные"
+                },
+                {
+                    "uri": "teplovye-kamery\/",
+                    "name": "Тепловые камеры"
+                },
+                {
+                    "uri": "neprohodnye-kanaly\/",
+                    "name": "Непроходные каналы"
+                },
+                {
+                    "uri": "sbornye-kanaly\/",
+                    "name": "Сборные каналы"
+                },
+                {
+                    "uri": "ehlementy-transhej-tipovoj-proekt-811-37\/",
+                    "name": "Элементы траншей, типовой проект 811-37"
+                },
+                {
+                    "uri": "balki-inzhenernyh-sooruzhenij\/",
+                    "name": "Балки инженерных сооружений"
+                }
+            ]
+        ]
+    },
+    "255836": {
+        "column1": {
+            "uri": "zheleznodorozhnoe-stroitelstvo\/",
+            "name": "Железнодорожное строительство",
+            "svg": "assort-zheleznodorozhnoe-stroitelstvo"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "drenazhnye-lotki-zhbi\/",
+                    "name": "Дренажные лотки ЖБИ"
+                },
+                {
+                    "uri": "shpaly-zhelezobetonnye\/",
+                    "name": "Шпалы железобетонные"
+                },
+                {
+                    "uri": "balki-prizhimnye\/",
+                    "name": "Балки прижимные"
+                },
+                {
+                    "uri": "shpaly-derevyannye\/",
+                    "name": "Шпалы деревянные"
+                },
+                {
+                    "uri": "plita-pereezda\/",
+                    "name": "Плита переезда"
+                },
+                {
+                    "uri": "plita-tramvajnaya\/",
+                    "name": "Плита трамвайная"
+                }
+            ]
+        ]
+    },
+    "255837": {
+        "column1": {
+            "uri": "kopiya-zhbi-dlya-energeticheskogo-stroitelstva\/",
+            "name": "ЖБИ для энергетического строительства",
+            "svg": "assort-zhbi-dlya-energeticheskogo-stroitelstva"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "opory-lehp\/",
+                    "name": "Опоры ЛЭП"
+                },
+                {
+                    "uri": "fundament-pod-opory\/",
+                    "name": "Фундамент под опоры"
+                },
+                {
+                    "uri": "ehlementy-podstancij\/",
+                    "name": "Элементы подстанций"
+                },
+                {
+                    "uri": "rigel-dlya-opor\/",
+                    "name": "Ригель для опор"
+                },
+                {
+                    "uri": "oporno-ankernye-plity\/",
+                    "name": "Опорно-анкерные плиты"
+                },
+                {
+                    "uri": "ehnergeticheskie-svai\/",
+                    "name": "Энергетические сваи"
+                }
+            ]
+        ]
+    },
+    "255870": {
+        "column1": {
+            "uri": "stroitelstvo-mostov\/",
+            "name": "Строительство мостов",
+            "svg": "assort-stroitelstvo-mostov"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "perekhodnye-plity-pk\/",
+                    "name": "Переходные плиты ПК"
+                },
+                {
+                    "uri": "lezhni\/",
+                    "name": "Лежни"
+                },
+                {
+                    "uri": "zhelezobetonnye-svody\/",
+                    "name": "Железобетонные своды"
+                },
+                {
+                    "uri": "konturnye-bloki\/",
+                    "name": "Контурные блоки"
+                },
+                {
+                    "uri": "balki-mostov\/",
+                    "name": "Балки мостов"
+                },
+                {
+                    "uri": "svai-mostovye\/",
+                    "name": "Сваи мостовые"
+                },
+                {
+                    "uri": "bloki-nasadok\/",
+                    "name": "Блоки насадок"
+                },
+                {
+                    "uri": "shkafnye-stenki\/",
+                    "name": "Шкафные стенки"
+                },
+                {
+                    "uri": "bloki-podfermennika\/",
+                    "name": "Блоки подферменника"
+                },
+                {
+                    "uri": "koroba-udlineniya-ustoev\/",
+                    "name": "Короба удлинения устоев"
+                }
+            ],
+            [
+                {
+                    "uri": "plity-fundamentnye-dlya-mostov\/",
+                    "name": "Плиты фундаментные для мостов"
+                },
+                {
+                    "uri": "podpornye-stenki-seriya-3-002-1-1\/",
+                    "name": "Подпорные стенки серия 3.002.1-1"
+                },
+                {
+                    "uri": "blok-trotuarnyj\/",
+                    "name": "Блок тротуарный"
+                },
+                {
+                    "uri": "blok-ograzhdayushchij\/",
+                    "name": "Блок ограждающий"
+                },
+                {
+                    "uri": "blok-razdelitelnoj-polosy\/",
+                    "name": "Блок разделительной полосы"
+                },
+                {
+                    "uri": "blok-karniznyj\/",
+                    "name": "Блок карнизный"
+                },
+                {
+                    "uri": "blok-bordyurnyj\/",
+                    "name": "Блок бордюрный"
+                },
+                {
+                    "uri": "plity-proletnogo-stroeniya\/",
+                    "name": "Плиты пролетного строения"
+                },
+                {
+                    "uri": "podpornyie-stenki-3-002-1-2\/",
+                    "name": "Подпорные стенки серия 3.002.1-2"
+                }
+            ]
+        ]
+    },
+    "255832": {
+        "column1": {
+            "uri": "zhbi-bu\/",
+            "name": "ЖБИ Б\/У",
+            "svg": "assort-zhbi-bu"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "dorozhnyie-plityi-bu\/",
+                    "name": "Дорожные плиты Б\/У"
+                },
+                {
+                    "uri": "plityi-perekryitiya-bu\/",
+                    "name": "Плиты перекрытия Б\/У"
+                },
+                {
+                    "uri": "fundamentnyie-bloki-bu\/",
+                    "name": "Фундаментные блоки Б\/У"
+                }
+            ]
+        ]
+    },
+    "255830": {
+        "column1": {
+            "uri": "blagoustrojstvo\/",
+            "name": "Элементы благоустройства",
+            "svg": "assort-blagoustrojstvo"
+        },
+        "column2": [
+            [
+                {
+                    "uri": "vazony-i-cvetochnicy\/",
+                    "name": "Вазоны и цветочницы"
+                },
+                {
+                    "uri": "vodostoki\/",
+                    "name": "Водостоки"
+                },
+                {
+                    "uri": "trotuarnye-plitki\/",
+                    "name": "Тротуарные плитки"
+                },
+                {
+                    "uri": "skamejki\/",
+                    "name": "Скамейки"
+                },
+                {
+                    "uri": "bordyury\/",
+                    "name": "Бордюры"
+                },
+                {
+                    "uri": "trotuarnye-plity\/",
+                    "name": "Тротуарные плиты"
+                },
+                {
+                    "uri": "plitka-vibropressovannaya\/",
+                    "name": "Плитка вибропрессованная"
+                },
+                {
+                    "uri": "plitka-litaya\/",
+                    "name": "Плитка литая"
+                }
+            ]
+        ]
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "102922": {
+        "column1": {
+            "uri": "\/gruntovki\/",
+            "name": "Грунтовки",
+            "svg": "paint-roller"
+        },
+        "column2": [
+            {
+                "uri": "\/betonokontakt\/",
+                "name": "Бетоноконтакт"
+            },
+            {
+                "uri": "\/gidrofobizatory\/",
+                "name": "Гидрофобизаторы"
+            },
+            {
+                "uri": "\/zhidkoe-steklo\/",
+                "name": "Жидкое стекло"
+            }
+        ]
+    },
+    "103255": {
+        "column1": {
+            "uri": "\/kraska\/",
+            "name": "Краски",
+            "svg": "kraska"
+        },
+        "column2": [
+            {
+                "uri": "\/vodno-dispersionnaya-kraska\/",
+                "name": "Водно-дисперсионные краски"
+            },
+            {
+                "uri": "\/kraska-dlya-vnutrennih-rabot\/",
+                "name": "Краски для внутренних работ"
+            },
+            {
+                "uri": "\/kraska-dlya-naruzhnyh-rabot\/",
+                "name": "Краски для фасада"
+            },
+            {
+                "uri": "\/aehrozolnaya-kraska\/",
+                "name": "Аэрозольные краски"
+            },
+            {
+                "uri": "\/alkidnaya-kraska\/",
+                "name": "Алкидные краски"
+            },
+            {
+                "uri": "\/rezinovaya-kraska\/",
+                "name": "Резиновые краски"
+            },
+            {
+                "uri": "\/kraska-fakturnaya\/",
+                "name": "Краска фактурная"
+            },
+            {
+                "uri": "\/silikonovaya-kraska\/",
+                "name": "Краска силиконовая"
+            },
+            {
+                "uri": "\/lateksnye-kraski\/",
+                "name": "Краска латексная"
+            }
+        ]
+    },
+    "103193": {
+        "column1": {
+            "uri": "\/pokryitiya-dlya-dereva\/",
+            "name": "Покрытия для дерева",
+            "svg": "pint"
+        },
+        "column2": [
+            {
+                "uri": "\/propitki-dlya-dereva\/",
+                "name": "Пропитки для дерева"
+            },
+            {
+                "uri": "\/ognebiozashhita\/",
+                "name": "Огнебиозащита"
+            },
+            {
+                "uri": "\/otbelivateli-drevesiny\/",
+                "name": "Отбеливатели древесины"
+            },
+            {
+                "uri": "\/masla-i-voski-dlya-dereva\/",
+                "name": "Масла и воски для дерева"
+            },
+            {
+                "uri": "\/morilki\/",
+                "name": "Морилки"
+            },
+            {
+                "uri": "\/lazuri-dlya-dereva\/",
+                "name": "Лазури для дерева"
+            },
+            {
+                "uri": "\/pokryitie-dlya-dereva-solara-color\/",
+                "name": "Solara Color"
+            },
+            {
+                "uri": "\/pokryitie-dlya-dereva-smart-color\/",
+                "name": "Smart color"
+            }
+        ]
+    },
+    "117397": {
+        "column1": {
+            "uri": "\/emali\/",
+            "name": "Эмали",
+            "svg": "paint-bucket"
+        }
+    },
+    "113157": {
+        "column1": {
+            "uri": "\/laki\/",
+            "name": "Лаки",
+            "svg": "lak"
+        }
+    },
+    "112001": {
+        "column1": {
+            "uri": "\/rastvoriteli-i-ochistiteli\/",
+            "name": "Растворители и очистители",
+            "svg": "canister"
+        },
+        "column2": [
+            {
+                "uri": "\/ochistiteli\/",
+                "name": "Очистители"
+            },
+            {
+                "uri": "\/rastvoriteli\/",
+                "name": "Растворители"
+            }
+        ]
+    },
+    "119822": {
+        "column1": {
+            "uri": "\/kolery\/",
+            "name": "Колеры",
+            "svg": "colour"
+        }
+    },
+    "107936": {
+        "column1": {
+            "uri": "\/shpatlevki\/",
+            "name": "Шпатлевки",
+            "svg": "putty-knife"
+        },
+        "column2": [
+            {
+                "uri": "\/shpatlevki-gotovyie\/",
+                "name": "Готовые"
+            },
+            {
+                "uri": "\/shpatlevka-solara-color\/",
+                "name": "Solara Color"
+            },
+            {
+                "uri": "\/shpatlevka-smart-color\/",
+                "name": "Smart color"
+            }
+        ]
+    },
+    "120953": {
+        "column1": {
+            "uri": "\/instrumenty\/",
+            "name": "Инструменты",
+            "svg": "customer-support"
+        }
+    },
+    "107935": {
+        "column1": {
+            "uri": "\/dobavki-v-suhie-stroitelnyie-smesi\/",
+            "name": "Добавки в сухие строительные смеси",
+            "svg": "glue"
+        }
+    }
+}

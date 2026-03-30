@@ -35,7 +35,7 @@ if (empty($limit)) {
 
                     // $title есть в MIGX, можно взять оттуда. Но тогда если он обновится у ресурса, то надо будет обновить его и в MIGX поле (пересохранить), а это неудобно.
                     $title = $resource->menutitle;
-                    $uri = $resource->uri;
+                    $uri = "/" . $resource->uri;
                     $img = $resource->getTVValue('mainImage');
                     break;
                 case 'creation':

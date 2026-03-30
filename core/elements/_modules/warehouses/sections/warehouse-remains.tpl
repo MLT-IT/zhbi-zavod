@@ -8,7 +8,7 @@
   {if $_modx->getPlaceholder('localdata').region != "krasnodar"}
     {foreach $data['warehouses'] as $warehouse}
     <li>
-      <a href="{$warehouse['uri']}" class="warehouse-remains__item">
+      <a href="/{$warehouse['uri']}" class="warehouse-remains__item">
         <span><b>{$warehouse['menutitle'] ?: $warehouse['pagetitle']}</b></span>
         <span><b>{$warehouse['remains']} {$data['unit']}</b></span>
       </a>

@@ -8,16 +8,15 @@ $cacheOptions = [
 ];
 
 if (!$result = $modx->cacheManager->get($cacheName, $cacheOptions)) {
-    $data_path = MODX_CORE_PATH . 'elements/snippets/create-menu/data/' . $context . '.php';
+    $data_path = MODX_CORE_PATH . 'elements/snippets/create-menu/json/' . $context . '.json';
 
     if (!file_exists($data_path)) {
         $modx->log(1, 'Не найден файл для содания меню ');
         return;
     }
 
-    require_once $data_path;
     $result = [
-        'values' => getMenuData()
+        'values' => json_decode(file_get_contents($data_path), 1)
     ];
 
     switch ($context) {

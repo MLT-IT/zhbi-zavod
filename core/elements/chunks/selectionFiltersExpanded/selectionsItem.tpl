@@ -1,5 +1,5 @@
 <li class="custom-selections__tag">
-    <a href="{$uri}" class="custom-selections__tag-link">
+    <a href="/{$uri}" class="custom-selections__tag-link">
         <div class="custom-selections__tag-picture">
         {set $image = $mainImage ?: $_pls['mainImage']}
         {if $image}
