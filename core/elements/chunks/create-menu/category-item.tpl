@@ -1,5 +1,5 @@
 <li class="catalog-screen__item catalog-screen__item_type_default">
-    <a href="{$uri}" class="catalog-screen__item-link">
+    <a href="/{$uri}" class="catalog-screen__item-link">
         <div class="catalog-screen__item-picture">
         {set $image = $_pls['tv.mainImage'] ?: $mainImage}
         {if $image}

@@ -15,7 +15,7 @@
   {if $_modx->resource.groupingTags}
     {set $tags = "@FILE snippets/groupingTags.php" | snippet : [
     'tplItem' => '@INLINE<li class="catalog-screen__tag">
-                            <a href="{$uri}" class="catalog-screen__tag-link">
+                            <a href="/{$uri}" class="catalog-screen__tag-link">
                               <div class="catalog-screen__tag-picture">
                                 {if $image}
                                 <img class="catalog-screen__tag-image" src="{$image}" />

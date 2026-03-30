@@ -140,7 +140,7 @@
                   'offset' => 3,
 
                   'context' => $_modx->resource.context_key,
-                  'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                  'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
                   'limit' => 0,
                   'resources' => $resources,
                   'sortby' => 'FIELD(id, '~$resources~')',
@@ -178,7 +178,7 @@
               {$_modx->runSnippet('pdoResources', [
                 'parents' => 0,
                 'depth' => 1000,
-                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
                 'limit' => 0,
                 'resources' => $resources,
                 'sortby' => 'FIELD(id, '~$resources~')',
@@ -191,7 +191,7 @@
               {$_modx->runSnippet('pdoResources', [
                 'parents' => 0,
                 'depth' => 1000,
-                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
                 'limit' => 0,
                 'resources' => $resources,
                 'sortby' => 'FIELD(id, '~$resources~')',
@@ -207,7 +207,7 @@
               {$_modx->runSnippet('pdoResources', [
                 'parents' => 0,
                 'depth' => 1000,
-                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
                 'limit' => 0,
                 'resources' => $resources,
                 'sortby' => 'FIELD(id, '~$resources~')',
@@ -219,7 +219,7 @@
               {$_modx->runSnippet('pdoResources', [
                 'parents' => 0,
                 'depth' => 1000,
-                'tpl' => '@INLINE <a class="footer__nav-item" href="[[+uri]]">[[+menutitle]]</a>',
+                'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
                 'limit' => 0,
                 'resources' => $resources,
                 'sortby' => 'FIELD(id, '~$resources~')',

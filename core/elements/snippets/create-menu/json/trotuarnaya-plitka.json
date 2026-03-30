@@ -7,157 +7,157 @@
         },
         "column3": [
             {
-                "uri": "trotuarnaya-plitka\/",
+                "uri": "\/trotuarnaya-plitka\/",
                 "name": "Тротуарная плитка"
             },
             {
-                "uri": "bruschatka\/",
+                "uri": "\/bruschatka\/",
                 "name": "Брусчатка (кирпичик)"
             },
             {
-                "uri": "krupnoformatnye\/",
+                "uri": "\/krupnoformatnye\/",
                 "name": "Крупноформатная тротуарная плитка"
             },
             {
-                "uri": "polimerpeschanaya-plitka\/",
+                "uri": "\/polimerpeschanaya-plitka\/",
                 "name": "Полимерпесчаная плитка"
             },
             {
-                "uri": "rezinovaya-plitka\/",
+                "uri": "\/rezinovaya-plitka\/",
                 "name": "Резиновая плитка"
             }
         ],
         "column5": [
             {
-                "uri": "technologia\/vibropress\/",
+                "uri": "\/technologia\/vibropress\/",
                 "name": "Вибропресс"
             },
             {
-                "uri": "technologia\/vibrolite\/",
+                "uri": "\/technologia\/vibrolite\/",
                 "name": "Вибролитье"
             }
         ],
         "column6": [
             {
-                "uri": "collection\/staryj-gorod\/",
+                "uri": "\/collection\/staryj-gorod\/",
                 "name": "Старый город",
                 "hit": true
             },
             {
-                "uri": "collection\/novyij-gorod\/",
+                "uri": "\/collection\/novyij-gorod\/",
                 "name": "Новый город",
                 "hit": true
             }
         ],
         "column2": [
             {
-                "uri": "proizvoditely-plitki\/braer-plitka\/",
+                "uri": "\/proizvoditely-plitki\/braer-plitka\/",
                 "name": "Браер"
             },
             {
-                "uri": "proizvoditely-plitki\/vybor-zdshelf\/",
+                "uri": "\/proizvoditely-plitki\/vybor-zdshelf\/",
                 "name": "Выбор"
             },
             {
-                "uri": "proizvoditely-plitki\/fabrika-gotika-plitka\/",
+                "uri": "\/proizvoditely-plitki\/fabrika-gotika-plitka\/",
                 "name": "Фабрика Готика"
             },
             {
-                "uri": "proizvoditely-plitki\/342-mekhanicheskij-zavod-plitka\/",
+                "uri": "\/proizvoditely-plitki\/342-mekhanicheskij-zavod-plitka\/",
                 "name": "342 Механический завод"
             },
             {
-                "uri": "proizvoditely-plitki\/steinrus-plitka\/",
+                "uri": "\/proizvoditely-plitki\/steinrus-plitka\/",
                 "name": "Steinrus"
             },
             {
-                "uri": "proizvoditely-plitki\/kamennyij-vek-plitka\/",
+                "uri": "\/proizvoditely-plitki\/kamennyij-vek-plitka\/",
                 "name": "Каменный век"
             },
             {
-                "uri": "proizvoditely-plitki\/white-hills-plitka\/",
+                "uri": "\/proizvoditely-plitki\/white-hills-plitka\/",
                 "name": "White hills"
             },
             {
-                "uri": "proizvoditely-plitki\/siyan\/",
+                "uri": "\/proizvoditely-plitki\/siyan\/",
                 "name": "Сиян"
             },
             {
-                "uri": "proizvoditely-plitki\/stellard\/",
+                "uri": "\/proizvoditely-plitki\/stellard\/",
                 "name": "Stellard"
             }
         ],
         "column7": [
             {
-                "uri": "forma\/kvadratnaya\/",
+                "uri": "\/forma\/kvadratnaya\/",
                 "name": "Квадратная"
             },
             {
-                "uri": "forma\/pryamougolnaya\/",
+                "uri": "\/forma\/pryamougolnaya\/",
                 "name": "Прямоугольная"
             },
             {
-                "uri": "forma\/figurnaya\/",
+                "uri": "\/forma\/figurnaya\/",
                 "name": "Фигурная"
             },
             {
-                "uri": "forma\/assorti\/",
+                "uri": "\/forma\/assorti\/",
                 "name": "Ассорти"
             }
         ],
         "column4": [
             {
-                "uri": "material\/beton\/",
+                "uri": "\/material\/beton\/",
                 "name": "Бетон"
             },
             {
-                "uri": "material\/granit\/",
+                "uri": "\/material\/granit\/",
                 "name": "Гранит"
             },
             {
-                "uri": "material\/polimerpesok\/",
+                "uri": "\/material\/polimerpesok\/",
                 "name": "Полимерпесок"
             },
             {
-                "uri": "material\/rezinovaya-kroshka\/",
+                "uri": "\/material\/rezinovaya-kroshka\/",
                 "name": "Резиновая крошка"
             },
             {
-                "uri": "material\/klinkernaya-glina\/",
+                "uri": "\/material\/klinkernaya-glina\/",
                 "name": "Клинкерная глина"
             }
         ],
         "column8": [
             {
-                "uri": "cvet\/seryij\/",
+                "uri": "\/cvet\/seryij\/",
                 "name": "Серый"
             },
             {
-                "uri": "cvet\/krasnyij\/",
+                "uri": "\/cvet\/krasnyij\/",
                 "name": "Красный"
             },
             {
-                "uri": "cvet\/belyij\/",
+                "uri": "\/cvet\/belyij\/",
                 "name": "Белый"
             },
             {
-                "uri": "cvet\/korichnevyij\/",
+                "uri": "\/cvet\/korichnevyij\/",
                 "name": "Коричневый"
             },
             {
-                "uri": "cvet\/chernyij\/",
+                "uri": "\/cvet\/chernyij\/",
                 "name": "Черный"
             },
             {
-                "uri": "cvet\/zheltyij\/",
+                "uri": "\/cvet\/zheltyij\/",
                 "name": "Желтый"
             },
             {
-                "uri": "cvet\/zelenyij\/",
+                "uri": "\/cvet\/zelenyij\/",
                 "name": "Зеленый"
             },
             {
-                "uri": "cvet\/bezhevyij\/",
+                "uri": "\/cvet\/bezhevyij\/",
                 "name": "Бежевый"
             }
         ]
@@ -200,23 +200,23 @@
         ],
         "column2": [
             {
-                "uri": "braer\/",
+                "uri": "\/braer\/",
                 "name": "Браер"
             },
             {
-                "uri": "vyibor\/",
+                "uri": "\/vyibor\/",
                 "name": "Выбор"
             },
             {
-                "uri": "zg-clinker\/",
+                "uri": "\/zg-clinker\/",
                 "name": "ZG-Clinker"
             },
             {
-                "uri": "342-mexanicheskij-zavod\/",
+                "uri": "\/342-mexanicheskij-zavod\/",
                 "name": "342 Механический завод"
             },
             {
-                "uri": "steinrus\/",
+                "uri": "\/steinrus\/",
                 "name": "Steinrus"
             }
         ]
@@ -229,19 +229,19 @@
         },
         "column2": [
             {
-                "uri": "oblicovochnyj-kamen-dlya-cokolya\/white-hills-cok\/",
+                "uri": "\/oblicovochnyj-kamen-dlya-cokolya\/white-hills-cok\/",
                 "name": "White hills"
             },
             {
-                "uri": "oblicovochnyj-kamen-dlya-cokolya\/leonardo-stoun-cok\/",
+                "uri": "\/oblicovochnyj-kamen-dlya-cokolya\/leonardo-stoun-cok\/",
                 "name": "Леонардо Стоун"
             },
             {
-                "uri": "oblicovochnyj-kamen-dlya-cokolya\/atlas-stone-cok\/",
+                "uri": "\/oblicovochnyj-kamen-dlya-cokolya\/atlas-stone-cok\/",
                 "name": "Atlas stone"
             },
             {
-                "uri": "oblicovochnyj-kamen-dlya-cokolya\/idealnyij-kamen-cok\/",
+                "uri": "\/oblicovochnyj-kamen-dlya-cokolya\/idealnyij-kamen-cok\/",
                 "name": "Идеальный камень"
             }
         ]
@@ -254,35 +254,35 @@
         },
         "sistmsh": [
             {
-                "uri": "sistema-moshcheniya\/zatirka-dlya-shvov\/",
+                "uri": "\/sistema-moshcheniya\/zatirka-dlya-shvov\/",
                 "name": "Затирка для швов"
             },
             {
-                "uri": "sistema-moshcheniya\/klei-i-rastvory-dlya-ukladki\/",
+                "uri": "\/sistema-moshcheniya\/klei-i-rastvory-dlya-ukladki\/",
                 "name": "Клеи и растворы для укладки"
             }
         ],
         "sreduh": [
             {
-                "uri": "sredstva-dlya-uhoda\/gidrofobizatoryi-i-ochistiteli\/",
+                "uri": "\/sredstva-dlya-uhoda\/gidrofobizatoryi-i-ochistiteli\/",
                 "name": "Гидрофобизаторы и очистители"
             },
             {
-                "uri": "sredstva-dlya-uhoda\/propitka-mokryj-kamen\/",
+                "uri": "\/sredstva-dlya-uhoda\/propitka-mokryj-kamen\/",
                 "name": "Пропитка Мокрый камень"
             }
         ],
         "vodosis": [
             {
-                "uri": "vodootvodnye-sistemy\/lotok-vodootvodnyij\/",
+                "uri": "\/vodootvodnye-sistemy\/lotok-vodootvodnyij\/",
                 "name": "Лоток водоотводный"
             },
             {
-                "uri": "vodootvodnye-sistemy\/reshetka-vodopriemnaya\/",
+                "uri": "\/vodootvodnye-sistemy\/reshetka-vodopriemnaya\/",
                 "name": "Решетка водоприемная"
             },
             {
-                "uri": "vodootvodnye-sistemy\/dozhdepriemnik\/",
+                "uri": "\/vodootvodnye-sistemy\/dozhdepriemnik\/",
                 "name": "Дождеприемник"
             }
         ],
@@ -291,35 +291,35 @@
         ],
         "proizvod": [
             {
-                "uri": "proizvoditely-mdb\/standartpark-mdb\/",
+                "uri": "\/proizvoditely-mdb\/standartpark-mdb\/",
                 "name": "Standartpark"
             },
             {
-                "uri": "proizvoditely-mdb\/quick-mix-mdb\/",
+                "uri": "\/proizvoditely-mdb\/quick-mix-mdb\/",
                 "name": "Quick-mix"
             },
             {
-                "uri": "proizvoditely-mdb\/braer-mdb\/",
+                "uri": "\/proizvoditely-mdb\/braer-mdb\/",
                 "name": "Браер"
             },
             {
-                "uri": "proizvoditely-mdb\/gidrolica-mdb\/",
+                "uri": "\/proizvoditely-mdb\/gidrolica-mdb\/",
                 "name": "Gidrolica"
             },
             {
-                "uri": "proizvoditely-mdb\/perel-mdb\/",
+                "uri": "\/proizvoditely-mdb\/perel-mdb\/",
                 "name": "Perel"
             },
             {
-                "uri": "proizvoditely-mdb\/white-hills-mdb\/",
+                "uri": "\/proizvoditely-mdb\/white-hills-mdb\/",
                 "name": "White hills"
             },
             {
-                "uri": "proizvoditely-mdb\/perfekta-mdb\/",
+                "uri": "\/proizvoditely-mdb\/perfekta-mdb\/",
                 "name": "Perfekta"
             },
             {
-                "uri": "proizvoditely-mdb\/tiprom-mdb\/",
+                "uri": "\/proizvoditely-mdb\/tiprom-mdb\/",
                 "name": "Типром"
             }
         ]

@@ -142,7 +142,7 @@
                   ',
                   'tpl' => '@INLINE 
                     <tr>
-                      <td><a class="link" href="{$uri}">{$pagetitle}</a></td>
+                      <td><a class="link" href="/{$uri}">{$pagetitle}</a></td>
                       <td>
                           <p>Маркировка : {$markirovka[0]}</p>
                           <p>Длина, мм : {$_pls["dlina-mm"][0]}</p>

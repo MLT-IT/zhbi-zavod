@@ -1,93 +1,93 @@
 {
     "226928": {
         "column1": {
-            "uri": "metallocherepitsya-grand-line\/",
+            "uri": "\/metallocherepitsya-grand-line\/",
             "name": "Продажа металлочерепицы Grand Line в Санкт-Петербурге",
             "img": "\/assets\/template\/img\/category\/139c30e495a9ece5cd810aa837ba96dd.jpg"
         },
         "column2": [
             {
-                "uri": "metallocherepitsya-grand-line-classic\/",
+                "uri": "\/metallocherepitsya-grand-line-classic\/",
                 "name": "Classic Grand Line"
             },
             {
-                "uri": "metallocherepitsya-grand-line-kredo\/",
+                "uri": "\/metallocherepitsya-grand-line-kredo\/",
                 "name": "Kredo Grand Line"
             },
             {
-                "uri": "metallocherepitsya-grand-line-kvinta-plus\/",
+                "uri": "\/metallocherepitsya-grand-line-kvinta-plus\/",
                 "name": "Kvinta plus Grand Line"
             },
             {
-                "uri": "metallocherepitsya-grand-line-kvinta-uno\/",
+                "uri": "\/metallocherepitsya-grand-line-kvinta-uno\/",
                 "name": "Grand Line Kvinta Un"
             },
             {
-                "uri": "metallocherepitsya-grand-line-modern\/",
+                "uri": "\/metallocherepitsya-grand-line-modern\/",
                 "name": "Modern Grand Line"
             },
             {
-                "uri": "metallocherepitsya-grand-line-kamea\/",
+                "uri": "\/metallocherepitsya-grand-line-kamea\/",
                 "name": "Kamea Grand Line"
             },
             {
-                "uri": "prodazha-metallocherepicy-monterrej-grand-line\/",
+                "uri": "\/prodazha-metallocherepicy-monterrej-grand-line\/",
                 "name": "Монтеррей Grand Line"
             }
         ]
     },
     "226933": {
         "column1": {
-            "uri": "metallocherepica-metall-profil\/",
+            "uri": "\/metallocherepica-metall-profil\/",
             "name": "Металлочерепица Металл-Профиль",
             "img": "\/assets\/template\/img\/category\/logo-metall-profil.png"
         },
         "column2": [
             {
-                "uri": "metallocherepica-lamonterra\/",
+                "uri": "\/metallocherepica-lamonterra\/",
                 "name": "Ламонтерра"
             },
             {
-                "uri": "metallocherepica-lamonterra-x\/",
+                "uri": "\/metallocherepica-lamonterra-x\/",
                 "name": "Ламонтерра X"
             },
             {
-                "uri": "metallocherepica-lamonterra-xl\/",
+                "uri": "\/metallocherepica-lamonterra-xl\/",
                 "name": "Ламонтерра XL"
             },
             {
-                "uri": "metallocherepica-montekristo\/",
+                "uri": "\/metallocherepica-montekristo\/",
                 "name": "Монтекристо"
             },
             {
-                "uri": "metallocherepica-monterrosa\/",
+                "uri": "\/metallocherepica-monterrosa\/",
                 "name": "Монтерроса"
             },
             {
-                "uri": "metallocherepica-tramontana\/",
+                "uri": "\/metallocherepica-tramontana\/",
                 "name": "Трамонтана"
             }
         ]
     },
     "226943": {
         "column1": {
-            "uri": "modulnaya-metallocherepicza-akvasistem\/",
+            "uri": "\/modulnaya-metallocherepicza-akvasistem\/",
             "name": "Модульная металлочерепица Аквасистем",
             "img": "\/assets\/template\/img\/category\/aquasystem_100x69_175.jpg"
         },
         "column2": [
             {
-                "uri": "modulnaya-metallocherepicza-geteborg\/",
+                "uri": "\/modulnaya-metallocherepicza-geteborg\/",
                 "name": "Гетеборг"
             },
             {
-                "uri": "modulnaya-metallocherepicza-stokgolm\/",
+                "uri": "\/modulnaya-metallocherepicza-stokgolm\/",
                 "name": "Стокгольм"
             }
         ],
         "column3": [
             {
-                "uri": "komplektuyushhie-modulnoj-cherepiczyi\/",
+                "uri": "\/komplektuyushhie-modulnoj-cherepiczyi\/",
                 "name": "Комплектующие"
             }
         ]
