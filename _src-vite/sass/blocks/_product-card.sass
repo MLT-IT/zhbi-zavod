@@ -10,7 +10,7 @@
 	position: relative
 
 	+until-768
-		padding: 5px 5px 30px
+		padding: 5px 5px 30px !important
 
 	&__btn-in-cart
 		width: 148px
@@ -179,6 +179,12 @@
 		+until-768
 			font-size: 16px
 			line-height: 1.3
+
+		+media-until(500px)
+			font-size: 14px
+
+		+media-until(350px)
+			font-size: 16px
 
 	&__subtitle
 		+from-768

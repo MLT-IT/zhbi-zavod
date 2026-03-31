@@ -85,18 +85,17 @@
                             content: 'скрыть'
                             @at-root .trotuarnaya-plitka &
                                 content: 'Свернуть'
-        +until-1200
+        +until-992
             grid-template-columns: repeat(4, minmax(0, 1fr))
 
-        +until-980
+        +until-768
             grid-template-columns: repeat(3, minmax(0, 1fr))
 
-        +until-768
+        +media-until(600px)
             grid-template-columns: repeat(2, minmax(0, 1fr))
             grid-gap: 5px
 
-        +until-480
-            grid-template-columns: 100%
+
 
     &__other
         height: 0
@@ -190,7 +189,7 @@
             height: 100%
             color: var(--color-black)
             text-decoration: none
-            gap: 8px
+            gap: 4px
 
         &-name
             // max-width: calc(100% - 94px)
@@ -209,7 +208,7 @@
                 font-size: 12px
 
     &__tag
-        padding: 15px
+        padding: 5px
         min-height: 100px
         font-weight: bold
         +until-768
@@ -232,11 +231,11 @@
         &-name
             // max-width: calc(100% - 94px)
             font-weight: 700
-            font-size: 16px
+            font-size: 14px
 
         &-picture
-            width: 70px
-            height: 70px
+            width: 48px
+            height: 48px
             margin-right: 0
             font-size: 0
             // background-color: var(--color-gray-lt)
