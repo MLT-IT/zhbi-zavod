@@ -244,11 +244,23 @@
         &-link
             overflow-x: hidden
 
-.catalog-screen__products_second
-    .catalog-screen__items
+    &__products_second
+        .catalog-screen__items
 
-        +media-until(568px)
-            grid-template-columns: 100%
+            +until-992
+                grid-template-columns: repeat(3, minmax(0, 1fr))
+
+            +until-768
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+
+            .catalog-screen__item-link
+                +media-until(550px)
+                    gap: 0
+                .catalog-screen__item-picture
+                    +media-until(550px)
+                        width: 40px
+                        height: 40px
+                        margin-right: 3px
 
 .read-all-button
     color: silver
