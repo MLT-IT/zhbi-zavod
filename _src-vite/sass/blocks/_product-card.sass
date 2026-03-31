@@ -431,8 +431,7 @@
 
 	&__volume
 		display: flex
-		align-items: center
-		flex-wrap: wrap
+		flex-direction: column
 
 		&:not(:last-child)
 			margin-right: 10px
@@ -451,6 +450,8 @@
 		&-tabs
 			display: flex
 			align-items: center
+			flex-wrap: wrap
+			row-gap: 5px
 
 		&-tab
 			padding: 6px 3px 4px
