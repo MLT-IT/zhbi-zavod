@@ -69,15 +69,13 @@
           {/if}
 
           <div class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" class="zoom-here">
+            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" 
+            class="zoom-here" itemprop="contentUrl">
               <img class="product__pictures-image"
                    src="{'site_url' | option}{$file['small']}"
                    alt="{$alt}"
                    itemprop="thumbnailUrl">
             </a>
-            <meta itemprop="contentUrl" content="{'@FILE snippets/normalizeUrl.php' | snippet : [
-                'url' => ('site_url' | option)~$file['url']
-              ]}">
           </div>
 
         {/foreach}
