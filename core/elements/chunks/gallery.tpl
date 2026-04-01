@@ -75,7 +75,9 @@
                    alt="{$alt}"
                    itemprop="thumbnailUrl">
             </a>
-            <meta itemprop="contentUrl" content="{'site_url' | option}{$file['url']}">
+            <meta itemprop="contentUrl" content="{'@FILE snippets/normalizeUrl.php' | snippet : [
+                'url' => ('site_url' | option)~$file['url']
+              ]}">
           </div>
 
         {/foreach}
