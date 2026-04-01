@@ -1,4 +1,4 @@
-<article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}">
+<article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}" itemscope itemtype="http://schema.org/Organization">
   <div class="contacts__container" data-tabs="">
     <div class="contacts__top">
       <h2 class="contacts__title section__title">Адреса</h2>

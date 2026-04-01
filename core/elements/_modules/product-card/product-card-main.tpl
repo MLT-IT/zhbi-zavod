@@ -9,3 +9,24 @@
     {insert "file:_modules/product-card/product-card-default.tpl"}
 {/switch}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{$_modx->resource.pagetitle | replace : '"' : '\"'}",
+  {if $_modx->resource.introtext?}
+  "description": "{$_modx->resource.introtext | strip_tags | replace : '"' : '\"'}",
+  {/if}
+  {if $_modx->resource.image?}
+  "image": "{$_modx->resource.image}",
+  {/if}
+  "sku": "{$_modx->resource.id}",
+  "url": "{$_modx->resource.id | url}",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "RUB",
+    "price": "{$prodValues['defaultPrice'] | replace : ' ' : ''}",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
