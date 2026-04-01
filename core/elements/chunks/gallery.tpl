@@ -48,7 +48,7 @@
       <div class="swiper-wrapper">
           {if $_modx->resource.videoProduct != ""}
           <div class="swiper-slide product__pictures-thumb">
-              <a href="{$_modx->resource.videoProduct}" data-fancybox="product-image" class="zoom-here" itemscope itemtype="http://schema.org/ImageObject" itemprop="contentUrl">
+              <a href="{$_modx->resource.videoProduct}" data-fancybox="product-image" class="zoom-here">
                      {$_modx->runSnippet("@FILE snippets/lazyLoadYotube.php", ["iframe" => '
                          <iframe width="100%" height="100%"
                               src="https://www.youtube.com/embed/' ~ $_modx->resource.videoProduct ~ '"
