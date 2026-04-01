@@ -68,11 +68,16 @@
               {set $alt = $alt ~ ' фото ' ~ ($key + 1)}
           {/if}
 
-          <div class="swiper-slide product__pictures-thumb">
-            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" class="zoom-here" itemscope itemtype="http://schema.org/ImageObject" itemprop="contentUrl">
-              <img class="product__pictures-image" src="{'site_url' | option}{$file['small']}" alt="{$alt}" itemprop="thumbnailUrl">
+          <div class="swiper-slide product__pictures-thumb" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="{'site_url' | option}{$file['url']}" data-fancybox="product-image" class="zoom-here">
+              <img class="product__pictures-image"
+                   src="{'site_url' | option}{$file['small']}"
+                   alt="{$alt}"
+                   itemprop="thumbnailUrl">
             </a>
+            <meta itemprop="contentUrl" content="{'site_url' | option}{$file['url']}">
           </div>
+
         {/foreach}
       </div>
     </div>
