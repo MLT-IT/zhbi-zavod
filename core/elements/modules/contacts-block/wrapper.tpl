@@ -1,5 +1,6 @@
 {set $warehouses = '@FILE modules/contacts-block/snippets/getWarehouses.php' | snippet}
 <article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}" itemscope itemtype="http://schema.org/Organization">
+  <meta itemprop="name" content="{'site_name' | option}">
   <div class="contacts__container" data-tabs="">
     <div class="contacts__top">
       <h2 class="contacts__title section__title">Адреса</h2>
