@@ -1,5 +1,6 @@
 {* Вывод баннеров слайдером *}
 {* @param $banner_groups - массив групп баннеров полученный по апи *}
+{* @param $banner_submit_goal - цель метрики при успешной отправке формы *}
 
 {set $show_navigation = count($banner_groups) >= 2}
 
@@ -23,7 +24,7 @@
             <img src="{$banners['desktop']['image_url']}" style="width:100%; height:auto;">
           </picture>
 
-          {include "file:banners/category-product/buttons.tpl" button_hidden=$button_hidden banners=$banners button_classname=$button_classname}
+          {include "file:banners/category-product/buttons.tpl" button_hidden=$button_hidden banners=$banners button_classname=$button_classname banner_submit_goal=$banner_submit_goal}
         </div>
       {/foreach}
     </div>
