@@ -265,6 +265,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     alignment(".product-card__title")
     alignment(".product-card__stats")
+    alignment(".product-card__volume")
+    alignment(".product-card__price-line")
 
     // -------------------------------
     // Раскрытие панелек с фильтрами на странице каталога / категории

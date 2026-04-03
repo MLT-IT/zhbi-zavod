@@ -200,6 +200,10 @@
             {/foreach}
         </div>
     </div>
+  {else}
+    <div class="product-card__volume">
+
+    </div>
   {/if}
     <div class="listing__product-elems-wrap product-card__bottom">
         {include "file:chunks/product/product-elems.tpl" prodId=$id}
