@@ -37,13 +37,12 @@
                     </div>
                 </article>
             {/foreach}
-            {set $empty_articles = count($data['rules']) - count($data['data'])}
+            {set $empty_articles = ($data['rules'] | count) - ($data['data'] | count)}
             {if $empty_articles > 0}
-                {for $i = 0 to $empty_articles}
-                    <article class="other-products similar-samples__products-slider {if $index + $i == 1}opened{/if}" id="other-products" data-opened-element="similar-{$index + $i}">
-
-                    </article>
-                {/for}
+                {'generateEmptyArticles' | snippet : [
+                'count' => $empty_articles,
+                'startIndex' => $index
+                ]}
             {/if}
         </div>
     </div>
