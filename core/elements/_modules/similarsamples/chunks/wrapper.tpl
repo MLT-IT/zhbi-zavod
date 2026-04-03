@@ -39,7 +39,7 @@
             {/foreach}
             {set $empty_articles = ($data['rules'] | count) - ($data['data'] | count)}
             {if $empty_articles > 0}
-                {'generateEmptyArticles' | snippet : [
+                {'@FILE _modules/similarsamples/snippets/generateEmptyArticles.php' | snippet : [
                 'count' => $empty_articles,
                 'startIndex' => $index
                 ]}
