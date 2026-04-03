@@ -30,7 +30,7 @@
 {/switch}
 
 
-<a href="/{$uri}" class="swiper-slide preview-card">
+<a href="{$uri}" class="swiper-slide preview-card">
   <div class="preview-card__picture">
     <img src="/assets/images/loader.svg" class="preview-card__image lazy" data-src="{$img}" alt="{$name}">
   </div>
