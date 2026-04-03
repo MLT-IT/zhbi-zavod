@@ -7,9 +7,11 @@ $tplOuter = $modx->getOption("tplOuter", $scriptProperties, "tplMenuOuter.tpl");
 $context = $modx->getOption("context", $scriptProperties, $modx->resource->context_key ?? "web");
 $menuFilePath = $modx->getOption("menuFilePath", $scriptProperties, MODX_ASSETS_PATH . "template/json/menu/");
 
-
-
 $fileMenu = $menuFilePath . $context . '.json';
+if (!file_exists($fileMenu)) {
+  return "Меню не найдено.";
+}
+
 $fileMenuData = file_get_contents($fileMenu);
 $menuData = json_decode($fileMenuData, true);
 
