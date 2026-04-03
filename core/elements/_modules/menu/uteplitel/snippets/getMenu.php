@@ -2,8 +2,6 @@
 const MODULE_PATH = "_modules/menu/uteplitel/"; // Путь к модулю
 const MODULE_CHUNKS_PATH = MODULE_PATH . "chunks/"; // Путь к чанкам
 
-if (!file_exists(MODULE_CHUNKS_PATH . $tplOuter)) return;
-
 $tplOuter = $modx->getOption("tplOuter", $scriptProperties, "tplMenuOuter.tpl");
 
 $context = $modx->getOption("context", $scriptProperties, $modx->resource->context_key ?? "web");
