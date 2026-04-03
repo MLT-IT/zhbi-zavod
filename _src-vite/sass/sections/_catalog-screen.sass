@@ -1,10 +1,4 @@
 .catalog-screen
-
-    $show-text: "\u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c\u0020\u0432\u0441\u0435"
-    $hide-text: "\u0441\u043a\u0440\u044b\u0442\u044c"
-    $collapse-text: "\u0421\u0432\u0435\u0440\u043d\u0443\u0442\u044c"
-    $view-text: "\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c\u0020\u0432\u0441\u0435"
-
     &__title
         @at-root .section_view_shrink &
             margin-bottom: 0
@@ -88,9 +82,9 @@
 
                     &_more
                         &::before
-                            content: $hide-text
+                            content: 'скрыть'
                             @at-root .trotuarnaya-plitka &
-                                content: $collapse-text
+                                content: 'Свернуть'
         +until-992
             grid-template-columns: repeat(4, minmax(0, 1fr))
 
@@ -142,10 +136,10 @@
                 color: var(--color-red)
 
             &:before
-                content: $show-text
+                content: 'показать все'
                 padding-top: 5px
                 @at-root .trotuarnaya-plitka &
-                    content: $view-text
+                    content: 'Смотреть все'
 
         &:hover
             box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
