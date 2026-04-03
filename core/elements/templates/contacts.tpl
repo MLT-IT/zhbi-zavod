@@ -5,7 +5,8 @@
 
     {include "file:chunks/breadcrumbs/breadcrumbs.tpl"}
 
-    <article class="contacts contacts_separate section">
+    <article class="contacts contacts_separate section" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{'site_name' | option}">
       <div class="contacts__container">
         <div class="contacts__top">
           <h1 class="contacts__title section__title">Контакты</h1>

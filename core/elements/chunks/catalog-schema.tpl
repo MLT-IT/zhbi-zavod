@@ -48,11 +48,13 @@
     },
     {/if}
     "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "{$_modx->getPlaceholder('min_price')}",
-        "highPrice": "{$_modx->getPlaceholder('max_price')}",
-        "offerCount": "{$_modx->getPlaceholder('total_count')}",
-        "priceCurrency": "RUB"
+    "@type": "AggregateOffer",
+    "lowPrice": "{$_modx->getPlaceholder('min_price')}",
+    "highPrice": "{$_modx->getPlaceholder('max_price')}",
+    {if $_modx->getPlaceholder('total_count') != ''}
+    "offerCount": "{$_modx->getPlaceholder('total_count')}",
+    {/if}
+    "priceCurrency": "RUB"
     },
     {if $reviews? && $reviews['reviewCount'] > 0}
     "aggregateRating": {
