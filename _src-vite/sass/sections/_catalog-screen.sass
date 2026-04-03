@@ -1,4 +1,10 @@
 .catalog-screen
+
+    $show-text: "показать все"
+    $hide-text: "скрыть"
+    $collapse-text: "Свернуть"
+    $view-text: "Смотреть все"
+
     &__title
         @at-root .section_view_shrink &
             margin-bottom: 0
@@ -82,9 +88,9 @@
 
                     &_more
                         &::before
-                            content: 'скрыть'
+                            content: $hide-text
                             @at-root .trotuarnaya-plitka &
-                                content: 'Свернуть'
+                                content: $collapse-text
         +until-992
             grid-template-columns: repeat(4, minmax(0, 1fr))
 
@@ -136,10 +142,10 @@
                 color: var(--color-red)
 
             &:before
-                content: 'показать все'
+                content: $show-text
                 padding-top: 5px
                 @at-root .trotuarnaya-plitka &
-                    content: 'Смотреть все'
+                    content: $view-text
 
         &:hover
             box-shadow: 5px 0 15px rgba(211, 85, 60, .3)
