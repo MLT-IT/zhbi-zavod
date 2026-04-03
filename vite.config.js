@@ -26,6 +26,20 @@ const entries = {
 export default defineConfig(() => {
   return {
     base: `/${DIST_DIR}/`,
+    css: {
+      preprocessorOptions: {
+        scss: {
+          charset: false,
+          outputStyle: 'expanded',
+          additionalData: '@charset "UTF-8";'
+        }
+      },
+      postcss: {
+        plugins: [
+
+        ]
+      }
+    },
     build: {
       outDir: path.resolve(__dirname, DIST_DIR),
       emptyOutDir: true,
