@@ -35,5 +35,10 @@ if(in_array($modx->context->key, ['beltermo', 'fibrofasad', 'metallocherepica', 
     if($type=='link'){
         $phone = '78123095700';
     }
+} elseif (in_array($modx->context->key, ['web'])) {
+    $phone = '+7 (911) 709-60-52';
+    if($type=='link'){
+        $phone = '79117096052';
+    }
 }
 echo $phone;
