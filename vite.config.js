@@ -25,7 +25,7 @@ const entries = {
 
 export default defineConfig(() => {
   return {
-    base: `/${DIST_DIR}/`,
+    base: `/`,
     build: {
       outDir: path.resolve(__dirname, DIST_DIR),
       emptyOutDir: true,
