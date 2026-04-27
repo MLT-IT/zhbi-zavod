@@ -1,5 +1,5 @@
 import { EventKeeper } from "./EventKeeper";
-import { Suggestions, Events as SuggEvents } from "./suggestions";
+import { Suggestions } from "./suggestions";
 import { DropDownList } from "./DropDownList";
 import { InputIndicator} from './InputIndicator';
 import { coordsFromStr } from "./Utils";

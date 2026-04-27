@@ -41,7 +41,11 @@
               </svg>
               <div class="contact__content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 <p class="contact__title">Офис:</p>
-                <p class="contact__value">{'address' | option}</p>
+                {set $addr = 'address' | option}
+                {if $_modx->getPlaceholder('localdata').local}
+                  {set $addr = $_modx->getPlaceholder('localdata').offices.0.address}
+                {/if}
+                <p class="contact__value">{$addr}</p>
               </div>
             </div>
             <div class="contact">
@@ -66,7 +70,7 @@
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email"></use>
               </svg>
-              <div class="contact__content">
+              <div class="contact__content contact_type_mail">
                 <p class="contact__title">Почта для связи:</p>
                 <p class="contact__value"><span itemprop="email">{'email' | option}</span></p>
               </div><a class="contact__link" href="mailto:{'email' | option}"></a>
@@ -74,7 +78,15 @@
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
         <div class="contacts__map shadow-map" data-map-script="contacts-map-2">
-            {'map_office' | option}
+            {if $_modx->getPlaceholder('localdata').local}
+              {if $_modx->getPlaceholder('localdata').offices.0.ymap}
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%{$_modx->getPlaceholder('localdata').offices.0.ymap}&amp;width=460&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+              {else}
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid={$_modx->getPlaceholder('localdata').offices.0.gmap}" width="640" height="480"></iframe>
+              {/if}
+            {else}
+              {'map_office' | option}
+            {/if}
         </div>
       </div>
     </div>

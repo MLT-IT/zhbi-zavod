@@ -31,9 +31,15 @@
 
 !/assets/template/js
 !/assets/template/js/**
+/assets/template/js/dynamics_1.js
+/assets/template/js/main.js
+/assets/template/js/runtime.js
+/assets/template/js/swiper.js
+/assets/template/js/vendors.js
 
 !/assets/components
 !/assets/components/**
+/assets/components/wall-calc/api.php
 
 !/package.json
 !/webpack.config.js
