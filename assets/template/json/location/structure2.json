@@ -5,8 +5,13 @@
       "subdomains_banned": [],
       "subdomains_unique": []
     },
-    "metallocherepica-spb.ru": {
+    "metallocherepica-spb": {
       "ctx_key": "metallocherepica",
+      "subdomains_banned": [],
+      "subdomains_unique": []
+    },
+    "tagnerud": {
+      "ctx_key": "tagnerud",
       "subdomains_banned": [],
       "subdomains_unique": []
     },
@@ -198,6 +203,7 @@
     "ust-labinsk",
     "chernomorskoe",
     "apsheronsk",
-    "stanica-severskaya"
+    "stanica-severskaya",
+    "ekaterinburg"
   ]
 }
