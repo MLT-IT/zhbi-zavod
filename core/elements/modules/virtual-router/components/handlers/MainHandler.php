@@ -86,12 +86,13 @@ if (!class_exists('MainHandler')) {
         {
             global $modx;
 
-            $context_config = include __DIR__ . "/config/contexts/{$this->main_data['context_key']}.php";
+            $context_config = include MODX_CORE_PATH."elements/modules/virtual-router/config/contexts/{$this->main_data['context_key']}.php";
 
             // Если сайт загружен без поддомена - меняем контекст
             if (!$this->main_data['subdomain']['value']) {
                 $switch_context = true;
             } else {
+                //$modx->log(1, 'here!');
                 // Забанен ли поддомен в текущем контексте
                 $banned_list = (array)$context_config['subdomains_banned'] ?: [];
                 if (!empty($banned_list) && in_array($this->main_data['subdomain']['value'], $banned_list)) {
@@ -99,7 +100,7 @@ if (!class_exists('MainHandler')) {
                 }
                 // Есть ли редиректы
                 $this->main_data['subdomain']['redirect_context_key'] = $context_config['subdomains_redirect_to_context'][$this->main_data['subdomain']['value']];
-
+                //$modx->log(1, print_r($this->main_data, true));
                 // Есть ли файл с данными по поддомену
                 $filename = $this->main_data['subdomain']['value'] . ".json";
                 $data = $GlobalProvider->getRegionAndCityData($filename);

@@ -4,6 +4,7 @@ return function ($global_data) {
     return [
         "Ленинградская область" => $global_data["region"]["toponim"]["where"]["standart"],
         "Ленинградской области" => $global_data["region"]["toponim"]["on"]["standart"],
+        "Ленинградскую область" => $global_data["region"]["toponim"]["where2"]["standart"],
 
         "по ЛО" => $global_data["region"]["toponim"]["where"]["standart"],
         "в ЛО" => $global_data["region"]["toponim"]["on"]["standart"],

@@ -124,26 +124,21 @@
     {/if}
 
     <script>
-      {if $_modx->getPlaceholder('virtual-router')['region']['key'] === 'krasnodar'}
+      {if $_modx->getPlaceholder('virtual-router')['region']['key']}
+        {set $key = $_modx->getPlaceholder('virtual-router')['region']['key']}
         window.map_data ={
-          warehouses_path: "/assets/template/json/address-map/warehouses/krasnodar.json",
-          map_center: [45.03547, 39.019896],
-        }
-      {elseif $_modx->getPlaceholder('virtual-router')['region']['key'] === 'msk'}
-        window.map_data ={
-          warehouses_path: "/assets/template/json/address-map/warehouses/msk.json",
-          map_center: [55.755826, 37.617299],
+          warehouses_path: "/assets/template/json/address-map/warehouses/{$key}.json",
         }
       {else}
         window.map_data ={
           polygons_path: "/assets/template/json/address-map/polygons/spb.json",
           warehouses_path: "/assets/template/json/address-map/warehouses/spb.json",
-          map_center: [59.94313797002322, 30.3010448956483],
-        }  
+          //map_center: [59.94313797002322, 30.3010448956483],
+        }
       {/if}
     </script>
-    <script src="/assets/template/js/main.js?{'file_version'|config}"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/assets/template/js/jquery-3.7.1.min.js"></script>
+    <script defer src="/assets/template/js/main.js?{'file_version'|config}"></script>
   </body>
 
   {if $_modx->isAuthenticated('mgr')}
