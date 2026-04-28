@@ -31,20 +31,17 @@ if (!class_exists('GlobalProvider')) {
          */
         public function getRegionAndCityData($filename)
         {
+            global $modx;
             $iterator = new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator($this->directory . "regions/")
             );
-
             foreach ($iterator as $file) {
                 if ($file->isFile() && $file->getFilename() === $filename) {
                     $region_path = $file->getPath();
-
                     $content = file_get_contents("$region_path/_default.json");
                     $this->setData('region', $content);
-
                     $content = file_get_contents($file);
                     $this->setData('city', $content);
-
                     return true;
                 }
             }

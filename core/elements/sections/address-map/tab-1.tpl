@@ -1,4 +1,8 @@
-{if $_modx->getPlaceholder("virtual-router")["region"]["key"] === "krasnodar"}
+{if $_modx->getPlaceholder("virtual-router")["warehouses"]}
+  {set $contacts = [
+      'warehouse' => $_modx->getPlaceholder("virtual-router")["warehouses"]
+  ]}
+{elseif $_modx->getPlaceholder("virtual-router")["region"]["key"] === "krasnodar"}
   {set $contacts = [
       'warehouse' => [
           ['title' => 'Телефон склада в Краснодаре:','additional' => '1'],
@@ -40,7 +44,9 @@
           {$item['title']}
         </div>
         <div class="address-map__contacts-item-value">
-          {$_modx->getPlaceholder('contacts.phone')}, доб {$item['additional']}
+          {set $phone = $item['phone'] ?: $_modx->getPlaceholder('contacts.phone')}
+          {set $add = $item['additional'] ?: ''}
+          {$phone}{$add?', доб '~$add:''}
         </div>
       </div>
     </a>

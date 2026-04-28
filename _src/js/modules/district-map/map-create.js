@@ -2,7 +2,7 @@ export default function mapCreate() {
   if (!document.getElementById("districts_map") || !window.map_data) return;
 
   const ymap = new ymaps.Map("districts_map", {
-    center: window.map_data.map_center,
+    center: [59.94313797002322, 30.3010448956483], //Спб
     zoom: 8,
   });
 
@@ -41,6 +41,7 @@ export default function mapCreate() {
 
   /**
    * Если есть склады, то добавляем их на карту
+   * И тут же устанавливаем center и zoom
    */
   if (window.map_data.warehouses_path) {
     fetch(window.map_data.warehouses_path)
@@ -53,7 +54,9 @@ export default function mapCreate() {
         return response.json();
       })
       .then((data) => {
-        addWarehousesToMap(data);
+        if(data.center)ymap.setCenter(data.center);
+        if(data.zoom)ymap.setZoom(data.zoom);
+        if(data.warehouses)addWarehousesToMap(data.warehouses);
       })
       .catch((error) => {
         console.error("Ошибка загрузки JSON:", error);
