@@ -9,6 +9,9 @@
     "where": {
       "standart": "в Екатеринбурге"
     },
+    "where2": {
+      "standart": "в Екатеринбург"
+    },
     "on": {
       "standart": "по Екатеринбургу"
     },
@@ -17,7 +20,7 @@
     }
   },
   "address": "620014, Свердловская обл., Екатеринбург, ул. Чернышевского, 7",
-  "gmap": "1vYabzpLmjpVIksaptG8SwRpsjufzo7Y&ehbc=2E312F",
+  "gmap": "",
   "warehouses": [
     {"title": "Телефон склада в Верх-Исетске:", "phone": "+7 (000) 000-00-00", "additional" : ""},
     {"title": "Телефон склада в Химмаше", "phone": "+7 (000) 000-00-00", "additional" : ""},
