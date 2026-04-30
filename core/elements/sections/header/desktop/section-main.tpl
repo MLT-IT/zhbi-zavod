@@ -16,10 +16,13 @@
       </div>
 
       <div class="header__main-sticky">
+        {set $phone = $_modx->getPlaceholder('contacts.phone')}
+        {if $phone && $phone != '+7 (000) 000-00-00'}
         <a class="d-flex gap-8 fs-20 header__main-sticky-phone" href="tel:{$_modx->getPlaceholder('contacts.phone_href')}">
             <svg><use xlink:href="/assets/template/images/icons.svg#svg-phone-sm"></use></svg>
             {$_modx->getPlaceholder('contacts.phone')}
         </a>
+        {/if}
         <div class="header__main-info d-flex gap-8 fs-14">
             <svg><use xlink:href="/assets/template/images/icons.svg#svg-calendar-sm"></use></svg>
             {$_modx->getPlaceholder('contacts.opening_hours')}

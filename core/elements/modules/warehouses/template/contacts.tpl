@@ -14,6 +14,8 @@
           Ежедневно с 8:00 до 21:00
         </div>
       </li>
+      {set $phone = $_modx->getPlaceholder('contacts.phone')}
+      {if $phone && $phone != '+7 (000) 000-00-00'}
       <li class="warehouse-contacts__item">
         <div class="warehouse-contacts__item-title">Телефон</div>
         <a
@@ -24,6 +26,7 @@
           доб.{$_modx->resource.warehouse_additional_number}
         </a>
       </li>
+      {/if}
     </ul>
     <div class="warehouse-contacts__controls">
       <button

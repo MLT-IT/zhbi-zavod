@@ -23,6 +23,8 @@
       </div>
     </div>
 
+    {set $phone = $_modx->getPlaceholder('contacts.phone')}
+    {if $phone && $phone != '+7 (000) 000-00-00'}
     <a class="address-map__contacts-item" href="tel:{$_modx->getPlaceholder('contacts.phone_href')}">
       <svg class="contact__icon">
         <use xlink:href="/assets/template/images/icons.svg#svg-phone"></use>
@@ -34,7 +36,7 @@
         </div>
       </div>
     </a>
-
+    {/if}
     <a class="address-map__contacts-item" href="mailto:{$_modx->getPlaceholder('contacts.email')}">
       <svg class="contact__icon">
         <use xlink:href="/assets/template/images/icons.svg#svg-email"></use>
