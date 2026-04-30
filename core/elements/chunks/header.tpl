@@ -55,11 +55,13 @@
         <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
       </div>
       <div class="header__actions">
+          {if $phone && $phone != '+7 (000) 000-00-00'}
           <a href="tel:{$phone_href}" class="header__action icon-btn icon-btn_style_black">
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
             </svg>
           </a>
+          {/if}
           <a href="/cart/" class="header__action icon-btn icon-btn_style_white">
             <svg class="icon-btn__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-basket"></use>
@@ -79,12 +81,13 @@
       {insert 'file:_modules/top_menu/top_menu.tpl'}
 
       <div>
+        {if $phone && $phone != '+7 (000) 000-00-00'}
         <div class="h-subinfo h-subinfo_size_big text-white">
           <svg class="h-subinfo__icon" aria-hidden="true">
             <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
           </svg><a class="h-subinfo__link h-subinfo__link_type_phone" href="tel:{$phone_href}">{$phone}</a>
         </div>
-        
+        {/if}
         <div class="text-end">
           <a class="text-white simple-link" data-fancybox href="#order">Оформить заказ</a>
         </div>
@@ -151,6 +154,7 @@
         </div>
         
         <div class="header__phonesched">
+          {if $phone && $phone != '+7 (000) 000-00-00'}
           <div class="h-subinfo header__phone h-subinfo_size_big">
             <svg class="h-subinfo__icon" aria-hidden="true">
               <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
@@ -161,6 +165,7 @@
               <use xlink:href="assets/template/pictures/icons.svg#svg-calendar-sm"></use>
             </svg><span class="h-subinfo__text">Ежедневно: 8:00&nbsp;-&nbsp;21:00</span>
           </div>
+          {/if}
         </div>
         
         <div class="header__actions {if $_modx->context.key === 'trotuarnaya-plitka'}mobile-hide{/if}">

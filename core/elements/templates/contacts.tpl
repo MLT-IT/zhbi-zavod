@@ -110,6 +110,7 @@
                     <p class="contact__value">9:00 - 20:00</p>
                   </div>
                 </div>
+                {if $phone && $phone != '+7 (000) 000-00-00'}
                 <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
@@ -119,6 +120,7 @@
                     <p class="contact__value"><span itemprop="telephone">{$phone}</span>, доб 2</p>
                   </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
+                {/if}
                 <div class="contact contact_hover contact_type_mail">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-email"></use>

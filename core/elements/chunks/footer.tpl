@@ -49,12 +49,14 @@
       </div>
       <div class="footer__column">
         <address class="footer__contacts">
+            {if $phone && $phone != '+7 (000) 000-00-00'}
             <a class="footer__contact footer__contact_with-hover" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone-sm"></use>
               </svg>
               <span class="footer__contact-value">{$phone}</span>
             </a>
+            {/if}
             <a class="footer__contact footer__contact_with-hover" href="mailto:{$email}" data-replace-elem="footer__contact-value">
               <svg class="footer__contact-icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email-sm"></use>

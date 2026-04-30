@@ -1,4 +1,5 @@
 {set $warehouses = '@FILE modules/contacts-block/snippets/getWarehouses.php' | snippet}
+
 <article class="contacts section{$styleClass ? ' ' ~ $styleClass : ''}" itemscope itemtype="http://schema.org/Organization">
   <meta itemprop="name" content="{'site_name' | option}">
   <div class="contacts__container" data-tabs="">
@@ -17,6 +18,7 @@
           <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
           <address class="contacts__items">
             {foreach $warehouses.stores as $warehouse}
+              {if $warehouse.phone && $warehouse.phone != '+7 (000) 000-00-00'}
               <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
@@ -26,6 +28,9 @@
                 <p class="contact__value">{$warehouse.phone}</p>
               </div><a class="contact__link" href="tel:{$warehouse.phone | ereplace : '/доб \d+/i' : '' | ereplace : '/[^0-9+]/i' : ''}"></a>
             </div>
+            {else}
+              <div style="height:84px"></div>
+            {/if}
             {/foreach}
           </address><span class="contacts__availability btn btn_style_base" data-fancybox data-src="#availability">Узнать наличие материала на ближайшем складе</span>
         </div>
@@ -57,6 +62,7 @@
                 <p class="contact__value">9:00 - 20:00</p>
               </div>
             </div>
+            {if $phone && $phone != '+7 (000) 000-00-00'}
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
@@ -66,6 +72,7 @@
                 <p class="contact__value"><span itemprop="telephone">{$phone}</span>, доб 2</p>
               </div><a class="contact__link" href="tel:{$phone}"></a>
             </div>
+            {/if}
             <div class="contact">
               <svg class="contact__icon" aria-hidden="true">
                 <use xlink:href="assets/template/pictures/icons.svg#svg-email"></use>

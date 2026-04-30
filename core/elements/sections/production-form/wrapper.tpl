@@ -14,6 +14,9 @@
         </h2>
         <div class="production-form__contacts">
           {foreach $contacts as $item}
+            {if $item.title == 'Телефон производства:' && (!$phone || $phone == '+7 (000) 000-00-00')}
+              {continue}
+            {/if}
           <div class="production-form__contacts-item">
             <svg aria-hidden="true">
               <use
