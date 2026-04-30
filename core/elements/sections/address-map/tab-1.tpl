@@ -32,6 +32,7 @@
   <div class="address-map__contacts">
     <div class="fw-700 fs-20">Режим работы складов: 8:00 - 21:00</div>
     {foreach $contacts['warehouse'] as $item}
+      {if $item['phone'] && $item['phone'] != '+7 (000) 000-00-00'}
     <a
       class="address-map__contacts-item"
       href="tel:{$_modx->getPlaceholder('contacts.phone_href')}"
@@ -50,6 +51,9 @@
         </div>
       </div>
     </a>
+      {else}
+        <div style="height:84px"></div>
+      {/if}
     {/foreach}
 
     <button class="btn btn-primary" onclick="modals.events.open('modal-callback')">Узнать наличие материала на ближайшем складе</button>

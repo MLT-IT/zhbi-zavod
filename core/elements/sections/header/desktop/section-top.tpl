@@ -21,10 +21,13 @@
         {/foreach}
       </div>
       <div class="header__top-info">
+        {set $phone = $_modx->getPlaceholder('contacts.phone')}
+        {if $phone && $phone != '+7 (000) 000-00-00'}
         <a class="d-flex gap-8 fs-20" href="tel:{$_modx->getPlaceholder('contacts.phone_href')}">
             <svg><use xlink:href="/assets/template/images/icons.svg#svg-phone-sm"></use></svg>
             {$_modx->getPlaceholder('contacts.phone')}
         </a>
+        {/if}
         <button class="btn btn-link" onclick="modals.events.open('modal-callback')">Оформить заказ</button>
       </div>
     </div>

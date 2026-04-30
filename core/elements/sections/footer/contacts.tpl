@@ -5,6 +5,8 @@
     </a>
   </div>
   <ul class="footer__contacts-list">
+    {set $phone = $_modx->getPlaceholder('contacts.phone')}
+    {if $phone && $phone != '+7 (000) 000-00-00'}
     <li>
       <svg class="footer__contact-icon">
         <use xlink:href="/assets/template/images/icons.svg#svg-phone-sm"></use>
@@ -15,6 +17,7 @@
         >{$_modx->getPlaceholder('contacts.phone')}</a
       >
     </li>
+    {/if}
     <li>
       <svg class="footer__contact-icon">
         <use xlink:href="/assets/template/images/icons.svg#svg-email-sm"></use>

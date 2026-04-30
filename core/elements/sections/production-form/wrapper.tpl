@@ -17,6 +17,7 @@
           </h2>
           <div class="production-form__contacts">
             {foreach $contacts as $item}
+              {if $item['title'] == 'Телефон производства:' && $phone && $phone != '+7 (000) 000-00-00'}
             <div class="production-form__contacts-item">
               <svg aria-hidden="true">
                 <use
@@ -32,6 +33,7 @@
                 {/if}
               </div>
             </div>
+              {/if}
             {/foreach}
           </div>
           {include "file:sections/production-form/images.tpl" classes="show-mobile"}
