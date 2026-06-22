@@ -16,6 +16,7 @@
       <div class="swiper-wrapper">
         {foreach $params[$ctx].slides as $slide}
             <div class="swiper-slide banner">
+            <div class="advertisement_note">Реклама</div>
             <div class="wrapper">
                 <picture class="banner__bg">
                 {set $images = $slide.images | fromJSON}

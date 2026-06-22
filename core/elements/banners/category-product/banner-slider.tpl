@@ -2,6 +2,7 @@
 {* @param $banner_groups - массив групп баннеров полученный по апи *}
 
 <div class="product-card catalog-listing-banner block-bg" style=" padding: 0; ">
+  <div class="advertisement_note">Реклама</div>
   <article class="catalog-side-carousel">
     <div class="swiper">
       <div class="swiper-wrapper">

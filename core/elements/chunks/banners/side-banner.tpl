@@ -2,6 +2,7 @@
 {set $image = $image ?: 'side-banner-1.jpg'}
 {set $bgPath = "/assets/template/banners/{$_modx->resource.context_key}/{$image}"}
 <div class="side-banner block-bg">
+  <div class="advertisement_note">Реклама</div>
   <div class="side-banner__background">
     <img src="{$bgPath}" alt="">
   </div>

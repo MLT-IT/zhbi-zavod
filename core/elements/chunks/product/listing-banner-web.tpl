@@ -2,6 +2,7 @@
 
 
 <article class="catalog-side-carousel">
+  <div class="advertisement_note">Реклама</div>
   <div class="swiper">
     <div class="swiper-wrapper">
 

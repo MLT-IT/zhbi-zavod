@@ -19,6 +19,7 @@
         {if $params[$ctx].slides}
         {foreach $params[$ctx].slides as $slide}
             <div class="swiper-slide banner">
+              <div class="advertisement_note">Реклама</div>
               <div class="wrapper">
                 <picture class="banner__bg">
                   {set $images = $slide.images | fromJSON}
@@ -36,6 +37,7 @@
           {/foreach}
         {else}
         <div class="swiper-slide banner">
+          <div class="advertisement_note">Реклама</div>
           <picture class="banner__bg">
             {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-mob.webp'}
             {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
@@ -126,6 +128,7 @@
   {if !$params_ss[$ctx].hide}
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
+      <div class="advertisement_note advertisement_note__small">Реклама</div>
       <picture class="banner__bg">
         {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-sm.webp'}
         {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
