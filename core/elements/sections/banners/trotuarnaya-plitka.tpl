@@ -25,7 +25,7 @@
     {else}
     <div class="main-screen__sub-slider">
       <div class="swiper-slide banner banner_sm">
-        <div class="advertisement_note advertisement_note__small">Реклама</div>
+        <div class="advertisement_note">Реклама</div>
         <picture class="banner__bg"><img class="banner__bg-img" src="assets/template/pictures/main-screen/{$_modx->resource.context_key}/main-screen-sm.jpg"></picture>
         <span class="banner__title">Ликвидация склада успей забрать!</span>
         <div class="banner__action">

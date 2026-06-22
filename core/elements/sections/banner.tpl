@@ -128,7 +128,7 @@
   {if !$params_ss[$ctx].hide}
   <div class="main-screen__sub-slider">
     <div class="swiper-slide banner banner_sm">
-      <div class="advertisement_note advertisement_note__small">Реклама</div>
+      <div class="advertisement_note">Реклама</div>
       <picture class="banner__bg">
         {set $file = 'assets/template/pictures/main-screen/'~$_modx->resource.context_key~'/main-screen-sm.webp'}
         {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
