@@ -137,6 +137,7 @@
     {/switch}
     <div class="promo__items">
       <div class="promo__item promo-block promo-block_view_big promo-block_style_white">
+        <div class="advertisement_note">Реклама</div>
         <picture class="promo-block__bg">
           {set $file = $imageBanerMobile1 | replace : '.jpg': '.webp'}
           {if ('@FILE snippets/fileExists.php' | snippet : ['input' => $file])}
@@ -166,6 +167,7 @@
           >{$buttonLinkBaner1}</a>
       </div>
       <div class="promo__item promo-block promo-block">
+        <div class="advertisement_note">Реклама</div>
         {if $logo_2}
           <img class="promo-logo" src="{$logo_2}" />
         {/if}
@@ -195,6 +197,7 @@
         {/if}
       </div>
       <div class="promo__item promo-block">
+        <div class="advertisement_note">Реклама</div>
         {if $logo_3}
           <img class="promo-logo" src="{$logo_3}" />
         {/if}
