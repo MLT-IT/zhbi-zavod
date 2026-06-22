@@ -1,3 +1,4 @@
+<div class="advertisement_note">Реклама</div>
 <div class="catalog-listing-banner__background">
   <img src="/assets/template/banners/{$_modx->resource.context_key}/listing-banner-bg.jpg" alt="">
 </div>

@@ -29,6 +29,7 @@
 
 {if $isBannerVisible}
 <div class="showroom-banner">
+  <div class="advertisement_note">Реклама</div>
   <div class="showroom-banner__background">
     <picture>
       {set $file = 'assets/template/banners/'~$site_context~'/banner-showroom-bg.webp'}
