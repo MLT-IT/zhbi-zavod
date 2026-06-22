@@ -5,6 +5,7 @@
 
 <div class="promo-banner">
   <div class="promo-banner__big promo-banner__banner">
+    <div class="advertisement_note">Реклама</div>
 
     <div class="promo-banner__content">
       <div class="promo-banner__big-title promo-banner__title fs-36 fw-700">{$title}</div>

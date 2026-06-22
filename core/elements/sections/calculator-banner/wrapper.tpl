@@ -1,6 +1,7 @@
 <div class="calculator-banner bg-light-gray-2">
   <div class="container">
     <div class="calculator-banner__row">
+      <div class="advertisement_note">Реклама</div>
       <div class="calculator-banner__content">
         <div class="calculator-banner__title">
           <span>Онлайн-калькулятор кровли —</span>

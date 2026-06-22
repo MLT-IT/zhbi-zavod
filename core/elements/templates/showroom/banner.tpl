@@ -5,6 +5,7 @@
 
 <div class="showroom-banner">
   <div class="showroom-banner__big showroom-banner__banner">
+    <div class="advertisement_note">Реклама</div>
 
     <div class="showroom-banner__content">
       <div class="showroom-banner__big-title showroom-banner__title fs-20 fw-700">{$title}</div>

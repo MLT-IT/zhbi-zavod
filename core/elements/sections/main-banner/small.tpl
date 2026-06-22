@@ -1,4 +1,5 @@
 <div class="main-banner__small">
+  <div class="advertisement_note advertisement_note__small">Реклама</div>
   <div class="main-banner__small-title fs-30 fw-700">
     Ликвидация склада успей забрать!
   </div>

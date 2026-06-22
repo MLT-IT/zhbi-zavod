@@ -9,6 +9,7 @@
   {set $button_hidden=$banners['mobile']['data']['button-hidden']}
 
   <div class="product-card product-banner base-box-shadow catalog-listing-banner block-bg" style="padding: 0;">
+    <div class="advertisement_note">Реклама</div>
     <picture>
       {if $banners['mobile']['image_url']}
         <source media="(max-width: 480px)" srcset="{$banners['mobile']['image_url']}">

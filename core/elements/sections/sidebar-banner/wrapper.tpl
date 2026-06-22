@@ -1,4 +1,5 @@
 <div class="sidebar-banner">
+  <div class="advertisement_note advertisement_note__small">Реклама</div>
   {* Баннер для заборов *}
 
   {if $_modx->resource.resource_segment in list ['shtaketnik']}

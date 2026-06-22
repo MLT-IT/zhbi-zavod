@@ -1,6 +1,7 @@
 <div class="promotions">
   <div class="promotions__row">
     <div class="promotions__item promotions__item--big">
+      <div class="advertisement_note">Реклама</div>
       <picture class="promotions__item-bg">
         <source srcset="/assets/template/images/sections/promotions/krovlya-1-mobile.png" media="(max-width: 768px)">
         <img class="promotions__item-bg-img" src="/assets/template/images/sections/promotions/krovlya-1.png"
@@ -21,6 +22,7 @@
 
     <div class="promotions__grid">
       <div class="promotions__item">
+        <div class="advertisement_note">Реклама</div>
         <picture class="promotions__item-bg">
           <source srcset="/assets/template/images/sections/promotions/krovlya-2-mobile.png" media="(max-width: 768px)">
           <img class="promotions__item-bg-img" src="/assets/template/images/sections/promotions/krovlya-2.png"
@@ -40,6 +42,7 @@
       </div>
 
       <div class="promotions__item">
+        <div class="advertisement_note">Реклама</div>
         <picture class="promotions__item-bg">
           <source srcset="/assets/template/images/sections/promotions/krovlya-3-mobile.png" media="(max-width: 768px)">
           <img class="promotions__item-bg-img" src="/assets/template/images/sections/promotions/krovlya-3.png"

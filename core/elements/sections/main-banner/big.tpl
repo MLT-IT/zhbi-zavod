@@ -1,4 +1,5 @@
 <div class="main-banner__big">
+  <div class="advertisement_note">Реклама</div>
   <div class="main-banner__big-title fs-36 fw-700">
     Закажите {$_modx->getPlaceholder('images.materials')[0]} сейчас и получите
     <span class="color-red">скидку 20%</span> на доставку манипулятором

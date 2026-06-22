@@ -1,4 +1,5 @@
 <div class="product-card base-box-shadow">
+  <div class="advertisement_note">Реклама</div>
   <div>
     <img src="/assets/template/images/sections/promo-banners/short/web/v1.jpg" />
   </div>

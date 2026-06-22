@@ -5,6 +5,7 @@
 {set $show_navigation = count($banner_groups) >= 2}
 
 <div class="product-card product-banner base-box-shadow catalog-listing-banner block-bg" style="padding: 0;">
+  <div class="advertisement_note">Реклама</div>
   <div class="swiper" data-slider="catalog-side-carousel">
     <div class="swiper-wrapper">
       {foreach $banner_groups as $banner_group}
