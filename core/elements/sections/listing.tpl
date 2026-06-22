@@ -119,6 +119,7 @@
             {set $button_classname = $banner_group['data']['button-classname']}
 
           <div class="category-banner">
+            <div class="advertisement_note">Реклама</div>
             <picture>
               {if $banners['mobile']['image_url']}
                 <source media="(max-width: 480px)" srcset="{$banners['mobile']['image_url']}">
