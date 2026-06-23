@@ -4,9 +4,9 @@
 
 {if $data['status'] == 'success'}
 <div class="main-banner-slider bg-light-gray-2">
-  <div class="advertisement_note">Реклама</div>
   <div class="container">
     <div class="swiper" data-slider="main-banner-slider">
+      <div class="advertisement_note">Реклама</div>
       <div class="main-banner-slider__row swiper-wrapper">
         {foreach $data['data'] as $slide}
         <div class="slider-item swiper-slide cursor-pointer">
