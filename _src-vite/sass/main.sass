@@ -43,3 +43,38 @@
 .catalog-listing-banner,
 .side-banner
     position: relative
+
+.cookie
+    position: fixed
+    bottom: 0
+    z-index: 999
+    width: 100%
+    padding: 0 15px
+    padding-bottom: 40px
+
+    div
+        width: 100%
+        text-align: center
+        background: rgba(255, 255, 255, 1)
+        padding: 12px
+        box-shadow: 0px 1px 12.2px 0px rgba(7, 2, 42, 0.25)
+        border-radius: 12px
+        max-width: 1150px
+        margin: 0 auto
+    &__link
+        text-decoration: underline
+    &__button
+        margin-left: 20px
+        border-radius: 4px
+        padding: 4px 8px
+        color: #fff
+        @media screen and (max-width: 380px)
+            display: block
+            margin: 10px 0
+        +set_colors_1(background-color)
+
+        &:hover
+            +set_colors_1(background-color, 10%)
+
+            @at-root .policarbonat &
+                background-color: #4cb463
