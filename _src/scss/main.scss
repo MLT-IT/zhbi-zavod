@@ -81,7 +81,7 @@
         border-radius: 4px;
         padding: 4px 8px;
         color: #fff;
-        background-color: var(--color-red);
+        background-color: #d3553c;
 
         @media screen and (max-width: 380px) {
             display: block;
@@ -89,8 +89,7 @@
         }
 
         &:hover {
-            background-color: var(--color-red-dr);
-            border-color: var(--color-red-dr);
+            background-color: #944434;
         }
     }
 }
