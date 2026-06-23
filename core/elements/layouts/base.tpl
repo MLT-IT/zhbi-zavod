@@ -123,6 +123,12 @@
       {include "file:chunks/mobile-bottom.tpl"}
     {/if}
 
+    <div class="cookie" style="display: none">
+      <div>
+        Мы&nbsp;используем <a href="/confidential/" class="cookie__link">cookie</a> для работы сайта <a href="javascript:void(0)" class="cookie__button">Ок</a>
+      </div>
+    </div>
+
     <script>
       {if $_modx->getPlaceholder('virtual-router')['region']['key']}
         {set $key = $_modx->getPlaceholder('virtual-router')['region']['key']}
@@ -139,6 +145,45 @@
     </script>
     <script src="/assets/template/js/jquery-3.7.1.min.js"></script>
     <script defer src="/assets/template/js/main.js?{'file_version'|config}"></script>
+
+    <script>
+      $(document).ready(function() {
+        // Функция для получения cookie
+        function getCookie(name) {
+          const value = "; " + document.cookie;
+          const parts = value.split("; " + name + "=");
+          if (parts.length === 2) {
+            return parts.pop().split(";").shift();
+          }
+          return null;
+        }
+
+        // Функция для установки cookie
+        function setCookie(name, value, days) {
+          const expires = new Date();
+          expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+          document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+        }
+
+        // Проверяем наличие cookie при загрузке
+        if (getCookie('cookie_accepted') === 'true') {
+          $('.cookie').hide();
+        } else {
+          $('.cookie').show();
+        }
+
+        // Обработчик нажатия на кнопку
+        $('.cookie__button').on('click', function(e) {
+          e.preventDefault();
+
+          // Устанавливаем cookie на 30 дней
+          setCookie('cookie_accepted', 'true', 30);
+
+          // Скрываем блок с анимацией
+          $('.cookie').fadeOut(300);
+        });
+      });
+    </script>
   </body>
 
   {if $_modx->isAuthenticated('mgr')}
