@@ -48,20 +48,27 @@
     position: fixed
     z-index: 999
     width: 100%
-    padding: 0 15px
+    max-width: 480px
+    padding: 0 30px
     bottom: 40px
 
     div
         width: 100%
         text-align: center
-        background: rgba(255, 255, 255, 1)
+        background: rgba(79, 79, 79, 0.9)
+        color: white
         padding: 12px
         box-shadow: 0px 1px 12.2px 0px rgba(7, 2, 42, 0.25)
         border-radius: 12px
         max-width: 1150px
         margin: 0 auto
+
+        @media screen and (max-width: 480px)
+            display: flex
+            flex-direction: column
+            align-items: start
     &__link
-        color: rgb(60, 60, 59)
+        color: white
         text-decoration: underline
     &__button
         text-decoration: none
@@ -69,11 +76,8 @@
         border-radius: 4px
         padding: 4px 8px
         color: #fff
-        @media screen and (max-width: 460px)
-            display: block
+        @media screen and (max-width: 480px)
             margin: 10px 0
-        background-color: var(--color-red)
-
-        &:hover
-            background-color: var(--color-red-dr)
-            border-color: var(--color-red-dr)
+        background-color: white
+        border: 1px solid rgba(51, 51, 51, 1)
+        color: rgba(51, 51, 51, 1)
