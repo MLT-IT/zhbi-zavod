@@ -125,7 +125,10 @@
 
     <div class="cookie" style="display: none">
       <div>
-        Мы&nbsp;используем <a href="/confidential/" class="cookie__link">cookie</a> для работы сайта <a href="javascript:void(0)" class="cookie__button">Ок</a>
+            <span>
+                Наш сайт использует файлы <a href="/confidential/" class="cookie__link">cookie</a>
+            </span>
+        <a href="javascript:void(0)" class="cookie__button">Понятно</a>
       </div>
     </div>
 
