@@ -58,7 +58,7 @@
     width: 100%;
     max-width: 490px;
     padding: 0 30px;
-    bottom: 50px;
+    bottom: 70px;
 
     @media screen and (max-width: 490px) {
         max-width: 260px
@@ -83,7 +83,7 @@
     }
 
     &__link {
-        color: white;
+        color: white !important;
         text-decoration: underline;
     }
 
@@ -94,8 +94,8 @@
         padding: 4px 8px;
         background-color: white;
         border: 1px solid rgba(51, 51, 51, 1);
-        color: white;
-        @media screen and (max-width: 460px) {
+        color: rgba(51, 51, 51, 1);
+        @media screen and (max-width: 490px) {
             margin: 10px 0;
         }
     }
