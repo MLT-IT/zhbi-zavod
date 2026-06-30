@@ -297,12 +297,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // is_source - Определяется в плагине utm
     if (!urlParams.has("utm_source") && (window.is_source == 0 || !window.is_source)) {
         const subdomain = location.hostname.split('.')[0];
+        const toMail = subdomain === 'ekaterinburg' ? 'ekb' : undefined;
         switch(ctx) {
             default:
-                if(subdomain == 'ekaterinburg')mailChange('ekb');
-                else mailChange();
+                mailChange(toMail);
             break;
         }
+
+        // Для AJAX-контента в fancybox (модалки, загружаемые после page load)
+        $(document).on('afterShow.fb', function() {
+            mailChange(toMail);
+        });
     }
 
 
