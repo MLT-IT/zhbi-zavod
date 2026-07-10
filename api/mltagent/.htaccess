@@ -1,0 +1,12 @@
+# API front controller - overrides inherited MODX rewrite so /api/mltagent/* never hits MODX.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/mltagent/
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+<FilesMatch "^(config\.php|config\.php\.example)$">
+    Require all denied
+</FilesMatch>
