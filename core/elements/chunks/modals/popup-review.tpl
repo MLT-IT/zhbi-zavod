@@ -55,8 +55,8 @@
         <button type="submit" class="btn btn_style_shadow popup__btn">Оставить отзыв</button>
 
         <div class="default-checkbox">
-          <input class="default-checkbox__input" type="checkbox" id="checkbox-callback" name="privacy" checked>
-          <label class="default-checkbox__label" for="checkbox-callback">
+          <input class="default-checkbox__input" type="checkbox" id="privacy-review" name="privacy">
+          <label class="default-checkbox__label" for="privacy-review">
             <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="popup__privacy-link link">политикой конфиденциальности</a> сайта</span>
           </label>
         </div>

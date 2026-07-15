@@ -34,7 +34,7 @@
         </div>
 
         <label class="form__checkbox stock-form__checkbox">
-            <input id="stock-policy" type="checkbox" name="callback-policy" checked>
+            <input id="stock-policy" type="checkbox" name="callback-policy">
             <span>
                 <span>
                      Нажимая кнопку «Отправить, Вы подтверждаете, что ознакомились с

@@ -3,6 +3,157 @@ import funcsCatalog from "./funcsCatalog";
 import funcsProduct from "./funcsProduct";
 
 export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
+    const policySelector = 'input[name="privacy"], input[name="callback-policy"]';
+    const policyErrorText = 'Необходимо принять политику конфиденциальности';
+    const softBlockedForms = new Set();
+    let ajaxFormSuccess = null;
+
+    function getPolicyContainer($policy) {
+        return $policy.closest('.default-checkbox, .form__checkbox');
+    }
+
+    function saveFormSnapshot(form) {
+        return Array.from(form.elements).map((field) => ({
+            field,
+            value: field.value,
+            checked: field.checked,
+            selectedIndex: field.selectedIndex
+        }));
+    }
+
+    function restoreFormSnapshot(snapshot) {
+        (snapshot || []).forEach(({field, value, checked, selectedIndex}) => {
+            if (!field || !field.isConnected || field.name === 'already_sent') {
+                return;
+            }
+
+            if (field.type === 'checkbox' || field.type === 'radio') {
+                field.checked = checked;
+            } else if (field.tagName === 'SELECT') {
+                field.selectedIndex = selectedIndex;
+            } else if (field.type !== 'file') {
+                field.value = value;
+            }
+        });
+    }
+
+    function showPolicyError($form) {
+        const $policy = $form.find(policySelector).first();
+        const $container = getPolicyContainer($policy);
+
+        if (!$container.length) {
+            return;
+        }
+
+        $container.addClass('policy-invalid');
+        $policy.attr('aria-invalid', 'true');
+        if (!$container.next('.policy-error-msg').length) {
+            $('<div class="policy-error-msg" role="alert"></div>')
+                .text(policyErrorText)
+                .insertAfter($container);
+        }
+    }
+
+    function muteAjaxFormSuccess() {
+        if (typeof AjaxForm === 'undefined' || !AjaxForm.Message ||
+            typeof AjaxForm.Message.success !== 'function') {
+            return;
+        }
+
+        if (ajaxFormSuccess === null) {
+            ajaxFormSuccess = AjaxForm.Message.success;
+            AjaxForm.Message.success = function () {};
+        }
+    }
+
+    function restoreAjaxFormSuccess() {
+        if (softBlockedForms.size === 0 && ajaxFormSuccess !== null &&
+            typeof AjaxForm !== 'undefined' && AjaxForm.Message) {
+            AjaxForm.Message.success = ajaxFormSuccess;
+            ajaxFormSuccess = null;
+        }
+    }
+
+    function restorePolicySuccessState(form) {
+        const $form = $(form);
+        const $popup = $form.closest('.popup');
+        const originalReset = $form.data('policy-original-reset');
+
+        softBlockedForms.delete(form);
+        $form.removeData('policy-soft-block').removeClass('policy-required');
+        $popup.removeData('policy-soft-block').removeClass('policy-required');
+        getPolicyContainer($form.find(policySelector).first()).removeClass('policy-invalid');
+        $form.find(policySelector).first().removeAttr('aria-invalid');
+        $form.find('.policy-error-msg').remove();
+
+        if (originalReset) {
+            form.reset = originalReset;
+            $form.removeData('policy-original-reset');
+        }
+
+        const callbackOpen = $popup.data('callback-open-saved');
+        if (callbackOpen !== undefined) {
+            $popup.attr('data-callback-open', callbackOpen);
+            $popup.removeData('callback-open-saved');
+        }
+
+        restoreAjaxFormSuccess();
+    }
+
+    document.addEventListener('submit', function (event) {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement)) {
+            return;
+        }
+
+        const $form = $(form);
+        const $policy = $form.find(policySelector).first();
+        const $popup = $form.closest('.popup');
+        const policyWasPresent = $policy.length > 0;
+        const policyIsRequired = policyWasPresent || $form.hasClass('policy-required') ||
+            $popup.hasClass('policy-required') || $popup.data('policy-soft-block');
+
+        if (!policyIsRequired) {
+            return;
+        }
+
+        if ($popup.data('already-sent') && !$form.find('input[name="already_sent"]').length) {
+            $('<input type="hidden" name="already_sent" value="1">').appendTo($form);
+        }
+
+        $form.addClass('policy-required');
+        $popup.addClass('policy-required');
+
+        if (policyWasPresent && $policy.prop('checked')) {
+            restorePolicySuccessState(form);
+            return;
+        }
+
+        $form.data('policy-soft-block', true);
+        $popup.data('policy-soft-block', true);
+        $form.data('policy-snapshot', saveFormSnapshot(form));
+        softBlockedForms.add(form);
+
+        if (!$form.data('policy-original-reset')) {
+            $form.data('policy-original-reset', form.reset);
+            form.reset = function () {};
+        }
+
+        const callbackOpen = $popup.attr('data-callback-open');
+        if (callbackOpen !== undefined) {
+            $popup.data('callback-open-saved', callbackOpen);
+            $popup.removeAttr('data-callback-open');
+        }
+
+        muteAjaxFormSuccess();
+    }, true);
+
+    $(document).on('change', policySelector, function () {
+        if (this.checked) {
+            restorePolicySuccessState(this.form);
+        }
+    });
+
     // -------------------------------
     // Подстановка h1 на странице каталога
     // -------------------------------
@@ -81,6 +232,25 @@ export default function modxJS(lazyLoadInstance, yandexMetrikaId) {
             }
             // Получаем форму
             let $form = $(response.form[0]);
+
+            if ($form.data('policy-soft-block') || $form.hasClass('policy-required') &&
+                !$form.find(policySelector).first().prop('checked')) {
+                restoreFormSnapshot($form.data('policy-snapshot'));
+
+                if (!$form.find('input[name="already_sent"]').length) {
+                    $('<input type="hidden" name="already_sent" value="1">').appendTo($form);
+                }
+
+                const $popup = $form.closest('.popup');
+                $popup.data('already-sent', true);
+                showPolicyError($form);
+
+                if (typeof $.jGrowl === 'function') {
+                    $.jGrowl('close');
+                }
+
+                return;
+            }
 
             // Если это форма с отзывами, то сбрасываем рейтинг, чтобы при следующем открытии он не был задан
             // if ($form.hasClass('popup-reviews__form')) {

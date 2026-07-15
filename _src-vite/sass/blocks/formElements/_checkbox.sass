@@ -1,6 +1,13 @@
 .default-checkbox
 	position: relative
 
+	&.policy-invalid
+		.default-checkbox__label
+			color: var(--color-red)
+
+			&::before
+				border-color: var(--color-red)
+
 	&__input
 		position: absolute
 		top: 0
@@ -69,3 +76,8 @@
 
 	&__label-text
 		transition: .3s
+
+.policy-error-msg
+	margin-top: 7px
+	color: var(--color-red)
+	font-size: 12px

@@ -18,8 +18,8 @@
     <button type="submit" class="btn btn_style_shadow popup__btn">Перезвоните мне</button>
 
     <div class="default-checkbox">
-      <input class="default-checkbox__input" type="checkbox" id="checkbox-availability" name="privacy" checked>
-      <label class="default-checkbox__label" for="checkbox-availability">
+      <input class="default-checkbox__input" type="checkbox" id="privacy-showroom" name="privacy">
+      <label class="default-checkbox__label" for="privacy-showroom">
         <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="popup__privacy-link link">политикой конфиденциальности</a> сайта</span>
       </label>
     </div>

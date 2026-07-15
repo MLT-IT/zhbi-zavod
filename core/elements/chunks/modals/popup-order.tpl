@@ -66,8 +66,8 @@
           </div>
           <div class="form__submit form__submit_row">
             <div class="default-checkbox form__suggestion">
-              <input class="default-checkbox__input" type="checkbox" id="checkbox-order" checked name="privacy">
-              <label class="default-checkbox__label" for="checkbox-order">
+              <input class="default-checkbox__input" type="checkbox" id="privacy-order-person" name="privacy">
+              <label class="default-checkbox__label" for="privacy-order-person">
                 <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="popup__privacy-link link">политикой конфиденциальности</a> сайта</span>
               </label>
             </div>
@@ -131,8 +131,8 @@
           </div>
           <div class="form__submit form__submit_row">
             <div class="default-checkbox form__suggestion">
-              <input class="default-checkbox__input" type="checkbox" id="checkbox-order" checked name="privacy">
-              <label class="default-checkbox__label" for="checkbox-order">
+              <input class="default-checkbox__input" type="checkbox" id="privacy-order-company" name="privacy">
+              <label class="default-checkbox__label" for="privacy-order-company">
                 <span class="default-checkbox__label-text">Согласен(на) с <a data-fancybox data-type="ajax" data-src="/confidential/" class="popup__privacy-link link">политикой конфиденциальности</a> сайта</span>
               </label>
             </div>

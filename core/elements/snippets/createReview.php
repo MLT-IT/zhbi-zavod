@@ -1,4 +1,8 @@
 <?php
+if (!empty($_POST['already_sent'])) {
+    return $AjaxForm->success('Форма уже обработана');
+}
+
 $error = [];
 if (empty($_POST['ID'])) {
     $error['ID'] = 'Нет данных о ресурсе';
