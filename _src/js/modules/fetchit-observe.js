@@ -2,6 +2,8 @@
  * Слушает отправки форм
  */
 
+import { handlePolicySoftCheck, getLastPolicyGateForm } from "./policy-soft-check.js";
+
 export default function fetchItObserve() {
   if (typeof FetchIt == "undefined") return;
 
@@ -42,11 +44,16 @@ export default function fetchItObserve() {
   });
 
   document.addEventListener(FetchIt.events.success, function (event) {
+    let form = event.detail.form || getLastPolicyGateForm();
+
+    if (form && handlePolicySoftCheck(form)) {
+      return;
+    }
+
     /**
      * Скрывает контент модалки и открывает окно после отправки формы
      */
-    let form = event.detail.form;
-    let modal_id = form.dataset.modalId;
+    let modal_id = form?.dataset?.modalId;
     if (modal_id) {
       let modal = document.getElementById(modal_id);
       if (!modal) return;
@@ -63,7 +70,7 @@ export default function fetchItObserve() {
       }
     }
 
-    const bannerListingGoal = form.dataset[bannerListingGoalDatasetKey];
+    const bannerListingGoal = form?.dataset?.[bannerListingGoalDatasetKey];
     if (bannerListingGoal) {
       if (typeof ym === "function") {
         ym(95226790, "reachGoal", bannerListingGoal);
