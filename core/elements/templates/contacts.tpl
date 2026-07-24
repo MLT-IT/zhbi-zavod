@@ -47,6 +47,7 @@
         {* <<< meta *}
 
         <div class="contacts__body">
+         {if !$_modx->getPlaceholder('localdata').local}
           <div class="contacts__block">
             <div class="contacts__info">
               <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
@@ -86,6 +87,7 @@
             </div>
             <div class="contacts__map shadow-map" id="districts_map" data-map-script="districts_map"></div>
           </div>
+          {/if}
           <div class="contacts__block">
             <div class="contacts__info">
               <p class="contacts__text contacts__text_bold">Офис продаж</p>
