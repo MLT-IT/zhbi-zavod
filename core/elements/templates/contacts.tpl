@@ -43,7 +43,7 @@
         <meta itemprop="name" content="Продажа {$text} в Санкт-Петербурге">
         <meta itemprop="priceRange" content="От 250 RUB">
         <meta itemprop="image" content="/assets/template/img/favicons/{$site_context}/favicon.ico">
-        <time itemprop="openingHours" datetime="Mo-Su 08:00−21:00">
+        <time itemprop="openingHours" datetime="Mo-Su 08:00−21:00"></time>
         {* <<< meta *}
 
         <div class="contacts__body">

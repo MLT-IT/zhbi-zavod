@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.770837,
+    30.311484
+  ],
+  "zoom": 9,
+  "warehouses": [
+    {
+      "coords": [
+        59.895344,
+        30.24986
+      ],
+      "name": "Склад Калининский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.849966,
+        30.30295
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.754819,
+        30.539674
+      ],
+      "name": "Склад Колпинский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.58322,
+        30.153453
+      ],
+      "name": "Склад Гатчинский",
+      "style": "text-align: center;"
+    }
+  ]
+}

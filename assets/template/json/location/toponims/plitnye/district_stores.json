@@ -1,0 +1,41 @@
+{
+  "center": [
+    60.05057,
+    30.379437
+  ],
+  "zoom": 8,
+  "warehouses": [
+    {
+      "coords": [
+        59.946121,
+        30.436503
+      ],
+      "name": "Склад Красногвардейский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.896639,
+        30.252043
+      ],
+      "name": "Склад Калининский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.300507,
+        30.494191
+      ],
+      "name": "Склад Лесколово",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.059014,
+        30.335011
+      ],
+      "name": "Склад Выборгский",
+      "style": "text-align: center;"
+    }
+  ]
+}

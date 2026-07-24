@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.938578,
+    30.337986
+  ],
+  "zoom": 9,
+  "warehouses": [
+    {
+      "coords": [
+        59.782674,
+        30.249051
+      ],
+      "name": "Склад Горелово",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.978363,
+        30.355178
+      ],
+      "name": "Склад Выборгский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.989688,
+        30.302941
+      ],
+      "name": "Склад Приморский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.003588,
+        30.444776
+      ],
+      "name": "Склад Красногвардейский",
+      "style": "text-align: center;"
+    }
+  ]
+}

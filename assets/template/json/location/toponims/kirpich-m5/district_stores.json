@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.735849,
+    30.425191
+  ],
+  "zoom": 8,
+  "warehouses": [
+    {
+      "coords": [
+        59.89394,
+        30.333619
+      ],
+      "name": "Склад Центральный",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.89097,
+        30.381813
+      ],
+      "name": "Склад Фрунзенский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.552586,
+        30.854354
+      ],
+      "name": "Склад пиломатериалов Тосно",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.605901,
+        30.130977
+      ],
+      "name": "Склад Виллози",
+      "style": "text-align: center;"
+    }
+  ]
+}

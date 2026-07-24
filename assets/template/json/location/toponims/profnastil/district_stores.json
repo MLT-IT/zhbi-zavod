@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.895179,
+    30.364835
+  ],
+  "zoom": 9,
+  "warehouses": [
+    {
+      "coords": [
+        60.067523,
+        30.290464
+      ],
+      "name": "Склад Выборгский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.899487,
+        30.401603
+      ],
+      "name": "Склад Невский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.822829,
+        30.314152
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.790879,
+        30.453122
+      ],
+      "name": "Склад Пушкинский",
+      "style": "text-align: center;"
+    }
+  ]
+}

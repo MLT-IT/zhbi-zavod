@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.848301,
+    30.20432
+  ],
+  "zoom": 8,
+  "warehouses": [
+    {
+      "coords": [
+        59.859876,
+        30.28793
+      ],
+      "name": "Склад Кировский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.719478,
+        29.847711
+      ],
+      "name": "Склад пиломатериалов Ропша",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.814057,
+        30.45835
+      ],
+      "name": "Склад Фрунзенский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.999791,
+        30.223288
+      ],
+      "name": "Склад Приморский",
+      "style": "text-align: center;"
+    }
+  ]
+}

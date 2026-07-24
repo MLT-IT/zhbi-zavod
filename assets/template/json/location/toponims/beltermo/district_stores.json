@@ -1,0 +1,41 @@
+{
+  "center": [
+    59.891557,
+    30.393128
+  ],
+  "zoom": 10,
+  "warehouses": [
+    {
+      "coords": [
+        59.886799,
+        30.324222
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.97359,
+        30.350148
+      ],
+      "name": "Склад Калининский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.8406,
+        30.445226
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.865239,
+        30.452915
+      ],
+      "name": "Склад Невский",
+      "style": "text-align: center;"
+    }
+  ]
+}
