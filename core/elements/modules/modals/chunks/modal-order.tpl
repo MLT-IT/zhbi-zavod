@@ -85,7 +85,7 @@
     
           <div class="d-flex gap-16 mt-16">
             <label class="custom-checkbox fs-14">
-              <input type="checkbox" checked required />
+              <input type="checkbox" name="privacy" />
               <span class="checkmark"></span>
               Согласен(на) с
               <a href="{$_modx->getPlaceholder("makeurls.policy")}" class="link-dashed"
@@ -146,7 +146,7 @@
     
           <div class="d-flex gap-16 mt-16">
             <label class="custom-checkbox fs-14">
-              <input type="checkbox" checked required />
+              <input type="checkbox" name="privacy" />
               <span class="checkmark"></span>
               Согласен(на) с
               <a href="{$_modx->getPlaceholder("makeurls.policy")}" class="link-dashed"

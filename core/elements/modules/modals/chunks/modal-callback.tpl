@@ -27,7 +27,7 @@
         </div>
 
         <label class="custom-checkbox fs-14">
-          <input type="checkbox" checked required/>
+          <input type="checkbox" name="privacy"/>
           <span class="checkmark"></span>
           Согласен(на) с <a href="{$_modx->getPlaceholder("makeurls.policy")}" class="link-dashed">политикой конфиденциальности</a> сайта
         </label>

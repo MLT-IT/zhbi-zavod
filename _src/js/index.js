@@ -12,6 +12,7 @@ import initOpened from "./modules/opened.js";
 import initDistrictsMap from "./modules/district-map/init.js";
 import SearchByWords from "./modules/search-by-words.js";
 import fetchItObserve from "./modules/fetchit-observe.js";
+import initPolicySoftCheck from "./modules/policy-soft-check.js";
 import initInputMask from "./modules/input-mask.js";
 import initComparison from "./modules/comparison.js";
 import initOpenedOptions from "./modules/opened-options.js";
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initSplitUnit();
   initCustomSelect();
   initDistrictsMap();
+  initPolicySoftCheck();
   fetchItObserve();
   initInputMask();
   initComparison();

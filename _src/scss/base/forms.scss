@@ -62,5 +62,17 @@
     input:checked + .checkmark::after {
       display: block;
     }
+
+    &.policy-invalid .checkmark {
+      outline: 2px solid #e80000;
+      outline-offset: 1px;
+    }
+  }
+
+  .policy-error-msg {
+    color: #e80000;
+    font-size: 13px;
+    margin: 8px 0 0;
+    width: 100%;
   }
 }
