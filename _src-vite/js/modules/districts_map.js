@@ -45,8 +45,9 @@ function initDistrictsMap() {
     const ctx = document.body.dataset.ctx;
     const region = window.regionData.region;
 
-    // Московские склады вывести только для gazosilikatstroy
-    const useRegionStores = region && !(region == 'moscow' && ctx != 'gazosilikatstroy');
+    // Московские склады вывести только для gazosilikatstroy,
+    // а gazoclone всегда использует свои собственные склады контекста
+    const useRegionStores = region && ctx != 'gazoclone' && !(region == 'moscow' && ctx != 'gazosilikatstroy');
 
     if (!useRegionStores) {
       loadContextWarehouses(ctx);
