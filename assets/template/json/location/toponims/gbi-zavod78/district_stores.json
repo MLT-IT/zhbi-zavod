@@ -1,0 +1,41 @@
+{
+  "center": [
+    60.056604,
+    30.391926
+  ],
+  "zoom": 10,
+  "warehouses": [
+    {
+      "coords": [
+        59.988694,
+        30.434257
+      ],
+      "name": "Склад Красногвардейский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.067928,
+        30.290922
+      ],
+      "name": "Склад Парголово",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.072879,
+        30.36426
+      ],
+      "name": "Склад Парнас",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.096915,
+        30.478266
+      ],
+      "name": "Склад Кузьмоловский",
+      "style": "text-align: center;"
+    }
+  ]
+}

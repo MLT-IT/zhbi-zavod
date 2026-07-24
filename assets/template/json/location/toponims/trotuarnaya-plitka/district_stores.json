@@ -1,0 +1,33 @@
+{
+  "center": [
+    59.967191,
+    30.37104
+  ],
+  "zoom": 9,
+  "warehouses": [
+    {
+      "coords": [
+        59.94691,
+        30.457883
+      ],
+      "name": "Склад Яльгелево",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.83895,
+        30.459886
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        60.115714,
+        30.19535
+      ],
+      "name": "Склад Парголово",
+      "style": "text-align: center;"
+    }
+  ]
+}

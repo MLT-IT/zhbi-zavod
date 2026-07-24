@@ -1,0 +1,49 @@
+{
+  "center": [
+    45.099445,
+    39.027385
+  ],
+  "zoom": 9,
+  "warehouses": [
+    {
+      "coords": [
+        45.037541,
+        39.069582
+      ],
+      "name": "Склад Карасунский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        45.035063,
+        39.06359
+      ],
+      "name": "Склад Комсомольский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        45.252064,
+        38.99919
+      ],
+      "name": "Склад Динской",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        45.085411,
+        38.992112
+      ],
+      "name": "Склад Прикубанский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        45.087148,
+        39.012449
+      ],
+      "name": "Склад Пашковский",
+      "style": "text-align: center;"
+    }
+  ]
+}

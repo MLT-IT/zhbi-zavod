@@ -1,0 +1,33 @@
+{
+  "center": [
+    59.897599,
+    30.357957
+  ],
+  "zoom": 10,
+  "warehouses": [
+    {
+      "coords": [
+        59.821168,
+        30.463704
+      ],
+      "name": "Склад Фрунзенский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.875172,
+        30.338398
+      ],
+      "name": "Склад Московский",
+      "style": "text-align: center;"
+    },
+    {
+      "coords": [
+        59.996457,
+        30.27177
+      ],
+      "name": "Склад Приморский",
+      "style": "text-align: center;"
+    }
+  ]
+}
