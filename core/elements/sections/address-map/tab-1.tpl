@@ -4,11 +4,12 @@
   ]}
 {else}
   {set $storehouses = '@FILE snippets/warehouses/getFirstStorehouses.php' | snippet}
+  {set $storehouses_phone = $_modx->getPlaceholder('contacts.phone')}
   {set $contacts = [
     'warehouse' => [
-        ['title' => 'Телефон склада: '~$storehouses.0,'additional' => '1'],
-        ['title' => 'Телефон склада: '~$storehouses.1,'additional' => '2'],
-        ['title' => 'Телефон склада: '~$storehouses.2,'additional' => '3'],
+        ['title' => 'Телефон склада: '~$storehouses.0,'additional' => '1','phone' => $storehouses_phone],
+        ['title' => 'Телефон склада: '~$storehouses.1,'additional' => '2','phone' => $storehouses_phone],
+        ['title' => 'Телефон склада: '~$storehouses.2,'additional' => '3','phone' => $storehouses_phone],
     ]
   ]}
 {/if}
