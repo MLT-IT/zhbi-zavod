@@ -52,16 +52,17 @@
             <div class="contacts__info">
               <p class="contacts__text contacts__text_bold">Режим работы складов: 8:00 - 21:00</p>
               <address class="contacts__items">
-                {set $storehouse1 = 'Мурино'}
-                {set $storehouse2 = 'Красном Селе'}
-                {set $storehouse3 = 'Гатчине'}
+                {set $storehouses = '@FILE snippets/warehouses/getFirstStorehouses.php' | snippet}
+                {set $storehouse1 = $storehouses.0}
+                {set $storehouse2 = $storehouses.1}
+                {set $storehouse3 = $storehouses.2}
 
                 <div class="contact contact_hover">
                   <svg class="contact__icon" aria-hidden="true">
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
                   <div class="contact__content">
-                    <p class="contact__title">Телефон склада в {$storehouse1}:</p>
+                    <p class="contact__title">Телефон склада: {$storehouse1}</p>
                     <p class="contact__value">{$phone}, доб 1</p>
                   </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
@@ -70,7 +71,7 @@
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
                   <div class="contact__content">
-                    <p class="contact__title">Телефон склада в {$storehouse2}:</p>
+                    <p class="contact__title">Телефон склада: {$storehouse2}</p>
                     <p class="contact__value">{$phone}, доб 2</p>
                   </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
@@ -79,7 +80,7 @@
                     <use xlink:href="assets/template/pictures/icons.svg#svg-phone"></use>
                   </svg>
                   <div class="contact__content">
-                    <p class="contact__title">Телефон склада в {$storehouse3}:</p>
+                    <p class="contact__title">Телефон склада: {$storehouse3}</p>
                     <p class="contact__value">{$phone}, доб 3</p>
                   </div><a class="contact__link" href="tel:{$phone | ereplace:'/[^0-9+]/':'' }"></a>
                 </div>
