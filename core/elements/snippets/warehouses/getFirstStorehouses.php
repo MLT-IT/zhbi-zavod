@@ -27,7 +27,8 @@ if (empty($json['warehouses'])) return [];
 
 $output = [];
 foreach (array_slice($json['warehouses'], 0, 3) as $warehouse) {
-    $output[] = preg_replace('/^Склад\s+/u', '', $warehouse['name'] ?? '');
+    $output_item = preg_replace('/^Склад\s+/u', '', $warehouse['name'] ?? '');
+    $output[] = preg_replace('/пиломатериалов\s+/u', '', $output_item);
 }
 
 return $output;
