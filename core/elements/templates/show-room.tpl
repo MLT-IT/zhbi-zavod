@@ -98,7 +98,11 @@
                             </div>
                             <div class="contacts__map shadow-map" data-map-script="contacts-map-2">
                                 {if $_modx->getPlaceholder('localdata').local}
+                                  {if $_modx->getPlaceholder('localdata').offices.0.ymap}
+                                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%{$_modx->getPlaceholder('localdata').offices.0.ymap}&amp;width=460&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                                  {else}
                                     <iframe src="https://www.google.com/maps/d/u/0/embed?mid={$_modx->getPlaceholder('localdata').offices.0.gmap}" width="640" height="480"></iframe>
+                                  {/if}
                                 {else}
                                     {'map_office' | option}
                                 {/if}
