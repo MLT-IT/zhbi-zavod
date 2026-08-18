@@ -32,6 +32,8 @@
     {set $logo = 'metallocherepica-white.png'}
   {case 'trotuarnaya-plitka'}
     {set $logo = 'trotuarnaya-plitka-white.png'}
+  {case 'gbi-zavod78'}
+    {set $logo = 'gbi-zavod78-white.png'}
 {/switch}
 
 {set $phone = '!virtual_phone' | snippet }
