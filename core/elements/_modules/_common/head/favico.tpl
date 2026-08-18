@@ -6,6 +6,8 @@
     {set $favico_folder = '/assets/template/img/favicons/test'}
 {case 'trotuarnaya-plitka'}
     {set $favico_folder = '/assets/template/img/favicons/trotuarnaya-plitka'}
+{case 'gbi-zavod78'}
+    {set $favico_folder = '/assets/template/img/favicons/gbi-zavod78'}
 {default}
     {set $favico_folder = '/assets/template/img/favicons/default'}
 {/switch}
