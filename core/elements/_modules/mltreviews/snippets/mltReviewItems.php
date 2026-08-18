@@ -72,6 +72,7 @@ if ($limit) {
     $query->limit($limit);
 }
 $query->where($where);
+$query->sortby('createdon', 'DESC');
 $items = $modx->getCollection('mltReview', $query);
 
 
