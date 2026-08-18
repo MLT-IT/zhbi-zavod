@@ -28,7 +28,7 @@
         opacity: 0.7;
       }
       &.active {
-        background-color: #d3553c;
+        background-color: var(--color-red);
         color: #fff;
       }
     }

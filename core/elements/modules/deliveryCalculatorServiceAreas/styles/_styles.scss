@@ -1,5 +1,4 @@
 .delivery-calculator {
-  $red: #D3553C;
   margin: 55px 0 55px;
   min-width: 320px;
   &__container {
@@ -88,9 +87,9 @@
         color: inherit;
       }
       &:hover, &.active {
-        color: $red;
+        color: var(--color-red);
         svg {
-          fill: $red;
+          fill: var(--color-red);
         }
       }
     }
@@ -148,17 +147,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $red;
+    color: var(--color-red);
     font-size: 16px;
     font-weight: 700;
     line-height: 1;
-    border: 1px solid $red;
+    border: 1px solid var(--color-red);
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 6px;
     padding: 20px;
     &:hover {
-      background: rgba($red, 0.05);
+      background: color-mix(in srgb, var(--color-red) 5%, transparent);
     }
   }
   &__vehicle {
@@ -191,7 +190,7 @@
     text-align: center;
     border: 1px solid #aa000f;
     min-height: 61px;
-    color: $red;
+    color: var(--color-red);
     font-size: 20px;
     margin: 20px 0;
     &.active {
