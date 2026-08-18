@@ -187,9 +187,13 @@
 			height: 24px
 			flex-shrink: 0
 			margin-left: 24px
-			background-image: url("data:image/svg+xml,%3Csvg width='15' height='9' viewBox='0 0 15 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7.40364 7.92317C7.44236 7.96502 7.50818 7.96609 7.54823 7.92551L14 1.38889' stroke='%23D3553C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
-			background-position: center
-			background-repeat: no-repeat
+			mask-image: url("data:image/svg+xml,%3Csvg width='15' height='9' viewBox='0 0 15 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7.40364 7.92317C7.44236 7.96502 7.50818 7.96609 7.54823 7.92551L14 1.38889' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+			-webkit-mask-image: url("data:image/svg+xml,%3Csvg width='15' height='9' viewBox='0 0 15 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7.40364 7.92317C7.44236 7.96502 7.50818 7.96609 7.54823 7.92551L14 1.38889' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+			mask-position: center
+			-webkit-mask-position: center
+			mask-repeat: no-repeat
+			-webkit-mask-repeat: no-repeat
+			background-color: var(--color-red)
 			transition: transform .3s ease
 
 			+until-1400
