@@ -12,7 +12,7 @@
       <div data-error-message="content" class="mlt-reviews__form-error-message"></div>
     </div>
     <div class="mlt-reviews__form-upload-wrapper">
-      <input type="file" id="fileInput" class="mlt-reviews__form-file-input" />
+      <input type="file" id="fileInput" name="avatar" class="mlt-reviews__form-file-input" />
       <label for="fileInput" class="mlt-reviews__form-file-label">Прикрепить иконку</label>
     </div>
     <div class="mlt-reviews__form-field-row">
