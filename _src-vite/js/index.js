@@ -42,20 +42,20 @@ import mailChange from './modules/mailchanger';
 import initSliders from "./modules/sliders";
 import toInfoBlockTab from "./modules/toInfoBlockTab.js";
 
-import AdditionalFieldsCallbackForm from '../../core/elements/_modules/additional-fields-callback-form/scripts/main.js'
-import '../../core/elements/_modules/menu/uteplitel/scripts/main'
+import AdditionalFieldsCallbackForm from '../../core/elements/modules/additional-fields-callback-form/scripts/main.js'
+import '../../core/elements/modules/menu/uteplitel/scripts/main'
 import initSquareMetersHandler from './modules/squareMetersHandler.js';
 import collapseLongTexts from './modules/collapseLontTexts.js';
 import showMoreListing from './modules/showMoreListing.js';
-import '../../core/elements/_modules/calculator-opt/scripts/main'
-import { OurObjects } from '../../core/elements/_modules/our_objects/js/our_objects.js';
+import '../../core/elements/modules/calculator-opt/scripts/main'
+import { OurObjects } from '../../core/elements/modules/our_objects/js/our_objects.js';
 import { addClipboardIcons } from './modules/clipBoardable/clipBoardable.js';
-import initAssort from '../../core/elements/_modules/catalog/assort.js';
+import initAssort from '../../core/elements/modules/catalog/assort.js';
 import "./modules/listingProductGallery.js";
 import { DeliveryCalculatorServiceAreas } from '../../core/elements/modules/deliveryCalculatorServiceAreas/js/index';
 import { initCatalogMenu } from '../../core/elements/modules/menugen_v2/scripts/catalog-menu.js';
 import { initCatalogMobileMenu } from '../../core/elements/modules/menugen_v2/scripts/mobile-menu.js';
-import '../../core/elements/_modules/stocks/js/warehouse-search.js';
+import '../../core/elements/modules/stocks/js/warehouse-search.js';
 
 import { ColorList } from '../../core/elements/modules/color-list/scripts/ColorList.js';
 import { fixReviewsTabCollapseLongText } from './modules/fixReviewsTabCollapseLongText.js';

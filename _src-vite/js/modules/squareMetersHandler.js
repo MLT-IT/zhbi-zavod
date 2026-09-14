@@ -1,4 +1,4 @@
-import CalculatorWidth from "../../../core/elements/_modules/product/CalculatorWidth";
+import CalculatorWidth from "../../../core/elements/modules/product/CalculatorWidth";
 
 export default function initSquareMetersHandler() {
   try {
