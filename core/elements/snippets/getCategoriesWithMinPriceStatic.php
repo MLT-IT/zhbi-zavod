@@ -119,5 +119,5 @@ foreach ($resources as $resource) {
         "img" => $resource->getTVValue('mainImage'),
         "uri" => $resource->uri
     ];
-    echo $pdoTools->getChunk('@FILE sections/pop-slide.tpl', $data);
+    echo $pdoTools->getChunk('@FILE sections/pop-slide/wrapper.tpl', $data);
 }

@@ -95,7 +95,7 @@
   <a href="/{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
   {if $_modx->resource.context_key in list ['plitnye']}
-    {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
+    {set $data = "@FILE modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     {set $unit = 'уп.'}
 
     {if $_modx->context.key == 'plitnye'}
@@ -117,7 +117,7 @@
     {if '@FILE snippets/ultimateParent.php' | snippet: ['id' => $id, 'ancestor' => 93445]}
       <div class="has-icon icon-checkmark product-card__body-remains">Наличие: под запрос</div>
     {else}
-      {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
+      {set $data = "@FILE modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
       {set $unit = 'уп.'}
       <div class="has-icon icon-checkmark product-card__body-remains">В наличии {$data['total_remains']} {$unit}</div>
     {/if}

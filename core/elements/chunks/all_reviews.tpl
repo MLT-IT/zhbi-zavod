@@ -7,7 +7,7 @@
     'context_key' => $_modx->context.key
 ]}
 
-{set $all_reviews ='@FILE _modules/mltreviews/snippets/mltReviewItems.php' | snippet : $params}
+{set $all_reviews ='@FILE modules/mltreviews/snippets/mltReviewItems.php' | snippet : $params}
 
 {if $all_reviews}
 <div class="mlt-reviews__all-reviews {$classnames}">

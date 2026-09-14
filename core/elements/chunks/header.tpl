@@ -43,13 +43,10 @@
           {set $logoMobile = $_modx->resource.context_key~'.png'}
       {/switch}
 
-      {set $phone = '!virtual_phone' | snippet }
+      {set $phone = $_modx->getPlaceholder('contacts.phone')}
       {set $phone_href = $phone | ereplace : '/[^0-9+]/' : ''}
-      {set $email = '@FILE snippets/utm/virtual_email.php' | snippet }
-      {set $address = 'address' | option}
-      {if $_modx->getPlaceholder('localdata').local}
-        {set $address = $_modx->getPlaceholder('localdata').offices.0.address}
-      {/if}
+      {set $email = $_modx->getPlaceholder('contacts.email')}
+      {set $address = $_modx->getPlaceholder('contacts.address')}
 
       <div class="h-logo h-logo_mobile">
         <img class="h-logo__image" src="assets/template/pictures/{$logoMobile}">
@@ -78,7 +75,7 @@
         </span>
       </div>
 
-      {insert 'file:_modules/top_menu/top_menu.tpl'}
+      {insert 'file:modules/top_menu/top_menu.tpl'}
 
       <div>
         {if $phone && $phone != '+7 (000) 000-00-00'}
@@ -106,7 +103,7 @@
         {elseif $_modx->context.key == "web"}
           <div class="h-menu header__catalog" data-dropdown>
             <button class="h-menu__btn btn btn_style_base">Каталог</button>
-            {$_modx->runSnippet("@FILE _modules/menu/uteplitel/snippets/getMenu.php")}
+            {$_modx->runSnippet("@FILE modules/menu/uteplitel/snippets/getMenu.php")}
           </div>
         {elseif $_modx->context.key == "fibrofasad"}
           {set $tpl = '@FILE modules/menugen_v2/snippets/selectTpl.php' | snippet}
@@ -198,7 +195,7 @@
         </div>
 
         {if $_modx->resource.context_key in list ["web","krovelnyjstroymarket"]}
-          {include "file:_modules/menu/uteplitel/chunks/mobileBottom.tpl"}
+          {include "file:modules/menu/uteplitel/chunks/mobileBottom.tpl"}
         {/if}
 
         <button class="js-burger-2 header__right-burger header__burger icon-btn icon-btn_style_red">

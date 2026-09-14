@@ -32,7 +32,7 @@
     {/if}
     *}
 
-    {include "file:_modules/_common/head/favico.tpl"}
+    {include "file:modules/_common/head/favico.tpl"}
     
 
     {* >>> Open Graph и Twitter Card  *}
@@ -112,6 +112,8 @@
 {/block}
 
 {block 'body'}
+    {"@FILE config/placeholders/index.php" | snippet}
+
     {if $_modx->getPlaceholder('checkHost') == 'prod'}
         {if $yandex_id}
         <!-- Yandex.Metrika counter -->

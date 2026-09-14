@@ -1,0 +1,33 @@
+{include "file:chunks/svg-gradient.tpl" w=48 h=48}
+<div class="mlt-reviews">
+    {include 'file:chunks/banners/reviews-head.tpl'}
+    {set $startCount = 9}
+
+    {set $user_reviews = '@FILE modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
+        'user_reviews' => 1,
+        'ratingRowClass' => 'mlt-reviews__item-rating',
+        'ratingItemClass' => 'mlt-reviews__item-rating-item',
+        'tpl' => 'tplItemReview',
+        'tplOuter' => 'tplItemOuter',
+        'limit' => 3
+    ]}
+
+    {if $user_reviews}
+    <div class="mlt-reviews__user-reviews">
+        <h2 class="mlt-reviews__title small-title section__title">На модерации</h2>
+        {$user_reviews}
+    </div>
+    {/if}
+
+    {include "file:chunks/all_reviews.tpl" title="Отзывы о нашей работе"}
+
+    {include 'file:sections/about/sect-about-all.tpl'}
+
+    <div class="popup" id="mlt-reviews-form">
+        
+            <div class="mlt-reviews__title">Оставить отзыв</div>
+            {'!mltReviewForm' | snippet : [
+                'tpl' => 'tplForm'
+            ]}
+    </div>
+</div>

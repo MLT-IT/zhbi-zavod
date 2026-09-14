@@ -36,12 +36,9 @@
     {set $logo = 'gbi-zavod78-white.png'}
 {/switch}
 
-{set $phone = '!virtual_phone' | snippet }
-{set $email = '@FILE snippets/utm/virtual_email.php' | snippet }
-{set $address = 'address' | option}
-{if $_modx->getPlaceholder('localdata').local}
-  {set $address = $_modx->getPlaceholder('localdata').offices.0.address}
-{/if}
+{set $phone = $_modx->getPlaceholder('contacts.phone')}
+{set $email = $_modx->getPlaceholder('contacts.email')}
+{set $address = $_modx->getPlaceholder('contacts.address')}
 
 <footer class="footer">
   <div class="footer__container">
@@ -138,18 +135,20 @@
           <p class="footer__nav-title">Популярные категории</p>
           {set $resources =  $_modx->config.popular_categories}
           {if $resources ?}
-              {set $lines = $_modx->runSnippet('pdoResources', [
-                  'parents' => 0,
-                  'depth' => 1000,
-                  'offset' => 3,
-
-                  'context' => $_modx->resource.context_key,
-                  'tpl' => '@INLINE <a class="footer__nav-item" href="/[[+uri]]">[[+menutitle]]</a>',
-                  'limit' => 0,
-                  'resources' => $resources,
-                  'sortby' => 'FIELD(id, '~$resources~')',
-                  'sortdir' => 'ASC'
-              ])}
+              {* Кэшируемый запрос через map-resources вместо pdoResources на каждый запрос без кэша.
+                 popular_categories — произвольный список ID из разных веток дерева, поэтому
+                 используется прямая выборка (mapGetResourcesByIds), а не обход от родителя.
+                 Примечание: фильтрует ещё и hidemenu=0 (pdoResources этого не делал) — на момент
+                 переноса у всех popular_categories hidemenu=0, расхождения нет. *}
+              {set $categories = "@FILE modules/map-resources/mapGetResourcesByIds.php" | snippet : [
+                  'ids' => $resources
+              ]}
+              {set $lines = ''}
+              {foreach $categories as $idx => $cat}
+                  {if $idx >= 3}
+                      {set $lines = $lines ~ '<a class="footer__nav-item" href="/' ~ $cat.uri ~ '">' ~ $cat.menutitle ~ '</a>'}
+                  {/if}
+              {/foreach}
             {if $_modx->resource.context_key === 'kirpich-m5'}
               <nav class="footer__nav-list">
                 <div class="footer__nav-list-col">
@@ -335,7 +334,7 @@
 </section>
 {/if}
 {if $_modx->context.key in list ['web','trotuarnaya-plitka']}
-  {$_modx->runSnippet("@FILE _modules/menu/uteplitel/snippets/getMobileMenu.php", [
+  {$_modx->runSnippet("@FILE modules/menu/uteplitel/snippets/getMobileMenu.php", [
   "context" => $_modx->resource.context_key
   ])}
 {/if}

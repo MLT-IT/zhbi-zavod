@@ -44,7 +44,7 @@ class getPopularProductsClass {
             'depth' => 50,
             'limit' => 42,
             'tpl' => '@FILE chunks/product/listing-products-item-slide.tpl',
-            'tplWrapper' => '@FILE sections/related-products.tpl',
+            'tplWrapper' => '@FILE sections/related-products/wrapper.tpl',
             'includeTVs' => 'isFractional,productNotAvailable,freeShipping',
             'context' => self::$prod->context_key,
             'wrapIfEmpty' => 0

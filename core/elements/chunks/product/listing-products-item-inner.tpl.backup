@@ -95,7 +95,7 @@
   <a href="{$uri}" class="product-card__title">{$menutitle ?: $pagetitle}</a>
 
   {if $_modx->resource.context_key in list ['web', 'plitnye']}
-    {set $data = "@FILE _modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
+    {set $data = "@FILE modules/warehouses/snippets/remains.php" | snippet : ['id' => $id]}
     {set $unit = 'уп.'}
 
     {if $_modx->context.key == 'plitnye'}
