@@ -12,6 +12,24 @@ ob_start();
 include MODX_CORE_PATH . 'elements/snippets/utm/virtual_email.php';
 $email = ob_get_clean();
 
+// virtual_email.php может вернуть значение с необработанными тегами MODX
+// (например, [[++key:empty=`[[++key_reserve]]`]] из системной настройки
+// "email") — обычный вызов через | snippet прогонял бы это через парсер
+// автоматически (modScript::process()), а тут это делаем явно, иначе
+// такие теги попадут в HTML как есть.
+if (is_string($email) && strpos($email, '[[') !== false && $modx->getParser()) {
+    $modx->parser->processElementTags(
+        '',
+        $email,
+        $modx->parser->isProcessingUncacheable(),
+        $modx->parser->isRemovingUnprocessed(),
+        '[[',
+        ']]',
+        array(),
+        (int)$modx->getOption('parser_max_iterations', null, 10)
+    );
+}
+
 $address = $modx->getOption('address');
 $localdata = $modx->getPlaceholder('localdata');
 if (!empty($localdata['local'])) {
