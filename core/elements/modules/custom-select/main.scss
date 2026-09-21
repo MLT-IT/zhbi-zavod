@@ -21,8 +21,8 @@
     cursor: pointer;
     text-align: left;
 
-    border: 1px solid variables.$red;
-    color: variables.$red;
+    border: 1px solid var(--color-red);
+    color: var(--color-red);
     border-radius: 4px;
     font-weight: 600;
     transition: 0.2s;
@@ -34,7 +34,7 @@
     &:after {
       content: "";
       transform: rotate(42deg);
-      border: solid variables.$red;
+      border: solid var(--color-red);
       border-width: 0 3px 3px 0;
       display: inline-block;
       padding: 3px;
@@ -67,7 +67,7 @@
       transition: 0.2s;
       display: block;
       &:hover {
-        color: variables.$red;
+        color: var(--color-red);
       }
     }
 

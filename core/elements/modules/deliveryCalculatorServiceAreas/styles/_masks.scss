@@ -11,7 +11,7 @@ $colors-1: (
 body {
   .delivery-calculator {
 
-    --color-1-calculator: #d3553c;
+    --color-1-calculator: var(--color-red);
 
     $color-2: #25282b;
     &__weights {

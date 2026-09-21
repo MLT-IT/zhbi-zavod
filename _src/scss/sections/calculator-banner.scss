@@ -44,7 +44,7 @@
     span {
       font-size: 34px;
       font-weight: 700;
-      color: variables.$red;
+      color: var(--color-red);
 
       @media (max-width: 768px) {
         font-size: 20px;

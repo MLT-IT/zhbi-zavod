@@ -2,9 +2,14 @@
   ['title' => 'Описание', 'id' => 'tab1'],
   ['title' => 'Характеристики', 'id' => 'tab2', 'classlist' => 'active'],
   ['title' => 'Условия доставки', 'id' => 'tab3'],
-  ['title' => 'Отзывы', 'id' => 'tab5'],
-  ['title' => 'Сертификаты', 'id' => 'tab6'],
 ]}
+
+{if $_modx->context.key === 'gbi-zavod78'}
+  {set $btns[] = ['title' => 'Прайс', 'id' => 'tab4']}
+{/if}
+
+{set $btns[] = ['title' => 'Отзывы', 'id' => 'tab5']}
+{set $btns[] = ['title' => 'Сертификаты', 'id' => 'tab6']}
 
 {set $video = $_modx->resource.video}
 {if $video}
@@ -54,6 +59,16 @@
             {include "file:chunks/delivery-table.tpl" is_shadow=true}
           </div>
         </div>
+
+        {if $_modx->context.key === 'gbi-zavod78'}
+        <div class="product-page__tabs-wrap">
+          <button
+            data-opened-btn="tab4">Прайс</button>
+          <div class="product-page__tabs-content" data-opened-element="tab4">
+            {include "file:templates/product/tabs/price/wrapper.tpl"}
+          </div>
+        </div>
+        {/if}
 
         <div class="product-page__tabs-wrap">
           <button

@@ -1,0 +1,33 @@
+@use "../../base/variables.scss";
+
+.product-price-list {
+  overflow-x: auto;
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      background-color: variables.$light-gray-1;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid variables.$light-gray-3;
+      vertical-align: top;
+    }
+
+    tr.active {
+      background-color: var(--color-red-transparent);
+    }
+
+    tr:hover {
+      background-color: variables.$light-gray-1;
+    }
+  }
+}

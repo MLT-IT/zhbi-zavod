@@ -13,7 +13,7 @@
 
     button {
       &.active {
-        background-color: variables.$red;
+        background-color: var(--color-red);
         color: #fff;
       }
 
@@ -95,7 +95,7 @@
       svg {
         max-width: 36px;
         max-height: 36px;
-        color: variables.$red;
+        color: var(--color-red);
 
         @media (max-width: variables.$bp768) {
           max-width: 32px;

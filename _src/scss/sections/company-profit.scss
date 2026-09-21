@@ -40,7 +40,7 @@
     }
 
     svg {
-      fill: variables.$red;
+      fill: var(--color-red);
       min-width: 28px;
       min-height: 28px;
       // @media (max-width: variables.$bp768) {

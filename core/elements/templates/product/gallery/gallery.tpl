@@ -20,7 +20,6 @@
   >
     <div class="product-page__gallery-preview__controls">
         {include "file:modules/store-product-selection/chunks/favorites/btn.tpl" product_id=$_modx->resource.id}
-        {include "file:modules/store-product-selection/chunks/comparison/btn.tpl" product_id=$_modx->resource.id}
     </div>
     
     <div class="swiper-wrapper">

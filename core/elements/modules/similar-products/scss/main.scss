@@ -56,8 +56,8 @@
 
     &:hover,
     &.active {
-      border-color: variables.$red;
-      color: variables.$red;
+      border-color: var(--color-red);
+      color: var(--color-red);
       background-color: #fff;
     }
 

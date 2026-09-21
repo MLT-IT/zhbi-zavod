@@ -45,8 +45,8 @@
 
     &:hover {
       .main-category__sidebar-icon {
-        stroke: variables.$red;
-        fill: variables.$red;
+        stroke: var(--color-red);
+        fill: var(--color-red);
       }
     }
 
@@ -57,7 +57,7 @@
     }
 
     &.active {
-      background-color: variables.$red;
+      background-color: var(--color-red);
       color: #fff !important;
 
       @media (max-width: 500px) {
@@ -101,13 +101,13 @@
     gap: 8px;
     margin-bottom: 20px;
     padding: 10px 0;
-    color: variables.$red;
+    color: var(--color-red);
     text-decoration: none;
     font-weight: 700;
     font-size: 16px;
     transition: 0.3s;
 
-    border: 1px solid variables.$red;
+    border: 1px solid var(--color-red);
     padding: 4px 8px;
     border-radius: 6px;
     width: max-content;
@@ -168,10 +168,10 @@
     display: block;
 
     &:hover {
-      border-color: variables.$red;
+      border-color: var(--color-red);
 
       .main-category__item-title {
-        color: variables.$red;
+        color: var(--color-red);
       }
 
       img {

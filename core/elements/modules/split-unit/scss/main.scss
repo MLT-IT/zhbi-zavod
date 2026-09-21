@@ -24,7 +24,7 @@
     font-size: 12px;
     padding: 6px 3px;
     &.active {
-      background: variables.$red;
+      background: var(--color-red);
       color: #fff;
     }
   }

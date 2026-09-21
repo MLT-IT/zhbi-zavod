@@ -46,7 +46,7 @@
   //     }
 
   //     &:before {
-  //       background-color: variables.$red;
+  //       background-color: var(--color-red);
   //       content: "";
   //       height: 13px;
   //       left: 5px;
@@ -62,9 +62,9 @@
   //   break-inside: avoid;
   //   page-break-inside: avoid;
 
-  //   color: variables.$red;
+  //   color: var(--color-red);
   //   padding-left: 16px;
-  //   border-left: 3px solid variables.$red;
+  //   border-left: 3px solid var(--color-red);
   // }
 
   // h2 {

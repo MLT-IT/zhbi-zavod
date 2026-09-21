@@ -111,8 +111,10 @@
         /></div
     ></noscript>
     <!-- /Yandex.Metrika counter -->
+
+    {include "file:chunks/schema/organization.tpl"}
   </head>
-  <body data-res-id="{$_modx->resource.id}" data-res-parent="{$_modx->resource.parent}">
+  <body class="{$_modx->context.key}" data-res-id="{$_modx->resource.id}" data-res-parent="{$_modx->resource.parent}">
     {include "file:sections/header/wrapper.tpl"}
 
     {block 'page-content'}{/block}

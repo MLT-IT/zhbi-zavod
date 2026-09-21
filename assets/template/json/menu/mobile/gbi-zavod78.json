@@ -1,0 +1,83 @@
+{
+  "menu": [
+    {
+      "title": "Каталог",
+      "type": "submenu",
+      "submenu_id": "catalog",
+      "image": "",
+      "items": [
+        {
+          "title": "Дорожное строительство",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-dorozhnoe",
+          "url": "/dorozhnoe-stroitelstvo/"
+        },
+        {
+          "title": "Жилищное строительство",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-zhilishhnoe",
+          "url": "/zhilishhnoe-stroitelstvo/"
+        },
+        {
+          "title": "Элементы железобетонных ограждений",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-ograzhdenie",
+          "url": "/ehlementy-zhelezobetonnyh-ograzhdenij/"
+        },
+        {
+          "title": "Устройство коммуникаций",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-kommunikacii",
+          "url": "/kopiya-ustrojstvo-kommunikaczij/"
+        },
+        {
+          "title": "Железнодорожное строительство",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-zheleznodorozhnoe",
+          "url": "/zheleznodorozhnoe-stroitelstvo/"
+        },
+        {
+          "title": "ЖБИ для энергетического строительства",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-energetika",
+          "url": "/kopiya-zhbi-dlya-energeticheskogo-stroitelstva/"
+        },
+        {
+          "title": "Строительство мостов",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-mosty",
+          "url": "/stroitelstvo-mostov/"
+        },
+        {
+          "title": "ЖБИ Б/У",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-bu",
+          "url": "/zhbi-bu/"
+        },
+        {
+          "title": "Элементы благоустройства",
+          "icon": "assets/template/images/icons.svg?v4#assort-zbi-blagoustrojstvo",
+          "url": "/blagoustrojstvo/"
+        }
+      ]
+    },
+    {
+      "title": "О компании",
+      "url": "/o-kompanii/",
+      "type": "link"
+    },
+    {
+      "title": "Акции",
+      "url": "/akcii/",
+      "type": "link"
+    },
+    {
+      "title": "Доставка и оплата",
+      "url": "/dostavka-i-oplata/",
+      "type": "link"
+    },
+    {
+      "title": "Отзывы",
+      "url": "/otzyvy/",
+      "class": "h-nav__link--star",
+      "type": "link"
+    },
+    {
+      "title": "Контакты",
+      "url": "/contacts/",
+      "type": "link"
+    }
+  ]
+}

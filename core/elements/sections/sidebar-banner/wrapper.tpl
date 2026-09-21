@@ -1,3 +1,4 @@
+{if $_modx->context.key !== 'gbi-zavod78'}
 <div class="sidebar-banner">
   <div class="advertisement_note advertisement_note__small">Реклама</div>
   {* Баннер для заборов *}
@@ -14,3 +15,4 @@
   <img src="/assets/template/images/sections/sidebar-banner/sidebar-krovlya.png" />
   {/if}
 </div>
+{/if}

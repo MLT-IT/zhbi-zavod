@@ -1,3 +1,4 @@
+{if $_modx->context.key !== 'gbi-zavod78'}
 {set $banner_data = "@FILE snippets/apiGetBanner.php" | snippet : [
 'id' => $_modx->resource.id,
 'parent' => $_modx->resource.parent,
@@ -95,4 +96,5 @@
 </style>
 {else}
 <!-- {$banner_groups | toJSON} -->
+{/if}
 {/if}

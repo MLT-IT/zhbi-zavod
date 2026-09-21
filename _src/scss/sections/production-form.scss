@@ -134,7 +134,7 @@
 
         width: 40px;
         height: 40px;
-        color: variables.$red;
+        color: var(--color-red);
       }
 
       a {
@@ -143,7 +143,7 @@
         text-decoration: none;
 
         &:hover {
-          color: variables.$red;
+          color: var(--color-red);
         }
       }
     }

@@ -67,10 +67,10 @@
     }
 
     &:hover {
-      border-color: variables.$red;
+      border-color: var(--color-red);
 
       .catalog__item-title {
-        color: variables.$red;
+        color: var(--color-red);
       }
 
       img {
@@ -78,7 +78,7 @@
       }
 
       @media (max-width: 700px) {
-        background-color: variables.$red;
+        background-color: var(--color-red);
         color: #fff !important;
 
         .catalog__item-title {

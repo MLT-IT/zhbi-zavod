@@ -48,7 +48,7 @@
       font-size: 12px;
     }
     &:hover {
-      border: 1px solid variables.$red;
+      border: 1px solid var(--color-red);
     }
     &.hidden {
       display: none;

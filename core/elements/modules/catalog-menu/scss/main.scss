@@ -93,7 +93,7 @@
         }
 
         svg {
-          background: variables.$red;
+          background: var(--color-red);
           fill: #fff;
         }
       }

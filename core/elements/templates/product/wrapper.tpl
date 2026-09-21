@@ -2,6 +2,7 @@
 
 {block 'page-content'}
 
+{include "file:chunks/schema/product.tpl"}
 {include "file:modules/similar-products/chunks/init.tpl"}
 {include "file:sections/breadcrumbs/wrapper.tpl" bg=true}
 
@@ -21,18 +22,24 @@
       </div>
     </div>
 
-    {*<div class="mt-16">
+    {if $_modx->context.key === 'gbi-zavod78'}
+    <div class="mt-16">
       {include "file:sections/commercial-callback/wrapper.tpl"}
-    </div>*}
+    </div>
+    {/if}
   </div>
 
   {include "file:templates/product/tabs/wrapper.tpl"}
   {include "file:modules/similarsamples/chunks/wrapper-ajax.tpl"}
+  {if $_modx->context.key !== 'gbi-zavod78'}
   {include "file:sections/product-advantages/wrapper.tpl"}
   {include "file:sections/faqs/wrapper.tpl"}
+  {/if}
   {*include "file:modules/components-for-product/chunks/wrapper.tpl"*}
   {include "file:sections/payments/wrapper.tpl"}
+  {if $_modx->context.key !== 'gbi-zavod78'}
   {include "file:sections/calculator-banner/wrapper.tpl"}
+  {/if}
   {include "file:sections/address-map/wrapper.tpl" bg=true}
 </div>
 

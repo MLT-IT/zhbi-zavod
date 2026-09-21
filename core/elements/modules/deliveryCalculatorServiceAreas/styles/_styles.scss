@@ -6,8 +6,8 @@
   margin: 55px 0 55px;
   min-width: 320px;
 
-  --color-calculator: #d3553c;
-  --color-calculator-hov: #944434;
+  --color-calculator: var(--color-red);
+  --color-calculator-hov: var(--color-red-dark);
 
   $contexts: (
     rockwool: #AA000F,

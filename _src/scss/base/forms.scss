@@ -10,7 +10,7 @@
     width: 100%;
 
     &:hover {
-      border-color: variables.$red;
+      border-color: var(--color-red);
     }
   }
 
@@ -56,8 +56,8 @@
     }
 
     input:checked + .checkmark {
-      background-color: variables.$red;
-      border-color: variables.$red;
+      background-color: var(--color-red);
+      border-color: var(--color-red);
     }
     input:checked + .checkmark::after {
       display: block;

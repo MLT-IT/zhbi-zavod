@@ -1,0 +1,24 @@
+[
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/images/sections/main-banner-slider/web/slide-1/1-4.png",
+      "md": "/assets/template/images/sections/main-banner-slider/web/slide-1/1-3.png",
+      "lg": "/assets/template/images/sections/main-banner-slider/web/slide-1/1-2.png",
+      "xl": "/assets/template/images/sections/main-banner-slider/web/slide-1/1-1.png"
+    }
+  },
+  {
+    "options": {
+      "modal-callback": true
+    },
+    "images": {
+      "sm": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-4.png",
+      "md": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-3.png",
+      "lg": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-2.png",
+      "xl": "/assets/template/images/sections/main-banner-slider/web/slide-2/2-1.png"
+    }
+  }
+]

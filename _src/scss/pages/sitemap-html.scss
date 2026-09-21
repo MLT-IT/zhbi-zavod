@@ -16,7 +16,7 @@
   }
 
   & > li > a:hover {
-    color: variables.$red;
+    color: var(--color-red);
   }
 
   /* Стили для вложенных списков */
@@ -40,7 +40,7 @@
   }
 
   ul li a:hover {
-    color: variables.$red;
+    color: var(--color-red);
   }
 
   /* Вложенные списки второго уровня */
@@ -52,7 +52,7 @@
   /* Опционально: Добавление иконок для каждого уровня */
   li:before {
     content: "•"; /* Маркер перед каждым пунктом */
-    color: variables.$red;
+    color: var(--color-red);
     font-weight: bold;
     display: inline-block;
     width: 15px;

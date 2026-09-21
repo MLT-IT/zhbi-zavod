@@ -1,3 +1,4 @@
+{if $_modx->context.key !== 'gbi-zavod78'}
 {set $params = [
   'id' => $_modx->resource.id,
   'parent' => $_modx->resource.parent,
@@ -24,4 +25,5 @@
   {/if}
 {else}
   <!-- {$banner_data['data'] | toJSON} -->
+{/if}
 {/if}

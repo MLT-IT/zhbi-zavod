@@ -63,7 +63,7 @@
     transition: 0.2s;
 
     &:hover {
-      color: variables.$red;
+      color: var(--color-red);
     }
   }
 

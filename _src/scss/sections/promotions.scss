@@ -115,7 +115,7 @@
       }
 
       .color-red {
-        color: variables.$red;
+        color: var(--color-red);
       }
 
       .color-brand-red {
@@ -166,7 +166,7 @@
     }
 
     .bg-red {
-      background-color: #B61E13;
+      background-color: var(--color-red-dark);
     }
 
     .btn {

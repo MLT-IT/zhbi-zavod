@@ -14,7 +14,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid variables.$red;
+    border: 2px solid var(--color-red);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@
       content: "";
       width: 10px;
       height: 10px;
-      background: variables.$red;
+      background: var(--color-red);
       border-radius: 50%;
       opacity: 0;
       transition: all 0.2s ease;
@@ -32,7 +32,7 @@
   }
 
   input:checked + .radio-indicator {
-    border-color: variables.$red;
+    border-color: var(--color-red);
 
     &::after {
       opacity: 1;

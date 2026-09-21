@@ -23,34 +23,34 @@
   }
 
   &-bordered {
-    color: variables.$red;
-    border: 1px solid variables.$red;
+    color: var(--color-red);
+    border: 1px solid var(--color-red);
 
     &:hover {
-      background-color: variables.$red-transparent;
+      background-color: var(--color-red-transparent);
     }
 
     &.active {
       color: #fff;
-      background-color: variables.$red;
+      background-color: var(--color-red);
     }
   }
 
   &-simple {
-    color: variables.$red;
+    color: var(--color-red);
     border: 1px solid transparent;
 
     &:hover {
-      border: 1px solid variables.$red;
+      border: 1px solid var(--color-red);
     }
   }
 
   &-primary {
     color: #fff;
-    background-color: variables.$red;
+    background-color: var(--color-red);
 
     &:hover {
-      background-color: variables.$red-dark;
+      background-color: var(--color-red-dark);
     }
   }
 
@@ -101,7 +101,7 @@
 
   &:hover,
   &.hovered {
-    border: 1px solid variables.$red;
+    border: 1px solid var(--color-red);
 
     .btn-icon__tips {
       opacity: 1;

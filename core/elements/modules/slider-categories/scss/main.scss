@@ -14,7 +14,7 @@
 
     &:hover {
       opacity: 1 !important;
-      border-color: variables.$red;
+      border-color: var(--color-red);
 
       .slider-categories__item-image {
         background-color: variables.$medium-gray;

@@ -1,0 +1,31 @@
+{
+"center": [56.837435, 60.597636],
+"zoom": 10,
+"warehouses": [
+  {
+    "coords": [56.831058, 60.517462],
+    "name": "Склад «Верх-Исетский»",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [56.758314, 60.712683],
+    "name": "Склад «Химмаш»",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [56.783520, 60.619169],
+    "name": "Склад «Чкаловский»",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [56.873165, 60.607024],
+    "name": "Склад «Орджоникидзевский»",
+    "style": "text-align: center;"
+  },
+  {
+    "coords": [56.887895, 60.529014],
+    "name": "Склад «Октябрьский»",
+    "style": "text-align: center;"
+  }
+]
+}

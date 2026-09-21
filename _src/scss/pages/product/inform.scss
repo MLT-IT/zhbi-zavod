@@ -92,6 +92,10 @@
       @media (max-width: variables.$bp768) {
         gap: 4px;
         display: none;
+
+        body.gbi-zavod78 & {
+          display: grid;
+        }
       }
 
       li {
@@ -120,6 +124,33 @@
       position: absolute;
       top: -30px;
       left: 0px;
+    }
+
+    .standart-switcher {
+      margin-top: 8px;
+
+      &__title {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      &__row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+
+        .btn {
+          padding: 8px 16px;
+        }
+      }
+    }
+
+    .ya-rating {
+      margin-bottom: 16px;
+
+      iframe {
+        max-width: 100%;
+      }
     }
   }
 

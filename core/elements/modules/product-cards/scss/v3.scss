@@ -61,7 +61,7 @@
       text-decoration-color: rgba(60, 60, 59, 0.5);
 
       &:hover {
-        color: variables.$red !important;
+        color: var(--color-red) !important;
         text-decoration: none;
       }
 

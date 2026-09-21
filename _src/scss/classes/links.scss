@@ -12,7 +12,7 @@
   }
 
   &-primary {
-    color: variables.$red !important;
+    color: var(--color-red) !important;
 
     &:hover {
       opacity: 0.5;
@@ -25,8 +25,8 @@
   cursor: pointer;
   transition: 0.2s;
   width: max-content;
-  color: variables.$red !important;
-  border-bottom: 1px dashed variables.$red;
+  color: var(--color-red) !important;
+  border-bottom: 1px dashed var(--color-red);
 
   &.white {
     color: #fff !important;

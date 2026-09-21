@@ -1,0 +1,17 @@
+@use "./variables.scss" as variables;
+
+// Акцентный цвет сайта как CSS-переменная, чтобы его можно было
+// переопределить для конкретного контекста через body.{context_key}
+// (см. body.gbi-zavod78 ниже). Значения по умолчанию — текущая
+// палитра web (кровля), чтобы её поведение не поменялось.
+:root {
+    --color-red: #{variables.$red};
+    --color-red-dark: #{variables.$red-dark};
+    --color-red-transparent: #{variables.$red-transparent};
+}
+
+body.gbi-zavod78 {
+    --color-red: #5B88D4;
+    --color-red-dark: #4267A6;
+    --color-red-transparent: rgba(91, 136, 212, .3);
+}

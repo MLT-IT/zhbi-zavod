@@ -44,13 +44,13 @@
 
     &:hover {
       .catalog-block__sidebar-icon {
-        stroke: variables.$red;
-        fill: variables.$red;
+        stroke: var(--color-red);
+        fill: var(--color-red);
       }
     }
 
     &.active {
-      background-color: variables.$red;
+      background-color: var(--color-red);
       color: #fff !important;
 
       @media (max-width: 500px) {
@@ -127,10 +127,10 @@
     opacity: 1 !important;
 
     &:hover {
-      border-color: variables.$red;
+      border-color: var(--color-red);
 
       .catalog-block__item-title {
-        color: variables.$red;
+        color: var(--color-red);
       }
 
 

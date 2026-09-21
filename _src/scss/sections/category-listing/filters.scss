@@ -95,7 +95,7 @@
         content: "";
         width: 20px;
         height: 2px;
-        background-color: variables.$red;
+        background-color: var(--color-red);
         -ms-transform-origin: center;
         transform-origin: center;
       }
@@ -171,12 +171,12 @@
         // width: max-content;
         &:hover {
           span {
-            color: variables.$red;
+            color: var(--color-red);
           }
 
           .checkmark {
             border: 1px solid transparent;
-            border-color: variables.$red;
+            border-color: var(--color-red);
           }
         }
 
@@ -207,7 +207,7 @@
 
     &-title {
       padding: 24px 40px;
-      color: variables.$red;
+      color: var(--color-red);
       text-transform: uppercase;
       font-weight: 700;
       border-top: 1px solid transparent;
@@ -220,7 +220,7 @@
       word-break: break-all;
 
       &:hover {
-        border-color: variables.$red;
+        border-color: var(--color-red);
       }
 
       &:after {
@@ -280,7 +280,7 @@
       cursor: pointer;
 
       .ui-slider-range {
-        background-color: variables.$red;
+        background-color: var(--color-red);
       }
 
       .ui-slider-handle {
@@ -291,12 +291,12 @@
         top: -6px;
 
         &:first-of-type {
-          background-color: variables.$red;
+          background-color: var(--color-red);
           border: none;
         }
 
         &:last-of-type {
-          border: 2px solid variables.$red;
+          border: 2px solid var(--color-red);
           background-color: #fff;
         }
       }

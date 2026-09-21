@@ -167,7 +167,7 @@ input {
   height: 20px;
   display: block;
   border-radius: 50%;
-  background: variables.$red;
+  background: var(--color-red);
   color: #fff;
   text-align: center;
   font-size: 14px;
@@ -232,8 +232,8 @@ b {
 
 
 .highlight {
-  color: variables.$red !important;
-  border-bottom: 1px solid variables.$red;
+  color: var(--color-red) !important;
+  border-bottom: 1px solid var(--color-red);
 }
 
 .yandex-rating {
@@ -261,7 +261,7 @@ b {
 
     &:after {
       content: "★";
-      color: variables.$red;
+      color: var(--color-red);
     }
 
     &.inactive:after {

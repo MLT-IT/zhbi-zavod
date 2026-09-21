@@ -15,17 +15,21 @@ if (gettype($ids) == 'string')
 
 
 if (!function_exists('filterResourcesByIds')) {
-    function filterResourcesByIds(array $data, array $ids): array
+    // Рекурсивно обходит дерево и параллельно складывает найденные по $ids
+    // ресурсы (на любом уровне вложенности) в $items_map по их собственному id.
+    // Это важно: категория из $ids может быть вложена на 2-3 уровня (например
+    // "Плиты пустотные ПК" внутри "Плиты перекрытия"), и её нужно находить
+    // независимо от глубины, а не только среди прямых потомков корня.
+    function filterResourcesByIds(array $data, array $ids, array &$items_map): array
     {
         $result = [];
-        $items_map = [];
 
         foreach ($data as $item) {
             $keep = in_array($item['id'], $ids);
 
             // Если есть дети — фильтруем их рекурсивно
             if (!empty($item['children']) && is_array($item['children'])) {
-                $filteredChildren = filterResourcesByIds($item['children'], $ids);
+                $filteredChildren = filterResourcesByIds($item['children'], $ids, $items_map);
 
                 if (!empty($filteredChildren)) {
                     $item['children'] = $filteredChildren;
@@ -36,14 +40,11 @@ if (!function_exists('filterResourcesByIds')) {
             }
 
             if ($keep) {
-                $items_map[$item['id']] = $item;
-            }
-        }
+                $result[] = $item;
 
-        // Формируем результат в порядке переданных $ids
-        foreach ($ids as $id) {
-            if (isset($items_map[$id])) {
-                $result[] = $items_map[$id];
+                if (in_array($item['id'], $ids)) {
+                    $items_map[$item['id']] = $item;
+                }
             }
         }
 
@@ -59,7 +60,17 @@ $cache_options = [
 ];
 
 if (!$output = $modx->cacheManager->get($cache_name, $cache_options)) {
-    $output = filterResourcesByIds($data, $ids);
+    $items_map = [];
+    filterResourcesByIds($data, $ids, $items_map);
+
+    // Формируем результат в порядке переданных $ids
+    $output = [];
+    foreach ($ids as $id) {
+        if (isset($items_map[$id])) {
+            $output[] = $items_map[$id];
+        }
+    }
+
     $modx->cacheManager->set($cache_name, $output, 0, $cache_options);
 }
 
