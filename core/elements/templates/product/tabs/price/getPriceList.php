@@ -37,11 +37,16 @@ foreach ($products as $product) {
         }
     }
 
+    $markirovka = $product->get('markirovka');
+    if (is_array($markirovka)) {
+        $markirovka = reset($markirovka);
+    }
+
     $output[] = [
         'id' => $product->get('id'),
         'name' => $product->get('pagetitle'),
         'url' => $modx->makeUrl($product->get('id')),
-        'article' => $product->get('article'),
+        'markirovka' => $markirovka,
         'characteristics' => $characteristics,
         'price' => $product->get('price'),
         'current' => $product->get('id') == $resource->get('id'),

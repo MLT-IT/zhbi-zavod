@@ -17,7 +17,7 @@
           <a href="{$item['url']}" class="link">{$item['name']}</a>
         </td>
         <td>
-          {if $item['article']}<div>Маркировка: {$item['article']}</div>{/if}
+          {if $item['markirovka']}<div>Маркировка: {$item['markirovka']}</div>{/if}
           {foreach $item['characteristics'] as $char}
             <div>{$char['label']}: {$char['value']}</div>
           {/foreach}
