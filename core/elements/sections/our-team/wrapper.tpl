@@ -39,7 +39,6 @@
 
 <div class="our-team section-margin">
   <div class="container">
-    <h2 class="section-title">Наша команда</h2>
     <div class="our-team__row">
       {foreach $team as $member}
       <div class="our-team__card base-box-shadow">
