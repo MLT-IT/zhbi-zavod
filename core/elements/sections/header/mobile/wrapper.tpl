@@ -22,7 +22,7 @@
 </header>
 
 <div class="header-mobile__modal" data-opened-element="header-mobile-modal">
-  {if $_modx->context.key in list ['web']}
+  {if $_modx->context.key in list ['web', 'gbi-zavod78']}
     {include "file:sections/header/mobile/section-modal.tpl"}
   {else}
     {$_modx->runSnippet("@FILE modules/menu/uteplitel/snippets/getMobileMenu.php", [

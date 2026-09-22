@@ -155,4 +155,23 @@ export default function iniSwipers() {
     },
     direction: "horizontal",
   });
+
+  ["about-zbi-gallery", "equipment-gallery"].forEach((id) => {
+    document.querySelectorAll(`[data-slider="${id}"]`).forEach((el) => {
+      new Swiper(el, {
+        modules: [Navigation],
+        loop: false,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: el.querySelector(".swiper-button-next"),
+          prevEl: el.querySelector(".swiper-button-prev"),
+        },
+        breakpoints: {
+          992: { slidesPerView: 3 },
+          576: { slidesPerView: 2 },
+          320: { slidesPerView: 1 },
+        },
+      });
+    });
+  });
 }

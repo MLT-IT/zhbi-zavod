@@ -13,6 +13,7 @@
   </div>
 </div>
 
+{if $_modx->context.key !== 'gbi-zavod78'}
 <div class="section-margin section-padding bg-light-gray-2">
   <div class="container">
     <h2 class="section-title">Акции и скидки</h2>
@@ -20,6 +21,7 @@
     {include "file:sections/promotions/wrapper.tpl"}
   </div>
 </div>
+{/if}
 
 <div class="section-margin page-content">
   <div class="container">

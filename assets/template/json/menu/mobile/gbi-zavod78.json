@@ -69,12 +69,6 @@
       "type": "link"
     },
     {
-      "title": "Отзывы",
-      "url": "/otzyvy/",
-      "class": "h-nav__link--star",
-      "type": "link"
-    },
-    {
       "title": "Контакты",
       "url": "/contacts/",
       "type": "link"

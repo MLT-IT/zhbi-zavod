@@ -20,7 +20,9 @@
     
     {include "file:sections/bestseller/wrapper.tpl"}
     {include "file:sections/delivery-material/wrapper.tpl"}
+    {if $_modx->context.key !== 'gbi-zavod78'}
     {include "file:sections/toggle-content/wrapper.tpl"}
+    {/if}
     {include "file:sections/faqs/wrapper.tpl"}
     {include "file:sections/address-map/wrapper.tpl"}
 {/block}
