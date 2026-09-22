@@ -49,14 +49,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>{$_modx->resource.longtitle?:$_modx->resource.pagetitle}</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/template/images/favicons/default/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/template/images/favicons/default/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/template/images/favicons/default/favicon-16x16.png">
-    <link rel="manifest" href="/assets/template/images/favicons/default/site.webmanifest">
-    <link rel="mask-icon" href="/assets/template/images/favicons/default/safari-pinned-tab.svg" color="#5bbad5">
+    {set $favicons_path = "/assets/template/images/favicons/"~$_modx->context.key~"/"}
+    <link rel="apple-touch-icon" sizes="180x180" href="{$favicons_path}apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{$favicons_path}favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{$favicons_path}favicon-16x16.png">
+    <link rel="manifest" href="{$favicons_path}site.webmanifest">
+    <link rel="mask-icon" href="{$favicons_path}safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="/assets/template/images/favicons/default/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{$favicons_path}favicon.ico" type="image/x-icon">
 
     <base href="/">
 

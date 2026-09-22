@@ -156,6 +156,31 @@ export default function iniSwipers() {
     direction: "horizontal",
   });
 
+  new Swiper('[data-slider="our-partners-slider"]', {
+    modules: [Autoplay],
+    loop: true,
+    spaceBetween: 24,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 5,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      576: {
+        slidesPerView: 3,
+      },
+      320: {
+        slidesPerView: 2,
+      },
+    },
+    direction: "horizontal",
+  });
+
   ["about-zbi-gallery", "equipment-gallery"].forEach((id) => {
     document.querySelectorAll(`[data-slider="${id}"]`).forEach((el) => {
       new Swiper(el, {
