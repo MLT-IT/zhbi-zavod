@@ -12,8 +12,10 @@
         {if $_modx->context.key !== 'gbi-zavod78'}
         {include "file:sections/calculator-banner/wrapper.tpl"}
         {/if}
+        {if $_modx->context.key === 'gbi-zavod78'}
+        {include "file:sections/advantages/horizontal/wrapper.tpl"}
+        {else}
         {include "file:sections/production-form/wrapper.tpl"}
-        {if $_modx->context.key !== 'gbi-zavod78'}
         {include "file:sections/product-advantages/wrapper.tpl"}
         {/if}
     </div>

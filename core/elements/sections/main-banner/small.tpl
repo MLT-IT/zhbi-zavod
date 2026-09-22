@@ -6,7 +6,7 @@
   <picture class="main-banner__small-image">
     <img src="/assets/template/images/sections/main-banner/{$_modx->context.key}/small.jpg" />
   </picture>
-  <button class="btn btn-beauty" onclick="modals.events.open('modal-callback')">
+  <button class="btn btn-primary" onclick="modals.events.open('modal-callback')">
     Подробнее
   </button>
 </div>

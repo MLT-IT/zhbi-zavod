@@ -14,7 +14,7 @@
     <img src="/assets/template/images/sections/main-banner/{$_modx->context.key}/big-desktop.jpg" />
   </picture>
 
-  <button class="btn btn-beauty" onclick="modals.events.open('modal-callback')">
+  <button class="btn btn-primary" onclick="modals.events.open('modal-callback')">
     Заказать со скидкой
   </button>
 </div>

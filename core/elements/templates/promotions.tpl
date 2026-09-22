@@ -7,7 +7,9 @@
   <div class="container">
     <h1 class="section-title">{$_modx->resource.pagetitle}</h1>
 
+    {if $_modx->context.key !== 'gbi-zavod78'}
     {include "file:sections/promo-banner/v2/wrapper.tpl"}
+    {/if}
   </div>
 </div>
 

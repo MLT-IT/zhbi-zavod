@@ -1,9 +1,18 @@
-<!-- {set $items = [
+{if $_modx->context.key === 'gbi-zavod78'}
+{set $items = [
+    ['text' => 'Мы владеем 7 заводами, специализирующимися на производстве ЖБИ', 'image' => '/assets/template/images/sections/advantages/advantage-zbi-1.png'],
+    ['text' => 'Строгий контроль качества каждого изделия', 'image' => '/assets/template/images/sections/advantages/advantage-zbi-2.png'],
+    ['text' => 'Собственный автопарк состоящий из 50 грузовых автомобилей и самосвалов', 'image' => '/assets/template/images/sections/advantages/advantage-zbi-3.png'],
+    ['text' => 'Осуществляем отгрузку изделий 24/7', 'image' => '/assets/template/images/sections/advantages/advantage-zbi-4.png'],
+]}
+{else}
+{set $items = [
     ['text' => 'Предоставляем продукцию 15 производителей', 'image' => '/assets/template/images/sections/advantages/advantage-1.png'],
-    ['text' => 'Ежедневно производим более 1000 м2 металлочерепицы и профнастила', 'image' => '/assets/template/images/sections/advantages/advantage-2.png'],    
+    ['text' => 'Ежедневно производим более 1000 м2 металлочерепицы и профнастила', 'image' => '/assets/template/images/sections/advantages/advantage-2.png'],
     ['text' => 'Оплата после проверки материала', 'image' => '/assets/template/images/sections/advantages/advantage-3.png'],
     ['text' => 'Держим на складе более 8000 м2', 'image' => '/assets/template/images/sections/advantages/advantage-4.png'],
-]} -->
+]}
+{/if}
 
 <div class="advantages-horizontal bg-light-gray-2 section-margin">
     <div class="container">
