@@ -17,12 +17,15 @@ $dimensionLabels = [
     'tolshchina-sm' => 'Толщина, см',
 ];
 
-$products = $modx->getCollection('msProduct', [
+$query = $modx->newQuery('msProduct', [
     'parent' => $parentId,
     'context_key' => $modx->context->key,
     'published' => 1,
     'deleted' => 0,
 ]);
+$query->sortby('menuindex', 'ASC');
+$query->limit(100);
+$products = $modx->getCollection('msProduct', $query);
 
 $output = [];
 foreach ($products as $product) {
