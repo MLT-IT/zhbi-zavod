@@ -8,9 +8,7 @@
     </div>
 
       <a class="product-card__image bg-light-gray-2" href="{$id | url}">
-          {if $thumb?}
-            <img src="{$thumb}" alt="{$pagetitle}" loading="lazy"/>
-          {/if}
+            <img src="{$thumb ?: '/assets/images/no_image.jpg'}" alt="{$pagetitle}" loading="lazy" onerror="this.onerror=null;this.src='/assets/images/no_image.jpg'"/>
       </a>
 
     <div class="product-card__title">

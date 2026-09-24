@@ -3,9 +3,7 @@
 
 <div class="product-card-v3 base-box-shadow {if $is_calc_cart}show-cart-calc{/if}" id="{$product_front_id}">
   <div class="product-card-v3__image">
-    {if $product['thumb']?}
-      <img src="{$product['thumb']}" loading="lazy"/>
-    {/if}
+      <img src="{$product['thumb'] ?: '/assets/images/no_image.jpg'}" loading="lazy" onerror="this.onerror=null;this.src='/assets/images/no_image.jpg'"/>
   </div>
   <div class="product-card-v3__content">
     <a class="product-card-v3__content-title fs-20" href="{$product['uri']}">{$product['menutitle']}</a>

@@ -4,11 +4,17 @@
     data-slider="product-gallery-thumbs"
   >
     <div class="swiper-wrapper">
+      {if $files}
       {foreach $files as $file}
       <div class="swiper-slide">
-        <img src="{$file['small']}" loading="lazy" />
+        <img src="{$file['small']}" loading="lazy" onerror="this.onerror=null;this.src='/assets/images/no_image.jpg'" />
       </div>
       {/foreach}
+      {else}
+      <div class="swiper-slide">
+        <img src="/assets/images/no_image.jpg" loading="lazy" />
+      </div>
+      {/if}
     </div>
     <div class="swiper-button-prev base-box-shadow"></div>
     <div class="swiper-button-next base-box-shadow"></div>
@@ -23,6 +29,7 @@
     </div>
     
     <div class="swiper-wrapper">
+      {if $files}
       {foreach $files as $file}
       <div class="swiper-slide">
         <a
@@ -30,10 +37,17 @@
           data-gallery="product-gallery"
           href="{$file['url']}"
         >
-          <img src="{$file['url']}" loading="lazy" data-fetch-image-insert="true"/>
+          <img src="{$file['url']}" loading="lazy" data-fetch-image-insert="true" onerror="this.onerror=null;this.src='/assets/images/no_image.jpg'"/>
         </a>
       </div>
       {/foreach}
+      {else}
+      <div class="swiper-slide">
+        <a class="glightbox" data-gallery="product-gallery" href="/assets/images/no_image.jpg">
+          <img src="/assets/images/no_image.jpg" loading="lazy"/>
+        </a>
+      </div>
+      {/if}
     </div>
   </div>
 </div>
