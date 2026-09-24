@@ -29,9 +29,10 @@
     'startCount' => $startCount
   ]}
   {if !$reviews}
-    {set $reviews ='@FILE modules/mltreviews/snippets/mltReviewItems.php' | snippet : [ 
-    'ratingRowClass' => 'modules/mltreviews/chunks/mlt-reviews__item-rating.tpl',
-    'ratingItemClass' => 'modules/mltreviews/chunks/mlt-reviews__item-rating-item.tpl',
+    {set $reviews ='@FILE modules/mltreviews/snippets/mltReviewItems.php' | snippet : [
+    'resource_id' => $_modx->resource.id,
+    'ratingRowClass' => 'mlt-reviews__item-rating',
+    'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => '@FILE modules/mltreviews/chunks/tplItemReview.tpl',
     'tplOuter' => '@FILE modules/mltreviews/chunks/tplItemOuter.tpl',
     'limit' => $limit,
