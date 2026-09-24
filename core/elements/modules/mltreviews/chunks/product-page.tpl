@@ -1,14 +1,6 @@
 <div class="mlt-reviews prod-review">
   <div class="prod-review__head">
     <div>
-      {set $reviewsRes = 'pdoResources' | snippet : [
-        'parents' => 0,
-        'context' => $_modx->context.key,
-        'where' => [
-          "template" => 37
-        ],
-        'return' => 'json'
-      ] | fromJSON}
       <a class="btn btn-bordered" href="{$_modx->makeUrl('reviews_id'|config)}" target="_blank">Посмотреть все отзывы</a>
     </div>
     <button class="mlt-reviews__open-form btn btn_style_base" data-fancybox data-src="#mlt-reviews-form">Оставить отзыв</button>
