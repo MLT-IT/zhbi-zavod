@@ -30,7 +30,6 @@
   ]}
   {if !$reviews}
     {set $reviews ='@FILE modules/mltreviews/snippets/mltReviewItems.php' | snippet : [
-    'resource_id' => $_modx->resource.id,
     'ratingRowClass' => 'mlt-reviews__item-rating',
     'ratingItemClass' => 'mlt-reviews__item-rating-item',
     'tpl' => '@FILE modules/mltreviews/chunks/tplItemReview.tpl',
