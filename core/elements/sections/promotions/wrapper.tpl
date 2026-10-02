@@ -76,7 +76,7 @@
       </picture>
       <div class="promotions__item-content">
         <h3 class="promotions__item-title">
-          Скидка 20% на <span class="color-red">доставку манипулятором</span>
+          Скидка 20% на доставку манипулятором
         </h3>
         <p class="promotions__item-text">
           При заказе ЖБИ от 60 м³
