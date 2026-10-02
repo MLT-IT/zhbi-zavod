@@ -61,13 +61,43 @@
       z-index: 0;
     }
 
-    button {
+    button, .btn {
       position: relative;
       z-index: 1;
       margin-top: auto;
 
       @media (max-width: variables.$bp768) {
         margin: auto;
+      }
+    }
+
+    &-advantages {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      @media (max-width: variables.$bp768) {
+        display: none;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        line-height: 130%;
+
+        svg {
+          flex-shrink: 0;
+        }
+      }
+
+      &-sep {
+        width: 1px;
+        height: 32px;
+        background: #D9DEE3;
       }
     }
   }
@@ -90,6 +120,13 @@
       z-index: 1;
     }
 
+    &-text {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      line-height: 140%;
+    }
+
     &-image {
       position: absolute;
       top: 0;
@@ -103,6 +140,10 @@
       position: relative;
       z-index: 1;
       margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
   }
 }
