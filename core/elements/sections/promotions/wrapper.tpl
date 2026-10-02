@@ -33,7 +33,7 @@
           <img class="promotions__item-logo" src="/assets/template/images/sections/promotions/grand-logo.png"
             alt="Grand Line">
           <h3 class="promotions__item-title promotions__item-title--small">
-            Скидка на металлочерепицу<br><span class="color-brand-red">Grand Line</span>
+            Скидка на металлочерепицу<br><span class="color-brand-blue">Grand Line</span>
             <span class="promotions__item-label bg-red">от 310 ₽ за м2</span>
           </h3>
           <a class="btn btn-primary bg-red" href="{$_modx->makeUrl(74907)}">
@@ -113,7 +113,7 @@
         <div class="advertisement_note">Реклама</div>
         <div class="promotions__item-content">
           <h3 class="promotions__item-title promotions__item-title--small">
-            Плита дорожная 2П 30-18-30 ГОСТ<br><span class="color-brand-red">8 800 руб/шт</span>
+            Плита дорожная 2П 30-18-30 ГОСТ<br><span class="color-brand-blue">8 800 руб/шт</span>
           </h3>
           <p class="promotions__item-text">Самые низкие цены на ЖБИ</p>
           <a class="btn btn-primary bg-red" href="/dorozhnye-plity/">
