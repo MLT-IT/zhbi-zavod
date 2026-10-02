@@ -1,4 +1,5 @@
 <div class="main-banner__big">
+  <div class="advertisement_note">Реклама</div>
   {if $_modx->context.key === 'gbi-zavod78'}
   <div class="main-banner__big-title fs-36 fw-700">
     Дорожные плиты<br/>
@@ -52,7 +53,6 @@
     В каталог
   </a>
   {else}
-  <div class="advertisement_note">Реклама</div>
   <div class="main-banner__big-title fs-36 fw-700">
     Закажите дорожные плиты сейчас и получите
     <span class="color-red">скидку 20%</span> на доставку.
