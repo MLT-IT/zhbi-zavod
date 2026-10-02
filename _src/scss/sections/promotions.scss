@@ -43,7 +43,7 @@
 
       .promotions__item-content {
         @media (min-width: variables.$bp768) {
-          padding-top: 80px;
+          padding-top: 40px;
         }
       }
 
@@ -101,6 +101,8 @@
       margin: 0;
       position: relative;
       z-index: 1;
+      max-width: 470px;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
 
       @media (max-width: variables.$bp768) {
         font-size: 20px;
@@ -118,12 +120,8 @@
         color: var(--color-red);
       }
 
-      .color-brand-red {
-        color: #B61E13;
-      }
-
-      .color-brand-blue {
-        color: #0275A8;
+      .color-brand {
+        color: var(--color-brand);
       }
 
       span {

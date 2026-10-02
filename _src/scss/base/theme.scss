@@ -8,10 +8,12 @@
     --color-red: #{variables.$red};
     --color-red-dark: #{variables.$red-dark};
     --color-red-transparent: #{variables.$red-transparent};
+    --color-brand: #B61E13;
 }
 
 body.gbi-zavod78 {
     --color-red: #5B88D4;
     --color-red-dark: #4267A6;
     --color-red-transparent: rgba(91, 136, 212, .3);
+    --color-brand: #0275A8;
 }
