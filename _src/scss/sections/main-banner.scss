@@ -115,7 +115,8 @@
     width: 25%;
     border-radius: 6px;
     overflow: hidden;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
 
     @media (max-width: 1099px) {
@@ -125,12 +126,14 @@
     &-title {
       position: relative;
       z-index: 1;
+      max-width: 200px;
       text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
     }
 
     &-text {
       position: relative;
       z-index: 1;
+      max-width: 200px;
       font-size: 14px;
       line-height: 140%;
       text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
