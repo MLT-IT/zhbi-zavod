@@ -79,7 +79,7 @@
           Скидка 20% на доставку манипулятором
         </h3>
         <p class="promotions__item-text">
-          При заказе ЖБИ от 60 м³
+          При заказе ЖБИ от 60 м<sup>3</sup>
         </p>
         <a class="btn btn-primary bg-red" href="/dostavka-i-oplata/">
           узнать подробнее
@@ -99,8 +99,8 @@
             Железобетонный Лоток ЛК 300.60.60<br><span class="color-brand">3 760 руб/шт</span>
           </h3>
           <p class="promotions__item-text">Доставка уже завтра</p>
-          <a class="btn btn-primary bg-blue" href="/lotki-zhelezobetonnye/">
-            перейти в каталог
+          <a class="btn btn-primary bg-blue" href="/lotki-zhelezobetonnye/lotki-lk/zhelezobetonnyij-lotok-lk-300.60.60/">
+            подробнее
           </a>
         </div>
       </div>
@@ -116,8 +116,8 @@
             Плита дорожная 2П 30-18-30 ГОСТ<br><span class="color-brand">8 800 руб/шт</span>
           </h3>
           <p class="promotions__item-text">Самые низкие цены на ЖБИ</p>
-          <a class="btn btn-primary bg-red" href="/dorozhnye-plity/">
-            перейти в каталог
+          <a class="btn btn-primary bg-red" href="/dorozhnye-plity/plityi-dorozhnyie-2p/plita-dorozhnaya-2p-30-18-30-gost/">
+            подробнее
           </a>
         </div>
       </div>
