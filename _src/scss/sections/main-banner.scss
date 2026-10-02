@@ -24,8 +24,11 @@
     display: grid;
     gap: 12px;
 
-    @media (max-width: variables.$bp768) {
+    @media (max-width: 1099px) {
       width: 100%;
+    }
+
+    @media (max-width: variables.$bp768) {
       padding: 46px 15px;
       min-height: 315px;
     }
@@ -34,6 +37,7 @@
       max-width: 500px;
       position: relative;
       z-index: 1;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
 
       @media (max-width: variables.$bp768) {
         text-align: center;
@@ -45,6 +49,7 @@
     &-text {
       position: relative;
       z-index: 1;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
 
       @media (max-width: variables.$bp768) {
         text-align: center;
@@ -88,9 +93,11 @@
         gap: 10px;
         font-size: 14px;
         line-height: 130%;
+        text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
 
         svg {
           flex-shrink: 0;
+          filter: drop-shadow(0 0 6px rgba(255, 255, 255, .8));
         }
       }
 
@@ -111,13 +118,14 @@
     display: grid;
     gap: 12px;
 
-    @media (max-width: variables.$bp768) {
+    @media (max-width: 1099px) {
       display: none;
     }
 
     &-title {
       position: relative;
       z-index: 1;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
     }
 
     &-text {
@@ -125,6 +133,7 @@
       z-index: 1;
       font-size: 14px;
       line-height: 140%;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, .85), 0 0 16px rgba(255, 255, 255, .7);
     }
 
     &-image {
@@ -140,6 +149,7 @@
       position: relative;
       z-index: 1;
       margin-top: auto;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
